@@ -2,8 +2,19 @@
 Q-Gears v0.20 (2nd alpha ui) | 2011-08-xx
 --------------------------------------------------------------------------------
 
+2011-08-02
+----------
+* [Script] Improve debug draw. now all functions in queue displayed along with their priorities. [Akari]
+* [Script] Add button events "on_pressed". [Akari]
+* [Script] Add posibility to set argiments to calling functions. [Akari]
+* [UI] Fix starting of default animation. [Akari]
+* [Data] Add BeginMenu (new game screen from FFVII). [Akari]
+
 2011-08-01
 ----------
+* [Application] Add quit console command. [Akari]
+* [Script] Scripts now added only if this table or function exist. [Akari]
+* [Script] Add on_update callback to all entities. [Akari]
 * [UI] Add UI debug draw. [Akari]
 * [UI] Fix prototype loading without name. [Akari]
 
