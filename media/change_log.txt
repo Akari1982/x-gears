@@ -2,8 +2,29 @@
 Q-Gears v0.20 (2nd alpha ui) | 2011-08-xx
 --------------------------------------------------------------------------------
 
+2011-08-03
+----------
+* [UI] Rename xml param show to visible. [Akari]
+* [UI] Add fucntion is_visible. [Akari]
+* [UI] Rename fucntions show and hide to set_sivible( bool ) as in Entity class. [Akari]
+* [UI] Remove on_show and on_hide script calls. [Akari]
+* [UI] Ui debug draw now has 2 stages (with names and without). [Akari]
+* [Script] Rename on_pressed to on_button and add one more param to function - event_type (Repeat, Press). [Akari]
+* [UI] Add colors for each corner of Sprite. Tag "colours" in xml description. [Akari]
+
+2011-08-02
+----------
+* [Script] Improve debug draw. now all functions in queue displayed along with their priorities. [Akari]
+* [Script] Add button events "on_pressed". [Akari]
+* [Script] Add posibility to set argiments to calling functions. [Akari]
+* [UI] Fix starting of default animation. [Akari]
+* [Data] Add BeginMenu (new game screen from FFVII). [Akari]
+
 2011-08-01
 ----------
+* [Application] Add quit console command. [Akari]
+* [Script] Scripts now added only if this table or function exist. [Akari]
+* [Script] Add on_update callback to all entities. [Akari]
 * [UI] Add UI debug draw. [Akari]
 * [UI] Fix prototype loading without name. [Akari]
 

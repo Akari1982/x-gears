@@ -11,7 +11,7 @@
 
 
 
-ConfigVar cv_debug_ui( "debug_ui", "Draw ui debug info", "false" );
+ConfigVar cv_debug_ui( "debug_ui", "Draw ui debug info", "0" );
 
 
 
@@ -90,7 +90,10 @@ UiWidget::Initialise()
     m_AnimationCurrent = NULL;
     m_AnimationDefault = "";
     m_AnimationState = UiAnimation::DEFAULT;
-    m_Colour = Ogre::ColourValue( 1, 1, 1, 1 );
+    m_Colour1 = Ogre::ColourValue( 1, 1, 1, 1 );
+    m_Colour2 = Ogre::ColourValue( 1, 1, 1, 1 );
+    m_Colour3 = Ogre::ColourValue( 1, 1, 1, 1 );
+    m_Colour4 = Ogre::ColourValue( 1, 1, 1, 1 );
 
     ScriptManager::getSingleton().AddEntity( "Ui." + m_PathName );
 }
@@ -120,12 +123,16 @@ UiWidget::Update()
             }
             m_AnimationSync.clear();
 
-            if( m_AnimationState == UiAnimation::DEFAULT )
+            if( m_AnimationState == UiAnimation::DEFAULT && m_AnimationDefault != "" )
             {
                 // in case of cycled default we need to sync with end
                 time = time + delta_time - m_AnimationCurrent->GetLength();
                 PlayAnimation( m_AnimationDefault, UiAnimation::DEFAULT, time, -1 );
-                m_AnimationCurrent->AddTime( 0 );
+
+                if( m_AnimationCurrent != NULL ) // check if we can play default animation
+                {
+                    m_AnimationCurrent->AddTime( 0 );
+                }
             }
         }
 
@@ -146,7 +153,7 @@ UiWidget::Update()
 
 
     // debug output
-    if( cv_debug_ui.GetB() == true )
+    if( cv_debug_ui.GetI() >= 1 )
     {
         float local_x1 = -m_FinalOrigin.x;
         float local_y1 = -m_FinalOrigin.y;
@@ -155,11 +162,16 @@ UiWidget::Update()
         float x = m_FinalTranslate.x;
         float y = m_FinalTranslate.y;
 
-        DEBUG_DRAW.SetColour( Ogre::ColourValue::White );
         DEBUG_DRAW.SetScreenSpace( true );
-        DEBUG_DRAW.SetTextAlignment( DEBUG_DRAW.LEFT );
-        DEBUG_DRAW.Text( x + 3, y, "Ui." + m_PathName );
-        DEBUG_DRAW.Text( x + 3, y + 12, GetCurrentAnimationName() );
+
+        if( cv_debug_ui.GetI() >= 2 )
+        {
+            DEBUG_DRAW.SetColour( Ogre::ColourValue::White );
+            DEBUG_DRAW.SetTextAlignment( DEBUG_DRAW.LEFT );
+            DEBUG_DRAW.Text( x + 3, y, "Ui." + m_PathName );
+            DEBUG_DRAW.Text( x + 3, y + 12, GetCurrentAnimationName() );
+        }
+
         DEBUG_DRAW.SetColour( Ogre::ColourValue( 1, 0, 0, 1 ) );
 
         int x1, y1, x2, y2, x3, y3, x4, y4;
@@ -241,19 +253,17 @@ UiWidget::Render()
 
 
 void
-UiWidget::Show()
+UiWidget::SetVisible( const bool visible )
 {
-    m_Visible = true;
-    ScriptManager::getSingleton().ScriptRequest( ( "Ui." + m_PathName ).c_str(), "on_show", 0 );
+    m_Visible = visible;
 }
 
 
 
-void
-UiWidget::Hide()
+const bool
+UiWidget::IsVisible() const
 {
-    m_Visible = false;
-    ScriptManager::getSingleton().ScriptRequest( ( "Ui." + m_PathName ).c_str(), "on_hide", 0 );
+    return m_Visible;
 }
 
 
@@ -318,7 +328,7 @@ UiWidget::GetCurrentAnimationName() const
         return m_AnimationCurrent->GetName();
     }
 
-    return "";
+    return Ogre::StringUtil::BLANK;
 }
 
 
@@ -382,6 +392,7 @@ void
 UiWidget::ScriptSetDefaultAnimation( const char* animation )
 {
     m_AnimationDefault = Ogre::String( animation );
+    m_AnimationState = UiAnimation::DEFAULT;
 }
 
 
@@ -677,9 +688,21 @@ UiWidget::GetScissorRight() const
 void
 UiWidget::SetColour( const float r, const float g, const float b )
 {
-    m_Colour.r = r;
-    m_Colour.g = g;
-    m_Colour.b = b;
+    m_Colour1.r = r; m_Colour1.g = g; m_Colour1.b = b;
+    m_Colour2.r = r; m_Colour2.g = g; m_Colour2.b = b;
+    m_Colour3.r = r; m_Colour3.g = g; m_Colour3.b = b;
+    m_Colour4.r = r; m_Colour4.g = g; m_Colour4.b = b;
+}
+
+
+
+void
+UiWidget::SetColours( const float r1, const float g1, const float b1, const float r2, const float g2, const float b2, const float r3, const float g3, const float b3, const float r4, const float g4, const float b4 )
+{
+    m_Colour1.r = r1; m_Colour1.g = g1; m_Colour1.b = b1;
+    m_Colour2.r = r2; m_Colour2.g = g2; m_Colour2.b = b2;
+    m_Colour3.r = r3; m_Colour3.g = g3; m_Colour3.b = b3;
+    m_Colour4.r = r4; m_Colour4.g = g4; m_Colour4.b = b4;
 }
 
 
@@ -687,5 +710,8 @@ UiWidget::SetColour( const float r, const float g, const float b )
 void
 UiWidget::SetAlpha( const float a )
 {
-    m_Colour.a = a;
+    m_Colour1.a = a;
+    m_Colour2.a = a;
+    m_Colour3.a = a;
+    m_Colour4.a = a;
 }
