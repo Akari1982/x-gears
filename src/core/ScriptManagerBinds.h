@@ -63,14 +63,17 @@ ScriptManager::InitBinds()
     luabind::module( m_LuaState )
     [
         luabind::class_< UiWidget >( "UiWidget" )
-            .def( "show", ( void( UiWidget::* )() ) &UiWidget::Show )
-            .def( "hide", ( void( UiWidget::* )() ) &UiWidget::Hide )
+            .def( "set_visible", ( void( UiWidget::* )( const bool ) ) &UiWidget::SetVisible )
+            .def( "is_visible", ( bool( UiWidget::* )() ) &UiWidget::IsVisible )
             .def( "play_animation", ( void( UiWidget::* )( const char* ) ) &UiWidget::ScriptPlayAnimation )
             .def( "play_animation_stop", ( void( UiWidget::* )( const char* ) ) &UiWidget::ScriptPlayAnimationStop )
             .def( "play_animation", ( void( UiWidget::* )( const char*, const float, const float ) ) &UiWidget::ScriptPlayAnimation )
             .def( "play_animation_stop", ( void( UiWidget::* )( const char*, const float, const float ) ) &UiWidget::ScriptPlayAnimationStop )
             .def( "set_default_animation", ( void( UiWidget::* )( const char* ) ) &UiWidget::ScriptSetDefaultAnimation )
             .def( "animation_sync", ( int( UiWidget::* )()) &UiWidget::ScriptAnimationSync, luabind::yield )
+            .def( "set_colour", ( void( UiWidget::* )( const float, const float, const float ) ) &UiWidget::SetColour )
+            .def( "set_alpha", ( void( UiWidget::* )( const float ) ) &UiWidget::SetAlpha )
+            .def( "set_z", ( void( UiWidget::* )( const float ) ) &UiWidget::SetZ )
     ];
 
     // ui access

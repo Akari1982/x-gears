@@ -276,11 +276,15 @@
     +0b []       spirit bonus
     +0c []       dexterity bonus
     +0d []       luck bonus
+    +0e []       current limit level
+    +0f []       current limit bar (0xFF = limit break)
+    +10          name string.
     +1c []       equipped weapon.
     +1d []       equipped armor.
     +1e []       equipped accessory.
     +1f []       flags (0x10 sadness, 0x20 fury).
     +20 []       char order (0xff normal, 0xfe back row).
+    +21 []       level progress bar (0-255)
     +2c [][]     current hp.
     +2e [][]     max hp (before materia alterations).
     +30 [][]     current mp.
@@ -305,15 +309,21 @@
     +7c [][][][] armor materia slot 8.
     +80 [][][][] exp to next level.
 +04f8 [][][][] party member in slot1-4 (used in battle).
-8009cbe0 party item stock array
-8009d268 [][][][] savemap seconds for timer (set in STTIM).
-8009d288 savemap memory bank 1/2 start
-8009d302 []       flags for ui show during battle (0x40 - tagret text shown, 0x80 - underwater timer in battle)
-+0cad [][][]   party member in slot 1-3.
-
-8009d588 savemap memory bank d/e start
-+0eaa [][]     some value that increments each battle check.
++04fc party item stock array
++0b7c [][][][] party gil amount
++0b80 [][][][] total seconds played.
++0b84 [][][][] savemap seconds for timer (set in STTIM).
++0ba4 savemap memory bank 1/2 start
++0bc0 (+1c) [][]     menu visibility mask.
++0bc2 (+1e) [][]     menu locking mask.
++0c1e (+7a) []       flags for ui show during battle (0x40 - tagret text shown, 0x80 - underwater timer in battle)
++0ca4 savemap memory bank 3/4 start
++0cad (+09) [][][]   party member in slot 1-3.
++0da4 savemap memory bank b/c start
++0ea4 savemap memory bank d/e start
++0eaa (+06) [][]     some value that increments each battle check.
 +0f0c          field map name for menu (0x17 size).
++0fa4 savemap memory bank 7/f start
 +10a4 [][]     character lock mask. You cant move character from and out party (in game methods)
 +10a6 [][]     character availability mask. Add character here when adding it to party or enable it with opcode.
 +10d8 []       battle speed.

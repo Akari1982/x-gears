@@ -4,6 +4,7 @@
 #include <OgreSingleton.h>
 #include <OgreString.h>
 
+#include "Event.h"
 extern "C"
 {
     #include "library/lua/lua.h"
@@ -28,9 +29,20 @@ struct ScriptId
 
 struct QueueScript
 {
-    QueueScript(): function( "" ), priority( 0 ), state( NULL ), seconds_to_wait( 0 ), wait( false ), yield( false ){}
+    QueueScript():
+        function( "" ),
+        argument1( "" ),
+        argument2( "" ),
+        priority( 0 ),
+        state( NULL ),
+        seconds_to_wait( 0 ),
+        wait( false ),
+        yield( false )
+    {}
 
     Ogre::String function;
+    Ogre::String argument1;
+    Ogre::String argument2;
     int priority;
     lua_State* state;
     int state_id; // for storing and deleating thread
@@ -60,6 +72,7 @@ public:
     ScriptManager();
     virtual ~ScriptManager();
 
+    void Input( const Event& event );
     void Update();
 
     void RunString( const Ogre::String& lua );
@@ -84,6 +97,7 @@ public:
     void ScriptRequest( const char* entity, const char* function, const int priority );
     int ScriptRequestStartSync( const char* entity, const char* function, const int priority );
     int ScriptRequestEndSync( const char* entity, const char* function, const int priority );
+    bool ScriptRequest( ScriptEntity* script_entity, const Ogre::String& function, const int priority, const Ogre::String& argument1, const Ogre::String& argument2, bool start_sync, bool end_sync );
 
 private:
     lua_State* m_LuaState;
