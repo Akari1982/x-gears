@@ -20,11 +20,11 @@ public:
 
     void Initialise();
     virtual void Update();
-    virtual void OnResize();
+    void OnResize();
     virtual void Render();
 
-    void Show();
-    void Hide();
+    void SetVisible( const bool visible );
+    const bool IsVisible() const;
 
     const Ogre::String& GetName() const;
 
@@ -43,7 +43,7 @@ public:
     void ScriptSetDefaultAnimation( const char* animation );
     const int ScriptAnimationSync();
 
-    void UpdateTransformation();
+    virtual void UpdateTransformation();
 
     enum Align
     {
@@ -60,6 +60,7 @@ public:
     void SetAlign( const UiWidget::Align align );
     void SetVerticalAlign( const UiWidget::VerticalAlign valign );
 
+    float GetFinalZ() const;
     Ogre::Vector2 GetFinalOrigin() const;
     Ogre::Vector2 GetFinalTranslate() const;
     Ogre::Vector2 GetFinalSize() const;
@@ -70,6 +71,7 @@ public:
     void SetOriginY( const float percent, const float y );
     void SetX( const float percent, const float x );
     void SetY( const float percent, const float y );
+    void SetZ( const float z );
     void SetWidth( const float percent, const float width );
     void SetHeight( const float percent, const float height );
     void SetScale( const Ogre::Vector2& scale );
@@ -82,6 +84,7 @@ public:
     int GetScissorRight() const;
 
     void SetColour( const float r, const float g, const float b );
+    void SetColours( const float r1, const float g1, const float b1, const float r2, const float g2, const float b2, const float r3, const float g3, const float b3, const float r4, const float g4, const float b4 );
     void SetAlpha( const float a );
 
 private:
@@ -98,13 +101,19 @@ protected:
     float                    m_ScreenHeight;
 
     bool                     m_Visible;
-    Ogre::ColourValue        m_Colour;
+    Ogre::ColourValue        m_Colour1;
+    Ogre::ColourValue        m_Colour2;
+    Ogre::ColourValue        m_Colour3;
+    Ogre::ColourValue        m_Colour4;
 
     Align                    m_Align;
     VerticalAlign            m_VerticalAlign;
 
+    bool                     m_UpdateTransformation;
+
     Ogre::Vector2            m_FinalOrigin;
     Ogre::Vector2            m_FinalTranslate;
+    float                    m_FinalZ;
     Ogre::Vector2            m_FinalSize;
     Ogre::Vector2            m_FinalScale;
     float                    m_FinalRotation;
@@ -117,6 +126,7 @@ protected:
     float                    m_X;
     float                    m_YPercent;
     float                    m_Y;
+    float                    m_Z;
     float                    m_WidthPercent;
     float                    m_Width;
     float                    m_HeightPercent;
