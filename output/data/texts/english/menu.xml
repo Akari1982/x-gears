@@ -1,0 +1,54 @@
+﻿<texts>
+    <text name="BeginMenuNewGame">NEW GAME</text>
+    <text name="BeginMenu1">Battle map</text>
+    <text name="BeginMenu2">Xenogears map</text>
+    <text name="BeginMenu3">Entity testarea</text>
+    <text name="BeginMenu4">Idol menu</text>
+
+    <text name="PauseMenuHeader">Paused</text>
+    <text name="PauseMenuText">Are you want to quit?</text>
+    <text name="PauseMenuYes">Yes</text>
+    <text name="PauseMenuNo">No</text>
+
+    <text name="MainMenuGil">Gil</text>
+    <text name="MainMenuGilAmount">     12005</text>
+    <text name="MainMenuTime">Time</text>
+    <text name="MainMenuHours"> 3</text>
+    <text name="MainMenuMinutes">34</text>
+    <text name="MainMenuSeconds">45</text>
+    <text name="MainMenuSemicolon">:</text>
+
+    <text name="MainMenuLocation">No. 1 Reactor</text>
+
+    <text name="MainMenuItem">Item</text>
+    <text name="MainMenuMagic">Magic</text>
+    <text name="MainMenuMateria">Materia</text>
+    <text name="MainMenuEquip">Equip</text>
+    <text name="MainMenuStatus">Status</text>
+    <text name="MainMenuOrder">Order</text>
+    <text name="MainMenuLimit">Limit</text>
+    <text name="MainMenuConfig">Config</text>
+    <text name="MainMenuPHS">PHS</text>
+    <text name="MainMenuSave">Save</text>
+
+    <text name="CharacterDataName">Akari</text>
+    <text name="CharacterDataLv">LV</text>
+    <text name="CharacterDataLvNumber">29</text>
+    <text name="CharacterDataHp">HP</text>
+    <text name="CharacterDataHpCurrent"> 184</text>
+    <text name="CharacterDataHpMax">1260</text>
+    <text name="CharacterDataMp">MP</text>
+    <text name="CharacterDataMpCurrent"> 220</text>
+    <text name="CharacterDataMpMax"> 220</text>
+    <text name="CharacterDataFury">Fury</text>
+    <text name="CharacterDataSadness">Sadness</text>
+    <text name="CharacterDataNextLevel">next level</text>
+    <text name="CharacterDataLimitLevel">Limit level</text>
+    <text name="CharacterDataLimitLevelNumber">3</text>
+
+    <text name="IdolsNakagawaShoko">Nakagawa Shoko</text>
+    <text name="IdolsUetoAya">Ueto Aya</text>
+    <text name="IdolsHiranoAya">Hirano Aya</text>
+    <text name="IdolsTodaErica">Toda Erica</text>
+    <text name="IdolsHorikitaMaki">Horikita Maki</text>
+</texts>
