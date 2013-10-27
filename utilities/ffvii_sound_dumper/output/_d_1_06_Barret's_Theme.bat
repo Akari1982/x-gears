@@ -1,0 +1,1 @@
+start ./ffvii_sound_dumper 1_06_Barret's_Theme.snd

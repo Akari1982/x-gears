@@ -1,0 +1,1 @@
+start ./ffvii_sound_dumper 1_04_Anxious_Heart.snd
