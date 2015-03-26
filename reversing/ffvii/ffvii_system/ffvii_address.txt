@@ -7,14 +7,15 @@
 80049e44 AKAO right volume table (0x100 items 0x2 bytes each)
 
 8004a68c [][][][] some channel flags. We add here channel we set to play.
-
+8004a6a8 [][]     store reverberation depth left here.
+8004a6aa [][]     store reverberation depth right here.
 8004aaec [][][][] some flags SPU related. if this &1 == 0 then we write data to SPU directly
 8004aaf4 [][][][] pointer to SPU addreses (0x1f801c00)
+8004ab2c [][][][] store 0 here when setting new reverb mode.
 
 8004bc98 Sin and Cos table. Sin +00 [][], Cos +02 [][]
 
-8005a6a8 [][]     store reverberation depth left here.
-8005a6aa [][]     store reverberation depth right here.
+
 
 80062bb8 array of some function pointers (0x4 size).
 +08 [][][][] 80045a24 function. Called when copy data from palette to ram and back.
@@ -94,10 +95,14 @@
 
 
 80081dc8 struct with size 0x24 where we store data for AKAO parser. Store here data from 8009a000.
+// for 0x10, 0x14, 0x15, 0x18, 0x19
++00 [][][][] command 0x10, 0x14, 0x15, 0x18, 0x19
++04 [][][][] offset to akao sequence.
++08 [][][][] length of sequence.
++0c [][][][] music id
++10 [][][][] w[8009a008]
 
-
-
-80083580 we copy here akao data when init music 0x10
+80083580 we copy here akao sequence data when init music 0x10.
 
 
 
@@ -273,6 +278,7 @@
 +38 [][][][] scu config update flags.
                 0x00000010 - update noise clock frequency.
                 0x00000080 - update reverb.
++3c [][][][] reverb mode.
 +40 [][][][] reverb depth. some value we can increment this by 8009a148 if 8009a154 not 0.
 +44 [][][][] increment for +40.
 +4a [][]     this is number of times we need to increment tempo (8009a11c) each update by 8009a120.

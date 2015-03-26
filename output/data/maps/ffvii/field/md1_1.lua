@@ -23,7 +23,7 @@ EntityContainer[ "Director" ] = {
 
                 if ( FFVII.Data.progress_game < 7 ) and ( triangle_id == 62 ) then
                     player_lock( true )
-                    background2d:scroll_to_position( -96, 60, Background2D.SMOOTH, 1.06667 )
+                    background2d:scroll_to_position( -288, 180, Background2D.SMOOTH, 1.06667 )
 
                     script:request( Script.ENTITY, "Cloud", "scene_part_1", 6 )
 
@@ -99,8 +99,8 @@ EntityContainer[ "Cloud" ] = {
     scene_part_5 = function( self )
         self.cloud:play_animation_stop( "LookAtPeople", 0, 0.233333 )
         self.cloud:animation_sync()
-        --0465 (end 0465): -- set window parameters (id = 0, x = 100, y = 150, width = 165, height = 41);
-        --046f (end 046f): message:show_text_wait(0, 36, x, y);
+        message:show_dialog( "0", "md1_1_05",100, 150 )
+        message:sync( "0" )
         self.cloud:play_animation_stop( "LookAtPeople", 0.266667, 0.466667 )
         self.cloud:animation_sync()
 
@@ -114,8 +114,8 @@ EntityContainer[ "Cloud" ] = {
         script:request( Script.ENTITY, "Biggs", "scene_part_7", 6 )
         self.cloud:play_animation_stop( "LookAtPeople", 0, 0.233333 )
         self.cloud:animation_sync()
-        --0483 (end 0483): -- set window parameters (id = 0, x = 30, y = 150, width = 249, height = 57);
-        --048d (end 048d): message:show_text_wait(0, 38, x, y);
+        message:show_dialog( "0", "md1_1_07", 30, 150 )
+        message:sync( "0" )
         self.cloud:play_animation_stop( "LookAtPeople", 0.233333, 0.466667 )
         self.cloud:animation_sync()
 
@@ -180,10 +180,10 @@ EntityContainer[ "Barret" ] = {
         self.barret:move_to_position( 5.96094, 5.08594 )
         self.barret:move_sync()
         self.barret:set_rotation( 241.875 )
-        --04ee (end 04ee): -- set window parameters (id = 3, x = 25, y = 140, width = 228, height = 57);
-        --04f8 (end 04f8): message:show_text_wait(3, 39, x, y);
-        --04fb (end 04fb): -- set window parameters (id = 3, x = 8, y = 150, width = 260, height = 41);
-        --0505 (end 0505): message:show_text_wait(3, 40, x, y);
+        message:show_dialog( "3", "md1_1_08", 25, 140 )
+        message:sync( "3" )
+        message:show_dialog( "3", "md1_1_09", 8, 150 )
+        message:sync( "3" )
 
         return 0
     end,
@@ -197,13 +197,13 @@ EntityContainer[ "Barret" ] = {
         self.barret:turn_to_direction( 16.875, Entity.CLOSEST, Entity.SMOOTH, 0.333333 )
         self.barret:turn_sync()
         script:wait( 0.666667 )
-        --0522 (end 0522): -- set window parameters (id = 0, x = 30, y = 20, width = 135, height = 41);
-        --052c (end 052c): message:show_text_wait(0, 41, x, y);
+        message:show_dialog( "0", "md1_1_10", 30, 20 )
+        message:sync( "0" )
         script:wait( 0.266667 )
         --0532 (end 0532): [UNREVERSED] MENU(00, 06, 01);
         script:wait( 0.666667 )
-        --0539 (end 0539): -- set window parameters (id = 0, x = 10, y = 137, width = 254, height = 73);
-        --0543 (end 0543): message:show_text_wait(0, 42, x, y);
+        message:show_dialog( "0", "md1_1_11", 10, 137 )
+        message:sync( "0" )
 
         return 0
     end,
@@ -246,8 +246,8 @@ EntityContainer[ "Biggs" ] = {
         script:wait( 0.0333333 )
         self.biggs:play_animation_stop( "TalkGesture", 0, 0.3 )
         self.biggs:animation_sync()
-        --0584 (end 0584): -- set window parameters (id = 1, x = 8, y = 8, width = 269, height = 73);
-        --058e (end 058e): message:show_text_wait(1, 31, x, y);
+        message:show_dialog( "1", "md1_1_00", 8, 8 )
+        message:sync( "1" )
         self.biggs:play_animation( "TalkGesture", 0.333333, 0.633333 )
         self.biggs:animation_sync()
 
@@ -256,12 +256,12 @@ EntityContainer[ "Biggs" ] = {
 
     --[[ Dialog with Jessie and Cloud. We input Cloud name during this scene and call Cloud reply. ]]
     scene_part_4 = function( self )
-        --0597 (end 0597): -- set window parameters (id = 1, x = 30, y = 10, width = 242, height = 41);
-        --05a1 (end 05a1): message:show_text_wait(1, 34, x, y);
+        message:show_dialog( "1", "md1_1_03", 30, 10 )
+        message:sync( "1" )
         self.biggs:play_animation_stop( "TalkGesture", 0, 0.466667 )
         self.biggs:animation_sync()
-        --05a9 (end 05a9): -- set window parameters (id = 1, x = 50, y = 10, width = 174, height = 41);
-        --05b3 (end 05b3): message:show_text_wait(1, 35, x, y);
+        message:show_dialog( "1", "md1_1_04", 50, 10 )
+        message:sync( "1" )
         self.biggs:play_animation( "TalkGesture", 0.333333, 0.633333 )
         self.biggs:animation_sync()
         script:wait( 0.1 )
@@ -271,8 +271,8 @@ EntityContainer[ "Biggs" ] = {
         script:wait( 0.2 )
         self.biggs:play_animation_stop( "TalkGesture", 0, 0.466667 )
         self.biggs:animation_sync()
-        --05d0 (end 05d0): -- set window parameters (id = 1, x = 50, y = 20, width = 213, height = 41);
-        --05da (end 05da): message:show_text_wait(1, 37, x, y);
+        message:show_dialog( "1", "md1_1_06", 50, 20 )
+        message:sync( "1" )
 
         return 0
     end,
@@ -325,10 +325,10 @@ EntityContainer[ "Jessie" ] = {
     scene_part_3 = function( self )
         self.jessie:play_animation_stop( "BreakUpLookBack" )
         self.jessie:animation_sync()
-        --0623 (end 0623): -- set window parameters (id = 2, x = 155, y = 8, width = 233, height = 41);
-        --062d (end 062d): message:show_text_wait(2, 32, x, y);
-        --0630 (end 0630): -- set window parameters (id = 2, x = 120, y = 8, width = 268, height = 41);
-        --063a (end 063a): message:show_text_wait(2, 33, x, y);
+        message:show_dialog( "2", "md1_1_01", 155, 8 )
+        message:sync( "2" )
+        message:show_dialog( "2", "md1_1_02", 120, 8 )
+        message:sync( "2" )
         script:wait( 0.266667 )
         self.jessie:set_default_animation( "BreakUp" )
         self.jessie:play_animation( "BreakUp" )
@@ -465,62 +465,6 @@ EntityContainer[ "Movie" ] = {
         return 0
     end,
 }
-
-
-
---[[
-fan
-script_0:
-072c (end 072c): field:background_clear( "2" ); -- turns off all layer of background animation with given id
-072f (end 072f): return;
-0730 (end 0730): script:wait( 0.1 )
-0733 (end 0733): field:background_on( "2", 0 ); -- turns on layer of background animation with given id
-0737 (end 0737): script:wait( 0.133333 )
-073a (end 073a): field:background_off( "2", 0 ); -- turns off layer of background animation with given id
-073e (end 073e): field:background_on( "2", 1 ); -- turns on layer of background animation with given id
-0742 (end 0742): script:wait( 0.133333 )
-0745 (end 0745): field:background_off( "2", 1 ); -- turns off layer of background animation with given id
-0749 (end 0749): jumpto( 0730 );
-
-light
-script_0:
-074b (end 074b): temp5_16 = 66;
-074f (end 074f): return;
-0750 (end 0750): [UNREVERSED] STPAL( 00, 0d, 00, ff );
-0755 (end 0755): if ( temp5_16 < 62 ) then continue else jumpto(0775);
-075b (end 0775): temp5_16 = temp5_16 + 2;
-075f (end 0775): [UNREVERSED] MPPAL2( 00, 55, 50, 00, 10, 16, 16, 16, ff );
-0769 (end 0775): [UNREVERSED] CPPAL( 00, 00, 10, 00 );
-076e (end 0775): [UNREVERSED] LDPAL( 00, 10, 0d, ff );
-0773 (end 0775): jumpto( 0755 );
-0775 (end 0775): if ( temp5_16 > 32 ) then continue else jumpto(0795);
-077b (end 0795): temp5_16 = temp5_16 - 2;
-077f (end 0795): [UNREVERSED] MPPAL2( 00, 55, 50, 00, 10, 16, 16, 16, ff );
-0789 (end 0795): [UNREVERSED] CPPAL( 00, 00, 10, 00 );
-078e (end 0795): [UNREVERSED] LDPAL( 00, 10, 0d, ff );
-0793 (end 0795): jumpto( 0775 );
-0795 (end 0795): jumpto( 0755 );
-
-light2
-script_0:
-0797 (end 0797): temp5_17 = 66;
-079b (end 079b): return;
-079c (end 079c): script:wait( 0.666667 )
-079f (end 079f): [UNREVERSED] STPAL( 00, 0e, 20, ff );
-07a4 (end 07a4): if ( temp5_17 < 62 ) then continue else jumpto(07c4);
-07aa (end 07c4): temp5_17 = temp5_17 + 1;
-07ae (end 07c4): [UNREVERSED] MPPAL2( 00, 55, 50, 20, 30, 17, 17, 17, ff );
-07b8 (end 07c4): [UNREVERSED] CPPAL( 00, 20, 30, 00 );
-07bd (end 07c4): [UNREVERSED] LDPAL( 00, 30, 0e, ff );
-07c2 (end 07c4): jumpto( 07a4 );
-07c4 (end 07c4): if ( temp5_17 > 16 ) then continue else jumpto(07e4);
-07ca (end 07e4): temp5_17 = temp5_17 - 1;
-07ce (end 07e4): [UNREVERSED] MPPAL2( 00, 55, 50, 20, 30, 17, 17, 17, ff );
-07d8 (end 07e4): [UNREVERSED] CPPAL( 00, 20, 30, 00 );
-07dd (end 07e4): [UNREVERSED] LDPAL( 00, 30, 0e, ff );
-07e2 (end 07e4): jumpto( 07c4 );
-07e4 (end 07e4): jumpto( 07a4 );
-]]
 
 
 

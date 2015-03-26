@@ -1,0 +1,16 @@
+﻿<texts>
+    <!-- Items -->
+    <text name="item_potion">Potion</text>
+    <text name="item_phoenix_down">Phoenix Down</text>
+
+    <!-- Characters -->
+    <text name="char_cloud">Cloud</text>
+    <text name="char_barret">Barret</text>
+
+    <!-- Locations -->
+    <text name="md1stin">Platform</text>
+    <text name="md1_1">Sector 1 Station</text>
+    <text name="md1_2">Sector 1</text>
+    <text name="nrthmk">No.1 Reactor</text>
+    <text name="nmkin_1">No.1 Reactor</text>
+</texts>

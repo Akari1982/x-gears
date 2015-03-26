@@ -56,9 +56,22 @@ return 1;
 
 ////////////////////////////////
 // 0x36 WSPCL
-writes data to window structure.
+V0 = bu[800722c4];
+script_pointer = hu[800831fc + V0 * 2];
+V0 = w[8009c6dc];
 
-move script pointer by 5
+window_id = bu[V0 + script_pointer + 1];
+type = bu[V0 + script_pointer + 2];
+x = bu[V0 + script_pointer + 3];
+y = bu[V0 + script_pointer + 4];
+
+[80083274 + window_id * 30 + 1b] = b(type);
+[80083274 + window_id * 30 + 28] = h(x);
+[80083274 + window_id * 30 + 2a] = h(y);
+
+// move pointer by 5
+A0 = bu[800722c4];
+[800831fc + A0 * 2] = h(hu[800831fc + A0 * 2] + 5);
 
 return 0;
 ////////////////////////////////////////////////////////
@@ -1082,59 +1095,35 @@ if (V1 != V0)
 // dialog_window_init
 A0 - window ID
 A1 - message ID
-
-V0 = w[8007E7A8];
 T1 = A1;
 
-if (V0 == 0)
+if( w[8007e7a8] == 0 )
 {
-    A0 = 800A10DC;
-
+    A0 = 800a10dc;
     funcd4848
-
     return 1;
 }
 else
 {
-    V0 = A0 << 10;
-    A1 = V0 >> 10
-    V1 = bu[8008326C]; // parent entity
+    A1 = A0 << 10 >> 10
 
-    if (V1 != FF) // if window has function attached to it
+    if( bu[8008326c] != ff ) // if window has parent entity attached to it
     {
         return 0;
     }
 
-    // set parent entity
-    V0 = bu[800722C4];
-    [8008326C + A1] = b(V0);
+    [8008326c + A1] = b(bu[800722c4]); // set parent entity
 
-
-    V0 = h[8008327C + A1 * 30]; // width
-    if (V0 < 0)
+    [80083274 + A1 * 30 + 0e] = h(hu[80083274 + A1 * 30 + 0a] / 4); // height
+    if( hu[80083274 + A1 * 30 + 0a] < 8 )
     {
-        V0 = V0 + 3;
-    }
-    V0 = V0 >> 2;
-    [80083280 + A1 * 30] = h(V0);
-
-    V1 = h[8008327E + A1 * 30]; // height
-    if (V1 < 0)
-    {
-        V1 = V1 >> 3
-    }
-    V0 = V1 >> 2;
-    [80083282 + A1 * 30] = h(V0);
-
-    if (V0 < 8)
-    {
-        [80083282 + A1 * 30] = h(08);
+        [80083274 + A1 * 30 + 0a] = h(08);
     }
 
-    V0 = h[80083280 + A1 * 30];
-    if (V0 < 8)
+    [80083274 + A1 * 30 + 0c] = h(hu[80083274 + A1 * 30 + 08] / 4); // width
+    if( h[80083274 + A1 * 30 + 0c] < 8 )
     {
-        [80083280 + A1 * 30] = h(08);
+        [80083274 + A1 * 30 + 0c] = h(08);
     }
 
     V1 = A1 << 8;
@@ -1986,70 +1975,48 @@ V0 = h[80083288 + S3 * 30];
 /////////////////////////////////////////////////////////
 // dialog_window_discrease
 
-V1 = bu[8008326C + A1];
-V0 = bu[800722C4];
-
-if (V1 != V0)
+if( bu[8008326c + A1] != bu[800722c4] ) // only work witth current entity
 {
     return;
 }
 
-V0 = [80083280 + A0 * 30];
-A1 = V0;
-if (V0 >= 8)
+width = h[80083274 + A0 * 30 + 0c]; //width
+if( width >= 8 )
 {
-    V0 = [8008327C + A0 * 30];
-    V0 = V0 >> 2;
-    V0 = A1 - V0;
+    width = width - [80083274 + A0 * 30 + 08] / 4;
 }
 else
 {
-    V0 = 8;
+    width = 8;
 }
+[80083274 + A0 * 30 + 0c] = h(width);
 
-[80083280 + A0 * 30] = h(V0);
-
-
-
-V0 = h[80083282 + A0 * 30];
-A1 = V0;
-if (V0 >= 8)
+height = h[80083274 + A0 * 30 + 0e];
+if( height >= 8 )
 {
-    V0 = [8008327E + A0 * 30];
-    V0 = V0 >> 2;
-    V0 = A1 - V0;
+    height = height - [80083274 + A0 * 30 + 0a] / 4;
 }
 else
 {
-    V0 = 8;
+    height = 8;
 }
+[80083274 + A0 * 30 + 0e] = h(height);
 
-[80083282 + A0 * 30] = h(V0);
-
-
-
-V1 = A0 * 30;
-V0 = h[80083280 + A0 * 30];
-
-if (V0 >= 9)
+if( width >= 9 )
 {
     return 0;
 }
 
-V0 = h[80083282 + A0 * 30];
-
-if (V0 >= 9)
+if( height >= 9 )
 {
     return 0;
 }
 
-[80083286 + A0 * 30] = h(0);
-[800832A0 + A0 * 30] = h(0); // set state to 0
-[8008326C + A0] = b(FF);
+[80083274 + A0 * 30 + 12] = h(0); // numbers of letters
+[80083274 + A0 * 30 + 2c] = h(0); // set state to 0
+[8008326c + A0] = b(ff);
 
-V1 = bu[80071E2C];
-V1 = V1 - 1;
-[80071E2C] = b(V1);
+[80071E2c] = b(bu[80071E2c] - 1);
 
 return 1;
 /////////////////////////////////////////////////////////

@@ -54,7 +54,7 @@ material entity/solid_collision
 
 
 
-material entity/talk_collision
+material entity/interact_collision
 {
     technique
     {

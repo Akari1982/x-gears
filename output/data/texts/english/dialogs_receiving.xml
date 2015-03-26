@@ -1,0 +1,5 @@
+﻿<texts>
+    <!-- Receiving Items -->
+    <dialog name="receive_potion" width="138" height="25">Received “<include name="item_potion" />”!</dialog>
+    <dialog name="receive_phoenix_down" width="138" height="25">Received “<include name="item_phoenix_down" />”!</dialog>
+</texts>

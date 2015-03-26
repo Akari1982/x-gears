@@ -1,0 +1,15 @@
+Console
+{
+    type        truetype
+    source      courier.ttf
+    size        18
+}
+
+
+
+DebugText
+{
+    type        truetype
+    source      courier.ttf
+    size        18
+}

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<characters>
+    <character
+        id="0"
+        name="Cloud"
+        hp="9999"
+        mp="999"
+
+        available="true"
+        locked="true"
+    />
+
+    <character
+        id="1"
+        name="Barret"
+        hp="9999"
+        mp="999"
+
+        available="false"
+        locked="false"
+    />
+
+    <character
+        id="2"
+        name="Tifa"
+        hp="9999"
+        mp="999"
+
+        available="false"
+        locked="false"
+    />
+</characters>

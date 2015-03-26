@@ -377,7 +377,7 @@ return 0;
 
 ////////////////////////////////////////////////////////
 // get_akao_offset_in_field
-field_file_offset = w[8009C6DC];
+field_file_offset = w[8009c6dc];
 number_of_entity = bu[field_file_offset + 2];
 music_offset = field_file_offset + number_of_entity * 8 + 20;
 

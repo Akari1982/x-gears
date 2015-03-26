@@ -1,8 +1,24 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
-<screens>
+<ui>
+    <!-- Main prototypes -->
+    <prototype file_name="screens/prototypes.xml" />
+
+    <!-- Menu screens -->
     <screen file_name="screens/begin_menu/begin_menu.xml" />
+    <prototype file_name="screens/main_menu/prototypes.xml" />
     <screen file_name="screens/main_menu/main_menu.xml" />
     <screen file_name="screens/pause_menu/pause_menu.xml" />
+
+    <!-- Dialogs -->
+    <prototype file_name="screens/dialog/prototypes.xml" />
+    <screen file_name="screens/dialog/dialog.xml" />
+
+    <!-- Idol test screen data -->
+    <prototype file_name="screens/idol/prototypes.xml" />
     <screen file_name="screens/idol/idol.xml" />
+
+    <!-- Fade effect for map changer -->
     <screen file_name="screens/fade/fade.xml" />
-</screens>
+
+    <!-- Prototypes for textarea sprites -->
+    <prototype file_name="screens/textarea.xml" />
+</ui>

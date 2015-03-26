@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<maps>
+    <map id="1" file_name="data/field/map/test1.xml" />
+    <map id="2" file_name="data/field/map/test2.xml" />
+    <map id="3" file_name="data/field/map/nmkin_1.xml" />
+    <map id="4" file_name="data/field/map/nmkin_2.xml" />
+</maps>

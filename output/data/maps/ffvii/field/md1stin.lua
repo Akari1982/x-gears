@@ -4,7 +4,7 @@ EntityContainer = {}
 
 EntityContainer[ "Director" ] = {
     on_start = function( self )
-        background2d:scroll_to_position( 0, 40, Background2D.NONE, 0 )
+        background2d:scroll_to_position( 0, 120, Background2D.NONE, 0 )
         if FFVII.Data.progress_game == 0 then
             player_lock( true )
             --03b2 (end 03d1): fade:black();
@@ -51,18 +51,18 @@ EntityContainer[ "Director" ] = {
             script:wait( 2.33333 )
             script:request( Script.ENTITY, "Barret", "action1", 2 )
             script:wait( 2.66667 )
-            background2d:scroll_to_position( -20, 130, Background2D.SMOOTH, 0.4 )
+            background2d:scroll_to_position( -60, 390, Background2D.SMOOTH, 0.4 )
             script:wait( 0.466667 )
             script:request( Script.ENTITY, "Cloud", "action1", 2 )
             script:wait( 0.0666667 )
             --0485 (end 04bd): music:execute_akao( 20, 00000040, 00000037 ); -- play sound
             script:wait( 0.733333 )
-            background2d:scroll_to_position( 10, 35, Background2D.SMOOTH, 0.5 )
+            background2d:scroll_to_position( 30, 105, Background2D.SMOOTH, 0.5 )
             script:wait( 0.533333 )
             --0499 (end 04bd): music:execute_akao( 20, 00000040, 00000038 ); -- play sound
             script:wait( 1.93333 )
-            --04a1 (end 04bd): -- set window parameters (id = 3, x = 40, y = 20, width = 133, height = 41);
-            --04ab (end 04bd): message:show_text_wait(3, 30, x, y);
+            message:show_dialog( "3" , "md1stin_00", 40, 20 )
+            message:sync( "3" )
             script:request( Script.ENTITY, "Barret", "action2", 2 )
             script:wait( 0.666667 )
 
@@ -71,25 +71,21 @@ EntityContainer[ "Director" ] = {
             player_lock( false )
         end
 
-        while true do
-            if FFVII.Data.progress_game > 1 then
-                break
+        return 0
+    end,
+
+    on_update = function( self )
+        if FFVII.Data.progress_game <= 1 then
+            local triangle_id = EntityContainer[ "Cloud" ].cloud:get_move_triangle_id()
+
+            if ( FFVII.Data.progress_game == 1 ) and ( triangle_id == 12 ) then
+                FFVII.Data.progress_game = 6
+                player_lock( true )
+                script:request( Script.ENTITY, "Hei0", "action1", 2 )
+                script:request_end_sync( Script.ENTITY, "Hei1", "action1", 2 )
+                --04e2 (end 04ea): field:battle_run( 300 );
+                player_lock( false )
             end
-
-            if EntityContainer[ "Cloud" ].cloud ~= nil then
-                local triangle_id = EntityContainer[ "Cloud" ].cloud:get_move_triangle_id()
-
-                if ( FFVII.Data.progress_game == 1 ) and ( triangle_id == 12 ) then
-                    FFVII.Data.progress_game = 6
-                    player_lock( true )
-                    script:request( Script.ENTITY, "Hei0", "action1", 2 )
-                    script:request_end_sync( Script.ENTITY, "Hei1", "action1", 2 )
-                    --04e2 (end 04ea): field:battle_run( 300 );
-                    player_lock( false )
-                end
-            end
-
-            script:wait( 0 )
         end
 
         return 0
@@ -401,32 +397,30 @@ EntityContainer[ "Gu0" ] = {
             self.gu0:set_default_animation( "Dead1" )
             self.gu0:play_animation( "Dead1" )
         end
+        self.gu0:set_interactable( true )
         self.gu0:set_solid( true )
         self.gu0:set_visible( true )
 
         return 0
     end,
 
-    script_1 = function( self )
---[[
-        0714 (end 0714): field:pc_lock(true);
-        0716 (end 0716): field:menu_lock(true);
-        0718 (end 0718): if ( !(game:variable_get( "sector1_item" ) & (1 << 0)) ) then continue else jumpto(073b);
-        071e (end 073b): music:execute_akao( 20, 00000040, 00000168 ); -- play sound
-        0723 (end 073b): -- set window parameters (id = 0, x = 83, y = 10, width = 138, height = 25);
-        072d (end 073b): message:show_text_wait(0, 6, x, y);
-        0730 (end 073b): game:variable_set("sector1_item", (game:variable_get( "sector1_item" ) | (1 << 0)));
-        0734 (end 073b): game:item_add(0, 1);
-        0739 (end 073b): jumpto( 075c );
-        073b (end 075c): if ( !(game:variable_get( "sector1_item" ) & (1 << 1)) ) then continue else jumpto(075c);
-        0741 (end 075c): music:execute_akao( 20, 00000040, 00000168 ); -- play sound
-        0746 (end 075c): -- set window parameters (id = 0, x = 83, y = 10, width = 138, height = 25);
-        0750 (end 075c): message:show_text_wait(0, 6, x, y);
-        0753 (end 075c): game:variable_set("sector1_item", (game:variable_get( "sector1_item" ) | (1 << 1)));
-        0757 (end 075c): game:item_add(0, 1);
-        075c (end 075c): field:pc_lock(false);
-        075e (end 075e): field:menu_lock(false);
-]]
+    on_interact = function( self )
+        player_lock( true )
+        if FFVII.Data.md1stin_potion_1 == false then
+            --07c2 (end 07df): music:execute_akao( 20, 00000040, 00000168 ); -- play sound
+            message:show_dialog( "0", "receive_potion", 83, 10 )
+            message:sync( "0" )
+            FFVII.Data.md1stin_potion_1 = true
+            FFVII.add_item( "Potion", 1 )
+        elseif FFVII.Data.md1stin_potion_2 == false then
+            --07e5 (end 0800): music:execute_akao( 20, 00000040, 00000168 ); -- play sound
+            message:show_dialog( "0", "receive_potion", 83, 10 )
+            message:sync( "0" )
+            FFVII.Data.md1stin_potion_2 = true
+            FFVII.add_item( "Potion", 1 )
+        end
+        player_lock( false )
+
         return 0
     end,
 
@@ -447,7 +441,7 @@ EntityContainer[ "Gu0" ] = {
         self.gu0:play_animation_stop( "Kicked" )
         self.gu0:animation_sync()
         script:request_end_sync( Script.ENTITY, "Gu1", "activate", 6 )
-        --0785 (end 0785): gu0:set_talkable( false )
+        self.gu0:set_interactable( false )
         self.gu0:set_solid( false )
         self.gu0:set_visible( false )
 
@@ -472,32 +466,31 @@ EntityContainer[ "Gu1" ] = {
             self.gu1:set_default_animation( "Dead2" )
             self.gu1:play_animation( "Dead2" )
         end
+
+        self.gu1:set_interactable( true )
         self.gu1:set_solid( true )
         self.gu1:set_visible( true )
 
         return 0
     end,
 
-    script_1 = function( self )
---[[
-        07b8 (end 07b8): field:pc_lock(true);
-        07ba (end 07ba): field:menu_lock(true);
-        07bc (end 07bc): if ( !(game:variable_get( "sector1_item" ) & (1 << 0)) ) then continue else jumpto(07df);
-        07c2 (end 07df): music:execute_akao( 20, 00000040, 00000168 ); -- play sound
-        07c7 (end 07df): -- set window parameters (id = 0, x = 83, y = 10, width = 138, height = 25);
-        07d1 (end 07df): message:show_text_wait(0, 6, x, y);
-        07d4 (end 07df): game:variable_set("sector1_item", (game:variable_get( "sector1_item" ) | (1 << 0)));
-        07d8 (end 07df): game:item_add(0, 1);
-        07dd (end 07df): jumpto( 0800 );
-        07df (end 0800): if ( !(game:variable_get( "sector1_item" ) & (1 << 1)) ) then continue else jumpto(0800);
-        07e5 (end 0800): music:execute_akao( 20, 00000040, 00000168 ); -- play sound
-        07ea (end 0800): -- set window parameters (id = 0, x = 83, y = 10, width = 138, height = 25);
-        07f4 (end 0800): message:show_text_wait(0, 6, x, y);
-        07f7 (end 0800): game:variable_set("sector1_item", (game:variable_get( "sector1_item" ) | (1 << 1)));
-        07fb (end 0800): game:item_add(0, 1);
-        0800 (end 0800): field:pc_lock(false);
-        0802 (end 0802): field:menu_lock(false);
-]]
+    on_interact = function( self )
+        player_lock( true )
+        if FFVII.Data.md1stin_potion_1 == false then
+            --07c2 (end 07df): music:execute_akao( 20, 00000040, 00000168 ); -- play sound
+            message:show_dialog( "0", "receive_potion", 83, 10 )
+            message:sync( "0" )
+            FFVII.Data.md1stin_potion_1 = true
+            FFVII.add_item( "Potion", 1 )
+        elseif FFVII.Data.md1stin_potion_2 == false then
+            --07e5 (end 0800): music:execute_akao( 20, 00000040, 00000168 ); -- play sound
+            message:show_dialog( "0", "receive_potion", 83, 10 )
+            message:sync( "0" )
+            FFVII.Data.md1stin_potion_2 = true
+            FFVII.add_item( "Potion", 1 )
+        end
+        player_lock( false )
+
         return 0
     end,
 
@@ -515,7 +508,7 @@ EntityContainer[ "Gu1" ] = {
         self.gu1:play_animation_stop( "Throwed" )
         self.gu1:animation_sync()
         script:request( Script.ENTITY, "GuAdd", "activate", 6 )
-        --081d (end 081d): gu1:set_talkable( false )
+        self.gu1:set_interactable( false )
         self.gu1:set_solid( false )
         self.gu1:set_visible( false )
 
@@ -528,7 +521,7 @@ EntityContainer[ "Gu1" ] = {
         self.gu1:play_animation( "Dead1" )
         self.gu1:set_position( 29.4297, 216.578, 2.42188 )
         self.gu1:set_rotation( 191.25 )
-        --0835 (end 0835): gu1:set_talkable( true )
+       self.gu1:set_interactable( true )
         self.gu1:set_solid( true )
         self.gu1:set_visible( true )
 
@@ -549,40 +542,37 @@ EntityContainer[ "GuAdd" ] = {
         self.gu_add:set_rotation( 56.25 )
         self.gu_add:set_default_animation( "Dead2" )
         self.gu_add:play_animation( "Dead2" )
-        --084f (end 084f): guadd:set_talkable( false )
+        self.gu_add:set_interactable( false )
         self.gu_add:set_solid( false )
         self.gu_add:set_visible( false )
 
         return 0
     end,
 
-    script_1 = function( self )
---[[
-        0858 (end 0858): field:pc_lock(true);
-        085a (end 085a): field:menu_lock(true);
-        085c (end 085c): if ( !(game:variable_get( "sector1_item" ) & (1 << 0)) ) then continue else jumpto(087f);
-        0862 (end 087f): music:execute_akao( 20, 00000040, 00000168 ); -- play sound
-        0867 (end 087f): -- set window parameters (id = 0, x = 83, y = 10, width = 138, height = 25);
-        0871 (end 087f): message:show_text_wait(0, 6, x, y);
-        0874 (end 087f): game:variable_set("sector1_item", (game:variable_get( "sector1_item" ) | (1 << 0)));
-        0878 (end 087f): game:item_add(0, 1);
-        087d (end 087f): jumpto( 08a0 );
-        087f (end 08a0): if ( !(game:variable_get( "sector1_item" ) & (1 << 1)) ) then continue else jumpto(08a0);
-        0885 (end 08a0): music:execute_akao( 20, 00000040, 00000168 ); -- play sound
-        088a (end 08a0): -- set window parameters (id = 0, x = 83, y = 10, width = 138, height = 25);
-        0894 (end 08a0): message:show_text_wait(0, 6, x, y);
-        0897 (end 08a0): game:variable_set("sector1_item", (game:variable_get( "sector1_item" ) | (1 << 1)));
-        089b (end 08a0): game:item_add(0, 1);
-        08a0 (end 08a0): field:pc_lock(false);
-        08a2 (end 08a2): field:menu_lock(false);
-]]
+    on_interact = function( self )
+        player_lock( true )
+        if FFVII.Data.md1stin_potion_1 == false then
+            --07c2 (end 07df): music:execute_akao( 20, 00000040, 00000168 ); -- play sound
+            message:show_dialog( "0", "receive_potion", 83, 10 )
+            message:sync( "0" )
+            FFVII.Data.md1stin_potion_1 = true
+            FFVII.add_item( "Potion", 1 )
+        elseif FFVII.Data.md1stin_potion_2 == false then
+            --07e5 (end 0800): music:execute_akao( 20, 00000040, 00000168 ); -- play sound
+            message:show_dialog( "0", "receive_potion", 83, 10 )
+            message:sync( "0" )
+            FFVII.Data.md1stin_potion_2 = true
+            FFVII.add_item( "Potion", 1 )
+        end
+        player_lock( false )
+
         return 0
     end,
 
     --[[ We activate this entity after deactivation of Gu1.
     Don't know why we need to do this, but FFVII handle it this way. ]]
     activate = function( self )
-        --08a5 (end 08a5): guadd:set_talkable( true )
+        self.gu_add:set_interactable( true )
         self.gu_add:set_solid( true )
         self.gu_add:set_visible( true )
 

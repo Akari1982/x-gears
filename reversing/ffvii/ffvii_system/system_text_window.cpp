@@ -1,4 +1,451 @@
 ////////////////////////////////
+// func1f1bc
+window_data = A0;
+number_to_render = A1; // 4 in field, 1 in wm
+current_messege = 0;
+S6 = A2;
+S0 = A3;
+
+[80062dfd] = b(1);
+[GP + 76] = h(hu[GP + 76] + 1);
+[GP + 280] = w(S6);
+[80062f24] = w(80077f64 + S0 * 3400);
+
+
+
+
+if( number_to_render <= 0 )
+{
+    return;
+}
+
+S4 = 1;
+S5 = S0;
+
+L1f25c:	; 8001F25C
+    if( h[window_data + current_messege * 30 + 2c] != 0 ) // if window state not 0
+    {
+        [GP + 80] = w(0);
+        [GP + 258] = w(0);
+        [GP + 2ac] = w(0);
+
+        if( bu[window_data + current_messege * 30 + 1a] ) // show pointer
+        {
+            A0 = h[window_data + current_messege * 30 + 24]; // pointer X
+            A1 = h[window_data + current_messege * 30 + 26]; // pointer Y
+            8001F2A8	jal    func1eb2c [$8001eb2c]
+        }
+
+        V1 = bu[window_data + current_messege * 30 + 1b]; // WSPCL type
+        if( V1 == 1 )
+        {
+            A0 = h[window_data + current_messege * 30 + 28]; // WSPCL x
+            A1 = h[window_data + current_messege * 30 + 2a]; // WSPCL y
+            A2 = w[8009c6e4 + b84];
+            func1ec70;
+        }
+        else if( V1 == 2 )
+        {
+            A0 = h[window_data + current_messege * 30 + 28]; // WSPCL x
+            A1 = h[window_data + current_messege * 30 + 2a]; // WSPCL y
+            A2 = w[window_data + current_messege * 30 + 20]; // WNUMB number
+            A3 = bu[window_data + current_messege * 30 + 1d]; // WNUMB number of digits in number
+            [SP + 10] = w(bu[window_data + current_messege * 30 + 1c]); // ????
+            8001F30C	jal    func1ef84 [$8001ef84]
+        }
+
+
+
+        A0 = 8; // start of string
+        A1 = h[window_data + current_messege * 30 + 10] + 6; // text scrolling value
+        A2 = h[window_data + current_messege * 30 + 8] - 3; // dialog width
+        A3 = w[window_data + current_messege * 30 + 0];
+
+        [GP + 70] = h(7);
+        [GP + 72] = h(0);
+        [GP + 74] = h(0);
+        [GP + 78] = h(hu[window_data + current_messege * 30 + 12]); // number of letters in window string
+        [GP + 7c] = w((bu[window_data + current_messege * 30 + 19] >> 2) & 1); // WMODE style
+
+        func1d6a8; // render font
+
+        if (h[window_data + current_messege * 30 + 0a] - 3 < V0 + 10)
+        {
+            [window_data + current_messege * 30 + 18] = b(1);
+        }
+        else
+        {
+            [window_data + current_messege * 30 + 18] = b(0);
+        }
+
+        V0 = window_data + current_messege * 30;
+        8001F3B4	lh     a1, $0004(v0)
+        8001F3B8	lh     a2, $0006(v0)
+        8001F3BC	beq    s5, zero, L1f3cc [$8001f3cc]
+        8001F3C0	nop
+        8001F3C4	j      L1f3d0 [$8001f3d0]
+        8001F3C8	addiu  a2, a2, $0008
+
+        L1f3cc:	; 8001F3CC
+        8001F3CC	addiu  a2, a2, $00f0
+
+        L1f3d0:	; 8001F3D0
+        S0 = window_data + current_messege * 30;
+        8001F3E8	lh     a3, $0008(s0)
+        8001F3EC	lh     v0, $000a(s0)
+        8001F3F0	addiu  a0, sp, $0018
+        8001F3F4	jal    func43814 [$80043814]
+        8001F3F8	sw     v0, $0010(sp)
+        8001F3FC	sb     zero, $0030(sp)
+        8001F400	sb     s4, $002f(sp)
+        8001F404	lhu    v0, $0008(s0)
+        8001F408	lhu    a0, $0004(s0)
+        8001F40C	lhu    v1, $000c(s0)
+        8001F410	sll    v0, v0, $10
+        8001F414	sra    v0, v0, $11
+        8001F418	addiu  v0, v0, $0003
+        8001F41C	addu   a0, a0, v0
+        8001F420	sll    v1, v1, $10
+        8001F424	sra    v1, v1, $11
+        8001F428	subu   a0, a0, v1
+        8001F42C	sh     a0, $0018(sp)
+        8001F430	lhu    v0, $000a(s0)
+        8001F434	lhu    v1, $000e(s0)
+        8001F438	lh     a0, $0006(s0)
+        8001F43C	sll    v0, v0, $10
+        8001F440	sra    v0, v0, $11
+        8001F444	sll    v1, v1, $10
+        8001F448	beq    s5, zero, L1f458 [$8001f458]
+        8001F44C	sra    v1, v1, $11
+        8001F450	j      L1f45c [$8001f45c]
+        8001F454	addiu  v0, v0, $000b
+
+        L1f458:	; 8001F458
+        8001F458	addiu  v0, v0, $00f3
+
+        L1f45c:	; 8001F45C
+        8001F45C	addu   v0, a0, v0
+        8001F460	subu   v0, v0, v1
+        8001F464	sh     v0, $001a(sp)
+        8001F468	addiu  a1, sp, $0018
+        S0 = window_data + current_messege * 30;
+        8001F484	lhu    v0, $000c(s0)
+        8001F488	lui    a0, $8006
+        8001F48C	lw     a0, $2f24(a0)
+        8001F490	addiu  v0, v0, $fffa (=-$6)
+        8001F494	sh     v0, $001c(sp)
+        8001F498	lhu    v1, $000e(s0)
+        8001F49C	ori    v0, zero, $005f
+        8001F4A0	sh     v0, $002c(sp)
+        8001F4A4	addiu  v1, v1, $fffa (=-$6)
+        8001F4AC	sh     v1, $001e(sp)
+        func44ac0;
+
+        8001F4B0	lui    a1, $8006
+        8001F4B4	lw     a1, $2f24(a1)
+        8001F4B8	jal    system_add_render_packet_to_queue [$80046794]
+        8001F4BC	addu   a0, s6, zero
+        8001F4C0	lui    v0, $8006
+        8001F4C4	lw     v0, $2f24(v0)
+        8001F4C8	nop
+        8001F4CC	addiu  v0, v0, $0040
+        8001F4D0	lui    at, $8006
+        8001F4D4	sw     v0, $2f24(at)
+        8001F4D8	lbu    v0, $0019(s0)
+        8001F4DC	nop
+        8001F4E0	andi   v0, v0, $0002
+        8001F4E4	beq    v0, zero, L1f4f8 [$8001f4f8]
+
+        8001F4EC	sw     s4, $0084(gp)
+        8001F4F0	j      L1f4fc [$8001f4fc]
+        8001F4F4	nop
+
+        L1f4f8:	; 8001F4F8
+        8001F4F8	sw     zero, $0084(gp)
+
+        L1f4fc:	; 8001F4FC
+        // render window
+        if( ( bu[window_data + current_messege * 30 + 19] & 01 ) == 0 ) // with window
+        {
+            V1 = w[window_data + current_messege * 30 + 08];
+            V0 = w[window_data + current_messege * 30 + 0c];
+            if( V1 != V0 )
+            {
+                A1 = ( h[window_data + current_messege * 30 + 08] - h[window_data + current_messege * 30 + 0c] ) / 2;
+                A2 = ( hu[window_data + current_messege * 30 + 0a] - h[window_data + current_messege * 30 + e] ) / 2;
+                A3 = h[window_data + current_messege * 30 + 0c];
+                V0 = h[window_data + current_messege * 30 + 0e];
+            }
+            else
+            {
+                A1 = 0;
+                A2 = 0;
+                A3 = h[window_data + current_messege * 30 + 08];
+                V0 = h[window_data + current_messege * 30 + 0a];
+            }
+
+            [SP + 78 + 0] = h(A1);
+            [SP + 78 + 2] = h(A2);
+            [SP + 78 + 4] = h(A3);
+            [SP + 78 + 6] = h(V0);
+            A0 = SP + 78;
+            func1e040();
+        }
+
+
+
+        A0 = SP + 18;
+        A1 = h[window_data + current_messege * 30 + 04]; // WINDOW x
+        A2 = h[window_data + current_messege * 30 + 06]; // WINDOW y
+        if( S5 == 0 )
+        {
+            A2 = A2 + f0;
+        }
+        else
+        {
+            A2 = A2 + 8;
+        }
+
+        A3 = h[window_data + current_messege * 30 + 08]; // WINDOW width
+        [SP + 10] = w(h[window_data + current_messege * 30 + 0a]); // WINDOW height
+        func43814();
+
+        A0 = w[80062f24];
+        A1 = SP + 18;
+        [SP + 30] = b(0);
+        [SP + 2f] = b(1);
+        [SP + 2c] = h(5f);
+        func44ac0;
+
+        A0 = S6;
+        A1 = w[80062f24];
+        system_add_render_packet_to_queue();
+
+        [GP + 84] = w(0);
+        [80062f24] = w(w[80062f24] + 40);
+        [window_data + current_messege * 30 + 14] = h(w[GP + 2ac]);
+        [window_data + current_messege * 30 + 16] = h(w[GP + 258]);
+    }
+
+    current_messege = current_messege + 1;
+    V1 = current_messege < number_to_render;
+8001F674	bne    v1, zero, L1f25c [$8001f25c]
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func44ac0
+S0 = A1;
+S1 = A0;
+
+A0 = h[S0 + 0]; // x top clip
+A1 = h[S0 + 2]; // y top clip
+func44dc0; // set top clip corner
+
+[S1 + 4] = w(V0);
+
+A0 = h[S0 + 0] + h[S0 + 4] - 1;
+A1 = h[S0 + 2] + hu[S0 + 6] - 1;
+func44e8c; // set bottom clip corner
+
+80044B20	sw     v0, $0008(s1)
+80044B24	lh     a0, $0008(s0)
+80044B28	lh     a1, $000a(s0)
+80044B2C	jal    func44f58 [$80044f58]
+80044B30	nop
+80044B34	sw     v0, $000c(s1)
+80044B38	lbu    a0, $0017(s0)
+80044B3C	lbu    a1, $0016(s0)
+80044B40	lhu    a2, $0014(s0)
+80044B44	jal    func44d64 [$80044d64]
+80044B48	nop
+80044B4C	addiu  a0, s0, $000c
+80044B50	jal    func44fa0 [$80044fa0]
+80044B54	sw     v0, $0010(s1)
+80044B58	sw     v0, $0014(s1)
+80044B5C	lui    v0, $e600
+80044B60	sw     v0, $0018(s1)
+80044B64	lbu    v0, $0018(s0)
+80044B68	nop
+80044B6C	beq    v0, zero, L44d44 [$80044d44]
+80044B70	ori    t0, zero, $0007
+80044B74	lhu    v0, $0000(s0)
+80044B78	nop
+80044B7C	sh     v0, $0010(sp)
+80044B80	lhu    v0, $0002(s0)
+80044B84	nop
+80044B88	sh     v0, $0012(sp)
+80044B8C	lhu    v0, $0004(s0)
+80044B90	nop
+80044B94	sh     v0, $0014(sp)
+80044B98	lhu    v1, $0006(s0)
+80044B9C	sll    v0, v0, $10
+80044BA0	sh     v1, $0016(sp)
+80044BA4	sra    v1, v0, $10
+80044BA8	bltz   v1, L44be0 [$80044be0]
+80044BAC	addu   v0, zero, zero
+80044BB0	lui    v0, $8006
+80044BB4	addiu  v0, v0, $2c04
+80044BB8	lhu    v0, $0000(v0)
+80044BBC	nop
+80044BC0	sll    v0, v0, $10
+80044BC4	sra    v0, v0, $10
+80044BC8	addiu  a0, v0, $ffff (=-$1)
+80044BCC	slt    v0, a0, v1
+80044BD0	beq    v0, zero, L44be0 [$80044be0]
+80044BD4	addu   v0, v1, zero
+80044BD8	addu   v1, a0, zero
+80044BDC	addu   v0, v1, zero
+
+L44be0:	; 80044BE0
+80044BE0	lh     v1, $0016(sp)
+80044BE4	nop
+80044BE8	bltz   v1, L44c24 [$80044c24]
+80044BEC	sh     v0, $0014(sp)
+80044BF0	lui    v0, $8006
+80044BF4	addiu  v0, v0, $2c06
+80044BF8	lhu    v0, $0000(v0)
+80044BFC	nop
+80044C00	sll    v0, v0, $10
+
+L44c04:	; 80044C04
+80044C04	sra    v0, v0, $10
+80044C08	addiu  a0, v0, $ffff (=-$1)
+80044C0C	slt    v0, a0, v1
+80044C10	beq    v0, zero, L44c28 [$80044c28]
+80044C14	addu   v0, v1, zero
+80044C18	addu   v1, a0, zero
+80044C1C	j      L44c28 [$80044c28]
+80044C20	addu   v0, v1, zero
+
+L44c24:	; 80044C24
+80044C24	addu   v0, zero, zero
+
+L44c28:	; 80044C28
+80044C28	lhu    v1, $0010(sp)
+80044C2C	sh     v0, $0016(sp)
+80044C30	andi   v0, v1, $003f
+80044C34	bne    v0, zero, L44c50 [$80044c50]
+80044C38	sll    a2, t0, $02
+80044C3C	lhu    v0, $0014(sp)
+80044C40	nop
+80044C44	andi   v0, v0, $003f
+80044C48	beq    v0, zero, L44cec [$80044cec]
+
+L44c4c:	; 80044C4C
+80044C4C	sll    a1, t0, $02
+
+L44c50:	; 80044C50
+80044C50	addiu  t0, t0, $0001
+80044C54	sll    a1, t0, $02
+80044C58	addiu  t0, t0, $0001
+80044C5C	lhu    v0, $0008(s0)
+80044C60	addu   a2, a2, s1
+80044C64	subu   v0, v1, v0
+80044C68	sh     v0, $0010(sp)
+80044C6C	lhu    v0, $0012(sp)
+80044C70	lhu    v1, $000a(s0)
+80044C74	lui    a0, $6000
+80044C78	subu   v0, v0, v1
+80044C7C	sh     v0, $0012(sp)
+80044C80	lbu    v0, $001b(s0)
+80044C84	lbu    v1, $001a(s0)
+80044C88	sll    v0, v0, $10
+80044C8C	sll    v1, v1, $08
+80044C90	or     v1, v1, a0
+80044C94	lbu    a0, $0019(s0)
+80044C98	or     v0, v0, v1
+80044C9C	or     v0, v0, a0
+80044CA0	sw     v0, $0000(a2)
+80044CA4	lw     v0, $0010(sp)
+80044CA8	addu   a1, a1, s1
+80044CAC	sw     v0, $0000(a1)
+80044CB0	sll    v0, t0, $02
+80044CB4	lw     v1, $0014(sp)
+80044CB8	addu   v0, v0, s1
+80044CBC	sw     v1, $0000(v0)
+80044CC0	lhu    v0, $0010(sp)
+80044CC4	lhu    v1, $0008(s0)
+80044CC8	nop
+80044CCC	addu   v0, v0, v1
+80044CD0	sh     v0, $0010(sp)
+80044CD4	lhu    v0, $0012(sp)
+80044CD8	lhu    v1, $000a(s0)
+80044CDC	addiu  t0, t0, $0001
+80044CE0	addu   v0, v0, v1
+80044CE4	j      L44d44 [$80044d44]
+80044CE8	sh     v0, $0012(sp)
+
+L44cec:	; 80044CEC
+80044CEC	addiu  t0, t0, $0001
+80044CF0	sll    a2, t0, $02
+80044CF4	addiu  t0, t0, $0001
+80044CF8	sll    a3, t0, $02
+80044CFC	addiu  t0, t0, $0001
+80044D00	addu   a1, a1, s1
+80044D04	lui    a0, $0200
+80044D08	lbu    v0, $001b(s0)
+80044D0C	lbu    v1, $001a(s0)
+80044D10	sll    v0, v0, $10
+80044D14	sll    v1, v1, $08
+80044D18	or     v1, v1, a0
+80044D1C	lbu    a0, $0019(s0)
+80044D20	or     v0, v0, v1
+80044D24	or     v0, v0, a0
+80044D28	sw     v0, $0000(a1)
+80044D2C	lw     v0, $0010(sp)
+80044D30	addu   a2, a2, s1
+80044D34	sw     v0, $0000(a2)
+80044D38	lw     v0, $0014(sp)
+80044D3C	addu   a3, a3, s1
+80044D40	sw     v0, $0000(a3)
+
+L44d44:	; 80044D44
+V0 = T0 - 1;
+[S1 + 3] = b(V0);
+
+return;
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func43814
+8004381C	lw     s3, $0038(sp)
+80043824	addu   s4, a0, zero
+8004382C	addu   s1, a1, zero
+80043834	addu   s2, a2, zero
+80043844	addu   s0, a3, zero
+8004384C	sh     s1, $0000(s4)
+80043850	sh     s2, $0002(s4)
+80043854	sh     s0, $0004(s4)
+80043858	sh     zero, $000c(s4)
+8004385C	sh     zero, $000e(s4)
+80043860	sh     zero, $0010(s4)
+80043864	sh     zero, $0012(s4)
+80043868	sb     zero, $0019(s4)
+8004386C	sb     zero, $001a(s4)
+80043870	sb     zero, $001b(s4)
+[S4 + 16] = b(1);
+80043878	sb     zero, $0017(s4)
+8004387C	sh     s1, $0008(s4)
+80043880	sh     s2, $000a(s4)
+80043888	sh     s3, $0006(s4)
+
+if( bu[80062c00] != 1 )
+{
+    V0 = bu[80062c00];
+}
+
+[S4 + 14] = h(a);
+[S4 + 18] = b(0);
+V0 = S4;
+////////////////////////////////
+
+
+
+////////////////////////////////
 // func1eb2c
 8001EB34	addu   s0, a0, zero
 8001EB3C	addu   s1, a1, zero

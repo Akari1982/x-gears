@@ -10,9 +10,10 @@ FFVII.BattleType = {
 
 
 FFVII.Data = {
-    progress_game = 0,
-
     money = 0,
+
+    progress_game = 0,
+    act1_1_flags1_80 = false, -- reactor 1 blast
 
     love_point_aeris = 50,
     love_point_tifa = 30,
@@ -22,6 +23,9 @@ FFVII.Data = {
     battle_love_tifa = 100,
     battle_love_yuffie = 100,
     battle_love_barret = 100,
+
+    md1stin_potion_1 = false,
+    md1stin_potion_2 = false,
 }
 
 

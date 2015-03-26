@@ -1,5 +1,4 @@
-﻿<?xml version="1.0" encoding="ISO-8859-1"?>
-<texts>
+﻿<texts>
     <!-- Receiving Items (5000-9999) -->
-    <text id="5000">Вы получили "<item_name id="0">"!</text>
+    <dialog id="5000">Вы получили "<item_name id="0">"!</dialog>
 </texts>

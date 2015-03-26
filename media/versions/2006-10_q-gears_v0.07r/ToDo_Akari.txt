@@ -1,0 +1,88 @@
+! [ffvii] Implement all script handling opcodes.
+! [ffvii] Implement all math opcodes.
+
+! [ffvii] In PartyMenu implement showing of black background after loading. Think about it!
+
+! [ffvii] Link message speed and savemap.
+! [ffvii] Add message next page (text formatting and ROW opcode).
+
+// [ffvii] v0.10
+
+! [ffvii] Implement model animation.
+! [ffvii] Implement lighting model.
+! [ffvii] Implement model itself.
+
+// [ffvii] v0.09
+
+! [ffvii] Implement background animation related opcodes.
+! [ffvii] Implement background animation.
+! [ffvii] Implement background.
+! [ffvii] Implement Fade and fade related opcodes.
+! [ffvii] Implement screen related opcodes (SCR2D SCR2DC).
+! [ffvii] Implement screen and loading of screen related data from DAT (coords).
+
+// [ffvii] v0.08
+
+! [ffvii] Implement dialog activation.
+! [ffvii] Implement unit/unit sliding.
+! [ffvii] Implement unit/unit collision detection.
+! [ffvii] Try ODE!
+
+! [ffvii] Implement savemap pc coords storing and loading.
+
+! [ffvii] Implement showing triangle that shows gateway on map.
+! [ffvii] Add reading of triangle that shows gateway from DAT.
+! [ffvii] Add triangle that shows gateway to KERNEL.
+
+! [ffvii] Implement xml walkmesh loading.
+! [ffvii] Move Field XML loader into separate class.
+! [ffvii] Make Walkmesh separate class/struct like trigger that can draw itself.
+
+// [ffvii] v0.07
+
+- [ffvii] Implement BTLLK (0x0FFB) SPECIAL inner opcode.
+- [ffvii] Implement SPECIAL (0x0F) field opcode (without inner opcodes).
+- [ffvii] Implement PRTYP (0xC8) field opcode.
+
+- [ffvii] Implement xml encounters loading.
+- [ffvii] Implement random encounters (Mechanics by Terence Fergusson).
+- [ffvii] Read battle field info.
+- [ffvii] Implement BATTLE field opcode support.
+- [ffvii] Create placeholder for battle.
+
+- [ffvii] Implement savemap map name storing.
+- [ffvii] Implement savemap map_id storing and loading.
+
+- [ffvii] Rewrite script class. Make KERNEL Gamestate MemoryBank handling, not the FieldModule.
+- [ffvii] Make MemoryBank part of Gamestate.
+- [ffvii] Rewrite script class. Make ENUM case selection.
+- [ffvii] Rewrite script class. Make single size for opcodes in converter and parser.
+- [ffvii] Make only few opcodes executed on one iteration. Check initialization script!
+
+- [ffvii] Implement real Input handling (shown clickable window block all input to other managers).
+
+- [ffvii] Return a lot of debug info (current coords, current triangle).
+- [ffvii] Return direction line for model.
+
+// [ffvii] v0.06
+
+- [ffvii] Implement PartyMenu loading when pressing S in FieldModule (and no text was shown).
+
+- [ffvii] Implement PC opcode and controllable entity.
+
+- [ffvii] Implement xml gateway loading.
+- [ffvii] Implement real gateway activation and loading.
+- [ffvii] Read gateway info.
+
+- [ffvii] Implement map loading on gateway activation.
+
+- [ffvii] Implement triggers activation (model box / line intersection).
+- [ffvii] Implement full collision box/trigger collision.
+- [ffvii] Move trigger/collision check to trigger class.
+- [ffvii] Move object collision to Model class (implement GetCollision()).
+- [ffvii] Create separate collision class or struct.
+- [ffvii] Create separate trigger class.
+
+- [ffvii] Redone walkmesh/access (we need posibility to deactivate triangles).
+- [ffvii] Move walkmesh math to ffvii directory.
+- [ffvii] Implement map moving (separate unit, not the real game one).

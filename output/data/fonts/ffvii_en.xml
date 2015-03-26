@@ -1,4 +1,4 @@
-﻿<font name="FFVIIFont" image="fonts/ffvii_en.png" image_size="256 256" height="16">
+﻿<font name="FFVIIFont" language="English" image="fonts/ffvii_en.png" image_size="256 256" height="16">
     <char name=" " x="0" y="0" width="12" height="12" pre="0" post="-9" />
     <char name="!" x="12" y="0" width="12" height="12" pre="2" post="-7" />
     <char name="&quot;" x="24" y="0" width="12" height="12" pre="2" post="-4" />

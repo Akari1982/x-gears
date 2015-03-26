@@ -1,0 +1,180 @@
+<?xml version="1.0"?>
+<field dialogs="1" entitys="1" gateways="1">
+    <dialogs>
+        <dialog>        Next
+        Close</dialog>
+
+        <dialog>        Previous
+        Usual window
+        MD1_2
+        MD1STIN</dialog>
+
+        <dialog>Akari is a good girl!
+Are you believe this?</dialog>
+
+        <dialog> </dialog>
+    </dialogs>
+
+
+
+
+
+
+    <entitys>
+        <entity name="test">
+            <script>
+IDLCK (20,00,01)
+RET ()
+WINDOW (00,20,00,20,00,75,00,75,00)
+WSPCL (00,02,01,05)
+INC2! (01,00,00)
+WNUMB (10,00,00,00,00,00,03)
+WMODE (00,01,01)
+MESSAGE (00,03)
+IFUWL (10,00,00,64,00,01,03,00)
+RET ()
+REQ (00,01)
+MINUS2! (10,00,64,00)
+RET ()
+            </script>
+
+            <script>
+WINDOW (01,FF,00,FF,00,8A,00,2C,00)
+ASK (05,01,00,00,01,00)
+JMPF (33)
+WMODE (01,02,00)
+WINDOW (01,FF,00,EF,00,A1,00,4C,00)
+ASK (05,01,01,00,03,00)
+WMODE (01,00,00)
+JMPF (21)
+WMODE (01,02,00)
+WINDOW (01,FF,00,DF,00,8A,00,2C,00)
+MESSAGE (01,02)
+WMODE (01,00,00)
+JMPB (43)
+IFUBL (50,00,00,00,16,00)
+JMPB (39)
+IFUBL (50,00,00,00,04,00)
+JMPB (55)
+IFUBL (50,00,01,00,04,00)
+JMPB (30)
+IFUBL (50,00,02,00,0C,00)
+MAPJUMP (76,00,00,00,00,00,00,00,00)
+IFUBL (50,00,03,00,0C,00)
+MAPJUMP (74,00,00,00,00,00,00,00,00)
+RET ()
+            </script>
+        </entity>
+
+
+
+        <entity name="cloud">
+            <script>
+CHAR (00)
+PC (00)
+XYZI (00,00,00,00,00,00,00,00,01,00)
+RET ()
+RET ()
+            </script>
+        </entity>
+
+
+
+        <entity name="yufi">
+            <script>
+CHAR (03)
+XYZI (00,00,B6,FF,7E,FF,00,00,64,00)
+DIR (00,60)
+// SLIDR (00,01)
+RET ()
+RET ()
+            </script>
+
+            <script>
+WINDOW (01,00,00,00,00,8A,00,A9,00)
+ASK (05,01,00,00,09,00)
+JMPF (15)
+WINDOW (01,00,00,00,00,81,00,59,00)
+ASK (05,01,01,00,04,00)
+JMPFL (9D,00)
+IFUBL (50,00,00,00,07,00)
+JMPB (1B)
+JMPFL (90,00)
+IFUBL (50,00,01,00,0A,00)
+SETWORD (20,1E,00,00)
+JMPFL (81,00)
+IFUBL (50,00,02,00,08,00)
+SPECIAL (FB,01)
+JMPFL (74,00)
+IFUBL (50,00,03,00,08,00)
+SPECIAL (FB,00)
+JMPFL (67,00)
+IFUBL (50,00,04,00,08,00)
+SPECIAL (FC,01)
+JMPFL (5A,00)
+IFUBL (50,00,05,00,08,00)
+SPECIAL (FC,00)
+JMPFL (4D,00)
+IFUBL (50,00,06,00,07,00)
+SPECIAL (FE)
+JMPFL (41,00)
+IFUBL (50,00,07,00,29,00)
+SPECIAL (FD,00,02)
+SPECIAL (FD,01,03)
+SPECIAL (FD,02,04)
+SPECIAL (FD,03,05)
+SPECIAL (FD,05,06)
+SPECIAL (FD,06,07)
+SPECIAL (FD,08,08)
+SPECIAL (FD,04,0A)
+SPECIAL (FD,07,09)
+JMPFL (13,00)
+IFUBL (50,00,08,00,0C,00)
+MAPJUMP (74,00,00,00,00,00,00,00,00)
+RET ()
+IFUBL (50,00,00,00,08,00)
+JMPBL (C9,00)
+JMPFL (02,01)
+IFUBL (50,00,01,00,DF,00)
+AKAO (00,00,00,C0,7F,00,00,00,00,00,00,00,00)
+AKAO (00,00,00,A0,7F,00,00,00,00,00,00,00,00)
+AKAO (00,00,00,A1,7F,00,00,00,00,00,00,00,00)
+AKAO (00,00,00,A2,7F,00,00,00,00,00,00,00,00)
+AKAO (00,00,00,A3,7F,00,00,00,00,00,00,00,00)
+AKAO2 (00,00,00,C8,FF,7F,00,00,00,00,00,00,00,00)
+AKAO2 (00,00,00,E4,00,00,00,00,00,00,00,00,00,00)
+AKAO2 (00,00,00,B0,00,00,00,00,00,00,00,00,00,00)
+AKAO2 (00,00,00,B1,00,00,00,00,00,00,00,00,00,00)
+AKAO2 (00,00,00,B2,00,00,00,00,00,00,00,00,00,00)
+AKAO2 (00,00,00,B3,00,00,00,00,00,00,00,00,00,00)
+MUSIC (00)
+AKAO (00,00,00,28,3F,00,00,00,00,00,00,00,00)
+AKAO (00,00,00,29,3F,00,00,00,00,00,00,00,00)
+AKAO (00,00,00,2A,3F,00,00,00,00,00,00,00,00)
+AKAO (00,00,00,2B,3F,00,00,00,00,00,00,00,00)
+JMPFL (1E,00)
+IFUBL (50,00,02,00,0B,00)
+SPECIAL (F9)
+SPECIAL (F9)
+SPECIAL (F9)
+JMPFL (0E,00)
+IFUBL (50,00,03,00,07,00)
+BATTLE (00,E7,03)
+MHMMX ()
+            </script>
+
+            <script>
+RET ()
+            </script>
+        </entity>
+    </entitys>
+
+
+
+
+
+
+    <gateways>
+        <gateway x1="300" y1="10" z1="-300" x2="300" y2="10" z2="300" x3="0" y3="0" z3="0" map_id="116" />
+    </gateways>
+</field>

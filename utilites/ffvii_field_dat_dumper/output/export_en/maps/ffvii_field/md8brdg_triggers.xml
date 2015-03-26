@@ -1,0 +1,4 @@
+    <entity_trigger name="Gateway0" point1="-4.78906 12.6953 4.04688" point2="-1.88281 12.7891 4.04688" enabled="true" />
+    <entity_point name="Spawn_md8brdg" position="-31.4609 135.602 1.09375" rotation="180.706" />
+    <!-- map "Unknown_0x0087" -->
+<movement_rotation degree="0" />

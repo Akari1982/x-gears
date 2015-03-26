@@ -21,19 +21,17 @@ if ((hu[A0 + 0] & 0001) == 0)
     return 0;
 }
 
-if (h[A0 + 4] == -1 || h[A0 + 6] == -1)
+if (h[A0 + 4] == -1 || h[A0 + 6] == -1) // if triangle id and group ad not set
 {
     V0 = w[A0 + 24];
 
     A0 = T0; // unit id?
-    A1 = h[V0 + 14]; // place here X
-    A2 = h[V0 + 18]; // place here Y
-    A3 = h[V0 + 1c]; // place here Z
-    funcc3ec0;
+    A1 = h[V0 + 14]; // X
+    A2 = h[V0 + 18]; // Y
+    A3 = h[V0 + 1c]; // Z
+    field_place_entity_on_walkmesh;
 
-    V0 = 0 < V0;
-    V0 = V0 << 1;
-    return V0;
+    return V0 << 1; // 1 - find new pos
 }
 else
 {
@@ -41,160 +39,6 @@ else
 
     return V0;
 }
-////////////////////////////////
-
-
-
-////////////////////////////////
-// funcc3ec0
-// place character on walkmesh
-height = 7fff;
-
-FP = 0;
-
-[SP + 48] = h(-1);
-[SP + 4a] = h(-1);
-
-// our position
-[SP + 10] = h(A1);
-[SP + 12] = h(A2);
-[SP + 14] = h(A3);
-// our position
-[SP + 30] = h(A1);
-[SP + 38] = h(A2);
-[SP + 40] = h(A3);
-
-S3 = w[800c9df4] + A0 * 28;
-
-walkmesh                        = w[800c9df8]; // pointer to walkmesh file after 4 bytes header.
-walkmesh_vertex_data            = w[800c9dfc];
-walkmesh_triangle_data          = w[800c9e00];
-walkmesh_triangle_group_data    = w[800c9e0c];
-
-number_of_triangles = hu[walkmesh + 24];
-
-if (number_of_triangles != 0)
-{
-    triangle_id = 0;
-
-    Lc3f5c:	; 800C3F5C
-        [SP + 2c] = w(walkmesh_triangle_data + triangle_id * 28);
-
-        S0 = 0;
-
-        A0 = walkmesh;
-        A2 = walkmesh_triangle_data + triangle_id * 28;
-        A1 = walkmesh_triangle_group_data + h[A2 + 4] * 20;
-        A3 = SP + 10;
-        field_check_in_walkmesh_triangle;
-
-
-
-        if (V0 != 0) // if we in triangle
-        {
-            A0 = 0;
-            loopc3fa0:	; 800C3FA0
-                [walkmesh_triangle_data + A0 * 28 + 0] = h(hu[walkmesh_triangle_data + A0 * 28 + 0] & ff7f);
-                A0 = A0 + 1;
-                V0 = A0 < number_of_triangles;
-            800C3FB8	bne    v0, zero, loopc3fa0 [$800c3fa0]
-
-
-
-            [800c9ddc] = h(0); // for use in next function
-
-            A0 = S3; // entity struct pointer
-            A1 = SP + 10; // our position
-            A2 = walkmesh_triangle_data + triangle_id * 28;
-            A3 = SP + 28;
-            field_walkmesh_check_collide_with_triangle_unaccessable;
-
-            if (V0 == 0) // collided
-            {
-                A0 = S3; // entity struct pointer
-                A1 = SP + 10; // our position
-                A2 = SP + 2c; // address where we store current triangle data pointer
-                A3 = SP + 28; // side of triangle which we can't pass
-                funcc31f8;
-
-                if (V0 != 0)
-                {
-                    S0 = 1;
-                }
-            }
-            else
-            {
-                S0 = 1;
-            }
-            
-            // if we not collide
-            if (S0 != 0)
-            {
-                A0 = h[walkmesh_triangle_data + triangle_id * 28 + 6];
-                if (A0 >= 0)
-                {
-                    [SP + 18] = w(h[SP + 10]);
-                    [SP + 1c] = w(h[SP + 12]);
-                    [SP + 20] = w(h[SP + 14]);
-
-                    S0 = w[800c9e04] + A0 * 10;
-
-                    S1 = (w[S0 + 0] * (h[SP + 10] << 10)) >> 10;
-                    V0 = (w[S0 + 8] * (w[SP + 20] << 10)) >> 10;
-                    V0 = (w[S0 + c] * (w[walkmesh_triangle_data + triangle_id * 28 + 24] - S1 - V0)) >> 10;
-
-                    group_id = h[walkmesh_triangle_data + triangle_id * 28 + 4];
-
-                    [SP + 1c] = w((V0 >> 10) + h[walkmesh_triangle_group_data + group_id * 20 + c] - h[walkmesh_triangle_group_data + group_id * 20 + 6]);
-                    // set height
-                    [SP + 12] = h(hu[SP + 1c]);
-                }
-                else
-                {
-                    group_id    = h[walkmesh_triangle_data + triangle_id * 28 + 4];
-                    vertex1_id  = h[walkmesh_triangle_data + triangle_id * 28 + c];
-                    // calculate height
-                    [SP + 12] = h(hu[walkmesh_vertex_data + vertex1_id * 6 + 2] + hu[walkmesh + a] + hu[walkmesh_triangle_group_data + group_id * 20 + c]);
-                }
-
-
-
-                if (h[SP + 12] >= h[SP + 38]) // if new Y pos >= than initial Y pos
-                {
-                    if (h[SP + 12] < height) // if new Y pos < than previous height
-                    {
-                        FP = 1;
-                        height = hu[SP + 12];
-
-                        [SP + 48] = h(triangle_id);
-                        [SP + 4a] = h(hu[walkmesh_triangle_data + triangle_id * 28 + 4]); // triangle group
-                    }
-                }
-            }
-        }
-
-        triangle_id = triangle_id + 1;
-        V0 = triangle_id < number_of_triangles;
-    800C4170	bne    v0, zero, Lc3f5c [$800c3f5c]
-}
-
-
-
-if (FP == 0)
-{
-    return 0;
-}
-
-[S3 + 4] = h(hu[SP + 4a]);
-[S3 + 6] = h(hu[SP + 48]);
-
-A0 = w[S3 + 24];
-
-[A0 + 14] = w(h[SP + 30]);
-[A0 + 18] = w(height);
-[A0 + 1c] = w(h[SP + 40]);
-
-return 1;
 ////////////////////////////////
 
 

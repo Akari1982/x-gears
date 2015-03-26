@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<maps>
+    <map id="9" file_name="sector_1_train_station.mesh"/>
+    <map id="10" file_name="reactor_1.mesh"/>
+    <map id="11" file_name="reactor_1_core.mesh"/>
+    <map id="12" file_name="reactor_1_entrance.mesh"/>
+</maps>

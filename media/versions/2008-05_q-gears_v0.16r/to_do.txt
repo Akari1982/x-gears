@@ -1,0 +1,111 @@
+ToDoList
+
+
+
+v0.01
+! Think about point and click management (as additional).
+
+! Sync tile with walkmesh.
+! Tile depth sorting.
+! Tile scrolling.
+! Tile animation.
+! Tile loading.
+! Reverse scrolling and tile animation.
+! Triggers that change tiles.
+
+! Change auto-move routine to waypoint instead of direct coordinates.
+! Visualize auto move.
+! Visualize climbing and jump.
+
+! Walkmesh scrolling.
+! Walkmesh ingame view (camera).
+! Export camera.
+
+
+
+3rd alpha
+! Start module.
+! Finish module.
+! Battle module.
+
+! UI input management.
+! UI system.
+
+! Implement script auto-activation.
+! Reverse script auto activation.
+! Entity script management.
+! Reverse script flow.
+
+! Add get_direction.
+! Think about remove set direction cause we have instant turn.
+
+! Dialog window rendering.
+! Coloring font.
+- Reverse window management.
+
+! Encounters check.
+! Gateways.
+! Line and it's modification.
+
+! Add base sprite support like in Xenogears.
+
+! Export model.
+! Reverse model and model animation.
+    ! Reverse Field specific settings.
+    ! Reverse KAWAI opcode.
+    ! Test on field.
+    ! Reverse texture handling.
+
+
+
+2nd alpha
+- Console.
+- Font rendering.
+- Debug entity stats like position, rotation, triangle.
+- Debug walkmesh (draw triangle id's)
+- Debug info must be drawn under console.
+- Move exit and console button handling to input mapper.
+- Pause in game motion (F11).
+- OpenGL collision and direction debug draw fix.
+- Focus after alt+tab.
+
+- Add wait script opcode (in seconds).
+- Fix rotating in map 2.
+- Catch errors during load of lua file.
+- Debug scripts states.
+- Script map loading.
+
+- Add lock/unlock PC input.
+- Add lock/unlock triangle script command.
+
+- Add correct animation.
+- Add animation update to climb and jump.
+- Remove rotate lock from move functions (it can be done through rotate_lock command).
+- Remove direction setting from climb.
+- Fix offset relative to direction.
+- Add offset routine.
+- Add move to entity.
+- turn_to_model must take direction to model every step.
+- Move action type to field instead of model cause we use instant/linear/smooth not only for model.
+- Add model rendering.
+- Reverse model and model animation.
+    - Reverse animation opcodes.
+    - Reverse geometry.
+    - Reverse animation routine.
+    - Reverse loading.
+
+- Model auto-action to seconds instead of steps.
+
+
+
+1st alpha
+- Game button handling.
+- Input handling.
+
+- XML loader rewrite to OGRE.
+
+- Model movement.
+- Walkmesh management (enebling/disabling).
+- Walkmesh view.
+- Walkmesh loading.
+- Reverse entity movement/positioning.

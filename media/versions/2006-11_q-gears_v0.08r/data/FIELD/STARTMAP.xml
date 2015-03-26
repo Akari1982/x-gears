@@ -1,0 +1,191 @@
+<?xml version="1.0"?>
+<field dialogs="1" entitys="1" gateways="1" encounters="1" walkmesh="1">
+    <dialogs>
+        <dialog>        Next
+        Close</dialog>
+
+        <dialog>        Previous
+        Usual window
+        Battle unlock
+        Battle lock
+        Encounter table 0
+        Encounter table 1
+        Try BLACKBG1</dialog>
+
+        <dialog>Akari is a good girl!
+Do you believe this?</dialog>
+
+        <dialog> </dialog>
+
+        <dialog>Testing Map</dialog>
+
+        <dialog>Akari
+"Hello!
+My name is Akari. Oh...
+it's not my name really,
+but I like when someone
+call me that. =)"</dialog>
+
+        <dialog>Akari
+"I'm programmer here.
+I'm responsible for
+core of Q-Gears and
+field module for FFVII.
+Additionally I writing
+Xenogears engine."</dialog>
+
+        <dialog>Akari
+"Yoroshiku onegai shimasu. ^_^"</dialog>
+    </dialogs>
+
+
+
+
+
+
+    <entitys>
+        <entity name="test">
+            <script>
+MPNAM (04)
+IDLCK (20,00,01)
+RET ()
+WINDOW (00,20,00,20,00,75,00,75,00)
+WSPCL (00,02,01,05)
+INC2! (01,00,00)
+WNUMB (10,00,00,00,00,00,03)
+WMODE (00,01,01)
+MESSAGE (00,03)
+IFUWL (10,00,00,64,00,01,03,00)
+RET ()
+MINUS2! (10,00,64,00)
+RET ()</script>
+        </entity>
+
+
+
+        <entity name="cloud">
+            <script>
+CHAR (00)
+PC (00)
+XYZI (00,00,00,00,00,00,00,00,00,00)
+RET ()
+RET ()</script>
+        </entity>
+
+
+
+        <entity name="yufi">
+            <script>
+CHAR (03)
+XYZI (00,00,B6,FF,7E,FF,00,00,00,00)
+DIR (00,60)
+RET ()
+RET ()</script>
+
+            <script>
+WINDOW (01,FF,00,FF,00,8A,00,2C,00)
+ASK (05,01,00,00,01,00)
+JMPF (33)
+WMODE (01,02,00)
+WINDOW (01,FF,00,EF,00,A1,00,7C,00)
+ASK (05,01,01,00,06,00)
+WMODE (01,00,00)
+JMPF (21)
+WMODE (01,02,00)
+WINDOW (01,FF,00,DF,00,8A,00,2C,00)
+MESSAGE (01,02)
+WMODE (01,00,00)
+JMPB (43)
+IFUBL (50,00,00,00,16,00)
+JMPB (39)
+IFUBL (50,00,00,00,04,00)
+JMPB (55)
+IFUBL (50,00,01,00,04,00)
+JMPB (30)
+IFUBL (50,00,02,00,05,00)
+BTLLK (00)
+IFUBL (50,00,03,00,05,00)
+BTLLK (01)
+IFUBL (50,00,04,00,04,00)
+BTLTB (00)
+IFUBL (50,00,05,00,04,00)
+BTLTB (01)
+IFUBL (50,00,06,00,0C,00)
+MAPJUMP (5D,00,00,00,00,00,00,00,00)
+RET ()</script>
+        </entity>
+
+
+
+        <entity name="akari">
+            <script>
+CHAR (FF)
+XYZI (00,00,64,FF,00,00,00,00,00,00)
+DIR (00,40)
+RET ()
+RET ()</script>
+
+            <script>
+WINDOW (01,FF,00,00,01,9A,00,7C,00)
+MESSAGE (01,05)
+MESSAGE (01,06)
+WINDOW (01,FF,00,00,01,DA,00,2C,00)
+MESSAGE (01,07)
+RET ()</script>
+        </entity>
+    </entitys>
+
+
+
+
+
+
+    <gateways>
+        <gateway point1="300 10 -300" point2="300 10 300" position="3655 310 27432" map_id="116" />
+    </gateways>
+
+
+
+
+
+
+    <encounters>
+        <table enabled="1" rate="160">
+            <standart>
+                <encounter rate="10" scene="300" />
+                <encounter rate="10" scene="301" />
+                <encounter rate="10" scene="302" />
+                <encounter rate="10" scene="303" />
+                <encounter rate="10" scene="304" />
+                <encounter rate="10" scene="305" />
+            </standart>
+
+            <special>
+                <encounter rate="10" scene="306" />
+                <encounter rate="10" scene="307" />
+            </special>
+        </table>
+
+
+
+        <table enabled="0" rate="200">
+            <standart>
+                <encounter rate="10" scene="308" />
+                <encounter rate="64" scene="309" />
+            </standart>
+
+            <special>
+            </special>
+        </table>
+    </encounters>
+
+
+
+
+
+
+
+    <walkmesh>
+        <triangle a="400 0 100" b="-200 0 -200" c="-200 0 100" access1="-1" access2="-1" access3="-1" />
+    </walkmesh>
+</field>

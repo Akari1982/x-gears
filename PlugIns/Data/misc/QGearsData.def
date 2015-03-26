@@ -1,4 +1,0 @@
-LIBRARY Plugin_Data
-EXPORTS	
-	dllStartPlugin
-	dllStopPlugin

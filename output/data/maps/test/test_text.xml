@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<map>
+    <script file_name="maps/test/test_text.lua" />
+
+    <entity_script name="TestText" />
+</map>

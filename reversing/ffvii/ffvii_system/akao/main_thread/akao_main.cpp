@@ -5,10 +5,10 @@ V1 = hu[8009a000];
 
 [80062f8c] = w(1);
 
-if (V1 == 10 || V1 == 14 || V1 == 15 || V1 == 18 || V1 = 19)
+if( V1 == 10 || V1 == 14 || V1 == 15 || V1 == 18 || V1 = 19 )
 {
     akao_offset = w[8009a004];
-    if (bu[akao_offset + 0] != 41 && bu[akao_offset + 1] != 4b && bu[akao_offset + 2] != 41 && bu[akao_offset + 3] != 4f)
+    if( bu[akao_offset + 0] != 41 && bu[akao_offset + 1] != 4b && bu[akao_offset + 2] != 41 && bu[akao_offset + 3] != 4f )
     {
         S3 = -1;
     }
@@ -17,7 +17,7 @@ if (V1 == 10 || V1 == 14 || V1 == 15 || V1 == 18 || V1 = 19)
         S1 = hu[akao_offset + 4]; // id
         S2 = hu[akao_offset + 6]; // length
 
-        if (hu[8009a14e] == S1) // if this song is playing already
+        if( hu[8009a14e] == S1 ) // if this song is playing already
         {
             S3 = 1;
         }
@@ -27,7 +27,7 @@ if (V1 == 10 || V1 == 14 || V1 == 15 || V1 == 18 || V1 = 19)
             func29af0;
 
             A0 = SP + 10;
-            func2da30;
+            func2da30; // next play structure
 
             V0 = w[SP + 10];
             [V0 + 0] = w(w[8009a000]);
@@ -197,22 +197,20 @@ return S3;
 ////////////////////////////////
 // func29af0
 S0 = A0;
-80029B00	jal    func29a50 [$80029a50]
+func29a50;
 
-S1 = 8009c564;
+A0 = 8009c564;
+func387fc; // copy loop points
 
-A0 = S1;
-80029B10	jal    func387fc [$800387fc]
-
-if (w[8009c568] != S0)
+if( w[8009c568] != S0 )
 {
-    [8009a149] = w(S0);
+    [8009a104 + 3c] = w(S0);
+
     A0 = 0;
     80029B34	jal    func37c40 [$80037c40]
 
-    A0 = S1;
-    V0 = S0 & 100;
-    [8009c568] = w(V0);
+    A0 = 8009c564;
+    [8009c568] = w(S0 & 00000100);
     [A0] = w(1);
 
     80029B50	jal    func37e1c [$80037e1c]
@@ -225,8 +223,8 @@ if (w[8009c568] != S0)
 
 ////////////////////////////////
 // func29a50
-80029A58	jal    func38fec [$80038fec]
-80029A5C	addu   a0, zero, zero
+[8004ab2c] = w(0);
+
 80029A60	jal    func38a84 [$80038a84]
 80029A64	addu   a0, zero, zero
 80029A68	jal    func38c04 [$80038c04]
@@ -263,4 +261,26 @@ L29ac0:	; 80029AC0
 80029AD4	nop
 80029AD8	jal    func2ff4c [$8002ff4c]
 
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func38fec
+if( A0 != w[8004ab2c] )
+{
+    [8004ab2c] = w(A0);
+}
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func387fc
+// copy loop points
+
+[A0 + 4] = w(w[8004a6a4]);
+[A0 + 8] = w(w[8004a6a8]);
+[A0 + c] = w(w[8004a6ac]);
+[A0 + 10] = w(w[8004a6b0]);
 ////////////////////////////////

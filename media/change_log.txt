@@ -27,6 +27,47 @@ To Do
 
 
 
+2015-02-10
+----------
++ [Text] Add timer support to text. [Akari]
++ [Timer] Add game timer and timer functions to lua ("set_timer", "get_timer"). [Akari]
+
+2015-01-20
+----------
++ [Text] Add sprite support to text. [Akari]
+
+2014-12-15
+----------
++ [Text] Add text manager and dialogs handling. [Akari]
++ [Text] Add "set_language" command and all changes to support this feature. [Akari]
+
+2014-12-09
+----------
++ [Input] Add "bind_game_event" input command to create ingame command bindings. [Akari]
+* [Entity] Entity now uses ingame bindings instead of button hardcode. [Akari]
+
+2014-12-05
+----------
++ [Dialogs] Add "hide" method to messages. [Akari]
++ [Dialogs] Add variables to text via "set_variable" method. [Akari]
++ [UI] Add variable support to textarea element. [Akari]
++ [UI] Add pause_ok and time pause to textarea. [Akari]
+
+2014-12-02
+----------
++ [UI] Add posibility to set animation keyframe time in percent. [Akari]
+
+2014-12-01
+----------
++ [Dialogs] Add base window with text. [Akari]
++ [UI] Add overflow, next page and related states. [Akari]
++ [UI] Add feature of printing text in textarea element. [Akari]
+* [UI] Change widget "scissor" parameter to "scissor_area". Add this parameter as animatable. [Akari]
+
+2014-11-17
+----------
++ [Script] Add bindings for walkmesh functions "lock_walkmesh" and "is_locked". Also add global variable "walkmesh" for access to it. [Akari]
+
 2012-07-13
 ----------
 + [Content FFVII] Add functions to manipulate party and characters. [Akari]

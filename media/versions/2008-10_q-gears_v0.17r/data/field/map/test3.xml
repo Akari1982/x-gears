@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<map>
+    <walkmesh file_name="data/field/map/test1_wm.xml" />
+    <script file_name="data/field/map/test3.lua" />
+    <texts>
+        <dialog file_name="dialogs_mission1.xml" />
+    </texts>
+</map>

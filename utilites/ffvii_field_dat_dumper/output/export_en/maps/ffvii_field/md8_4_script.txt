@@ -1,0 +1,231 @@
+dic
+script_0:
+0238 (end 0238): music:execute_akao( 10, pointer_to_field_AKAO_0 ); -- play field music
+023a (end 023a): music:execute_akao( 20, 3f, 3d ); -- play sound
+023f (end 023f): if ( game:variable_get( "progress_game" ) == 33 ) then continue else jumpto(0254);
+0247 (end 0254): fade:black();
+0250 (end 0254): field:pc_lock(true);
+0252 (end 0254): field:menu_lock(true);
+0254 (end 0254): return
+0255 (end 0255): if ( game:variable_get( "progress_game" ) == 33 ) then continue else jumpto(02e6);
+025d (end 02e6): [NEEDS TO CHECK FADE] fade:fade( 0, 0, 512, Fade.SUBTRACT, 2, 255 );
+0266 (end 02e6): [UNREVERSED] PMJMP(85, 00);
+0269 (end 02e6): fade:wait();
+026a (end 02e6): script:wait( 1 )
+026d (end 02e6): script:request_start_sync( "bigs", "script_5", 2 )
+0270 (end 02e6): -- set window parameters (id = 1, x = 72, y = 60, width = 229, height = 57);
+027a (end 02e6): message:show_text_wait(1, 0, x, y);
+027d (end 02e6): script:request_end_sync( "bigs", "script_6", 3 )
+0280 (end 02e6): -- set window parameters (id = 1, x = 200, y = 70, width = 69, height = 41);
+028a (end 02e6): message:show_text_wait(1, 1, x, y);
+028d (end 02e6): temp5_01 = 1;
+0291 (end 02e6): script:wait( 1 )
+0294 (end 02e6): script:request_start_sync( "balette", "script_5", 2 )
+0297 (end 02e6): -- set window parameters (id = 1, x = 96, y = 70, width = 137, height = 41);
+02a1 (end 02e6): message:show_text_wait(1, 2, x, y);
+02a4 (end 02e6): script:wait( 1 )
+02a7 (end 02e6): temp5_00 = 1;
+02ab (end 02e6): if ( temp5_00 < 2 ) then continue else jumpto(02b3);
+02b1 (end 02e6): jumpto( 02ab );
+02b3 (end 02e6): script:request( "tifa", "script_3", 2 )
+02b6 (end 02e6): script:request( "cloud", "script_3", 6 )
+02b9 (end 02e6): script:request( "balette", "script_3", 6 )
+02bc (end 02e6): script:request( "bigs", "script_3", 6 )
+02bf (end 02e6): script:request( "weadge", "script_3", 6 )
+02c2 (end 02e6): if ( temp5_00 < 7 ) then continue else jumpto(02ca);
+02c8 (end 02e6): jumpto( 02c2 );
+02ca (end 02e6): script:request( "cloud", "script_4", 2 )
+02cd (end 02e6): script:request( "balette", "script_4", 2 )
+02d0 (end 02e6): script:request( "weadge", "script_4", 2 )
+02d3 (end 02e6): script:request( "bigs", "script_4", 2 )
+02d6 (end 02e6): script:request( "jesy", "script_3", 2 )
+02d9 (end 02e6): script:wait( 1.6 )
+02dc (end 02e6): field:jump_to_map(133, 1629, 60179, 15, 270);
+02e6 (end 02e6): return
+
+cloud
+script_0:
+02e8 (end 02e8): -- assosiate entity with model (CHAR) argument doesn't matter
+02ea (end 02ea): return
+02eb (end 02eb): if ( game:variable_get( "progress_game" ) == 33 ) then continue else jumpto(0309);
+02f3 (end 0309): cloud:set_position( 0.148438, 2.92969, 0 ) -- triangle_id=5
+02fe (end 0309): cloud:set_default_animation( "3" ) -- speed=1
+                 cloud:play_animation( "3" )
+0301 (end 0309): cloud:set_direction( 315 )
+0304 (end 0309): cloud:set_solid_range( 1 );
+0307 (end 0309): cloud:set_solid( false )
+0309 (end 0309): return
+
+script_3:
+030b (end 030b): cloud:play_animation_stop( "4" ) -- speed=1
+                 cloud:animation_sync()
+030e (end 030e): temp5_00 = temp5_00 + 1;
+0311 (end 0311): jumpto( 0311 );
+
+script_4:
+0314 (end 0314): cloud:set_default_animation( "2" ) -- speed=1
+                 cloud:play_animation( "2" )
+0317 (end 0317): cloud:set_move_speed( 2.57812 )
+031b (end 031b): cloud:move_to_position( "-44, 840, false );
+0321 (end 0321): return
+
+balette
+script_0:
+0322 (end 0322): -- assosiate entity with model (CHAR) argument doesn't matter
+0324 (end 0324): if ( game:variable_get( "progress_game" ) == 33 ) then continue else jumpto(033e);
+032c (end 033e): balette:set_position( -0.78125, 3.85156, 0 ) -- triangle_id=5
+0337 (end 033e): balette:set_solid_range( 1 );
+033a (end 033e): balette:set_solid( false )
+033c (end 033e): jumpto( 0344 );
+033e (end 0344): balette:set_talkable( false );
+0340 (end 0344): balette:set_solid( false )
+0342 (end 0344): balette:set_visible( false )
+0344 (end 0344): return
+0345 (end 0345): if ( game:variable_get( "progress_game" ) == 33 ) then continue else jumpto(0352);
+034d (end 0352): balette:play_animation_stop( "3", 0, 0 ) -- speed=1
+                 balette:animation_sync()
+0352 (end 0352): return
+
+script_3:
+0354 (end 0354): balette:play_animation_stop( "3" ) -- speed=1
+                 balette:animation_sync()
+0357 (end 0357): temp5_00 = temp5_00 + 1;
+035a (end 035a): jumpto( 035a );
+
+script_4:
+035d (end 035d): balette:set_default_animation( "2" ) -- speed=1
+                 balette:play_animation( "2" )
+0360 (end 0360): balette:set_move_speed( 2.34375 )
+0364 (end 0364): balette:move_to_position( "-90, 759, false );
+036a (end 036a): jumpto( 036a );
+
+script_5:
+036d (end 036d): balette:play_animation_stop( "4" ) -- speed=1
+                 balette:animation_sync()
+0370 (end 0370): return
+
+tifa
+script_0:
+0371 (end 0371): return
+0372 (end 0372): return
+
+script_3:
+0374 (end 0374): -- set window parameters (id = 0, x = 70, y = 50, width = 180, height = 57);
+037e (end 037e): message:show_text_wait(0, 3, x, y);
+0381 (end 0381): temp5_00 = temp5_00 + 1;
+0384 (end 0384): return
+
+bigs
+script_0:
+0385 (end 0385): -- assosiate entity with model (CHAR) argument doesn't matter
+0387 (end 0387): if ( game:variable_get( "progress_game" ) == 33 ) then continue else jumpto(03a1);
+038f (end 03a1): bigs:set_position( -0.320313, 5.46094, 0 ) -- triangle_id=7
+039a (end 03a1): bigs:set_solid_range( 1 );
+039d (end 03a1): bigs:set_solid( false )
+039f (end 03a1): jumpto( 03a7 );
+03a1 (end 03a7): bigs:set_talkable( false );
+03a3 (end 03a7): bigs:set_solid( false )
+03a5 (end 03a7): bigs:set_visible( false )
+03a7 (end 03a7): return
+03a8 (end 03a8): if ( game:variable_get( "progress_game" ) == 33 ) then continue else jumpto(03c2);
+03b0 (end 03c2): bigs:play_animation_stop( "3", 0, 0 ) -- speed=1
+                 bigs:animation_sync()
+03b5 (end 03c2): if ( temp5_01 == 0 ) then continue else jumpto(03bd);
+03bb (end 03c2): jumpto( 03b5 );
+03bd (end 03c2): bigs:play_animation_stop( "3" ) -- speed=1
+                 bigs:animation_sync()
+03c0 (end 03c2): jumpto( 03bd );
+03c2 (end 03c2): return
+
+script_3:
+03c4 (end 03c4): bigs:play_animation_stop( "4" ) -- speed=1
+                 bigs:animation_sync()
+03c7 (end 03c7): temp5_00 = temp5_00 + 1;
+03ca (end 03ca): jumpto( 03ca );
+
+script_4:
+03cd (end 03cd): bigs:play_animation( "5" ) -- speed=1
+                 bigs:animation_sync()
+03d0 (end 03d0): bigs:set_direction( 0 )
+03d3 (end 03d3): bigs:set_default_animation( "2" ) -- speed=1
+                 bigs:play_animation( "2" )
+03d6 (end 03d6): bigs:set_move_speed( 2.34375 )
+03da (end 03da): bigs:move_to_position( "-20, 864, false );
+03e0 (end 03e0): jumpto( 03e0 );
+
+script_5:
+03e3 (end 03e3): bigs:play_animation_stop( "6", 0, 0.3 ) -- speed=1
+                 bigs:animation_sync()
+03e8 (end 03e8): return
+
+script_6:
+03e9 (end 03e9): bigs:play_animation_stop( "6", 0.3, 0.633333 ) -- speed=1
+                 bigs:animation_sync()
+03ee (end 03ee): return
+
+jesy
+script_0:
+03ef (end 03ef): -- assosiate entity with model (CHAR) argument doesn't matter
+03f1 (end 03f1): if ( game:variable_get( "progress_game" ) == 33 ) then continue else jumpto(040e);
+03f9 (end 040e): jesy:set_position( -0.507813, 0.742188, 0 ) -- triangle_id=1
+0404 (end 040e): jesy:set_direction( 270 )
+0407 (end 040e): jesy:set_solid_range( 1 );
+040a (end 040e): jesy:set_solid( false )
+040c (end 040e): jumpto( 0414 );
+040e (end 0414): jesy:set_talkable( false );
+0410 (end 0414): jesy:set_solid( false )
+0412 (end 0414): jesy:set_visible( false )
+0414 (end 0414): return
+0415 (end 0415): if ( game:variable_get( "progress_game" ) == 33 ) then continue else jumpto(043a);
+041d (end 043a): if ( temp5_00 == 0 ) then continue else jumpto(0428);
+0423 (end 043a): jesy:play_animation_stop( "3" ) -- speed=1
+                 jesy:animation_sync()
+0426 (end 043a): jumpto( 041d );
+0428 (end 043a): music:execute_akao( 20, 3f, 0 ); -- play sound
+042d (end 043a): jesy:play_animation_stop( "4" ) -- speed=1
+                 jesy:animation_sync()
+0430 (end 043a): -- set speed of entity animation to "2"
+0434 (end 043a): jesy:play_animation_stop( "5" ) -- speed=1
+                 jesy:animation_sync()
+0437 (end 043a): temp5_00 = temp5_00 + 1;
+043a (end 043a): return
+
+script_3:
+043c (end 043c): -- set speed of entity animation to "1"
+0440 (end 0440): jesy:set_default_animation( "2" ) -- speed=1
+                 jesy:play_animation( "2" )
+0443 (end 0443): jesy:set_move_speed( 2.34375 )
+0447 (end 0447): jesy:move_to_position( "-27, 624, false );
+044d (end 044d): return
+
+weadge
+script_0:
+044e (end 044e): -- assosiate entity with model (CHAR) argument doesn't matter
+0450 (end 0450): if ( game:variable_get( "progress_game" ) == 33 ) then continue else jumpto(046a);
+0458 (end 046a): weadge:set_position( 0.53125, 1.91406, 0 ) -- triangle_id=3
+0463 (end 046a): weadge:set_solid_range( 1 );
+0466 (end 046a): weadge:set_solid( false )
+0468 (end 046a): jumpto( 0470 );
+046a (end 0470): weadge:set_talkable( false );
+046c (end 0470): weadge:set_solid( false )
+046e (end 0470): weadge:set_visible( false )
+0470 (end 0470): return
+0471 (end 0471): if ( game:variable_get( "progress_game" ) == 33 ) then continue else jumpto(0480);
+0479 (end 0480): weadge:set_direction( "jesy" )
+047b (end 0480): weadge:play_animation_stop( "3" ) -- speed=1
+                 weadge:animation_sync()
+047e (end 0480): jumpto( 047b );
+0480 (end 0480): return
+
+script_3:
+0482 (end 0482): weadge:set_default_animation( "2" ) -- speed=1
+                 weadge:play_animation( "2" )
+0485 (end 0485): temp5_00 = temp5_00 + 1;
+0488 (end 0488): jumpto( 0488 );
+
+script_4:
+048b (end 048b): weadge:set_move_speed( 2.34375 )
+048f (end 048f): weadge:move_to_position( -0.625, 5.82031 )
+                 weadge:move_sync()
+0495 (end 0495): jumpto( 0495 );
+

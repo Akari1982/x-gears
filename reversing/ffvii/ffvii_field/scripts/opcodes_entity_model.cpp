@@ -921,38 +921,33 @@ return 0;
 
 ////////////////////////////////
 // 0xA0 PC
-A0 = bu[800722C4];
-V1 = hu[800831FC + A0 * 2];
+current_entity = bu[800722C4];
+V1 = hu[800831FC + current_entity * 2];
 V0 = w[8009C6DC];
 A2 = bu[V0 + V1 + 1];
 
-[8009AD30 + A2] = b(A0); // assign entity to pc
+[8009AD30 + A2] = b(current_entity); // assign entity to pc
 
 V0 = bu[8009D391]; // party info (1st character)
 
 if (V0 == A2)
 {
-    V0 = bu[800722C4];
-    V0 = [8007EB98 + V0];
+    V0 = [8007EB98 + current_entity];
 
     V1 = w[8009C6E0];
     [V1 + 2A] = h(V0);
 }
 else
 {
-    V0 = bu[800722C4];
-    V1 = bu[8007EB98 + V0];
-    V0 = w[8009C544];
-    [V0 + V1 * 84 + 59] = b(01);
-    [V0 + V1 * 84 + 5B] = b(01);
-    [V0 + V1 * 84 + 5C] = b(00);
+    V1 = bu[8007EB98 + current_entity];
+    model_data_offset = w[8009C544];
+    [model_data_offset + V1 * 84 + 59] = b(01);
+    [model_data_offset + V1 * 84 + 5B] = b(01);
+    [model_data_offset + V1 * 84 + 5C] = b(00);
 }
 
 // move pointer by 2
-A0 = bu[800722C4];
-V1 = hu[800831FC + A0 * 2];
-V1 = V1 + 2;
-[800831FC + A0 * 2] = h(V1);
+[800831FC + current_entity * 2] = h(hu[800831FC + current_entity * 2] + 2);
 
 return 0;
 ////////////////////////////////
@@ -961,8 +956,8 @@ return 0;
 
 ////////////////////////////////
 // 0xA1 CHAR
-current_entity        = bu[800722C4];
-model_data_offset     = w[8009C544];
+current_entity = bu[800722C4];
+model_data_offset = w[8009C544];
 current_model_offset  = model_data_offset + current_model * 84;
 
 V1 = bu[8009C6C4];
@@ -986,9 +981,7 @@ V1 = bu[8007EB98 + current_entity];
 [current_model_offset + 57] = b(current_entity);
 
 // move pointer by 2
-V0 = hu[800831FC + current_entity * 2];
-V0 = V0 + 2;
-[800831FC + current_entity * 2] = h(V0);
+[800831FC + current_entity * 2] = h(hu[800831FC + current_entity * 2] + 2);
 
 return 0;
 ////////////////////////////////

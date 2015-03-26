@@ -1,0 +1,10 @@
+    <entity_trigger name="Gateway0" point1="7.59375 -22.7109 3.83594" point2="6.90625 -24.4922 3.83594" enabled="true" />
+    <entity_point name="Spawn_nrthmk" position="24.3594 252.703 0.734375" rotation="73.4118" />
+    <!-- map "ffvii_md1_2" -->
+    <entity_trigger name="Gateway1" point1="-10 -22.6328 3.83594" point2="-7.875 -24.4922 3.83594" enabled="true" />
+    <entity_point name="Spawn_nrthmk" position="0.640625 2.08594 0.0234375" rotation="271.059" />
+    <!-- map "Unknown_0x0088" -->
+    <entity_trigger name="Gateway2" point1="-0.585938 -8.125 3.83594" point2="0.585938 -8.125 3.83594" enabled="true" />
+    <entity_point name="Spawn_nrthmk" position="-5.44531 9.97656 0.03125" rotation="180.706" />
+    <!-- map "Unknown_0x0078" -->
+<movement_rotation degree="0" />

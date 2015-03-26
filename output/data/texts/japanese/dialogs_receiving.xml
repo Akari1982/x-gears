@@ -1,0 +1,4 @@
+﻿<texts>
+    <!-- Receiving Items -->
+    <dialog name="receive_potion" width="164" height="25">『<include name="item_potion" />』を手にいれた！</dialog>
+</texts>

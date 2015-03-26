@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<enemies>
+    <enemy id="16" file_name="enemy/mp.lua"/>
+    <enemy id="17" file_name="enemy/guard_hound.lua"/>
+    <enemy id="18" file_name="enemy/mono_drive.lua"/>
+    <enemy id="19" file_name="enemy/grunt.lua"/>
+    <enemy id="20" file_name="enemy/1st_ray.lua"/>
+    <enemy id="21" file_name="enemy/sweeper.lua"/>
+    <enemy id="22" file_name="enemy/guard_scorpion.lua"/>
+</enemies>

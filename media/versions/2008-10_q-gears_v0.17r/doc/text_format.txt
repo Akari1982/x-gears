@@ -1,0 +1,18 @@
+characters stored in utf-8 charset.
+
+[new_window]        clean up previos text and start output next portion.
+[pause_ok]          pauses text output till ok button pressed.
+[pause wait="%d"]   pauses text output till given amount of time is pass.
+
+[variable name="%s"]
+[character id="%d"]
+[party_character id="%d"]
+
+[colour r="%f" g="%f" b="%f"]
+
+// think about then but not now
+[rainbow]
+<fixed_width></fixed_width>
+
+// to do
+[item_name id="%d"]

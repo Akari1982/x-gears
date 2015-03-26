@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<field dialogs="1" entitys="1" gateways="1" encounters="0" walkmesh="0">
+    <dialogs>
+    </dialogs>
+
+    <entitys>
+        <entity name="cloud">
+            <script>
+CHAR (00)
+PC (00)
+RET ()
+RET ()</script>
+        </entity>
+    </entitys>
+
+    <gateways>
+        <gateway point1="972 491 -2907" point2="884 491 -3135" position="3118 94 32346" map_id="118" />
+    </gateways>
+
+    <encounters>
+    </encounters>
+
+    <walkmesh>
+    </walkmesh>
+</field>

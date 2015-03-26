@@ -1,12 +1,10 @@
 ﻿////////////////////////////////
 // func3e6e4
-if (A1 < 18 && w[80061bbc + A1 * 4] == A0)
+if( A1 < 18 && w[80061bbc + A1 * 4] == A0 )
 {
     [80061bbc + A1 * 4] = w(0);
-    V0 = 1 << A1; // channel mask
-
-    [80058b98] = w(w[80058b98] & (0 NOR V0)); // remove channel bit from SPU Voice ON mask
-    [80058bf0] = w(w[80058bf0] | V0); // add channel bit
+    [80058b98] = w(w[80058b98] & (0 NOR (1 << A1))); // remove channel bit from SPU Voice ON mask
+    [80058bf0] = w(w[80058bf0] | (1 << A1)); // add channel bit
 }
 ////////////////////////////////
 
@@ -87,7 +85,7 @@ if (hu[S2 + 14] != V1)
 }
 
 A0 = hu[S2 + 16];
-8003B568	jal    func38294 [$80038294]
+func38294;
 
 S7 = V0;
 
@@ -171,7 +169,7 @@ loop3b614:	; 8003B614
 
         A0 = channel + c4;
         A1 = bu[channel + bb];
-        8003B73C	jal    func3e5cc [$8003e5cc]
+        func3e5cc;
     }
     else
     {
@@ -181,7 +179,7 @@ loop3b614:	; 8003B614
 
         A0 = channel + c4;
         A1 = bu[channel + bb];
-        8003B76C	jal    func3e6e4 [$8003e6e4]
+        func3e6e4;
     }
 
     sound_sequence = sound_sequence + 2;

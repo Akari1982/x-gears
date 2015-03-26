@@ -1,30 +1,4 @@
 ////////////////////////////////
-// func83f40
-if( ( w[A0 + 14] & 00420000 ) == 0 && 
-    w[800ad070] == 0 &&
-    w[A0 + 30] == 0 && // X
-    w[A0 + 34] == 0 && // Y
-    w[A0 + 38] == 0 && // Z
-    w[800ad0e4] == 1 &&
-    bu[A0 + 74] == ff &&
-    (w[A0 + 0] & 00401800) == 0 &&
-    ((w[A0 + 4] & 00000001) == 0 || h[A0 + 10] != 0) &&
-    ((w[A0 + 4] & 00000002) == 0 || h[A0 + 10] != 1))
-{
-    if ((w[A0 + 4] & 00000004) == 0)
-    {
-        return 0;
-    }
-
-    return (h[A0 + 10] ^ 0002) < 1; // -1 if but 0x0002 set, 0 otherwise
-}
-
-return -1;
-////////////////////////////////
-
-
-
-////////////////////////////////
 // func821cc
 S5 = A0; // entity id
 S6 = A1; // 80114f2c 5c structure
@@ -270,6 +244,646 @@ if( ( w[S0 + 0] & 01000000) == 0 )
     [S0 + 40] = w(0);
     [S0 + 44] = w(0);
     [S0 + 48] = w(0);
+}
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func83f40
+if( ( w[A0 + 14] & 00420000 ) == 0 && 
+    w[800ad070] == 0 &&
+    w[A0 + 30] == 0 && // X
+    w[A0 + 34] == 0 && // Y
+    w[A0 + 38] == 0 && // Z
+    w[800ad0e4] == 1 &&
+    bu[A0 + 74] == ff &&
+    (w[A0 + 0] & 00401800) == 0 &&
+    ((w[A0 + 4] & 00000001) == 0 || h[A0 + 10] != 0) &&
+    ((w[A0 + 4] & 00000002) == 0 || h[A0 + 10] != 1))
+{
+    if ((w[A0 + 4] & 00000004) == 0)
+    {
+        return 0;
+    }
+
+    return (h[A0 + 10] ^ 0002) < 1; // -1 if but 0x0002 set, 0 otherwise
+}
+
+return -1;
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func7b0d4
+// main move ???
+
+// SP = SP - a8
+// A0 - some address (SP + 10) // vector to which we rotated if it not 0
+// A1 - entity structure
+// A2 - address to store line that we can't intersect
+// A3 - rotation 0x0XXX
+// return -1 if we can't move, 0 otherwise.
+
+move_vector = A0;
+entity_structure = A1;
+intersect_line = A2;
+rotation = A3;
+
+
+
+// check first rotation
+angle1 = (rotation - 100) & 0fff;
+
+A0 = angle1;
+func3f774; // cos
+[SP + 20] = w(w[move_vector + 0] + (V0 << 6));
+
+A0 = angle1;
+func3f758; // sin
+[SP + 28] = w(w[move_vector + 8] - (V0 << 6));
+
+A0 = SP + 20; // move vector
+A1 = entity_structure + 20; // current pos
+A2 = entity_structure;
+A3 = intersect_line; // address to store line that we can't intersect
+A4 = SP + 40; // address of final point
+A5 = -1; // we don't need to calculate height of final point
+A6 = SP + 70; // we store material here
+field_check_walkmesh_triangle_and_calculate_height; // 0 - can move, -1 - can't move
+
+if (V0 != -1)
+{
+    // check second rotation
+    angle2 = (rotation + 100) & 0fff;
+
+    A0 = angle2;
+    func3f774; // cos
+    [SP + 20] = w(w[move_vector + 0] + (V0 << 6));
+
+    A0 = angle2;
+    func3f758; // sin
+    [SP + 28] = w(w[move_vector + 8] - (V0 << 6));
+
+    A0 = SP + 20;
+    A1 = entity_structure + 20;
+    A2 = entity_structure;
+    A3 = intersect_line;
+    A4 = SP + 40;
+    A5 = -1;
+    A6 = SP + 70;
+    field_check_walkmesh_triangle_and_calculate_height; // 0 - can move, -1 - can't move
+
+    if (V0 != -1)
+    {
+        // check straight
+        A0 = rotation & 0fff;
+        func3f774; // cos
+        [SP + 20] = w(w[move_vector + 0] + (V0 << 6));
+
+        A0 = rotation & 0fff;
+        func3f758; // sin
+        [SP + 28] = w(w[move_vector + 8] - (V0 << 6));
+
+        A0 = SP + 20;
+        A1 = entity_structure + 20;
+        A2 = entity_structure;
+        A3 = intersect_line;
+        A4 = SP + 40;
+        A5 = -1;
+        A6 = SP + 70;
+        field_check_walkmesh_triangle_and_calculate_height; // 0 - can move, -1 - can't move
+
+        if (V0 != -1)
+        {
+            [SP + 20] = w(w[move_vector + 0]);
+            [SP + 24] = w(w[move_vector + 4]);
+            [SP + 28] = w(w[move_vector + 8]);
+            8007B274	j      L7b2a0 [$8007b2a0]
+        }
+    }
+}
+
+[SP + 20] = w(w[move_vector + 0]);
+[SP + 24] = w(w[move_vector + 4]);
+[SP + 28] = w(w[move_vector + 8]);
+
+A0 = rotation;
+A1 = intersect_line;
+A2 = SP + 20;
+field_get_move_vector_to_move_along_with_line;
+
+L7b2a0:	; 8007B2A0
+A0 = SP + 20;
+A1 = entity_structure + 20;
+A2 = entity_structure;
+A3 = intersect_line;
+A4 = SP + 40;
+A5 = 0;
+A6 = SP + 70;
+field_check_walkmesh_triangle_and_calculate_height; // check triangle
+
+if (V0 != -1)
+{
+    // store move vector
+    [SP + 30] = w(w[SP + 20]);
+    [SP + 34] = w(w[SP + 24]);
+    [SP + 38] = w(w[SP + 28]);
+
+    // store new position
+    [SP + 48] = h(hu[SP + 40]);
+    [SP + 4a] = h(hu[SP + 42]);
+    [SP + 4c] = h(hu[SP + 44]);
+
+    start_y = h[entity_structure + 26]; // y current
+    end_y = h[SP + 42]; // y calculated
+
+    // if we do something that can bother movement
+    if ((end_y < start_y) ||
+        (w[SP + 70] & 00200000) ||
+        ((w[SP + 70] & 00420000) && (w[entity_structure + 14] & 00420000)) ||
+        (((w[SP + 70] & 00420000) == 0) && (end_y < start_y + 40)))
+    {
+        V0 = w[SP + 20];
+        V0 = -V0;
+        V0 = V0 >> 8;
+        [SP + 50] = w(V0);
+
+        V1 = w[SP + 28];
+        V1 = -V1;
+        V1 = V1 >> 8;
+        [SP + 58] = w(V1);
+
+        V0 = h[SP + 42];
+        A2 = w[entity_structure + 24];
+        V0 = V0 << 10;
+        V0 = V0 - A2;
+        V0 = V0 >> 8;
+        [SP + 54] = w(V0);
+
+        A0 = SP + 50;
+        A1 = SP + 60;
+        system_normalize_word_vector_T0_T1_T2_to_word;
+
+        A0 = w[SP + 20] >> 8;
+        A1 = w[SP + 28] >> 8;
+        length_of_vector_by_x_y;
+
+        T2 = V0 * w[SP + 60];
+        V0 = V0 * w[SP + 64];
+        V1 = V0 * w[SP + 68];
+        V0 = -T2;
+        [SP + 20] = w(V0 >> 4);
+        [SP + 24] = w(T0 >> 4);
+        V0 = -V1;
+        [SP + 28] = w(V0 >> 4);
+
+        A0 = SP + 20;
+        A1 = entity_structure + 20;
+        A2 = entity_structure;
+        A3 = intersect_line;
+        [SP + 10] = w(SP + 40);
+        [SP + 14] = w(0);
+        [SP + 18] = w(SP + 70);
+        field_check_walkmesh_triangle_and_calculate_height; // check triangle
+
+        if (V0 == -1)
+        {
+            return -1;
+        }
+
+        [entity_structure + 0] = w(w[entity_structure + 0] | 04000000);
+    }
+    else
+    {
+        // restore previous position
+        [SP + 20] = w(w[SP + 30]);
+        [SP + 24] = w(w[SP + 34]);
+        [SP + 28] = w(w[SP + 38]);
+
+        [SP + 40] = h(hu[SP + 48]);
+        [SP + 42] = h(hu[SP + 4a]);
+        [SP + 44] = h(hu[SP + 4c]);
+    }
+
+    [SP + 24] = w((h[SP + 42] << 10) - w[entity_structure + 24]);
+    [move_vector + 0] = w(w[SP + 20]);
+    [move_vector + 4] = w(w[SP + 24]);
+    [move_vector + 8] = w(w[SP + 28]);
+    [entity_structure + 72] = h((w[entity_structure + 24] + w[move_vector + 4]) >> 10);
+
+    return 0;
+}
+
+return -1;
+////////////////////////////////
+
+
+
+////////////////////////////////
+// field_check_walkmesh_triangle_and_calculate_height
+// A0 - move vector
+// A1 - current pos
+// A2 - entity structure
+// A3 - address to store line that we can't intersect
+// A4 - address of final point
+// A5 - if -1 then we don't need to really calculate height of final point
+//      if 00000080 then we can go only down. Simulate material 00400000.
+// A6 - pointer to store material
+// return -1 if we can't move, 0 otherwise.
+
+move_vector             = A0;
+current_pos             = A1;
+entity_structure        = A2;
+intersect_line          = A3;
+
+walkmesh_id             = h[entity_structure + 10];
+triangle_id             = h[entity_structure + 08 + walkmesh_id * 2];
+
+walkmesh_vertex_data    = w[800af008 + walkmesh_id * 4];
+walkmesh_triangle_data  = w[800aeff8 + walkmesh_id * 4];
+walkmesh_material_data  = w[800aeff4];
+
+if( triangle_id != -1 )
+{
+    move_x              = w[move_vector + 0];
+    move_z              = w[move_vector + 8];
+    start_x             = w[current_pos + 0];
+    start_y             = w[current_pos + 4];
+    start_z             = w[current_pos + 8];
+    end_x               = (start_x + move_x) >> 10;
+    end_z               = (start_z + move_z) >> 10;
+    start_x_z           = ((start_x >> 10) << 10) + (start_z >> 10);
+    ending_point_x_z    = (end_x << 10) + end_z;
+
+    [A4 + 0] = h(end_x);
+    [A4 + 2] = h(0);
+    [A4 + 4] = h(end_z);
+
+    if( ( ( w[entity_structure + 4] >> ( walkmesh_id + 3 ) ) & 1 ) == 0 && bu[800b16a0] == 0 )
+    {
+        material_mask = ffffffff;
+    }
+    else
+    {
+        material_mask = 00000000;
+    }
+
+    material_id = bu[walkmesh_triangle_data + triangle_id * e + c];
+    material = w[walkmesh_material_data + material_id * 4];
+
+    if( ( material & material_mask & 00400000 ) || ( A5 == 00000080 ) )
+    {
+        material_go_only_down = 1;
+    }
+    else
+    {
+        material_go_only_down = 0;
+    }
+
+
+
+    triangle_check_count = 0;
+
+    L7b68c:	; 8007B68C
+        current_triangle_id = triangle_id;
+
+        V0 = h[walkmesh_triangle_data + triangle_id * e + 00];
+        a_x_z = (h[walkmesh_vertex_data + V0 * 8 + 00] << 10) + h[walkmesh_vertex_data + V0 * 8 + 04];
+
+        V0 = h[walkmesh_triangle_data + triangle_id * e + 02];
+        b_x_z = (h[walkmesh_vertex_data + V0 * 8 + 00] << 10) + h[walkmesh_vertex_data + V0 * 8 + 04];
+
+        V0 = h[walkmesh_triangle_data + triangle_id * e + 04];
+        c_x_z = (h[walkmesh_vertex_data + V0 * 8 + 00] << 10) + h[walkmesh_vertex_data + V0 * 8 + 04];
+
+        A0 = a_x_z;
+        A1 = b_x_z;
+        A2 = ending_point_x_z;
+        system_side_of_vector;
+        if( V0 < 0 )
+        {
+            S2 = S2 | 1;
+        }
+
+        A0 = b_x_z;
+        A1 = c_x_z;
+        A2 = ending_point_x_z;
+        system_side_of_vector;
+        if( V0 < 0 )
+        {
+            S2 = S2 | 2;
+        }
+
+        A0 = c_x_z;
+        A1 = a_x_z;
+        A2 = ending_point_x_z;
+        system_side_of_vector;
+        if( V0 < 0 )
+        {
+            S2 = S2 | 4;
+        }
+
+        switch( S2 )
+        {
+            case 0: // we not cross anything
+            {
+                triangle_check_count = ff;
+            }
+            break;
+
+            case 1:
+            {
+                triangle_id = h[walkmesh_triangle_data + triangle_id * e + 06];
+            }
+
+            case 2:
+            {
+                triangle_id = h[walkmesh_triangle_data + triangle_id * e + 08];
+            }
+            break;
+
+            case 3:
+            {
+                A0 = b_x_z;
+                A1 = ending_point_x_z;
+                A2 = start_x_z;
+                system_side_of_vector;
+
+                if( V0 >= 0 )
+                {
+                    triangle_id = h[walkmesh_triangle_data + triangle_id * e + 8];
+                    S2 = 2;
+                }
+                else
+                {
+                    triangle_id = h[walkmesh_triangle_data + triangle_id * e + 6];
+                    S2 = 1;
+                }
+            }
+            break;
+
+            case 4:
+            {
+                triangle_id = h[walkmesh_triangle_data + triangle_id * e + a];
+            }
+            break;
+
+            case 5:
+            {
+                A0 = a_x_z;
+                A1 = ending_point_x_z;
+                A2 = start_x_z;
+                system_side_of_vector;
+
+                if( V0 >= 0 )
+                {
+                    triangle_id = h[walkmesh_triangle_data + triangle_id * e + 6];
+                    S2 = 1;
+                }
+                else
+                {
+                    triangle_id = h[walkmesh_triangle_data + triangle_id * e + a];
+                    S2 = 4;
+                }
+            }
+            break;
+
+            case 6:
+            {
+                A0 = c_x_z;
+                A1 = ending_point_x_z;
+                A2 = start_x_z;
+                system_side_of_vector;
+
+                if( V0 >= 0 )
+                {
+                    triangle_id = h[walkmesh_triangle_data + triangle_id * e + a];
+                    S2 = 4;
+                }
+                else
+                {
+                    triangle_id = h[walkmesh_triangle_data + triangle_id * e + 8];
+                    S2 = 2;
+                }
+            }
+            break;
+
+            case 7:
+            {
+                triangle_id = -1;
+            }
+            break;
+        }
+
+        if( triangle_id == -1 )
+        {
+            break;
+        }
+
+        material_id = bu[walkmesh_triangle_data + triangle_id * e + c];
+        material = w[walkmesh_material_data + material_id * 4];
+
+        [A6] = w(material & material_mask);
+        type_of_unpassability = (w[A6] >> 5)
+
+        type_of_entity = ((w[entity_structure + 0] & 00000700) >> 8);
+
+        if( ( type_of_entity & type_of_unpassability ) || ( ( w[A6] & 10000000 ) && ( walkmesh_id == 0 ) ) )
+        {
+            triangle_id = -1;
+        }
+        else if( ( w[A6] & 00400000 ) && material_go_only_down == 0 ) // we check both triangles start and end.
+        {
+            A0 = h[walkmesh_triangle_data + triangle_id * e + 0];
+            A1 = h[walkmesh_triangle_data + triangle_id * e + 2];
+            A2 = h[walkmesh_triangle_data + triangle_id * e + 4];
+
+            A0 = walkmesh_vertex_data + A0 * 8;
+            A1 = walkmesh_vertex_data + A1 * 8;
+            A2 = walkmesh_vertex_data + A2 * 8;
+            A3 = A4;
+            A4 = SP + 18; // address to store normal
+            field_calculate_walkmesh_height;
+
+            new_y = h[A4 + 2];
+
+            if (new_y < (start_y >> 10)) // Y is less on top
+            {
+                triangle_id = -1;
+            }
+        }
+
+        if (triangle_id == -1)
+        {
+            break;
+        }
+
+        triangle_check_count = triangle_check_count + 1;
+        V0 = triangle_check_count < 20;
+    8007B970	bne    v0, zero, L7b68c [$8007b68c]
+
+
+
+    if (triangle_id != -1 && triangle_check_count != 20)
+    {
+        if (A5 != -1)
+        {
+            A0 = walkmesh_vertex_data + h[walkmesh_triangle_data + triangle_id * e + 0] * 8;
+            A1 = walkmesh_vertex_data + h[walkmesh_triangle_data + triangle_id * e + 2] * 8;
+            A2 = walkmesh_vertex_data + h[walkmesh_triangle_data + triangle_id * e + 4] * 8;
+            A3 = A4; // pos
+            A4 = SP + 18; // address to store normal
+            field_calculate_walkmesh_height;
+        }
+        return 0;
+    }
+
+
+
+    if (S2 == 1)
+    {
+        V0 = h[walkmesh_triangle_data + current_triangle_id * e + 0];
+        [intersect_line + 0] = h(hu[walkmesh_vertex_data + V0 * 8 + 0]);
+        [intersect_line + 2] = h(hu[walkmesh_vertex_data + V0 * 8 + 2]);
+        [intersect_line + 4] = h(hu[walkmesh_vertex_data + V0 * 8 + 4]);
+
+        V0 = h[walkmesh_triangle_data + current_triangle_id * e + 2];
+        [intersect_line + 8] = h(hu[walkmesh_vertex_data + V0 * 8 + 0]);
+        [intersect_line + a] = h(hu[walkmesh_vertex_data + V0 * 8 + 2]);
+        [intersect_line + c] = h(hu[walkmesh_vertex_data + V0 * 8 + 4]);
+    }
+    else if (S2 == 2)
+    {
+        V0 = h[walkmesh_triangle_data + current_triangle_id * e + 2];
+        [intersect_line + 0] = h(hu[walkmesh_vertex_data + V0 * 8 + 0]);
+        [intersect_line + 2] = h(hu[walkmesh_vertex_data + V0 * 8 + 2]);
+        [intersect_line + 4] = h(hu[walkmesh_vertex_data + V0 * 8 + 4]);
+
+        V0 = h[walkmesh_triangle_data + current_triangle_id * e + 4];
+        [intersect_line + 8] = h(hu[walkmesh_vertex_data + V0 * 8 + 0]);
+        [intersect_line + a] = h(hu[walkmesh_vertex_data + V0 * 8 + 2]);
+        [intersect_line + c] = h(hu[walkmesh_vertex_data + V0 * 8 + 4]);
+    }
+    else if (S2 == 4)
+    {
+        V0 = h[walkmesh_triangle_data + current_triangle_id * e + 4];
+        [intersect_line + 0] = h(hu[walkmesh_vertex_data + V0 * 8 + 0]);
+        [intersect_line + 2] = h(hu[walkmesh_vertex_data + V0 * 8 + 2]);
+        [intersect_line + 4] = h(hu[walkmesh_vertex_data + V0 * 8 + 4]);
+
+        V0 = h[walkmesh_triangle_data + current_triangle_id * e + 0];
+        [intersect_line + 8] = h(hu[walkmesh_vertex_data + V0 * 8 + 0]);
+        [intersect_line + a] = h(hu[walkmesh_vertex_data + V0 * 8 + 2]);
+        [intersect_line + c] = h(hu[walkmesh_vertex_data + V0 * 8 + 4]);
+    }
+}
+
+return -1;
+////////////////////////////////
+
+
+
+////////////////////////////////
+// field_calculate_walkmesh_height
+// SP = SP - 58;
+A_vec = A0;
+B_vec = A1;
+C_vec = A2;
+P_vec = A3;
+S4 = A4; // address for normal
+
+[SP + 30] = w(h[B_vec + 0] - h[A_vec + 0]);
+[SP + 34] = w(h[B_vec + 2] - h[A_vec + 2]);
+[SP + 38] = w(h[B_vec + 4] - h[A_vec + 4]);
+A0 = SP + 30;
+A1 = SP + 10;
+system_normalize_word_vector_T0_T1_T2_to_word;
+
+[SP + 30] = w(h[C_vec + 0] - h[A_vec + 0]);
+[SP + 34] = w(h[C_vec + 2] - h[A_vec + 2]);
+[SP + 38] = w(h[C_vec + 4] - h[A_vec + 4]);
+A0 = SP + 30;
+A1 = SP + 20;
+system_normalize_word_vector_T0_T1_T2_to_word;
+
+A0 = SP + 10;
+A1 = SP + 20;
+A2 = S4; // normal
+system_outer_product2_A0_A1_to_A2;
+
+if (w[S4 + 4] == 0)
+{
+    [P_vec + 2] = h(0);
+}
+else
+{
+    [P_vec + 2] = h(hu[A_vec + 2] - (w[S4 + 0] * (h[P_vec + 0] - h[A_vec + 0]) + w[S4 + 8] * (h[P_vec + 4] - h[A_vec + 4])) / w[S4 + 4]);
+}
+////////////////////////////////
+
+
+
+////////////////////////////////
+// field_get_move_vector_to_move_along_with_line
+// A0 - rotation;
+// A1 - intersect_line;
+// A2 - move_vector
+
+intersect_line = A1;
+move_vector = A2;
+
+S1 = (c00 - A0) & fff;
+
+A0 = h[intersect_line + c] - h[intersect_line + 4];
+A1 = h[intersect_line + 8] - h[intersect_line + 0];
+system_get_rotation_based_on_vector_x_y;
+
+A0 = (0 - V0) & fff; // rotation along line that we can't intersect 
+
+S1 = (S1 + A0) & fff;
+
+if ((S1 - 80) >= f01)
+{
+    [move_vector + 0] = w(0);
+    [move_vector + 4] = w(0);
+    [move_vector + 8] = w(0);
+
+    return A0;
+}
+else
+{
+    if (S1 < 800)
+    {
+        [SP + 10] = w(h[intersect_line + 0] - h[intersect_line + 8]);
+        [SP + 14] = w(0);
+        [SP + 18] = w(h[intersect_line + 4] - h[intersect_line + c]);
+
+        A0 = A0 + 800;
+    }
+    else
+    {
+        [SP + 10] = w(h[intersect_line + 8] - h[intersect_line + 0]);
+        [SP + 14] = w(0);
+        [SP + 18] = w(h[intersect_line + c] - h[intersect_line + 4]);
+    }
+
+    S3 = A0 & fff;
+
+    A0 = SP + 10;
+    A1 = SP + 20;
+    system_normalize_word_vector_T0_T1_T2_to_word;
+
+    A0 = w[move_vector + 0] >> c;
+    A1 = w[move_vector + 8] >> c;
+    length_of_vector_by_x_y;
+
+    [move_vector + 0] = w(w[SP + 20] * V0);
+    [move_vector + 4] = w(0);
+    [move_vector + 8] = w(w[SP + 28] * V0);
+
+    return S3;
 }
 ////////////////////////////////
 

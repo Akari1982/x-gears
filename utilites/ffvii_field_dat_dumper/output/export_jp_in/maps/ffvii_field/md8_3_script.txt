@@ -1,0 +1,324 @@
+dic
+script_0:
+0434 (end 0434): [UNREVERSED] BMUSC(0);
+0436 (end 0436): music:execute_akao( 10, pointer_to_field_AKAO_1 ); -- play field music
+0438 (end 0438): return
+0439 (end 0439): return
+
+cloud
+script_0:
+043b (end 043b): -- assosiate entity with model (CHAR) argument doesn't matter
+043d (end 043d): set_entity_to_character( "cloud", 0 );
+043f (end 043f): return
+0440 (end 0440): cloud:set_solid( false )
+0442 (end 0442): return
+
+tifa
+script_0:
+0444 (end 0444): -- assosiate entity with model (CHAR) argument doesn't matter
+0446 (end 0446): set_entity_to_character( "tifa", 2 );
+0448 (end 0448): return
+0449 (end 0449): return
+
+cid
+script_0:
+044b (end 044b): -- assosiate entity with model (CHAR) argument doesn't matter
+044d (end 044d): set_entity_to_character( "cid", 8 );
+044f (end 044f): return
+0450 (end 0450): return
+
+panpi1
+script_0:
+0452 (end 0452): -- assosiate entity with model (CHAR) argument doesn't matter
+0454 (end 0454): panpi1:set_position( -28.4531, 139.875, 3.10156 ) -- triangle_id=128
+045f (end 045f): return
+0460 (end 0460): return
+
+script_1:
+0461 (end 0461): field:pc_lock(true);
+0463 (end 0463): field:menu_lock(true);
+0465 (end 0465): panpi1:play_animation_stop( "3", 0, 0.466667 ) -- speed=1
+                 panpi1:animation_sync()
+046a (end 046a): message:show_text_wait(0, 3, x, y);
+046d (end 046d): panpi1:play_animation_stop( "3", 0.466667, 0.966667 ) -- speed=1
+                 panpi1:animation_sync()
+0472 (end 0472): field:pc_lock(false);
+0474 (end 0474): field:menu_lock(false);
+0476 (end 0476): return
+
+panpi2
+script_0:
+0477 (end 0477): -- assosiate entity with model (CHAR) argument doesn't matter
+0479 (end 0479): panpi2:set_position( -31.8984, 151.953, 2.74219 ) -- triangle_id=89
+0484 (end 0484): return
+0485 (end 0485): panpi2:move_to_position( -33.8281, 147.016 )
+                 panpi2:move_sync()
+048b (end 048b): panpi2:move_to_position( -32.0391, 142.914 )
+                 panpi2:move_sync()
+0491 (end 0491): panpi2:move_to_position( -29.5391, 141.492 )
+                 panpi2:move_sync()
+0497 (end 0497): panpi2:move_to_position( -28.9453, 143.188 )
+                 panpi2:move_sync()
+049d (end 049d): panpi2:move_to_position( -31.1875, 145.547 )
+                 panpi2:move_sync()
+04a3 (end 04a3): panpi2:move_to_position( -32.375, 146.938 )
+                 panpi2:move_sync()
+04a9 (end 04a9): panpi2:move_to_position( -31.8984, 151.953 )
+                 panpi2:move_sync()
+04af (end 04af): jumpto( 0485 );
+
+script_1:
+04b2 (end 04b2): field:pc_lock(true);
+04b4 (end 04b4): field:menu_lock(true);
+04b6 (end 04b6): message:show_text_wait(0, 0, x, y);
+04b9 (end 04b9): field:pc_lock(false);
+04bb (end 04bb): field:menu_lock(false);
+04bd (end 04bd): return
+
+panpi3
+script_0:
+04be (end 04be): -- assosiate entity with model (CHAR) argument doesn't matter
+04c0 (end 04c0): panpi3:set_position( -35.5703, 150.414, 2.9375 ) -- triangle_id=95
+04cb (end 04cb): panpi3:set_solid_range( 1 );
+04ce (end 04ce): panpi3:set_solid( false )
+04d0 (end 04d0): panpi3:set_talkable( false );
+04d2 (end 04d2): panpi3:set_solid( false )
+04d4 (end 04d4): panpi3:set_visible( false )
+04d6 (end 04d6): return
+04d7 (end 04d7): if ( !(game:variable_get( "act1_1_flags3" ) & (1 << 1)) ) then continue else jumpto(04ff);
+04dd (end 04ff): panpi3:set_talkable( true );
+04df (end 04ff): panpi3:set_solid( true )
+04e1 (end 04ff): panpi3:set_visible( true )
+04e3 (end 04ff): panpi3:set_move_speed( 2.34375 )
+04e7 (end 04ff): panpi3:move_to_position( -32.9766, 150.82 )
+                 panpi3:move_sync()
+04ed (end 04ff): panpi3:move_to_position( -31.2109, 152.039 )
+                 panpi3:move_sync()
+04f3 (end 04ff): panpi3:move_to_position( -23.5859, 151.852 )
+                 panpi3:move_sync()
+04f9 (end 04ff): panpi3:set_talkable( false );
+04fb (end 04ff): panpi3:set_solid( false )
+04fd (end 04ff): panpi3:set_visible( false )
+04ff (end 04ff): return
+
+panpi4
+script_0:
+0501 (end 0501): -- assosiate entity with model (CHAR) argument doesn't matter
+0503 (end 0503): panpi4:set_position( -35.5703, 150.414, 2.9375 ) -- triangle_id=95
+050e (end 050e): panpi4:set_solid_range( 1 );
+0511 (end 0511): panpi4:set_solid( false )
+0513 (end 0513): return
+0514 (end 0514): if ( !(game:variable_get( "act1_1_flags3" ) & (1 << 1)) ) then continue else jumpto(0550);
+051a (end 0550): panpi4:set_talkable( true );
+051c (end 0550): panpi4:set_solid( true )
+051e (end 0550): panpi4:set_visible( true )
+0520 (end 0550): panpi4:set_move_speed( 2.34375 )
+0524 (end 0550): panpi4:move_to_position( -31.1094, 145.008 )
+                 panpi4:move_sync()
+052a (end 0550): panpi4:move_to_position( -28.9297, 142.938 )
+                 panpi4:move_sync()
+0530 (end 0550): panpi4:move_to_position( -29.5234, 141.234 )
+                 panpi4:move_sync()
+0536 (end 0550): panpi4:move_to_position( -30.8125, 139.438 )
+                 panpi4:move_sync()
+053c (end 0550): panpi4:move_to_position( -31.4375, 135.516 )
+                 panpi4:move_sync()
+0542 (end 0550): panpi4:set_talkable( false );
+0544 (end 0550): panpi4:set_solid( false )
+0546 (end 0550): panpi4:set_visible( false )
+0548 (end 0550): game:variable_set("act1_1_flags3", (game:variable_get( "act1_1_flags3" ) | (1 << 1)));
+054c (end 0550): jumpto( 0550 );
+054e (end 0550): jumpto( 05e7 );
+0550 (end 05e7): temp5_00 = math.rand();
+0553 (end 05e7): if ( temp5_00 > 240 ) then continue else jumpto(05e2);
+0559 (end 05e7): temp5_00 = math.rand();
+055c (end 05e7): temp5_00 = temp5_00 & 3;
+0560 (end 05e7): if ( temp5_00 == 0 ) then continue else jumpto(05a1);
+0566 (end 05e7): panpi4:set_position( -35.5703, 150.414, 2.9375 ) -- triangle_id=95
+0571 (end 05e7): panpi4:set_talkable( true );
+0573 (end 05e7): panpi4:set_solid( true )
+0575 (end 05e7): panpi4:set_visible( true )
+0577 (end 05e7): panpi4:set_move_speed( 2.34375 )
+057b (end 05e7): panpi4:move_to_position( -31.1094, 145.008 )
+                 panpi4:move_sync()
+0581 (end 05e7): panpi4:move_to_position( -28.9297, 142.938 )
+                 panpi4:move_sync()
+0587 (end 05e7): panpi4:move_to_position( -29.5234, 141.234 )
+                 panpi4:move_sync()
+058d (end 05e7): panpi4:move_to_position( -30.8125, 139.438 )
+                 panpi4:move_sync()
+0593 (end 05e7): panpi4:move_to_position( -31.4375, 135.516 )
+                 panpi4:move_sync()
+0599 (end 05e7): panpi4:set_talkable( false );
+059b (end 05e7): panpi4:set_solid( false )
+059d (end 05e7): panpi4:set_visible( false )
+059f (end 05e7): jumpto( 05e0 );
+05a1 (end 05e7): if ( temp5_00 == 1 ) then continue else jumpto(05e0);
+05a7 (end 05e7): panpi4:set_position( -31.4375, 135.516, 3.10156 ) -- triangle_id=140
+05b2 (end 05e7): panpi4:set_talkable( true );
+05b4 (end 05e7): panpi4:set_solid( true )
+05b6 (end 05e7): panpi4:set_visible( true )
+05b8 (end 05e7): panpi4:set_move_speed( 2.34375 )
+05bc (end 05e7): panpi4:move_to_position( -30.8125, 139.438 )
+                 panpi4:move_sync()
+05c2 (end 05e7): panpi4:move_to_position( -29.5234, 141.234 )
+                 panpi4:move_sync()
+05c8 (end 05e7): panpi4:move_to_position( -28.9297, 142.938 )
+                 panpi4:move_sync()
+05ce (end 05e7): panpi4:move_to_position( -31.1094, 145.008 )
+                 panpi4:move_sync()
+05d4 (end 05e7): panpi4:move_to_position( -35.5703, 150.414 )
+                 panpi4:move_sync()
+05da (end 05e7): panpi4:set_talkable( false );
+05dc (end 05e7): panpi4:set_solid( false )
+05de (end 05e7): panpi4:set_visible( false )
+05e0 (end 05e7): jumpto( 05e5 );
+05e2 (end 05e7): script:wait( 3 )
+05e5 (end 05e7): jumpto( 0550 );
+05e7 (end 05e7): return
+
+panpi5
+script_0:
+05e9 (end 05e9): -- assosiate entity with model (CHAR) argument doesn't matter
+05eb (end 05eb): panpi5:set_position( -24.3828, 150.383, 3.00781 ) -- triangle_id=145
+05f6 (end 05f6): panpi5:set_solid_range( 1 );
+05f9 (end 05f9): panpi5:set_solid( false )
+05fb (end 05fb): return
+05fc (end 05fc): if ( !(game:variable_get( "act1_1_flags3" ) & (1 << 1)) ) then continue else jumpto(061e);
+0602 (end 061e): panpi5:set_talkable( true );
+0604 (end 061e): panpi5:set_solid( true )
+0606 (end 061e): panpi5:set_visible( true )
+0608 (end 061e): panpi5:set_move_speed( 2.34375 )
+060c (end 061e): panpi5:move_to_position( -28.0703, 153.313 )
+                 panpi5:move_sync()
+0612 (end 061e): panpi5:move_to_position( -28.0703, 157.18 )
+                 panpi5:move_sync()
+0618 (end 061e): panpi5:set_talkable( false );
+061a (end 061e): panpi5:set_solid( false )
+061c (end 061e): panpi5:set_visible( false )
+061e (end 061e): return
+
+panpi6
+script_0:
+0620 (end 0620): -- assosiate entity with model (CHAR) argument doesn't matter
+0622 (end 0622): panpi6:set_position( -24.3828, 150.383, 3.00781 ) -- triangle_id=145
+062d (end 062d): panpi6:set_solid_range( 1 );
+0630 (end 0630): panpi6:set_solid( false )
+0632 (end 0632): return
+0633 (end 0633): if ( !(game:variable_get( "act1_1_flags3" ) & (1 << 1)) ) then continue else jumpto(065b);
+0639 (end 065b): panpi6:set_talkable( true );
+063b (end 065b): panpi6:set_solid( true )
+063d (end 065b): panpi6:set_visible( true )
+063f (end 065b): panpi6:set_move_speed( 2.34375 )
+0643 (end 065b): panpi6:move_to_position( -27.875, 151.781 )
+                 panpi6:move_sync()
+0649 (end 065b): panpi6:move_to_position( -27.8594, 149.023 )
+                 panpi6:move_sync()
+064f (end 065b): panpi6:move_to_position( -24.9609, 146.641 )
+                 panpi6:move_sync()
+0655 (end 065b): panpi6:set_talkable( false );
+0657 (end 065b): panpi6:set_solid( false )
+0659 (end 065b): panpi6:set_visible( false )
+065b (end 065b): return
+
+panpi7
+script_0:
+065d (end 065d): -- assosiate entity with model (CHAR) argument doesn't matter
+065f (end 065f): panpi7:set_position( -35.5703, 150.414, 2.9375 ) -- triangle_id=95
+066a (end 066a): panpi7:set_solid_range( 1 );
+066d (end 066d): panpi7:set_solid( false )
+066f (end 066f): return
+0670 (end 0670): return
+
+p
+script_0:
+0672 (end 0672): -- assosiate entity with model (CHAR) argument doesn't matter
+0674 (end 0674): p:set_position( -32.6875, 140.531, 2.9375 ) -- triangle_id=110
+067f (end 067f): if ( game:variable_get( "item_mask2" ) & (1 << 0) ) then continue else jumpto(068b);
+0685 (end 068b): p:set_talkable( false );
+0687 (end 068b): p:set_solid( false )
+0689 (end 068b): p:set_visible( false )
+068b (end 068b): return
+068c (end 068c): [UNREVERSED] KAWAI(05, 0d, 00, 00);
+0691 (end 0691): script:wait( 0.0333333 )
+0694 (end 0694): [UNREVERSED] KAWAI(04, 0d, 01);
+0698 (end 0698): return
+
+script_1:
+0699 (end 0699): field:pc_lock(true);
+069b (end 069b): field:menu_lock(true);
+069d (end 069d): music:execute_akao( 2a, 3f, 1, 0, 0, 5000, 4601 );
+06ab (end 06ab): -- set window parameters (id = 1, x = 70, y = 120, width = 164, height = 25);
+06b5 (end 06b5): message:show_text_wait(1, 4, x, y);
+06b8 (end 06b8): game:variable_set("item_mask2", (game:variable_get( "item_mask2" ) | (1 << 0)));
+06bc (end 06bc): game:item_add(0, 1);
+06c1 (end 06c1): p:set_talkable( false );
+06c3 (end 06c3): p:set_solid( false )
+06c5 (end 06c5): p:set_visible( false )
+06c7 (end 06c7): field:pc_lock(false);
+06c9 (end 06c9): field:menu_lock(false);
+06cb (end 06cb): return
+
+water
+script_0:
+06cc (end 06cc): field:background_clear( "1" ); -- turns off all layer of background animation with given id
+06cf (end 06cf): field:background_on( "1", 0 ); -- turns on layer of background animation with given id
+06d3 (end 06d3): field:background_on( "1", 1 ); -- turns on layer of background animation with given id
+06d7 (end 06d7): return
+06d8 (end 06d8): script:wait( 0.133333 )
+06db (end 06db): field:background_on( "1", 1 ); -- turns on layer of background animation with given id
+06df (end 06df): field:background_off( "1", 3 ); -- turns off layer of background animation with given id
+06e3 (end 06e3): script:wait( 0.166667 )
+06e6 (end 06e6): field:background_on( "1", 2 ); -- turns on layer of background animation with given id
+06ea (end 06ea): field:background_off( "1", 0 ); -- turns off layer of background animation with given id
+06ee (end 06ee): script:wait( 0.166667 )
+06f1 (end 06f1): field:background_on( "1", 3 ); -- turns on layer of background animation with given id
+06f5 (end 06f5): field:background_off( "1", 1 ); -- turns off layer of background animation with given id
+06f9 (end 06f9): script:wait( 0.166667 )
+06fc (end 06fc): field:background_on( "1", 0 ); -- turns on layer of background animation with given id
+0700 (end 0700): field:background_off( "1", 2 ); -- turns off layer of background animation with given id
+0704 (end 0704): jumpto( 06d8 );
+
+spark
+script_0:
+0706 (end 0706): field:background_clear( "2" ); -- turns off all layer of background animation with given id
+0709 (end 0709): temp5_01 = 8;
+070d (end 070d): return
+070e (end 070e): if ( temp5_01 <= 11 ) then continue else jumpto(0735);
+0714 (end 0735): -- store palette "temp5_01" to slot "0x00" starting from clut_x="0x00" and with width="0x100"
+0719 (end 0735): script:wait( 0.0333333 )
+071c (end 0735): -- multiply palette stored in slot "0x00" with width="0x100 with values R="48", G="48", B="48" (note: 64 - 1.0f, 32 - 0.5f) and store it to slot "0x10"
+0726 (end 0735): -- copy palette stored in slot "0x00" with width="0x01 to slot "0x10"
+072b (end 0735): -- load palette "temp5_01" from slot "0x10" starting from clut_x="0x00" and with width="0x100"
+0730 (end 0735): temp5_01 = temp5_01 + 1;
+0733 (end 0735): jumpto( 070e );
+0735 (end 0735): temp5_02 = math.rand();
+0738 (end 0738): temp5_02 = temp5_02 % 4;
+073c (end 073c): if ( temp5_02 <= 1 ) then continue else jumpto(0747);
+0742 (end 0747): script:wait( 8 )
+0745 (end 0747): jumpto( 0755 );
+0747 (end 0755): if ( temp5_02 == 2 ) then continue else jumpto(0752);
+074d (end 0755): script:wait( 6 )
+0750 (end 0755): jumpto( 0755 );
+0752 (end 0755): script:wait( 4 )
+0755 (end 0755): music:execute_akao( 20, 3f, 90 ); -- play sound
+075a (end 075a): field:background_on( "2", 0 ); -- turns on layer of background animation with given id
+075e (end 075e): script:wait( 0.0666667 )
+0761 (end 0761): field:background_off( "2", 0 ); -- turns off layer of background animation with given id
+0765 (end 0765): field:background_on( "2", 1 ); -- turns on layer of background animation with given id
+0769 (end 0769): script:wait( 0.0666667 )
+076c (end 076c): field:background_off( "2", 1 ); -- turns off layer of background animation with given id
+0770 (end 0770): field:background_on( "2", 2 ); -- turns on layer of background animation with given id
+0774 (end 0774): script:wait( 0.0666667 )
+0777 (end 0777): field:background_off( "2", 2 ); -- turns off layer of background animation with given id
+077b (end 077b): field:background_on( "2", 3 ); -- turns on layer of background animation with given id
+077f (end 077f): script:wait( 0.0666667 )
+0782 (end 0782): field:background_off( "2", 3 ); -- turns off layer of background animation with given id
+0786 (end 0786): field:background_on( "2", 4 ); -- turns on layer of background animation with given id
+078a (end 078a): script:wait( 0.0666667 )
+078d (end 078d): field:background_off( "2", 4 ); -- turns off layer of background animation with given id
+0791 (end 0791): field:background_on( "2", 5 ); -- turns on layer of background animation with given id
+0795 (end 0795): script:wait( 0.0666667 )
+0798 (end 0798): field:background_off( "2", 5 ); -- turns off layer of background animation with given id
+079c (end 079c): jumpto( 0735 );
+

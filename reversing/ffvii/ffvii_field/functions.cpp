@@ -167,9 +167,9 @@ Lab7b4:	; 800AB7B4
 
 ////////////////////////////////
 // funcba65c
+S0 = A0;
 800BA65C	lui    v0, $8008
 800BA660	lbu    v0, $ebe0(v0)
-800BA66C	addu   s0, a0, zero
 800BA670	beq    v0, zero, Lba738 [$800ba738]
 
 800BA678	jal    funcd4bfc [$800d4bfc]
@@ -230,27 +230,21 @@ Lba730:	; 800BA730
 Lba738:	; 800BA738
 if (bu[80099ffc] != 4 || bu[80099ffc] != 5 || bu[80070788] != 0)
 {
-    opcode_cycle;
+    opcode_cycle();
 }
 
-800BA770	lui    v0, $8007
-800BA774	lbu    v0, $1e2c(v0)
-800BA778	nop
-800BA77C	beq    v0, zero, Lba7a8 [$800ba7a8]
-800BA780	ori    a1, zero, $0004
-800BA784	lui    a0, $8008
-800BA788	addiu  a0, a0, $3274
-800BA78C	lui    v0, $800a
-800BA790	lw     v0, $c6e0(v0)
-800BA794	nop
-800BA798	lbu    a3, $0000(v0)
-800BA79C	addu   a2, s0, zero
-800BA7A0	jal    func1f1bc [$8001f1bc]
-800BA7A4	xori   a3, a3, $0001
+if( bu[80071e2c] ) // if at least 1 window is opened
+{
+    A0 = 80083274;
+    A1 = 4; // render max 4 dialogs
+    A2 = S0;
+    V0 = w[8009c6e0]; // 8009abf4 start of game data
+    A3 = bu[V0 + 0] XOR 1;
+    func1f1bc( A0, A1, A2, A3 ); // render dialog
+}
 
-Lba7a8:	; 800BA7A8
+A0 = S0;
 800BA7A8	jal    funcbc438 [$800bc438]
-800BA7AC	addu   a0, s0, zero
 ////////////////////////////////
 
 

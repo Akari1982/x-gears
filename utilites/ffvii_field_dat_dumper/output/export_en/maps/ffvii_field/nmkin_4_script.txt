@@ -1,0 +1,186 @@
+dir
+script_0:
+02d0 (end 02d0): temp6_02 = 27;
+02d5 (end 02d5): if ( game:variable_get( "progress_game" ) == 27 ) then continue else jumpto(02f4);
+02dd (end 02f4): music:execute_akao( 29, 40, 0, 0, 0, 7200, 22 );
+02eb (end 02f4): [UNREVERSED] BTLMD(22, 00);
+02ee (end 02f4): [UNREVERSED] BMUSC(0);
+02f0 (end 02f4): music:execute_akao( 10, pointer_to_field_AKAO_0 ); -- play field music
+02f2 (end 02f4): jumpto( 0306 );
+02f4 (end 0306): music:execute_akao( 2a, 40, 0, 0, 0, f000, f601 );
+0302 (end 0306): music:execute_akao( 10, pointer_to_field_AKAO_1 ); -- play field music
+0304 (end 0306): [UNREVERSED] BMUSC(2);
+0306 (end 0306): if ( game:variable_get( "progress_game" ) > 27 ) then continue else jumpto(0314);
+030e (end 0314): field:map_name(4);
+0310 (end 0314): field:set_battle_table(1);
+0312 (end 0314): jumpto( 0316 );
+0314 (end 0316): field:map_name(3);
+0316 (end 0316): return
+0317 (end 0317): if ( game:variable_get( "progress_game" ) == 27 ) then continue else jumpto(0322);
+031f (end 0322): script:request( "time", "script_3", 6 )
+0322 (end 0322): temp6_00 = cl:get_move_triangle_id();
+0326 (end 0326): jumpto( 0322 );
+
+time
+script_0:
+0329 (end 0329): return
+032a (end 032a): return
+
+script_3:
+032c (end 032c): -- set window mode (id = 3, MessageStyle.NONE, disable input from player: true);
+0330 (end 0330): -- set window parameters (id = 3, x = 10, y = 10, width = 160, height = 70);
+033a (end 033a): [UNREVERSED] WSPCL(03, 01, 0a, 0a);
+033f (end 033f): message:show_text_wait(3, 25, x, y);
+0342 (end 0342): return
+
+timeo
+script_0:
+0343 (end 0343): return
+0344 (end 0344): if ( game:variable_get( "progress_game" ) == 27 ) then continue else jumpto(036c);
+034c (end 036c): if ( game:variable_get( "timer_minutes" ) == 0 ) then continue else jumpto(036c);
+0352 (end 036c): if ( game:variable_get( "timer_seconds" ) == 0 ) then continue else jumpto(036c);
+0358 (end 036c): if ( game:variable_get( "timer_frames" ) == 0 ) then continue else jumpto(036c);
+035e (end 036c): game:variable_set("act1_1_flags1", (game:variable_get( "act1_1_flags1" ) | (1 << 7)));
+0362 (end 036c): field:jump_to_map(119, 18, 64372, 1, 0);
+036c (end 036c): jumpto( 0344 );
+
+cl
+script_0:
+036f (end 036f): -- assosiate entity with model (CHAR) argument doesn't matter
+0371 (end 0371): set_entity_to_character( "cl", 0 );
+0373 (end 0373): return
+0374 (end 0374): if ( game:variable_get( "act1_1_flags1" ) & (1 << 1) ) then continue else jumpto(038c);
+037a (end 038c): game:variable_set("act1_1_flags1", (game:variable_get( "act1_1_flags1" ) & XOR(1 << 1)));
+037e (end 038c): field:pc_lock(true);
+0380 (end 038c): field:menu_lock(true);
+0382 (end 038c): cl:move_to_position( -0.820313, 0.5 )
+                 cl:move_sync()
+0388 (end 038c): field:pc_lock(false);
+038a (end 038c): field:menu_lock(false);
+038c (end 038c): jumpto( 038c );
+
+script_3:
+038f (end 038f): field:pc_lock(true);
+0391 (end 0391): field:menu_lock(true);
+0393 (end 0393): cl:set_direction( 180 )
+0396 (end 0396): cl:set_default_animation( "3" ) -- speed=1
+                 cl:play_animation( "3" )
+0399 (end 0399): script:wait( 0.5 )
+039c (end 039c): music:execute_akao( 20, 40, 3e ); -- play sound
+03a1 (end 03a1): cl:jump_to_position( -217, 2015, 21, 0.566667 );
+03ac (end 03ac): field:pc_lock(false);
+03ae (end 03ae): field:menu_lock(false);
+03b0 (end 03b0): cl:climb_to_position( -233, 1956, -185, 27, Entity.UP_TO_DOWN ); -- direction needs to be seted to "180" and animation during climbing is "4" with speed "1"
+03bf (end 03bf): temp6_00 = cl:get_move_triangle_id();
+03c3 (end 03c3): if ( temp6_00 != temp6_02 ) then continue else jumpto(03e4);
+03cb (end 03e4): field:pc_lock(true);
+03cd (end 03e4): field:menu_lock(true);
+03cf (end 03e4): cl:play_animation( "3", 0.5, 2.3, 1, true );
+03d4 (end 03e4): music:execute_akao( 20, 40, 3e ); -- play sound
+03d9 (end 03e4): cl:jump_to_position( -413, 1883, 18, 0.566667 );
+03e4 (end 03e4): cl:set_default_animation( "0" ) -- speed=1
+                 cl:play_animation( "0" )
+03e7 (end 03e7): field:pc_lock(false);
+03e9 (end 03e9): field:menu_lock(false);
+03eb (end 03eb): return
+
+script_4:
+03ec (end 03ec): field:pc_lock(true);
+03ee (end 03ee): field:menu_lock(true);
+03f0 (end 03f0): cl:set_solid_range( 1 );
+03f3 (end 03f3): music:execute_akao( 20, 40, 15 ); -- play sound
+03f8 (end 03f8): cl:move_to_position( -1.82031, 15.2813 )
+                 cl:move_sync()
+03fe (end 03fe): cl:set_solid_range( 30 );
+0401 (end 0401): field:pc_lock(false);
+0403 (end 0403): field:menu_lock(false);
+0405 (end 0405): cl:climb_to_position( -217, 1992, 640, 21, Entity.DOWN_TO_UP ); -- direction needs to be seted to "180" and animation during climbing is "4" with speed "1"
+0414 (end 0414): temp6_00 = cl:get_move_triangle_id();
+0418 (end 0418): if ( temp6_00 != temp6_02 ) then continue else jumpto(0439);
+0420 (end 0439): field:pc_lock(true);
+0422 (end 0439): field:menu_lock(true);
+0424 (end 0439): cl:play_animation( "3", 0.5, 2.3, 1, true );
+0429 (end 0439): music:execute_akao( 20, 40, 3e ); -- play sound
+042e (end 0439): cl:jump_to_position( -413, 1883, 18, 0.566667 );
+0439 (end 0439): cl:set_default_animation( "0" ) -- speed=1
+                 cl:play_animation( "0" )
+043c (end 043c): field:pc_lock(false);
+043e (end 043e): field:menu_lock(false);
+0440 (end 0440): return
+
+save
+script_0:
+0441 (end 0441): -- assosiate entity with model (CHAR) argument doesn't matter
+0443 (end 0443): save:set_position( 0.429688, 12.3672, -1.44531 ) -- triangle_id=36
+044e (end 044e): save:set_solid( false )
+0450 (end 0450): return
+0451 (end 0451): return
+
+savel0
+script_0:
+0453 (end 0453): -- define line point1( 127, 1609, 65351), point2(27, 1583, 65351 )
+0460 (end 0460): return
+0461 (end 0461): return
+
+script_5:
+0463 (end 0463): music:execute_akao( 20, 40, 167 ); -- play sound
+0468 (end 0468): if ( !(game:variable_get( "save_flag" ) & (1 << 1)) ) then continue else jumpto(0483);
+046e (end 0483): field:pc_lock(true);
+0470 (end 0483): field:menu_lock(true);
+0472 (end 0483): -- set window parameters (id = 0, x = 62, y = 10, width = 180, height = 57);
+047c (end 0483): message:show_text_wait(0, 26, x, y);
+047f (end 0483): field:pc_lock(false);
+0481 (end 0483): field:menu_lock(false);
+0483 (end 0483): game:variable_set("save_flag", (game:variable_get( "save_flag" ) | (1 << 1)));
+0487 (end 0487): game:variable_set("menu_selectable", game:variable_get( "menu_selectable" ) & 64767);
+048c (end 048c): return
+
+script_6:
+048d (end 048d): game:variable_set("save_flag", (game:variable_get( "save_flag" ) & XOR(1 << 1)));
+0491 (end 0491): game:variable_set("menu_selectable", game:variable_get( "menu_selectable" ) | 768);
+0496 (end 0496): return
+
+ladu0
+script_0:
+0497 (end 0497): -- define line point1( 65228, 1940, 640), point2(65077, 2051, 640 )
+04a4 (end 04a4): return
+04a5 (end 04a5): jumpto( 04a5 );
+
+script_2:
+04a8 (end 04a8): script:request_end_sync( "cl", "script_3", 6 )
+04ab (end 04ab): return
+
+ladd1
+script_0:
+04ac (end 04ac): -- define line point1( 65241, 1906, 65351), point2(65339, 1984, 65351 )
+04b9 (end 04b9): return
+04ba (end 04ba): jumpto( 04ba );
+
+script_4:
+04bd (end 04bd): if (first pressed buttons "0220") then continue else jumpto(04c9);
+04c1 (end 04c9): music:execute_akao( 20, 40, 15 ); -- play sound
+04c6 (end 04c9): script:request_end_sync( "cl", "script_4", 6 )
+04c9 (end 04c9): return
+
+smoke1
+script_0:
+04ca (end 04ca): field:background_clear( "1" ); -- turns off all layer of background animation with given id
+04cd (end 04cd): field:background_on( "1", 0 ); -- turns on layer of background animation with given id
+04d1 (end 04d1): return
+04d2 (end 04d2): script:wait( 0.133333 )
+04d5 (end 04d5): field:background_off( "1", 0 ); -- turns off layer of background animation with given id
+04d9 (end 04d9): field:background_on( "1", 1 ); -- turns on layer of background animation with given id
+04dd (end 04dd): script:wait( 0.166667 )
+04e0 (end 04e0): field:background_off( "1", 1 ); -- turns off layer of background animation with given id
+04e4 (end 04e4): field:background_on( "1", 2 ); -- turns on layer of background animation with given id
+04e8 (end 04e8): script:wait( 0.166667 )
+04eb (end 04eb): field:background_off( "1", 2 ); -- turns off layer of background animation with given id
+04ef (end 04ef): field:background_on( "1", 3 ); -- turns on layer of background animation with given id
+04f3 (end 04f3): script:wait( 0.166667 )
+04f6 (end 04f6): field:background_off( "1", 3 ); -- turns off layer of background animation with given id
+04fa (end 04fa): field:background_on( "1", 4 ); -- turns on layer of background animation with given id
+04fe (end 04fe): script:wait( 0.166667 )
+0501 (end 0501): field:background_off( "1", 4 ); -- turns off layer of background animation with given id
+0505 (end 0505): field:background_on( "1", 0 ); -- turns on layer of background animation with given id
+0509 (end 0509): jumpto( 04d2 );
+

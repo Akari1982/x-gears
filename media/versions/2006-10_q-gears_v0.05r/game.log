@@ -1,0 +1,763 @@
+[12:46:39] Set current renderer: OpenGL.
+[12:46:39] SDL init begin
+[12:46:39] SDL_INIT_VIDEO initialized
+[12:46:39] SDL video mode set 640x480, 16 bit SDL_OPENGLBLIT | SDL_HWSURFACE
+[12:46:39] Got 32 bpp (8888), 16 depth, 0 stencil
+[12:46:39] SDL init complete
+[12:46:39] OGL Vendor: Intel
+[12:46:39] OGL Renderer: Intel(R) HD Graphics
+[12:46:39] OGL Version: 4.0.0 - Build 9.17.10.2867
+[12:46:39] OGL Extensions: GL_EXT_blend_minmax GL_EXT_blend_subtract GL_EXT_blend_color GL_EXT_abgr GL_EXT_texture3D GL_EXT_clip_volume_hint GL_EXT_compiled_vertex_array GL_SGIS_texture_edge_clamp GL_SGIS_generate_mipmap GL_EXT_draw_range_elements GL_SGIS_texture_lod GL_EXT_rescale_normal GL_EXT_packed_pixels GL_EXT_texture_edge_clamp GL_EXT_separate_specular_color GL_ARB_multitexture GL_EXT_texture_env_combine GL_EXT_bgra GL_EXT_blend_func_separate GL_EXT_secondary_color GL_EXT_fog_coord GL_EXT_texture_env_add GL_ARB_texture_cube_map GL_ARB_transpose_matrix GL_ARB_texture_env_add GL_IBM_texture_mirrored_repeat GL_EXT_multi_draw_arrays GL_SUN_multi_draw_arrays GL_NV_blend_square GL_ARB_texture_compression GL_3DFX_texture_compression_FXT1 GL_EXT_texture_filter_anisotropic GL_ARB_texture_border_clamp GL_ARB_point_parameters GL_ARB_texture_env_combine GL_ARB_texture_env_dot3 GL_ARB_texture_env_crossbar GL_EXT_texture_compression_s3tc GL_ARB_shadow GL_ARB_window_pos GL_EXT_shadow_funcs GL_EXT_stencil_wrap GL_ARB_vertex_program GL_EXT_texture_rectangle GL_ARB_fragment_program GL_EXT_stencil_two_side GL_ATI_separate_stencil GL_ARB_vertex_buffer_object GL_EXT_texture_lod_bias GL_ARB_occlusion_query GL_ARB_fragment_shader GL_ARB_shader_objects GL_ARB_shading_language_100 GL_ARB_texture_non_power_of_two GL_ARB_vertex_shader GL_NV_texgen_reflection GL_ARB_point_sprite GL_ARB_fragment_program_shadow GL_EXT_blend_equation_separate GL_ARB_depth_texture GL_ARB_texture_rectangle GL_ARB_draw_buffers GL_ARB_color_buffer_float GL_ARB_half_float_pixel GL_ARB_texture_float GL_ARB_pixel_buffer_object GL_EXT_framebuffer_object GL_ARB_draw_instanced GL_ARB_half_float_vertex GL_ARB_occlusion_query2 GL_EXT_draw_buffers2 GL_WIN_swap_hint GL_EXT_texture_sRGB GL_ARB_multisample GL_EXT_packed_float GL_EXT_texture_shared_exponent GL_ARB_texture_rg GL_ARB_texture_compression_rgtc GL_NV_conditional_render GL_EXT_texture_swizzle GL_ARB_texture_gather GL_ARB_sync GL_ARB_framebuffer_sRGB GL_EXT_packed_depth_stencil GL_ARB_depth_buffer_float GL_EXT_transform_feedback GL_ARB_transform_feedback2 GL_ARB_draw_indirect GL_EXT_framebuffer_blit GL_EXT_framebuffer_multisample GL_ARB_framebuffer_object GL_EXT_texture_array GL_EXT_texture_integer GL_ARB_map_buffer_range GL_EXT_texture_snorm GL_ARB_blend_func_extended GL_INTEL_performance_queries GL_ARB_copy_buffer GL_ARB_sampler_objects GL_NV_primitive_restart GL_ARB_seamless_cube_map GL_ARB_uniform_buffer_object GL_ARB_depth_clamp GL_ARB_vertex_array_bgra GL_ARB_shader_bit_encoding GL_ARB_draw_buffers_blend GL_ARB_geometry_shader4 GL_ARB_texture_query_lod GL_ARB_explicit_attrib_location GL_ARB_draw_elements_base_vertex GL_ARB_instanced_arrays GL_ARB_fragment_coord_conventions GL_EXT_gpu_program_parameters GL_ARB_texture_buffer_object_rgb32 GL_ARB_compatibility GL_ARB_texture_rgb10_a2ui GL_ARB_texture_multisample GL_ARB_vertex_type_2_10_10_10_rev GL_ARB_timer_query GL_INTEL_map_texture GL_ARB_tessellation_shader GL_ARB_vertex_array_object GL_ARB_provoking_vertex GL_ARB_sample_shading GL_ARB_texture_cube_map_array GL_ARB_gpu_shader5 GL_ARB_gpu_shader_fp64 GL_ARB_shader_subroutine GL_ARB_transform_feedback3 
+[12:46:39] GLU Version: 1.2.2.0 Microsoft Corporation
+[12:46:39] Set SDL input handler.
+[12:46:40] SDL_INIT_TIMER initialized
+[12:46:45] Load field data/FIELD/STARTMAP.DAT
+[12:46:45] Row '' incorrect! Must contain space.
+[12:46:45] Row '' incorrect! Must contain space.
+[12:46:45] Row '' incorrect! Must contain space.
+[12:46:45] Row '' incorrect! Must contain space.
+[12:46:45] Row '' incorrect! Must contain space.
+[12:46:45] Opcode SETWORD not found!
+[12:46:45] Opcode SPECIAL not found!
+[12:46:45] Opcode SPECIAL not found!
+[12:46:45] Opcode SPECIAL not found!
+[12:46:45] Opcode SPECIAL not found!
+[12:46:45] Opcode SPECIAL not found!
+[12:46:45] Opcode SPECIAL not found!
+[12:46:45] Opcode SPECIAL not found!
+[12:46:45] Opcode SPECIAL not found!
+[12:46:45] Opcode SPECIAL not found!
+[12:46:45] Opcode SPECIAL not found!
+[12:46:45] Opcode SPECIAL not found!
+[12:46:45] Opcode SPECIAL not found!
+[12:46:45] Opcode SPECIAL not found!
+[12:46:45] Opcode SPECIAL not found!
+[12:46:45] Opcode AKAO not found!
+[12:46:45] Opcode AKAO not found!
+[12:46:45] Opcode AKAO not found!
+[12:46:45] Opcode AKAO not found!
+[12:46:45] Opcode AKAO not found!
+[12:46:45] Opcode AKAO2 not found!
+[12:46:45] Opcode AKAO2 not found!
+[12:46:45] Opcode AKAO2 not found!
+[12:46:45] Opcode AKAO2 not found!
+[12:46:45] Opcode AKAO2 not found!
+[12:46:45] Opcode AKAO2 not found!
+[12:46:45] Opcode MUSIC not found!
+[12:46:45] Opcode AKAO not found!
+[12:46:45] Opcode AKAO not found!
+[12:46:45] Opcode AKAO not found!
+[12:46:45] Opcode AKAO not found!
+[12:46:45] Opcode SPECIAL not found!
+[12:46:45] Opcode SPECIAL not found!
+[12:46:45] Opcode SPECIAL not found!
+[12:46:45] Opcode BATTLE not found!
+[12:46:45] Opcode MHMMX not found!
+[12:46:45] Row '' incorrect! Must contain space.
+[12:46:45] Field camera: vxx = -0.999756, vxy = 0.000244, vxz = -0.005127
+[12:46:45]               vyx = -0.005127, vyy = 0.014160, vyz = 1.000000
+[12:46:45]               vzx = 0.000244, vzy = 1.000000, vzz = -0.013916
+[12:46:45] Field camera position:tx = -1.425049, ty = -1321.716553, tz = 38.391846
+[12:46:46] final triangle = 0
+[12:46:46] final triangle = 0
+[12:46:46] final triangle = 0
+[12:46:46] final triangle = 0
+[12:46:46] final triangle = 0
+[12:46:46] We try to cross corner of triangle
+[12:46:46] cross = 1, prev_triangle = 0, triangle = 46
+[12:46:46] final triangle = 46
+[12:46:46] final triangle = 46
+[12:46:46] final triangle = 46
+[12:46:46] final triangle = 46
+[12:46:46] cross = 3, prev_triangle = 46, triangle = 45
+[12:46:46] final triangle = 45
+[12:46:46] final triangle = 45
+[12:46:46] final triangle = 45
+[12:46:46] final triangle = 45
+[12:46:46] final triangle = 45
+[12:46:46] final triangle = 45
+[12:46:46] We try to cross corner of triangle
+[12:46:46] cross = 3, prev_triangle = 45, triangle = 66
+[12:46:46] final triangle = 66
+[12:46:46] final triangle = 66
+[12:46:46] final triangle = 66
+[12:46:46] final triangle = 66
+[12:46:46] final triangle = 66
+[12:46:46] final triangle = 66
+[12:46:46] final triangle = 66
+[12:46:46] final triangle = 66
+[12:46:47] final triangle = 66
+[12:46:47] cross = 3, prev_triangle = 66, triangle = 65
+[12:46:47] final triangle = 65
+[12:46:47] final triangle = 65
+[12:46:47] final triangle = 65
+[12:46:47] We try to cross corner of triangle
+[12:46:47] cross = 2, prev_triangle = 65, triangle = 63
+[12:46:47] final triangle = 63
+[12:46:47] final triangle = 63
+[12:46:47] final triangle = 63
+[12:46:47] final triangle = 63
+[12:46:47] cross = 1, prev_triangle = 63, triangle = 64
+[12:46:47] final triangle = 64
+[12:46:47] final triangle = 64
+[12:46:47] final triangle = 64
+[12:46:47] final triangle = 64
+[12:46:47] final triangle = 64
+[12:46:47] final triangle = 64
+[12:46:47] final triangle = 64
+[12:46:47] final triangle = 64
+[12:46:47] final triangle = 64
+[12:46:47] final triangle = 64
+[12:46:47] final triangle = 64
+[12:46:47] final triangle = 64
+[12:46:47] We try to cross corner of triangle
+[12:46:47] cross = 2, prev_triangle = 64, triangle = 79
+[12:46:47] final triangle = 79
+[12:46:47] final triangle = 79
+[12:46:47] final triangle = 79
+[12:46:47] final triangle = 79
+[12:46:47] final triangle = 79
+[12:46:47] final triangle = 79
+[12:46:47] final triangle = 79
+[12:46:47] final triangle = 79
+[12:46:47] final triangle = 79
+[12:46:47] final triangle = 79
+[12:46:47] final triangle = 79
+[12:46:47] final triangle = 79
+[12:46:47] final triangle = 79
+[12:46:47] final triangle = 79
+[12:46:47] cross = 1, prev_triangle = 79, triangle = 80
+[12:46:47] final triangle = 80
+[12:46:47] final triangle = 80
+[12:46:47] final triangle = 80
+[12:46:47] final triangle = 80
+[12:46:47] final triangle = 80
+[12:46:47] final triangle = 80
+[12:46:47] final triangle = 80
+[12:46:47] final triangle = 80
+[12:46:47] final triangle = 80
+[12:46:47] final triangle = 80
+[12:46:47] final triangle = 80
+[12:46:47] final triangle = 80
+[12:46:47] final triangle = 80
+[12:46:47] final triangle = 80
+[12:46:47] final triangle = 80
+[12:46:47] final triangle = 80
+[12:46:47] final triangle = 80
+[12:46:47] final triangle = 80
+[12:46:47] final triangle = 80
+[12:46:47] final triangle = 80
+[12:46:50] final triangle = 80
+[12:46:50] final triangle = 80
+[12:46:50] final triangle = 80
+[12:46:50] final triangle = 80
+[12:46:50] final triangle = 80
+[12:46:50] final triangle = 80
+[12:46:50] final triangle = 80
+[12:46:50] final triangle = 80
+[12:46:50] final triangle = 80
+[12:46:50] final triangle = 80
+[12:46:50] final triangle = 80
+[12:46:50] final triangle = 80
+[12:46:52] final triangle = 80
+[12:46:52] final triangle = 80
+[12:46:52] final triangle = 80
+[12:46:52] final triangle = 80
+[12:46:52] final triangle = 80
+[12:46:52] final triangle = 80
+[12:46:52] final triangle = 80
+[12:46:52] cross = 3, prev_triangle = 80, triangle = 79
+[12:46:52] final triangle = 79
+[12:46:52] final triangle = 79
+[12:46:52] final triangle = 79
+[12:46:52] final triangle = 79
+[12:46:52] final triangle = 79
+[12:46:52] final triangle = 79
+[12:46:52] final triangle = 79
+[12:46:52] final triangle = 79
+[12:46:52] final triangle = 79
+[12:46:52] final triangle = 79
+[12:46:52] final triangle = 79
+[12:46:52] final triangle = 79
+[12:46:52] final triangle = 79
+[12:46:52] final triangle = 79
+[12:46:52] We try to cross corner of triangle
+[12:46:52] cross = 3, prev_triangle = 79, triangle = 64
+[12:46:52] final triangle = 64
+[12:46:52] final triangle = 64
+[12:46:52] final triangle = 64
+[12:46:52] final triangle = 64
+[12:46:52] final triangle = 64
+[12:46:52] final triangle = 64
+[12:46:52] final triangle = 64
+[12:46:52] final triangle = 64
+[12:46:52] final triangle = 64
+[12:46:52] final triangle = 64
+[12:46:52] final triangle = 64
+[12:46:52] final triangle = 64
+[12:46:52] cross = 3, prev_triangle = 64, triangle = 63
+[12:46:52] final triangle = 63
+[12:46:52] final triangle = 63
+[12:46:52] final triangle = 63
+[12:46:52] final triangle = 63
+[12:46:52] We try to cross corner of triangle
+[12:46:52] cross = 3, prev_triangle = 63, triangle = 65
+[12:46:52] final triangle = 65
+[12:46:52] final triangle = 65
+[12:46:52] final triangle = 65
+[12:46:52] cross = 1, prev_triangle = 65, triangle = 66
+[12:46:52] final triangle = 66
+[12:46:52] final triangle = 66
+[12:46:52] final triangle = 66
+[12:46:53] final triangle = 66
+[12:46:53] final triangle = 66
+[12:46:53] final triangle = 66
+[12:46:53] final triangle = 66
+[12:46:53] final triangle = 66
+[12:46:53] final triangle = 66
+[12:46:53] We try to cross corner of triangle
+[12:46:53] cross = 1, prev_triangle = 66, triangle = 45
+[12:46:53] final triangle = 45
+[12:46:53] final triangle = 45
+[12:46:53] final triangle = 45
+[12:46:53] final triangle = 45
+[12:46:53] final triangle = 45
+[12:46:53] final triangle = 45
+[12:46:53] cross = 1, prev_triangle = 45, triangle = 46
+[12:46:53] final triangle = 46
+[12:46:53] final triangle = 46
+[12:46:53] final triangle = 46
+[12:46:53] final triangle = 46
+[12:46:53] We try to cross corner of triangle
+[12:46:53] cross = 2, prev_triangle = 46, triangle = 0
+[12:46:53] final triangle = 0
+[12:46:53] final triangle = 0
+[12:46:53] final triangle = 0
+[12:46:53] final triangle = 0
+[12:46:53] final triangle = 0
+[12:46:53] final triangle = 0
+[12:46:53] final triangle = 0
+[12:46:53] final triangle = 0
+[12:46:53] final triangle = 0
+[12:46:53] final triangle = 0
+[12:46:53] final triangle = 0
+[12:46:53] cross = 2, prev_triangle = 0, triangle = 1
+[12:46:53] final triangle = 1
+[12:46:53] final triangle = 1
+[12:46:53] final triangle = 1
+[12:46:53] final triangle = 1
+[12:46:53] final triangle = 1
+[12:46:53] We try to cross corner of triangle
+[12:46:53] cross = 2, prev_triangle = 1, triangle = 22
+[12:46:53] final triangle = 22
+[12:46:53] final triangle = 22
+[12:46:53] final triangle = 22
+[12:46:53] final triangle = 22
+[12:46:53] final triangle = 22
+[12:46:53] final triangle = 22
+[12:46:53] final triangle = 22
+[12:46:53] final triangle = 22
+[12:46:53] cross = 1, prev_triangle = 22, triangle = 21
+[12:46:53] final triangle = 21
+[12:46:53] final triangle = 21
+[12:46:53] final triangle = 21
+[12:46:53] cross = 2, prev_triangle = 21, triangle = 31
+[12:46:53] final triangle = 31
+[12:46:53] final triangle = 31
+[12:46:53] final triangle = 31
+[12:46:53] final triangle = 31
+[12:46:53] final triangle = 31
+[12:46:53] final triangle = 31
+[12:46:53] final triangle = 31
+[12:46:53] final triangle = 31
+[12:46:53] final triangle = 31
+[12:46:53] final triangle = 31
+[12:46:53] final triangle = 31
+[12:46:53] final triangle = 31
+[12:46:53] final triangle = 31
+[12:46:53] final triangle = 31
+[12:46:53] final triangle = 31
+[12:46:53] final triangle = 31
+[12:46:53] final triangle = 31
+[12:46:53] final triangle = 31
+[12:46:53] We try to cross corner of triangle
+[12:46:53] cross = 2, prev_triangle = 31, triangle = 30
+[12:46:53] cross = 1, prev_triangle = 30, triangle = 100
+[12:46:53] cross = 1, prev_triangle = 100, triangle = 101
+[12:46:53] final triangle = 101
+[12:46:53] final triangle = 101
+[12:46:53] final triangle = 101
+[12:46:53] final triangle = 101
+[12:46:53] final triangle = 101
+[12:46:53] final triangle = 101
+[12:46:53] final triangle = 101
+[12:46:53] final triangle = 101
+[12:46:53] final triangle = 101
+[12:46:53] final triangle = 101
+[12:46:53] final triangle = 101
+[12:46:53] final triangle = 101
+[12:46:53] final triangle = 101
+[12:46:53] final triangle = 101
+[12:46:53] cross = 2, prev_triangle = 101, triangle = 102
+[12:46:53] final triangle = 102
+[12:46:53] final triangle = 102
+[12:46:53] We try to cross corner of triangle
+[12:46:53] cross = 2, prev_triangle = 102, triangle = 116
+[12:46:53] final triangle = 116
+[12:46:53] final triangle = 116
+[12:46:53] final triangle = 116
+[12:46:53] final triangle = 116
+[12:46:53] final triangle = 116
+[12:46:53] final triangle = 116
+[12:46:53] final triangle = 116
+[12:46:53] final triangle = 116
+[12:46:53] final triangle = 116
+[12:46:53] final triangle = 116
+[12:46:53] final triangle = 116
+[12:46:53] final triangle = 116
+[12:46:53] final triangle = 116
+[12:46:53] final triangle = 116
+[12:46:54] final triangle = 116
+[12:46:54] final triangle = 116
+[12:46:54] final triangle = 116
+[12:46:54] final triangle = 116
+[12:46:54] final triangle = 116
+[12:46:54] final triangle = 116
+[12:46:54] final triangle = 116
+[12:46:54] final triangle = 116
+[12:46:54] final triangle = 116
+[12:46:54] final triangle = 116
+[12:46:54] final triangle = 116
+[12:46:54] final triangle = 116
+[12:46:54] final triangle = 116
+[12:46:54] final triangle = 116
+[12:46:54] final triangle = 116
+[12:46:54] final triangle = 116
+[12:46:54] final triangle = 116
+[12:46:54] final triangle = 116
+[12:46:54] final triangle = 116
+[12:46:54] cross = 3, prev_triangle = 116, triangle = 115
+[12:46:54] final triangle = 115
+[12:46:54] final triangle = 115
+[12:46:54] final triangle = 115
+[12:46:54] final triangle = 115
+[12:46:54] final triangle = 115
+[12:46:54] final triangle = 115
+[12:46:54] final triangle = 115
+[12:46:54] final triangle = 115
+[12:46:54] final triangle = 115
+[12:46:54] final triangle = 115
+[12:46:54] final triangle = 115
+[12:46:54] final triangle = 115
+[12:46:54] final triangle = 115
+[12:46:54] final triangle = 115
+[12:46:54] We try to cross corner of triangle
+[12:46:54] cross = 2, prev_triangle = 115, triangle = 114
+[12:46:54] final triangle = 114
+[12:46:54] final triangle = 114
+[12:46:54] final triangle = 114
+[12:46:54] final triangle = 114
+[12:46:54] final triangle = 114
+[12:46:54] final triangle = 114
+[12:46:54] final triangle = 114
+[12:46:54] final triangle = 114
+[12:46:54] cross = 3, prev_triangle = 114, triangle = 113
+[12:46:54] final triangle = 113
+[12:46:54] final triangle = 113
+[12:46:55] final triangle = 113
+[12:46:56] final triangle = 113
+[12:46:56] final triangle = 113
+[12:46:56] final triangle = 113
+[12:46:56] final triangle = 113
+[12:46:56] final triangle = 113
+[12:46:56] final triangle = 113
+[12:46:56] cross = 1, prev_triangle = 113, triangle = 114
+[12:46:56] final triangle = 114
+[12:46:56] final triangle = 114
+[12:46:56] final triangle = 114
+[12:46:56] final triangle = 114
+[12:46:56] final triangle = 114
+[12:46:56] final triangle = 114
+[12:46:56] final triangle = 114
+[12:46:56] final triangle = 114
+[12:46:56] final triangle = 114
+[12:46:56] final triangle = 114
+[12:46:56] final triangle = 114
+[12:46:56] final triangle = 114
+[12:46:56] final triangle = 114
+[12:46:56] final triangle = 114
+[12:46:56] final triangle = 114
+[12:46:56] final triangle = 114
+[12:46:56] final triangle = 114
+[12:46:56] final triangle = 114
+[12:46:56] final triangle = 114
+[12:46:56] final triangle = 114
+[12:46:56] final triangle = 114
+[12:46:56] We try to cross corner of triangle
+[12:46:56] cross = 2, prev_triangle = 114, triangle = 104
+[12:46:56] final triangle = 104
+[12:46:56] final triangle = 104
+[12:46:56] final triangle = 104
+[12:46:56] final triangle = 104
+[12:46:56] final triangle = 104
+[12:46:56] final triangle = 104
+[12:46:56] final triangle = 104
+[12:46:56] final triangle = 104
+[12:46:56] final triangle = 104
+[12:46:56] final triangle = 104
+[12:46:56] final triangle = 104
+[12:46:56] final triangle = 104
+[12:46:56] final triangle = 104
+[12:46:56] final triangle = 104
+[12:46:56] final triangle = 104
+[12:46:56] final triangle = 104
+[12:46:56] final triangle = 104
+[12:46:56] final triangle = 104
+[12:46:56] cross = 1, prev_triangle = 104, triangle = 105
+[12:46:56] final triangle = 105
+[12:46:56] We try to cross corner of triangle
+[12:46:56] cross = 3, prev_triangle = 105, triangle = 14
+[12:46:56] cross = 3, prev_triangle = 14, triangle = 16
+[12:46:56] final triangle = 16
+[12:46:56] final triangle = 16
+[12:46:56] final triangle = 16
+[12:46:56] final triangle = 16
+[12:46:56] final triangle = 16
+[12:46:56] final triangle = 16
+[12:46:56] final triangle = 16
+[12:46:56] final triangle = 16
+[12:46:56] final triangle = 16
+[12:46:56] final triangle = 16
+[12:46:56] final triangle = 16
+[12:46:56] final triangle = 16
+[12:46:56] final triangle = 16
+[12:46:56] final triangle = 16
+[12:46:56] final triangle = 16
+[12:46:56] final triangle = 16
+[12:46:56] final triangle = 16
+[12:46:56] final triangle = 16
+[12:46:56] final triangle = 16
+[12:46:56] We try to cross corner of triangle
+[12:46:56] cross = 1, prev_triangle = 16, triangle = 15
+[12:46:56] cross = 3, prev_triangle = 15, triangle = 5
+[12:46:56] cross = 3, prev_triangle = 5, triangle = 4
+[12:46:56] final triangle = 4
+[12:46:56] final triangle = 4
+[12:46:56] final triangle = 4
+[12:46:56] final triangle = 4
+[12:46:56] final triangle = 4
+[12:46:56] final triangle = 4
+[12:46:56] final triangle = 4
+[12:46:56] final triangle = 4
+[12:46:57] final triangle = 4
+[12:46:57] final triangle = 4
+[12:46:57] final triangle = 4
+[12:46:57] final triangle = 4
+[12:46:57] final triangle = 4
+[12:46:57] final triangle = 4
+[12:46:57] final triangle = 4
+[12:46:57] final triangle = 4
+[12:46:57] We try to cross corner of triangle
+[12:46:57] cross = 3, prev_triangle = 4, triangle = 50
+[12:46:57] cross = 3, prev_triangle = 50, triangle = 49
+[12:46:57] final triangle = 49
+[12:46:57] final triangle = 49
+[12:46:57] final triangle = 49
+[12:46:57] final triangle = 49
+[12:46:57] final triangle = 49
+[12:46:57] final triangle = 49
+[12:46:57] final triangle = 49
+[12:46:57] final triangle = 49
+[12:46:57] final triangle = 49
+[12:46:57] final triangle = 49
+[12:46:57] final triangle = 49
+[12:46:57] final triangle = 49
+[12:46:57] final triangle = 49
+[12:46:57] final triangle = 49
+[12:46:57] final triangle = 49
+[12:46:57] final triangle = 49
+[12:46:57] final triangle = 49
+[12:46:57] We try to cross corner of triangle
+[12:46:57] cross = 2, prev_triangle = 49, triangle = 50
+[12:46:57] cross = 2, prev_triangle = 50, triangle = 4
+[12:46:57] final triangle = 4
+[12:46:57] final triangle = 4
+[12:46:57] final triangle = 4
+[12:46:57] final triangle = 4
+[12:46:57] final triangle = 4
+[12:46:57] final triangle = 4
+[12:46:57] final triangle = 4
+[12:46:57] final triangle = 4
+[12:46:57] final triangle = 4
+[12:46:57] final triangle = 4
+[12:46:57] final triangle = 4
+[12:46:57] final triangle = 4
+[12:46:59] final triangle = 4
+[12:46:59] final triangle = 4
+[12:46:59] final triangle = 4
+[12:46:59] final triangle = 4
+[12:46:59] final triangle = 4
+[12:46:59] final triangle = 4
+[12:46:59] final triangle = 4
+[12:46:59] final triangle = 4
+[12:46:59] final triangle = 4
+[12:47:02] final triangle = 4
+[12:47:02] final triangle = 4
+[12:47:02] final triangle = 4
+[12:47:02] final triangle = 4
+[12:47:02] final triangle = 4
+[12:47:02] final triangle = 4
+[12:47:02] final triangle = 4
+[12:47:02] final triangle = 4
+[12:47:02] final triangle = 4
+[12:47:02] final triangle = 4
+[12:47:03] final triangle = 4
+[12:47:03] final triangle = 4
+[12:47:03] final triangle = 4
+[12:47:03] We try to cross corner of triangle
+[12:47:03] cross = 1, prev_triangle = 4, triangle = 5
+[12:47:03] cross = 2, prev_triangle = 5, triangle = 15
+[12:47:03] cross = 2, prev_triangle = 15, triangle = 16
+[12:47:03] final triangle = 16
+[12:47:03] final triangle = 16
+[12:47:03] final triangle = 16
+[12:47:03] final triangle = 16
+[12:47:03] final triangle = 16
+[12:47:03] final triangle = 16
+[12:47:03] final triangle = 16
+[12:47:03] final triangle = 16
+[12:47:03] final triangle = 16
+[12:47:03] final triangle = 16
+[12:47:03] final triangle = 16
+[12:47:03] final triangle = 16
+[12:47:03] final triangle = 16
+[12:47:04] Load field data/FIELD/MD1STIN.DAT
+[12:47:04] Row '' incorrect! Must contain space.
+[12:47:04] Row '' incorrect! Must contain space.
+[12:47:04] Row '' incorrect! Must contain space.
+[12:47:04] Row '' incorrect! Must contain space.
+[12:47:04] Field camera: vxx = -0.992676, vxy = 0.000000, vxz = 0.120850
+[12:47:04]               vyx = 0.012939, vyy = 0.994629, vyz = 0.104980
+[12:47:04]               vzx = -0.119873, vzy = 0.105713, vzz = -0.987061
+[12:47:04] Field camera position:tx = -3645.043457, ty = -403.863037, tz = -26981.355469
+[12:47:06] final triangle = 0
+[12:47:06] cross = 3, prev_triangle = 0, triangle = 1
+[12:47:06] final triangle = 1
+[12:47:06] cross = 2, prev_triangle = 1, triangle = 24
+[12:47:06] final triangle = 24
+[12:47:07] final triangle = 24
+[12:47:07] final triangle = 24
+[12:47:07] final triangle = 24
+[12:47:07] final triangle = 24
+[12:47:07] final triangle = 24
+[12:47:07] final triangle = 24
+[12:47:07] final triangle = 24
+[12:47:07] final triangle = 24
+[12:47:07] final triangle = 24
+[12:47:07] final triangle = 24
+[12:47:07] final triangle = 24
+[12:47:07] final triangle = 24
+[12:47:07] final triangle = 24
+[12:47:07] final triangle = 24
+[12:47:07] final triangle = 24
+[12:47:07] final triangle = 24
+[12:47:07] final triangle = 24
+[12:47:07] final triangle = 24
+[12:47:07] final triangle = 24
+[12:47:07] final triangle = 24
+[12:47:07] final triangle = 24
+[12:47:07] final triangle = 24
+[12:47:07] final triangle = 24
+[12:47:07] final triangle = 24
+[12:47:07] final triangle = 24
+[12:47:07] final triangle = 24
+[12:47:07] final triangle = 24
+[12:47:07] final triangle = 24
+[12:47:07] final triangle = 24
+[12:47:07] final triangle = 24
+[12:47:07] final triangle = 24
+[12:47:07] cross = 2, prev_triangle = 24, triangle = 23
+[12:47:07] final triangle = 23
+[12:47:07] final triangle = 23
+[12:47:07] final triangle = 23
+[12:47:07] final triangle = 23
+[12:47:07] final triangle = 23
+[12:47:07] final triangle = 23
+[12:47:07] final triangle = 23
+[12:47:07] final triangle = 23
+[12:47:07] final triangle = 23
+[12:47:07] final triangle = 23
+[12:47:08] final triangle = 23
+[12:47:08] cross = 3, prev_triangle = 23, triangle = 22
+[12:47:08] final triangle = 22
+[12:47:08] final triangle = 22
+[12:47:08] final triangle = 22
+[12:47:08] final triangle = 22
+[12:47:08] final triangle = 22
+[12:47:08] final triangle = 22
+[12:47:08] final triangle = 22
+[12:47:08] final triangle = 22
+[12:47:08] final triangle = 22
+[12:47:08] final triangle = 22
+[12:47:08] final triangle = 22
+[12:47:08] final triangle = 22
+[12:47:08] final triangle = 22
+[12:47:08] final triangle = 22
+[12:47:08] cross = 3, prev_triangle = 22, triangle = 21
+[12:47:08] final triangle = 21
+[12:47:08] final triangle = 21
+[12:47:08] final triangle = 21
+[12:47:08] final triangle = 21
+[12:47:08] final triangle = 21
+[12:47:08] final triangle = 21
+[12:47:08] final triangle = 21
+[12:47:08] final triangle = 21
+[12:47:08] final triangle = 21
+[12:47:08] final triangle = 21
+[12:47:08] final triangle = 21
+[12:47:08] final triangle = 21
+[12:47:08] final triangle = 21
+[12:47:08] final triangle = 21
+[12:47:08] cross = 3, prev_triangle = 21, triangle = 20
+[12:47:08] final triangle = 20
+[12:47:08] final triangle = 20
+[12:47:08] final triangle = 20
+[12:47:08] final triangle = 20
+[12:47:08] final triangle = 20
+[12:47:08] final triangle = 20
+[12:47:08] final triangle = 20
+[12:47:08] final triangle = 20
+[12:47:08] final triangle = 20
+[12:47:08] final triangle = 20
+[12:47:08] final triangle = 20
+[12:47:08] final triangle = 20
+[12:47:08] final triangle = 20
+[12:47:08] final triangle = 20
+[12:47:08] cross = 2, prev_triangle = 20, triangle = 19
+[12:47:08] final triangle = 19
+[12:47:08] final triangle = 19
+[12:47:08] final triangle = 19
+[12:47:08] final triangle = 19
+[12:47:08] final triangle = 19
+[12:47:08] final triangle = 19
+[12:47:08] final triangle = 19
+[12:47:08] final triangle = 19
+[12:47:08] final triangle = 19
+[12:47:08] final triangle = 19
+[12:47:08] final triangle = 19
+[12:47:08] final triangle = 19
+[12:47:08] final triangle = 19
+[12:47:08] final triangle = 19
+[12:47:08] final triangle = 19
+[12:47:08] final triangle = 19
+[12:47:08] final triangle = 19
+[12:47:08] final triangle = 19
+[12:47:08] final triangle = 19
+[12:47:08] cross = 3, prev_triangle = 19, triangle = 18
+[12:47:08] final triangle = 18
+[12:47:08] final triangle = 18
+[12:47:08] final triangle = 18
+[12:47:08] final triangle = 18
+[12:47:08] final triangle = 18
+[12:47:08] final triangle = 18
+[12:47:08] final triangle = 18
+[12:47:08] final triangle = 18
+[12:47:08] final triangle = 18
+[12:47:08] final triangle = 18
+[12:47:08] final triangle = 18
+[12:47:08] final triangle = 18
+[12:47:08] final triangle = 18
+[12:47:08] final triangle = 18
+[12:47:08] final triangle = 18
+[12:47:08] final triangle = 18
+[12:47:08] cross = 2, prev_triangle = 18, triangle = 17
+[12:47:08] final triangle = 17
+[12:47:08] final triangle = 17
+[12:47:08] final triangle = 17
+[12:47:08] final triangle = 17
+[12:47:08] final triangle = 17
+[12:47:08] final triangle = 17
+[12:47:08] final triangle = 17
+[12:47:08] final triangle = 17
+[12:47:08] final triangle = 17
+[12:47:08] final triangle = 17
+[12:47:08] final triangle = 17
+[12:47:08] final triangle = 17
+[12:47:08] final triangle = 17
+[12:47:09] final triangle = 17
+[12:47:09] final triangle = 17
+[12:47:09] final triangle = 17
+[12:47:09] final triangle = 17
+[12:47:09] final triangle = 17
+[12:47:09] final triangle = 17
+[12:47:09] final triangle = 17
+[12:47:09] final triangle = 17
+[12:47:09] final triangle = 17
+[12:47:09] final triangle = 17
+[12:47:09] final triangle = 17
+[12:47:09] final triangle = 17
+[12:47:09] final triangle = 17
+[12:47:09] final triangle = 17
+[12:47:09] final triangle = 17
+[12:47:09] final triangle = 17
+[12:47:09] final triangle = 17
+[12:47:09] final triangle = 17
+[12:47:09] final triangle = 17
+[12:47:09] final triangle = 17
+[12:47:09] final triangle = 17
+[12:47:09] final triangle = 17
+[12:47:09] final triangle = 17
+[12:47:09] final triangle = 17
+[12:47:09] final triangle = 17
+[12:47:09] final triangle = 17
+[12:47:09] final triangle = 17
+[12:47:09] final triangle = 17
+[12:47:09] final triangle = 17
+[12:47:09] final triangle = 17
+[12:47:09] final triangle = 17
+[12:47:09] final triangle = 17
+[12:47:09] final triangle = 17
+[12:47:09] final triangle = 17
+[12:47:09] final triangle = 17
+[12:47:09] final triangle = 17
+[12:47:09] final triangle = 17
+[12:47:09] final triangle = 17
+[12:47:09] final triangle = 17
+[12:47:09] final triangle = 17
+[12:47:09] final triangle = 17
+[12:47:09] final triangle = 17
+[12:47:09] cross = 3, prev_triangle = 17, triangle = 16
+[12:47:09] final triangle = 16
+[12:47:09] cross = 2, prev_triangle = 16, triangle = 15
+[12:47:09] cross = 2, prev_triangle = 16, triangle = 15
+[12:47:09] final triangle = 15
+[12:47:09] final triangle = 15
+[12:47:09] final triangle = 15
+[12:47:09] final triangle = 15
+[12:47:09] final triangle = 15
+[12:47:09] final triangle = 15
+[12:47:09] final triangle = 15
+[12:47:09] final triangle = 15
+[12:47:09] final triangle = 15
+[12:47:09] final triangle = 15
+[12:47:09] final triangle = 15
+[12:47:09] final triangle = 15
+[12:47:09] final triangle = 15
+[12:47:09] final triangle = 15
+[12:47:09] final triangle = 15
+[12:47:09] final triangle = 15
+[12:47:09] final triangle = 15
+[12:47:09] final triangle = 15
+[12:47:09] final triangle = 15
+[12:47:09] final triangle = 15
+[12:47:09] final triangle = 15
+[12:47:09] final triangle = 15
+[12:47:09] final triangle = 15
+[12:47:09] final triangle = 15
+[12:47:09] final triangle = 15
+[12:47:09] final triangle = 15
+[12:47:09] final triangle = 15
+[12:47:09] final triangle = 15
+[12:47:10] final triangle = 15
+[12:47:15] SDL_QUIT: shutting down
+[12:47:15] SDL quited.

@@ -244,8 +244,8 @@ EntityContainer[ "Gateway1" ] = {
     end,
 
     on_cross_line = function( self, entity )
-        if entity == "Player" then
-            --load_field_map_request( "", "" )
+        if entity == "Cloud" then
+            load_field_map_request( "ffvii_nrthmk", "Spawn_md1_2" )
         end
 
         return 0

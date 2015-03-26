@@ -310,16 +310,16 @@ L1d6ec:	; 8001D6EC
                             S5 = letter + S7; // opcode + offset in table if extended opcode used
                             A1 = w[800707c0] + S5; // offset to font padding
 
-                            if (dialog_width < pos_x + (bu[A1] >> 5) + (bu[A1] & 1f)) // if this letter is on next row
+                            if( dialog_width < pos_x + ( bu[A1] >> 5 ) + ( bu[A1] & 1f ) ) // if this letter is on next row
                             {
                                 pos_x = 8;
                                 pos_y = pos_y + 10;
                                 [GP + 258] = w(w[GP + 258] + 1);
                             }
 
-                            if (w[GP + 80] == 0) // if not monowidth
+                            if( w[GP + 80] == 0 ) // if not monowidth
                             {
-                                pos_x = pos_x + (bu[A1] >> 5);
+                                pos_x = pos_x + ( bu[A1] >> 5 );
                             }
 
                             V1 = w[80062f24];
@@ -814,4 +814,184 @@ L26f10:	; 80026F10
 80026F38	addiu  sp, sp, $0050
 80026F3C	jr     ra 
 80026F40	nop
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func1ec70
+// draw timer
+8001EC78	addu   s4, a0, zero
+8001EC80	addu   s5, a1, zero
+S3 = A2;
+8001EC8C	lui    v1, $8006
+8001EC90	lw     v1, $2f24(v1)
+8001EC94	ori    v0, zero, $0004
+8001ECA8	sb     v0, $0003(v1)
+8001ECAC	lui    v1, $8006
+8001ECB0	lw     v1, $2f24(v1)
+8001ECB4	ori    v0, zero, $0064
+8001ECB8	sb     v0, $0007(v1)
+8001ECBC	lui    a0, $8006
+8001ECC0	lw     a0, $2f24(a0)
+8001ECC4	jal    system_change_brightness_calculation_in_packet [$80046870]
+8001ECC8	ori    a1, zero, $0001
+8001ECCC	lui    v1, $8006
+8001ECD0	lw     v1, $2f24(v1)
+8001ECD4	addiu  v0, s4, $0020
+8001ECD8	sh     v0, $0008(v1)
+8001ECDC	lui    v0, $8006
+8001ECE0	lw     v0, $2f24(v0)
+8001ECE4	nop
+8001ECE8	sh     s5, $000a(v0)
+8001ECF0	lui    v1, $8006
+8001ECF4	lw     v1, $2f24(v1)
+if( ( S3 & 1 ) == 0 )
+{
+    V0 = a0;
+}
+else
+{
+    V0 = a8;
+}
+
+8001ED04	sb     v0, $000c(v1)
+8001ED08	ori    a0, zero, $0100
+8001ED0C	ori    a1, zero, $01ec
+8001ED10	lui    v1, $8006
+8001ED14	lw     v1, $2f24(v1)
+8001ED18	ori    v0, zero, $0050
+8001ED1C	sb     v0, $000d(v1)
+8001ED20	lui    v1, $8006
+8001ED24	lw     v1, $2f24(v1)
+8001ED28	ori    v0, zero, $0008
+8001ED2C	sh     v0, $0010(v1)
+8001ED30	lui    v1, $8006
+8001ED34	lw     v1, $2f24(v1)
+8001ED38	ori    v0, zero, $0015
+8001ED3C	jal    func46634 [$80046634]
+8001ED40	sh     v0, $0012(v1)
+8001ED44	lui    v1, $8006
+8001ED48	lw     v1, $2f24(v1)
+8001ED4C	nop
+8001ED50	sh     v0, $000e(v1)
+8001ED54	lui    a1, $8006
+8001ED58	lw     a1, $2f24(a1)
+8001ED5C	lui    a0, $8006
+8001ED60	lw     a0, $2fc4(a0)
+8001ED64	addiu  v0, a1, $0014
+8001ED68	lui    at, $8006
+8001ED6C	sw     v0, $2f24(at)
+8001ED70	jal    system_add_render_packet_to_queue [$80046794]
+8001ED74	nop
+
+S2 = 0;
+if( S3 >= 1770 )
+{
+    S3 = 176f; // 99min 59sec
+}
+
+S1 = 80049214;
+
+loop1ed90:	; 8001ED90
+    S0 = w[S1];
+    S0 = S3 / S0;
+
+    8001EDC4	lui    v1, $8006
+    8001EDC8	lw     v1, $2f24(v1)
+    8001EDCC	ori    v0, zero, $0004
+    8001EDD0	sb     v0, $0003(v1)
+    8001EDD4	lui    v1, $8006
+    8001EDD8	lw     v1, $2f24(v1)
+    8001EDDC	ori    v0, zero, $0064
+    8001EDE0	sb     v0, $0007(v1)
+    8001EDE4	lui    a0, $8006
+    8001EDE8	lw     a0, $2f24(a0)
+    8001EDEC	jal    system_change_brightness_calculation_in_packet [$80046870]
+    8001EDF0	ori    a1, zero, $0001
+    8001EDF4	lui    v0, $6666
+    8001EDF8	ori    v0, v0, $6667
+    8001EDFC	mult   s0, v0
+    8001EE00	lui    v0, $8006
+    8001EE04	lw     v0, $2f24(v0)
+    8001EE08	nop
+    8001EE0C	sh     s4, $0008(v0)
+    8001EE10	lui    v0, $8006
+    8001EE14	lw     v0, $2f24(v0)
+    8001EE18	nop
+    8001EE1C	sh     s5, $000a(v0)
+    8001EE20	sra    v0, s0, $1f
+    8001EE24	mfhi   t0
+    8001EE28	sra    v1, t0, $01
+    8001EE2C	subu   v1, v1, v0
+
+    8001EE30	sll    v0, v1, $02
+    8001EE34	addu   v0, v0, v1
+    8001EE38	subu   v0, s0, v0
+    8001EE3C	sll    v0, v0, $04
+    V0 = V0 - 50;
+
+    8001EE44	lui    v1, $8006
+    8001EE48	lw     v1, $2f24(v1)
+    8001EE4C	slti   s0, s0, $0005
+    8001EE50	sb     v0, $000c(v1)
+    8001EE54	lui    v1, $8006
+    8001EE58	lw     v1, $2f24(v1)
+    8001EE5C	bne    s0, zero, L1ee68 [$8001ee68]
+    8001EE60	ori    v0, zero, $0050
+    8001EE64	ori    v0, zero, $0068
+
+    L1ee68:	; 8001EE68
+    8001EE68	sb     v0, $000d(v1)
+    8001EE6C	ori    a0, zero, $0100
+    8001EE70	ori    a1, zero, $01ec
+    8001EE74	lui    v1, $8006
+    8001EE78	lw     v1, $2f24(v1)
+    [V1 + 10] = h(10);
+    [V1 + 12] = h(15);
+
+    8001EE90	jal    func46634 [$80046634]
+    8001EE98	lui    v1, $8006
+    8001EE9C	lw     v1, $2f24(v1)
+    8001EEA0	nop
+    8001EEA4	sh     v0, $000e(v1)
+    8001EEA8	lui    a1, $8006
+    8001EEAC	lw     a1, $2f24(a1)
+    8001EEB0	lui    a0, $8006
+    8001EEB4	lw     a0, $2fc4(a0)
+    8001EEB8	addiu  v0, a1, $0014
+    8001EEBC	lui    at, $8006
+    8001EEC0	sw     v0, $2f24(at)
+    8001EEC4	jal    system_add_render_packet_to_queue [$80046794]
+    8001EEC8	nop
+    8001EECC	ori    v0, zero, $0001
+    8001EED0	bne    s2, v0, L1eedc [$8001eedc]
+    8001EED4	nop
+    8001EED8	addiu  s4, s4, $0008
+
+    L1eedc:	; 8001EEDC
+    8001EEDC	addiu  s4, s4, $0010
+    8001EEE0	lw     v0, $0000(s1)
+    8001EEE4	addiu  s2, s2, $0001
+    8001EEE8	div    s3, v0
+    8001EF10	mfhi   s3
+    8001EF14	slti   v0, s2, $0004
+    8001EF1C	addiu  s1, s1, $0004
+8001EF18	bne    v0, zero, loop1ed90 [$8001ed90]
+
+8001EF20	addu   a0, zero, zero
+8001EF24	ori    a1, zero, $0001
+8001EF28	ori    a2, zero, $03c0
+8001EF2C	ori    a3, zero, $0100
+8001EF30	ori    v0, zero, $00ff
+8001EF34	sh     zero, $0010(sp)
+8001EF38	sh     zero, $0012(sp)
+8001EF3C	sh     v0, $0014(sp)
+8001EF40	jal    system_create_texture_page_settings_for_packet [$8004656c]
+8001EF44	sh     v0, $0016(sp)
+8001EF48	addu   a0, zero, zero
+8001EF4C	ori    a1, zero, $0001
+8001EF50	andi   a2, v0, $ffff
+8001EF54	jal    func26a34 [$80026a34]
+8001EF58	addiu  a3, sp, $0010
 ////////////////////////////////

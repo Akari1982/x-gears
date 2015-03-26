@@ -7,7 +7,7 @@
 80062f19 [] looks like enemy lure value (looks like 0xc fixed point)
 80062f1b [] 
 
-80062f24 offset to some message related data.
+80062f24 addresss of current message render data.
 
 80063048 start of font padding file.
 
@@ -132,7 +132,7 @@
 
 80075e10 [][][][] pointer to where to load next data for model. 1) Part after all new structures for the model. 2) Part after all loaded global models.
 
-80077F64        [80062f24]  message related data.
+80077f64 message render related data. (0x3400 size each)
 
 8007e770 [][][][] offset to block 7 in dat file.
 
@@ -174,7 +174,7 @@
 
 8008325c [] array of model default animation.
 
-8008326c []       windows parent entity (size 0x01).
+8008326c []       arrays of windows parent entity (size 0x01).
 80083274  windows data (size 0x30).
 +00 [][][][] pointer to dialog string.
 +04 [][]     WINDOW x.
@@ -187,7 +187,7 @@
 +12 [][]     number of letters in window string.
 +14 [][]     bytes in window string.
 +16 [][]     current row in string. Incremented during copy.
-+18 []       store here i if window oreflowed by height during render. 0 otherwise.
++18 []       store here i if window oveflowed by height during render. 0 otherwise.
 +19 []       WMODE style.
 +1a []       show pointer.
 +1b []       WSPCL type.
@@ -197,10 +197,8 @@
 +20 [][][][] WNUMB number.
 +24 [][]     pointer X.
 +26 [][]     pointer Y.
-+28 []       WSPCL x.
-+29 []
-+2a []       WSPCL y.
-+2b []
++28 [][]     WSPCL x.
++2a [][]     WSPCL y.
 +2c [][]     window state.
 +2e []       WMODE cbc.
 +2f []
@@ -236,6 +234,7 @@
 8009a1c4 [] array of current priority slot used by entity (size 0x01 0x08).
 
 8009abf4 start of game data (message/fade/nfade/walkmesh). 8009c6e0 points here.
++ 00 []       maybe render target (we has 2 render targets and switch between them)
 + 01 []       some state
                 00 - normal field.
                 01 - finalize field in this case.
@@ -347,7 +346,7 @@
 8009c6c4 number of already inited visible entity.
 
 8009c6dc current field file offset.
-8009c6e0 offset to game data (fade/nfade/walkmesh/key data).
+8009c6e0 [][][][] address of game data (fade/nfade/walkmesh/key data).
 
 
 8009d5a6 []       enable or disable PC pointer and triangles help.

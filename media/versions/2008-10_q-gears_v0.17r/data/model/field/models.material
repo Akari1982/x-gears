@@ -1,0 +1,23 @@
+material model/field/standart
+{
+    technique
+    {
+        pass
+        {
+            ambient vertexcolour
+            cull_hardware none
+        }
+
+        pass
+        {
+            alpha_rejection greater 0
+            cull_hardware none
+
+            texture_unit
+            {
+                texture chest_texture.png -1
+                filtering point point none
+            }
+        }
+    }
+}

@@ -622,88 +622,124 @@ Q-Gears v0.04 | 2006-09-27
 * [all] Make all file names first word letter uppercase [Akari]
 * [all] Restructure files and directories [Akari]
 
-Revision 63
+2006-07-16 Revision 59
 ----------
-Case switch done, UpperCase/lowercase clean up. Clean compile on linux. (halkun)
+* [ffvii] Added all opcodes (dummy) to script parser/fixed scriptdump bugs. [Halkun]
 
-Revision 59
+2006-07-16 Revision 58
 ----------
-Added all opcodes (dummy) to script parser/fixed scriptdump bugs.  (halkun)
+* [all] Fix error with input. [Akari]
+* [ffvii] Implement MemoryBank manager. [Akari]
+* [ffvii] Implement field Dialog Window manager. [Akari]
+* [ffvii] Implement few opcodes: WINDOW, ASK, RET and a lot of conditional and unconditional jumps. [Akari]
 
-Revision 49
+2006-07-04 Revision 50
 ----------
-WorldMapModule.h, WorldMapModule.cpp - add placeholder for worldmap module
-displaytest.cpp - add M button to go to WorldMap Module.
+* [ffvii] Add scripting system to field module. [Akari]
 
-Revision 47
+
+
+================================================================================
+Q-Gears v0.03 | 2006-07-03
+--------------------------------------------------------------------------------
+
+2006-07-03 Revision 49
 ----------
-Start documenting engine by doxygen.
-config.h, config.cpp - switched to RString. Removed old param. Now it contains field dumper flag and name of field to load (temporary).
-TypeDefine.h - moved u8 u16 u31 s8 s16 s32 definition to separate file from File class.
-main.cpp, guitest.h, guitest.cpp, displaytest.h, displaytest.cpp, ModuleManager.h, ModuleManager.cpp, menu.h, partymenu.h - renamed Screen to Module.
-displaytest.cpp - add N button to go to Field Module.
-math.h, math.cpp - math for pathfinding in field (needs to be merged with other math later)
-NoCopy.h, File.h, File.cpp, ModuleManager.h, ModuleManager.cpp, TimFile.h, TimFile.cpp, BinGZipFile.h, BinGZipFile.cpp, LzsFile.h, LzsFile.cpp - rewritten for doxygen and according to standart.
-3dtypes.h - add matrix header.
-display.h, display.cpp - add method to load camera matrix.
-vector.h - add equal, not equal methods.
-guibarexp.h, guibarexp.cpp - add fury, sadness states.
-savemap.h, gamestate.cpp - fix savemap.
-model.h, model.cpp - add placeholder for model.
-fieldscreen.h, fieldscreen.cpp, datfile.h, datfile.cpp - add Field Modile (load walkmesh, set camera).
+* [ffvii] WorldMapModule.h, WorldMapModule.cpp - add placeholder for worldmap module [Akari]
+* [ffvii] displaytest.cpp - add M button to go to WorldMap Module. [Akari]
 
-Revision 43
+2006-07-03 Revision 47
 ----------
-Create Timer.
-Create a lot of window elements.
-Create 'Party Menu'
-Add a lot of things to GuiTest.
-Add loader for data in database.
-Fix small errors.
+* [all] Start documenting engine by doxygen. [Akari]
+* [all] config.h, config.cpp - switched to RString. Removed old param. Now it contains field dumper flag and name of field to load (temporary). [Akari]
+* [all] TypeDefine.h - moved u8 u16 u31 s8 s16 s32 definition to separate file from File class. [Akari]
+* [all] main.cpp, guitest.h, guitest.cpp, displaytest.h, displaytest.cpp, ModuleManager.h, ModuleManager.cpp, menu.h, partymenu.h - renamed Screen to Module. [Akari]
+* [ffvii] displaytest.cpp - add N button to go to Field Module. [Akari]
+* [all] math.h, math.cpp - math for pathfinding in field (needs to be merged with other math later) [Akari]
+* [all] NoCopy.h, File.h, File.cpp, ModuleManager.h, ModuleManager.cpp, TimFile.h, TimFile.cpp, BinGZipFile.h, BinGZipFile.cpp, LzsFile.h, LzsFile.cpp - rewritten for doxygen and according to standart. [Akari]
+* [all] 3dtypes.h - add matrix header. [Akari]
+* [all] display.h, display.cpp - add method to load camera matrix. [Akari]
+* [all] vector.h - add equal, not equal methods. [Akari]
+* [ffvii] guibarexp.h, guibarexp.cpp - add fury, sadness states. [Akari]
+* [ffvii] savemap.h, gamestate.cpp - fix savemap. [Akari]
+* [ffvii] model.h, model.cpp - add placeholder for model. [Akari]
+* [ffvii] fieldscreen.h, fieldscreen.cpp, datfile.h, datfile.cpp - add Field Modile (load walkmesh, set camera). [Akari]
 
-Revision 40
+2006-06-16 Revision 42
 ----------
-Added FFVII GUI support with 2 types of font, counter and pointer and gui testing screen.
-Moved all testing screen to separate dir.
-Add kernel.
-Moved config and logger to utilites.
-Added some finor fixes and functions to help with all changes.
+* [all] Create Timer. [Akari]
+* [ffvii] Create a lot of window elements. [Akari]
+* [ffvii] Create 'Party Menu' [Akari]
+* [ffvii] Add a lot of things to GuiTest. [Akari]
+* [ffvii] Add loader for data in database. [Akari]
+* [all] Fix small errors. [Akari]
 
-Revision 32
+
+
+================================================================================
+Q-Gears v0.02 | 2006-06-09
+--------------------------------------------------------------------------------
+
+2006-06-09 Revision 40
 ----------
-Small fixes with struct aligment in SaveBMP and with picture width in TimFile.
+* [ffvii] Added FFVII GUI support with 2 types of font, counter and pointer and gui testing screen. [Akari]
+* [ffvii] Moved all testing screen to separate dir. [Akari]
+* [ffvii] Add kernel. [Akari]
+* [all] Moved config and logger to utilites. [Akari]
+* [all] Added some minor fixes and functions to help with all changes. [Akari]
 
-Revision 31
+
+
+================================================================================
+Q-Gears v0.01 | 2006-05-18
+--------------------------------------------------------------------------------
+
+2006-05-18 Revision 32
 ----------
-Add Tim handling class and example in displaytest.cpp
-Some small fixes.
+* [all] Small fixes with struct aligment in SaveBMP and with picture width in TimFile. [Akari]
 
-Revision 30
+2006-05-17 Revision 31
 ----------
-New RString class implemented. Based on StdString template.
-Logger switched to RString.
-itoa removed from Utilites.
+* [all] Add Tim handling class and example in displaytest.cpp [Akari]
+* [all] Some small fixes. [Akari]
 
-Revision 28
+2006-05-16 Revision 30
 ----------
-Move all class copy restrictions to NoCopy template.
-Create "Dat" file loader for fields.
-Create Field screen class.
+* [all] New RString class implemented. Based on StdString template. [Akari]
+* [all] Logger switched to RString. [Akari]
+* [all] itoa removed from Utilites. [Akari]
 
+2006-05-10 Revision 28
+----------
+* [all] Move all class copy restrictions to NoCopy template. [Akari]
+* [ffvii] Create "Dat" file loader for fields. [Akari]
+* [ffvii] Create Field screen class. [Akari]
 
+2006-05-03 Revision 22
+----------
+* [ffvii] Add LZS handling class. [Akari]
 
+2006-05-03 Revision 21
+----------
+* [ffvii] Add File container and BinGZip handling class. [Akari]
+* [all] Everything working with RealFileSystem for now until we finish GameFileSystem. [Akari]
 
+2006-05-02 Revision 20
+----------
+* [all] Create real file system and game file system basic interface. [Akari]
+* [all] Changed Logger and Config to work with RealFileSystem. [Akari]
 
+2006-04-26 Revision 19
+----------
+* [all] Switch loop to iterators form. [Akari]
 
+2006-04-24 Revision 7
+----------
+* [all] Rename game to qgears. [Akari]
+* [all] Create qgears splash. [Akari]
+* [all] Fix minor bugs. [Akari]
+* [all] Create PopTopScreen method to ScreenManager. [Akari]
 
-
-
-
-
-
-
-
-
-
-
-
+2006-04-23 Revision 1
+----------
+* [all] Initial upload. [Akari]

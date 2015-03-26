@@ -170,10 +170,9 @@ spawn table
                0x00000010: not pushable.
                0x00000020: can be set in 0x20_SetFlags.
                0x00000080: not solid.
-               0x00000100: add during initialization with 0xBC and 0x0B opcodes.
-               0x00000200: add if we init player entity (not really).
-               0x00000400: add if we init player entity and this is patry leader. Seems like manipulatable entity.
-               0x00000700: movement over 3 types of walkmesh material. Checked with bits 0x000000e0 in walkmesh material data.
+               0x00000100: NPC character (initialization with 0xBC and 0x0B opcodes) (movement material check).
+               0x00000200: PC follower (movement material check).
+               0x00000400: PC entity (player entity and this is patry leader. Seems like manipulatable entity) (movement material check).
                0x00004000: if we remove this flag - entity not move, menu not called. Checked in move function. If this flag is set and (hu[800af370] & 0040) && (w[800ad040] == 1) then we set animation_id 2 (run) to play instead of 1 (walk).
                0x00010000: removed in 0x19_SetPosition.
                0x00020000: added during initialization with 0x16 (SetPlayableCharacter) opcode.

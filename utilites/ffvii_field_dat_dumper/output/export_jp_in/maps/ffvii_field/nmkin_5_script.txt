@@ -1,0 +1,498 @@
+timeo
+script_0:
+0318 (end 0318): return
+0319 (end 0319): if ( game:variable_get( "progress_game" ) == 27 ) then continue else jumpto(0341);
+0321 (end 0341): if ( game:variable_get( "timer_minutes" ) == 0 ) then continue else jumpto(0341);
+0327 (end 0341): if ( game:variable_get( "timer_seconds" ) == 0 ) then continue else jumpto(0341);
+032d (end 0341): if ( game:variable_get( "timer_frames" ) == 0 ) then continue else jumpto(0341);
+0333 (end 0341): game:variable_set("act1_1_flags1", (game:variable_get( "act1_1_flags1" ) | (1 << 7)));
+0337 (end 0341): field:jump_to_map(119, 18, 64372, 1, 0);
+0341 (end 0341): jumpto( 0319 );
+
+dir
+script_0:
+0344 (end 0344): temp6_07 = 2;
+0349 (end 0349): [UNREVERSED] VWOFT(00, 5a, 00, 00, 00, 00);
+0350 (end 0350): if ( game:variable_get( "progress_game" ) == 27 ) then continue else jumpto(036d);
+0358 (end 036d): music:execute_akao( 29, 40, 0, 0, 0, 7200, 22 );
+0366 (end 036d): [UNREVERSED] BTLMD(22, 00);
+0369 (end 036d): [UNREVERSED] BMUSC(0);
+036b (end 036d): jumpto( 037f );
+036d (end 037f): music:execute_akao( 2a, 40, 0, 0, 0, f000, f601 );
+037b (end 037f): music:execute_akao( 10, pointer_to_field_AKAO_1 ); -- play field music
+037d (end 037f): [UNREVERSED] BMUSC(2);
+037f (end 037f): if ( !(game:variable_get( "act1_1_flags2" ) & (1 << 2)) ) then continue else jumpto(038b);
+0385 (end 038b): background2d:scroll_to_position( -80, 120, Background2D.NONE, 0 )
+038b (end 038b): if ( game:variable_get( "progress_game" ) == 120 ) then continue else jumpto(0399);
+0393 (end 0399): music:lock( false );
+0395 (end 0399): field:pc_lock(true);
+0397 (end 0399): field:menu_lock(true);
+0399 (end 0399): if ( game:variable_get( "progress_game" ) > 27 ) then continue else jumpto(03a7);
+03a1 (end 03a7): field:map_name(4);
+03a3 (end 03a7): field:set_battle_table(1);
+03a5 (end 03a7): jumpto( 03a9 );
+03a7 (end 03a9): field:map_name(3);
+03a9 (end 03a9): return
+03aa (end 03aa): if ( game:variable_get( "progress_game" ) == 27 ) then continue else jumpto(03b5);
+03b2 (end 03b5): script:request( "time", "script_3", 6 )
+03b5 (end 03b5): script:wait( 0.0333333 )
+03b8 (end 03b8): if ( game:variable_get( "progress_game" ) == 120 ) then continue else jumpto(0439);
+03c0 (end 0439): [NEEDS TO CHECK NFADE time needs to be divided] fade:fade(23040, 23130, 346, Fade.SUBTRACT, 1);
+03c9 (end 0439): music:execute_akao( c1, fa, 0, 0, 0, f100, ec00 );
+03d7 (end 0439): music:execute_akao( 20, 40, ec ); -- play sound
+03dc (end 0439): script:wait( 1 )
+03df (end 0439): [NEEDS TO CHECK NFADE time needs to be divided] fade:fade(0, 0, 15360, Fade.SUBTRACT, 60);
+03e8 (end 0439): script:wait( 1 )
+03eb (end 0439): music:execute_akao( a5, ff, 0, 0, 0, 300, c404 );
+03f9 (end 0439): script:request_end_sync( "ba", "script_4", 6 )
+03fc (end 0439): script:request_end_sync( "ti", "script_3", 6 )
+03ff (end 0439): script:request_end_sync( "cl", "script_8", 6 )
+0402 (end 0439): script:request_end_sync( "ti", "script_4", 6 )
+0405 (end 0439): script:request_end_sync( "cl", "script_9", 6 )
+0408 (end 0439): music:execute_akao( 29, 40, 0, 0, 0, f200, 0 );
+0416 (end 0439): music:execute_akao( a1, 0, 0, 0, 0, 8100, 20 );
+0424 (end 0439): game:variable_set("progress_game", 123);
+0429 (end 0439): script:request( "ti", "script_5", 6 )
+042c (end 0439): fade:clear();
+0435 (end 0439): field:pc_lock(false);
+0437 (end 0439): field:menu_lock(false);
+0439 (end 0439): if ( !(game:variable_get( "act1_1_flags2" ) & (1 << 2)) ) then continue else jumpto(044b);
+043f (end 044b): field:screen_set_scroll_to_entity(cl, Field.SMOOTH, 4.26667);
+0445 (end 044b): background2d:scroll_sync()
+0446 (end 044b): background2d:autoscroll_to_entity( --[[ player entity object here ]] )
+0447 (end 044b): game:variable_set("act1_1_flags2", (game:variable_get( "act1_1_flags2" ) | (1 << 2)));
+044b (end 044b): temp6_00 = cl:get_move_triangle_id();
+044f (end 044f): if ( temp6_00 == temp6_07 ) then continue else jumpto(0499);
+0457 (end 0499): if ( game:variable_get( "progress_game" ) < 27 ) then continue else jumpto(047f);
+045f (end 0499): script:request_end_sync( "ba", "script_3", 6 )
+0462 (end 0499): game:set_timer(hours(0), minutes(10), seconds(0));
+0468 (end 0499): [UNREVERSED] BTLMD(22, 00);
+046b (end 0499): script:request( "time", "script_3", 6 )
+046e (end 0499): game:variable_set("progress_game", 27);
+0473 (end 0499): game:variable_set("act1_1_flags1", (game:variable_get( "act1_1_flags1" ) | (1 << 6)));
+0477 (end 0499): game:variable_set("act1_1_flags1", (game:variable_get( "act1_1_flags1" ) & XOR(1 << 3)));
+047b (end 0499): game:variable_set("act1_1_flags1", (game:variable_get( "act1_1_flags1" ) & XOR(1 << 4)));
+047f (end 0499): if ( game:variable_get( "progress_game" ) == 123 ) then continue else jumpto(0499);
+0487 (end 0499): field:pc_lock(true);
+0489 (end 0499): field:menu_lock(true);
+048b (end 0499): script:request_end_sync( "cl", "script_10", 6 )
+048e (end 0499): [UNREVERSED] JOIN(3c);
+0490 (end 0499): game:variable_set("progress_game", 127);
+0495 (end 0499): field:pc_lock(false);
+0497 (end 0499): field:menu_lock(false);
+0499 (end 0499): jumpto( 044b );
+
+script_3:
+049c (end 049c): script:wait( 0.333333 )
+049f (end 049f): [NEEDS TO CHECK FADE] fade:fade( 51455, 51400, 4296, Fade.SUBTRACT, 16, 0 );
+04a8 (end 04a8): return
+
+time
+script_0:
+04a9 (end 04a9): return
+04aa (end 04aa): return
+
+script_3:
+04ac (end 04ac): -- set window mode (id = 3, MessageStyle.NONE, disable input from player: true);
+04b0 (end 04b0): -- set window parameters (id = 3, x = 10, y = 10, width = 160, height = 70);
+04ba (end 04ba): [UNREVERSED] WSPCL(03, 01, 0a, 0a);
+04bf (end 04bf): message:show_text_wait(3, 25, x, y);
+04c2 (end 04c2): return
+
+cl
+script_0:
+04c3 (end 04c3): -- assosiate entity with model (CHAR) argument doesn't matter
+04c5 (end 04c5): set_entity_to_character( "cl", 0 );
+04c7 (end 04c7): if ( game:variable_get( "progress_game" ) == 120 ) then continue else jumpto(04e3);
+04cf (end 04e3): cl:set_position( -0.671875, -8.5, -1.42188 ) -- triangle_id=0
+04da (end 04e3): cl:set_direction( 0 )
+04dd (end 04e3): cl:set_talkable( true );
+04df (end 04e3): cl:set_solid( true )
+04e1 (end 04e3): cl:set_visible( true )
+04e3 (end 04e3): return
+04e4 (end 04e4): if ( game:variable_get( "progress_game" ) == 120 ) then continue else jumpto(04f1);
+04ec (end 04f1): cl:play_animation_stop( "3", 0.733333, 0.733333 ) -- speed=1
+                 cl:animation_sync()
+04f1 (end 04f1): field:pc_lock(true);
+04f3 (end 04f3): field:menu_lock(true);
+04f5 (end 04f5): if ( !(game:variable_get( "act1_1_flags2" ) & (1 << 2)) ) then continue else jumpto(04fe);
+04fb (end 04fe): script:wait( 3.66667 )
+04fe (end 04fe): if ( game:variable_get( "progress_game" ) != 120 ) then continue else jumpto(0510);
+0506 (end 0510): cl:move_to_position( -0.695313, -7.50781 )
+                 cl:move_sync()
+050c (end 0510): field:pc_lock(false);
+050e (end 0510): field:menu_lock(false);
+0510 (end 0510): jumpto( 0510 );
+
+script_3:
+0513 (end 0513): cl:play_animation_stop( "4" ) -- speed=1
+                 cl:animation_sync()
+0516 (end 0516): game:variable_set("progress_game", 15);
+051b (end 051b): music:execute_akao( 20, 40, 168 ); -- play sound
+0520 (end 0520): -- set window parameters (id = 0, x = 47, y = 10, width = 210, height = 25);
+052a (end 052a): message:show_text_wait(0, 5, x, y);
+052d (end 052d): game:materia_add(53, 0, 0, 0);
+0534 (end 0534): cl:play_animation_stop( "5" ) -- speed=1
+                 cl:animation_sync()
+0537 (end 0537): return
+
+script_4:
+0538 (end 0538): cl:set_direction( 0 )
+053b (end 053b): cl:play_animation_stop( "6", 0, 0.3 ) -- speed=1
+                 cl:animation_sync()
+0540 (end 0540): -- set window parameters (id = 2, x = 140, y = 15, width = 145, height = 57);
+054a (end 054a): message:show_text_wait(2, 79, x, y);
+054d (end 054d): return
+
+script_5:
+054e (end 054e): -- set window parameters (id = 2, x = 160, y = 30, width = 135, height = 41);
+0558 (end 0558): message:show_text_wait(2, 81, x, y);
+055b (end 055b): music:execute_akao( 20, 40, ec ); -- play sound
+0560 (end 0560): script:request( "dir", "script_3", 6 )
+0563 (end 0563): cl:play_animation_stop( "7", 0, 2.1 ) -- speed=1
+                 cl:animation_sync()
+0568 (end 0568): -- set window mode (id = 0, MessageStyle.NONE, disable input from player: false);
+056c (end 056c): -- set window parameters (id = 0, x = 70, y = 45, width = 177, height = 25);
+0576 (end 0576): message:show_text_wait(0, 82, x, y);
+0579 (end 0579): -- reset window to default (id = 0);
+057b (end 057b): [NEEDS TO CHECK FADE] fade:fade( 59135, 59110, 1254, Fade.SUBTRACT, 4, 255 );
+0584 (end 0584): script:wait( 0.333333 )
+0587 (end 0587): music:execute_akao( 20, 40, 0 ); -- play sound
+058c (end 058c): cl:play_animation_stop( "7", 2.1, 2.63333 ) -- speed=1
+                 cl:animation_sync()
+0591 (end 0591): cl:set_default_animation( "8" ) -- speed=1
+                 cl:play_animation( "8" )
+0594 (end 0594): script:wait( 0.666667 )
+0597 (end 0597): -- set window parameters (id = 1, x = 10, y = 10, width = 128, height = 41);
+05a1 (end 05a1): message:show_text_wait(1, 83, x, y);
+05a4 (end 05a4): cl:set_default_animation( "0" ) -- speed=1
+                 cl:play_animation( "0" )
+05a7 (end 05a7): cl:play_animation_stop( "9", 0, 0.233333 ) -- speed=1
+                 cl:animation_sync()
+05ac (end 05ac): -- set window parameters (id = 0, x = 180, y = 130, width = 98, height = 41);
+05b6 (end 05b6): message:show_text_wait(0, 84, x, y);
+05b9 (end 05b9): return
+
+script_6:
+05ba (end 05ba): -- set window parameters (id = 0, x = 130, y = 130, width = 142, height = 41);
+05c4 (end 05c4): message:show_text_wait(0, 86, x, y);
+05c7 (end 05c7): cl:play_animation_stop( "9", 0.233333, 0.466667 ) -- speed=1
+                 cl:animation_sync()
+05cc (end 05cc): cl:set_move_speed( 0.9375 )
+05d0 (end 05d0): cl:move_to_position( -0.523438, -12.75 )
+                 cl:move_sync()
+05d6 (end 05d6): cl:play_animation_stop( "4" ) -- speed=1
+                 cl:animation_sync()
+05d9 (end 05d9): cl:set_default_animation( "10" ) -- speed=1
+                 cl:play_animation( "10" )
+05dc (end 05dc): script:wait( 0.666667 )
+05df (end 05df): music:execute_akao( 2a, 40, 0, 0, 0, f100, 3d00 );
+05ed (end 05ed): music:execute_akao( 20, 40, 3d ); -- play sound
+05f2 (end 05f2): script:wait( 2 )
+05f5 (end 05f5): music:execute_akao( 20, 40, 3b ); -- play sound
+05fa (end 05fa): script:wait( 0.333333 )
+05fd (end 05fd): cl:play_animation_stop( "5" ) -- speed=1
+                 cl:animation_sync()
+0600 (end 0600): script:wait( 0.666667 )
+0603 (end 0603): music:execute_akao( 20, 40, 3c ); -- play sound
+0608 (end 0608): script:wait( 0.266667 )
+060b (end 060b): cl:play_animation( "11" ) -- speed=1
+                 cl:animation_sync()
+060e (end 060e): cl:play_animation_stop( "9", 0, 0.233333 ) -- speed=1
+                 cl:animation_sync()
+0613 (end 0613): script:wait( 0.333333 )
+0616 (end 0616): [UNREVERSED] BMUSC(0);
+0618 (end 0618): -- set window parameters (id = 2, x = 120, y = 30, width = 149, height = 41);
+0622 (end 0622): message:show_text_wait(2, 87, x, y);
+0625 (end 0625): script:wait( 0.666667 )
+0628 (end 0628): music:execute_akao( 2a, 40, 0, 0, 0, f000, f100 );
+0636 (end 0636): music:execute_akao( 10, pointer_to_field_AKAO_0 ); -- play field music
+0638 (end 0638): music:execute_akao( 20, 40, 0 ); -- play sound
+063d (end 063d): music:execute_akao( 29, 40, 0, 0, 0, f200, 0 );
+064b (end 064b): music:execute_akao( 2a, 40, 0, 0, 0, 7000, 4400 );
+0659 (end 0659): field:battle_run( 324 );
+065d (end 065d): music:execute_akao( 29, 40, 0, 0, 0, 2400, 1e );
+066b (end 066b): script:wait( 1 )
+066e (end 066e): cl:turn_to_direction( 157.5, Entity.CLOSEST, Entity.SMOOTH, 0.333333 )
+cl:turn_sync()
+0674 (end 0674): script:wait( 0.666667 )
+0677 (end 0677): cl:play_animation_stop( "9", 0.466667, 0.733333 ) -- speed=1
+                 cl:animation_sync()
+067c (end 067c): -- set window parameters (id = 2, x = 160, y = 30, width = 108, height = 41);
+0686 (end 0686): message:show_text_wait(2, 89, x, y);
+0689 (end 0689): cl:play_animation_stop( "9", 0.733333, 0.966667 ) -- speed=1
+                 cl:animation_sync()
+068e (end 068e): return
+
+script_7:
+068f (end 068f): music:execute_akao( a1, 0, 0, 0, 0, f200, 0 );
+069d (end 069d): music:execute_akao( 29, 40, 1, 0, 0, f200, 0 );
+06ab (end 06ab): music:execute_akao( a5, a0, 0, 0, 0, a800, aa00 );
+06b9 (end 06b9): cl:move_to_position( -0.671875, -8.5 )
+                 cl:move_sync()
+06bf (end 06bf): cl:set_direction( 0 )
+06c2 (end 06c2): [UNREVERSED] SPLIT(00, 00, 00, be, ff, 9f, fc, 00, c6, ff, c3, fa, 80, 1e);
+06d1 (end 06d1): music:execute_akao( c1, c8, 0, 0, 0, 2400, a );
+06df (end 06df): script:wait( 0.333333 )
+06e2 (end 06e2): music:execute_akao( 20, 40, ec ); -- play sound
+06e7 (end 06e7): [NEEDS TO CHECK FADE] fade:fade( 51450, 51400, 8392, Fade.SUBTRACT, 32, 0 );
+06f0 (end 06f0): cl:play_animation_stop( "12" ) -- speed=1
+                 cl:animation_sync()
+06f3 (end 06f3): script:wait( 1 )
+06f6 (end 06f6): cl:play_animation_stop( "3", 0, 0.733333 ) -- speed=1
+                 cl:animation_sync()
+06fb (end 06fb): script:wait( 0.666667 )
+06fe (end 06fe): music:lock( true );
+0700 (end 0700): music:execute_akao( 20, 40, 0 ); -- play sound
+0705 (end 0705): field:jump_to_map(322, 65526, 65385, 18, 0);
+070f (end 070f): return
+
+script_8:
+0710 (end 0710): music:execute_akao( 20, 40, 0 ); -- play sound
+0715 (end 0715): cl:play_animation_stop( "3", 1.43333, 2.13333 ) -- speed=1
+                 cl:animation_sync()
+071a (end 071a): -- set window parameters (id = 0, x = 10, y = 100, width = 142, height = 41);
+0724 (end 0724): message:show_text_wait(0, 103, x, y);
+0727 (end 0727): return
+
+script_9:
+0728 (end 0728): -- set window parameters (id = 0, x = 10, y = 100, width = 111, height = 73);
+0732 (end 0732): message:show_text_wait(0, 105, x, y);
+0735 (end 0735): cl:play_animation_stop( "3", 2.13333, 3.3 ) -- speed=1
+                 cl:animation_sync()
+073a (end 073a): cl:set_default_animation( "0" ) -- speed=1
+                 cl:play_animation( "0" )
+073d (end 073d): return
+
+script_10:
+073e (end 073e): cl:set_move_speed( 0.9375 )
+0742 (end 0742): cl:move_to_position( -0.523438, -12.75 )
+                 cl:move_sync()
+0748 (end 0748): cl:play_animation_stop( "4" ) -- speed=1
+                 cl:animation_sync()
+074b (end 074b): cl:set_default_animation( "10" ) -- speed=1
+                 cl:play_animation( "10" )
+074e (end 074e): script:wait( 0.666667 )
+0751 (end 0751): music:execute_akao( 2a, 40, 0, 0, 0, f100, 3d00 );
+075f (end 075f): music:execute_akao( 20, 40, 3d ); -- play sound
+0764 (end 0764): script:wait( 2 )
+0767 (end 0767): music:execute_akao( 20, 40, 3b ); -- play sound
+076c (end 076c): script:wait( 0.333333 )
+076f (end 076f): cl:play_animation_stop( "5" ) -- speed=1
+                 cl:animation_sync()
+0772 (end 0772): cl:turn_to_entity( ba, Entity.CLOSEST, 0.0666667);
+0776 (end 0776): return
+
+ba
+script_0:
+0777 (end 0777): -- assosiate entity with model (CHAR) argument doesn't matter
+0779 (end 0779): set_entity_to_character( "ba", 1 );
+077b (end 077b): if ( game:variable_get( "progress_game" ) == 120 ) then continue else jumpto(079a);
+0783 (end 079a): ba:set_position( -0.515625, -6.75781, -1.41406 ) -- triangle_id=0
+078e (end 079a): ba:set_direction( 0 )
+0791 (end 079a): ba:set_solid_range( 70 );
+0794 (end 079a): ba:set_talkable( true );
+0796 (end 079a): ba:set_solid( true )
+0798 (end 079a): ba:set_visible( true )
+079a (end 079a): return
+079b (end 079b): jumpto( 079b );
+
+script_1:
+079d (end 079d): if ( game:variable_get( "progress_game" ) == 123 ) then continue else jumpto(07d4);
+07a5 (end 07d4): field:pc_lock(true);
+07a7 (end 07d4): field:menu_lock(true);
+07a9 (end 07d4): -- set window parameters (id = 0, x = 10, y = 10, width = 173, height = 57);
+07b3 (end 07d4): message:show_text_wait(0, 106, x, y);
+07b6 (end 07d4): -- set window parameters (id = 1, x = 10, y = 70, width = 111, height = 41);
+07c0 (end 07d4): message:show_text_wait(1, 107, x, y);
+07c3 (end 07d4): -- set window parameters (id = 1, x = 10, y = 70, width = 189, height = 57);
+07cd (end 07d4): message:show_text_wait(1, 108, x, y);
+07d0 (end 07d4): field:pc_lock(false);
+07d2 (end 07d4): field:menu_lock(false);
+07d4 (end 07d4): return
+
+script_3:
+07d5 (end 07d5): field:pc_lock(true);
+07d7 (end 07d7): field:menu_lock(true);
+07d9 (end 07d9): [UNREVERSED] SPLIT(00, 00, 00, 33, 00, 73, f9, b0, 00, 00, 00, 00, 00, 1e);
+07e8 (end 07e8): -- set window parameters (id = 1, x = 10, y = 8, width = 147, height = 57);
+07f2 (end 07f2): message:show_text_wait(1, 77, x, y);
+07f5 (end 07f5): -- set window parameters (id = 1, x = 10, y = 10, width = 158, height = 57);
+07ff (end 07ff): message:show_text_wait(1, 78, x, y);
+0802 (end 0802): script:request_end_sync( "cl", "script_4", 6 )
+0805 (end 0805): -- set window parameters (id = 1, x = 10, y = 8, width = 192, height = 73);
+080f (end 080f): message:show_text_wait(1, 80, x, y);
+0812 (end 0812): script:request_end_sync( "cl", "script_5", 6 )
+0815 (end 0815): ba:play_animation( "3" ) -- speed=1
+                 ba:animation_sync()
+0818 (end 0818): -- set window parameters (id = 1, x = 10, y = 10, width = 190, height = 57);
+0822 (end 0822): message:show_text_wait(1, 85, x, y);
+0825 (end 0825): script:request_end_sync( "cl", "script_6", 6 )
+0828 (end 0828): [UNREVERSED] JOIN(1e);
+082a (end 082a): script:wait( 1 )
+082d (end 082d): -- set window parameters (id = 0, x = 105, y = 60, width = 112, height = 25);
+0837 (end 0837): message:show_text_wait(0, 91, x, y);
+083a (end 083a): field:pc_lock(false);
+083c (end 083c): field:menu_lock(false);
+083e (end 083e): return
+
+script_4:
+083f (end 083f): ba:play_animation( "4" ) -- speed=1
+                 ba:animation_sync()
+0842 (end 0842): -- set window parameters (id = 0, x = 10, y = 100, width = 163, height = 41);
+084c (end 084c): message:show_text_wait(0, 101, x, y);
+084f (end 084f): return
+
+ti
+script_0:
+0850 (end 0850): -- assosiate entity with model (CHAR) argument doesn't matter
+0852 (end 0852): set_entity_to_character( "ti", 2 );
+0854 (end 0854): if ( game:variable_get( "progress_game" ) == 120 ) then continue else jumpto(0870);
+085c (end 0870): ti:set_position( -0.453125, -10.4766, -1.42969 ) -- triangle_id=1
+0867 (end 0870): ti:set_direction( 180 )
+086a (end 0870): ti:set_talkable( true );
+086c (end 0870): ti:set_solid( true )
+086e (end 0870): ti:set_visible( true )
+0870 (end 0870): return
+0871 (end 0871): jumpto( 0871 );
+
+script_1:
+0873 (end 0873): if ( game:variable_get( "progress_game" ) == 123 ) then continue else jumpto(0888);
+087b (end 0888): -- set window parameters (id = 2, x = 10, y = 150, width = 190, height = 41);
+0885 (end 0888): message:show_text_wait(2, 109, x, y);
+0888 (end 0888): return
+
+script_3:
+0889 (end 0889): ti:set_move_speed( 1.40625 )
+088d (end 088d): ti:move_to_position( -0.890625, -9.29688 )
+                 ti:move_sync()
+0893 (end 0893): -- set window parameters (id = 0, x = 170, y = 80, width = 113, height = 41);
+089d (end 089d): message:show_text_wait(0, 102, x, y);
+08a0 (end 08a0): return
+
+script_4:
+08a1 (end 08a1): -- set window parameters (id = 0, x = 170, y = 80, width = 98, height = 41);
+08ab (end 08ab): message:show_text_wait(0, 104, x, y);
+08ae (end 08ae): return
+
+script_5:
+08af (end 08af): ti:move_to_position( 0.460938, -13.1641 )
+                 ti:move_sync()
+08b5 (end 08b5): ti:turn_to_direction( 270, Entity.ANTICLOCKWISE, Entity.LINEAR, 0.5 )
+ti:turn_sync()
+08bb (end 08bb): return
+
+mtr
+script_0:
+08bc (end 08bc): -- assosiate entity with model (CHAR) argument doesn't matter
+08be (end 08be): mtr:set_position( -0.59375, -9.69531, -1.42188 ) -- triangle_id=1
+08c9 (end 08c9): if ( game:variable_get( "progress_game" ) >= 15 ) then continue else jumpto(08d7);
+08d1 (end 08d7): mtr:set_talkable( false );
+08d3 (end 08d7): mtr:set_solid( false )
+08d5 (end 08d7): mtr:set_visible( false )
+08d7 (end 08d7): return
+08d8 (end 08d8): jumpto( 08d8 );
+
+script_1:
+08da (end 08da): field:pc_lock(true);
+08dc (end 08dc): field:menu_lock(true);
+08de (end 08de): script:request_end_sync( "cl", "script_3", 5 )
+08e1 (end 08e1): mtr:set_talkable( false );
+08e3 (end 08e3): mtr:set_solid( false )
+08e5 (end 08e5): mtr:set_visible( false )
+08e7 (end 08e7): field:pc_lock(false);
+08e9 (end 08e9): field:menu_lock(false);
+08eb (end 08eb): return
+
+ln0
+script_0:
+08ec (end 08ec): -- define line point1( 65509, 64487, 65352), point2(65389, 64487, 65352 )
+08f9 (end 08f9): return
+08fa (end 08fa): jumpto( 08fa );
+
+script_3:
+08fd (end 08fd): if ( game:variable_get( "progress_game" ) >= 111 ) then continue else jumpto(0914);
+0905 (end 0914): if ( game:variable_get( "progress_game" ) < 120 ) then continue else jumpto(0914);
+090d (end 0914): field:pc_lock(true);
+090f (end 0914): field:menu_lock(true);
+0911 (end 0914): script:request_end_sync( "cl", "script_7", 6 )
+0914 (end 0914): return
+
+smoke1
+script_0:
+0916 (end 0916): field:background_clear( "1" ); -- turns off all layer of background animation with given id
+0919 (end 0919): return
+091a (end 091a): temp5_0d = math.rand();
+091d (end 091d): temp5_0d = temp5_0d % 3;
+0921 (end 0921): if ( temp5_0d == 0 ) then continue else jumpto(092c);
+0927 (end 092c): script:wait( 4 )
+092a (end 092c): jumpto( 093a );
+092c (end 093a): if ( temp5_0d == 1 ) then continue else jumpto(0937);
+0932 (end 093a): script:wait( 3 )
+0935 (end 093a): jumpto( 093a );
+0937 (end 093a): script:wait( 2 )
+093a (end 093a): field:background_on( "1", 0 ); -- turns on layer of background animation with given id
+093e (end 093e): script:wait( 0.133333 )
+0941 (end 0941): field:background_off( "1", 0 ); -- turns off layer of background animation with given id
+0945 (end 0945): field:background_on( "1", 1 ); -- turns on layer of background animation with given id
+0949 (end 0949): script:wait( 0.133333 )
+094c (end 094c): field:background_off( "1", 1 ); -- turns off layer of background animation with given id
+0950 (end 0950): field:background_on( "1", 2 ); -- turns on layer of background animation with given id
+0954 (end 0954): script:wait( 0.133333 )
+0957 (end 0957): field:background_off( "1", 2 ); -- turns off layer of background animation with given id
+095b (end 095b): field:background_on( "1", 3 ); -- turns on layer of background animation with given id
+095f (end 095f): script:wait( 0.133333 )
+0962 (end 0962): field:background_off( "1", 3 ); -- turns off layer of background animation with given id
+0966 (end 0966): field:background_on( "1", 4 ); -- turns on layer of background animation with given id
+096a (end 096a): script:wait( 0.133333 )
+096d (end 096d): field:background_off( "1", 4 ); -- turns off layer of background animation with given id
+0971 (end 0971): field:background_on( "1", 5 ); -- turns on layer of background animation with given id
+0975 (end 0975): script:wait( 0.133333 )
+0978 (end 0978): field:background_off( "1", 5 ); -- turns off layer of background animation with given id
+097c (end 097c): field:background_on( "1", 6 ); -- turns on layer of background animation with given id
+0980 (end 0980): script:wait( 0.133333 )
+0983 (end 0983): field:background_off( "1", 6 ); -- turns off layer of background animation with given id
+0987 (end 0987): field:background_on( "1", 7 ); -- turns on layer of background animation with given id
+098b (end 098b): script:wait( 0.133333 )
+098e (end 098e): field:background_off( "1", 7 ); -- turns off layer of background animation with given id
+0992 (end 0992): jumpto( 091a );
+
+smoke2
+script_0:
+0994 (end 0994): field:background_clear( "2" ); -- turns off all layer of background animation with given id
+0997 (end 0997): return
+0998 (end 0998): temp5_0e = math.rand();
+099b (end 099b): temp5_0e = temp5_0e % 3;
+099f (end 099f): if ( temp5_0e == 0 ) then continue else jumpto(09aa);
+09a5 (end 09aa): script:wait( 4.5 )
+09a8 (end 09aa): jumpto( 09b8 );
+09aa (end 09b8): if ( temp5_0e == 1 ) then continue else jumpto(09b5);
+09b0 (end 09b8): script:wait( 3.5 )
+09b3 (end 09b8): jumpto( 09b8 );
+09b5 (end 09b8): script:wait( 2.5 )
+09b8 (end 09b8): field:background_on( "2", 0 ); -- turns on layer of background animation with given id
+09bc (end 09bc): script:wait( 0.133333 )
+09bf (end 09bf): field:background_off( "2", 0 ); -- turns off layer of background animation with given id
+09c3 (end 09c3): field:background_on( "2", 1 ); -- turns on layer of background animation with given id
+09c7 (end 09c7): script:wait( 0.133333 )
+09ca (end 09ca): field:background_off( "2", 1 ); -- turns off layer of background animation with given id
+09ce (end 09ce): field:background_on( "2", 2 ); -- turns on layer of background animation with given id
+09d2 (end 09d2): script:wait( 0.133333 )
+09d5 (end 09d5): field:background_off( "2", 2 ); -- turns off layer of background animation with given id
+09d9 (end 09d9): field:background_on( "2", 3 ); -- turns on layer of background animation with given id
+09dd (end 09dd): script:wait( 0.133333 )
+09e0 (end 09e0): field:background_off( "2", 3 ); -- turns off layer of background animation with given id
+09e4 (end 09e4): field:background_on( "2", 4 ); -- turns on layer of background animation with given id
+09e8 (end 09e8): script:wait( 0.133333 )
+09eb (end 09eb): field:background_off( "2", 4 ); -- turns off layer of background animation with given id
+09ef (end 09ef): field:background_on( "2", 5 ); -- turns on layer of background animation with given id
+09f3 (end 09f3): script:wait( 0.133333 )
+09f6 (end 09f6): field:background_off( "2", 5 ); -- turns off layer of background animation with given id
+09fa (end 09fa): field:background_on( "2", 6 ); -- turns on layer of background animation with given id
+09fe (end 09fe): script:wait( 0.133333 )
+0a01 (end 0a01): field:background_off( "2", 6 ); -- turns off layer of background animation with given id
+0a05 (end 0a05): field:background_on( "2", 7 ); -- turns on layer of background animation with given id
+0a09 (end 0a09): script:wait( 0.133333 )
+0a0c (end 0a0c): field:background_off( "2", 7 ); -- turns off layer of background animation with given id
+0a10 (end 0a10): jumpto( 0998 );
+

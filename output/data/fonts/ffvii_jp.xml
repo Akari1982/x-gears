@@ -1,4 +1,4 @@
-﻿<font name="FFVIIFont" image="fonts/ffvii_jp.png" image_size="512 256" height="16">
+﻿<font name="FFVIIFont" language="Japanese" image="fonts/ffvii_jp.png" image_size="512 256" height="16">
     <char name="バ" x="0" y="0" width="12" height="12" pre="0" post="1" />
     <char name="ば" x="12" y="0" width="12" height="12" pre="0" post="1" />
     <char name="ビ" x="24" y="0" width="12" height="12" pre="0" post="-1" />
@@ -192,6 +192,7 @@
     <char name="」" x="144" y="120" width="12" height="12" pre="2" post="-4" />
     <char name="（" x="156" y="120" width="12" height="12" pre="2" post="-4" />
     <char name="）" x="168" y="120" width="12" height="12" pre="2" post="-4" />
+    <char name="大" x="108" y="132" width="12" height="12" pre="0" post="1" />
     <char name="爆" x="132" y="144" width="12" height="12" pre="0" post="1" />
     <char name="使" x="144" y="144" width="12" height="12" pre="0" post="1" />
     <char name="破" x="0" y="156" width="12" height="12" pre="0" post="1" />
@@ -219,6 +220,7 @@
     <char name="持" x="84" y="192" width="12" height="12" pre="0" post="1" />
     <char name="相" x="96" y="192" width="12" height="12" pre="0" post="1" />
     <char name="手" x="108" y="192" width="12" height="12" pre="0" post="1" />
+    <char name="確" x="132" y="192" width="12" height="12" pre="0" post="1" />
     <char name="方" x="240" y="192" width="12" height="12" pre="0" post="1" />
     <char name="行" x="0" y="204" width="12" height="12" pre="0" post="1" />
     <char name="定" x="24" y="204" width="12" height="12" pre="0" post="1" />
@@ -260,6 +262,7 @@
     <char name="上" x="268" y="24" width="12" height="12" pre="0" post="1" />
     <char name="事" x="292" y="24" width="12" height="12" pre="0" post="1" />
     <char name="奥" x="400" y="24" width="12" height="12" pre="0" post="1" />
+    <char name="初" x="448" y="24" width="12" height="12" pre="0" post="1" />
     <char name="村" x="460" y="24" width="12" height="12" pre="0" post="1" />
     <char name="車" x="484" y="36" width="12" height="12" pre="0" post="1" />
     <char name="螺" x="328" y="48" width="12" height="12" pre="0" post="1" />
@@ -268,6 +271,8 @@
     <char name="態" x="316" y="60" width="12" height="12" pre="0" post="1" />
     <char name="開" x="448" y="60" width="12" height="12" pre="0" post="1" />
     <char name="同" x="292" y="72" width="12" height="12" pre="0" post="1" />
+    <char name="速" x="304" y="72" width="12" height="12" pre="0" post="1" />
+    <char name="遅" x="316" y="72" width="12" height="12" pre="0" post="1" />
     <char name="味" x="376" y="72" width="12" height="12" pre="0" post="1" />
     <char name="倍" x="424" y="72" width="12" height="12" pre="0" post="1" />
     <char name="人" x="484" y="72" width="12" height="12" pre="0" post="1" />
@@ -309,7 +314,9 @@
     <char name="予" x="460" y="144" width="12" height="12" pre="0" post="1" />
     <char name="落" x="484" y="144" width="12" height="12" pre="0" post="1" />
     <char name="日" x="328" y="156" width="12" height="12" pre="0" post="-2" />
+    <char name="口" x="436" y="156" width="12" height="12" pre="0" post="0" />
     <char name="温" x="340" y="168" width="12" height="12" pre="0" post="1" />
+    <char name="走" x="400" y="168" width="12" height="12" pre="0" post="1" />
     <char name="危" x="484" y="168" width="12" height="12" pre="0" post="1" />
     <char name="言" x="304" y="180" width="12" height="12" pre="0" post="1" />
     <char name="失" x="400" y="180" width="12" height="12" pre="0" post="1" />
@@ -349,8 +356,10 @@
     <char name="客" x="24" y="144" width="12" height="12" pre="0" post="1" />
     <char name="夫" x="144" y="144" width="12" height="12" pre="0" post="1" />
     <char name="貸" x="228" y="144" width="12" height="12" pre="0" post="1" />
+    <char name="期" x="240" y="144" width="12" height="12" pre="0" post="1" />
     <char name="保" x="48" y="156" width="12" height="12" pre="0" post="1" />
     <char name="帯" x="60" y="156" width="12" height="12" pre="0" post="1" />
+    <char name="向" x="108" y="156" width="12" height="12" pre="0" post="1" />
     <char name="襲" x="144" y="156" width="12" height="12" pre="0" post="1" />
     <char name="次" x="168" y="156" width="12" height="12" pre="0" post="1" />
     <char name="素" x="192" y="156" width="12" height="12" pre="0" post="1" />
@@ -365,6 +374,7 @@
     <char name="製" x="132" y="204" width="12" height="12" pre="0" post="1" />
     <char name="録" x="240" y="204" width="12" height="12" pre="0" post="1" />
     <char name="協" x="120" y="216" width="12" height="12" pre="0" post="1" />
+    <char name="脱" x="204" y="216" width="12" height="12" pre="0" post="1" />
     <char name="躍" x="228" y="216" width="12" height="12" pre="0" post="1" />
     <char name="到" x="36" y="228" width="12" height="12" pre="0" post="1" />
     <char name="功" x="36" y="240" width="12" height="12" pre="0" post="1" />

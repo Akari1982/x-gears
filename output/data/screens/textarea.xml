@@ -1,0 +1,8 @@
+<prototypes>
+    <prototype name="TextAreaSprite">
+        <sprite name="ButtonSquare" image="screens/images/button_square.png" y="-2" width="16" height="16" />
+        <sprite name="ButtonCircle" image="screens/images/button_circle.png" y="-2" width="16" height="16" />
+        <sprite name="ButtonCross" image="screens/images/button_cross.png" y="-2" width="16" height="16" />
+        <sprite name="ButtonTriangle" image="screens/images/button_triangle.png" y="-2" width="16" height="16" />
+    </prototype>
+</prototypes>

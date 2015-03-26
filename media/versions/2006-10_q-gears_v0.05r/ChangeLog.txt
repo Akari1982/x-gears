@@ -1,0 +1,113 @@
+
+
+
+[ffvii] v0.05c
+
+2006/10/09
+    + [ffvii] Change version number to v0.05c. [Akari]
+    * [ffvii] Add IDLCK (0x6D) field opcodes support. [Akari]
+    + [ffvii] Redone walkmesh/access (we need posibility to deactivate triangles). [Akari]
+    + [ffvii] Move walkmesh math to ffvii directory. [Akari]
+    - [ffvii] Fix fatal cycling when we try to cross triangle corner. [Akari]
+
+2006/10/06
+    * [ffvii] Add moving test object to unit manager. [Akari]
+
+2006/10/04
+    - [ffvii] Fix input was handled all by WindowManager and not given to other managers. [Akari]
+
+
+
+[ffvii] v0.05b
+
+2006/10/03
+    * [ffvii] Add INC! (0x7A), INC2! (0x7B), DEC! (0x7C), DEC2! (0x7D) field opcodes support. [Akari]
+    - [ffvii] Fix that uni has been displayed right after definition. now it displays only after setting its coords. [Akari]
+    * [ffvii] Add direction display to default model cube. Testing purpose. [Akari]
+    - [ffvii] Fix that XYZI opcode was 10 bytes length instead of 11 bytes. [Akari]
+    * [ffvii] Add DIR (0xB3) field opcodes support. [Akari]
+    + [ffvii] Now XYZI called only once. After the position is set you can't set it again. [Akari]
+
+
+
+[ffvii] v0.05a
+
+2006/10/02
+    * [ffvii] Add XYZI (0xA5) field opcodes support. [Akari]
+    * [ffvii] Add CHAR (0xA1) field opcodes support. Parameter not implemented. [Akari]
+    * [ffvii] Add unit registration to UnitManager class. [Akari]
+    * [ffvii] Add WAIT (0x24) field opcodes support. [Akari]
+    - [ffvii] Fix that pointer shown before text finishes writing. [Akari]
+    + [ffvii] Moved MemoryBank class to kernel. [Akari]
+
+2006/09/29
+    * [ffvii] Add WREST (0x53) field opcodes support. [Akari]
+    + [ffvii] Moved window initialisation to reset method. [Akari]
+    * [ffvii] Add SET-BYTE! (0x80) field opcodes support. [Akari]
+    * [ffvii] Timer now count down automaticly as you show it and stop as soon as you close this window. [Akari]
+    + [ffvii] Make Gamestate and Database non constant wher returned from their get methods so anyone can change it. [Akari]
+    + [ffvii] Rewrite Field managers. Now FieldModule contains MemoryBank instead of Script. [Akari]
+
+2006/09/27
+    - [ffvii] Fix error with wrong parameter in WSPCL opcode. [Akari]
+    - [ffvii] Fix error with string reading in OpcodesToRawScript. [Akari]
+    * [ffvii] Add message typing. [Akari]
+
+
+
+[ffvii] v0.04c
+
+2006/09/27
+    + [ffvii] Change version number to v0.04c. [Akari]
+    - [ffvii] Fix script reading function tries to write u32 to u8 value. [Akari]
+    - [ffvii] Fix small errors in new windowing system (input). [Akari]
+
+2006/09/26
+    + [ffvii] Rework windowing system. Windows are now more important than Messages (they are part of windows now). [Akari]
+    * [ffvii] Add memory bank access to WNUMB. [Akari]
+    * [ffvii] Fix some errors in PLUS and MINUS opcodes. [Akari]
+
+2006/09/19
+    * [ffvii] Add STTIM (0x38) field opcodes support. [Akari]
+    * [ffvii] Add WNUMB (0x37) field opcodes support (without memory bank access). [Akari]
+    * [ffvii] Add WSPCL (0x36) field opcodes support. [Akari]
+    * [ffvii] Implement special window support in WindowManager. [Akari]
+
+2006/09/15
+    - [ffvii] Fix scripts and dialogs was not cleared when load new map from XML. [Akari]
+    - [ffvii] Fix all scripts that stored in priority slots were run, not only highest one. [Akari]
+    + [ffvii] Change script handling to real game like. [Akari]
+
+2006/09/14
+    - [ffvii] Fix transparent window didn't display transparency on units and walkmesh. [Akari]
+    - [ffvii] Fix script calling when script doesn't exist. Add sanity check. [Akari]
+    * [ffvii] Implement basic xml support. May load Dialog and Entity from XML. [Akari]
+
+2006/08/30
+    * [ffvii] Add UnitManager class to handles unit on field and move all units related code there. [Akari]
+
+2006/08/29
+    * [ffvii] Add PLUS! (0x76), PLUS2! (0x77), MINUS! (0x78), MINUS2! (0x79) field opcodes support. [Akari]
+
+2006/08/28
+    * [ffvii] Add IFSW (0x16), IFSWL (0x17), IFUW (0x18), IFUWL (0x19) field opcodes support. [Akari]
+
+2006/08/25
+    * [xeno] Bind UP and DOWN button to handles next and previous battle background load [Akari]
+    * [xeno] Add texture support to Model class (direct translation from my previous code) [Akari]
+    * [xeno] Add ModelUtilites namespace  that contain useful functions for Models [Akari]
+    * [xeno] Add texture support to MeshFile class (direct translation from my previous code) [Akari]
+
+2006/08/24
+    * [xeno] Add base implementation of Model class that handles standart models [Akari]
+    * [xeno] Add HrcFile class that handles hierarchy in Model files [Akari]
+    * [xeno] Add base implementation of MeshFile class that handles mesh in Model files [Akari]
+
+2006/08/23
+    * [xeno] Add TextureFile class that handles textures in Model files [Akari]
+    * [xeno] Add TimFile class that handles tim images [Akari]
+    * [xeno] Add SubPacketFile class that handles subpacket in packet type of files [Akari]
+    * [xeno] Add PacketFile class that handles packet type of files [Akari]
+    * [all] Add $Id: ChangeLog.txt 83 2006-10-08 06:55:30Z crazy_otaku $ subversion keyword to all files [Akari]
+    * [all] Make all file names first word letter uppercase [Akari]
+    * [all] Restructure files and directories [Akari]

@@ -1,0 +1,698 @@
+dir
+script_0:
+0480 (end 0480): field:lock_walkmesh( 37, true );
+0484 (end 0484): field:lock_walkmesh( 10, true );
+0488 (end 0488): field:lock_walkmesh( 8, true );
+048c (end 048c): field:lock_walkmesh( 2, true );
+0490 (end 0490): field:lock_walkmesh( 51, true );
+0494 (end 0494): field:lock_walkmesh( 52, true );
+0498 (end 0498): field:lock_walkmesh( 53, true );
+049c (end 049c): field:lock_walkmesh( 61, true );
+04a0 (end 04a0): if ( game:variable_get( "progress_game" ) == 27 ) then continue else jumpto(04bd);
+04a8 (end 04bd): music:execute_akao( 29, 40, 0, 0, 0, 7200, 22 );
+04b6 (end 04bd): [UNREVERSED] BTLMD(22, 00);
+04b9 (end 04bd): [UNREVERSED] BMUSC(0);
+04bb (end 04bd): jumpto( 04d1 );
+04bd (end 04d1): music:execute_akao( c0, 7f, 0, 0, 0, f500, f000 );
+04cb (end 04d1): music:lock( false );
+04cd (end 04d1): music:execute_akao( 10, pointer_to_field_AKAO_1 ); -- play field music
+04cf (end 04d1): [UNREVERSED] BMUSC(2);
+04d1 (end 04d1): if ( game:variable_get( "progress_game" ) < 27 ) then continue else jumpto(04db);
+04d9 (end 04db): field:random_encounter_on( false );
+04db (end 04db): field:map_name(3);
+04dd (end 04dd): return
+04de (end 04de): script:request( "fe0", "script_3", 6 )
+04e1 (end 04e1): if ( game:variable_get( "progress_game" ) == 27 ) then continue else jumpto(04ec);
+04e9 (end 04ec): script:request( "time", "script_3", 6 )
+04ec (end 04ec): temp6_00 = cl:get_move_triangle_id();
+04f0 (end 04f0): jumpto( 04ec );
+
+time
+script_0:
+04f4 (end 04f4): return
+04f5 (end 04f5): return
+
+script_3:
+04f7 (end 04f7): -- set window mode (id = 3, MessageStyle.NONE, disable input from player: true);
+04fb (end 04fb): -- set window parameters (id = 3, x = 10, y = 10, width = 160, height = 70);
+0505 (end 0505): [UNREVERSED] WSPCL(03, 01, 0a, 0a);
+050a (end 050a): message:show_text_wait(3, 25, x, y);
+050d (end 050d): return
+
+timeo
+script_0:
+050e (end 050e): return
+050f (end 050f): if ( game:variable_get( "progress_game" ) == 27 ) then continue else jumpto(0537);
+0517 (end 0537): if ( game:variable_get( "timer_minutes" ) == 0 ) then continue else jumpto(0537);
+051d (end 0537): if ( game:variable_get( "timer_seconds" ) == 0 ) then continue else jumpto(0537);
+0523 (end 0537): if ( game:variable_get( "timer_frames" ) == 0 ) then continue else jumpto(0537);
+0529 (end 0537): game:variable_set("act1_1_flags1", (game:variable_get( "act1_1_flags1" ) | (1 << 7)));
+052d (end 0537): field:jump_to_map(119, 18, 64372, 1, 0);
+0537 (end 0537): jumpto( 050f );
+
+cl
+script_0:
+053a (end 053a): -- assosiate entity with model (CHAR) argument doesn't matter
+053c (end 053c): set_entity_to_character( "cl", 0 );
+053e (end 053e): return
+053f (end 053f): jumpto( 053f );
+
+script_3:
+0542 (end 0542): cl:set_direction( 167.344 )
+0545 (end 0545): return
+
+script_4:
+0546 (end 0546): cl:play_animation_stop( "3" ) -- speed=1
+                 cl:animation_sync()
+0549 (end 0549): -- set window parameters (id = 1, x = 30, y = 140, width = 267, height = 73);
+0553 (end 0553): message:show_text_wait(1, 52, x, y);
+0556 (end 0556): return
+
+script_5:
+0557 (end 0557): cl:play_animation_stop( "4" ) -- speed=1
+                 cl:animation_sync()
+055a (end 055a): return
+
+script_6:
+055b (end 055b): -- set window parameters (id = 0, x = 30, y = 140, width = 109, height = 57);
+0565 (end 0565): message:show_text_wait(0, 55, x, y);
+0568 (end 0568): return
+
+script_7:
+0569 (end 0569): field:pc_lock(true);
+056b (end 056b): field:menu_lock(true);
+056d (end 056d): cl:move_to_position( -12.2344, 26.9531 )
+                 cl:move_sync()
+0573 (end 0573): cl:set_direction( 279.844 )
+0576 (end 0576): -- set window parameters (id = 0, x = 90, y = 8, width = 118, height = 41);
+0580 (end 0580): message:show_text_wait(0, 65, x, y);
+0583 (end 0583): field:pc_lock(false);
+0585 (end 0585): field:menu_lock(false);
+0587 (end 0587): return
+
+script_8:
+0588 (end 0588): field:pc_lock(true);
+058a (end 058a): field:menu_lock(true);
+058c (end 058c): cl:move_to_position( -10.2969, 20.9297 )
+                 cl:move_sync()
+0592 (end 0592): cl:set_direction( 54.8438 )
+0595 (end 0595): -- set window parameters (id = 0, x = 90, y = 8, width = 118, height = 41);
+059f (end 059f): message:show_text_wait(0, 64, x, y);
+05a2 (end 05a2): field:pc_lock(false);
+05a4 (end 05a4): field:menu_lock(false);
+05a6 (end 05a6): return
+
+script_9:
+05a7 (end 05a7): cl:set_solid( false )
+05a9 (end 05a9): return
+
+script_10:
+05aa (end 05aa): cl:set_solid( true )
+05ac (end 05ac): return
+
+ba
+script_0:
+05ad (end 05ad): -- assosiate entity with model (CHAR) argument doesn't matter
+05af (end 05af): set_entity_to_character( "ba", 1 );
+05b1 (end 05b1): if ( game:variable_get( "progress_game" ) == 10 ) then continue else jumpto(05cd);
+05b9 (end 05cd): ba:set_position( -5.39844, 18.0781, -2.15625 ) -- triangle_id=30
+05c4 (end 05cd): ba:set_direction( 0 )
+05c7 (end 05cd): ba:set_talkable( true );
+05c9 (end 05cd): ba:set_solid( true )
+05cb (end 05cd): ba:set_visible( true )
+05cd (end 05cd): return
+05ce (end 05ce): jumpto( 05ce );
+
+script_3:
+05d1 (end 05d1): ba:set_move_speed( 2.34375 )
+05d5 (end 05d5): ba:play_animation( "3" ) -- speed=1
+                 ba:animation_sync()
+05d8 (end 05d8): -- set window parameters (id = 0, x = 130, y = 10, width = 174, height = 73);
+05e2 (end 05e2): message:show_text_wait(0, 51, x, y);
+05e5 (end 05e5): return
+
+script_4:
+05e6 (end 05e6): ba:play_animation( "3" ) -- speed=1
+                 ba:animation_sync()
+05e9 (end 05e9): -- set window parameters (id = 0, x = 70, y = 10, width = 278, height = 73);
+05f3 (end 05f3): message:show_text_wait(0, 53, x, y);
+05f6 (end 05f6): return
+
+script_5:
+05f7 (end 05f7): ba:set_default_animation( "4" ) -- speed=1
+                 ba:play_animation( "4" )
+05fa (end 05fa): -- set window parameters (id = 0, x = 70, y = 8, width = 229, height = 89);
+0604 (end 0604): message:show_text_wait(0, 54, x, y);
+0607 (end 0607): ba:set_default_animation( "0" ) -- speed=1
+                 ba:play_animation( "0" )
+060a (end 060a): return
+
+unnamed_5
+script_0:
+060b (end 060b): -- assosiate entity with model (CHAR) argument doesn't matter
+060d (end 060d): unnamed_5:set_position( -12, 35.6406, -2.11719 ) -- triangle_id=71
+0618 (end 0618): unnamed_5:set_direction( 0 )
+061b (end 061b): unnamed_5:offset_to_position( -0.109375, 0, -0.171875, Entity.LINEAR, 0 )
+0627 (end 0627): unnamed_5:set_solid( false )
+0629 (end 0629): return
+062a (end 062a): jumpto( 062a );
+
+script_3:
+062d (end 062d): if ( temp5_02 == 0 ) then continue else jumpto(066c);
+0633 (end 066c): field:pc_lock(true);
+0635 (end 066c): field:menu_lock(true);
+0637 (end 066c): temp5_02 = 1;
+063b (end 066c): if ( !(game:variable_get( "act1_1_flags2" ) & (1 << 1)) ) then continue else jumpto(064a);
+0641 (end 066c): script:request_end_sync( "av_j", "script_10", 6 )
+0644 (end 066c): script:request( "cl", "script_9", 6 )
+0647 (end 066c): script:wait( 0.266667 )
+064a (end 066c): music:execute_akao( 20, 40, 36 ); -- play sound
+064f (end 066c): unnamed_5:offset_to_position( 1.17188, 0, -0.171875, Entity.LINEAR, 1 )
+065b (end 066c): field:lock_walkmesh( 61, false );
+065f (end 066c): if ( !(game:variable_get( "act1_1_flags2" ) & (1 << 1)) ) then continue else jumpto(0668);
+0665 (end 066c): script:request_end_sync( "av_j", "script_11", 6 )
+0668 (end 066c): field:pc_lock(false);
+066a (end 066c): field:menu_lock(false);
+066c (end 066c): return
+
+unnamed_6
+script_0:
+066d (end 066d): -- assosiate entity with model (CHAR) argument doesn't matter
+066f (end 066f): unnamed_6:set_position( -7.53906, 19.8906, -2.13281 ) -- triangle_id=8
+067a (end 067a): unnamed_6:set_direction( 90 )
+067d (end 067d): unnamed_6:set_solid( false )
+067f (end 067f): return
+0680 (end 0680): if ( game:variable_get( "act1_1_flags1" ) & (1 << 3) ) then continue else jumpto(06a2);
+0686 (end 06a2): field:lock_walkmesh( 37, false );
+068a (end 06a2): field:lock_walkmesh( 10, false );
+068e (end 06a2): field:lock_walkmesh( 8, false );
+0692 (end 06a2): field:lock_walkmesh( 2, false );
+0696 (end 06a2): unnamed_6:offset_to_position( 0, 1.4375, 0, Entity.LINEAR, 0 )
+06a2 (end 06a2): jumpto( 06a2 );
+
+script_3:
+06a5 (end 06a5): field:pc_lock(true);
+06a7 (end 06a7): field:menu_lock(true);
+06a9 (end 06a9): if ( !(game:variable_get( "act1_1_flags1" ) & (1 << 6)) ) then continue else jumpto(06bb);
+06af (end 06bb): if ( game:variable_get( "progress_game" ) >= 27 ) then continue else jumpto(06bb);
+06b7 (end 06bb): script:request( "cl", "script_8", 6 )
+06ba (end 06bb): return
+06bb (end 06bb): if ( game:variable_get( "progress_game" ) < 27 ) then continue else jumpto(06c8);
+06c3 (end 06c8): script:request_end_sync( "av_b", "script_3", 6 )
+06c6 (end 06c8): jumpto( 06cb );
+06c8 (end 06cb): script:request_end_sync( "av_b", "script_6", 6 )
+06cb (end 06cb): music:execute_akao( 20, 40, 36 ); -- play sound
+06d0 (end 06d0): unnamed_6:set_solid( false )
+06d2 (end 06d2): unnamed_6:offset_to_position( 0, 1.4375, 0, Entity.LINEAR, 1 )
+06de (end 06de): unnamed_6:offset_sync()
+06df (end 06df): field:lock_walkmesh( 37, false );
+06e3 (end 06e3): field:lock_walkmesh( 10, false );
+06e7 (end 06e7): field:lock_walkmesh( 8, false );
+06eb (end 06eb): field:lock_walkmesh( 2, false );
+06ef (end 06ef): if ( game:variable_get( "progress_game" ) < 27 ) then continue else jumpto(06ff);
+06f7 (end 06ff): script:request( "av_b", "script_4", 6 )
+06fa (end 06ff): script:request( "av_j", "script_3", 6 )
+06fd (end 06ff): jumpto( 0705 );
+06ff (end 0705): script:request( "av_b", "script_7", 6 )
+0702 (end 0705): script:request( "av_j", "script_9", 6 )
+0705 (end 0705): game:variable_set("act1_1_flags1", (game:variable_get( "act1_1_flags1" ) | (1 << 3)));
+0709 (end 0709): field:pc_lock(false);
+070b (end 070b): field:menu_lock(false);
+070d (end 070d): return
+
+unnamed_7
+script_0:
+070e (end 070e): -- assosiate entity with model (CHAR) argument doesn't matter
+0710 (end 0710): unnamed_7:set_position( -12.3125, 24.75, -2.13281 ) -- triangle_id=52
+071b (end 071b): unnamed_7:set_direction( 180 )
+071e (end 071e): unnamed_7:set_solid( false )
+0720 (end 0720): return
+0721 (end 0721): if ( game:variable_get( "act1_1_flags1" ) & (1 << 4) ) then continue else jumpto(073f);
+0727 (end 073f): unnamed_7:offset_to_position( -1.4375, 0, 0, Entity.LINEAR, 0 )
+0733 (end 073f): field:lock_walkmesh( 51, false );
+0737 (end 073f): field:lock_walkmesh( 52, false );
+073b (end 073f): field:lock_walkmesh( 53, false );
+073f (end 073f): jumpto( 073f );
+
+script_3:
+0742 (end 0742): field:pc_lock(true);
+0744 (end 0744): field:menu_lock(true);
+0746 (end 0746): if ( !(game:variable_get( "act1_1_flags1" ) & (1 << 5)) ) then continue else jumpto(0758);
+074c (end 0758): if ( game:variable_get( "progress_game" ) >= 27 ) then continue else jumpto(0758);
+0754 (end 0758): script:request( "cl", "script_7", 6 )
+0757 (end 0758): return
+0758 (end 0758): if ( game:variable_get( "progress_game" ) < 27 ) then continue else jumpto(0765);
+0760 (end 0765): script:request_end_sync( "av_j", "script_4", 6 )
+0763 (end 0765): jumpto( 0768 );
+0765 (end 0768): script:request_end_sync( "av_j", "script_7", 6 )
+0768 (end 0768): music:execute_akao( 20, 40, 36 ); -- play sound
+076d (end 076d): script:request( "unnamed_8", "script_3", 6 )
+0770 (end 0770): unnamed_7:set_solid( false )
+0772 (end 0772): unnamed_7:offset_to_position( -1.4375, 0, 0, Entity.LINEAR, 1 )
+077e (end 077e): unnamed_7:offset_sync()
+077f (end 077f): field:lock_walkmesh( 51, false );
+0783 (end 0783): field:lock_walkmesh( 52, false );
+0787 (end 0787): field:lock_walkmesh( 53, false );
+078b (end 078b): script:wait( 0.266667 )
+078e (end 078e): if ( game:variable_get( "progress_game" ) < 27 ) then continue else jumpto(07a4);
+0796 (end 07a4): script:request( "cl", "script_9", 6 )
+0799 (end 07a4): script:request_end_sync( "av_j", "script_5", 6 )
+079c (end 07a4): script:request( "cl", "script_10", 6 )
+079f (end 07a4): script:request( "av_j", "script_6", 6 )
+07a2 (end 07a4): jumpto( 07ad );
+07a4 (end 07ad): script:request( "av_j", "script_8", 6 )
+07a7 (end 07ad): script:request( "av_b", "script_5", 6 )
+07aa (end 07ad): script:wait( 0.333333 )
+07ad (end 07ad): game:variable_set("act1_1_flags1", (game:variable_get( "act1_1_flags1" ) | (1 << 4)));
+07b1 (end 07b1): field:pc_lock(false);
+07b3 (end 07b3): field:menu_lock(false);
+07b5 (end 07b5): return
+
+unnamed_8
+script_0:
+07b6 (end 07b6): -- assosiate entity with model (CHAR) argument doesn't matter
+07b8 (end 07b8): unnamed_8:set_position( -10.875, 24.7578, -2.13281 ) -- triangle_id=52
+07c3 (end 07c3): unnamed_8:set_direction( 0 )
+07c6 (end 07c6): unnamed_8:set_solid( false )
+07c8 (end 07c8): return
+07c9 (end 07c9): if ( game:variable_get( "act1_1_flags1" ) & (1 << 4) ) then continue else jumpto(07db);
+07cf (end 07db): unnamed_8:offset_to_position( 1.20313, 0, 0, Entity.LINEAR, 0 )
+07db (end 07db): jumpto( 07db );
+
+script_3:
+07de (end 07de): unnamed_8:offset_to_position( 1.20313, 0, 0, Entity.LINEAR, 1 )
+07ea (end 07ea): unnamed_8:offset_sync()
+07eb (end 07eb): return
+
+av_b
+script_0:
+07ec (end 07ec): -- assosiate entity with model (CHAR) argument doesn't matter
+07ee (end 07ee): av_b:set_position( -6.67188, 18.3203, -2.16406 ) -- triangle_id=25
+07f9 (end 07f9): av_b:set_direction( 0 )
+07fc (end 07fc): if ( game:variable_get( "progress_game" ) < 27 ) then continue else jumpto(081a);
+0804 (end 081a): if ( game:variable_get( "act1_1_flags1" ) & (1 << 3) ) then continue else jumpto(0818);
+080a (end 081a): av_b:set_position( -13.2266, 21.8672, -2.13281 ) -- triangle_id=45
+0815 (end 081a): av_b:set_direction( 54.8438 )
+0818 (end 081a): jumpto( 0860 );
+081a (end 0860): av_b:set_talkable( false );
+081c (end 0860): av_b:set_solid( false )
+081e (end 0860): av_b:set_visible( false )
+0820 (end 0860): if ( game:variable_get( "act1_1_flags1" ) & (1 << 6) ) then continue else jumpto(0854);
+0826 (end 0860): av_b:set_position( -10.4297, 26.3047, -2.13281 ) -- triangle_id=28
+0831 (end 0860): av_b:set_direction( 234.844 )
+0834 (end 0860): av_b:set_talkable( true );
+0836 (end 0860): av_b:set_solid( true )
+0838 (end 0860): av_b:set_visible( true )
+083a (end 0860): if ( game:variable_get( "act1_1_flags1" ) & (1 << 4) ) then continue else jumpto(0854);
+0840 (end 0860): av_b:set_position( -9.91406, 23.1953, -2.13281 ) -- triangle_id=39
+084b (end 0860): av_b:set_direction( 234.844 )
+084e (end 0860): av_b:set_talkable( true );
+0850 (end 0860): av_b:set_solid( true )
+0852 (end 0860): av_b:set_visible( true )
+0854 (end 0860): if ( game:variable_get( "act1_1_flags1" ) & (1 << 3) ) then continue else jumpto(0860);
+085a (end 0860): av_b:set_talkable( false );
+085c (end 0860): av_b:set_solid( false )
+085e (end 0860): av_b:set_visible( false )
+0860 (end 0860): return
+0861 (end 0861): jumpto( 0861 );
+
+script_1:
+0863 (end 0863): if ( game:variable_get( "progress_game" ) < 27 ) then continue else jumpto(0891);
+086b (end 0891): if ( !(game:variable_get( "act1_1_flags1" ) & (1 << 3)) ) then continue else jumpto(087a);
+0871 (end 0891): game:variable_set("act1_1_flags1", (game:variable_get( "act1_1_flags1" ) | (1 << 3)));
+0875 (end 0891): script:request( "unnamed_6", "script_3", 6 )
+0878 (end 0891): jumpto( 088f );
+087a (end 0891): field:pc_lock(true);
+087c (end 0891): field:menu_lock(true);
+087e (end 0891): -- set window parameters (id = 0, x = 10, y = 10, width = 234, height = 57);
+0888 (end 0891): message:show_text_wait(0, 71, x, y);
+088b (end 0891): field:pc_lock(false);
+088d (end 0891): field:menu_lock(false);
+088f (end 0891): jumpto( 08e7 );
+0891 (end 08e7): if ( !(game:variable_get( "act1_1_flags1" ) & (1 << 5)) ) then continue else jumpto(08a6);
+0897 (end 08e7): -- set window parameters (id = 0, x = 10, y = 10, width = 156, height = 57);
+08a1 (end 08e7): message:show_text_wait(0, 76, x, y);
+08a4 (end 08e7): jumpto( 08e7 );
+08a6 (end 08e7): if ( !(game:variable_get( "act1_1_flags1" ) & (1 << 4)) ) then continue else jumpto(08c3);
+08ac (end 08e7): field:pc_lock(true);
+08ae (end 08e7): field:menu_lock(true);
+08b0 (end 08e7): -- set window parameters (id = 0, x = 10, y = 10, width = 80, height = 41);
+08ba (end 08e7): message:show_text_wait(0, 74, x, y);
+08bd (end 08e7): field:pc_lock(false);
+08bf (end 08e7): field:menu_lock(false);
+08c1 (end 08e7): jumpto( 08e7 );
+08c3 (end 08e7): if ( !(game:variable_get( "act1_1_flags1" ) & (1 << 3)) ) then continue else jumpto(08d2);
+08c9 (end 08e7): game:variable_set("act1_1_flags1", (game:variable_get( "act1_1_flags1" ) | (1 << 3)));
+08cd (end 08e7): script:request( "unnamed_6", "script_3", 6 )
+08d0 (end 08e7): jumpto( 08e7 );
+08d2 (end 08e7): field:pc_lock(true);
+08d4 (end 08e7): field:menu_lock(true);
+08d6 (end 08e7): -- set window parameters (id = 0, x = 10, y = 10, width = 80, height = 41);
+08e0 (end 08e7): message:show_text_wait(0, 74, x, y);
+08e3 (end 08e7): field:pc_lock(false);
+08e5 (end 08e7): field:menu_lock(false);
+08e7 (end 08e7): return
+
+script_3:
+08e8 (end 08e8): av_b:turn_to_direction( 257.344, Entity.CLOSEST, Entity.SMOOTH, 0.333333 )
+av_b:turn_sync()
+08ee (end 08ee): script:wait( 0.333333 )
+08f1 (end 08f1): av_b:play_animation_stop( "3" ) -- speed=1
+                 av_b:animation_sync()
+08f4 (end 08f4): music:execute_akao( 20, 40, 33 ); -- play sound
+08f9 (end 08f9): -- set window parameters (id = 0, x = 30, y = 120, width = 93, height = 41);
+0903 (end 0903): message:show_text_wait(0, 63, x, y);
+0906 (end 0906): return
+
+script_4:
+0907 (end 0907): av_b:set_talkable( false );
+0909 (end 0909): av_b:set_solid( false )
+090b (end 090b): av_b:set_move_speed( 3.75 )
+090f (end 090f): av_b:move_to_position( -6.95313, 19.8125 )
+                 av_b:move_sync()
+0915 (end 0915): av_b:move_to_position( -10.4688, 21.5234 )
+                 av_b:move_sync()
+091b (end 091b): av_b:move_to_position( -13.2266, 21.8672 )
+                 av_b:move_sync()
+0921 (end 0921): av_b:set_direction( 54.8438 )
+0924 (end 0924): av_b:set_default_animation( "0" ) -- speed=1
+                 av_b:play_animation( "0" )
+0927 (end 0927): av_b:set_talkable( true );
+0929 (end 0929): av_b:set_solid( true )
+092b (end 092b): return
+
+script_5:
+092c (end 092c): av_b:set_talkable( false );
+092e (end 092e): av_b:set_solid( false )
+0930 (end 0930): av_b:set_move_speed( 6.09375 )
+0934 (end 0934): av_b:move_to_position( -12.2344, 25.3594 )
+                 av_b:move_sync()
+093a (end 093a): av_b:move_to_position( -10.0156, 23.1875 )
+                 av_b:move_sync()
+0940 (end 0940): av_b:set_direction( 54.8438 )
+0943 (end 0943): av_b:set_talkable( true );
+0945 (end 0945): av_b:set_solid( true )
+0947 (end 0947): return
+
+script_6:
+0948 (end 0948): av_b:set_talkable( false );
+094a (end 094a): av_b:set_solid( false )
+094c (end 094c): av_b:set_move_speed( 3.75 )
+0950 (end 0950): av_b:move_to_position( -8.03906, 21.5625 )
+                 av_b:move_sync()
+0956 (end 0956): music:execute_akao( 20, 40, 33 ); -- play sound
+095b (end 095b): -- set window parameters (id = 0, x = 30, y = 120, width = 93, height = 41);
+0965 (end 0965): message:show_text_wait(0, 63, x, y);
+0968 (end 0968): av_b:set_talkable( true );
+096a (end 096a): av_b:set_solid( true )
+096c (end 096c): return
+
+script_7:
+096d (end 096d): av_b:set_solid( false )
+096f (end 096f): av_b:move_to_position( -8.11719, 20.0078 )
+                 av_b:move_sync()
+0975 (end 0975): av_b:move_to_position( -5.72656, 19.2031 )
+                 av_b:move_sync()
+097b (end 097b): av_b:move_to_position( -5.50781, 15.9063 )
+                 av_b:move_sync()
+0981 (end 0981): av_b:move_to_position( -6.23438, 7.34375 )
+                 av_b:move_sync()
+0987 (end 0987): av_b:set_talkable( false );
+0989 (end 0989): av_b:set_solid( false )
+098b (end 098b): av_b:set_visible( false )
+098d (end 098d): return
+
+av_j
+script_0:
+098e (end 098e): -- assosiate entity with model (CHAR) argument doesn't matter
+0990 (end 0990): av_j:set_position( -4.49219, 20.5547, -2.14844 ) -- triangle_id=31
+099b (end 099b): av_j:set_direction( 9.84375 )
+099e (end 099e): if ( game:variable_get( "progress_game" ) < 27 ) then continue else jumpto(09dc);
+09a6 (end 09dc): if ( game:variable_get( "act1_1_flags1" ) & (1 << 3) ) then continue else jumpto(09ba);
+09ac (end 09dc): av_j:set_position( -13.1719, 23.6016, -2.13281 ) -- triangle_id=45
+09b7 (end 09dc): av_j:set_direction( 180 )
+09ba (end 09dc): if ( game:variable_get( "act1_1_flags1" ) & (1 << 4) ) then continue else jumpto(09ce);
+09c0 (end 09dc): av_j:set_position( -12.8359, 34.2344, -2.13281 ) -- triangle_id=56
+09cb (end 09dc): av_j:set_direction( 144.844 )
+09ce (end 09dc): if ( game:variable_get( "act1_1_flags2" ) & (1 << 1) ) then continue else jumpto(09da);
+09d4 (end 09dc): av_j:set_talkable( false );
+09d6 (end 09dc): av_j:set_solid( false )
+09d8 (end 09dc): av_j:set_visible( false )
+09da (end 09dc): jumpto( 0a22 );
+09dc (end 0a22): av_j:set_talkable( false );
+09de (end 0a22): av_j:set_solid( false )
+09e0 (end 0a22): av_j:set_visible( false )
+09e2 (end 0a22): if ( game:variable_get( "act1_1_flags1" ) & (1 << 5) ) then continue else jumpto(09fc);
+09e8 (end 0a22): av_j:set_position( -14.3438, 28.4688, -2.13281 ) -- triangle_id=54
+09f3 (end 0a22): av_j:set_direction( 54.8438 )
+09f6 (end 0a22): av_j:set_talkable( true );
+09f8 (end 0a22): av_j:set_solid( true )
+09fa (end 0a22): av_j:set_visible( true )
+09fc (end 0a22): if ( game:variable_get( "act1_1_flags1" ) & (1 << 4) ) then continue else jumpto(0a16);
+0a02 (end 0a22): av_j:set_position( -11.7109, 21.3203, -2.13281 ) -- triangle_id=43
+0a0d (end 0a22): av_j:set_direction( 54.8438 )
+0a10 (end 0a22): av_j:set_talkable( true );
+0a12 (end 0a22): av_j:set_solid( true )
+0a14 (end 0a22): av_j:set_visible( true )
+0a16 (end 0a22): if ( game:variable_get( "act1_1_flags1" ) & (1 << 3) ) then continue else jumpto(0a22);
+0a1c (end 0a22): av_j:set_talkable( false );
+0a1e (end 0a22): av_j:set_solid( false )
+0a20 (end 0a22): av_j:set_visible( false )
+0a22 (end 0a22): return
+0a23 (end 0a23): jumpto( 0a23 );
+
+script_1:
+0a25 (end 0a25): if ( game:variable_get( "progress_game" ) < 27 ) then continue else jumpto(0a64);
+0a2d (end 0a64): if ( game:variable_get( "act1_1_flags1" ) & (1 << 3) ) then continue else jumpto(0a3c);
+0a33 (end 0a64): if ( game:variable_get( "act1_1_flags1" ) & (1 << 4) ) then continue else jumpto(0a3c);
+0a39 (end 0a64): script:request( "unnamed_5", "script_3", 6 )
+0a3c (end 0a64): if ( !(game:variable_get( "act1_1_flags1" ) & (1 << 3)) ) then continue else jumpto(0a59);
+0a42 (end 0a64): field:pc_lock(true);
+0a44 (end 0a64): field:menu_lock(true);
+0a46 (end 0a64): -- set window parameters (id = 0, x = 10, y = 10, width = 193, height = 57);
+0a50 (end 0a64): message:show_text_wait(0, 70, x, y);
+0a53 (end 0a64): field:pc_lock(false);
+0a55 (end 0a64): field:menu_lock(false);
+0a57 (end 0a64): jumpto( 0a62 );
+0a59 (end 0a64): if ( !(game:variable_get( "act1_1_flags1" ) & (1 << 4)) ) then continue else jumpto(0a62);
+0a5f (end 0a64): script:request( "unnamed_7", "script_3", 6 )
+0a62 (end 0a64): jumpto( 0a84 );
+0a64 (end 0a84): if ( !(game:variable_get( "act1_1_flags1" ) & (1 << 4)) ) then continue else jumpto(0a6f);
+0a6a (end 0a84): script:request( "unnamed_7", "script_3", 6 )
+0a6d (end 0a84): jumpto( 0a84 );
+0a6f (end 0a84): field:pc_lock(true);
+0a71 (end 0a84): field:menu_lock(true);
+0a73 (end 0a84): -- set window parameters (id = 0, x = 10, y = 10, width = 125, height = 41);
+0a7d (end 0a84): message:show_text_wait(0, 75, x, y);
+0a80 (end 0a84): field:pc_lock(false);
+0a82 (end 0a84): field:menu_lock(false);
+0a84 (end 0a84): return
+
+script_3:
+0a85 (end 0a85): av_j:set_talkable( false );
+0a87 (end 0a87): av_j:set_solid( false )
+0a89 (end 0a89): av_j:set_move_speed( 6.09375 )
+0a8d (end 0a8d): av_j:move_to_position( -6.85938, 19.4141 )
+                 av_j:move_sync()
+0a93 (end 0a93): av_j:move_to_position( -13.1719, 23.6016 )
+                 av_j:move_sync()
+0a99 (end 0a99): av_j:set_direction( 180 )
+0a9c (end 0a9c): av_j:set_talkable( true );
+0a9e (end 0a9e): av_j:set_solid( true )
+0aa0 (end 0aa0): return
+
+script_4:
+0aa1 (end 0aa1): av_j:set_direction( 144.844 )
+0aa4 (end 0aa4): script:wait( 0.333333 )
+0aa7 (end 0aa7): av_j:play_animation_stop( "3" ) -- speed=1
+                 av_j:animation_sync()
+0aaa (end 0aaa): music:execute_akao( 20, 40, 33 ); -- play sound
+0aaf (end 0aaf): -- set window parameters (id = 0, x = 30, y = 20, width = 93, height = 41);
+0ab9 (end 0ab9): message:show_text_wait(0, 62, x, y);
+0abc (end 0abc): return
+
+script_5:
+0abd (end 0abd): av_j:set_talkable( false );
+0abf (end 0abf): av_j:set_solid( false )
+0ac1 (end 0ac1): av_j:set_move_speed( 6.09375 )
+0ac5 (end 0ac5): av_j:move_to_position( -11.0391, 23.6094 )
+                 av_j:move_sync()
+0acb (end 0acb): av_j:move_to_position( -12.0234, 26.2656 )
+                 av_j:move_sync()
+0ad1 (end 0ad1): av_j:set_solid( true )
+0ad3 (end 0ad3): av_j:set_talkable( true );
+0ad5 (end 0ad5): return
+
+script_6:
+0ad6 (end 0ad6): av_j:set_talkable( false );
+0ad8 (end 0ad8): av_j:set_solid( false )
+0ada (end 0ada): av_j:move_to_position( -12.8359, 34.2344 )
+                 av_j:move_sync()
+0ae0 (end 0ae0): av_j:set_direction( 144.844 )
+0ae3 (end 0ae3): av_j:set_talkable( true );
+0ae5 (end 0ae5): av_j:set_solid( true )
+0ae7 (end 0ae7): return
+
+script_7:
+0ae8 (end 0ae8): av_j:set_talkable( false );
+0aea (end 0aea): av_j:set_solid( false )
+0aec (end 0aec): av_j:set_move_speed( 6.09375 )
+0af0 (end 0af0): av_j:move_to_position( -13.6094, 25 )
+                 av_j:move_sync()
+0af6 (end 0af6): music:execute_akao( 20, 40, 33 ); -- play sound
+0afb (end 0afb): -- set window parameters (id = 0, x = 30, y = 20, width = 93, height = 41);
+0b05 (end 0b05): message:show_text_wait(0, 62, x, y);
+0b08 (end 0b08): av_j:set_talkable( true );
+0b0a (end 0b0a): av_j:set_solid( true )
+0b0c (end 0b0c): return
+
+script_8:
+0b0d (end 0b0d): av_j:set_talkable( false );
+0b0f (end 0b0f): av_j:set_solid( false )
+0b11 (end 0b11): av_j:move_to_position( -11.6094, 25.2031 )
+                 av_j:move_sync()
+0b17 (end 0b17): av_j:move_to_position( -11.7109, 21.3203 )
+                 av_j:move_sync()
+0b1d (end 0b1d): av_j:set_direction( 54.8438 )
+0b20 (end 0b20): av_j:set_talkable( true );
+0b22 (end 0b22): av_j:set_solid( true )
+0b24 (end 0b24): return
+
+script_9:
+0b25 (end 0b25): av_j:set_solid( false )
+0b27 (end 0b27): av_j:set_move_speed( 3.75 )
+0b2b (end 0b2b): av_j:move_to_position( -8.11719, 20.0078 )
+                 av_j:move_sync()
+0b31 (end 0b31): av_j:move_to_position( -5.72656, 19.2031 )
+                 av_j:move_sync()
+0b37 (end 0b37): av_j:move_to_position( -5.50781, 15.9063 )
+                 av_j:move_sync()
+0b3d (end 0b3d): av_j:move_to_position( -6.23438, 7.34375 )
+                 av_j:move_sync()
+0b43 (end 0b43): av_j:set_talkable( false );
+0b45 (end 0b45): av_j:set_solid( false )
+0b47 (end 0b47): av_j:set_visible( false )
+0b49 (end 0b49): return
+
+script_10:
+0b4a (end 0b4a): av_j:play_animation_stop( "4", 0, 0.533333 ) -- speed=1
+                 av_j:animation_sync()
+0b4f (end 0b4f): music:execute_akao( 20, 40, 33 ); -- play sound
+0b54 (end 0b54): return
+
+script_11:
+0b55 (end 0b55): av_j:set_talkable( false );
+0b57 (end 0b57): av_j:set_solid( false )
+0b59 (end 0b59): av_j:play_animation( "4", 0.533333, 0.966667 ) -- speed=1
+                 av_j:animation_sync()
+0b5e (end 0b5e): av_j:set_move_speed( 2.34375 )
+0b62 (end 0b62): av_j:move_to_position( -11.7344, 34.5391 )
+                 av_j:move_sync()
+0b68 (end 0b68): av_j:move_to_position( -11.5234, 36.1094 )
+                 av_j:move_sync()
+0b6e (end 0b6e): av_j:set_direction( 0 )
+0b71 (end 0b71): game:variable_set("act1_1_flags2", (game:variable_get( "act1_1_flags2" ) | (1 << 1)));
+0b75 (end 0b75): return
+
+fe0
+script_0:
+0b76 (end 0b76): -- assosiate entity with model (CHAR) argument doesn't matter
+0b78 (end 0b78): fe0:set_position( 3.00781, 24.4141, -2.125 ) -- triangle_id=95
+0b83 (end 0b83): return
+0b84 (end 0b84): if ( !(game:variable_get( "sector1_item" ) & (1 << 3)) ) then continue else jumpto(0b9d);
+0b8a (end 0b9d): [UNREVERSED] KAWAI(05, 0d, 00, 00);
+0b8f (end 0b9d): script:wait( 0.0333333 )
+0b92 (end 0b9d): [UNREVERSED] KAWAI(04, 0d, 01);
+0b96 (end 0b9d): fe0:play_animation_stop( "0", 0, 0 ) -- speed=1
+                 fe0:animation_sync()
+0b9b (end 0b9d): jumpto( 0ba2 );
+0b9d (end 0ba2): fe0:play_animation_stop( "0", 0.966667, 0.966667 ) -- speed=1
+                 fe0:animation_sync()
+0ba2 (end 0ba2): jumpto( 0ba2 );
+
+script_1:
+0ba5 (end 0ba5): if ( !(game:variable_get( "sector1_item" ) & (1 << 3)) ) then continue else jumpto(0bf5);
+0bab (end 0bf5): field:pc_lock(true);
+0bad (end 0bf5): field:menu_lock(true);
+0baf (end 0bf5): game:variable_set("sector1_item", (game:variable_get( "sector1_item" ) | (1 << 3)));
+0bb3 (end 0bf5): music:execute_akao( 20, 40, 100 ); -- play sound
+0bb8 (end 0bf5): fe0:play_animation_stop( "0" ) -- speed=1
+                 fe0:animation_sync()
+0bbb (end 0bf5): music:execute_akao( 20, 40, 168 ); -- play sound
+0bc0 (end 0bf5): [UNREVERSED] KAWAI(05, 0d, 02, 00);
+0bc5 (end 0bf5): script:wait( 0.0333333 )
+0bc8 (end 0bf5): [UNREVERSED] KAWAI(0a, 02, 00, 00, 00, 00, 00, 00, 01);
+0bd2 (end 0bf5): script:wait( 0.0333333 )
+0bd5 (end 0bf5): [UNREVERSED] KAWAI(0a, 02, 00, 00, 00, 00, 00, 00, 01);
+0bdf (end 0bf5): -- set window parameters (id = 0, x = 52, y = 10, width = 199, height = 25);
+0be9 (end 0bf5): message:show_text_wait(0, 7, x, y);
+0bec (end 0bf5): game:item_add(7, 1);
+0bf1 (end 0bf5): field:pc_lock(false);
+0bf3 (end 0bf5): field:menu_lock(false);
+0bf5 (end 0bf5): return
+
+evb
+script_0:
+0bf8 (end 0bf8): -- define line point1( 64640, 2166, 65262), point2(65024, 2166, 65262 )
+0c05 (end 0c05): return
+0c06 (end 0c06): jumpto( 0c06 );
+
+script_3:
+0c09 (end 0c09): if ( game:variable_get( "progress_game" ) < 11 ) then continue else jumpto(0c46);
+0c11 (end 0c46): game:variable_set("progress_game", 11);
+0c16 (end 0c46): field:pc_lock(true);
+0c18 (end 0c46): field:menu_lock(true);
+0c1a (end 0c46): script:request_end_sync( "cl", "script_3", 6 )
+0c1d (end 0c46): script:request_end_sync( "ba", "script_3", 6 )
+0c20 (end 0c46): script:request_end_sync( "cl", "script_4", 6 )
+0c23 (end 0c46): script:request_end_sync( "ba", "script_4", 6 )
+0c26 (end 0c46): script:request_end_sync( "cl", "script_5", 6 )
+0c29 (end 0c46): script:request_end_sync( "ba", "script_5", 6 )
+0c2c (end 0c46): script:request_end_sync( "cl", "script_6", 6 )
+0c2f (end 0c46): -- set window parameters (id = 1, x = 140, y = 10, width = 181, height = 41);
+0c39 (end 0c46): message:show_text_wait(1, 56, x, y);
+0c3c (end 0c46): game:party_set( 0, 1, 254 );
+0c40 (end 0c46): [UNREVERSED] JOIN(1e);
+0c42 (end 0c46): field:pc_lock(false);
+0c44 (end 0c46): field:menu_lock(false);
+0c46 (end 0c46): return
+
+drE
+script_0:
+0c48 (end 0c48): -- define line point1( 63935, 4400, 65263), point2(63739, 4400, 65263 )
+0c55 (end 0c55): return
+0c56 (end 0c56): jumpto( 0c56 );
+
+script_4:
+0c59 (end 0c59): if (first pressed buttons "0020") then continue else jumpto(0c60);
+0c5d (end 0c60): script:request( "unnamed_5", "script_3", 6 )
+0c60 (end 0c60): return
+
+light
+script_0:
+0c61 (end 0c61): temp5_14 = 66;
+0c65 (end 0c65): temp5_15 = 66;
+0c69 (end 0c69): temp5_16 = 66;
+0c6d (end 0c6d): temp5_17 = 255;
+0c71 (end 0c71): return
+0c72 (end 0c72): -- store palette "13" to slot "0x00" starting from clut_x="0x00" and with width="0x100"
+0c77 (end 0c77): if ( temp5_14 < 98 ) then continue else jumpto(0ca2);
+0c7d (end 0ca2): temp5_14 = temp5_14 + 16;
+0c81 (end 0ca2): temp5_15 = temp5_15 + 16;
+0c85 (end 0ca2): temp5_16 = temp5_16 + 16;
+0c89 (end 0ca2): -- multiply palette stored in slot "0x00" with width="0x100 with values R="temp5_16", G="temp5_15", B="temp5_14" (note: 64 - 1.0f, 32 - 0.5f) and store it to slot "0x10"
+0c93 (end 0ca2): script:wait( 0.0333333 )
+0c96 (end 0ca2): -- copy palette stored in slot "0x00" with width="0x01 to slot "0x10"
+0c9b (end 0ca2): -- load palette "13" from slot "0x10" starting from clut_x="0x00" and with width="0x100"
+0ca0 (end 0ca2): jumpto( 0c77 );
+0ca2 (end 0ca2): if ( temp5_14 > 4 ) then continue else jumpto(0ccd);
+0ca8 (end 0ccd): temp5_14 = temp5_14 - 24;
+0cac (end 0ccd): temp5_15 = temp5_15 - 24;
+0cb0 (end 0ccd): temp5_16 = temp5_16 - 24;
+0cb4 (end 0ccd): -- multiply palette stored in slot "0x00" with width="0x100 with values R="temp5_16", G="temp5_15", B="temp5_14" (note: 64 - 1.0f, 32 - 0.5f) and store it to slot "0x10"
+0cbe (end 0ccd): script:wait( 0.0333333 )
+0cc1 (end 0ccd): -- copy palette stored in slot "0x00" with width="0x01 to slot "0x10"
+0cc6 (end 0ccd): -- load palette "13" from slot "0x10" starting from clut_x="0x00" and with width="0x100"
+0ccb (end 0ccd): jumpto( 0ca2 );
+0ccd (end 0ccd): jumpto( 0c77 );
+

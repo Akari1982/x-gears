@@ -38,7 +38,7 @@ UiContainer.MainMenu = {
                 menu_cursor:set_default_animation( "Position" .. self.position )
             end
         elseif FFVII.MenuSettings.available == true then
-            if button == "Space" and event == "Press" then
+            if button == "Escape" and event == "Press" then
                 script:request_end_sync( Script.UI, "MainMenu", "show", 0 )
             end
         end

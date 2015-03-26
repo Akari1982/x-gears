@@ -1,0 +1,7 @@
+    <entity_trigger name="Gateway0" point1="-6.72656 8.625 -3.21875" point2="-4.1875 8.625 -3.21094" enabled="true" />
+    <entity_point name="Spawn_nmkin_1" position="0.117188 -9.51563 0.0078125" rotation="0" />
+    <!-- map "Unknown_0x0077" -->
+    <entity_trigger name="Gateway1" point1="-12.2344 35.3516 -2.11719" point2="-11.1016 35.2109 -2.125" enabled="true" />
+    <entity_point name="Spawn_nmkin_1" position="-0.875 -0.0625 0.0390625" rotation="84.7059" />
+    <!-- map "Unknown_0x0079" -->
+<movement_rotation degree="45" />

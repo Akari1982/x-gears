@@ -1,0 +1,19 @@
+<screen name="Dialog" visible="true">
+    <widget name="LimitArea" x="50%" y="50%" origin_x="50%" origin_y="50%" width="320" height="240" scale="3 3" visible="true">
+        <widget name="0" x="0" y="0" width="100%" height="100%" visible="false">
+            <prototype name="Dialog" />
+        </widget>
+        <widget name="1" x="0" y="0" width="100%" height="100%" visible="false">
+            <prototype name="Dialog" />
+        </widget>
+        <widget name="2" x="0" y="0" width="100%" height="100%" visible="false">
+            <prototype name="Dialog" />
+        </widget>
+        <widget name="3" x="0" y="0" width="100%" height="100%" visible="false">
+            <prototype name="Dialog" />
+        </widget>
+        <widget name="Timer" x="0" y="0" width="100%" height="100%" visible="false">
+            <text_area name="TextArea" x="3" y="3" width="100%-6" height="100%-6" font="FFVIITimerFont" text_align="left" padding="3 5 3 5" scissor_area="0 0 100% 100%" visible="false" />
+        </widget>
+    </widget>
+</screen>

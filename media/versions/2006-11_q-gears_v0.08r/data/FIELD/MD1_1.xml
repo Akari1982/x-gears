@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<field dialogs="1" entitys="1" gateways="0" encounters="0" walkmesh="0">
+    <dialogs>
+    </dialogs>
+
+    <entitys>
+        <entity name="cloud">
+            <script>
+CHAR (00)
+PC (00)
+RET ()
+RET ()</script>
+        </entity>
+    </entitys>
+
+    <gateways>
+    </gateways>
+
+    <encounters>
+    </encounters>
+
+    <walkmesh>
+    </walkmesh>
+</field>

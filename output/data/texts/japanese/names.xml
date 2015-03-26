@@ -1,0 +1,14 @@
+﻿<texts>
+    <!-- Items -->
+    <text name="item_potion">ポーション</text>
+
+    <!-- Characters -->
+    <text name="char_cloud">クラウド</text>
+    <text name="char_barret">バレット</text>
+
+    <!-- Locations -->
+    <text name="loc_md1stin">１番街駅ホーム</text>
+    <text name="md1_1">１番街駅</text>
+    <text name="md1_2">1番街</text>
+    <text name="nrthmk">1番魔晄炉</text>
+</texts>

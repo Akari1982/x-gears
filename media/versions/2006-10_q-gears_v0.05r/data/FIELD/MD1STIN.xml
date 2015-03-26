@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<field dialogs="1" entitys="1">
+    <dialogs>
+        <dialog> </dialog>
+    </dialogs>
+
+
+
+
+
+
+    <entitys>
+        <entity name="dir">
+            <script>
+RET ()
+REQ (01,C2)
+RET ()
+            </script>
+        </entity>
+
+
+
+        <entity name="time">
+            <script>
+SET-BYTE! (10,00,00)
+STTIM (00,00,00,01,00)
+RET ()
+RET ()
+            </script>
+
+            <script>
+WMODE (03,01,01)
+WINDOW (03,0A,00,0A,00,A0,00,46,00)
+WSPCL (03,01,0A,0A)
+MESSAGE (03,00)
+SET-BYTE! (10,00,01)
+RET ()
+            </script>
+
+            <script>
+IFUB (10,00,00,00,04)
+REQ (01,A1)
+IFUB (10,15,00,00,0F)
+IFUB (10,16,00,00,09)
+IFUB (10,17,00,00,03)
+WREST (03)
+RET ()
+            </script>
+        </entity>
+    </entitys>
+</field>

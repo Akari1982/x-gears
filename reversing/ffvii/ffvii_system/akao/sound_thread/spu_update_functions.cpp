@@ -20,18 +20,18 @@ return A1;
 
 ////////////////////////////////
 // func3884c
-A1 = w[A0 + 0];
-V0 = w[8005aaf4];
+A1 = w[A0];
+V0 = w[8004aaf4];
 if (A1 < 1 || A1 & 2)
 {
     [V0 + 184] = h(hu[A0 + 8]); // Reverberation depth left
-    [8005a6a8] = h(hu[A0 + 8]);
+    [8004a6a8] = h(hu[A0 + 8]);
 }
 
 if (A1 < 1 || A1 & 4)
 {
     [V0 + 186] = h(hu[A0 + a]); // Reverberation depth right
-    [8005a6aa] = h(hu[A0 + a]);
+    [8004a6aa] = h(hu[A0 + a]);
 }
 
 return 0;

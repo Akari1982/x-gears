@@ -1,8 +1,14 @@
 <texts>
     <language name="English">
+        <text file="texts/english/names.xml" />
         <text file="texts/english/menu.xml" />
+        <text file="texts/english/dialogs_receiving.xml" />
+        <text file="texts/english/dialogs_mission1.xml" />
     </language>
     <language name="Japanese">
+        <text file="texts/japanese/names.xml" />
         <text file="texts/japanese/menu.xml" />
+        <text file="texts/japanese/dialogs_receiving.xml" />
+        <text file="texts/japanese/dialogs_mission1.xml" />
     </language>
 </texts>

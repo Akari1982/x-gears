@@ -1,9 +1,9 @@
 <screen name="MainMenu" script="screens/main_menu/main_menu.lua" visible="false">
-    <widget name="Container" width="368" height="240" origin_x="50%" origin_y="50%" align="center" valign="middle" scale="2.61 3" visible="true">
+    <widget name="Container" width="368" height="240" origin_x="50%" origin_y="50%" align="center" valign="middle" scale="3 3" visible="true">
         <widget name="Characters" x="0" y="17" width="300" height="190" visible="true">
             <prototype name="Window" />
-            <animation name="Appear" length="0.3" x="0:0 736,0.3:0 0" />
-            <animation name="Disappear" length="0.3" x="0:0 0,0.3:0 736" />
+            <animation name="Appear" length="0.3" x="0:736,0.3:0" />
+            <animation name="Disappear" length="0.3" x="0:0,0.3:736" />
 
             <widget name="Character1" x="0" y="0" width="100%" height="60" visible="true">
                 <sprite name="Portrait" image="screens/images/cloud.png" x="22" y="12" width="48" height="48" visible="true" />
@@ -35,19 +35,19 @@
             <text_area name="PHSText" x="16" y="102" text_name="MainMenuPHS" font="FFVIIFont" visible="true" />
             <text_area name="SaveText" x="16" y="114" text_name="MainMenuSave" font="FFVIIFont" visible="true" />
             <sprite name="Cursor" image="screens/images/cursor.png" x="-11" y="6" width="24" height="16" visible="true">
-                <animation name="Position1" length="0" y="0:0 6" />
-                <animation name="Position2" length="0" y="0:0 18" />
-                <animation name="Position3" length="0" y="0:0 30" />
-                <animation name="Position4" length="0" y="0:0 42" />
-                <animation name="Position5" length="0" y="0:0 54" />
-                <animation name="Position6" length="0" y="0:0 66" />
-                <animation name="Position7" length="0" y="0:0 78" />
-                <animation name="Position8" length="0" y="0:0 90" />
-                <animation name="Position9" length="0" y="0:0 102" />
-                <animation name="Position10" length="0" y="0:0 114" />
+                <animation name="Position1" length="0" y="0:6" />
+                <animation name="Position2" length="0" y="0:18" />
+                <animation name="Position3" length="0" y="0:30" />
+                <animation name="Position4" length="0" y="0:42" />
+                <animation name="Position5" length="0" y="0:54" />
+                <animation name="Position6" length="0" y="0:66" />
+                <animation name="Position7" length="0" y="0:78" />
+                <animation name="Position8" length="0" y="0:90" />
+                <animation name="Position9" length="0" y="0:102" />
+                <animation name="Position10" length="0" y="0:114" />
             </sprite>
-            <animation name="Appear" length="0.3" y="0:0 405,0.3:0 5" />
-            <animation name="Disappear" length="0.3" y="0:0 5,0.3:0 405" />
+            <animation name="Appear" length="0.3" y="0:405,0.3:5" />
+            <animation name="Disappear" length="0.3" y="0:5,0.3:405" />
         </widget>
 
         <widget name="TimeGil" x="278" y="164" width="86" height="36" visible="true">
@@ -60,15 +60,15 @@
             <text_area name="TimeSeconds" x="67" y="8" text_name="MainMenuSeconds" font="FFVIIMenuDigits" visible="true" />
             <text_area name="GilText" x="5" y="20" text_name="MainMenuGil" font="FFVIIFont" visible="true" />
             <text_area name="GilText" x="11" y="22" text_name="MainMenuGilAmount" font="FFVIIMenuDigits" visible="true" />
-            <animation name="Appear" length="0.3" x="0:0 -458,0.3:0 278" />
-            <animation name="Disappear" length="0.3" x="0:0 278,0.3:0 -458" />
+            <animation name="Appear" length="0.3" x="0:-458,0.3:278" />
+            <animation name="Disappear" length="0.3" x="0:278,0.3:-458" />
         </widget>
 
         <widget name="Location" x="184" y="200" width="180" height="24" visible="true">
             <prototype name="Window" />
             <text_area name="Text" x="8" y="6" text_name="MainMenuLocation" font="FFVIIFont" visible="true" />
-            <animation name="Appear" length="0.3" y="0:0 -136,0.3:0 200" />
-            <animation name="Disappear" length="0.3" y="0:0 200,0.3:0 -136" />
+            <animation name="Appear" length="0.3" y="0:-136,0.3:200" />
+            <animation name="Disappear" length="0.3" y="0:200,0.3:-136" />
         </widget>
     </widget>
 </screen>
