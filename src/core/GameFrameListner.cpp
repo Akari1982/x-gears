@@ -10,6 +10,7 @@
 #include "EntityManager.h"
 #include "InputManager.h"
 #include "Logger.h"
+#include "ParticleSystemManager.h"
 #include "ScriptManager.h"
 #include "Timer.h"
 #include "UiManager.h"

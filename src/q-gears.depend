@@ -30064,7 +30064,7 @@
 1416339162 c:\akari\my\svn\q-gears\src\core\library\lua\lualib.h
 	"lua.h"
 
-1418669794 source:c:\akari\my\svn\q-gears\src\core\gameframelistner.cpp
+1424698190 source:c:\akari\my\svn\q-gears\src\core\gameframelistner.cpp
 	"GameFrameListner.h"
 	<OgreStringConverter.h>
 	"CameraManager.h"
@@ -30075,6 +30075,7 @@
 	"EntityManager.h"
 	"InputManager.h"
 	"Logger.h"
+	"ParticleSystemManager.h"
 	"ScriptManager.h"
 	"Timer.h"
 	"UiManager.h"
@@ -30097,7 +30098,7 @@
 1416339160 c:\akari\my\svn\q-gears\src\core\configvar.h
 	<OgreString.h>
 
-1416339160 c:\akari\my\svn\q-gears\src\core\console.h
+1424858130 c:\akari\my\svn\q-gears\src\core\console.h
 	<OgreColourValue.h>
 	<OgreLog.h>
 	<OgreSingleton.h>
@@ -30856,7 +30857,7 @@
 	<luabind/function.hpp>
 	<luabind/get_main_thread.hpp>
 
-1418113502 source:c:\akari\my\svn\q-gears\src\core\console.cpp
+1424870597 source:c:\akari\my\svn\q-gears\src\core\console.cpp
 	"Console.h"
 	<OgreFontManager.h>
 	"ConfigCmdManager.h"
@@ -30913,7 +30914,7 @@
 	"CameraManager.h"
 	"Logger.h"
 
-1424541984 source:c:\akari\my\svn\q-gears\src\core\entity.cpp
+1424698928 source:c:\akari\my\svn\q-gears\src\core\entity.cpp
 	"Entity.h"
 	<OgreSceneNode.h>
 	"ConfigVar.h"
@@ -30942,7 +30943,7 @@
 	<luabind/lua_include.hpp>
 	<luabind/luabind.hpp>
 
-1418669652 source:c:\akari\my\svn\q-gears\src\main.cpp
+1424870210 source:c:\akari\my\svn\q-gears\src\main.cpp
 	<OgreRoot.h>
 	<OIS.h>
 	"Main.h"
@@ -30957,11 +30958,11 @@
 	"core/GameFrameListner.h"
 	"core/InputManager.h"
 	"core/Logger.h"
+	"core/ParticleSystemManager.h"
 	"core/ScriptManager.h"
 	"core/TextManager.h"
 	"core/Timer.h"
 	"core/UiManager.h"
-	"core/particles/ParticleSystemManager.h"
 
 1416339160 source:c:\akari\my\svn\q-gears\src\core\entitydirection.cpp
 	"EntityDirection.h"
@@ -31008,7 +31009,7 @@
 1416339160 c:\akari\my\svn\q-gears\src\core\entitymodel.h
 	"Entity.h"
 
-1416339160 source:c:\akari\my\svn\q-gears\src\core\walkmesh.cpp
+1424625120 source:c:\akari\my\svn\q-gears\src\core\walkmesh.cpp
 	"Walkmesh.h"
 	"ConfigVar.h"
 	"DebugDraw.h"
@@ -31217,7 +31218,7 @@
 	"library/luabind/luabind.hpp"
 	"library/luabind/yield_policy.hpp"
 
-1423760390 c:\akari\my\svn\q-gears\src\core\scriptmanagerbinds.h
+1424859729 c:\akari\my\svn\q-gears\src\core\scriptmanagerbinds.h
 	"Console.h"
 	"Logger.h"
 	"Entity.h"
@@ -31402,7 +31403,7 @@
 	"lauxlib.h"
 	"lualib.h"
 
-1419592360 source:c:\akari\my\svn\q-gears\src\core\uimanager.cpp
+1424634702 source:c:\akari\my\svn\q-gears\src\core\uimanager.cpp
 	"UiManager.h"
 	<OgreRoot.h>
 	<OgreStringVector.h>
@@ -35200,4 +35201,30 @@
 	<OgreSingleton.h>
 	"UiManager.h"
 	"UiTextArea.h"
+
+1424697054 c:\akari\my\svn\q-gears\src\core\particlesystemmanager.h
+	<OgreSingleton.h>
+	"Particle.h"
+
+1425544745 c:\akari\my\svn\q-gears\src\core\particle.h
+	<OgreSceneNode.h>
+	"ParticleAffector.h"
+
+1425542115 source:c:\akari\my\svn\q-gears\src\core\particle.cpp
+	<OgreEntity.h>
+	<OgreRoot.h>
+	"Logger.h"
+	"Particle.h"
+	"Timer.h"
+
+1425033505 source:c:\akari\my\svn\q-gears\src\core\particlesystemmanager.cpp
+	<OgreRoot.h>
+	"Logger.h"
+	"ParticleSystemManager.h"
+
+1425541392 c:\akari\my\svn\q-gears\src\core\particleaffector.h
+
+1425541409 source:c:\akari\my\svn\q-gears\src\core\particleaffector.cpp
+	"Particle.h"
+	"ParticleAffector.h"
 

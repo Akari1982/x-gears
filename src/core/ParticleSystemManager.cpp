@@ -1,6 +1,7 @@
+#include <OgreRoot.h>
+
+#include "Logger.h"
 #include "ParticleSystemManager.h"
-
-
 
 template<> ParticleSystemManager* Ogre::Singleton< ParticleSystemManager >::msSingleton = 0;
 
@@ -16,6 +17,7 @@ ParticleSystemManager::ParticleSystemManager()
 
     Ogre::SceneNode* node = m_SceneNode->createChildSceneNode( "TestParticle" );
     m_Particle = new Particle( node );
+    m_Particle->AddAffector( new ParticleAffector() );
 }
 
 

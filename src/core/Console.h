@@ -40,6 +40,11 @@ public:
     virtual void messageLogged( const Ogre::String& message, Ogre::LogMessageLevel lml, bool maskDebug, const Ogre::String &logName, bool& skipThisMessage );
 
 private:
+    void LoadHistory();
+    void SaveHistory();
+    void AddToHistory( const Ogre::String& history );
+
+private:
     int                           m_ConsoleWidth;
     int                           m_ConsoleHeight;
     unsigned int                  m_LineWidth;
@@ -63,8 +68,8 @@ private:
     float                         m_CursorBlinkTime;
 
     std::list< Ogre::String >     m_History;
-    int                           m_HistoryLine;
-    unsigned int                  m_HistorySize;
+    int                           m_HistoryLineCycleIndex;
+    unsigned int                  m_HistoryMaxSize;
 
     Ogre::StringVector            m_AutoCompletition;
     unsigned int                  m_AutoCompletitionLine;

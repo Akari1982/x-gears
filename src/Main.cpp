@@ -64,10 +64,6 @@ main(int argc, char *argv[])
 
 
 
-    ParticleSystemManager* particle_system_manager = new ParticleSystemManager();
-
-
-
     // set scene camera and viewport for other moduls
     // create this before initialize particle because some of them use scene to create themself
     scene_manager = root->createSceneManager( Ogre::ST_GENERIC, "Scene" );
@@ -106,6 +102,7 @@ main(int argc, char *argv[])
     UiManager* ui_manager = new UiManager();
     DialogsManager* dialogs_manager = new DialogsManager();
     EntityManager* entity_manager = new EntityManager();
+    ParticleSystemManager* particle_system_manager = new ParticleSystemManager();
     Console* console = new Console();
 
     // init after game managers because it attach them to script
@@ -138,13 +135,14 @@ main(int argc, char *argv[])
 
 
 
-    // system moduls
+    // system modules
     // we must remove this first cause this can fire event to console
     root->removeFrameListener( frame_listener );
     delete frame_listener;
     // destroy before script manager because it removes things from it.
-    delete dialogs_manager;
+    delete particle_system_manager;
     delete entity_manager;
+    delete dialogs_manager; // after entity manager
     delete ui_manager;
     delete text_manager;
     delete script_manager;
@@ -155,7 +153,6 @@ main(int argc, char *argv[])
     delete debug_draw;
     delete config_cmd_manager;
     delete config_var_manager;
-    delete particle_system_manager;
     delete timer;
     delete root;
     delete log_manager;

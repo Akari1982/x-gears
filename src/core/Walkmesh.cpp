@@ -179,7 +179,7 @@ Walkmesh::IsLocked( unsigned int triangle_id ) const
     if( triangle_id >= m_Triangles.size() )
     {
         LOG_ERROR( "Triangle_id greater than number of triangles in walkmesh or less than zero." );
-        return false;
+        return -1;
     }
 
     return m_Triangles[ triangle_id ].locked;

@@ -172,13 +172,6 @@ ScriptManager::InitBinds()
             .def( "set_clickable", ( void( DialogsManager::* )( const char*, const bool ) ) &DialogsManager::SetClickable )
             .def( "set_cursor", ( void( DialogsManager::* )( const char*, const int, const int ) ) &DialogsManager::SetCursor )
             .def( "get_cursor", ( int( DialogsManager::* )( const char* ) ) &DialogsManager::GetCursor )
-
-            .enum_("constants")
-            [
-                luabind::value("SOLID", MSL_SOLID),
-                luabind::value("TRANSPARENT", MSL_TRANSPARENT),
-                luabind::value("NONE", MSL_NONE)
-            ]
     ];
 
     // ui widget access

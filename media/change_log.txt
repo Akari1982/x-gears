@@ -15,15 +15,27 @@ Q-Gears v0.22 (4th blow for a win) | 2012-09-??
 To Do
 ----------
 * Implement base battle sequence. Add script storing and restoring.
-* [Entity] Implement mixed walkmesh movement from Xeno and FFIX.
-* [UI Dialog] Implement all dialogs feature from FFVII Xeno and FFIX.
+* [Content FFIX] Add all Alexandria maps and transitions between them without scripted events and entitys.
+* [Content FFVII] All FFVII fields maps from 1st mission until reactor blow must be fully playable.
 * [Entity] Understand why in real FFVII we dont intersect with background on md1stin but here we are.
 * [Content FFVII] Implement Model shadowing and related KAWAI used on phoenix chest.
 * [Content FFVII] Implement Eye blinking.
-* [Content FFVII] All FFVII fields maps from 1st mission until reactor blow must be fully playable.
 * [Sound] Implement all sounds that used in FFVII 1st mission until reactor blow.
+* [UI Dialog] Implement all dialogs feature from FFIX.
+
+
+* [UI Dialog] Implement all dialogs feature from Xeno .
+* [Entity] Implement mixed walkmesh movement from Xeno and FFIX.
 * [Content Xeno] Add all Lahan maps without scripted events and entitys and transitions between them.
-* [Content FFIX] Add all Alexandria maps and transitions between them without scripted events and entitys.
+
+* Release
+* Add dialogs.
+* Add real entities.
+* Add sprites.
+* Add background.
+* Add base features of Xeno walkmesh like sliding down.
+* Add all Lahan walkmeshes with transitions between them and Cloud as PC entity without Xeno walkmesh features.
+
 
 
 

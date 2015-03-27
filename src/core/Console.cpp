@@ -31,8 +31,8 @@ Console::Console():
     m_CursorPosition( 0 ),
     m_CursorBlinkTime( 0 ),
 
-    m_HistoryLine( -1 ),
-    m_HistorySize( 32 ),
+    m_HistoryLineCycleIndex( -1 ),
+    m_HistoryMaxSize( 32 ),
 
     m_AutoCompletitionLine( 0 )
 {
@@ -53,16 +53,20 @@ Console::Console():
 
     LOG_TRIVIAL( "Created console width " + Ogre::StringConverter::toString( m_ConsoleWidth ) + ", height " + Ogre::StringConverter::toString( m_ConsoleHeight ) );
 
-    // add as frame and log listner
+    // add as frame and log listener
     Ogre::LogManager::getSingleton().getDefaultLog()->addListener( this );
+
+    LoadHistory();
 }
 
 
 
 Console::~Console()
 {
-    // remove as listner
+    // remove as listener
     Ogre::LogManager::getSingleton().getDefaultLog()->removeListener( this );
+
+    SaveHistory();
 }
 
 
@@ -124,18 +128,18 @@ Console::Input( const Event& event )
     // history up
     else if( ( event.type == ET_PRESS || event.type == ET_REPEAT_WAIT ) && event.param1 == OIS::KC_UP )
     {
-        if( m_HistoryLine < ( int )m_History.size() - 1 )
+        if( m_HistoryLineCycleIndex < ( int )m_History.size() - 1 )
         {
-            ++m_HistoryLine;
+            ++m_HistoryLineCycleIndex;
             SetInputLineFromHistory();
         }
     }
     // history down
     else if( ( event.type == ET_PRESS || event.type == ET_REPEAT_WAIT ) && event.param1 == OIS::KC_DOWN )
     {
-        if( m_HistoryLine > 0 )
+        if( m_HistoryLineCycleIndex > 0 )
         {
-            --m_HistoryLine;
+            --m_HistoryLineCycleIndex;
             SetInputLineFromHistory();
         }
     }
@@ -262,7 +266,7 @@ Console::Input( const Event& event )
     // input ascii character
     else if( ( event.type == ET_PRESS || event.type == ET_REPEAT_WAIT ) && m_InputLine.size() < m_LineWidth )
     {
-        char legalchars[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890~!@#$%^&*()-_=+?{[]}|\\;:'\"<>,./? ";
+        char legalchars[] = "ABCDEFGHIJKLMNOPQRSTUVWXUZabcdefghijklmnopqrstuvwxyz1234567890~!@#$%^&*()-_=+?{[]}|\\;:'\"<>,./? ";
         char txt = event.param2;
         for( unsigned int c = 0; c < sizeof( legalchars ) - 1; ++c )
         {
@@ -754,12 +758,12 @@ Console::ResetAutoCompletion()
 void
 Console::AddInputToHistory()
 {
-    if( m_History.size() >= m_HistorySize )
+    if( m_History.size() >= m_HistoryMaxSize )
     {
         m_History.pop_back();
     }
     m_History.push_front( m_InputLine );
-    m_HistoryLine = -1;
+    m_HistoryLineCycleIndex = -1;
 }
 
 
@@ -772,7 +776,7 @@ Console::SetInputLineFromHistory()
     std::list< Ogre::String >::iterator i = m_History.begin();
     for( int count = 0; i != m_History.end(); ++i, ++count )
     {
-        if( count == m_HistoryLine )
+        if( count == m_HistoryLineCycleIndex )
         {
             m_InputLine = ( *i );
             m_CursorPosition = m_InputLine.size();
@@ -794,3 +798,48 @@ Console::messageLogged( const Ogre::String& message, Ogre::LogMessageLevel lml, 
     }
     AddTextToOutput( message, colour );
 };
+
+
+
+void
+Console::LoadHistory()
+{
+    std::ifstream file( "q-gears_ch.txt" );
+    std::string historyLine;
+    while( std::getline( file, historyLine ) )
+    {
+        AddToHistory( historyLine );
+    }
+    std::reverse( m_History.begin(), m_History.end() );
+}
+
+
+
+void
+Console::SaveHistory()
+{
+    std::ofstream file( "q-gears_ch.txt" );
+    if( !file.is_open() )
+    {
+        LOG_ERROR( "Failed to open console history file for writing" );
+        return;
+    }
+    std::list< Ogre::String >::iterator i = m_History.begin();
+    for( ; i != m_History.end(); ++i )
+    {
+        file << *i << "\r\n";
+    }
+}
+
+
+
+void
+Console::AddToHistory( const Ogre::String& history )
+{
+    if(m_History.size() >= m_HistoryMaxSize )
+    {
+        m_History.pop_back();
+    }
+    m_History.push_front( history );
+    m_HistoryLineCycleIndex = -1;
+}
