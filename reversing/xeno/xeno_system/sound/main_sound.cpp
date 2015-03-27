@@ -160,7 +160,7 @@ if( main_struct != 0 )
                         [main_struct + 10] = h(hu[main_struct + 10] & 7fff);
 
                         A0 = main_struct;
-                        func3af08;
+                        func3af08; // stop all channels
 
                         [main_struct + 10] = h(hu[main_struct + 10] | 0100);
                     }
@@ -249,8 +249,7 @@ if( A0 == 0 )
 else
 {
     [A0 + 10] = h(hu[A0 + 10] & 7fff);
-
-    func3af08;
+    func3af08; // stop all channels
 }
 ////////////////////////////////
 
@@ -267,10 +266,10 @@ if( A1 == 0 )
 
 if( A2 == 0 )
 {
-    8003A6F4	lh     v0, $005a(a0)
-    8003A6F8	nop
+    V0 = h[A0 + 5a];
+    [A0 + 6c] = h(0);
+
     8003A6FC	mult   v0, a1
-    8003A700	sh     zero, $006c(a0)
     8003A704	sll    v0, a1, $10
     8003A708	sw     v0, $0064(a0)
     8003A70C	mflo   v0
@@ -326,7 +325,7 @@ if( V0 != 0 )
         long DisableEvent( A0 ); // Turns off event handling for specified event.
 
         A0 = S1;
-        func3af08;
+        func3af08; // stop all channels
 
         8003AD88	addu   a0, s1, zero
         8003AD7C	lw     a1, $0004(s1)
@@ -352,77 +351,82 @@ if( V0 != 0 )
 
 ////////////////////////////////
 // func3af08
-8003AF10	addiu  s0, a0, $00c4
-8003AF1C	lbu    s1, $0014(a0)
-8003AF20	addu   a0, s0, zero
+main_struct = A0;
+channel_struct = main_struct + 94;
+number_of_channels = bu[main_struct + 14];
 
+// stop all channels
 loop3af24:	; 8003AF24
-    8003AF24	lbu    a1, $fff7(s0)
-    8003AF28	addiu  s0, s0, $0158
-    8003AF2C	jal    func3e6e4 [$8003e6e4]
-    8003AF30	addiu  s1, s1, $ffff (=-$1)
-    8003AF38	addu   a0, s0, zero
-8003AF34	bne    s1, zero, loop3af24 [$8003af24]
+    spu_channel_id = bu[channel_struct + 27];
+    if( spu_channel_id < 18 && w[80061bbc + spu_channel_id * 4] == channel_struct + 30 )
+    {
+        [80061bbc + spu_channel_id * 4] = w(0);
+        [80058b98] = w(w[80058b98] & (0 NOR (1 << spu_channel_id))); // remove channel bit from SPU Voice ON mask
+        [80058bf0] = w(w[80058bf0] | (1 << spu_channel_id)); // add channel bit
+    }
+
+    channel_struct = channel_struct + 158;
+    number_of_channels = number_of_channels - 1;
+8003AF34	bne    number_of_channels, zero, loop3af24 [$8003af24]
 ////////////////////////////////
 
 
 
 ////////////////////////////////
 // func3ee8c
-S5 = A1;
-S6 = A2;
+channel_struct = A1;
+number_of_channels = A2;
 
 loop3eebc:	; 8003EEBC
-    if( hu[S5 + 0] != 0 )
+    if( hu[channel_struct + 0] != 0 )
     {
-        [S5 + d0] = h(0); // pitch
-        [S5 + d2] = h(0); // volume
-        [S5 + d4] = h(0); // volume distribution
+        [channel_struct + d0] = h(0); // pitch
+        [channel_struct + d2] = h(0); // volume
+        [channel_struct + d4] = h(0); // volume distribution
 
-        if( hu[S5 + ce] != 0 )
+        if( hu[channel_struct + ce] != 0 )
         {
             S4 = 4;
-            S2 = hu[S5 + 2];
+            S2 = hu[channel_struct + 2];
             S0 = 1;
 
             loop3eef0:	; 8003EEF0
-                V0 = hu[S5 + f6 + S0 * 20] & 0001;
+                V0 = hu[channel_struct + f6 + S0 * 20] & 0001;
                 if( V0 != 0 )
                 {
-                    V0 = hu[S5 + ec + S0 * 20];
-                    if( V0 != 0 )
+                    if( hu[channel_struct + ec + S0 * 20] != 0 )
                     {
-                        [S5 + ec + S0 * 20] = h(hu[S5 + ec + S0 * 20] - 1);
+                        [channel_struct + ec + S0 * 20] = h(hu[channel_struct + ec + S0 * 20] - 1);
                     }
                     else
                     {
-                        V0 = w[S5 + d8 + S0 * 20];
-                        A0 = S5 + d8 + S0 * 20;
+                        A0 = channel_struct + d8 + S0 * 20;
+                        V0 = w[channel_struct + d8 + S0 * 20];
                         8003EF30	jalr   v0 ra
 
                         A0 = V0;
-                        if( h[S5 + f0 + S0 * 20] < 0400 )
+                        if( h[channel_struct + f0 + S0 * 20] < 0400 )
                         {
-                            A0 = (A0 >> a) * h[S5 + f0 + S0 * 20];
-                            [S5 + f0 + S0 * 20] = h(h[S5 + f0 + S0 * 20] + hu[S5 + f2 + S0 * 20]);
+                            A0 = (A0 >> a) * h[channel_struct + f0 + S0 * 20];
+                            [channel_struct + f0 + S0 * 20] = h(h[channel_struct + f0 + S0 * 20] + hu[channel_struct + f2 + S0 * 20]);
                         }
                         A0 = A0 >> 10;
 
-                        V1 = bu[S5 + f4 + S0 * 20];
+                        V1 = bu[channel_struct + f4 + S0 * 20];
                         if( V1 == 0 )
                         {
                             S2 = S2 | 0200;
-                            [S5 + d0] = h(hu[S5 + d0] + A0);
+                            [channel_struct + d0] = h(hu[channel_struct + d0] + A0);
                         }
                         else if( V1 == 1 )
                         {
                             S2 = S2 | 0100;
-                            [S5 + d2] = h(hu[S5 + d2] + A0);
+                            [channel_struct + d2] = h(hu[channel_struct + d2] + A0);
                         }
                         else if( V1 == 2 )
                         {
                             S2 = S2 | 0100;
-                            [S5 + d4] = h(hu[S5 + d4] + A0);
+                            [channel_struct + d4] = h(hu[channel_struct + d4] + A0);
                         }
                     }
                 }
@@ -431,13 +435,13 @@ loop3eebc:	; 8003EEBC
                 S4 = S4 - 1;
             8003EFE8	bne    s4, zero, loop3eef0 [$8003eef0]
 
-            [S5 + 2] = h(S2);
+            [channel_struct + 2] = h(S2);
         }
     }
 
-    S5 = S5 + 158;
-    S6 = S6 - 1;
-8003F004	bne    s6, zero, loop3eebc [$8003eebc]
+    channel_struct = channel_struct + 158;
+    number_of_channels = number_of_channels - 1;
+8003F004	bne    number_of_channels, zero, loop3eebc [$8003eebc]
 ////////////////////////////////
 
 

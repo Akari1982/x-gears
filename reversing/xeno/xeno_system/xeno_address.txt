@@ -235,6 +235,9 @@
 +0d0 [][]     pitch related. Init with 0.
 +0d2 [][]     volume mod
 +0d4 [][]     volume distribution add.
++0d8 start of some data.
++0d8 [][][][] function to call.
++0ec [][]     some wait timers.
 +0f6 [][]     init with 0.
 // some additional data related with bu[smd + 15]
 
