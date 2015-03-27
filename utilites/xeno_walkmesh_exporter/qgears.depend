@@ -5574,29 +5574,30 @@
 
 1416339192 c:\akari\my\svn\q-gears\utilites\xeno_walkmesh_exporter\src\common\utilites\utilites.h
 
-1416339162 source:c:\akari\my\svn\q-gears\utilites\common\logger.cpp
+1427437115 source:c:\akari\my\svn\q-gears\utilites\common\logger.cpp
 	"Logger.h"
 	"FileSystem.h"
 	<OgreStringConverter.h>
 
-1416339162 c:\akari\my\svn\q-gears\utilites\common\logger.h
+1427437122 c:\akari\my\svn\q-gears\utilites\common\logger.h
 	<OgreString.h>
 	<OgreUTFString.h>
 
 1416339162 c:\akari\my\svn\q-gears\utilites\common\filesystem.h
 	<OgreString.h>
 
-1424720119 source:c:\akari\my\svn\q-gears\utilites\xeno_walkmesh_exporter\src\main.cpp
+1427459556 source:c:\akari\my\svn\q-gears\utilites\xeno_walkmesh_exporter\src\main.cpp
 	<Ogre.h>
 	"../../common/OgreBase.h"
 	"../../common/Logger.h"
 	"Walkmesh.h"
 	"WalkmeshFile.h"
 
-1416339162 c:\akari\my\svn\q-gears\utilites\common\ogrebase.h
+1427460661 c:\akari\my\svn\q-gears\utilites\common\ogrebase.h
 	<Ogre.h>
 	<OgreTextAreaOverlayElement.h>
 	<OIS.h>
+	"DebugDraw.h"
 	"FileSystem.h"
 	"Logger.h"
 
@@ -5618,16 +5619,15 @@
 	"Logger.h"
 	<stdio.h>
 
-1424716154 c:\akari\my\svn\q-gears\utilites\xeno_walkmesh_exporter\src\walkmesh.h
+1427451014 c:\akari\my\svn\q-gears\utilites\xeno_walkmesh_exporter\src\walkmesh.h
 	<OgrePrerequisites.h>
 	<OgreSimpleRenderable.h>
 	<vector>
-	"MovableTextArea.h"
 
 1416339192 c:\akari\my\svn\q-gears\utilites\xeno_walkmesh_exporter\src\movabletextarea.h
 	<OgreTextAreaOverlayElement.h>
 
-1424716372 c:\akari\my\svn\q-gears\utilites\xeno_walkmesh_exporter\src\walkmeshfile.h
+1424716374 c:\akari\my\svn\q-gears\utilites\xeno_walkmesh_exporter\src\walkmeshfile.h
 	"Walkmesh.h"
 	"../../common/File.h"
 
@@ -5635,12 +5635,27 @@
 	"MovableTextArea.h"
 	<Ogre.h>
 
-1424719777 source:c:\akari\my\svn\q-gears\utilites\xeno_walkmesh_exporter\src\walkmesh.cpp
+1427452175 source:c:\akari\my\svn\q-gears\utilites\xeno_walkmesh_exporter\src\walkmesh.cpp
 	<Ogre.h>
+	"../../common/DebugDraw.h"
 	"Walkmesh.h"
 
-1424719650 source:c:\akari\my\svn\q-gears\utilites\xeno_walkmesh_exporter\src\walkmeshfile.cpp
+1424789750 source:c:\akari\my\svn\q-gears\utilites\xeno_walkmesh_exporter\src\walkmeshfile.cpp
 	"WalkmeshFile.h"
 	"../../common/Logger.h"
 	<OgreStringConverter.h>
+
+1427451412 source:c:\akari\my\svn\q-gears\utilites\common\debugdraw.cpp
+	"DebugDraw.h"
+	<OgreFontManager.h>
+	<OgreHardwareBufferManager.h>
+	<OgreMaterialManager.h>
+	"Logger.h"
+
+1416339160 c:\akari\my\svn\q-gears\utilites\common\debugdraw.h
+	<OgreFont.h>
+	<OgreHardwareVertexBuffer.h>
+	<OgreRenderQueueListener.h>
+	<OgreRoot.h>
+	<OgreSingleton.h>
 

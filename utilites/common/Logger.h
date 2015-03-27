@@ -6,6 +6,12 @@
 
 
 
+#define LOG_ERROR( message ) Ogre::LogManager::getSingleton().logMessage( "[ERROR] " + Ogre::String( __FILE__ ) + " " + Ogre::StringConverter::toString( __LINE__ ) + ": " + message, Ogre::LML_CRITICAL )
+#define LOG_WARNING( message ) Ogre::LogManager::getSingleton().logMessage( "[WARNING] " + Ogre::String( __FILE__ ) + " " + Ogre::StringConverter::toString( __LINE__ ) + ": " + message, Ogre::LML_NORMAL )
+#define LOG_TRIVIAL( message ) Ogre::LogManager::getSingleton().logMessage( message, Ogre::LML_TRIVIAL )
+
+
+
 Ogre::String HexToString( int value, unsigned short width, char fill );
 Ogre::String BoolToString( bool value );
 Ogre::String IntToString( int value );
@@ -19,15 +25,11 @@ public:
     explicit Logger( const Ogre::String& logFileName );
     virtual ~Logger();
 
-    void Log( const Ogre::String& text );
-    void LogW( const Ogre::UTFString& text );
-    void Log( std::vector<unsigned char>& text );
-
-    void Flush();
+    void     Log( const Ogre::String& text );
+    void     LogW( const Ogre::UTFString& text );
+    void     Log( std::vector<unsigned char>& text );
 
 private:
-    char m_Buffer[ 4096 ];
-    unsigned int m_BufferFill;
     Ogre::String m_LogFile;
 };
 

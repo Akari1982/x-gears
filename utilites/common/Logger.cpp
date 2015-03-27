@@ -47,8 +47,7 @@ FloatToString( float value )
 
 
 Logger::Logger( const Ogre::String& logFileName ):
-    m_LogFile( logFileName ),
-    m_BufferFill( 0 )
+    m_LogFile( logFileName )
 {
     FILESYSTEM->RemoveFile( m_LogFile );
 }
@@ -57,7 +56,6 @@ Logger::Logger( const Ogre::String& logFileName ):
 
 Logger::~Logger()
 {
-    Flush();
 }
 
 
@@ -65,16 +63,7 @@ Logger::~Logger()
 void
 Logger::Log( const Ogre::String& text )
 {
-    for( unsigned int i = 0; i < text.size(); ++i )
-    {
-        if( m_BufferFill == 4096 )
-        {
-            Flush();
-        }
-
-        m_Buffer[ m_BufferFill ] = text[ i ];
-        ++m_BufferFill;
-    }
+    FILESYSTEM->WriteFile(m_LogFile, text.c_str(), text.size());
 }
 
 
@@ -91,7 +80,7 @@ void
 Logger::Log( std::vector< unsigned char >& text )
 {
     unsigned char* temp = new unsigned char[ text.size() ];
-    for( unsigned int i = 0; i < text.size(); ++i )
+    for( int i = 0; i < text.size(); ++i )
     {
         temp[ i ] = text[ i ];
     }
@@ -99,13 +88,4 @@ Logger::Log( std::vector< unsigned char >& text )
     FILESYSTEM->WriteFile( m_LogFile, temp, text.size() );
 
     delete[] temp;
-}
-
-
-
-void
-Logger::Flush()
-{
-    FILESYSTEM->WriteFile( m_LogFile, m_Buffer, m_BufferFill );
-    m_BufferFill = 0;
 }

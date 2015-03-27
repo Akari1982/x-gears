@@ -2,6 +2,7 @@
 #include <OgreTextAreaOverlayElement.h>
 #include <OIS.h>
 
+#include "DebugDraw.h"
 #include "FileSystem.h"
 #include "Logger.h"
 
@@ -11,6 +12,9 @@ Ogre::Root*                     root;
 Ogre::RenderWindow*             window;
 std::vector< Ogre::Entity* >    entitys;
 Ogre::Camera*                   camera;
+
+DebugDraw* debug_draw;
+
 
 void Update( float delta );
 
@@ -348,7 +352,7 @@ InitializeOgreBase( const Ogre::String& name )
 
 
     // initialize resource
-    Ogre::ResourceGroupManager::getSingleton().addResourceLocation( "./", "FileSystem", "General" );
+    Ogre::ResourceGroupManager::getSingleton().addResourceLocation( "./data", "FileSystem", "General" );
     Ogre::ResourceGroupManager::getSingleton().addResourceLocation( "./exported", "FileSystem", "General" );
     Ogre::ResourceGroupManager::getSingleton().addResourceLocation( "./data/OgreCore.zip", "Zip", "Bootstrap" );
     Ogre::ResourceGroupManager::getSingleton().initialiseAllResourceGroups();
@@ -369,6 +373,7 @@ InitializeOgreBase( const Ogre::String& name )
     camera->setNearClipDistance( 0.01f );
     camera->setPosition( 10, 5, 10 );
     camera->lookAt( 0, 0, 0 );
+    camera->roll( Ogre::Radian( Ogre::Degree( 90 ) ) );
 
     viewport = window->addViewport( camera );
     viewport->setBackgroundColour( Ogre::ColourValue( 0, 0.4, 0 ) );
@@ -378,6 +383,8 @@ InitializeOgreBase( const Ogre::String& name )
 
     FILESYSTEM = new FileSystem();
     LOGGER = new Logger( "game.log" );
+
+    debug_draw = new DebugDraw();
 };
 
 
@@ -385,6 +392,8 @@ InitializeOgreBase( const Ogre::String& name )
 void
 DeinitializeOgreBase()
 {
+    delete debug_draw;
+
     delete LOGGER;
     delete FILESYSTEM;
 

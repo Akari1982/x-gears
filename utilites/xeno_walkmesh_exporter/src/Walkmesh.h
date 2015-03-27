@@ -1,71 +1,57 @@
-#ifndef WALKMESH_h
-#define WALKMESH_h
+#ifndef WALKMESH_H
+#define WALKMESH_H
 
 #include <OgrePrerequisites.h>
 #include <OgreSimpleRenderable.h>
 #include <vector>
-
-#include "MovableTextArea.h"
 
 
 
 struct WalkmeshTriangle
 {
     WalkmeshTriangle():
-        a(0, 0, 0),
-        b(0, 0, 0),
-        c(0, 0, 0),
-        locked(false)
+        a( 0, 0, 0 ),
+        b( 0, 0, 0 ),
+        c( 0, 0, 0 )
     {
-        access_side[0] = -1;
-        access_side[1] = -1;
-        access_side[2] = -1;
+        access_side[ 0 ] = -1;
+        access_side[ 1 ] = -1;
+        access_side[ 2 ] = -1;
     }
 
     Ogre::Vector3 a;
     Ogre::Vector3 b;
     Ogre::Vector3 c;
 
-    int           access_side[3];
-    bool          locked;
-
-    int           unknown1;
-    int           unknown2;
+    int access_side[ 3 ];
+    int unknown1;
+    int unknown2;
 };
 
 
 
-class _OgreExport Walkmesh : public Ogre::SimpleRenderable
+class Walkmesh : public Ogre::SimpleRenderable
 {
 public:
-                         Walkmesh(void);
-    virtual             ~Walkmesh(void);
+    Walkmesh();
+    virtual ~Walkmesh();
 
-    void                 AddTriangle(const WalkmeshTriangle& triangle);
+    void Update();
 
-    const int            GetAccessSide(const int triangle_id, const unsigned char side) const;
-    const Ogre::Vector3& GetA(const int triangle_id) const;
-    const Ogre::Vector3& GetB(const int triangle_id) const;
-    const Ogre::Vector3& GetC(const int triangle_id) const;
-    void                 LockWalkmesh(const int triangle_id, const bool lock);
-    const bool           IsLocked(const int triangle_id) const;
+    void AddTriangle( const WalkmeshTriangle& triangle );
 
-    void                 SetUpWalkmesh(void);
+    void SetUpWalkmesh();
 
-    Ogre::Real           getSquaredViewDepth(const Ogre::Camera* cam) const;
-    Ogre::Real           getBoundingRadius(void) const;
-
-    virtual void         setVisible(bool visible);
+    Ogre::Real getSquaredViewDepth( const Ogre::Camera* cam ) const;
+    Ogre::Real getBoundingRadius() const;
 
 private:
-    void                 SetUpWalkmeshVertices(void);
+    void SetUpWalkmeshVertices();
 
 private:
-    Ogre::Overlay*                m_Overlay;
-    std::vector<WalkmeshTriangle> m_Triangles;
-    std::vector<MovableTextArea*> m_TriangleTexts;
+    std::vector< WalkmeshTriangle > m_Triangles;
 };
 
 
 
-#endif // WALK_MESH_h
+#endif // WALK_MESH_H
