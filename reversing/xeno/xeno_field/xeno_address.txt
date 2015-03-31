@@ -199,7 +199,7 @@ spawn table
 +  14 [][][][] some flags.
 +  18
 +  19
-+  1a [][]     ???
++  1a [][]     height if entity
 +  1c
 +  1d
 +  1e          solid range.
