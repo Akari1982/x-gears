@@ -2,6 +2,7 @@
 #define LOGGER_H
 
 #include <OgreString.h>
+#include <OgreLogManager.h>
 #include <OgreUTFString.h>
 
 

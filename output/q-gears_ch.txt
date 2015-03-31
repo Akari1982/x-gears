@@ -1,1 +1,2 @@
-/map test_text
+/map xeno_lahan
+/map test_text

@@ -138,23 +138,23 @@ public:
 
         if( m_Keyboard->isKeyDown( OIS::KC_A ) )
         {
-            camera->moveRelative( Ogre::Vector3( -0.005, 0, 0 ) );
+            camera->moveRelative( Ogre::Vector3( -0.1, 0, 0 ) );
         }
         if( m_Keyboard->isKeyDown( OIS::KC_D ) )
         {
-            camera->moveRelative( Ogre::Vector3( 0.005, 0, 0 ) );
+            camera->moveRelative( Ogre::Vector3( 0.1, 0, 0 ) );
         }
         if( m_Keyboard->isKeyDown( OIS::KC_W ) )
         {
-            camera->moveRelative( Ogre::Vector3( 0, 0, -0.005 ) );
+            camera->moveRelative( Ogre::Vector3( 0, 0, -0.1 ) );
         }
         if( m_Keyboard->isKeyDown( OIS::KC_S ) )
         {
-            camera->moveRelative( Ogre::Vector3( 0, 0,  0.005 ) );
+            camera->moveRelative( Ogre::Vector3( 0, 0,  0.1 ) );
         }
         if( m_MouseRotate == true )
         {
-            camera->rotate( Ogre::Vector3::UNIT_Y, Ogre::Radian( Ogre::Degree( -m_MouseMoveX * 0.13 ) ) );
+            camera->rotate( Ogre::Vector3::UNIT_Z, Ogre::Radian( Ogre::Degree( -m_MouseMoveX * 0.13 ) ) );
             camera->pitch( Ogre::Degree( -m_MouseMoveY * 0.13 ) );
             m_MouseMoveX = 0;
             m_MouseMoveY = 0;

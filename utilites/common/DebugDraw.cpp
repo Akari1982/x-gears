@@ -673,7 +673,7 @@ DebugDraw::DestroyQuadVertexBuffer()
 void
 DebugDraw::CreateTextVertexBuffer()
 {
-    m_TextMaxVertexCount = 4096 * 6;
+    m_TextMaxVertexCount = 16384 * 6;
     m_TextRenderOp.vertexData = new Ogre::VertexData;
     m_TextRenderOp.vertexData->vertexStart = 0;
 
