@@ -80,12 +80,12 @@ XmlMapFile::LoadMap()
 
             EntityManager::getSingleton().AddEntity( name, file_name, position, direction );
         }
-        else if( node->Type() == TiXmlNode::TINYXML_ELEMENT && node->ValueStr() == "entity_trigger" )
+        else if( node->Type() == TiXmlNode::TINYXML_ELEMENT && node->ValueStr() == "line_trigger" )
         {
             Ogre::String name = GetString( node, "name" );
             if( name == "" )
             {
-                LOG_ERROR( "There is no name specified for <entity_trigger> tag." );
+                LOG_ERROR( "There is no name specified for <line_trigger> tag." );
                 continue;
             }
 
@@ -93,7 +93,24 @@ XmlMapFile::LoadMap()
             Ogre::Vector3 point2 = GetVector3( node, "point2", Ogre::Vector3::ZERO );
             bool enabled = GetBool( node, "enabled", false );
 
-            EntityManager::getSingleton().AddEntityTrigger( name, point1, point2, enabled );
+            EntityManager::getSingleton().AddLineTrigger( name, point1, point2, enabled );
+        }
+        else if( node->Type() == TiXmlNode::TINYXML_ELEMENT && node->ValueStr() == "square_trigger" )
+        {
+            Ogre::String name = GetString( node, "name" );
+            if( name == "" )
+            {
+                LOG_ERROR( "There is no name specified for <square_trigger> tag." );
+                continue;
+            }
+
+            Ogre::Vector3 point1 = GetVector3( node, "point1", Ogre::Vector3::ZERO );
+            Ogre::Vector3 point2 = GetVector3( node, "point2", Ogre::Vector3::ZERO );
+            Ogre::Vector3 point3 = GetVector3( node, "point3", Ogre::Vector3::ZERO );
+            Ogre::Vector3 point4 = GetVector3( node, "point4", Ogre::Vector3::ZERO );
+            bool enabled = GetBool( node, "enabled", false );
+
+            EntityManager::getSingleton().AddSquareTrigger( name, point1, point2, point3, point4, enabled );
         }
         else if( node->Type() == TiXmlNode::TINYXML_ELEMENT && node->ValueStr() == "entity_point" )
         {
