@@ -21,9 +21,9 @@
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
-					<Add library="..\..\..\OgreSDK_MinGW_v1-8-1\boost\lib\libboost_system-mgw47-mt-1_51.a" />
-					<Add library="..\..\..\OgreSDK_MinGW_v1-8-1\lib\release\libOgreMain.dll.a" />
-					<Add library="..\..\..\OgreSDK_MinGW_v1-8-1\lib\release\libOIS.dll.a" />
+					<Add library="C:\OgreSDK_MinGW_v1-8-1\boost\lib\libboost_system-mgw47-mt-1_51.a" />
+					<Add library="C:\OgreSDK_MinGW_v1-8-1\lib\release\libOgreMain.dll.a" />
+					<Add library="C:\OgreSDK_MinGW_v1-8-1\lib\release\libOIS.dll.a" />
 				</Linker>
 			</Target>
 			<Target title="Debug">
@@ -111,6 +111,8 @@
 		<Unit filename="core/InputManager.h" />
 		<Unit filename="core/InputManagerCommands.h" />
 		<Unit filename="core/Logger.h" />
+		<Unit filename="core/Math.cpp" />
+		<Unit filename="core/Math.h" />
 		<Unit filename="core/Module.h" />
 		<Unit filename="core/Particle.cpp" />
 		<Unit filename="core/Particle.h" />

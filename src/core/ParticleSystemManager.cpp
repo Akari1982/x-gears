@@ -11,13 +11,13 @@ ParticleSystemManager::ParticleSystemManager()
 {
     LOG_TRIVIAL( "ParticleSystemManager created." );
 
-    m_SceneNode = Ogre::Root::getSingleton().getSceneManager( "Scene" )->getRootSceneNode()->createChildSceneNode( "ParticleSystemManager" );
+    //m_SceneNode = Ogre::Root::getSingleton().getSceneManager( "Scene" )->getRootSceneNode()->createChildSceneNode( "ParticleSystemManager" );
 
 
 
-    Ogre::SceneNode* node = m_SceneNode->createChildSceneNode( "TestParticle" );
-    m_Particle = new Particle( node );
-    m_Particle->AddAffector( new ParticleAffector() );
+    //Ogre::SceneNode* node = m_SceneNode->createChildSceneNode( "TestParticle" );
+    //m_Particle = new Particle( node );
+    //m_Particle->AddAffector( new ParticleAffector() );
 }
 
 
@@ -31,11 +31,11 @@ ParticleSystemManager::~ParticleSystemManager()
     }
 */
 
-    delete m_Particle;
+    //delete m_Particle;
 
-    m_SceneNode->removeAndDestroyAllChildren();
+    //m_SceneNode->removeAndDestroyAllChildren();
 
-    Ogre::Root::getSingleton().getSceneManager( "Scene" )->getRootSceneNode()->removeAndDestroyChild( "ParticleSystemManager" );
+    //Ogre::Root::getSingleton().getSceneManager( "Scene" )->getRootSceneNode()->removeAndDestroyChild( "ParticleSystemManager" );
 
     LOG_TRIVIAL( "ParticleSystemManager destroyed." );
 }
@@ -45,7 +45,7 @@ ParticleSystemManager::~ParticleSystemManager()
 void
 ParticleSystemManager::Update()
 {
-    m_Particle->Update();
+    //m_Particle->Update();
 
 /*
     for( unsigned int i = 0; i < m_ParticleSystems.size(); ++i )

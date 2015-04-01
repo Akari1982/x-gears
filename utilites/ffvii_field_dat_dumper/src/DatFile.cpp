@@ -3469,7 +3469,7 @@ DatFile::DumpTriggersMovements( const Ogre::String& export_path, const Field& fi
                                     ( s16 )GetU16LE( start_triggers + 0x0a ) / downscaler_this );
             Ogre::Vector3 position( ( s16 )GetU16LE( start_triggers + 0x0c ) / downscaler_next,
                                     ( s16 )GetU16LE( start_triggers + 0x0e ) / downscaler_next,
-                                    ( s16 )GetU16LE( start_triggers + 0x10 ) / downscaler_next );
+                                    0 );
             float direction = 360.0f * GetU8( start_triggers + 0x14 ) / 255.0f;
 
             export_script->Log( "    <entity_trigger name=\"Gateway" + IntToString( i ) + "\" point1=\"" + Ogre::StringConverter::toString( point1 ) + "\" point2=\"" + Ogre::StringConverter::toString( point2 ) + "\" enabled=\"true\" />\n" );

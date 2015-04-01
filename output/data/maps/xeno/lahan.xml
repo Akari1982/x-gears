@@ -1,4 +1,17 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <map>
     <walkmesh file_name="maps/xeno/lahan_wm.xml" />
+
+    <square_trigger name="Gateway0" point1="64247 62814 0" point2="865 62814 0" point3="865 63555 0" point4="64247 63555 0" enabled="true" />
+    <square_trigger name="Gateway1" point1="826 62889 0" point2="2347 64415 0" point3="1822 64939 0" point4="300 63413 0" enabled="true" />
+    <square_trigger name="Gateway2" point1="2355 1417 0" point2="836 2945 0" point3="310 2422 0" point4="1829 894 0" enabled="true" />
+    <square_trigger name="Gateway3" point1="63349 898 0" point2="64870 2423 0" point3="64345 2947 0" point4="62824 1421 0" enabled="true" />
+    <square_trigger name="Gateway4" point1="62716 64458 0" point2="64253 62948 0" point3="64773 63477 0" point4="63235 64987 0" enabled="true" />
+    <square_trigger name="Gateway5" point1="64289 2241 0" point2="907 2241 0" point3="907 2983 0" point4="64289 2983 0" enabled="true" />
+    <square_trigger name="Gateway6" point1="62665 64359 0" point2="63448 64359 0" point3="63448 1430 0" point4="62665 1430 0" enabled="true" />
+    <square_trigger name="Gateway7" point1="1640 64384 0" point2="2423 64384 0" point3="2423 1456 0" point4="1640 1456 0" enabled="true" />
+    <square_trigger name="Gateway8" point1="438 63967 0" point2="571 63967 0" point3="571 64084 0" point4="438 64084 0" enabled="true" />
+    <square_trigger name="Gateway9" point1="442 64259 0" point2="574 64259 0" point3="574 64376 0" point4="442 64376 0" enabled="true" />
+    <square_trigger name="Gateway10" point1="64102 1454 0" point2="64234 1454 0" point3="64234 1571 0" point4="64102 1571 0" enabled="true" />
+    <square_trigger name="Gateway11" point1="150 63962 0" point2="283 63962 0" point3="283 64079 0" point4="150 64079 0" enabled="true" />
 </map>

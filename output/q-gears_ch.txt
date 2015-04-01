@@ -1,2 +1,8 @@
-/map xeno_lahan
-/map test_text
+/map test_1
+/map test_1
+/map test_1
+/map xeno_lahan
+/debug_trigger 1
+/map test_1
+/map xeno_lahan
+/map test_text

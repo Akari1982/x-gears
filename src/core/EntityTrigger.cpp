@@ -1,8 +1,10 @@
 #include "EntityTrigger.h"
 
+#include "ConfigVar.h"
 #include "DebugDraw.h"
 #include "Entity.h"
-#include "ConfigVar.h"
+#include "Logger.h"
+#include "Math.h"
 
 
 
@@ -137,58 +139,41 @@ EntityTrigger::CheckTrigger( Entity* entity, Ogre::Vector3& position )
         {
             case TT_LINE:
             {
-            Ogre::Vector3 mp1 = entity->GetPosition();
-            Ogre::Vector3 proj;
+                Ogre::Vector3 mp1 = entity->GetPosition();
+                Ogre::Vector3 proj;
 
-            // calculate distance
-            float square_dist = SquareDistanceToLine( mp1, m_Point1, m_Point2, proj );
-            float solid = entity->GetSolidRadius();
+                // calculate distance
+                float square_dist = SquareDistanceToLine( mp1, m_Point1, m_Point2, proj );
+                float solid = entity->GetSolidRadius();
 
-            if( square_dist != -1 && square_dist < solid * solid )
-            {
-                if( IsActivator( entity ) == false )
+                if( square_dist != -1 && square_dist < solid * solid )
                 {
-                    bool added = ScriptManager::getSingleton().ScriptRequest( scr_entity, "on_enter_line", 1, entity->GetName(), "", false, false );
-                    if( added == false )
+                    if( IsActivator( entity ) == false )
                     {
-                        LOG_WARNING( "Script \"on_enter_line\" for entity \"" + m_Name + "\" doesn't exist." );
+                        bool added = ScriptManager::getSingleton().ScriptRequest( scr_entity, "on_enter_line", 1, entity->GetName(), "", false, false );
+                        if( added == false )
+                        {
+                            LOG_WARNING( "Script \"on_enter_line\" for entity \"" + m_Name + "\" doesn't exist." );
+                        }
+                        AddActivator( entity );
                     }
-                    AddActivator( entity );
-                }
 
-                // check that 1st and 2nd points are on different side of line
-                float cond1 = ( ( m_Point2.x - m_Point1.x ) * ( mp1.y - m_Point1.y ) ) - ( ( mp1.x - m_Point1.x ) * ( m_Point2.y - m_Point1.y ) );
-                float cond2 = ( ( m_Point2.x - m_Point1.x ) * ( position.y - m_Point1.y ) ) - ( ( position.x - m_Point1.x ) * ( m_Point2.y - m_Point1.y ) );
+                    // check that 1st and 2nd points are on different side of line
+                    float cond1 = ( ( m_Point2.x - m_Point1.x ) * ( mp1.y - m_Point1.y ) ) - ( ( mp1.x - m_Point1.x ) * ( m_Point2.y - m_Point1.y ) );
+                    float cond2 = ( ( m_Point2.x - m_Point1.x ) * ( position.y - m_Point1.y ) ) - ( ( position.x - m_Point1.x ) * ( m_Point2.y - m_Point1.y ) );
 
-                // if we cross the line
-                if( ( cond1 > 0 && cond2 <= 0 ) || ( cond2 > 0 && cond1 <= 0 ) || ( cond1 >= 0 && cond2 < 0 ) || ( cond2 >= 0 && cond1 < 0 ) )
-                {
-                    bool added = ScriptManager::getSingleton().ScriptRequest( scr_entity, "on_cross_line", 1, entity->GetName(), "", false, false );
-                    if( added == false )
+                    // if we cross the line
+                    if( ( cond1 > 0 && cond2 <= 0 ) || ( cond2 > 0 && cond1 <= 0 ) || ( cond1 >= 0 && cond2 < 0 ) || ( cond2 >= 0 && cond1 < 0 ) )
                     {
-                        LOG_WARNING( "Script \"on_cross_line\" for entity \"" +  m_Name + "\" doesn't exist." );
+                        bool added = ScriptManager::getSingleton().ScriptRequest( scr_entity, "on_cross_line", 1, entity->GetName(), "", false, false );
+                        if( added == false )
+                        {
+                            LOG_WARNING( "Script \"on_cross_line\" for entity \"" +  m_Name + "\" doesn't exist." );
+                        }
                     }
-                }
 
-                // if we not move in line
-                if( mp1 == position )
-                {
-                    bool added = ScriptManager::getSingleton().ScriptRequest( scr_entity, "on_move_to_line", 1, entity->GetName(), "", false, false );
-                    if( added == false )
-                    {
-                        LOG_WARNING( "Script \"on_move_to_line\" for entity \"" +  m_Name + "\" doesn't exist." );
-                    }
-                }
-                else
-                {
-                    const Ogre::Degree direction_to_line = GetDirectionToPoint( mp1, proj );
-                    const Ogre::Degree movement_direction = GetDirectionToPoint( mp1, position );
-
-                    // if we move to line
-                    Ogre::Degree angle = direction_to_line - movement_direction + Ogre::Degree( 90 );
-                    angle = ( angle > Ogre::Degree( 360 ) ) ? angle - Ogre::Degree( 360 ) : angle;
-
-                    if( angle < Ogre::Degree( 180 ) && angle > Ogre::Degree( 0 ) )
+                    // if we not move in line
+                    if( mp1 == position )
                     {
                         bool added = ScriptManager::getSingleton().ScriptRequest( scr_entity, "on_move_to_line", 1, entity->GetName(), "", false, false );
                         if( added == false )
@@ -196,29 +181,47 @@ EntityTrigger::CheckTrigger( Entity* entity, Ogre::Vector3& position )
                             LOG_WARNING( "Script \"on_move_to_line\" for entity \"" +  m_Name + "\" doesn't exist." );
                         }
                     }
-                }
-            }
-            else
-            {
-                if( IsActivator( entity ) == true )
-                {
-                    bool added = ScriptManager::getSingleton().ScriptRequest( scr_entity, "on_leave_line", 1, entity->GetName(), "", false, false );
-                    if( added == false )
+                    else
                     {
-                        LOG_WARNING( "Script \"on_leave_line\" for entity \"" +  m_Name + "\" doesn't exist." );
+                        const Ogre::Degree direction_to_line = GetDirectionToPoint( mp1, proj );
+                        const Ogre::Degree movement_direction = GetDirectionToPoint( mp1, position );
+
+                        // if we move to line
+                        Ogre::Degree angle = direction_to_line - movement_direction + Ogre::Degree( 90 );
+                        angle = ( angle > Ogre::Degree( 360 ) ) ? angle - Ogre::Degree( 360 ) : angle;
+
+                        if( angle < Ogre::Degree( 180 ) && angle > Ogre::Degree( 0 ) )
+                        {
+                            bool added = ScriptManager::getSingleton().ScriptRequest( scr_entity, "on_move_to_line", 1, entity->GetName(), "", false, false );
+                            if( added == false )
+                            {
+                                LOG_WARNING( "Script \"on_move_to_line\" for entity \"" +  m_Name + "\" doesn't exist." );
+                            }
+                        }
                     }
-                    RemoveActivator( entity );
+                }
+                else
+                {
+                    if( IsActivator( entity ) == true )
+                    {
+                        bool added = ScriptManager::getSingleton().ScriptRequest( scr_entity, "on_leave_line", 1, entity->GetName(), "", false, false );
+                        if( added == false )
+                        {
+                            LOG_WARNING( "Script \"on_leave_line\" for entity \"" +  m_Name + "\" doesn't exist." );
+                        }
+                        RemoveActivator( entity );
+                    }
                 }
             }
+            break;
+
+
+
+            case TT_SQUARE:
+            {
+            }
+            break;
         }
-        break
-
-
-
-        case TT_SQUARE:
-        {
-        }
-        break;
     }
 }
 

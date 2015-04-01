@@ -5423,3 +5423,144 @@
 	"../../common/OgreGenUtilites.h"
 	<OgreStringConverter.h>
 
+1416339162 source:d:\svn\x-gears\utilites\common\drawskeleton.cpp
+	"DrawSkeleton.h"
+	"Logger.h"
+	"TypeDefine.h"
+
+1416339162 d:\svn\x-gears\utilites\common\drawskeleton.h
+	<Ogre.h>
+
+1427477750 d:\svn\x-gears\utilites\common\logger.h
+	<OgreString.h>
+	<OgreLogManager.h>
+	<OgreUTFString.h>
+
+1416339164 d:\svn\x-gears\utilites\common\typedefine.h
+
+1416339162 source:d:\svn\x-gears\utilites\common\file.cpp
+	<cassert>
+	<string.h>
+	"File.h"
+	"FileSystem.h"
+	"Logger.h"
+
+1416339162 d:\svn\x-gears\utilites\common\file.h
+	"TypeDefine.h"
+	<OgreString.h>
+
+1416339162 d:\svn\x-gears\utilites\common\filesystem.h
+	<OgreString.h>
+
+1416339162 source:d:\svn\x-gears\utilites\common\filesystem.cpp
+	"FileSystem.h"
+	"Logger.h"
+	<stdio.h>
+
+1427437116 source:d:\svn\x-gears\utilites\common\logger.cpp
+	"Logger.h"
+	"FileSystem.h"
+	<OgreStringConverter.h>
+
+1420963034 source:d:\svn\x-gears\utilites\common\ogregenutilites.cpp
+	"OgreGenUtilites.h"
+	"Logger.h"
+
+1420962908 d:\svn\x-gears\utilites\common\ogregenutilites.h
+	<Ogre.h>
+	"Logger.h"
+	"Vram.h"
+
+1416339164 d:\svn\x-gears\utilites\common\vram.h
+	"TypeDefine.h"
+	"Surface.h"
+
+1416339164 d:\svn\x-gears\utilites\common\surface.h
+	<Ogre.h>
+
+1416339164 source:d:\svn\x-gears\utilites\common\vram.cpp
+	"Vram.h"
+	<OgreStringConverter.h>
+	"Logger.h"
+	<string.h>
+
+1416339188 source:d:\svn\x-gears\utilites\xeno_model_exporter\src\animatedmodel.cpp
+	"AnimatedModel.h"
+	"AnimationExtractor.h"
+	"ModelFile.h"
+	"../../common/File.h"
+	"../../common/Logger.h"
+
+1416339188 d:\svn\x-gears\utilites\xeno_model_exporter\src\animatedmodel.h
+	<Ogre.h>
+	"../../common/DrawSkeleton.h"
+	"../../common/OgreGenUtilites.h"
+
+1416339188 d:\svn\x-gears\utilites\xeno_model_exporter\src\animationextractor.h
+	<Ogre.h>
+	"../../common/DrawSkeleton.h"
+	"AnimatedModel.h"
+
+1416339188 d:\svn\x-gears\utilites\xeno_model_exporter\src\modelfile.h
+	"../../common/File.h"
+	"../../common/Logger.h"
+	"../../common/OgreGenUtilites.h"
+
+1416339188 source:d:\svn\x-gears\utilites\xeno_model_exporter\src\animationextractor.cpp
+	"AnimationExtractor.h"
+	"../../common/Logger.h"
+	"../../common/File.h"
+
+1416339188 source:d:\svn\x-gears\utilites\xeno_model_exporter\src\archivefile.cpp
+	"ArchiveFile.h"
+
+1416339188 d:\svn\x-gears\utilites\xeno_model_exporter\src\archivefile.h
+	"../../common/File.h"
+
+1416339188 source:d:\svn\x-gears\utilites\xeno_model_exporter\src\fieldfile.cpp
+	"FieldFile.h"
+	"ArchiveFile.h"
+
+1416339188 d:\svn\x-gears\utilites\xeno_model_exporter\src\fieldfile.h
+	"../../common/File.h"
+
+1416339188 source:d:\svn\x-gears\utilites\xeno_model_exporter\src\fieldmodel.cpp
+	"FieldModel.h"
+	"FieldFile.h"
+	"ModelFile.h"
+	"../../common/File.h"
+	"../../common/Logger.h"
+	"../../common/OgreGenUtilites.h"
+
+1416339188 d:\svn\x-gears\utilites\xeno_model_exporter\src\fieldmodel.h
+	<Ogre.h>
+
+1416339188 source:d:\svn\x-gears\utilites\xeno_model_exporter\src\main.cpp
+	<Ogre.h>
+	"../../common/OgreBase.h"
+	"../../common/Logger.h"
+	"FieldModel.h"
+	"AnimatedModel.h"
+	"ModelFile.h"
+
+1427482897 d:\svn\x-gears\utilites\common\ogrebase.h
+	<Ogre.h>
+	<OgreTextAreaOverlayElement.h>
+	<OIS.h>
+	"DebugDraw.h"
+	"FileSystem.h"
+	"Logger.h"
+
+1416339160 d:\svn\x-gears\utilites\common\debugdraw.h
+	<OgreFont.h>
+	<OgreHardwareVertexBuffer.h>
+	<OgreRenderQueueListener.h>
+	<OgreRoot.h>
+	<OgreSingleton.h>
+
+1427831246 source:d:\svn\x-gears\utilites\xeno_model_exporter\src\modelfile.cpp
+	"ModelFile.h"
+	"../../common/Logger.h"
+	"../../common/OgreGenUtilites.h"
+	<OgreStringConverter.h>
+
