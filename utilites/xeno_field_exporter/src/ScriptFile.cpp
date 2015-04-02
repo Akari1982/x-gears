@@ -20,43 +20,46 @@ ScriptFile::~ScriptFile()
 void
 ScriptFile::GetScripts()
 {
+    Logger* export_script = new Logger( "exported/script.lua" );
+    export_script->Log( "EntityContainer = {}\n\n\n" );
+
     u32 number_of_entity = GetU8( 0x80 );
     u32 offset_to_script = 0x84 + number_of_entity * 0x40;
 
-    for( int i = 0; i < number_of_entity; ++i )
+    for( u32 i = 0; i < number_of_entity; ++i )
     {
-        LOGGER->Log("Entity: 0x%02x\n", i);
+        export_script->Log( "EntityContainer[ \"Entity_" + HexToString( i, 2, '0' ) + "\" ] = {\n" );
 
-        for (int j = 0; j < 0x20; ++j)
+        for( u8 j = 0; j < 0x20; ++j )
         {
 
-            u32 offset_in_script = GetU16LE(0x84 + i * 0x40 + j * 2);
-            if (offset_in_script == 0)
+            u32 offset_in_script = GetU16LE( 0x84 + i * 0x40 + j * 2 );
+            if( offset_in_script == 0 )
             {
                 break;
             }
-            LOGGER->Log("Script: 0x%02x\n", j);
+            export_script->Log( "    script_" + HexToString( j, 2, '0' ) + " = function( self )\n" );
 
 
 
             u32 script_pointer_end = 0;
-            for (int l = i; l < number_of_entity; ++l)
+            for( u32 l = i; l < number_of_entity; ++l )
             {
                 u32 offset_in_next_script = 0;
-                for (int script_id = 0; script_id < 0x20; ++script_id)
+                for( int script_id = 0; script_id < 0x20; ++script_id )
                 {
-                    if (l == i && script_id <= j)
+                    if( l == i && script_id <= j )
                     {
                         continue;
                     }
 
-                    offset_in_next_script = GetU16LE(0x84 + l * 0x40 + script_id * 2);
+                    offset_in_next_script = GetU16LE( 0x84 + l * 0x40 + script_id * 2 );
 
-                    if (offset_in_next_script == 0)
+                    if( offset_in_next_script == 0 )
                     {
                         continue;
                     }
-                    else if (offset_in_script == offset_in_next_script)
+                    else if( offset_in_script == offset_in_next_script )
                     {
                         offset_in_next_script = 0;
                         continue;
@@ -65,35 +68,36 @@ ScriptFile::GetScripts()
                     break;
                 }
 
-                if (offset_in_next_script != 0)
+                if( offset_in_next_script != 0 )
                 {
                     script_pointer_end = offset_in_next_script + offset_to_script;
                     break;
                 }
             }
-            if (script_pointer_end == 0)
+            if( script_pointer_end == 0 )
             {
                 script_pointer_end = mBufferSize;
             }
 
             u32 script_pointer = offset_to_script + offset_in_script;
 
-            for (; script_pointer < script_pointer_end;)
+            for( ; script_pointer < script_pointer_end; )
             {
-                LOGGER->Log("0x%04x ", script_pointer - offset_to_script);
+                export_script->Log( "        0x" + HexToString( script_pointer - offset_to_script, 4, '0' ) + " " );
+
                 u8 opcode = GetU8(script_pointer);
                 script_pointer += 1;
 
-                if (opcode == 0x00)
+                if( opcode == 0x00 )
                 {
-                    LOGGER->Log("0x00_Return();\n");
+                    export_script->Log( "0x00_Return();\n" );
                 }
-                else if (opcode == 0x01)
+                else if( opcode == 0x01 )
                 {
-                    LOGGER->Log("0x01_JumpTo(0x%04x);\n", GetU16LE(script_pointer));
+                    export_script->Log( "0x01_JumpTo( 0x" + HexToString( GetU16LE( script_pointer ), 4, '0' ) + " );\n" );
                     script_pointer += 2;
                 }
-                else if (opcode == 0x02)
+                else if( opcode == 0x02 )
                 {
                     LOGGER->Log("0x02_ConditionalJumpTo");
                     u8 flag = GetU8(script_pointer + 4);

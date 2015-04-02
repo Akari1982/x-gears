@@ -64,7 +64,7 @@ spawn table
 
 800af370 [][]     some flags. Checked hu[800af370] & 0040 in move function (func821cc) as well as some other condition to make entity play run animation.
 
-800af4c0 [][][][] if this is 0 then we execure script till the end (or until wait type opcode). If 1 together with 800af594 then we end script cycle.
+800af4c0 [][][][] if this is 0 then we execute script till the end (or until wait type opcode). If 1 together with 800af594 then we end script cycle.
 
 800af54c [][][][] offset to current entity data.
 

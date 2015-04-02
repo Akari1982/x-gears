@@ -18,26 +18,28 @@ slot = bu[current_entity_data + ce];
 
 ////////////////////////////////
 // 0x01_JumpTo
+current_entity_data = w[800af54c];
+
 A0 = 1;
 read_two_bytes_unsigned;
-V1 = w[800af54c];
-[V1 + cc] = h(V0);
+[current_entity_data + cc] = h(V0);
 ////////////////////////////////
 
 
 
 ////////////////////////////////
 // 0x02_ConditionalJumpTo
+current_entity_data = w[800af54c];
+
 S0 = 0;
 S1 = 0;
 
 V1 = w[800ad0d8]; // offset to current field scripts block.
-V0 = w[800af54c];
-V0 = hu[V0 + cc];
+V0 = hu[current_entity_data + cc];
 flag = bu[V0 + V1 + 5];
-V1 = flag & 00F0;
+V1 = flag & 00f0;
 
-if (V1 == 0)
+if( V1 == 0 )
 {
     A0 = 1;
     read_two_bytes_unsigned;
@@ -56,12 +58,12 @@ if (V1 == 0)
     A0 = V0;
     get_bytes_sign;
 
-    if (V0 != 0)
+    if( V0 != 0 )
     {
         S0 = S0 & ffff;
     }
 }
-else if (V1 == 40)
+else if( V1 == 40 )
 {
     A0 = 1;
     read_two_bytes_unsigned;
@@ -78,12 +80,12 @@ else if (V1 == 40)
     A0 = V0;
     get_bytes_sign;
 
-    if (V0 != 0)
+    if( V0 != 0 )
     {
         S0 = S0 & ffff;
     }
 }
-else if (V1 == 80)
+else if( V1 == 80 )
 {
     A0 = 1;
     read_two_bytes_signed;
@@ -105,7 +107,7 @@ else if (V1 == 80)
         S1 = S1 & ffff;
     }
 }
-else if (V1 == C0)
+else if( V1 == c0 )
 {
     A0 = 1;
     read_two_bytes_signed;
@@ -116,33 +118,29 @@ else if (V1 == C0)
     S0 = V0;
 }
 
-
-
 V1 = 0;
-switch (flag & 0F)
+switch( flag & 0f )
 {
-    case 0x0:     V1 = (S1 == S0) ? 1 : 0; break;
-    case 0x1 0x7: V1 = (S1 != S0) ? 1 : 0; break;
-    case 0x2:     V1 = (S1 >  S0) ? 1 : 0; break;
-    case 0x3:     V1 = (S1 <  S0) ? 1 : 0; break;
-    case 0x4:     V1 = (S1 >= S0) ? 1 : 0; break;
-    case 0x5:     V1 = (S1 <= S0) ? 1 : 0; break;
-    case 0x6 0x9: V1 = (S1 &  S0) ? 1 : 0; break;
-    case 0x8:     V1 = (S1 |  S0) ? 1 : 0; break;
-    case 0xA:     V1 = ((0 NOR S1) &  S0) ? 1 : 0; break;
+    case 0x0:     V1 = ( S1 == S0 ) ? 1 : 0; break;
+    case 0x1 0x7: V1 = ( S1 != S0 ) ? 1 : 0; break;
+    case 0x2:     V1 = ( S1 >  S0 ) ? 1 : 0; break;
+    case 0x3:     V1 = ( S1 <  S0 ) ? 1 : 0; break;
+    case 0x4:     V1 = ( S1 >= S0 ) ? 1 : 0; break;
+    case 0x5:     V1 = ( S1 <= S0 ) ? 1 : 0; break;
+    case 0x6 0x9: V1 = ( S1 &  S0 ) ? 1 : 0; break;
+    case 0x8:     V1 = ( S1 |  S0 ) ? 1 : 0; break;
+    case 0xa:     V1 = ( ( 0 NOR S1 ) &  S0 ) ? 1 : 0; break;
 }
 
-if (V1 == 1)
+if( V1 == 1 )
 {
-    V1 = w[800af54c];
-    [V1 + cc] = h(hu[V1 + cc] + 8);
+    [current_entity_data + cc] = h(hu[current_entity_data + cc] + 8);
 }
 else
 {
     A0 = 6;
     read_two_bytes_unsigned;
-    V1 = w[800af54c];
-    [V1 + cc] = h(V0);
+    [current_entity_data + cc] = h(V0);
 }
 ////////////////////////////////
 
@@ -237,8 +235,8 @@ return;
 // 0xCB_TriggerJumpTo
 current_entity_data = w[800af54c];
 A0 = hu[current_entity_data + cc];
-V0 = w[800ad0d8];
-param = bu[A0 + V0 + 1];
+script_offset = w[800ad0d8];
+param = bu[script_offset + A0 + 1];
 
 party_leader_entity_id = w[800b1740];
 V1 = w[800aefe4];
