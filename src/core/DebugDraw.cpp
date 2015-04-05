@@ -346,7 +346,7 @@ DebugDraw::Text( const float x, const float y, const Ogre::String& text )
     float length = 0;
     if( m_TextAlignment != LEFT )
     {
-        for( unsigned int i = 0; i < text.size(); ++i )
+        for( size_t i = 0; i < text.size(); ++i )
         {
             length += ( ( m_Font->getGlyphAspectRatio( text[ i ] ) * m_FontHeight ) / width ) * 2;
         }
@@ -362,7 +362,7 @@ DebugDraw::Text( const float x, const float y, const Ogre::String& text )
     float current_y =  ( m_ScreenSpace == true ) ? -( ( ( int ) y / height ) * 2 - 1 ) : y;
     float char_height = -( m_FontHeight / height ) * 2;
 
-    for( unsigned int i = 0; i < text.size(); ++i )
+    for( size_t i = 0; i < text.size(); ++i )
     {
         float char_width = ( ( m_Font->getGlyphAspectRatio( text[ i ] ) * m_FontHeight ) / width ) * 2;
 
@@ -480,7 +480,9 @@ DebugDraw::renderQueueEnded( Ogre::uint8 queueGroupId, const Ogre::String& invoc
         m_RenderSystem->clearFrameBuffer( Ogre::FBT_DEPTH );
         m_RenderSystem->_setWorldMatrix( Ogre::Matrix4::IDENTITY );
         m_RenderSystem->_setViewMatrix( Ogre::Matrix4::IDENTITY );
-        m_RenderSystem->_setProjectionMatrix( Ogre::Matrix4::IDENTITY );
+        Ogre::Matrix4 mat;
+        m_RenderSystem->_convertProjectionMatrix( Ogre::Matrix4::IDENTITY, mat );
+        m_RenderSystem->_setProjectionMatrix( mat );
 
         if( m_LineRenderOp.vertexData->vertexCount != 0 )
         {
@@ -506,8 +508,8 @@ DebugDraw::renderQueueEnded( Ogre::uint8 queueGroupId, const Ogre::String& invoc
     else if( queueGroupId == Ogre::RENDER_QUEUE_MAIN )
     {
         m_RenderSystem->_setWorldMatrix( Ogre::Matrix4::IDENTITY );
-        m_RenderSystem->_setViewMatrix( CameraManager::getSingleton().GetCurrentCamera()->getViewMatrix() );
-        m_RenderSystem->_setProjectionMatrix( CameraManager::getSingleton().GetCurrentCamera()->getProjectionMatrix() );
+        m_RenderSystem->_setViewMatrix( CameraManager::getSingleton().GetCurrentCamera()->getViewMatrix( true ) );
+        m_RenderSystem->_setProjectionMatrix( CameraManager::getSingleton().GetCurrentCamera()->getProjectionMatrixRS() );
 
         if( m_Line3dRenderOp.vertexData->vertexCount != 0 )
         {
@@ -564,7 +566,7 @@ DebugDraw::DestroyLineVertexBuffer()
 void
 DebugDraw::CreateLine3dVertexBuffer()
 {
-    m_Line3dMaxVertexCount = 1024 * 2;
+    m_Line3dMaxVertexCount = 16384 * 2;
     m_Line3dRenderOp.vertexData = new Ogre::VertexData;
     m_Line3dRenderOp.vertexData->vertexStart = 0;
 
@@ -664,7 +666,7 @@ DebugDraw::DestroyQuadVertexBuffer()
 void
 DebugDraw::CreateTextVertexBuffer()
 {
-    m_TextMaxVertexCount = 4096 * 6;
+    m_TextMaxVertexCount = 16384 * 6;
     m_TextRenderOp.vertexData = new Ogre::VertexData;
     m_TextRenderOp.vertexData->vertexStart = 0;
 

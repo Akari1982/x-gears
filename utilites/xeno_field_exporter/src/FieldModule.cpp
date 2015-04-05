@@ -1,7 +1,9 @@
 #include <Ogre.h>
 
+#include "FieldModel.h"
 #include "FieldModule.h"
 #include "FieldPackFile.h"
+#include "PacketFile.h"
 //#include "ScriptFile.h"
 #include "Walkmesh.h"
 #include "WalkmeshFile.h"
@@ -26,9 +28,9 @@ FieldModule::~FieldModule()
 void
 FieldModule::LoadMap( const int file_id )
 {
-    LOG_TRIVIAL( "Start load field \"" + file + "\"." );
+    LOG_TRIVIAL( "Start load field with id \"" + IntToString( file_id ) + "\"." );
 
-    FieldPackFile* field_pack = new FieldPackFile( "data/0" + Ogre::StringConverter::toString( file_id ) + "" );
+    FieldPackFile* field_pack = new FieldPackFile( "data/field/0" + Ogre::StringConverter::toString( file_id ) + "" );
     File* temp;
 
     // part 0
@@ -52,8 +54,8 @@ FieldModule::LoadMap( const int file_id )
     temp = field_pack->Extract( 2 );
     {
         FieldModel model;
-        File* texture = new File( "data/0" + Ogre::StringConverter::toString( file_id + 1 ) + ".raw2" );
-        model.Export( temp, texture );
+        File* texture = new File( "data/field/0" + IntToString( file_id + 1 ) + ".raw2" );
+        model.Export( temp, texture, file_id );
         delete texture;
     }
     temp->WriteFile( "exported/2_3dmodel" );
@@ -62,6 +64,14 @@ FieldModule::LoadMap( const int file_id )
     // part 3
     temp = field_pack->Extract( 3 );
     temp->WriteFile( "exported/3_2dsprite" );
+    PacketFile* pack = new PacketFile( temp );
+    for( u32 i = 0; i < pack->GetNumberOfFiles(); ++i )
+    {
+        File* file = pack->ExtractFile( i );
+            file->WriteFile( "exported/3_2dsprite_" + IntToString( i ) );
+        delete file;
+    }
+    delete pack;
     delete temp;
 
     // part 4

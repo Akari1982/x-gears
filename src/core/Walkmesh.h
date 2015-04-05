@@ -44,7 +44,7 @@ public:
     const Ogre::Vector3& GetA( unsigned int triangle_id ) const;
     const Ogre::Vector3& GetB( unsigned int triangle_id ) const;
     const Ogre::Vector3& GetC( unsigned int triangle_id ) const;
-    int GetNumberOfTriangles() const;
+    size_t GetNumberOfTriangles() const;
     void LockWalkmesh( unsigned int triangle_id, bool lock );
     bool IsLocked( unsigned int triangle_id ) const;
 

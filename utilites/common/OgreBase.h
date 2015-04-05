@@ -339,7 +339,7 @@ InitializeOgreBase( const Ogre::String& name )
 {
     root = new Ogre::Root( "", "" );
 #ifndef _DEBUG
-    root->loadPlugin( "RenderSystem_GL.dll" );
+    root->loadPlugin( "RenderSystem_Direct3D9.dll" );
 #else
     root->loadPlugin( "RenderSystem_GL_d.dll" );
 #endif

@@ -35845,7 +35845,7 @@
 1427813037 d:\svn\x-gears\src\core\entitytrigger.h
 	<OgreRoot.h>
 
-1416339160 d:\svn\x-gears\src\core\walkmesh.h
+1428064891 d:\svn\x-gears\src\core\walkmesh.h
 	<OgreVector3.h>
 	<vector>
 
@@ -35920,7 +35920,7 @@
 	"Timer.h"
 	"Utilites.h"
 
-1416339160 source:d:\svn\x-gears\src\core\debugdraw.cpp
+1428124274 source:d:\svn\x-gears\src\core\debugdraw.cpp
 	"DebugDraw.h"
 	<OgreFontManager.h>
 	<OgreHardwareBufferManager.h>
@@ -36629,7 +36629,7 @@
 	"Particle.h"
 	"ParticleAffector.h"
 
-1425033506 source:d:\svn\x-gears\src\core\particlesystemmanager.cpp
+1427829940 source:d:\svn\x-gears\src\core\particlesystemmanager.cpp
 	<OgreRoot.h>
 	"Logger.h"
 	"ParticleSystemManager.h"
@@ -36749,7 +36749,7 @@
 	"Utilites.h"
 	<OgreStringConverter.h>
 
-1424625120 source:d:\svn\x-gears\src\core\walkmesh.cpp
+1428092223 source:d:\svn\x-gears\src\core\walkmesh.cpp
 	"Walkmesh.h"
 	"ConfigVar.h"
 	"DebugDraw.h"
@@ -36854,7 +36854,7 @@
 1416339160 d:\svn\x-gears\src\core\xmlwalkmeshfile.h
 	"XmlFile.h"
 
-1424870212 source:d:\svn\x-gears\src\main.cpp
+1428128520 source:d:\svn\x-gears\src\main.cpp
 	<OgreRoot.h>
 	<OIS.h>
 	"Main.h"
@@ -36875,7 +36875,7 @@
 	"core/Timer.h"
 	"core/UiManager.h"
 
-1427820591 source:d:\svn\x-gears\src\core\entitymanager.cpp
+1428064392 source:d:\svn\x-gears\src\core\entitymanager.cpp
 	"EntityManager.h"
 	<OgreEntity.h>
 	<OgreRoot.h>

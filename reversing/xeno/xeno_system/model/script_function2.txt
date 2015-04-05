@@ -554,12 +554,12 @@ D8FC0180
     80020100	addu   a0, s0, zero
     80020104	jal    func49c44 [$80049c44]
     80020108	addu   a1, s1, zero
-    8002010C	jal    func49e34 [$80049e34]
+    8002010C	jal    system_gte_set_translation_vector [$80049e34]
     80020110	addu   a0, s0, zero
     80020114	addu   a0, s2, zero
     80020118	jal    func3f5e0 [$8003f5e0]
     8002011C	addu   a1, s0, zero
-    80020120	jal    func49da4 [$80049da4]
+    80020120	jal    system_gte_set_rotation_matrix [$80049da4]
     80020124	addu   a0, s0, zero
     80020128	addiu  a0, sp, $0018
     8002012C	addu   a1, a0, zero

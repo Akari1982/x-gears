@@ -50997,9 +50997,9 @@ loop9ea68:	; 8009EA68
 8009EA98	addu   a1, s0, zero
 8009EA9C	jal    func491c4 [$800491c4]
 8009EAA0	addu   a2, s4, zero
-8009EAA4	jal    func49da4 [$80049da4]
+8009EAA4	jal    system_gte_set_rotation_matrix [$80049da4]
 8009EAA8	addu   a0, s4, zero
-8009EAAC	jal    func49e34 [$80049e34]
+8009EAAC	jal    system_gte_set_translation_vector [$80049e34]
 8009EAB0	addu   a0, s4, zero
 8009EAB4	lw     a2, $004c(sp)
 8009EAB8	lw     t0, $0050(sp)
@@ -51392,9 +51392,9 @@ L9ef7c:	; 8009EF7C
 8009EFD8	addu   a2, s7, zero
 8009EFDC	jal    func491c4 [$800491c4]
 8009EFE0	addiu  a1, a1, $00a8
-8009EFE4	jal    func49da4 [$80049da4]
+8009EFE4	jal    system_gte_set_rotation_matrix [$80049da4]
 8009EFE8	addu   a0, s7, zero
-8009EFEC	jal    func49e34 [$80049e34]
+8009EFEC	jal    system_gte_set_translation_vector [$80049e34]
 8009EFF0	addu   a0, s7, zero
 8009EFF4	ori    v0, zero, $1000
 8009EFF8	addiu  s0, sp, $0020
@@ -51476,10 +51476,10 @@ L9f0f4:	; 8009F0F4
 8009F118	jal    func49974 [$80049974]
 8009F11C	sh     v0, $0010(s7)
 8009F120	lw     a0, $00a8(sp)
-8009F124	jal    func49da4 [$80049da4]
+8009F124	jal    system_gte_set_rotation_matrix [$80049da4]
 8009F128	nop
 8009F12C	lw     a0, $00a8(sp)
-8009F130	jal    func49e34 [$80049e34]
+8009F130	jal    system_gte_set_translation_vector [$80049e34]
 8009F134	nop
 8009F138	lhu    v0, $0026(fp)
 8009F13C	sh     zero, $0022(sp)
@@ -51694,9 +51694,9 @@ L9f434:	; 8009F434
 8009F440	sh     v0, $0008(s7)
 
 L9f444:	; 8009F444
-8009F444	jal    func49da4 [$80049da4]
+8009F444	jal    system_gte_set_rotation_matrix [$80049da4]
 8009F448	addu   a0, s7, zero
-8009F44C	jal    func49e34 [$80049e34]
+8009F44C	jal    system_gte_set_translation_vector [$80049e34]
 8009F450	addu   a0, s7, zero
 8009F454	lw     t2, $0128(sp)
 8009F458	lw     a2, $0124(sp)
@@ -51783,9 +51783,9 @@ L9f54c:	; 8009F54C
 8009F574	addu   a1, t2, a1
 8009F578	jal    func491c4 [$800491c4]
 8009F57C	addiu  a1, a1, $002c
-8009F580	jal    func49da4 [$80049da4]
+8009F580	jal    system_gte_set_rotation_matrix [$80049da4]
 8009F584	addu   a0, s7, zero
-8009F588	jal    func49e34 [$80049e34]
+8009F588	jal    system_gte_set_translation_vector [$80049e34]
 8009F58C	addu   a0, s7, zero
 8009F590	lh     v0, $fffa(s3)
 8009F594	nop
@@ -51849,9 +51849,9 @@ loop9f648:	; 8009F648
 8009F664	addu   a1, t2, a1
 8009F668	jal    func491c4 [$800491c4]
 8009F66C	addiu  a1, a1, $002c
-8009F670	jal    func49da4 [$80049da4]
+8009F670	jal    system_gte_set_rotation_matrix [$80049da4]
 8009F674	addu   a0, s7, zero
-8009F678	jal    func49e34 [$80049e34]
+8009F678	jal    system_gte_set_translation_vector [$80049e34]
 8009F67C	addu   a0, s7, zero
 8009F680	lwc2   zero, $0000(s2)
 8009F684	lwc2   at, $0004(s2)
@@ -51942,9 +51942,9 @@ L9f764:	; 8009F764
 8009F7A8	addu   a1, t2, a1
 8009F7AC	jal    func491c4 [$800491c4]
 8009F7B0	addiu  a1, a1, $002c
-8009F7B4	jal    func49da4 [$80049da4]
+8009F7B4	jal    system_gte_set_rotation_matrix [$80049da4]
 8009F7B8	addu   a0, s7, zero
-8009F7BC	jal    func49e34 [$80049e34]
+8009F7BC	jal    system_gte_set_translation_vector [$80049e34]
 8009F7C0	addu   a0, s7, zero
 8009F7C4	addiu  v0, s2, $000c
 8009F7C8	lwc2   zero, $0000(v0)
@@ -52090,9 +52090,9 @@ L9f9c4:	; 8009F9C4
 8009F9E0	addu   a1, t2, a1
 8009F9E4	jal    func491c4 [$800491c4]
 8009F9E8	addiu  a1, a1, $002c
-8009F9EC	jal    func49da4 [$80049da4]
+8009F9EC	jal    system_gte_set_rotation_matrix [$80049da4]
 8009F9F0	addu   a0, s7, zero
-8009F9F4	jal    func49e34 [$80049e34]
+8009F9F4	jal    system_gte_set_translation_vector [$80049e34]
 8009F9F8	addu   a0, s7, zero
 8009F9FC	lhu    v0, $0054(s1)
 8009FA00	nop
@@ -55293,9 +55293,9 @@ funca23fc:	; 800A23FC
 800A2430	sw     s6, $0038(sp)
 800A2434	sw     s5, $0034(sp)
 800A2438	sw     s2, $0028(sp)
-800A243C	jal    func49da4 [$80049da4]
+800A243C	jal    system_gte_set_rotation_matrix [$80049da4]
 800A2440	sw     s1, $0024(sp)
-800A2444	jal    func49e34 [$80049e34]
+800A2444	jal    system_gte_set_translation_vector [$80049e34]
 800A2448	addu   a0, s0, zero
 800A244C	lh     v0, $0004(s7)
 800A2450	lw     s1, $0000(s7)
@@ -56916,9 +56916,9 @@ loopa3920:	; 800A3920
 800A3984	addu   a1, a1, v1
 800A3988	jal    func491c4 [$800491c4]
 800A398C	addiu  a1, a1, $00a8
-800A3990	jal    func49da4 [$80049da4]
+800A3990	jal    system_gte_set_rotation_matrix [$80049da4]
 800A3994	addu   a0, s4, zero
-800A3998	jal    func49e34 [$80049e34]
+800A3998	jal    system_gte_set_translation_vector [$80049e34]
 800A399C	addu   a0, s4, zero
 800A39A0	lui    v0, $800d
 800A39A4	addiu  v0, v0, $2a2c
@@ -57246,9 +57246,9 @@ La3e08:	; 800A3E08
 800A3E10	sh     zero, $000e(s0)
 
 La3e14:	; 800A3E14
-800A3E14	jal    func49da4 [$80049da4]
+800A3E14	jal    system_gte_set_rotation_matrix [$80049da4]
 800A3E18	addu   a0, s0, zero
-800A3E1C	jal    func49e34 [$80049e34]
+800A3E1C	jal    system_gte_set_translation_vector [$80049e34]
 800A3E20	addu   a0, s0, zero
 800A3E24	lh     v1, $004a(s1)
 800A3E28	ori    v0, zero, $0005
@@ -57608,9 +57608,9 @@ La42fc:	; 800A42FC
 800A42FC	lhu    v1, $0004(s0)
 800A4300	sra    v0, v0, $0c
 800A4304	addu   v0, v0, v1
-800A4308	jal    func49da4 [$80049da4]
+800A4308	jal    system_gte_set_rotation_matrix [$80049da4]
 800A430C	sh     v0, $0094(sp)
-800A4310	jal    func49e34 [$80049e34]
+800A4310	jal    system_gte_set_translation_vector [$80049e34]
 800A4314	addu   a0, fp, zero
 800A4318	addiu  a0, sp, $0090
 800A431C	lwc2   zero, $0000(a0)
@@ -57997,9 +57997,9 @@ La4830:	; 800A4830
 800A4870	addu   a1, s2, zero
 800A4874	jal    func491c4 [$800491c4]
 800A4878	addu   a2, s2, zero
-800A487C	jal    func49da4 [$80049da4]
+800A487C	jal    system_gte_set_rotation_matrix [$80049da4]
 800A4880	addu   a0, s2, zero
-800A4884	jal    func49e34 [$80049e34]
+800A4884	jal    system_gte_set_translation_vector [$80049e34]
 800A4888	addu   a0, s2, zero
 800A488C	lhu    v0, $0000(s3)
 800A4890	lhu    v1, $0004(s3)
@@ -61515,10 +61515,10 @@ La7938:	; 800A7938
 
 La7960:	; 800A7960
 800A7960	lw     a0, $0078(sp)
-800A7964	jal    func49da4 [$80049da4]
+800A7964	jal    system_gte_set_rotation_matrix [$80049da4]
 800A7968	addu   s5, zero, zero
 800A796C	lw     a0, $0078(sp)
-800A7970	jal    func49e34 [$80049e34]
+800A7970	jal    system_gte_set_translation_vector [$80049e34]
 800A7974	nop
 800A7978	lw     s1, $0020(s4)
 800A797C	lw     v0, $001c(s4)
@@ -64369,9 +64369,9 @@ Laa0ac:	; 800AA0AC
 800AA0D0	addiu  s1, v0, $000c
 
 Laa0d4:	; 800AA0D4
-800AA0D4	jal    func49da4 [$80049da4]
+800AA0D4	jal    system_gte_set_rotation_matrix [$80049da4]
 800AA0D8	addu   a0, s1, zero
-800AA0DC	jal    func49e34 [$80049e34]
+800AA0DC	jal    system_gte_set_translation_vector [$80049e34]
 800AA0E0	addu   a0, s1, zero
 800AA0E4	lhu    v0, $006a(s0)
 800AA0E8	nop
@@ -65887,12 +65887,12 @@ Lab618:	; 800AB618
 800AB6B0	lw     v0, $0004(s4)
 800AB6B4	sll    s0, s0, $02
 800AB6B8	addu   s0, s0, v0
-800AB6BC	jal    func49da4 [$80049da4]
+800AB6BC	jal    system_gte_set_rotation_matrix [$80049da4]
 800AB6C0	addiu  a0, s0, $002c
 800AB6C4	addiu  a0, sp, $00a8
 800AB6C8	sw     zero, $00bc(sp)
 800AB6CC	sw     zero, $00c0(sp)
-800AB6D0	jal    func49e34 [$80049e34]
+800AB6D0	jal    system_gte_set_translation_vector [$80049e34]
 800AB6D4	sw     zero, $00c4(sp)
 800AB6D8	lw     t8, $0190(sp)
 800AB6DC	ori    t7, zero, $1000
@@ -68345,9 +68345,9 @@ Lad8c4:	; 800AD8C4
 800AD914	sw     v0, $001c(s2)
 
 Lad918:	; 800AD918
-800AD918	jal    func49da4 [$80049da4]
+800AD918	jal    system_gte_set_rotation_matrix [$80049da4]
 800AD91C	addu   a0, s2, zero
-800AD920	jal    func49e34 [$80049e34]
+800AD920	jal    system_gte_set_translation_vector [$80049e34]
 800AD924	addu   a0, s2, zero
 800AD928	lhu    v0, $0006(s1)
 800AD92C	lw     t7, $0088(sp)
@@ -69186,9 +69186,9 @@ Lae490:	; 800AE490
 800AE498	addiu  s1, v0, $000c
 
 Lae49c:	; 800AE49C
-800AE49C	jal    func49da4 [$80049da4]
+800AE49C	jal    system_gte_set_rotation_matrix [$80049da4]
 800AE4A0	addu   a0, s1, zero
-800AE4A4	jal    func49e34 [$80049e34]
+800AE4A4	jal    system_gte_set_translation_vector [$80049e34]
 800AE4A8	addu   a0, s1, zero
 800AE4AC	addiu  v0, s0, $0064
 800AE4B0	lwc2   zero, $0000(v0)
@@ -70130,9 +70130,9 @@ Laf0f0:	; 800AF0F0
 800AF100	addiu  s1, v0, $000c
 
 Laf104:	; 800AF104
-800AF104	jal    func49da4 [$80049da4]
+800AF104	jal    system_gte_set_rotation_matrix [$80049da4]
 800AF108	addu   a0, s1, zero
-800AF10C	jal    func49e34 [$80049e34]
+800AF10C	jal    system_gte_set_translation_vector [$80049e34]
 800AF110	addu   a0, s1, zero
 800AF114	addiu  v0, s0, $0010
 800AF118	lwc2   zero, $0000(v0)
@@ -77240,9 +77240,9 @@ funcb52d8:	; 800B52D8
 800B53A0	addiu  s0, s0, $2cac
 
 Lb53a4:	; 800B53A4
-800B53A4	jal    func49da4 [$80049da4]
+800B53A4	jal    system_gte_set_rotation_matrix [$80049da4]
 800B53A8	addu   a0, s0, zero
-800B53AC	jal    func49e34 [$80049e34]
+800B53AC	jal    system_gte_set_translation_vector [$80049e34]
 800B53B0	addu   a0, s0, zero
 800B53B4	addiu  a0, sp, $0010
 800B53B8	addiu  a1, s2, $0008
@@ -77378,9 +77378,9 @@ funcb54e8:	; 800B54E8
 800B55A8	addu   a0, s0, zero
 800B55AC	lui    at, $8006
 800B55B0	sw     v1, $8c1c(at)
-800B55B4	jal    func49da4 [$80049da4]
+800B55B4	jal    system_gte_set_rotation_matrix [$80049da4]
 800B55B8	sh     v0, $0014(sp)
-800B55BC	jal    func49e34 [$80049e34]
+800B55BC	jal    system_gte_set_translation_vector [$80049e34]
 800B55C0	addu   a0, s0, zero
 800B55C4	addiu  a0, sp, $0010
 800B55C8	addiu  a1, s3, $0008
@@ -78636,9 +78636,9 @@ loopb6710:	; 800B6710
 800B674C	addu   a0, s2, zero
 800B6750	jal    func49c44 [$80049c44]
 800B6754	addiu  a1, s0, $0010
-800B6758	jal    func49da4 [$80049da4]
+800B6758	jal    system_gte_set_rotation_matrix [$80049da4]
 800B675C	addu   a0, s2, zero
-800B6760	jal    func49e34 [$80049e34]
+800B6760	jal    system_gte_set_translation_vector [$80049e34]
 800B6764	addu   a0, s2, zero
 800B6768	lui    a0, $800c
 800B676C	addiu  a0, a0, $2ce4
@@ -82739,9 +82739,9 @@ funcb9f40:	; 800B9F40
 800BA118	sh     v0, $0012(sp)
 800BA11C	lh     v0, $000a(s1)
 800BA120	addu   a0, s0, zero
-800BA124	jal    func49da4 [$80049da4]
+800BA124	jal    system_gte_set_rotation_matrix [$80049da4]
 800BA128	sh     v0, $0014(sp)
-800BA12C	jal    func49e34 [$80049e34]
+800BA12C	jal    system_gte_set_translation_vector [$80049e34]
 800BA130	addu   a0, s0, zero
 800BA134	addiu  a0, sp, $0010
 800BA138	addiu  a1, sp, $0018
@@ -82867,9 +82867,9 @@ Lba274:	; 800BA274
 800BA2EC	sh     v0, $0014(sp)
 800BA2F0	lui    s0, $800d
 800BA2F4	addiu  s0, s0, $27dc
-800BA2F8	jal    func49da4 [$80049da4]
+800BA2F8	jal    system_gte_set_rotation_matrix [$80049da4]
 800BA2FC	addu   a0, s0, zero
-800BA300	jal    func49e34 [$80049e34]
+800BA300	jal    system_gte_set_translation_vector [$80049e34]
 800BA304	addu   a0, s0, zero
 800BA308	addiu  a0, sp, $0010
 800BA30C	addiu  a2, sp, $0020
@@ -83243,9 +83243,9 @@ Lba7b8:	; 800BA7B8
 800BA818	sh     v0, $0012(sp)
 800BA81C	lh     v0, $000a(s1)
 800BA820	addu   a0, s0, zero
-800BA824	jal    func49da4 [$80049da4]
+800BA824	jal    system_gte_set_rotation_matrix [$80049da4]
 800BA828	sh     v0, $0014(sp)
-800BA82C	jal    func49e34 [$80049e34]
+800BA82C	jal    system_gte_set_translation_vector [$80049e34]
 800BA830	addu   a0, s0, zero
 800BA834	addiu  a0, sp, $0010
 800BA838	addiu  a1, sp, $0018
@@ -84816,9 +84816,9 @@ Lbbd34:	; 800BBD34
 800BBE48	sh     v1, $0022(sp)
 800BBE4C	jal    funcbadbc [$800badbc]
 800BBE50	sh     t0, $0024(sp)
-800BBE54	jal    func49da4 [$80049da4]
+800BBE54	jal    system_gte_set_rotation_matrix [$80049da4]
 800BBE58	addu   a0, s0, zero
-800BBE5C	jal    func49e34 [$80049e34]
+800BBE5C	jal    system_gte_set_translation_vector [$80049e34]
 800BBE60	addu   a0, s0, zero
 
 loopbbe64:	; 800BBE64
@@ -85384,9 +85384,9 @@ Lbc5e4:	; 800BC5E4
 800BC614	addiu  a0, sp, $0018
 800BC618	jal    func495f4 [$800495f4]
 800BC61C	addu   a1, s0, zero
-800BC620	jal    func49da4 [$80049da4]
+800BC620	jal    system_gte_set_rotation_matrix [$80049da4]
 800BC624	addiu  a0, sp, $0018
-800BC628	jal    func49e34 [$80049e34]
+800BC628	jal    system_gte_set_translation_vector [$80049e34]
 800BC62C	addiu  a0, sp, $0018
 800BC630	lui    v0, $800d
 800BC634	lw     v0, $c254(v0)
@@ -86126,9 +86126,9 @@ funcbd084:	; 800BD084
 800BD09C	lui    s0, $800d
 800BD0A0	addiu  s0, s0, $27dc
 800BD0A4	sw     ra, $003c(sp)
-800BD0A8	jal    func49da4 [$80049da4]
+800BD0A8	jal    system_gte_set_rotation_matrix [$80049da4]
 800BD0AC	addu   a0, s0, zero
-800BD0B0	jal    func49e34 [$80049e34]
+800BD0B0	jal    system_gte_set_translation_vector [$80049e34]
 800BD0B4	addu   a0, s0, zero
 800BD0B8	addu   a0, s2, zero
 800BD0BC	addiu  a1, sp, $0018
@@ -86195,9 +86195,9 @@ funcbd084:	; 800BD084
 800BD1AC	addiu  a0, sp, $0010
 800BD1B0	jal    func49c74 [$80049c74]
 800BD1B4	addiu  a1, s2, $0058
-800BD1B8	jal    func49da4 [$80049da4]
+800BD1B8	jal    system_gte_set_rotation_matrix [$80049da4]
 800BD1BC	addiu  a0, sp, $0010
-800BD1C0	jal    func49e34 [$80049e34]
+800BD1C0	jal    system_gte_set_translation_vector [$80049e34]
 800BD1C4	addiu  a0, sp, $0010
 800BD1C8	lw     v0, $008c(s2)
 800BD1CC	nop
@@ -86435,9 +86435,9 @@ funcbd408:	; 800BD408
 800BD500	addiu  a0, sp, $0018
 800BD504	jal    func49c74 [$80049c74]
 800BD508	addiu  a1, s1, $0040
-800BD50C	jal    func49da4 [$80049da4]
+800BD50C	jal    system_gte_set_rotation_matrix [$80049da4]
 800BD510	addiu  a0, sp, $0018
-800BD514	jal    func49e34 [$80049e34]
+800BD514	jal    system_gte_set_translation_vector [$80049e34]
 800BD518	addiu  a0, sp, $0018
 800BD51C	lw     v0, $0064(s1)
 800BD520	nop
@@ -86779,9 +86779,9 @@ loopbd984:	; 800BD984
 800BD9B0	addiu  a0, sp, $0010
 800BD9B4	jal    func49c74 [$80049c74]
 800BD9B8	addiu  a1, sp, $0050
-800BD9BC	jal    func49da4 [$80049da4]
+800BD9BC	jal    system_gte_set_rotation_matrix [$80049da4]
 800BD9C0	addiu  a0, sp, $0010
-800BD9C4	jal    func49e34 [$80049e34]
+800BD9C4	jal    system_gte_set_translation_vector [$80049e34]
 800BD9C8	addiu  a0, sp, $0010
 800BD9CC	addu   s1, zero, zero
 800BD9D0	lw     v0, $006c(s2)
@@ -94618,9 +94618,9 @@ L1e817c:	; 801E817C
 801E8190	addu   a0, s2, zero
 801E8194	jal    func49c44 [$80049c44]
 801E8198	addiu  a1, s0, $0010
-801E819C	jal    func49da4 [$80049da4]
+801E819C	jal    system_gte_set_rotation_matrix [$80049da4]
 801E81A0	addu   a0, s2, zero
-801E81A4	jal    func49e34 [$80049e34]
+801E81A4	jal    system_gte_set_translation_vector [$80049e34]
 801E81A8	addu   a0, s2, zero
 801E81AC	lui    a0, $801f
 801E81B0	addiu  a0, a0, $9700 (=-$6900)
@@ -95357,9 +95357,9 @@ L1e8b40:	; 801E8B40
 801E8B50	addu   a0, s0, zero
 801E8B54	jal    func49c44 [$80049c44]
 801E8B58	addiu  a1, s5, $004c
-801E8B5C	jal    func49da4 [$80049da4]
+801E8B5C	jal    system_gte_set_rotation_matrix [$80049da4]
 801E8B60	addu   a0, s0, zero
-801E8B64	jal    func49e34 [$80049e34]
+801E8B64	jal    system_gte_set_translation_vector [$80049e34]
 801E8B68	addu   a0, s0, zero
 
 L1e8b6c:	; 801E8B6C

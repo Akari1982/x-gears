@@ -1144,12 +1144,12 @@ FC511E80 49
         801E4908	lw     v0, $0004(s4)
         801E490C	sll    s0, s0, $02
         801E4910	addu   s0, s0, v0
-        801E4914	jal    func49da4 [$80049da4]
+        801E4914	jal    system_gte_set_rotation_matrix [$80049da4]
         801E4918	addiu  a0, s0, $002c
         801E491C	addiu  a0, sp, $0070
         801E4920	sw     zero, $0084(sp)
         801E4924	sw     zero, $0088(sp)
-        801E4928	jal    func49e34 [$80049e34]
+        801E4928	jal    system_gte_set_translation_vector [$80049e34]
         801E492C	sw     zero, $008c(sp)
         801E4930	lw     t2, $0120(sp)
         801E4934	ori    t3, zero, $1000

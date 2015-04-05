@@ -1,0 +1,25 @@
+<map>
+    <walkmesh file_name="maps/xeno/house1_wm.xml" />
+    <square_trigger name="Gateway0" point1="-2.64063 -0.40625 0" point2="-1.78125 -0.40625 0" point3="-1.78125 0.40625 0" point4="-2.64063 0.40625 0" enabled="true" />
+    <square_trigger name="Gateway1" point1="1.60938 -0.546875 0" point2="2.23438 -0.546875 0" point3="2.23438 0.53125 0" point4="1.60938 0.53125 0" enabled="true" />
+
+    <entity_model name="Background0" file_name="models/field/maps/lahan/lahan0.mesh" position="0 0 0" direction="0" />
+    <entity_model name="Background1" file_name="models/field/maps/lahan/lahan1.mesh" position="0 0 0" direction="0" />
+    <entity_model name="Background2" file_name="models/field/maps/lahan/lahan2.mesh" position="0 0 0" direction="0" />
+    <entity_model name="Background3" file_name="models/field/maps/lahan/lahan3.mesh" position="0 0 0" direction="0" />
+    <entity_model name="Background4" file_name="models/field/maps/lahan/lahan4.mesh" position="0 0 0" direction="0" />
+    <entity_model name="Background5" file_name="models/field/maps/lahan/lahan5.mesh" position="0 0 0" direction="0" />
+    <entity_model name="Background6" file_name="models/field/maps/lahan/lahan6.mesh" position="0 0 0" direction="0" />
+    <entity_model name="Background7" file_name="models/field/maps/lahan/lahan7.mesh" position="0 0 0" direction="0" />
+    <entity_model name="Background8" file_name="models/field/maps/lahan/lahan8.mesh" position="0 0 0" direction="0" />
+    <entity_model name="Background9" file_name="models/field/maps/lahan/lahan9.mesh" position="0 0 0" direction="0" />
+    <entity_model name="Background10" file_name="models/field/maps/lahan/lahan10.mesh" position="0 0 0" direction="0" />
+    <entity_model name="Background11" file_name="models/field/maps/lahan/lahan11.mesh" position="0 0 0" direction="0" />
+    <entity_model name="Background12" file_name="models/field/maps/lahan/lahan12.mesh" position="0 0 0" direction="0" />
+    <entity_model name="Background13" file_name="models/field/maps/lahan/lahan13.mesh" position="0 0 0" direction="0" />
+    <entity_model name="Background14" file_name="models/field/maps/lahan/lahan14.mesh" position="0 0 0" direction="0" />
+    <entity_model name="Background15" file_name="models/field/maps/lahan/lahan15.mesh" position="0 0 0" direction="0" />
+    <entity_model name="Background16" file_name="models/field/maps/lahan/lahan16.mesh" position="0 0 0" direction="0" />
+    <entity_model name="Background17" file_name="models/field/maps/lahan/lahan17.mesh" position="0 0 0" direction="0" />
+    <entity_model name="Background18" file_name="models/field/maps/lahan/lahan18.mesh" position="0 0 0" direction="0" />
+</map>

@@ -325,7 +325,7 @@ EntityManager::UpdateDebug()
 
 
 
-    for( unsigned int i = 0; i < m_Entity.size(); ++i )
+    for( size_t i = 0; i < m_Entity.size(); ++i )
     {
         m_Entity[ i ]->UpdateDebug();
     }
@@ -333,14 +333,14 @@ EntityManager::UpdateDebug()
 
 
 
-    for( unsigned int i = 0; i < m_EntityTriggers.size(); ++i )
+    for( size_t i = 0; i < m_EntityTriggers.size(); ++i )
     {
         m_EntityTriggers[ i ]->UpdateDebug();
     }
 
 
 
-    for( unsigned int i = 0; i < m_EntityPoints.size(); ++i )
+    for( size_t i = 0; i < m_EntityPoints.size(); ++i )
     {
         m_EntityPoints[ i ]->UpdateDebug();
     }

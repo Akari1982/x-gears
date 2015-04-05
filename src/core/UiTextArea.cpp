@@ -225,8 +225,10 @@ UiTextArea::Render()
         if( m_RenderOp.vertexData->vertexCount != 0 )
         {
             m_RenderSystem->_setWorldMatrix( Ogre::Matrix4::IDENTITY );
-            m_RenderSystem->_setProjectionMatrix( Ogre::Matrix4::IDENTITY );
             m_RenderSystem->_setViewMatrix( Ogre::Matrix4::IDENTITY );
+            Ogre::Matrix4 mat;
+            m_RenderSystem->_convertProjectionMatrix( Ogre::Matrix4::IDENTITY, mat );
+            m_RenderSystem->_setProjectionMatrix( mat );
 
             m_SceneManager->_setPass( m_Material->getTechnique( 0 )->getPass( 0 ), true, false );
 

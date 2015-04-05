@@ -1,3 +1,23 @@
+8004f23c store 4 points xyz for sprite tile during calculation in func1e264
++00 [][] x0
++02 [][] y0
++04 [][] z0
++06 [][]
++08 [][] x1
++0a [][] y1
++0c [][] z1
++0e [][]
++10 [][] x3
++12 [][] y3
++14 [][] z3
++16 [][]
++18 [][] x2
++1a [][] y2
++1c [][] z2
++1e [][]
+
+
+
 8004f4f4 data for load 3d data.
 // load_poly functions
 //                                                         18       1c       20       24
@@ -249,3 +269,45 @@
 +02 [][]     store
 +04 [][][][] store w[src + 28] of snd file here.
 +08 [][][][] store size of snd instruments adpcm (w[src + 14]) here.
+
+
+
+
+8012ef1c + 54 [][][][] store addres of some sprite related data here.
+
+8012f354 + 20 [][][][] pointer 8012F408
++ 0c [][][][] R11R12
++ 10 [][][][] R13R21
++ 14 [][][][] R22R23
++ 18 [][][][] R31R32
++ 1c [][][][] R33
++ 20 [][][][] TRX
++ 24 [][][][] TRY
++ 28 [][][][] TRZ
++ 30 [][][][] pointer to tile data
+    8012f4c0 tile data (0x18 size)
+    +00 [][]     x tile pos
+    +02 [][]     y tile pos
+    +04 []       texture x
+    +05 []       texture y
+    +06 []       width
+    +07 []       height
+    +08 []       width increase
+    +09 []       height inscease
+    +0a [][]     tpage
+    +0c [][]     clut id
+    +10 [][][][] 2c808080 - command + color vertex 0
+    +14 [][][][] flags
+                    0x00000007 - additional tile data id
+                    0x00000008 - ???
+                    0x00000010 - flip horizontal
+                    0x00000020 - flip vertical
++ 34 [][][][] pointer to additional tile data
+    additional tile data (0x08 size 0x08 items)
+    +00 []       translation x
+    +01 []       translation y
+    +02 [][]     rotation x
+    +04 [][]     rotation y
+    +06 [][]     rotation z
++3c []       offset_x
++3d []       offset_y

@@ -595,39 +595,14 @@ Lc42d8:	; 800C42D8
 
 ////////////////////////////////
 // 0xD9 PMJMP2
-800C4350	lui    v0, $800a
-800C4354	lbu    v0, $d820(v0)
-800C4358	addiu  sp, sp, $ffe8 (=-$18)
-800C435C	andi   v0, v0, $0003
-800C4360	beq    v0, zero, Lc4378 [$800c4378]
-800C4364	sw     ra, $0010(sp)
-800C4368	lui    a0, $800a
-800C436C	addiu  a0, a0, $0854
-800C4370	jal    funcbead4 [$800bead4]
-800C4374	ori    a1, zero, $0008
+if( h[800965e8] != 2 )
+{
+    return 1
+{
 
-Lc4378:	; 800C4378
-800C4378	lui    v1, $8009
-800C437C	lh     v1, $65e8(v1)
-800C4380	ori    v0, zero, $0002
-800C4384	bne    v1, v0, Lc43b4 [$800c43b4]
-800C4388	ori    v0, zero, $0001
-800C438C	lui    v1, $8007
-800C4390	lbu    v1, $22c4(v1)
-800C4394	lui    v0, $8008
-800C4398	addiu  v0, v0, $31fc
-800C439C	sll    v1, v1, $01
-800C43A0	addu   v1, v1, v0
-800C43A4	lhu    a0, $0000(v1)
-800C43A8	addu   v0, zero, zero
-800C43AC	addiu  a0, a0, $0001
-800C43B0	sh     a0, $0000(v1)
-
-Lc43b4:	; 800C43B4
-800C43B4	lw     ra, $0010(sp)
-800C43B8	addiu  sp, sp, $0018
-800C43BC	jr     ra 
-800C43C0	nop
+V1 = bu[700722c4];
+[800831fc + V1 * 2] = h(hu[800831fc + V1 * 2] + 1);
+return 0;
 ////////////////////////////////
 
 

@@ -5704,7 +5704,7 @@
 	"../../common/Logger.h"
 	"FieldModule.h"
 
-1427482897 d:\svn\x-gears\utilites\common\ogrebase.h
+1428092406 d:\svn\x-gears\utilites\common\ogrebase.h
 	<Ogre.h>
 	<OgreTextAreaOverlayElement.h>
 	<OIS.h>
@@ -5771,13 +5771,13 @@
 1427478441 d:\svn\x-gears\utilites\xeno_field_exporter\src\fieldpackfile.h
 	"../../common/File.h"
 
-1427830645 source:d:\svn\x-gears\utilites\xeno_field_exporter\src\main.cpp
+1428212870 source:d:\svn\x-gears\utilites\xeno_field_exporter\src\main.cpp
 	<Ogre.h>
 	"../../common/OgreBase.h"
 	"../../common/Logger.h"
 	"FieldModule.h"
 
-1427477646 d:\svn\x-gears\utilites\xeno_field_exporter\src\fieldmodule.h
+1427917219 d:\svn\x-gears\utilites\xeno_field_exporter\src\fieldmodule.h
 	<OgreString.h>
 
 1427452176 source:d:\svn\x-gears\utilites\xeno_field_exporter\src\walkmesh.cpp
@@ -5790,7 +5790,7 @@
 	<OgreSimpleRenderable.h>
 	<vector>
 
-1427483244 source:d:\svn\x-gears\utilites\xeno_field_exporter\src\walkmeshfile.cpp
+1427830970 source:d:\svn\x-gears\utilites\xeno_field_exporter\src\walkmeshfile.cpp
 	"WalkmeshFile.h"
 	"../../common/Logger.h"
 	<OgreStringConverter.h>
@@ -5799,14 +5799,65 @@
 	"Walkmesh.h"
 	"../../common/File.h"
 
-1427830726 source:d:\svn\x-gears\utilites\xeno_field_exporter\src\fieldmodule.cpp
+1428261731 source:d:\svn\x-gears\utilites\xeno_field_exporter\src\fieldmodule.cpp
 	<Ogre.h>
+	"FieldModel.h"
 	"FieldModule.h"
 	"FieldPackFile.h"
+	"PacketFile.h"
 	"Walkmesh.h"
 	"WalkmeshFile.h"
 	"../../common/Logger.h"
 
 1427481352 d:\svn\x-gears\utilites\xeno_field_exporter\src\scriptfile.h
 	"../../common/File.h"
+
+1428213372 source:d:\svn\x-gears\utilites\xeno_field_exporter\src\fieldmodel.cpp
+	"FieldModel.h"
+	"ModelFile.h"
+	"../../common/File.h"
+	"../../common/Logger.h"
+	"../../common/OgreGenUtilites.h"
+
+1428002579 d:\svn\x-gears\utilites\xeno_field_exporter\src\fieldmodel.h
+	"../../common/File.h"
+
+1416339188 d:\svn\x-gears\utilites\xeno_field_exporter\src\modelfile.h
+	"../../common/File.h"
+	"../../common/Logger.h"
+	"../../common/OgreGenUtilites.h"
+
+1420962908 d:\svn\x-gears\utilites\common\ogregenutilites.h
+	<Ogre.h>
+	"Logger.h"
+	"Vram.h"
+
+1416339164 d:\svn\x-gears\utilites\common\vram.h
+	"TypeDefine.h"
+	"Surface.h"
+
+1416339164 d:\svn\x-gears\utilites\common\surface.h
+	<Ogre.h>
+
+1428128314 source:d:\svn\x-gears\utilites\xeno_field_exporter\src\modelfile.cpp
+	"ModelFile.h"
+	"../../common/Logger.h"
+	"../../common/OgreGenUtilites.h"
+	<OgreStringConverter.h>
+
+1416339164 source:d:\svn\x-gears\utilites\common\vram.cpp
+	"Vram.h"
+	<OgreStringConverter.h>
+	"Logger.h"
+	<string.h>
+
+1420963034 source:d:\svn\x-gears\utilites\common\ogregenutilites.cpp
+	"OgreGenUtilites.h"
+	"Logger.h"
+
+1428262009 d:\svn\x-gears\utilites\xeno_field_exporter\src\packetfile.h
+	"../../common/File.h"
+
+1428262172 source:d:\svn\x-gears\utilites\xeno_field_exporter\src\packetfile.cpp
+	"PacketFile.h"
 

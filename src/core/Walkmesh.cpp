@@ -31,7 +31,7 @@ Walkmesh::UpdateDebug()
         DEBUG_DRAW.SetScreenSpace( true );
         DEBUG_DRAW.SetTextAlignment( DEBUG_DRAW.CENTER );
 
-        for( unsigned int i = 0; i < m_Triangles.size(); ++i )
+        for( size_t i = 0; i < m_Triangles.size(); ++i )
         {
             if( m_Triangles[ i ].access_side[ 0 ] == -1 || m_Triangles[ i ].locked == true || m_Triangles[ m_Triangles[ i ].access_side[ 0 ] ].locked == true )
             {
@@ -64,7 +64,7 @@ Walkmesh::UpdateDebug()
             DEBUG_DRAW.Line3d( m_Triangles[ i ].c, m_Triangles[ i ].a );
 
             DEBUG_DRAW.SetColour( Ogre::ColourValue( 1, 1, 1, 1 ) );
-            DEBUG_DRAW.SetFadeDistance( 40, 50 );
+            DEBUG_DRAW.SetFadeDistance( 400, 500 );
             Ogre::Vector3 triangle_pos = ( m_Triangles[ i ].a + m_Triangles[ i ].b + m_Triangles[ i ].c) / 3;
             DEBUG_DRAW.Text( triangle_pos, 0, 0, Ogre::StringConverter::toString( i ) );
         }
@@ -151,7 +151,7 @@ Walkmesh::GetC( unsigned int triangle_id ) const
 
 
 
-int
+size_t
 Walkmesh::GetNumberOfTriangles() const
 {
     return m_Triangles.size();

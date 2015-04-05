@@ -1,0 +1,8 @@
+sprite data generated in function func1d3b8 from ...
+
+
+
+final packet assembled in function func1e264 from fata
+8012f354 + 20 [][][][] pointer 8012F408
+8012f408 + 30 [][][][] pointer to tile data
+8012f4c0 tile data (0x18 size)
