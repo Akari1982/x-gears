@@ -401,7 +401,7 @@ L1da84:	; 8001DA84
 if( V0 != 0 )
 {
     A0 = S3;
-    A1 = S0;
+    A1 = S0; // frame id
     A2 = S7;
     func1d3b8; // fill packet data
 

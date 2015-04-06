@@ -273,7 +273,7 @@
 
 
 
-8012ef1c + 54 [][][][] store addres of some sprite related data here.
+8012ef1c + 54 [][][][] store address of some sprite related data here.
 
 8012f354 + 20 [][][][] pointer 8012F408
 + 0c [][][][] R11R12

@@ -1,19 +1,19 @@
 ////////////////////////////////
 // func1d3b8
 S4 = A0;
-frame = A1;
+frame_id = A1;
 S6 = A2;
 
 sprite_1_address = w[S6];
-frame_offset = sprite_1_address + frame * 2;
-frame_address = sprite_1_address + hu[frame_offset];
-tile_offsets = frame_address + 4;
-number_of_tiles = bu[frame_address + 0] & 3f;
-S2 = frame_address + 4 + number_of_tiles * 2;
+frame_id_offset = sprite_1_address + frame_id * 2;
+frame_id_address = sprite_1_address + hu[frame_id_offset];
+tile_offsets = frame_id_address + 4;
+number_of_tiles = bu[frame_id_address + 0] & 3f;
+tile_position_setting = frame_id_address + 4 + number_of_tiles * 2;
 
 [SP + 48] = w(S4);
 
-[S4 + 36] = h((bu[frame_address + 3] * h[S4 + 2c]) >> c);
+[S4 + 36] = h((bu[frame_id_address + 3] * h[S4 + 2c]) >> c);
 [S4 + 38] = h((bu[A0 + 1] * h[S4 + 2c]) >> c);
 
 tex_y_off = bu[S6 + 6];
@@ -36,10 +36,10 @@ if( number_of_tiles != 0 )
         [sprite_data + 14] = w(w[sprite_data + 14] & ffffffdf); // remove flip vertical flag
 
         L1d4d4:	; 8001D4D4
-        S1 = bu[S2];
+        S1 = bu[tile_position_setting];
         if( S1 & 80 )
         {
-            S2 = S2 + 1;
+            tile_position_setting = tile_position_setting + 1;
 
             if( S1 & 40 )
             {
@@ -62,15 +62,15 @@ if( number_of_tiles != 0 )
 
                 if( S1 & 20 )
                 {
-                    [V0 + S7 * 8 + 0] = b(bu[S2 + 0]);
-                    [V0 + S7 * 8 + 1] = b(bu[S2 + 1]);
-                    S2 = S2 + 2;
+                    [V0 + S7 * 8 + 0] = b(bu[tile_position_setting + 0]);
+                    [V0 + S7 * 8 + 1] = b(bu[tile_position_setting + 1]);
+                    tile_position_setting = tile_position_setting + 2;
                 }
 
                 if( S1 & 10 )
                 {
-                    [V0 + S7 * 8 + 6] = h(bu[S2] << 4);
-                    S2 = S2 + 1;
+                    [V0 + S7 * 8 + 6] = h(bu[tile_position_setting] << 4);
+                    tile_position_setting = tile_position_setting + 1;
                 }
                 else
                 {
@@ -81,13 +81,13 @@ if( number_of_tiles != 0 )
             {
                 if( S1 & 01 ) // width increase
                 {
-                    [sprite_data + 8] = b(bu[S2]);
-                    S2 = S2 + 1;
+                    [sprite_data + 8] = b(bu[tile_position_setting]);
+                    tile_position_setting = tile_position_setting + 1;
                 }
-                if( S1 & 02 ) // height inscease
+                if( S1 & 02 ) // height increase
                 {
-                    [sprite_data + 9] = b(bu[S2]);
-                    S2 = S2 + 1;
+                    [sprite_data + 9] = b(bu[tile_position_setting]);
+                    tile_position_setting = tile_position_setting + 1;
                 }
                 if( S1 & 04 ) // flip vertical
                 {
@@ -121,7 +121,7 @@ if( number_of_tiles != 0 )
 
 
 
-        A2 = bu[S2] >> 4 & 03; // abr - Semi transparency mode
+        A2 = bu[tile_position_setting] >> 4 & 03; // abr - Semi transparency mode
 
         if( A2 != 0 )
         {
@@ -185,7 +185,7 @@ if( number_of_tiles != 0 )
                 [sprite_data + a] = h( tr | tp | abr | ty | tx);
             }
 
-            x = ((h[S6 + 8] + ((bu[S2] & 0f) << 4)) >> 4) & 3f;
+            x = ((h[S6 + 8] + ((bu[tile_position_setting] & 0f) << 4)) >> 4) & 3f;
             y = hu[S6 + a] << 6;
             [sprite_data + c] = h(y | x);
         }
@@ -198,25 +198,25 @@ if( number_of_tiles != 0 )
         [sprite_data + 7] = b(bu[tile_address + 4]);
 
         [sprite_data + 14] = w((w[sprite_data + 14] & fffffff8) | S7 );
-        [sprite_data + 14] = w((w[sprite_data + 14] & ffffffef) | ((bu[S2 + 0] >> 2) & 10)); // flip horizontal if set
+        [sprite_data + 14] = w((w[sprite_data + 14] & ffffffef) | ((bu[tile_position_setting + 0] >> 2) & 10)); // flip horizontal if set
 
-        if( bu[frame_address + 0] & 80 ) // double presision
+        if( bu[frame_id_address + 0] & 80 ) // double presision
         {
-            [sprite_data + 0] = h(hu[S2 + 1]);
-            [sprite_data + 2] = h(hu[S2 + 3]);
-            S2 = S2 + 2;
+            [sprite_data + 0] = h(hu[tile_position_setting + 1]);
+            [sprite_data + 2] = h(hu[tile_position_setting + 3]);
+            tile_position_setting = tile_position_setting + 2;
         }
         else
         {
-            [sprite_data + 0] = h(b[S2 + 1]);
-            [sprite_data + 2] = h(b[S2 + 2]);
+            [sprite_data + 0] = h(b[tile_position_setting + 1]);
+            [sprite_data + 2] = h(b[tile_position_setting + 2]);
         }
 
 
 
         sprite_data = sprite_data + 18;
         tile = tile + 1;
-        S2 = S2 + 3;
+        tile_position_setting = tile_position_setting + 3;
     8001D910	bne    tile, number_of_tiles, L1d4bc [$8001d4bc]
 }
 

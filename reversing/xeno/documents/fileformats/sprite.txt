@@ -1,0 +1,50 @@
+sprite_1
++00 []       number of frames
++01 []
++02 array of frame offsets to frame data 2 bytes each
+
+
+
+frame data
++00 []         0x3f - number of tiles
+               0x80 - two bytes tile position
++03 []
++04 array of tile offsets to tile description 2 bytes each
++04 + number_of_tiles * 2 - tile position setting
+
+
+
+tile position setting
++0 [] 0x80 - special settings. After special settings we go next cycle
+0x80 set
+    +0 [] 0x40 - set additional tile data
+    0x40 set 0x07 additional tile data id (used in rotation matrix and translation vector)
+        0x10 - tile z rotation
+        +1 [] rotation data (used as <<4)
+        0x20 - tile xy offset to additional data
+        +1 [] x offset
+        +2 [] y offset
+    0x40 not set
+        0x01 - width increase flag
+        +1 [] width increase
+        0x02 - height increase flag
+        +1 [] height increase
+        0x04 - flip vertical
+0x80 not set then go to position settings (data can be 1 or 2 bytes dependings on frame flag)
++0 [] 0x40 - flip horizontal
+      0x30 - abr
+      0x0f - texture x
++1 [] or [][] x pos
++2 or +3 [] or [][] y pos
+
+
+
+tile description
++0 [] flags
+        0x01 - set flag 0x00000008 in sprite_data+14, 8-bit CLUT. Unset if flag not set, 4-bit CLUT.
+        0x10 - additional flags byte
++1 [] additional flags byte if 0x10 set.
++1 [] x
++2 [] y
++3 [] width
++4 [] height
