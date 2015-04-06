@@ -41,7 +41,8 @@ main(int argc, char *argv[])
     root = new Ogre::Root( "", "" );
 #ifndef _DEBUG
     #ifdef __WIN32__
-        root->loadPlugin( "./RenderSystem_Direct3D9.dll" );
+        //root->loadPlugin( "./RenderSystem_Direct3D9.dll" );
+        root->loadPlugin( "./RenderSystem_GL.dll" );
     #else // Assume Linux for now
         root->loadPlugin( "./RenderSystem_GL.so" );
     #endif

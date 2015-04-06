@@ -5,6 +5,7 @@
 #include "FieldPackFile.h"
 #include "PacketFile.h"
 //#include "ScriptFile.h"
+#include "SpriteFile.h"
 #include "Walkmesh.h"
 #include "WalkmeshFile.h"
 #include "../../common/Logger.h"
@@ -30,6 +31,74 @@ FieldModule::LoadMap( const int file_id )
 {
     LOG_TRIVIAL( "Start load field with id \"" + IntToString( file_id ) + "\"." );
 
+    Vram* vram = new Vram();
+    File* texture = new File( "data/field/0" + IntToString( file_id + 1 ) + ".raw2" );
+    for( u32 i = 0; i < texture->GetFileSize(); )
+    {
+        u32 texture_header_id = texture->GetU32LE( i + 0x00 );
+        u16 texture_header_vram_x = texture->GetU16LE( i + 0x04 );
+        u16 texture_header_vram_y = texture->GetU16LE( i + 0x06 );
+        u16 texture_header_move_x = texture->GetU16LE( i + 0x08 );
+        u16 texture_header_move_y = texture->GetU16LE( i + 0x0a );
+        u16 texture_header_width = texture->GetU16LE( i + 0x0c );
+        u16 texture_header_height = texture->GetU16LE( i + 0x0e );
+
+        u32 number_of_chunk = texture->GetU32LE( i + 0x18 );
+
+        u16 vram_x = ( texture_header_vram_x + texture_header_move_x ) * 2;
+        u16 vram_y = texture_header_vram_y + texture_header_move_y;
+
+        // move to data (header always in separate sector)
+        u32 temp_i = i;
+        i += 0x0800;
+
+        for( u32 j = 0; j < number_of_chunk; ++j )
+        {
+            // get height of current chunk
+            u16 height = texture->GetU16LE( temp_i + 0x1C + j * 0x02 );
+//LOGGER->Log("texture_header_width = " + ToHexString(texture_header_width, 8, '0') + "\n");
+//LOGGER->Log("height = " + ToHexString(height, 8, '0') + "\n");
+//LOGGER->Log("vram_x = " + ToHexString(vram_x, 8, '0') + "\n");
+//LOGGER->Log("vram_y = " + ToHexString(vram_y, 8, '0') + "\n");
+            // palette
+            if( texture_header_id == 0x00001201 )
+            {
+                for( int y = 0; y < height; ++y )
+                {
+                    for( int x = 0; x < texture_header_width; ++x )
+                    {
+                        u16 color = texture->GetU16LE( i + x * 0x02 + y * texture_header_width * 0x02 );
+                        vram->PutU16( x * 2 + vram_x, y + vram_y, color );
+//LOGGER->Log("put color (" + ToHexString(color, 8, '0') + ") to x (" + ToHexString(x * 2 + vram_x, 8, '0') + ") y (" + ToHexString(y + vram_y, 8, '0') + ")\n");
+                    }
+                }
+            }
+
+            // textures
+            else if( texture_header_id == 0x00001200 )
+            {
+                for( int y = 0; y < height; ++y )
+                {
+                    for( int x = 0; x < texture_header_width * 2; ++x )
+                    {
+                        u8 data = texture->GetU8( i + x + y * texture_header_width * 2 );
+                        vram->PutU8( x + vram_x, y + vram_y, data );
+                    }
+                }
+            }
+
+            // move pointer to start of next texture
+            i += ceil( ( float )( texture_header_width * 2 * height) / 0x0800 ) * 0x0800;
+            // update height
+            texture_header_height += height;
+            vram_y += height;
+        }
+    }
+    delete texture;
+    vram->Save( "exported/texture.png" );
+
+
+
     FieldPackFile* field_pack = new FieldPackFile( "data/field/0" + Ogre::StringConverter::toString( file_id ) + "" );
     File* temp;
 
@@ -54,9 +123,7 @@ FieldModule::LoadMap( const int file_id )
     temp = field_pack->Extract( 2 );
     {
         FieldModel model;
-        File* texture = new File( "data/field/0" + IntToString( file_id + 1 ) + ".raw2" );
-        model.Export( temp, texture, file_id );
-        delete texture;
+        model.Export( temp, vram, file_id );
     }
     temp->WriteFile( "exported/2_3dmodel" );
     delete temp;
@@ -65,10 +132,14 @@ FieldModule::LoadMap( const int file_id )
     temp = field_pack->Extract( 3 );
     temp->WriteFile( "exported/3_2dsprite" );
     PacketFile* pack = new PacketFile( temp );
-    for( u32 i = 0; i < pack->GetNumberOfFiles(); ++i )
+    //for( u32 i = 0; i < pack->GetNumberOfFiles(); ++i )
     {
-        File* file = pack->ExtractFile( i );
-            file->WriteFile( "exported/3_2dsprite_" + IntToString( i ) );
+        File* file = pack->ExtractFile( 4 );
+        file->WriteFile( "exported/3_2dsprite_" + IntToString( 4 ) );
+
+        SpriteFile* sprite = new SpriteFile( file );
+        delete sprite;
+
         delete file;
     }
     delete pack;
@@ -117,10 +188,9 @@ FieldModule::LoadMap( const int file_id )
 
     delete temp;
 
-
-
-
     delete field_pack;
+
+    delete vram;
 }
 
 

@@ -41,9 +41,9 @@ WalkmeshFile::GetWalkmesh( Walkmesh* walkmesh )
             u16 c_offset = block_vertex + GetU16LE(block_start + j + 0x04) * 0x08;
 
             WalkmeshTriangle triangle;
-            triangle.a = Ogre::Vector3((s16)GetU16LE(0x00 + a_offset), (s16)GetU16LE(0x04 + a_offset), (s16)GetU16LE(0x02 + a_offset));
-            triangle.b = Ogre::Vector3((s16)GetU16LE(0x00 + b_offset), (s16)GetU16LE(0x04 + b_offset), (s16)GetU16LE(0x02 + b_offset));
-            triangle.c = Ogre::Vector3((s16)GetU16LE(0x00 + c_offset), (s16)GetU16LE(0x04 + c_offset), (s16)GetU16LE(0x02 + c_offset));
+            triangle.a = Ogre::Vector3(-(s16)GetU16LE(0x00 + a_offset), -(s16)GetU16LE(0x04 + a_offset), -(s16)GetU16LE(0x02 + a_offset));
+            triangle.b = Ogre::Vector3(-(s16)GetU16LE(0x00 + b_offset), -(s16)GetU16LE(0x04 + b_offset), -(s16)GetU16LE(0x02 + b_offset));
+            triangle.c = Ogre::Vector3(-(s16)GetU16LE(0x00 + c_offset), -(s16)GetU16LE(0x04 + c_offset), -(s16)GetU16LE(0x02 + c_offset));
             triangle.a /= 64;
             triangle.b /= 64;
             triangle.c /= 64;
