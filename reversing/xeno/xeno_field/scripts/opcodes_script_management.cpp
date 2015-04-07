@@ -34,11 +34,11 @@ current_entity_data = w[800af54c];
 S0 = 0;
 S1 = 0;
 
-V1 = w[800ad0d8]; // offset to current field scripts block.
+script_offset = w[800ad0d8];
 V0 = hu[current_entity_data + cc];
-flag = bu[V0 + V1 + 5];
-V1 = flag & 00f0;
+flag = bu[script_offset + V0 + 5];
 
+V1 = flag & 00f0;
 if( V1 == 0 )
 {
     A0 = 1;
@@ -57,8 +57,7 @@ if( V1 == 0 )
     read_two_bytes_unsigned;
     A0 = V0;
     get_bytes_sign;
-
-    if( V0 != 0 )
+    if( V0 != 0 ) // unsigned
     {
         S0 = S0 & ffff;
     }
@@ -79,8 +78,7 @@ else if( V1 == 40 )
     read_two_bytes_unsigned;
     A0 = V0;
     get_bytes_sign;
-
-    if( V0 != 0 )
+    if( V0 != 0 ) // unsigned
     {
         S0 = S0 & ffff;
     }
@@ -101,8 +99,7 @@ else if( V1 == 80 )
     read_two_bytes_unsigned;
     A0 = V0;
     get_bytes_sign;
-
-    if (V0 != 0)
+    if( V0 != 0 ) // unsigned
     {
         S1 = S1 & ffff;
     }
@@ -148,25 +145,24 @@ else
 
 ////////////////////////////////
 // 0x26_Wait
-V1 = w[800af54c];
-slot_id = bu[V1 + ce];
+current_entity_data = w[800af54c];
+slot_id = bu[current_entity_data + ce];
 
-V0 = bu[V1 + 8c + slot_id * 8 + 2];
-if (V0 == 0)
+V0 = bu[current_entity_data + 8c + slot_id * 8 + 2];
+if( V0 == 0 )
 {
     A0 = 1;
     read_two_bytes_with_80;
-
-    [V1 + 8c + slot_id * 8 + 2] = b(V0);
+    [current_entity_data + 8c + slot_id * 8 + 2] = b(V0);
 }
 else
 {
-    [V1 + 8c + slot_id * 8 + 2] = b(V0 - 1);
+    [current_entity_data + 8c + slot_id * 8 + 2] = b(V0 - 1);
 }
 
-if (V0 == 0)
+if( V0 == 0 )
 {
-    [V1 + cc] = h(hu[V1 + cc] + 3);
+    [current_entity_data + cc] = h(hu[current_entity_data + cc] + 3);
 }
 
 [800af594] = w(1);
@@ -175,8 +171,33 @@ if (V0 == 0)
 
 
 ////////////////////////////////
+// 0x84_ProgressLessEqualJumpTo
+current_entity_data = w[800af54c];
+
+A0 = 1;
+read_two_bytes_with_80;
+S0 = V0;
+
+A0 = 0;
+get_bytes_from_800C2F3C;
+
+if( V0 < S0 )
+{
+    [current_entity_data + cc] = h(hu[current_entity_data + cc] + 5);
+}
+else
+{
+    A0 = 3;
+    read_two_bytes_unsigned;
+    [current_entity_data + cc] = h(V0);
+}
+////////////////////////////////
+
+
+
+////////////////////////////////
 // 0x86_ProgressNotEqualJumpTo
-V1 = w[800af54c];
+current_entity_data = w[800af54c];
 
 A0 = 1;
 read_two_bytes_with_80;
@@ -185,48 +206,16 @@ S0 = V0;
 A0 = 0;
 get_bytes_from_800C2F3C;
 
-if (V0 == S0)
+if( V0 == S0 )
 {
-    V0 = hu[V1 + cc];
-    V0 = V0 + 5;
+    [current_entity_data + cc] = h(hu[current_entity_data + cc] + 5);
 }
 else
 {
     A0 = 3;
     read_two_bytes_unsigned;
+    [current_entity_data + cc] = h(V0);
 }
-
-[V1 + cc] = h(V0);
-////////////////////////////////
-
-
-
-////////////////////////////////
-// 0x84 ProgressLessEqualJumpTo
-V1 = w[800AF54C];
-
-A0 = 1;
-read_two_bytes_with_80;
-S0 = V0;
-
-A0 = 0;
-get_bytes_from_800C2F3C;
-
-if (V0 < S0)
-{
-    V0 = hu[V1 + CC];
-    V0 = V0 + 5;
-}
-else
-{
-    A0 = 3;
-    read_two_bytes_unsigned;
-}
-
-
-[V1 + CC] = h(V0);
-
-return;
 ////////////////////////////////
 
 

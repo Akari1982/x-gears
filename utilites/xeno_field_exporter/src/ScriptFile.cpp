@@ -99,34 +99,75 @@ ScriptFile::GetScripts()
                 }
                 else if( opcode == 0x02 )
                 {
-                    LOGGER->Log("0x02_ConditionalJumpTo");
-                    u8 flag = GetU8(script_pointer + 4);
-                    switch (flag & 0xF0)
+                    export_script->Log( "0x02_ConditionalJumpTo( " );
+                    u8 flag = GetU8( script_pointer + 4 );
+                    switch( flag & 0xf0 )
                     {
-                        case 0x00: GetVVariable(script_pointer, "value1"); GetVVariable(script_pointer, "value2"); break;
-                        case 0x40: GetVVariable(script_pointer, "value1"); GetS16Variable(script_pointer, "value2"); break;
-                        case 0x80: GetS16Variable(script_pointer, "value1"); GetVVariable(script_pointer, "value2"); break;
-                        case 0xC0: GetS16Variable(script_pointer, "value1"); GetS16Variable(script_pointer, "value2"); break;
+                        case 0x00:
+                        {
+                            export_script->Log( "value1=" + GetVVariable( script_pointer + 0 ) + " ), " );
+                            export_script->Log( "value2=" + GetVVariable( script_pointer + 2 ) + " ), " );
+                        }
+                        break;
+                        case 0x40:
+                        {
+                            export_script->Log( "value1=" + GetVVariable( script_pointer + 0 ) + " ), " );
+                            export_script->Log( "value2=" + GetS16Variable( script_pointer + 2 ) + ", " );
+                        }
+                        break;
+                        case 0x80:
+                        {
+                            export_script->Log( "value1=" + GetS16Variable( script_pointer + 0 ) + ", " );
+                            export_script->Log( "value2=" + GetVVariable( script_pointer + 2 ) + " ), " );
+                        }
+                        break;
+                        case 0xc0:
+                        {
+                            export_script->Log( "value1=" + GetS16Variable( script_pointer + 0 ) + ", " );
+                            export_script->Log( "value2=" + GetS16Variable( script_pointer + 2 ) + ", " );
+                        }
+                        break;
                     }
-                    script_pointer += 1; // skip flag
-                    LOGGER->Log("; // continue if ");
-                    switch (flag & 0x0F)
+                    export_script->Log( "condition=\"" );
+                    switch( flag & 0x0f )
                     {
-                        case 0x00: LOGGER->Log("value1 == value2"); break;
-                        case 0x01: LOGGER->Log("value1 != value2"); break;
-                        case 0x02: LOGGER->Log("value1 > value2"); break;
-                        case 0x03: LOGGER->Log("value1 < value2"); break;
-                        case 0x04: LOGGER->Log("value1 >= value2"); break;
-                        case 0x05: LOGGER->Log("value1 <= value2"); break;
-                        case 0x06: LOGGER->Log("value1 & value2"); break;
-                        case 0x07: LOGGER->Log("value1 != value2"); break;
-                        case 0x08: LOGGER->Log("value1 | value2"); break;
-                        case 0x09: LOGGER->Log("value1 & value2"); break;
-                        case 0x0A: LOGGER->Log("(0 NOR value1) & value2"); break;
+                        case 0x00: export_script->Log( "value1 == value2" ); break;
+                        case 0x01: export_script->Log( "value1 != value2" ); break;
+                        case 0x02: export_script->Log( "value1 > value2" ); break;
+                        case 0x03: export_script->Log( "value1 < value2" ); break;
+                        case 0x04: export_script->Log( "value1 >= value2" ); break;
+                        case 0x05: export_script->Log( "value1 <= value2" ); break;
+                        case 0x06: export_script->Log( "value1 & value2" ); break;
+                        case 0x07: export_script->Log( "value1 != value2" ); break;
+                        case 0x08: export_script->Log( "value1 | value2" ); break;
+                        case 0x09: export_script->Log( "value1 & value2" ); break;
+                        case 0x0A: export_script->Log( "(0 NOR value1) & value2" ); break;
                     }
-                    LOGGER->Log(", jump to 0x%04x otherwise;\n", GetU16LE(script_pointer));
+                    export_script->Log("\", jump_if_false=" + GetU16Variable( script_pointer + 5 ) + " );\n";
+                    script_pointer += 7;
+                }
+                else if( opcode == 0x26 )
+                {
+                    export_script->Log( "0x26_Wait( time=" + GetV80Variable( script_pointer ) + " );\n" );
                     script_pointer += 2;
                 }
+                else if( opcode == 0x84 )
+                {
+                    export_script->Log( "0x84_ProgressLessEqualJumpTo( value=" + GetV80Variable( script_pointer ) + ", jump=" + GetU16Variable( script_pointer + 2 ) + " );\n" );
+                    script_pointer += 4;
+                }
+                else if( opcode == 0x86 )
+                {
+                    export_script->Log( "0x86_ProgressNotEqualJumpTo( value=" + GetV80Variable( script_pointer ) + ", jump=" + GetU16Variable( script_pointer + 2 ) + " );\n" );
+                    script_pointer += 4;
+                }
+                else if( opcode == 0xcb )
+                {
+                    export_script->Log( "0xCB_TriggerJumpTo( trigger_id=" + GetV80Variable( script_pointer ) + ", jump=" + GetU16Variable( script_pointer + 2 ) + " );\n" );
+                    script_pointer += 4;
+                }
+
+/*
                 else if (opcode == 0x0B)
                 {
                     LOGGER->Log("0x0B_EntityNPCInit");
@@ -156,12 +197,6 @@ ScriptFile::GetScripts()
                 else if (opcode == 0x23)
                 {
                     LOGGER->Log("0x23(); // add flag 0020 in 80114f2c + 58 of current entity.\n");
-                }
-                else if (opcode == 0x26)
-                {
-                    LOGGER->Log("0x26_Wait");
-                    GetV80Variable(script_pointer, "time");
-                    LOGGER->Log("; // stop script execution till script will be called given number of times.\n");
                 }
                 else if (opcode == 0x29)
                 {
@@ -196,13 +231,6 @@ ScriptFile::GetScripts()
                     LOGGER->Log("0x6F_RotateToEntity");
                     GetEVariable(script_pointer);
                     LOGGER->Log(";\n");
-                }
-                else if (opcode == 0x86)
-                {
-                    LOGGER->Log("0x86_ProgressNotEqualJumpTo");
-                    GetV80Variable(script_pointer, "value");
-                    LOGGER->Log("; // jump to 0x%04x if progress != value\n", GetU16LE(script_pointer));
-                    script_pointer += 2;
                 }
                 else if (opcode == 0xBC)
                 {
@@ -273,7 +301,7 @@ ScriptFile::GetScripts()
 */
                 else
                 {
-                    LOGGER->Log("MISSING OPCODE %02x\n", opcode);
+                    export_script->Log( "MISSING OPCODE 0x" + HexToString( opcode, 2, '0' ) + "\n" );
                     break;
                 }
             }
@@ -307,32 +335,26 @@ ScriptFile::GetFVariable( u32& script_pointer )
 
 
 
-void
-ScriptFile::GetU8Variable( u32& script_pointer, const Ogre::String& name )
+Ogre::String
+ScriptFile::GetU8Variable( const u32 script_pointer )
 {
-    u8 data = GetU8(script_pointer);
-    LOGGER->Log("(u8 %s 0x%02x)", name.c_str(), data);
-    script_pointer += 1;
+    return "0x" + HexToString( GetU8( script_pointer ), 2, '0' );
 }
 
 
 
-void
-ScriptFile::GetS16Variable( u32& script_pointer, const Ogre::String& name )
+Ogre::String
+ScriptFile::GetS16Variable( const u32 script_pointer )
 {
-    s16 data = GetU16LE(script_pointer);
-    LOGGER->Log("(s16 %s 0x%04x)", name.c_str(), data);
-    script_pointer += 2;
+    return "(s16)0x" + HexToString( GetU16LE( script_pointer ), 4, '0' );
 }
 
 
 
-void
-ScriptFile::GetU16Variable( u32& script_pointer, const Ogre::String& name )
+Ogre::String
+ScriptFile::GetU16Variable( const u32 script_pointer )
 {
-    u16 data = GetU16LE(script_pointer);
-    LOGGER->Log("(u16 %s 0x%04x)", name.c_str(), data);
-    script_pointer += 2;
+    return "0x" + HexToString( GetU16LE( script_pointer ), 4, '0' );
 }
 
 
@@ -357,20 +379,24 @@ ScriptFile::GetVF80Variable( u32& script_pointer, const Ogre::String& name )
 
 
 
-void
-ScriptFile::GetVVariable( u32& script_pointer, const Ogre::String& name )
+Ogre::String
+ScriptFile::GetVVariable( const u32 script_pointer )
 {
-    u16 data = GetU16LE(script_pointer);
-    LOGGER->Log("(v %s 0x%04x)", name.c_str(), data);
-    script_pointer += 2;
+    return "GetVar( 0x" + HexToString( GetU16LE( script_pointer ), 4, '0' ) + " )";
 }
 
 
 
-void
-ScriptFile::GetV80Variable( u32& script_pointer, const Ogre::String& name )
+Ogre::String
+ScriptFile::GetV80Variable( const u32 script_pointer )
 {
-    u16 data = GetU16LE(script_pointer);
-    LOGGER->Log("(v80 %s 0x%04x)", name.c_str(), data);
-    script_pointer += 2;
+    u16 data = GetU16LE( script_pointer );
+    if( data & 0x8000 )
+    {
+        return "0x" + HexToString( GetU16LE( script_pointer ) & 0x7fff, 4, '0' );
+    }
+    else
+    {
+        return GetVVariable( script_pointer );
+    }
 }

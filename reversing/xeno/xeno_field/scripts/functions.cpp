@@ -5,14 +5,14 @@ v0 - 2 bytes interpreted from value from given offset
 
 read data from given offset
 
-if (0x8000 bit in data is set)
+if( 0x8000 bit in data is set )
 {
-    this is immediate value and we return all bit from 0x7FFF
+    this is immediate value and we return all bit from 0x7fff
 }
 else
 {
     A0 = A0 & ffff
-    get_bytes_from_800C2F3C
+    get_bytes_from_800C2F3C;
 }
 ////////////////////////////////
 
@@ -47,85 +47,54 @@ else
 
 ////////////////////////////////
 // read_two_bytes_unsigned
-A0 - offset from current script pointer
-
-V0 = w[800AF54C];
-V0 = hu[V0 + CC];
-V1 = w[800AD0D8];
-A1 = V1 + V0 + A0;
-V1 = bu[A1 + 1];
-V0 = bu[A1 + 0];
-V1 = V1 << 8;
-V0 = V0 | V1;
-return V0;
+current_entity_data = w[800af54c];
+V0 = hu[current_entity_data + cc];
+script_offset = w[800ad0d8];
+return (bu[script_offset + V0 + A0 + 1] << 8) | bu[script_offset + V0 + A0 + 0];
 ////////////////////////////////
 
 
 
 ////////////////////////////////
 // read_two_bytes_signed
-A0 - offset from current script pointer
-
-V0 = w[800AF54C];
-V0 = hu[V0 + CC];
-A1 = w[800AD0D8];
-A1 = A1 + V0 + A0;
-V1 = bu[A1 + 1];
-V0 = bu[A1 + 0];
-V1 = V1 << 8;
-V0 = V0 + V1; addu
-V0 = V0 << 10;
-V0 = V0 >> 10;
-return V0;
+current_entity_data = w[800af54c];
+V0 = hu[current_entity_data + cc];
+script_offset = w[800ad0d8];
+return (((bu[script_offset + V0 + A0 + 1] << 8) + bu[script_offset + V0 + A0 + 0]) << 10) >> 10;
 ////////////////////////////////
 
 
 
 ////////////////////////////////
 // get_bytes_sign
-A0 - [00000000][00xxxxx0] => x     (memory slot id)
-A0 - [xxxxxxxx][xx000000] => x * 4 (block with signs)
+// [00000000][00xxxxx0] => x     (sign_mask)
+// [xxxxxxxx][xx000000] => x * 4 (sign_data id)
+entity_file = w[800ad0d0];
+sign_data = w[entity_file + (A0 >> 6) * 4];
+sign_mask = 1 << ((A0 >> 1) & 1f);
 
-V0 = A0 >> 6;
-V0 = V0 << 2;
-
-V1 = w[800ad0d0];
-V0 = V0 + V1;
-V0 = w[V0];
-
-A0 = A0 >> 1;
-A0 = A0 & 1F;
-V1 = 1 << A0;
-V0 = V0 & V1; // bit set - 1        0
-V0 = 0 < V0;  // bit set - 1        0
-V0 = 0 - V0;  // bit set - FFFFFFFF 0
-return V0;
+return 0 - (0 < (sign_data & sign_mask)); // 0 - signed, -1 unsigned
 //////////////////////////////////////////////////////////
 
 
 
 ////////////////////////////////
-get_bytes_from_800C2F3C
-A0 - [xxxxxxxx][xxxxxxx0] => x (offset to read)
-A0 - [xxxxxxxx][xx000000] => x * 4 (offset to sign)
-// bit set - unsigned
-
+//get_bytes_from_800C2F3C
+// [xxxxxxxx][xxxxxxx0] => x (offset to read)
+// [xxxxxxxx][xx000000] => x * 4 (offset to sign)
+entity_file = w[800ad0d0];
+sign_data = w[entity_file + (A0 >> 6) * 4]; // sign block
+sign_mask = 1 << ((A0 >> 1) & 1f);
 read_slot = A0 >> 1;
 
-V0 = w[800ad0d0];
-V1 = A0 >> 6;
-V1 = w[V0 + V1 * 4]; // sign block
-
-if (V1 & (1 << (read_slot & 1f))) // if bit in sign block is set
+if( sign_data & sign_mask ) // if bit in sign block is set
 {
-    V0 = hu[800c2f3c + read_slot * 2];
+    return hu[800c2f3c + read_slot * 2];
 }
 else
 {
-    V0 = h[800c2f3c + read_slot * 2];
+    return h[800c2f3c + read_slot * 2];
 }
-
-return V0;
 ////////////////////////////////
 
 

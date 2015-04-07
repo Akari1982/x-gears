@@ -56,10 +56,6 @@ FieldModule::LoadMap( const int file_id )
         {
             // get height of current chunk
             u16 height = texture->GetU16LE( temp_i + 0x1C + j * 0x02 );
-//LOGGER->Log("texture_header_width = " + ToHexString(texture_header_width, 8, '0') + "\n");
-//LOGGER->Log("height = " + ToHexString(height, 8, '0') + "\n");
-//LOGGER->Log("vram_x = " + ToHexString(vram_x, 8, '0') + "\n");
-//LOGGER->Log("vram_y = " + ToHexString(vram_y, 8, '0') + "\n");
             // palette
             if( texture_header_id == 0x00001201 )
             {
@@ -69,7 +65,6 @@ FieldModule::LoadMap( const int file_id )
                     {
                         u16 color = texture->GetU16LE( i + x * 0x02 + y * texture_header_width * 0x02 );
                         vram->PutU16( x * 2 + vram_x, y + vram_y, color );
-//LOGGER->Log("put color (" + ToHexString(color, 8, '0') + ") to x (" + ToHexString(x * 2 + vram_x, 8, '0') + ") y (" + ToHexString(y + vram_y, 8, '0') + ")\n");
                     }
                 }
             }

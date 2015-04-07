@@ -15,14 +15,14 @@ public:
     void GetEVariable( u32& script_pointer );
     void GetFVariable( u32& script_pointer );
 
-    void GetU8Variable( u32& script_pointer, const Ogre::String& name );
-    void GetS16Variable( u32& script_pointer, const Ogre::String& name );
-    void GetU16Variable( u32& script_pointer, const Ogre::String& name );
+    Ogre::String GetU8Variable( const u32 script_pointer );
+    Ogre::String GetS16Variable( const u32 script_pointer );
+    Ogre::String GetU16Variable( const u32 script_pointer );
 
     void GetVF40Variable( u32& script_pointer, const Ogre::String& name );
     void GetVF80Variable( u32& script_pointer, const Ogre::String& name );
-    void GetVVariable( u32& script_pointer, const Ogre::String& name );
-    void GetV80Variable( u32& script_pointer, const Ogre::String& name );
+    Ogre::String GetVVariable( const u32 script_pointer );
+    Ogre::String GetV80Variable( const u32 script_pointer );
 };
 
 
