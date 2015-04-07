@@ -5799,7 +5799,7 @@
 	"Walkmesh.h"
 	"../../common/File.h"
 
-1428345990 source:d:\svn\x-gears\utilites\xeno_field_exporter\src\fieldmodule.cpp
+1428424153 source:d:\svn\x-gears\utilites\xeno_field_exporter\src\fieldmodule.cpp
 	<Ogre.h>
 	"FieldModel.h"
 	"FieldModule.h"
@@ -5864,11 +5864,15 @@
 1428262172 source:d:\svn\x-gears\utilites\xeno_field_exporter\src\packetfile.cpp
 	"PacketFile.h"
 
-1428343368 d:\svn\x-gears\utilites\xeno_field_exporter\src\spritefile.h
+1428431886 d:\svn\x-gears\utilites\xeno_field_exporter\src\spritefile.h
+	<OgreRenderQueueListener.h>
+	<OgreHardwareVertexBuffer.h>
+	<OgreRoot.h>
 	"../../common/File.h"
 
-1428348834 source:d:\svn\x-gears\utilites\xeno_field_exporter\src\spritefile.cpp
+1428424075 source:d:\svn\x-gears\utilites\xeno_field_exporter\src\spritefile.cpp
 	"PacketFile.h"
 	"SpriteFile.h"
+	"../../common/DebugDraw.h"
 	"../../common/Logger.h"
 
