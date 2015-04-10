@@ -1,0 +1,4 @@
+<map>
+    <square_trigger name="Gateway0" point1="-2.64063 -0.40625 0" point2="-1.78125 -0.40625 0" point3="-1.78125 0.40625 0" point4="-2.64063 0.40625 0" enabled="true" />
+    <square_trigger name="Gateway1" point1="1.60938 -0.546875 0" point2="2.23438 -0.546875 0" point3="2.23438 0.53125 0" point4="1.60938 0.53125 0" enabled="true" />
+</map>
