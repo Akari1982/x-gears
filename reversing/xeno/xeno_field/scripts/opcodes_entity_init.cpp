@@ -15,9 +15,9 @@ A1 = V0;
 address_2dsprite = w[800aeff0];
 A2 = address_2dsprite + w[address_2dsprite + V0 * 4 + 4];
 A3 = 0;
-[SP + 10] = w(0);
-[SP + 14] = w(V0 | 80);
-[SP + 18] = w(0);
+A4 = 0;
+A5 = V0 | 80;
+A6 = 0;
 func76150;
 
 funca0224;
@@ -92,9 +92,9 @@ if (S0 != -1)
         address = w[800aeff0];
         A2 = address + w[address + model_id * 4 + T1 * 4 + 4];
         A3 = 0;
-        [SP + 10] = w(0);
-        [SP + 14] = w((model_id + T1) | 80);
-        [SP + 18] = w(1);
+        A4 = 0;
+        A5 = (model_id + T1) | 80;
+        A6 = 1;
         func76150;
 
         V0 = w[struct + 0];
@@ -122,9 +122,9 @@ if (S0 != -1)
         A1 = S0;
         A2 = w[80059aa4 + S0 * 4];
         A3 = 1;
-        [SP + 10] = w(0)
-        [SP + 14] = w(A1);
-        [SP + 18] = w(1);
+        A4 = 0;
+        A5 = A1;
+        A6 = 1;
         func76150;
 
         V0 = w[struct + 0];
@@ -153,9 +153,9 @@ else
     A1 = 0;
     A2 = w[80059aa4];
     A3 = 1;
-    [SP + 10] = w(0);
-    [SP + 14] = w(0);
-    [SP + 18] = w(1);
+    A4 = 0;
+    A5 = 0;
+    A6 = 1;
     func76150;
 
     [struct + 0] = w(w[struct + 0] | 00000001);
@@ -181,9 +181,9 @@ A1 = 0;
 address = w[800aeff0];
 A2 = address + w[address + 4];
 A3 = 0;
-[SP + 10] = w(0);
-[SP + 14] = w(80);
-[SP + 18] = w(1);
+A4 = 0;
+A5 = 80;
+A6 = 1;
 func76150;
 
 funca0224;
@@ -200,13 +200,13 @@ A0 = w[800af54c];
 
 ////////////////////////////////
 // func76150
-S6 = w[SP + 68]; // [SP + 10] = w(0);
+S6 = A4; // [SP + 10] = w(0);
 S3 = A0; // currently entity id
 S1 = A1; // model id to load (local most likely)
 S4 = A2; // offset to data in 2dsprite block to load
 S7 = A3; // 0
-S0 = w[SP + 6c]; // [SP + 14] = w(80);
-FP = w[SP + 70]; // [SP + 18] = w(1); in case of model == 0
+S0 = A5; // [SP + 14] = w(80);
+FP = A6; // [SP + 18] = w(1); in case of model == 0
 
 A0 = 8;
 A1 = 0;
@@ -224,9 +224,8 @@ struct = w[V1 + 4c];
 
 if( S7 == 0 )
 {
-    V0 = S1 * 8;
-    S0 = hu[800b144e + V0];
-    S5 = hu[800b144c + V0];
+    S5 = hu[800b144c + S1 * 8]; // tx
+    S0 = hu[800b144e + S1 * 8]; // ty
     if( S6 == 0 )
     {
         V1 = w[800aefe4] + S2;
@@ -237,10 +236,10 @@ if( S7 == 0 )
         }
 
         A0 = S4;
-        A1 = 100;
-        A2 = S1 + 1e0;
-        A3 = S5;
-        A4 = S0;
+        A1 = 100;      // clut x
+        A2 = S1 + 1e0; // clut y
+        A3 = S5;       // tx
+        A4 = S0;       // ty
         A5 = 40;
         func24330; // sprite set up
     }

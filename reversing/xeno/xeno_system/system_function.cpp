@@ -352,7 +352,7 @@ return h[80051a92 + A0 * 4];
 
 
 ////////////////////////////////
-system_get_rotation_based_on_vector_x_y
+// system_get_rotation_based_on_vector_x_y
 //A0 - Y
 //A1 - X
 //V0 - rotation for entity
