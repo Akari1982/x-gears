@@ -83,12 +83,12 @@ SpriteFile::SpriteFile( File* file, Vram* vram ):
 
 
 
-        int clut_x = 0x0;
+        int clut_x = 0x100;
         int clut_y = 0x1e3;
         int vram_x = 0x140;
         int vram_y = 0x100;
         TexForGen texture;
-        texture.palette_x = clut_x + ( ( sprite1->GetU8( offset_to_tile_position ) & 0x0f ) << 4 );
+        texture.palette_x = ( clut_x + ( ( sprite1->GetU8( offset_to_tile_position ) & 0x0f ) << 4 ) ) / 2;
         texture.palette_y = clut_y;
         texture.texture_x = vram_x;
         texture.texture_y = vram_y;

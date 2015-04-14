@@ -1,4 +1,547 @@
 ////////////////////////////////
+// funca5118
+800A5118	addiu  sp, sp, $ffb8 (=-$48)
+800A511C	sw     ra, $0044(sp)
+800A5120	sw     s2, $0040(sp)
+800A5124	sw     s1, $003c(sp)
+800A5128	jal    func37334 [$80037334]
+800A512C	sw     s0, $0038(sp)
+800A5130	jal    funca8938 [$800a8938]
+800A5134	nop
+800A5138	jal    func85b04 [$80085b04]
+800A513C	nop
+800A5140	jal    func7f5fc [$8007f5fc]
+800A5144	nop
+800A5148	lui    v1, $800b
+800A514C	lw     v1, $f51c(v1)
+800A5150	ori    v0, zero, $0006
+800A5154	beq    v1, v0, La5180 [$800a5180]
+800A5158	nop
+800A515C	jal    funca8634 [$800a8634]
+800A5160	nop
+800A5164	lui    v1, $800b
+800A5168	lw     v1, $f51c(v1)
+800A516C	ori    v0, zero, $0004
+800A5170	beq    v1, v0, La5180 [$800a5180]
+800A5174	nop
+800A5178	jal    funca3c20 [$800a3c20]
+800A517C	nop
+
+La5180:	; 800A5180
+800A5180	jal    func44448 [$80044448]
+800A5184	addu   a0, zero, zero
+800A5188	jal    func73670 [$80073670]
+800A518C	nop
+800A5190	jal    func76c88 [$80076c88]
+800A5194	nop
+800A5198	jal    func6f740 [$8006f740]
+
+A0 = w[80059b50];
+A1 = 0;
+system_memory_allocate;
+S0 = V0;
+
+A0 = S0;
+A1 = w[80059b70];
+A2 = w[80059b50];
+system_copy_memory;
+
+A0 = w[80059b70];
+800A51D4	jal    func31edc [$80031edc]
+
+A0 = w[80059b70];
+800A51E4	jal    func31f0c [$80031f0c]
+
+800A51EC	lui    v1, $800b
+800A51F0	lw     v1, $f51c(v1)
+800A51F4	ori    v0, zero, $0006
+800A51F8	beq    v1, v0, La5208 [$800a5208]
+
+800A5200	jal    funca858c [$800a858c]
+800A5204	ori    a0, zero, $0001
+
+La5208:	; 800A5208
+A0 = w[80059b50];
+A1 = 1;
+system_memory_allocate;
+[80059b70] = w(V0);
+
+A0 = V0; // to here
+A1 = S0; // from here
+A2 = w[80059b50]; // this much
+system_copy_memory; // copy clut/texture data
+
+800A5234	lui    a0, $8006
+800A5238	lw     a0, $9b70(a0)
+800A523C	jal    func31ec8 [$80031ec8]
+800A5240	nop
+800A5244	jal    func31f0c [$80031f0c]
+800A5248	addu   a0, s0, zero
+800A524C	lui    v1, $800b
+800A5250	lw     v1, $f51c(v1)
+800A5254	nop
+800A5258	sltiu  v0, v1, $0007
+800A525C	beq    v0, zero, La5880 [$800a5880]
+800A5260	sll    v0, v1, $02
+800A5264	lui    at, $8007
+800A5268	addu   at, at, v0
+800A526C	lw     v0, $f43c(at)
+800A5270	nop
+800A5274	jr     v0 
+800A5278	nop
+
+800A527C	lui    a0, $800b
+800A5280	lw     a0, $f1e8(a0)
+800A5284	jal    func7145c [$8007145c]
+800A5288	addu   s0, zero, zero
+800A528C	lui    v0, $800b
+800A5290	lw     v0, $f1e8(v0)
+800A5294	nop
+800A5298	blez   v0, La5360 [$800a5360]
+800A529C	ori    s1, zero, $80d4
+
+La52a0:	; 800A52A0
+800A52A0	jal    func73670 [$80073670]
+800A52A4	addiu  s0, s0, $0001
+800A52A8	lui    a0, $800c
+800A52AC	lw     a0, $3740(a0)
+800A52B0	lui    a1, $800b
+800A52B4	lw     a1, $cfe0(a1)
+800A52B8	jal    func71344 [$80071344]
+800A52BC	addu   a0, a0, s1
+800A52C0	jal    funca5dfc [$800a5dfc]
+800A52C4	nop
+800A52C8	lui    v0, $800b
+800A52CC	lw     v0, $f1e8(v0)
+800A52D0	nop
+800A52D4	slt    v0, s0, v0
+800A52D8	beq    v0, zero, La5360 [$800a5360]
+800A52DC	nop
+800A52E0	j      La52a0 [$800a52a0]
+800A52E4	nop
+800A52E8	addu   a0, zero, zero
+800A52EC	jal    funca5b14 [$800a5b14]
+800A52F0	addu   a1, zero, zero
+800A52F4	lui    a0, $800b
+800A52F8	lw     a0, $f1e8(a0)
+800A52FC	jal    func7145c [$8007145c]
+800A5300	addu   s0, zero, zero
+800A5304	lui    v0, $800b
+800A5308	lw     v0, $f1e8(v0)
+800A530C	nop
+800A5310	blez   v0, La5360 [$800a5360]
+800A5314	ori    s1, zero, $80d4
+
+loopa5318:	; 800A5318
+800A5318	jal    func73670 [$80073670]
+800A531C	addiu  s0, s0, $0001
+800A5320	lui    a0, $800c
+800A5324	lw     a0, $3740(a0)
+800A5328	lui    a1, $800b
+800A532C	lw     a1, $cfe0(a1)
+800A5330	jal    func71344 [$80071344]
+800A5334	addu   a0, a0, s1
+800A5338	jal    funca58e0 [$800a58e0]
+800A533C	nop
+800A5340	jal    funca5dfc [$800a5dfc]
+800A5344	nop
+800A5348	lui    v0, $800b
+800A534C	lw     v0, $f1e8(v0)
+800A5350	nop
+800A5354	slt    v0, s0, v0
+800A5358	bne    v0, zero, loopa5318 [$800a5318]
+800A535C	nop
+
+La5360:	; 800A5360
+800A5360	jal    func73670 [$80073670]
+800A5364	nop
+800A5368	jal    funca5dfc [$800a5dfc]
+800A536C	nop
+800A5370	jal    func1aed8 [$8001aed8]
+800A5374	nop
+800A5378	jal    func1b23c [$8001b23c]
+800A537C	nop
+800A5380	lui    s0, $800b
+800A5384	lw     s0, $f51c(s0)
+800A5388	lui    s1, $800b
+800A538C	lw     s1, $f1e8(s1)
+func70358;
+
+800A5398	jal    func6fb18 [$8006fb18]
+800A539C	nop
+800A53A0	jal    func6fb98 [$8006fb98]
+800A53A4	nop
+800A53A8	lui    v1, $8005
+800A53AC	lw     v1, $e9ac(v1)
+800A53B0	addiu  v0, zero, $ffff (=-$1)
+800A53B4	lui    at, $800b
+800A53B8	sw     s0, $f51c(at)
+800A53BC	lui    at, $800b
+800A53C0	sw     s1, $f1e8(at)
+800A53C4	bne    v1, v0, La53dc [$800a53dc]
+800A53C8	nop
+800A53CC	lui    a0, $8005
+800A53D0	lw     a0, $e9c8(a0)
+800A53D4	jal    func85134 [$80085134]
+800A53D8	addu   a1, zero, zero
+
+La53dc:	; 800A53DC
+800A53DC	lui    a0, $800b
+800A53E0	lw     a0, $f1e8(a0)
+800A53E4	jal    func714e8 [$800714e8]
+800A53E8	nop
+800A53EC	j      La5878 [$800a5878]
+800A53F0	nop
+800A53F4	addu   a0, zero, zero
+800A53F8	jal    funca5b14 [$800a5b14]
+800A53FC	addu   a1, zero, zero
+800A5400	lui    a0, $800b
+800A5404	lw     a0, $f1e8(a0)
+800A5408	jal    funca4be8 [$800a4be8]
+800A540C	addu   s0, zero, zero
+800A5410	lui    v0, $800b
+800A5414	lw     v0, $f1e8(v0)
+800A5418	nop
+800A541C	blez   v0, La546c [$800a546c]
+800A5420	ori    s1, zero, $80d4
+
+loopa5424:	; 800A5424
+800A5424	jal    func73670 [$80073670]
+800A5428	addiu  s0, s0, $0001
+800A542C	lui    a0, $800c
+800A5430	lw     a0, $3740(a0)
+800A5434	lui    a1, $800b
+800A5438	lw     a1, $cfe0(a1)
+800A543C	jal    func71344 [$80071344]
+800A5440	addu   a0, a0, s1
+800A5444	jal    funca58e0 [$800a58e0]
+800A5448	nop
+800A544C	jal    funca5dfc [$800a5dfc]
+800A5450	nop
+800A5454	lui    v0, $800b
+800A5458	lw     v0, $f1e8(v0)
+800A545C	nop
+800A5460	slt    v0, s0, v0
+800A5464	bne    v0, zero, loopa5424 [$800a5424]
+800A5468	nop
+
+La546c:	; 800A546C
+800A546C	jal    func76c88 [$80076c88]
+800A5470	nop
+800A5474	jal    func1aed8 [$8001aed8]
+800A5478	nop
+800A547C	jal    func1b23c [$8001b23c]
+800A5480	nop
+800A5484	lui    s0, $800b
+800A5488	lw     s0, $f51c(s0)
+800A548C	lui    s1, $800b
+800A5490	lw     s1, $f1e8(s1)
+800A5494	jal    func70358 [$80070358]
+800A5498	nop
+800A549C	jal    func6fb18 [$8006fb18]
+800A54A0	nop
+800A54A4	jal    func6fb98 [$8006fb98]
+800A54A8	nop
+800A54AC	lui    v1, $8005
+800A54B0	lw     v1, $e9ac(v1)
+800A54B4	addiu  v0, zero, $ffff (=-$1)
+800A54B8	lui    at, $800b
+800A54BC	sw     s0, $f51c(at)
+800A54C0	lui    at, $800b
+800A54C4	sw     s1, $f1e8(at)
+800A54C8	bne    v1, v0, La54e0 [$800a54e0]
+800A54CC	nop
+800A54D0	lui    a0, $8005
+800A54D4	lw     a0, $e9c8(a0)
+800A54D8	jal    func85134 [$80085134]
+800A54DC	addu   a1, zero, zero
+
+La54e0:	; 800A54E0
+800A54E0	lui    a0, $800b
+800A54E4	lw     a0, $f1e8(a0)
+800A54E8	jal    funca4b80 [$800a4b80]
+800A54EC	nop
+800A54F0	j      La5878 [$800a5878]
+800A54F4	nop
+800A54F8	ori    a0, zero, $0001
+800A54FC	jal    funca4d5c [$800a4d5c]
+800A5500	ori    a1, zero, $0001
+800A5504	jal    func1aed8 [$8001aed8]
+800A5508	nop
+800A550C	jal    func1b23c [$8001b23c]
+800A5510	nop
+800A5514	lui    s0, $800b
+800A5518	lw     s0, $f51c(s0)
+800A551C	lui    s1, $800b
+800A5520	lw     s1, $f1e8(s1)
+800A5524	jal    func70358 [$80070358]
+800A5528	nop
+800A552C	jal    func6fb18 [$8006fb18]
+800A5530	nop
+800A5534	lui    v1, $800b
+800A5538	lw     v1, $d038(v1)
+800A553C	ori    v0, zero, $0001
+800A5540	bne    v1, v0, La55b8 [$800a55b8]
+800A5544	nop
+
+loopa5548:	; 800A5548
+800A5548	jal    func284dc [$800284dc]
+800A554C	nop
+800A5550	beq    v0, zero, La5598 [$800a5598]
+800A5554	nop
+800A5558	jal    func73670 [$80073670]
+800A555C	nop
+800A5560	jal    funca58e0 [$800a58e0]
+800A5564	nop
+800A5568	jal    funca5dfc [$800a5dfc]
+800A556C	nop
+800A5570	lui    v1, $800c
+800A5574	lw     v1, $1b58(v1)
+800A5578	nop
+800A557C	slti   v0, v1, $22c0
+800A5580	beq    v0, zero, loopa5548 [$800a5548]
+800A5584	addiu  v0, v1, $0020
+800A5588	lui    at, $800c
+800A558C	sw     v0, $1b58(at)
+800A5590	j      loopa5548 [$800a5548]
+800A5594	nop
+
+La5598:	; 800A5598
+800A5598	lui    a0, $800b
+800A559C	lw     a0, $d0ec(a0)
+800A55A0	jal    func31f0c [$80031f0c]
+800A55A4	nop
+800A55A8	lui    at, $800b
+800A55AC	sw     zero, $d038(at)
+800A55B0	jal    func78270 [$80078270]
+800A55B4	nop
+
+La55b8:	; 800A55B8
+800A55B8	lui    v1, $8005
+800A55BC	lw     v1, $e9ac(v1)
+800A55C0	ori    v0, zero, $0001
+800A55C4	lui    at, $800b
+800A55C8	sw     v0, $f1d8(at)
+800A55CC	addiu  v0, zero, $ffff (=-$1)
+800A55D0	lui    at, $800b
+800A55D4	sw     s0, $f51c(at)
+800A55D8	lui    at, $800b
+800A55DC	sw     s1, $f1e8(at)
+800A55E0	bne    v1, v0, La55f8 [$800a55f8]
+800A55E4	nop
+800A55E8	lui    a0, $8005
+800A55EC	lw     a0, $e9c8(a0)
+800A55F0	jal    func85134 [$80085134]
+800A55F4	addu   a1, zero, zero
+
+La55f8:	; 800A55F8
+800A55F8	lui    a0, $800b
+800A55FC	lw     a0, $f1e8(a0)
+800A5600	jal    func714e8 [$800714e8]
+800A5604	lui    s1, $0080
+800A5608	lui    v0, $800b
+800A560C	lw     v0, $f1e8(v0)
+800A5610	nop
+800A5614	blez   v0, La5878 [$800a5878]
+800A5618	addu   s0, zero, zero
+800A561C	lui    s2, $0080
+
+La5620:	; 800A5620
+800A5620	jal    func7743c [$8007743c]
+800A5624	nop
+800A5628	jal    funca58e0 [$800a58e0]
+800A562C	nop
+800A5630	jal    func74bdc [$80074bdc]
+800A5634	nop
+800A5638	jal    func78170 [$80078170]
+800A563C	nop
+800A5640	jal    funca4ad8 [$800a4ad8]
+800A5644	sra    a0, s1, $10
+800A5648	lui    a0, $800b
+800A564C	lw     a0, $f1e8(a0)
+800A5650	nop
+800A5654	div    s2, a0
+800A5658	mflo   v0
+800A565C	nop
+800A5660	subu   s1, s1, v0
+800A5664	bgez   s1, La5670 [$800a5670]
+800A5668	nop
+800A566C	addu   s1, zero, zero
+
+La5670:	; 800A5670
+800A5670	lui    v1, $800c
+800A5674	lw     v1, $1b58(v1)
+800A5678	nop
+800A567C	slti   v0, v1, $22c0
+800A5680	beq    v0, zero, La5690 [$800a5690]
+800A5684	addiu  v0, v1, $0020
+800A5688	lui    at, $800c
+800A568C	sw     v0, $1b58(at)
+
+La5690:	; 800A5690
+800A5690	addiu  s0, s0, $0001
+800A5694	slt    v0, s0, a0
+800A5698	beq    v0, zero, La5878 [$800a5878]
+800A569C	nop
+800A56A0	j      La5620 [$800a5620]
+800A56A4	nop
+800A56A8	addu   a0, zero, zero
+800A56AC	jal    funca5b14 [$800a5b14]
+800A56B0	addu   a1, zero, zero
+800A56B4	jal    func6fb18 [$8006fb18]
+800A56B8	nop
+800A56BC	jal    func73670 [$80073670]
+800A56C0	nop
+800A56C4	jal    funca58e0 [$800a58e0]
+800A56C8	nop
+800A56CC	jal    funca5dfc [$800a5dfc]
+800A56D0	nop
+800A56D4	jal    func1aed8 [$8001aed8]
+800A56D8	nop
+800A56DC	jal    func1b23c [$8001b23c]
+800A56E0	nop
+800A56E4	lui    s0, $800b
+800A56E8	lw     s0, $f51c(s0)
+800A56EC	lui    s1, $800b
+800A56F0	lw     s1, $f1e8(s1)
+800A56F4	ori    v0, zero, $0001
+800A56F8	lui    at, $800b
+800A56FC	sw     v0, $f1d8(at)
+800A5700	jal    func70358 [$80070358]
+800A5704	nop
+800A5708	jal    func6fb98 [$8006fb98]
+800A570C	nop
+800A5710	lui    v1, $8005
+800A5714	lw     v1, $e9ac(v1)
+800A5718	addiu  v0, zero, $ffff (=-$1)
+800A571C	lui    at, $800b
+800A5720	sw     s0, $f51c(at)
+800A5724	lui    at, $800b
+800A5728	sw     s1, $f1e8(at)
+800A572C	bne    v1, v0, La5748 [$800a5748]
+800A5730	addu   s0, zero, zero
+800A5734	lui    a0, $8005
+800A5738	lw     a0, $e9c8(a0)
+800A573C	jal    func85134 [$80085134]
+800A5740	addu   a1, zero, zero
+800A5744	addu   s0, zero, zero
+
+La5748:	; 800A5748
+800A5748	jal    func7743c [$8007743c]
+800A574C	addiu  s0, s0, $0001
+800A5750	jal    funca58e0 [$800a58e0]
+800A5754	nop
+800A5758	jal    func74bdc [$80074bdc]
+800A575C	nop
+800A5760	jal    func78170 [$80078170]
+800A5764	nop
+800A5768	slti   v0, s0, $0004
+800A576C	beq    v0, zero, La5878 [$800a5878]
+800A5770	nop
+800A5774	j      La5748 [$800a5748]
+800A5778	nop
+800A577C	addu   a0, zero, zero
+800A5780	jal    funca5b14 [$800a5b14]
+800A5784	addu   a1, zero, zero
+800A5788	jal    func6fb18 [$8006fb18]
+800A578C	nop
+800A5790	jal    func73670 [$80073670]
+800A5794	nop
+800A5798	jal    funca58e0 [$800a58e0]
+800A579C	nop
+800A57A0	jal    funca5dfc [$800a5dfc]
+800A57A4	nop
+800A57A8	jal    func1aed8 [$8001aed8]
+800A57AC	nop
+800A57B0	jal    func1b23c [$8001b23c]
+800A57B4	nop
+800A57B8	lui    s0, $800b
+800A57BC	lw     s0, $f51c(s0)
+800A57C0	lui    s1, $800b
+800A57C4	lw     s1, $f1e8(s1)
+800A57C8	ori    v0, zero, $0001
+800A57CC	lui    at, $800b
+800A57D0	sw     v0, $f1d8(at)
+800A57D4	jal    func70358 [$80070358]
+800A57D8	nop
+800A57DC	jal    func6fb98 [$8006fb98]
+800A57E0	nop
+800A57E4	addiu  a0, sp, $0010
+800A57E8	ori    a1, zero, $0140
+800A57EC	ori    v0, zero, $02c0
+800A57F0	sh     v0, $0010(sp)
+800A57F4	ori    v0, zero, $0100
+800A57F8	sh     v0, $0012(sp)
+800A57FC	ori    v0, zero, $0140
+800A5800	sh     v0, $0014(sp)
+800A5804	ori    v0, zero, $00ff
+800A5808	sh     v0, $0016(sp)
+800A580C	lui    at, $800b
+800A5810	sw     s0, $f51c(at)
+800A5814	lui    at, $800b
+800A5818	sw     s1, $f1e8(at)
+800A581C	jal    func447d4 [$800447d4]
+800A5820	ori    a2, zero, $00ff
+800A5824	lui    v1, $8005
+800A5828	lw     v1, $e9ac(v1)
+800A582C	addiu  v0, zero, $ffff (=-$1)
+800A5830	bne    v1, v0, La584c [$800a584c]
+800A5834	addu   s0, zero, zero
+800A5838	lui    a0, $8005
+800A583C	lw     a0, $e9c8(a0)
+800A5840	jal    func85134 [$80085134]
+800A5844	addu   a1, zero, zero
+800A5848	addu   s0, zero, zero
+
+La584c:	; 800A584C
+800A584C	jal    func7743c [$8007743c]
+800A5850	addiu  s0, s0, $0001
+800A5854	jal    funca58e0 [$800a58e0]
+800A5858	nop
+800A585C	jal    func74bdc [$80074bdc]
+800A5860	nop
+800A5864	jal    func78170 [$80078170]
+800A5868	nop
+800A586C	slti   v0, s0, $0004
+800A5870	bne    v0, zero, La584c [$800a584c]
+800A5874	nop
+
+La5878:	; 800A5878
+800A5878	lui    v1, $800b
+800A587C	lw     v1, $f51c(v1)
+
+La5880:	; 800A5880
+800A5880	ori    v0, zero, $0006
+800A5884	beq    v1, v0, La5898 [$800a5898]
+800A5888	ori    v0, zero, $0002
+800A588C	jal    funca86c8 [$800a86c8]
+800A5890	nop
+800A5894	ori    v0, zero, $0002
+
+La5898:	; 800A5898
+800A5898	lui    at, $800b
+800A589C	sw     v0, $f51c(at)
+800A58A0	ori    v0, zero, $0020
+800A58A4	lui    at, $800b
+800A58A8	sw     v0, $f1e8(at)
+800A58AC	lui    at, $800b
+800A58B0	sw     zero, $f1d8(at)
+800A58B4	jal    func76bd4 [$80076bd4]
+800A58B8	nop
+800A58BC	jal    func31e1c [$80031e1c]
+800A58C0	nop
+800A58C4	lw     ra, $0044(sp)
+800A58C8	lw     s2, $0040(sp)
+800A58CC	lw     s1, $003c(sp)
+800A58D0	lw     s0, $0038(sp)
+800A58D4	addiu  sp, sp, $0048
+800A58D8	jr     ra 
+800A58DC	nop
+////////////////////////////////
+
+
+
+////////////////////////////////
 // func70358
 80070378	lui    a1, $8007
 8007037C	addiu  a1, a1, $f184 (=-$e7c)

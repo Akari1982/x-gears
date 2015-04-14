@@ -256,20 +256,19 @@ return;
 
 ////////////////////////////////
 // system_copy_memory
-if (A0 == 0)
+if( A0 == 0 )
 {
     return 0;
 }
 
 V1 = A0;
-if (A2 > 0)
+if( A2 > 0 )
 {
     loop3f820:	; 8003F820
-        V0 = bu[A1];
+        [A0] = b(bu[A1]);
+        A0 = A0 + 1;
         A1 = A1 + 1;
         A2 = A2 - 1;
-        [A0] = b(V0);
-        A0 = A0 + 1;
     8003F830	bgtz   a2, loop3f820 [$8003f820]
 }
 
