@@ -7956,7 +7956,7 @@ L19b7c:	; 80019B7C
 80019C08	addu   s0, v0, zero
 80019C0C	lui    a1, $8002
 80019C10	lw     a1, $8084(a1)
-80019C14	jal    func32cd8 [$80032cd8]
+80019C14	jal    system_extract_archive [$80032cd8]
 80019C18	addu   a0, s0, zero
 80019C1C	jal    func44448 [$80044448]
 80019C20	addu   a0, zero, zero
@@ -9585,7 +9585,7 @@ loop1b284:	; 8001B284
 8001B2B4	nop
 8001B2B8	lw     a0, $0000(s0)
 8001B2BC	lw     a1, $0000(s2)
-8001B2C0	jal    func32cd8 [$80032cd8]
+8001B2C0	jal    system_extract_archive [$80032cd8]
 8001B2C4	nop
 8001B2C8	lw     a0, $0000(s0)
 8001B2CC	jal    func31f0c [$80031f0c]
@@ -30707,13 +30707,13 @@ func31ec8:	; 80031EC8
 80031ED8	sw     v0, $fffc(a0)
 
 
-func31edc:	; 80031EDC
-80031EDC	lui    v1, $fdff
-80031EE0	lw     v0, $fffc(a0)
-80031EE4	ori    v1, v1, $ffff
-80031EE8	and    v0, v0, v1
-80031EEC	jr     ra 
-80031EF0	sw     v0, $fffc(a0)
+
+////////////////////////////////
+// func31edc
+80031EDC-80031EF0
+////////////////////////////////
+
+
 
 80031EF4	lui    v1, $fdff
 80031EF8	lw     v0, $fffc(a0)
@@ -31796,59 +31796,13 @@ func32cac:	; 80032CAC
 80032CD0	lw     a0, $fffc(sp)
 80032CD4	addu   a1, v0, zero
 
-func32cd8:	; 80032CD8
-80032CD8	lw     t7, $0000(a0)
-80032CDC	addiu  a0, a0, $0004
-80032CE0	addu   t7, a1, t7
-80032CE4	addu   t6, a1, zero
-80032CE8	lbu    t8, $0000(a0)
 
-L32cec:	; 80032CEC
-80032CEC	beq    a1, t7, L32d70 [$80032d70]
-80032CF0	addiu  a0, a0, $0001
-80032CF4	andi   t1, t8, $0001
-80032CF8	ori    t9, zero, $0008
 
-loop32cfc:	; 80032CFC
-    T0 = bu[A0];
+////////////////////////////////
+// system_extract_archive
+80032CD8-80032D74
+////////////////////////////////
 
-    80032D00	srl    t8, t8, $01
-    80032D04	addiu  t9, t9, $ffff (=-$1)
-    80032D08	bne    t1, zero, L32d28 [$80032d28]
-    80032D0C	addiu  a0, a0, $0001
-    80032D10	sb     t0, $0000(a1)
-    80032D14	addiu  a1, a1, $0001
-    80032D1C	andi   t1, t8, $0001
-80032D18	bne    t9, zero, loop32cfc [$80032cfc]
-
-80032D20	j      L32cec [$80032cec]
-80032D24	lbu    t8, $0000(a0)
-
-L32d28:	; 80032D28
-80032D28	lbu    t4, $0000(a0)
-80032D2C	addiu  a0, a0, $0001
-80032D30	andi   t1, t4, $000f
-80032D34	sll    t1, t1, $08
-80032D38	or     t0, t0, t1
-80032D3C	subu   t1, a1, t0
-80032D40	srl    t3, t4, $04
-80032D44	addiu  t3, t3, $0003
-80032D48	addu   t3, t3, t1
-
-loop32d4c:	; 80032D4C
-80032D4C	lb     t0, $0000(t1)
-80032D50	addiu  t1, t1, $0001
-80032D54	sb     t0, $0000(a1)
-80032D58	bne    t1, t3, loop32d4c [$80032d4c]
-80032D5C	addiu  a1, a1, $0001
-80032D60	bne    t9, zero, loop32cfc [$80032cfc]
-80032D64	andi   t1, t8, $0001
-80032D68	j      L32cec [$80032cec]
-80032D6C	lbu    t8, $0000(a0)
-
-L32d70:	; 80032D70
-80032D70	jr     ra 
-80032D74	addu   v0, t6, zero
 
 
 func32d78:	; 80032D78

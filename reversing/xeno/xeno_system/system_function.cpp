@@ -1,4 +1,74 @@
 ////////////////////////////////
+// func31edc
+[A0 - 4] = w(w[A0 - 4] & fdffffff);
+////////////////////////////////
+
+
+
+////////////////////////////////
+// system_extract_archive
+comp_position = A0;
+decomp_length = w[comp_position];
+comp_position = comp_position + 4;
+T7 = A1 + decomp_length;
+
+80032CE4	addu   t6, a1, zero
+T8 = bu[comp_position];
+
+L32cec:	; 80032CEC
+    if( A1 == T7 )
+    {
+        return T6;
+    }
+
+    comp_position = comp_position + 1;
+    80032CF4	andi   t1, t8, $0001
+    80032CF8	ori    t9, zero, $0008
+
+    loop32cfc:	; 80032CFC
+        T0 = bu[A0];
+
+        80032D00	srl    t8, t8, $01
+        80032D04	addiu  t9, t9, $ffff (=-$1)
+        comp_position = comp_position + 1;
+        80032D08	bne    t1, zero, L32d28 [$80032d28]
+
+        80032D10	sb     t0, $0000(a1)
+        80032D14	addiu  a1, a1, $0001
+        80032D1C	andi   t1, t8, $0001
+    80032D18	bne    t9, zero, loop32cfc [$80032cfc]
+
+    T8 = bu[comp_position];
+    80032D20	j      L32cec [$80032cec]
+
+    L32d28:	; 80032D28
+    T4 = bu[comp_position];
+    comp_position = comp_position + 1;
+
+    80032D30	andi   t1, t4, $000f
+    80032D34	sll    t1, t1, $08
+    80032D38	or     t0, t0, t1
+    80032D3C	subu   t1, a1, t0
+    80032D40	srl    t3, t4, $04
+    80032D44	addiu  t3, t3, $0003
+    80032D48	addu   t3, t3, t1
+
+    loop32d4c:	; 80032D4C
+        T0 = b[T1];
+        [A1] = b(T0);
+        T1 = T1 + 1;
+        A1 = A1 + 1;
+    80032D58	bne    t1, t3, loop32d4c [$80032d4c]
+
+    80032D60	bne    t9, zero, loop32cfc [$80032cfc]
+    80032D64	andi   t1, t8, $0001
+    T8 = bu[comp_position];
+80032D68	j      L32cec [$80032cec]
+////////////////////////////////
+
+
+
+////////////////////////////////
 // system_memory_allocate
 // A0 - size of memory to allocate
 S1 = A0;
@@ -16,7 +86,7 @@ V1 = w[GP + 1bc];
 80031A24	sll    v0, v0, $07
 80031A28	srl    v0, v0, $09
 80031A30	sw     v0, $0010(sp)
-if (V1 != 0)
+if( V1 != 0 )
 {
     func31e1c;
 }
@@ -29,9 +99,9 @@ S1 = (S1 + 3) & fffffffc; // align to size of word
 
 T5 = 0; // allocated memory pointer
 A3 = 800000;
-80031A58	addu   t4, zero, zero
+T4 = 0;
 A0 = w[GP + 1b0];
-80031A60	addu   t0, zero, zero
+T0 = 0;
 T2 = A0 - 8;
 
 func31a68:	; 80031A68

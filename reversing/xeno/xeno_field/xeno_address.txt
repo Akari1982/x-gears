@@ -10,9 +10,9 @@
 80059ad8 [][][][] entity id in party 2.
 80059adñ [][][][] entity id in patry 3.
 
-80061C20 [][][][] party member 1.
-80061C24 [][][][] party member 2.
-80061C28 [][][][] party member 3.
+80061c20 [][][][] party member 1.
+80061c24 [][][][] party member 2.
+80061c28 [][][][] party member 3.
 
 80065198 [][][][] store entity id which perform move here duting func821cc.
 

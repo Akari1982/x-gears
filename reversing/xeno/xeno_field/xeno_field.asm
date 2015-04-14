@@ -173,16 +173,13 @@ L6f664:	; 8006F664
 8006F718	nop
 
 
-func6f71c:	; 8006F71C
-8006F71C	addiu  sp, sp, $ffe8 (=-$18)
-8006F720	sw     ra, $0010(sp)
-8006F724	addu   a0, a1, zero
-8006F728	jal    func32cd8 [$80032cd8]
-8006F72C	addu   a1, a2, zero
-8006F730	lw     ra, $0010(sp)
-8006F734	addiu  sp, sp, $0018
-8006F738	jr     ra 
-8006F73C	nop
+
+////////////////////////////////
+// func6f71c
+8006F71C-8006F73C
+////////////////////////////////
+
+
 
 
 func6f740:	; 8006F740
@@ -9658,7 +9655,7 @@ loop7998c:	; 8007998C
 800799D4	lui    at, $8006
 800799D8	addu   at, at, s3
 800799DC	lw     a1, $9aa4(at)
-800799E0	jal    func32cd8 [$80032cd8]
+800799E0	jal    system_extract_archive [$80032cd8]
 800799E4	addu   a0, s0, zero
 800799E8	jal    func31f0c [$80031f0c]
 800799EC	addu   a0, s0, zero
@@ -23531,7 +23528,7 @@ L8ae28:	; 8008AE28
 8008AEB0	lui    at, $8006
 8008AEB4	addu   at, at, v0
 8008AEB8	lw     a1, $9aa4(at)
-8008AEBC	jal    func32cd8 [$80032cd8]
+8008AEBC	jal    system_extract_archive [$80032cd8]
 8008AEC0	nop
 8008AEC4	lui    a0, $800b
 8008AEC8	lw     a0, $d098(a0)
@@ -47340,7 +47337,7 @@ loopa6b0c:	; 800A6B0C
 800A6B18	nop
 800A6B1C	lw     a0, $0000(s0)
 800A6B20	lw     a1, $0000(s3)
-800A6B24	jal    func32cd8 [$80032cd8]
+800A6B24	jal    system_extract_archive [$80032cd8]
 800A6B28	nop
 800A6B2C	lw     a0, $0000(s0)
 800A6B30	jal    func31f0c [$80031f0c]

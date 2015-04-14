@@ -7,19 +7,19 @@
 
 
 
-File::File(const Ogre::String& file):
-  m_FileName(file),
-  m_Buffer(NULL),
-  m_BufferSize(0)
+File::File( const Ogre::String& file ):
+    m_FileName( file ),
+    m_Buffer( NULL ),
+    m_BufferSize( 0 )
 {
-    LOGGER->Log("Loading file: " + m_FileName + "\n");
-    m_BufferSize = FILESYSTEM->GetFileSize(m_FileName);
+    LOGGER->Log( "Loading file: " + m_FileName + "\n" );
+    m_BufferSize = FILESYSTEM->GetFileSize( m_FileName );
 
-    m_Buffer = (u8*)malloc(sizeof(u8) * m_BufferSize);
+    m_Buffer = ( u8* )malloc( sizeof( u8 ) * m_BufferSize );
 
-    if (!FILESYSTEM->ReadFile(m_FileName, m_Buffer, 0, m_BufferSize))
+    if( !FILESYSTEM->ReadFile( m_FileName, m_Buffer, 0, m_BufferSize ) )
     {
-        LOGGER->Log("Warning: " + m_FileName + " not found!\n");
+        LOGGER->Log( "Warning: " + m_FileName + " not found!\n" );
     }
 }
 
@@ -67,15 +67,15 @@ File::File(File* pFile)
 
 File::~File()
 {
-    free(m_Buffer);
+    free( m_Buffer );
 }
 
 
 
 void
-File::WriteFile(const Ogre::String& file) const
+File::WriteFile( const Ogre::String& file ) const
 {
-  FILESYSTEM->WriteNewFile(file, m_Buffer, m_BufferSize);
+    FILESYSTEM->WriteNewFile( file, m_Buffer, m_BufferSize );
 }
 
 

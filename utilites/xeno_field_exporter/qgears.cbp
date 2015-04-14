@@ -21,7 +21,7 @@
 					<Add library="mingw32" />
 					<Add library="OgreMain" />
 					<Add library="ois" />
-					<Add library="C:\OgreSDK_MinGW_v1-8-1\boost\lib\libboost_system-mgw47-mt-1_51.a" />
+					<Add library="boost_system-mgw47-mt-1_51" />
 					<Add directory="$(OGRE_HOME)/lib/opt/release" />
 				</Linker>
 			</Target>

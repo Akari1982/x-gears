@@ -1,11 +1,7 @@
 ////////////////////////////////
 // funca5118
-800A5118	addiu  sp, sp, $ffb8 (=-$48)
-800A511C	sw     ra, $0044(sp)
-800A5120	sw     s2, $0040(sp)
-800A5124	sw     s1, $003c(sp)
 800A5128	jal    func37334 [$80037334]
-800A512C	sw     s0, $0038(sp)
+
 800A5130	jal    funca8938 [$800a8938]
 800A5134	nop
 800A5138	jal    func85b04 [$80085b04]
@@ -41,13 +37,13 @@ A1 = 0;
 system_memory_allocate;
 S0 = V0;
 
-A0 = S0;
-A1 = w[80059b70];
-A2 = w[80059b50];
+A0 = S0; // to here
+A1 = w[80059b70]; // from here
+A2 = w[80059b50]; // this much
 system_copy_memory;
 
 A0 = w[80059b70];
-800A51D4	jal    func31edc [$80031edc]
+[A0 - 4] = w(w[A0 - 4] & fdffffff);
 
 A0 = w[80059b70];
 800A51E4	jal    func31f0c [$80031f0c]
@@ -529,14 +525,6 @@ La5898:	; 800A5898
 800A58B4	jal    func76bd4 [$80076bd4]
 800A58B8	nop
 800A58BC	jal    func31e1c [$80031e1c]
-800A58C0	nop
-800A58C4	lw     ra, $0044(sp)
-800A58C8	lw     s2, $0040(sp)
-800A58CC	lw     s1, $003c(sp)
-800A58D0	lw     s0, $0038(sp)
-800A58D4	addiu  sp, sp, $0048
-800A58D8	jr     ra 
-800A58DC	nop
 ////////////////////////////////
 
 
@@ -630,17 +618,19 @@ loop70464:	; 80070464
 80070524	lw     v0, $010c(v0)
 80070528	ori    a1, zero, $0001
 8007052C	addiu  s0, v0, $0010
-80070530	jal    system_memory_allocate [$800319ec]
 80070534	addu   a0, s0, zero
+system_memory_allocate;
+
 80070538	addu   s2, v0, zero
 8007053C	addu   a0, s0, zero
-80070540	lui    v0, $8006
-80070544	lw     v0, $9b70(v0)
-80070548	addu   a2, s2, zero
-8007054C	lw     a1, $0130(v0)
-80070550	addu   s1, s2, zero
-80070554	jal    func6f71c [$8006f71c]
-80070558	addu   a1, a1, v0
+V0 = w[80059b70];
+A2 = S2;
+A1 = V0 + w[V0 + 130];
+S1 = S2;
+A0 = A1;
+A1 = A2;
+system_extract_archive;
+
 8007055C	lw     s3, $0000(s1)
 80070560	nop
 80070564	blez   s3, L70588 [$80070588]
@@ -673,8 +663,11 @@ L7058c:	; 8007058C
 800705B8	addu   a2, s4, zero
 800705BC	lw     a1, $0140(v0)
 800705C0	addu   s1, s4, zero
-800705C4	jal    func6f71c [$8006f71c]
 800705C8	addu   a1, a1, v0
+A0 = A1;
+A1 = A2;
+system_extract_archive;
+
 800705CC	lw     s3, $0000(s1)
 800705D0	nop
 800705D4	blez   s3, L70628 [$80070628]
@@ -723,8 +716,11 @@ L70628:	; 80070628
 80070674	sw     v0, $0000(s0)
 80070678	lw     a1, $0138(v1)
 8007067C	addu   a2, v0, zero
-80070680	jal    func6f71c [$8006f71c]
 80070684	addu   a1, a1, v1
+A0 = A1;
+A1 = A2;
+system_extract_archive;
+
 80070688	lui    v0, $800b
 8007068C	lw     v0, $efe8(v0)
 80070690	nop
@@ -735,49 +731,42 @@ L70628:	; 80070628
 800706A4	addiu  s2, s2, $0004
 
 loop706a8:	; 800706A8
-800706A8	lw     v0, $0000(s2)
-800706AC	lui    a0, $800b
-800706B0	lw     a0, $efe8(a0)
-800706B4	jal    func2c1f8 [$8002c1f8]
-800706B8	addu   a0, v0, a0
-800706BC	lui    v0, $800b
-800706C0	lw     v0, $efe8(v0)
-800706C4	nop
-800706C8	lw     v0, $0000(v0)
-800706CC	addiu  s4, s4, $0001
-800706D0	slt    v0, s4, v0
+    800706A8	lw     v0, $0000(s2)
+    800706AC	lui    a0, $800b
+    800706B0	lw     a0, $efe8(a0)
+    800706B4	jal    func2c1f8 [$8002c1f8]
+    800706B8	addu   a0, v0, a0
+    800706BC	lui    v0, $800b
+    800706C0	lw     v0, $efe8(v0)
+    800706C4	nop
+    800706C8	lw     v0, $0000(v0)
+    800706CC	addiu  s4, s4, $0001
+    800706D0	slt    v0, s4, v0
+    800706D8	addiu  s2, s2, $0004
 800706D4	bne    v0, zero, loop706a8 [$800706a8]
-800706D8	addiu  s2, s2, $0004
+
+
 
 L706dc:	; 800706DC
-800706DC	lui    a1, $8006
-800706E0	lw     a1, $9b70(a1)
+A1 = w[80059b70];
+A0 = A1 + w[A1 + 148];
+A1 = 80064f6c;
+system_extract_archive;
 
-L706e4:	; 800706E4
-800706E4	lui    a2, $8006
-800706E8	addiu  a2, a2, $4f6c
-800706EC	lw     a0, $0124(a1)
-800706F0	lw     v0, $0148(a1)
-800706F4	addiu  a0, a0, $0010
-800706F8	jal    func6f71c [$8006f71c]
-800706FC	addu   a1, v0, a1
-80070700	lui    v0, $8006
-80070704	lw     v0, $9b70(v0)
-80070708	nop
-8007070C	lw     v0, $0120(v0)
-80070710	addu   a1, zero, zero
-80070714	addiu  s0, v0, $0010
-80070718	jal    system_memory_allocate [$800319ec]
-8007071C	addu   a0, s0, zero
-80070720	lui    v1, $8006
-80070724	lw     v1, $9b70(v1)
-80070728	addu   a0, s0, zero
-8007072C	lui    at, $800b
-80070730	sw     v0, $d0d0(at)
-80070734	lw     a1, $0144(v1)
-80070738	addu   a2, v0, zero
-8007073C	jal    func6f71c [$8006f71c]
-80070740	addu   a1, a1, v1
+V0 = w[80059b70];
+V0 = w[V0 + 120];
+S0 = V0 + 10;
+
+A0 = S0;
+A1 = 0;
+system_memory_allocate;
+[800ad0d0] = w(V0); // pointer to field entity file (file 5).
+
+V1 = w[80059b70];
+A0 = V1 + w[V1 + 144];
+A1 = V0;
+system_extract_archive;
+
 80070744	lui    v0, $800b
 
 L70748:	; 80070748
@@ -804,8 +793,11 @@ L70748:	; 80070748
 80070798	sw     v0, $d0cc(at)
 8007079C	lw     a1, $0150(v1)
 800707A0	addu   a2, v0, zero
-800707A4	jal    func6f71c [$8006f71c]
 800707A8	addu   a1, a1, v1
+A0 = A1;
+A1 = A2;
+system_extract_archive;
+
 800707AC	lui    v0, $8006
 800707B0	lw     v0, $9b70(v0)
 800707B4	nop
@@ -821,8 +813,11 @@ L70748:	; 80070748
 800707DC	sw     v0, $d0c8(at)
 800707E0	lw     a1, $014c(v1)
 800707E4	addu   a2, v0, zero
-800707E8	jal    func6f71c [$8006f71c]
 800707EC	addu   a1, a1, v1
+A0 = A1;
+A1 = A2;
+system_extract_archive;
+
 800707F0	lui    v0, $8006
 800707F4	lw     v0, $9b70(v0)
 800707F8	addu   s4, zero, zero
@@ -839,8 +834,11 @@ L70748:	; 80070748
 80070824	sw     v0, $0000(s0)
 80070828	lw     a1, $0134(v1)
 8007082C	addu   a2, v0, zero
-80070830	jal    func6f71c [$8006f71c]
 80070834	addu   a1, a1, v1
+A0 = A1;
+A1 = A2;
+system_extract_archive;
+
 80070838	lui    a0, $9249
 
 L7083c:	; 8007083C
@@ -926,8 +924,11 @@ L70910:	; 80070910
 80070960	sw     v0, $eff0(at)
 80070964	lw     a1, $013c(v1)
 80070968	addu   a2, v0, zero
-8007096C	jal    func6f71c [$8006f71c]
 80070970	addu   a1, a1, v1
+A0 = A1;
+A1 = A2;
+system_extract_archive;
+
 80070974	lui    a0, $8006
 80070978	lw     a0, $9b70(a0)
 8007097C	ori    v0, zero, $0001
@@ -1132,8 +1133,8 @@ L70c4c:	; 80070C4C
 80070C58	nop
 80070C5C	lui    a0, $8006
 80070C60	lw     a0, $9b70(a0)
-80070C64	jal    func31edc [$80031edc]
-80070C68	nop
+[A0 - 4] = w(w[A0 - 4] & fdffffff);
+
 80070C6C	lui    a0, $8006
 80070C70	lw     a0, $9b70(a0)
 80070C74	jal    func31f0c [$80031f0c]
@@ -1882,4 +1883,13 @@ loop70224:	; 80070224
 80070308	addiu  sp, sp, $0038
 8007030C	jr     ra 
 80070310	nop
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func6f71c
+A0 = A1;
+A1 = A2;
+system_extract_archive;
 ////////////////////////////////

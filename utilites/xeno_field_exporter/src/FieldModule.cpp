@@ -30,8 +30,9 @@ FieldModule::~FieldModule()
 void
 FieldModule::LoadMap( const int file_id )
 {
-    LOG_TRIVIAL( "Start load field with id \"" + IntToString( file_id ) + "\"." );
+    LOGGER->Log( "Start load field with id \"" + IntToString( file_id ) + "\".\n" );
 
+    LOGGER->Log( "Load textures:\n" );
     Vram* vram = new Vram();
     File* texture = new File( "data/field/0" + IntToString( file_id + 1 ) + ".raw2" );
     for( u32 i = 0; i < texture->GetFileSize(); )
@@ -43,6 +44,14 @@ FieldModule::LoadMap( const int file_id )
         u16 texture_header_move_y = texture->GetU16LE( i + 0x0a );
         u16 texture_header_width = texture->GetU16LE( i + 0x0c );
         u16 texture_header_height = texture->GetU16LE( i + 0x0e );
+
+        LOGGER->Log( "    texture_header_id     = 0x" + HexToString( texture_header_id, 8, '0' ) + "\n" );
+        LOGGER->Log( "    texture_header_vram_x = 0x" + HexToString( texture_header_vram_x, 8, '0' ) + "\n" );
+        LOGGER->Log( "    texture_header_vram_y = 0x" + HexToString( texture_header_vram_y, 8, '0' ) + "\n" );
+        LOGGER->Log( "    texture_header_move_x = 0x" + HexToString( texture_header_move_x, 8, '0' ) + "\n" );
+        LOGGER->Log( "    texture_header_move_y = 0x" + HexToString( texture_header_move_y, 8, '0' ) + "\n" );
+        LOGGER->Log( "    texture_header_width  = 0x" + HexToString( texture_header_width, 8, '0' ) + "\n" );
+        LOGGER->Log( "    texture_header_height = 0x" + HexToString( texture_header_height, 8, '0' ) + "\n" );
 
         u32 number_of_chunk = texture->GetU32LE( i + 0x18 );
 
@@ -56,7 +65,7 @@ FieldModule::LoadMap( const int file_id )
         for( u32 j = 0; j < number_of_chunk; ++j )
         {
             // get height of current chunk
-            u16 height = texture->GetU16LE( temp_i + 0x1C + j * 0x02 );
+            u16 height = texture->GetU16LE( temp_i + 0x1c + j * 0x02 );
             // palette
             if( texture_header_id == 0x00001201 )
             {
@@ -81,6 +90,12 @@ FieldModule::LoadMap( const int file_id )
                         vram->PutU8( x + vram_x, y + vram_y, data );
                     }
                 }
+            }
+
+            // unimplemented
+            else
+            {
+                LOGGER->Log( "UNIMPLEMENTED texture header \"" + HexToString( texture_header_id, 8, '0' ) + "\" - texture not loaded." );
             }
 
             // move pointer to start of next texture

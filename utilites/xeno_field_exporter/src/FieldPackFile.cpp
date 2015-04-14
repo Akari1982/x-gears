@@ -24,7 +24,7 @@ FieldPackFile::Extract( u32 file_number )
         return NULL;
     }
 
-    u32 length_uncompressed = GetU32LE( 0x010C + file_number * 0x04 );
+    u32 length_uncompressed = GetU32LE( 0x010c + file_number * 0x04 );
     u32 first_file = GetU32LE( 0x0130 + file_number * 0x04 );
     u32 length = 0;
     if( file_number < 8 )

@@ -5468,7 +5468,7 @@ loop750f8:	; 800750F8
 80075110	lw     a0, $c910(a0)
 80075114	lui    a1, $800a
 80075118	lw     a1, $bbcc(a1)
-8007511C	jal    func32cd8 [$80032cd8]
+8007511C	jal    system_extract_archive [$80032cd8]
 80075120	nop
 80075124	lui    a0, $800a
 80075128	lw     a0, $c910(a0)
