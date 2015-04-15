@@ -689,7 +689,7 @@ if( A0 == 0 )
     8004CCAC	ori    a0, a0, $0030
     8004CCB0	sh     a0, $01aa(v0)
 }
-else if( A0 == 1 ) // wait until spu addres is set
+else if( A0 == 1 ) // wait until spu address is set
 {
     A1 = w[800584a8];
 
