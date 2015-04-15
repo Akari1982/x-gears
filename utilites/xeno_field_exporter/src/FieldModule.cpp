@@ -32,7 +32,6 @@ FieldModule::LoadMap( const int file_id )
 {
     LOGGER->Log( "Start load field with id \"" + IntToString( file_id ) + "\".\n" );
 
-    LOGGER->Log( "Load textures:\n" );
     Vram* vram = new Vram();
     File* texture = new File( "data/field/0" + IntToString( file_id + 1 ) + ".raw2" );
     for( u32 i = 0; i < texture->GetFileSize(); )
@@ -45,6 +44,7 @@ FieldModule::LoadMap( const int file_id )
         u16 texture_header_width = texture->GetU16LE( i + 0x0c );
         u16 texture_header_height = texture->GetU16LE( i + 0x0e );
 
+        LOGGER->Log( "Load texture:\n" );
         LOGGER->Log( "    texture_header_id     = 0x" + HexToString( texture_header_id, 8, '0' ) + "\n" );
         LOGGER->Log( "    texture_header_vram_x = 0x" + HexToString( texture_header_vram_x, 8, '0' ) + "\n" );
         LOGGER->Log( "    texture_header_vram_y = 0x" + HexToString( texture_header_vram_y, 8, '0' ) + "\n" );

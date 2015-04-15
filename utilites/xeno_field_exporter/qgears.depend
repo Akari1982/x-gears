@@ -5659,7 +5659,7 @@
 	<OgreRoot.h>
 	<OgreSingleton.h>
 
-1416339162 source:d:\svn\x-gears\utilites\common\file.cpp
+1429024288 source:d:\svn\x-gears\utilites\common\file.cpp
 	<cassert>
 	<string.h>
 	"File.h"
@@ -5764,7 +5764,7 @@
 1427479225 d:\svn\x-gears\utilites\xeno_field_exporter\src\archivefile.h
 	"../../common/File.h"
 
-1427479165 source:d:\svn\x-gears\utilites\xeno_field_exporter\src\fieldpackfile.cpp
+1429024288 source:d:\svn\x-gears\utilites\xeno_field_exporter\src\fieldpackfile.cpp
 	"ArchiveFile.h"
 	"FieldPackFile.h"
 
@@ -5871,11 +5871,13 @@
 	"../../common/File.h"
 	"../../common/Vram.h"
 
-1428424075 source:d:\svn\x-gears\utilites\xeno_field_exporter\src\spritefile.cpp
+1428947780 source:d:\svn\x-gears\utilites\xeno_field_exporter\src\spritefile.cpp
 	"PacketFile.h"
 	"SpriteFile.h"
 	"../../common/DebugDraw.h"
 	"../../common/Logger.h"
+	"../../common/OgreGenUtilites.h"
+	<OgreHardwareBufferManager.h>
 
 1428498667 source:c:\akari\my\svn\x-gears\x-gears\utilites\common\debugdraw.cpp
 	"DebugDraw.h"

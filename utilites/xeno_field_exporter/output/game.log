@@ -1,6 +1,6 @@
 Start load field with id "632".
-Load textures:
 Loading file: data/field/0633.raw2
+Load texture:
     texture_header_id     = 0x00001201
     texture_header_vram_x = 0x00000000
     texture_header_vram_y = 0x000001e0
@@ -8,6 +8,7 @@ Loading file: data/field/0633.raw2
     texture_header_move_y = 0x00000000
     texture_header_width  = 0x00000100
     texture_header_height = 0x00000004
+Load texture:
     texture_header_id     = 0x00001200
     texture_header_vram_x = 0x00000140
     texture_header_vram_y = 0x00000000
@@ -15,6 +16,7 @@ Loading file: data/field/0633.raw2
     texture_header_move_y = 0x00000000
     texture_header_width  = 0x00000040
     texture_header_height = 0x00000010
+Load texture:
     texture_header_id     = 0x00001200
     texture_header_vram_x = 0x00000140
     texture_header_vram_y = 0x00000000
@@ -22,6 +24,7 @@ Loading file: data/field/0633.raw2
     texture_header_move_y = 0x00000000
     texture_header_width  = 0x00000040
     texture_header_height = 0x00000010
+Load texture:
     texture_header_id     = 0x00001200
     texture_header_vram_x = 0x00000140
     texture_header_vram_y = 0x00000000
@@ -29,6 +32,7 @@ Loading file: data/field/0633.raw2
     texture_header_move_y = 0x00000000
     texture_header_width  = 0x00000040
     texture_header_height = 0x00000010
+Load texture:
     texture_header_id     = 0x00001200
     texture_header_vram_x = 0x00000140
     texture_header_vram_y = 0x00000000
@@ -36,6 +40,7 @@ Loading file: data/field/0633.raw2
     texture_header_move_y = 0x00000000
     texture_header_width  = 0x00000034
     texture_header_height = 0x00000013
+Load texture:
     texture_header_id     = 0x00001200
     texture_header_vram_x = 0x00000140
     texture_header_vram_y = 0x00000000
@@ -43,6 +48,7 @@ Loading file: data/field/0633.raw2
     texture_header_move_y = 0x00000000
     texture_header_width  = 0x00000040
     texture_header_height = 0x00000010
+Load texture:
     texture_header_id     = 0x00001200
     texture_header_vram_x = 0x00000140
     texture_header_vram_y = 0x00000000
@@ -50,6 +56,7 @@ Loading file: data/field/0633.raw2
     texture_header_move_y = 0x00000000
     texture_header_width  = 0x00000040
     texture_header_height = 0x00000010
+Load texture:
     texture_header_id     = 0x00001200
     texture_header_vram_x = 0x00000140
     texture_header_vram_y = 0x00000000
@@ -57,6 +64,7 @@ Loading file: data/field/0633.raw2
     texture_header_move_y = 0x00000000
     texture_header_width  = 0x00000040
     texture_header_height = 0x00000010
+Load texture:
     texture_header_id     = 0x00001200
     texture_header_vram_x = 0x00000140
     texture_header_vram_y = 0x00000000
@@ -64,6 +72,7 @@ Loading file: data/field/0633.raw2
     texture_header_move_y = 0x00000000
     texture_header_width  = 0x0000007c
     texture_header_height = 0x00000008
+Load texture:
     texture_header_id     = 0x00001200
     texture_header_vram_x = 0x00000140
     texture_header_vram_y = 0x00000000
@@ -71,6 +80,7 @@ Loading file: data/field/0633.raw2
     texture_header_move_y = 0x00000100
     texture_header_width  = 0x0000000c
     texture_header_height = 0x00000055
+Load texture:
     texture_header_id     = 0x00001200
     texture_header_vram_x = 0x00000140
     texture_header_vram_y = 0x00000000
@@ -78,6 +88,7 @@ Loading file: data/field/0633.raw2
     texture_header_move_y = 0x00000026
     texture_header_width  = 0x00000042
     texture_header_height = 0x0000000f
+Load texture:
     texture_header_id     = 0x00001200
     texture_header_vram_x = 0x00000140
     texture_header_vram_y = 0x00000000
@@ -85,6 +96,7 @@ Loading file: data/field/0633.raw2
     texture_header_move_y = 0x00000056
     texture_header_width  = 0x0000002c
     texture_header_height = 0x00000017
+Load texture:
     texture_header_id     = 0x00001200
     texture_header_vram_x = 0x00000140
     texture_header_vram_y = 0x00000000
@@ -92,6 +104,7 @@ Loading file: data/field/0633.raw2
     texture_header_move_y = 0x00000080
     texture_header_width  = 0x00000020
     texture_header_height = 0x00000020
+Load texture:
     texture_header_id     = 0x00001200
     texture_header_vram_x = 0x00000140
     texture_header_vram_y = 0x00000000
@@ -99,6 +112,7 @@ Loading file: data/field/0633.raw2
     texture_header_move_y = 0x00000046
     texture_header_width  = 0x00000022
     texture_header_height = 0x0000001e
+Load texture:
     texture_header_id     = 0x00001200
     texture_header_vram_x = 0x00000140
     texture_header_vram_y = 0x00000000
@@ -106,6 +120,7 @@ Loading file: data/field/0633.raw2
     texture_header_move_y = 0x000000c0
     texture_header_width  = 0x00000004
     texture_header_height = 0x00000100
+Load texture:
     texture_header_id     = 0x00001200
     texture_header_vram_x = 0x00000140
     texture_header_vram_y = 0x00000000
@@ -113,6 +128,7 @@ Loading file: data/field/0633.raw2
     texture_header_move_y = 0x00000080
     texture_header_width  = 0x00000004
     texture_header_height = 0x00000100
+Load texture:
     texture_header_id     = 0x00001200
     texture_header_vram_x = 0x00000140
     texture_header_vram_y = 0x00000000

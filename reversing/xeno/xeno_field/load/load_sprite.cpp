@@ -71,8 +71,9 @@ system_copy_memory; // copy clut/texture data
 800A5238	lw     a0, $9b70(a0)
 800A523C	jal    func31ec8 [$80031ec8]
 800A5240	nop
-800A5244	jal    func31f0c [$80031f0c]
 800A5248	addu   a0, s0, zero
+800A5244	jal    func31f0c [$80031f0c]
+
 800A524C	lui    v1, $800b
 800A5250	lw     v1, $f51c(v1)
 800A5254	nop
@@ -540,7 +541,6 @@ La5898:	; 800A5898
 80070390	sw     v1, $003c(sp)
 80070394	sw     a0, $0040(sp)
 80070398	lw     v0, $000c(a1)
-8007039C	nop
 800703A0	sw     v0, $0044(sp)
 800703A4	jal    func6fc6c [$8006fc6c]
 
@@ -573,133 +573,123 @@ loop70464:	; 80070464
 80070470	addu   a0, a0, s2
 80070474	addu   a1, s0, zero
 80070478	addu   a2, s4, zero
-8007047C	jal    func79e08 [$80079e08]
 80070480	addu   a3, zero, zero
+8007047C	jal    func79e08 [$80079e08]
+
 80070484	addiu  s0, s0, $0001
 80070488	slti   v0, s0, $0004
-8007048C	bne    v0, zero, loop70464 [$80070464]
 80070490	addu   v0, s1, s0
+8007048C	bne    v0, zero, loop70464 [$80070464]
+
 80070494	addiu  s4, s4, $0001
 80070498	slti   v0, s4, $0004
-8007049C	bne    v0, zero, loop7045c [$8007045c]
 800704A0	addu   s0, zero, zero
+8007049C	bne    v0, zero, loop7045c [$8007045c]
+
 800704A4	lui    s0, $800b
 800704A8	addiu  s0, s0, $0290
 800704AC	addu   a0, s0, zero
 800704B0	ori    a1, zero, $0004
 800704B4	ori    a2, zero, $0004
-800704B8	jal    func79e08 [$80079e08]
 800704BC	ori    a3, zero, $0001
+800704B8	jal    func79e08 [$80079e08]
+
 800704C0	addiu  a0, s0, $0070
 800704C4	ori    a1, zero, $0005
 800704C8	ori    a2, zero, $0005
-800704CC	jal    func79e08 [$80079e08]
 800704D0	ori    a3, zero, $0001
+800704CC	jal    func79e08 [$80079e08]
+
 800704D4	addiu  a0, s0, $00e0
 800704D8	ori    a1, zero, $0006
 800704DC	ori    a2, zero, $0006
-800704E0	jal    func79e08 [$80079e08]
 800704E4	ori    a3, zero, $0001
+800704E0	jal    func79e08 [$80079e08]
+
 800704E8	addiu  a0, s0, $0150
 800704EC	ori    a1, zero, $0007
 800704F0	ori    a2, zero, $0007
-800704F4	jal    func79e08 [$80079e08]
 800704F8	ori    a3, zero, $0001
+800704F4	jal    func79e08 [$80079e08]
+
 800704FC	addiu  a0, s0, $01c0
 80070500	ori    a1, zero, $0008
 80070504	ori    a2, zero, $0008
-80070508	jal    func79e08 [$80079e08]
 8007050C	ori    a3, zero, $0001
+80070508	jal    func79e08 [$80079e08]
+
 80070510	jal    func79bd8 [$80079bd8]
-80070514	addu   s4, zero, zero
-80070518	lui    v0, $8006
-8007051C	lw     v0, $9b70(v0)
-80070520	nop
-80070524	lw     v0, $010c(v0)
-80070528	ori    a1, zero, $0001
-8007052C	addiu  s0, v0, $0010
-80070534	addu   a0, s0, zero
-system_memory_allocate;
 
-80070538	addu   s2, v0, zero
-8007053C	addu   a0, s0, zero
+
+
 V0 = w[80059b70];
-A2 = S2;
-A1 = V0 + w[V0 + 130];
-S1 = S2;
-A0 = A1;
-A1 = A2;
+A0 = w[V0 + 10c] + 10;
+A1 = 1;
+system_memory_allocate;
+S2 = V0;
+
+V0 = w[80059b70];
+A0 = V0 + w[V0 + 130];
+A1 = S2;
 system_extract_archive;
 
-8007055C	lw     s3, $0000(s1)
-80070560	nop
-80070564	blez   s3, L70588 [$80070588]
-80070568	addiu  s1, s1, $0004
+S3 = w[S2];
+if( S3 > 0 )
+{
+    S4 = 0;
+    loop7056c:	; 8007056C
+        A0 = S2 + w[S2 + 4 + S4 * 4];
+        80070574	jal    func76888 [$80076888]
 
-loop7056c:	; 8007056C
-8007056C	lw     a0, $0000(s1)
-80070570	addiu  s4, s4, $0001
-80070574	jal    func76888 [$80076888]
-80070578	addu   a0, a0, s2
-8007057C	slt    v0, s4, s3
-80070580	bne    v0, zero, loop7056c [$8007056c]
-80070584	addiu  s1, s1, $0004
+        S4 = S4 + 1;
+        V0 = S4 < S3;
+    80070580	bne    v0, zero, loop7056c [$8007056c]
+}
 
-L70588:	; 80070588
-80070588	lui    v0, $8006
 
-L7058c:	; 8007058C
-8007058C	lw     v0, $9b70(v0)
-80070590	nop
-80070594	lw     v0, $011c(v0)
-80070598	addu   a1, zero, zero
-8007059C	addiu  s0, v0, $0010
-800705A0	jal    system_memory_allocate [$800319ec]
-800705A4	addu   a0, s0, zero
-800705A8	addu   a0, s0, zero
-800705AC	addu   s4, v0, zero
-800705B0	lui    v0, $8006
-800705B4	lw     v0, $9b70(v0)
-800705B8	addu   a2, s4, zero
-800705BC	lw     a1, $0140(v0)
-800705C0	addu   s1, s4, zero
-800705C8	addu   a1, a1, v0
-A0 = A1;
-A1 = A2;
+
+// sprite texture
+V0 = w[80059b70];
+A0 = w[V0 + 11c] + 10;
+A1 = 0;
+system_memory_allocate;
+S4 = V0;
+
+V0 = w[80059b70];
+A0 = V0 + w[V0 + 140];
+A1 = S4;
 system_extract_archive;
 
-800705CC	lw     s3, $0000(s1)
-800705D0	nop
-800705D4	blez   s3, L70628 [$80070628]
-800705D8	addu   s0, zero, zero
-800705DC	sll    s3, s3, $03
+number_of_textures = w[S4];
+if( number_of_textures > 0 )
+{
+    S0 = 0;
+    func705e0:	; 800705E0
+        if( h[800b1452 + S0 * 8] == 0 )
+        {
+            A0 = S4 + w[S4 + 4 + S0 * 4];
+            A1 = hu[800b144c + S0 * 8];
+            A2 = hu[800b144e + S0 * 8];
+            80070610	jal    func228fc [$800228fc]
+        }
+        S0 = S0 + 1;
+        V0 = S0 < number_of_textures;
+    80070620	bne    v0, zero, func705e0 [$800705e0]
+}
 
-func705e0:	; 800705E0
-    A1 = hu[800b144c + S0];
-    800705EC	lui    at, $800b
-    800705F0	addu   at, at, s0
-    800705F4	lh     v0, $1452(at)
-    800705F8	lui    at, $800b
-    800705FC	addu   at, at, s0
-    80070600	lhu    a2, $144e(at)
-    80070604	bne    v0, zero, L70618 [$80070618]
-    80070608	addiu  s1, s1, $0004
-    8007060C	lw     a0, $0000(s1)
-    80070610	jal    func228fc [$800228fc]
-    80070614	addu   a0, a0, s4
 
-    L70618:	; 80070618
-    80070618	addiu  s0, s0, $0008
-    8007061C	slt    v0, s0, s3
-80070620	bne    v0, zero, func705e0 [$800705e0]
 
-L70628:	; 80070628
+A0 = 0;
 80070628	jal    func44448 [$80044448]
-8007062C	addu   a0, zero, zero
+
+A0 = S2;
 80070630	jal    func31f0c [$80031f0c]
-80070634	addu   a0, s2, zero
+
+A0 = S4;
 80070638	jal    func31f0c [$80031f0c]
-8007063C	addu   a0, s4, zero
+
+
+
 80070640	lui    v0, $8006
 80070644	lw     v0, $9b70(v0)
 80070648	nop
@@ -1044,8 +1034,9 @@ L70a1c:	; 80070A1C
 80070B1C	addiu  a2, s0, $000c
 80070B20	addu   v0, v0, v1
 80070B24	addiu  a0, v0, $0010
-system_allocate_memory_for_packets; // allocate place for packets
 80070B2C	sw     a0, $0004(s0)
+system_allocate_memory_for_packets; // allocate place for packets
+
 80070B30	lui    v0, $800b
 80070B34	lw     v0, $efe4(v0)
 80070B38	lw     a0, $0004(s0)
@@ -1053,8 +1044,9 @@ system_allocate_memory_for_packets; // allocate place for packets
 80070B40	lhu    a2, $0058(v0)
 80070B44	lw     a1, $0008(s0)
 80070B48	andi   a2, a2, $000c
-80070B4C	jal    system_fill_packets_drafts_for_model_part [$8002c6dc]
 80070B50	srl    a2, a2, $02
+system_fill_packets_drafts_for_model_part;
+
 80070B54	lw     a0, $000c(s0)
 80070B58	lw     v0, $0004(s0)
 80070B5C	lw     a1, $0008(s0)
