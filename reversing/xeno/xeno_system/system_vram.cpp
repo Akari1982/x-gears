@@ -317,302 +317,184 @@ L4c09c:	; 8004C09C
 
 ////////////////////////////////
 // func2b960
-8002B960	lui    v0, $8005
-8002B964	lw     v0, $f4e4(v0)
-8002B968	addiu  sp, sp, $ffe0 (=-$20)
-8002B96C	sw     s0, $0018(sp)
-8002B970	lui    s0, $8005
-8002B974	lw     s0, $f4d0(s0)
-8002B978	addu   a0, zero, zero
-8002B97C	blez   v0, L2b9cc [$8002b9cc]
-8002B980	sw     ra, $001c(sp)
-8002B984	ori    a2, zero, $0001
-8002B988	lui    a1, $8005
-8002B98C	lhu    a1, $f4cc(a1)
-8002B990	addu   v1, v0, zero
+V0 = w[8004f4e4];
+S0 = w[8004f4d0];
 
-loop2b994:	; 8002B994
-8002B994	lhu    v0, $0000(s0)
-8002B998	nop
-8002B99C	bne    v0, a2, L2b9b4 [$8002b9b4]
-8002B9A0	addiu  v0, a0, $0001
-8002B9A4	lhu    v0, $0002(s0)
-8002B9A8	nop
-8002B9AC	beq    v0, a1, L2b9cc [$8002b9cc]
-8002B9B0	addiu  v0, a0, $0001
+A0 = 0;
 
-L2b9b4:	; 8002B9B4
-8002B9B4	addu   a0, v0, zero
-8002B9B8	sll    v0, v0, $10
-8002B9BC	sra    v0, v0, $10
-8002B9C0	slt    v0, v0, v1
-8002B9C4	bne    v0, zero, loop2b994 [$8002b994]
-8002B9C8	addiu  s0, s0, $0008
+if( V0 > 0 )
+{
+    A1 = hu[8004f4cc];
+    V1 = V0;
+
+    loop2b994:	; 8002B994
+        V0 = hu[S0];
+        if( V0 == 1 )
+        {
+            V0 = hu[S0 + 2];
+            8002B9AC	beq    v0, a1, L2b9cc [$8002b9cc]
+        }
+
+        8002B9A0	addiu  v0, a0, $0001
+        8002B9B4	addu   a0, v0, zero
+        8002B9B8	sll    v0, v0, $10
+        8002B9BC	sra    v0, v0, $10
+        8002B9C8	addiu  s0, s0, $0008
+        8002B9C0	slt    v0, v0, v1
+    8002B9C4	bne    v0, zero, loop2b994 [$8002b994]
+}
 
 L2b9cc:	; 8002B9CC
 8002B9CC	sll    v0, a0, $10
-8002B9D0	lui    v1, $8005
-8002B9D4	lw     v1, $f4e4(v1)
+V1 = w[8004f4e4];
 8002B9D8	sra    a0, v0, $10
-8002B9DC	beq    a0, v1, L2bd34 [$8002bd34]
-8002B9E0	ori    v0, zero, $0002
-8002B9E4	sll    a0, a0, $0b
-8002B9E8	sh     v0, $0000(s0)
-8002B9EC	lui    v0, $8005
-8002B9F0	lw     v0, $f4ac(v0)
-8002B9F4	lui    v1, $8006
-8002B9F8	lw     v1, $95ec(v1)
-8002B9FC	nop
-8002BA00	bne    v1, zero, L2bbec [$8002bbec]
-8002BA04	addu   a2, a0, v0
-8002BA08	lw     t0, $0000(a2)
-8002BA0C	addiu  a2, a2, $0004
-8002BA10	addiu  v0, t0, $ee00 (=-$1200)
-8002BA14	sltiu  v0, v0, $0002
-8002BA18	beq    v0, zero, L2bce8 [$8002bce8]
-8002BA1C	addu   a3, a2, zero
-8002BA20	ori    v0, zero, $1200
-8002BA24	bne    t0, v0, L2bae4 [$8002bae4]
-8002BA28	ori    v0, zero, $1201
-8002BA2C	lui    v1, $8006
-8002BA30	lh     v1, $95c0(v1)
-8002BA34	ori    v0, zero, $0001
-8002BA38	beq    v1, v0, L2ba50 [$8002ba50]
-8002BA3C	ori    v0, zero, $0002
-8002BA40	beq    v1, v0, L2ba70 [$8002ba70]
-8002BA44	nop
-8002BA48	j      L2bab8 [$8002bab8]
-8002BA4C	nop
+if( A0 == V1 )
+{
+    return;
+}
 
-L2ba50:	; 8002BA50
-8002BA50	lui    v0, $8006
-8002BA54	lhu    v0, $95c4(v0)
-8002BA58	lhu    a0, $0004(a2)
-8002BA5C	lui    v1, $8006
-8002BA60	lhu    v1, $95c8(v1)
-8002BA64	lhu    a1, $0006(a2)
-8002BA68	j      L2bacc [$8002bacc]
-8002BA6C	addu   v0, v0, a0
+A0 = A0 * 800;
 
-L2ba70:	; 8002BA70
-8002BA70	lui    v0, $8006
-8002BA74	lhu    v0, $95c4(v0)
-8002BA78	lhu    v1, $0000(a2)
-8002BA7C	lhu    a0, $0004(a2)
-8002BA80	addu   v0, v0, v1
-8002BA84	addu   v0, v0, a0
-8002BA88	lui    at, $8006
-8002BA8C	sh     v0, $95dc(at)
-8002BA90	lui    v0, $8006
-8002BA94	lhu    v0, $95c8(v0)
-8002BA98	lhu    v1, $0002(a2)
-8002BA9C	lhu    a0, $0006(a2)
-8002BAA0	addu   v0, v0, v1
-8002BAA4	addu   v0, v0, a0
-8002BAA8	lui    at, $8006
-8002BAAC	sh     v0, $95e0(at)
-8002BAB0	j      L2bae4 [$8002bae4]
-8002BAB4	ori    v0, zero, $1201
+[S0] = h(2);
 
-L2bab8:	; 8002BAB8
-8002BAB8	lhu    v0, $0000(a3)
-8002BABC	lhu    a0, $0004(a3)
-8002BAC0	lhu    v1, $0002(a3)
-8002BAC4	lhu    a1, $0006(a3)
-8002BAC8	addu   v0, v0, a0
+if( w[800595ec] == 0 ) // if texture not started
+{
+    A2 = w[8004f4ac] + A0;
+    T0 = w[A2];
+    A2 = A2 + 4;
+    V0 = T0 - 1200;
+    V0 = V0 < 2;
+    8002BA18	beq    v0, zero, L2bce8 [$8002bce8]
 
-L2bacc:	; 8002BACC
-8002BACC	addu   v1, v1, a1
-8002BAD0	lui    at, $8006
-8002BAD4	sh     v0, $95dc(at)
-8002BAD8	lui    at, $8006
-8002BADC	sh     v1, $95e0(at)
-8002BAE0	ori    v0, zero, $1201
+    if( T0 == 1200 )
+    {
+        if( h[800595c0] == 1 )
+        {
+            [800595dc] = h(hu[800595c4] + hu[A2 + 4]); // x
+            [800595e0] = h(hu[800595c8] + hu[A2 + 6]); // y
+        }
+        else if( h[800595c0] == 2 )
+        {
+            [800595dc] = h(hu[800595c4] + hu[A2 + 0] + hu[A2 + 4]); // x
+            [800595e0] = h(hu[800595c8] + hu[A2 + 2] + hu[A2 + 6]); // y
+        }
+        else
+        {
+            [800595dc] = h(hu[A2 + 0] + hu[A2 + 4]); // x
+            [800595e0] = h(hu[A2 + 2] + hu[A2 + 6]); // y
+        }
+    }
 
-L2bae4:	; 8002BAE4
-8002BAE4	bne    t0, v0, L2bb9c [$8002bb9c]
-8002BAE8	ori    v0, zero, $0001
-8002BAEC	lui    v1, $8006
-8002BAF0	lh     v1, $95cc(v1)
-8002BAF4	nop
-8002BAF8	beq    v1, v0, L2bb10 [$8002bb10]
-8002BAFC	ori    v0, zero, $0002
-8002BB00	beq    v1, v0, L2bb2c [$8002bb2c]
-8002BB04	nop
-8002BB08	j      L2bb74 [$8002bb74]
-8002BB0C	nop
+    if( T0 == 1201 )
+    {
+        if( h[800595cc] == 1 )
+        {
+            [800595dc] = h(hu[800595d0] + hu[A2 + 4]); // x
+            [800595e0] = h(hu[800595d4] + hu[A2 + 6]); // y
+        }
+        else if( h[800595cc] == 2 )
+        {
+            [800595dc] = h(hu[800595d0] + hu[A2 + 0] + hu[A2 + 4]);
+            [800595e0] = h(hu[800595d4] + hu[A2 + 2] + hu[A2 + 6]);
+        }
+        else
+        {
+            [800595dc] = h(hu[A2 + 0] + hu[A2 + 4]); // x
+            [800595e0] = h(hu[A2 + 2] + hu[A2 + 6]); // y
+        }
+    }
 
-L2bb10:	; 8002BB10
-8002BB10	lui    v0, $8006
-8002BB14	lhu    v0, $95d0(v0)
-8002BB18	lhu    a0, $0004(a3)
-8002BB1C	lui    v1, $8006
-8002BB20	lhu    v1, $95d4(v1)
-8002BB24	j      L2bb80 [$8002bb80]
-8002BB28	nop
+    A2 = A2 + 8;
+    [800595e4] = h(hu[A2]); // width
+    A2 = A2 + 8;
 
-L2bb2c:	; 8002BB2C
-8002BB2C	lui    v0, $8006
-8002BB30	lhu    v0, $95d0(v0)
-8002BB34	lhu    v1, $0000(a3)
-8002BB38	lhu    a0, $0004(a3)
-8002BB3C	addu   v0, v0, v1
-8002BB40	addu   v0, v0, a0
-8002BB44	lui    at, $8006
-8002BB48	sh     v0, $95dc(at)
-8002BB4C	lui    v0, $8006
-8002BB50	lhu    v0, $95d4(v0)
-8002BB54	lhu    v1, $0002(a3)
-8002BB58	lhu    a0, $0006(a3)
-8002BB5C	addu   v0, v0, v1
-8002BB60	addu   v0, v0, a0
-8002BB64	lui    at, $8006
-8002BB68	sh     v0, $95e0(at)
-8002BB6C	j      L2bba0 [$8002bba0]
-8002BB70	addiu  a2, a2, $0008
+    if( w[800595d8] == 0 )
+    {
+        [800595d8] = w(w[A2]);
+    }
+    A2 = A2 + 4;
+    [800595ec] = w(w[A2]); // number_of_chunk
+    A2 = A2 + 4;
+    [800595e8] = w(A2);
+}
+else
+{
+    A1 = w[800595e8];
+    [SP + 10] = h(hu[800595dc]); // x
+    [SP + 12] = h(hu[800595e0]); // y
+    [SP + 14] = h(hu[800595e4]); // width
+    [SP + 16] = h(hu[A1]); // height
 
-L2bb74:	; 8002BB74
-8002BB74	lhu    v0, $0000(a3)
-8002BB78	lhu    a0, $0004(a3)
-8002BB7C	lhu    v1, $0002(a3)
+    A0 = SP + 10; // struct with size (0 x, 2 y, 4 width, 6 height)
+    A1 = A2; // start address
+    func4470c;
 
-L2bb80:	; 8002BB80
-8002BB80	lhu    a1, $0006(a3)
-8002BB84	addu   v0, v0, a0
-8002BB88	addu   v1, v1, a1
-8002BB8C	lui    at, $8006
-8002BB90	sh     v0, $95dc(at)
-8002BB94	lui    at, $8006
-8002BB98	sh     v1, $95e0(at)
+    8002BC2C	lui    a0, $8006
+    8002BC30	lw     a0, $95e8(a0)
+    8002BC34	lui    v1, $8006
+    8002BC38	lhu    v1, $95e0(v1)
+    8002BC3C	addiu  v0, a0, $0002
+    8002BC40	lui    at, $8006
+    8002BC44	sw     v0, $95e8(at)
+    8002BC50	lhu    a0, $0000(a0)
+    8002BC58	addu   v1, v1, a0
+    [800595ec] = w(w[800595ec] - 1); // descrease number of chank by 1
+    8002BC64	lui    at, $8006
+    8002BC68	sh     v1, $95e0(at)
+    if( w[800595ec] <= 0 )
+    {
+        8002BC74	lui    v0, $8006
+        8002BC78	lw     v0, $95d8(v0)
+        8002BC7C	lui    a1, $8005
+        8002BC80	lw     a1, $f4e4(a1)
+        8002BC84	lui    at, $8006
+        8002BC88	sw     zero, $95ec(at)
+        8002BC8C	addiu  v0, v0, $ffff (=-$1)
+        8002BC90	lui    at, $8006
+        8002BC94	sw     v0, $95d8(at)
+        8002BC98	blez   a1, L2bcd4 [$8002bcd4]
+        8002BC9C	addu   a0, zero, zero
+        8002BCA0	lui    a2, $8005
+        8002BCA4	lw     a2, $f4d0(a2)
 
-L2bb9c:	; 8002BB9C
-8002BB9C	addiu  a2, a2, $0008
+        loop2bca8:	; 8002BCA8
+        8002BCA8	sll    v1, a0, $10
+        8002BCAC	addiu  v0, a0, $0001
+        8002BCB0	addu   a0, v0, zero
+        8002BCB4	sra    v1, v1, $0d
+        8002BCB8	addu   v1, v1, a2
+        8002BCBC	sll    v0, v0, $10
+        8002BCC0	sra    v0, v0, $10
+        8002BCC4	slt    v0, v0, a1
+        8002BCC8	sh     zero, $0000(v1)
+        8002BCCC	bne    v0, zero, loop2bca8 [$8002bca8]
+        8002BCD0	sh     zero, $0002(v1)
 
-L2bba0:	; 8002BBA0
-8002BBA0	lhu    v0, $0000(a2)
-8002BBA4	lui    v1, $8006
-8002BBA8	lw     v1, $95d8(v1)
-8002BBAC	lui    at, $8006
-8002BBB0	sh     v0, $95e4(at)
-8002BBB4	bne    v1, zero, L2bbc8 [$8002bbc8]
-8002BBB8	addiu  a2, a2, $0008
-8002BBBC	lw     v0, $0000(a2)
-8002BBC0	lui    at, $8006
-8002BBC4	sw     v0, $95d8(at)
+        L2bcd4:	; 8002BCD4
+        8002BCD4	lui    v0, $8006
+        8002BCD8	lw     v0, $95d8(v0)
+        8002BCDC	nop
+        8002BCE0	bgtz   v0, L2bd18 [$8002bd18]
+        8002BCE4	nop
 
-L2bbc8:	; 8002BBC8
-8002BBC8	addiu  a2, a2, $0004
-8002BBCC	lw     v0, $0000(a2)
-8002BBD0	addiu  a2, a2, $0004
-8002BBD4	lui    at, $8006
-8002BBD8	sw     a2, $95e8(at)
-8002BBDC	lui    at, $8006
-8002BBE0	sw     v0, $95ec(at)
-8002BBE4	j      L2bd1c [$8002bd1c]
-8002BBE8	nop
+        L2bce8:	; 8002BCE8
+        8002BCE8	lui    at, $8005
+        8002BCEC	sw     zero, $f49c(at)
+        8002BCF4	addu   a0, zero, zero
+        8002BCF0	jal    func41264 [$80041264]
 
-L2bbec:	; 8002BBEC
-8002BBEC	lui    a0, $8006
-8002BBF0	lhu    a0, $95e4(a0)
-8002BBF4	lui    v0, $8006
-8002BBF8	lhu    v0, $95dc(v0)
-8002BBFC	lui    v1, $8006
-8002BC00	lhu    v1, $95e0(v1)
-8002BC04	lui    a1, $8006
-8002BC08	lw     a1, $95e8(a1)
+        8002BCF8	lui    a0, $8005
+        8002BCFC	lw     a0, $f4dc(a0)
+        8002BD00	jal    func2a1a4 [$8002a1a4]
 
-[SP + 10] = h(V0);
-[SP + 12] = h(V1);
-[SP + 14] = h(A0);
-[SP + 16] = h(hu[A1]);
-
-A0 = SP + 10; // struct with size
-A1 = A2; // start address
-func4470c;
-
-8002BC2C	lui    a0, $8006
-8002BC30	lw     a0, $95e8(a0)
-8002BC34	lui    v1, $8006
-8002BC38	lhu    v1, $95e0(v1)
-8002BC3C	addiu  v0, a0, $0002
-8002BC40	lui    at, $8006
-8002BC44	sw     v0, $95e8(at)
-8002BC48	lui    v0, $8006
-8002BC4C	lw     v0, $95ec(v0)
-8002BC50	lhu    a0, $0000(a0)
-8002BC54	addiu  v0, v0, $ffff (=-$1)
-8002BC58	addu   v1, v1, a0
-8002BC5C	lui    at, $8006
-8002BC60	sw     v0, $95ec(at)
-8002BC64	lui    at, $8006
-8002BC68	sh     v1, $95e0(at)
-8002BC6C	bgtz   v0, L2bd18 [$8002bd18]
-8002BC70	nop
-8002BC74	lui    v0, $8006
-8002BC78	lw     v0, $95d8(v0)
-8002BC7C	lui    a1, $8005
-8002BC80	lw     a1, $f4e4(a1)
-8002BC84	lui    at, $8006
-8002BC88	sw     zero, $95ec(at)
-8002BC8C	addiu  v0, v0, $ffff (=-$1)
-8002BC90	lui    at, $8006
-8002BC94	sw     v0, $95d8(at)
-8002BC98	blez   a1, L2bcd4 [$8002bcd4]
-8002BC9C	addu   a0, zero, zero
-8002BCA0	lui    a2, $8005
-8002BCA4	lw     a2, $f4d0(a2)
-
-loop2bca8:	; 8002BCA8
-8002BCA8	sll    v1, a0, $10
-8002BCAC	addiu  v0, a0, $0001
-8002BCB0	addu   a0, v0, zero
-8002BCB4	sra    v1, v1, $0d
-8002BCB8	addu   v1, v1, a2
-8002BCBC	sll    v0, v0, $10
-8002BCC0	sra    v0, v0, $10
-8002BCC4	slt    v0, v0, a1
-8002BCC8	sh     zero, $0000(v1)
-8002BCCC	bne    v0, zero, loop2bca8 [$8002bca8]
-8002BCD0	sh     zero, $0002(v1)
-
-L2bcd4:	; 8002BCD4
-8002BCD4	lui    v0, $8006
-8002BCD8	lw     v0, $95d8(v0)
-8002BCDC	nop
-8002BCE0	bgtz   v0, L2bd18 [$8002bd18]
-8002BCE4	nop
-
-L2bce8:	; 8002BCE8
-8002BCE8	lui    at, $8005
-8002BCEC	sw     zero, $f49c(at)
-8002BCF0	jal    func41264 [$80041264]
-8002BCF4	addu   a0, zero, zero
-8002BCF8	lui    a0, $8005
-8002BCFC	lw     a0, $f4dc(a0)
-8002BD00	jal    func2a1a4 [$8002a1a4]
-8002BD04	nop
-8002BD08	lui    at, $8005
-8002BD0C	sw     zero, $f4a0(at)
-8002BD10	j      L2bd34 [$8002bd34]
-8002BD14	nop
-
-L2bd18:	; 8002BD18
-8002BD18	sh     zero, $0000(s0)
-
-L2bd1c:	; 8002BD1C
-8002BD1C	lui    v0, $8005
-8002BD20	lhu    v0, $f4cc(v0)
-8002BD24	nop
-8002BD28	addiu  v0, v0, $0001
-8002BD2C	lui    at, $8005
-8002BD30	sh     v0, $f4cc(at)
-
-L2bd34:	; 8002BD34
-8002BD34	lw     ra, $001c(sp)
-8002BD38	lw     s0, $0018(sp)
-8002BD3C	addiu  sp, sp, $0020
-8002BD40	jr     ra 
-8002BD44	nop
+        8002BD08	lui    at, $8005
+        8002BD0C	sw     zero, $f4a0(at)
+        return;
+    }
+    L2bd18:	; 8002BD18
+    8002BD18	sh     zero, $0000(s0)
+}
+[8004f4cc] = h(hu[8004f4cc] + 1);
 ////////////////////////////////
 
 
@@ -628,7 +510,7 @@ A1 = S0;
 
 V0 = w[80055f68];
 A0 = w[V0 + 20]; // func
-A1 = S0; // struct with size
+A1 = S0; // struct with size (0 x, 2 y, 4 width, 6 height)
 A2 = 8;
 A3 = S1; // start address
 // called here func46504
@@ -712,7 +594,7 @@ loop465f8:	; 800465F8
 80046604	beq    v0, zero, loop465f8 [$800465f8]
 
 // called here func45f18
-A0 = S0;
+A0 = S0; // struct with size
 A1 = S2;
 80046610	jalr   s3 ra
 
@@ -845,7 +727,7 @@ L467c4:	; 800467C4
 // func45f18
 // transfer to vram
 
-S1 = A0;
+S1 = A0; // struct with size (0 x, 2 y, 4 width, 6 height)
 S2 = A1; // start address
 
 80045F3C	jal    func46d74 [$80046d74]

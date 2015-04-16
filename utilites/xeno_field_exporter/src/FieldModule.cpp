@@ -36,13 +36,14 @@ FieldModule::LoadMap( const int file_id )
     File* texture = new File( "data/field/0" + IntToString( file_id + 1 ) + ".raw2" );
     for( u32 i = 0; i < texture->GetFileSize(); )
     {
+        vram->Save( "exported/texture_" + IntToString( i ) + ".png" );
+
         u32 texture_header_id = texture->GetU32LE( i + 0x00 );
         u16 texture_header_vram_x = texture->GetU16LE( i + 0x04 );
         u16 texture_header_vram_y = texture->GetU16LE( i + 0x06 );
         u16 texture_header_move_x = texture->GetU16LE( i + 0x08 );
         u16 texture_header_move_y = texture->GetU16LE( i + 0x0a );
         u16 texture_header_width = texture->GetU16LE( i + 0x0c );
-        u16 texture_header_height = texture->GetU16LE( i + 0x0e );
 
         LOGGER->Log( "Load texture:\n" );
         LOGGER->Log( "    texture_header_id     = 0x" + HexToString( texture_header_id, 8, '0' ) + "\n" );
@@ -51,7 +52,6 @@ FieldModule::LoadMap( const int file_id )
         LOGGER->Log( "    texture_header_move_x = 0x" + HexToString( texture_header_move_x, 8, '0' ) + "\n" );
         LOGGER->Log( "    texture_header_move_y = 0x" + HexToString( texture_header_move_y, 8, '0' ) + "\n" );
         LOGGER->Log( "    texture_header_width  = 0x" + HexToString( texture_header_width, 8, '0' ) + "\n" );
-        LOGGER->Log( "    texture_header_height = 0x" + HexToString( texture_header_height, 8, '0' ) + "\n" );
 
         u32 number_of_chunk = texture->GetU32LE( i + 0x18 );
 
@@ -100,8 +100,6 @@ FieldModule::LoadMap( const int file_id )
 
             // move pointer to start of next texture
             i += ceil( ( float )( texture_header_width * 2 * height) / 0x0800 ) * 0x0800;
-            // update height
-            texture_header_height += height;
             vram_y += height;
         }
     }
