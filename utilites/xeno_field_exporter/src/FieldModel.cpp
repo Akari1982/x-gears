@@ -27,6 +27,8 @@ FieldModel::Export( File* model_file, Vram* vram, const int file_id )
     data.tex_width = 4096;
     data.tex_height = 512;
 
+    Logger* export_text = new Logger( "exported/" + data.name + ".txt" );
+
     VectorTexForGen textures;
 
     int number_of_models = model_file->GetU32LE( 0x00 );
@@ -43,12 +45,6 @@ FieldModel::Export( File* model_file, Vram* vram, const int file_id )
         Ogre::NodeAnimationTrack* track1 = anim->createNodeTrack( 0, root1 );
         track1->removeAllKeyFrames();
         Ogre::TransformKeyFrame* frame1 = track1->createNodeKeyFrame( 0 );
-
-
-
-        Logger* export_text = new Logger( "exported/" + data.name + Ogre::StringConverter::toString( i ) + ".txt" );
-
-
 
         int mesh_offset = model_file->GetU32LE( 0x4 + i * 0x04 );
         int mesh_next_offset = ( i + 1 == number_of_models ) ? model_file->GetFileSize() : model_file->GetU32LE( 0x8 + i * 0x04 );
@@ -99,4 +95,8 @@ FieldModel::Export( File* model_file, Vram* vram, const int file_id )
         thisSceneNode->setPosition( 0, 0, 0 );
         thisSceneNode->attachObject( thisEntity );
     }
+
+
+
+    delete export_text;
 }

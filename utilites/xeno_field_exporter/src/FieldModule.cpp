@@ -4,7 +4,7 @@
 #include "FieldModule.h"
 #include "FieldPackFile.h"
 #include "PacketFile.h"
-//#include "ScriptFile.h"
+#include "ScriptFile.h"
 #include "SpriteFile.h"
 #include "Walkmesh.h"
 #include "WalkmeshFile.h"
@@ -160,11 +160,11 @@ FieldModule::LoadMap( const int file_id )
 
     // script
     temp = field_pack->Extract( 5 );
-    //ScriptFile* script_file = new ScriptFile( temp );
+    ScriptFile* script_file = new ScriptFile( temp );
     temp->WriteFile( "exported/5_script" );
     delete temp;
-    //script_file->GetScripts();
-    //delete script_file;
+    script_file->GetScripts();
+    delete script_file;
 
     // part 6
     temp = field_pack->Extract( 6 );

@@ -56,13 +56,13 @@ v80  variable from memory which can be immediate value if 0x8000 bit is set.
 
 //////////////////////////////////////////////////////////////////
 // SCRIPT MANAGEMENT
-0x00_Return();
+0x00 Return();
     ends current script execution and frees current slot.
 
-0x01_JumpTo( u16 address );
+0x01 JumpTo( u16 address );
     set current script pointer to given address.
 
-0x02_ConditionalJumpTo( u16 value1, u16 value2, u8 flag, u16 address );
+0x02 ConditionalJumpTo( u16 value1, u16 value2, u8 flag, u16 address );
     flag & 0xf0 - how read values.
         0x00 - v value1, v value2, sign from first value is used for both.
         0x40 - v value1, s16 value2, sign from first value is used for both.
@@ -83,16 +83,16 @@ v80  variable from memory which can be immediate value if 0x8000 bit is set.
     do condition with two values.
     if true continue with next opcode, jump otherwise.
 
-0x26_Wait( v80 time );
+0x26 Wait( v80 time );
     stop script execution till script will be called given number of times. (each time special variable descrease by 1).
 
-0x84_ProgressLessEqualJumpTo( v80 value, u16 address );
+0x84 ProgressLessEqualJumpTo( v80 value, u16 address );
     jump to given address if value less equal to progress variable (offset 0 in memory).
 
-0x86_ProgressNotEqualJumpTo( v80 value, u16 address );
+0x86 ProgressNotEqualJumpTo( v80 value, u16 address );
     jump to given address if value not equal to progress variable (offset 0 in memory).
 
-0xCB_TriggerJumpTo( u8 trigger_id, u16 address );
+0xCB TriggerJumpTo( u8 trigger_id, u16 address );
     jump to given address if party leader not in trigger.
 
 //////////////////////////////////////////////////////////////////

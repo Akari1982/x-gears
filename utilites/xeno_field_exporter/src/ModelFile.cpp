@@ -51,14 +51,14 @@ ModelFile::GetModel( Ogre::MeshPtr mesh, const MeshData& data, VectorTexForGen& 
 
     for( int part_id = 0; part_id < number_of_parts; ++part_id )
     {
-        GetModelPart( part_id, mesh, data, textures, export_text, 0 );
+        GetModelPart( part_id, mesh, data, textures, 0 );
     }
 }
 
 
 
 void
-ModelFile::GetModelPart( const int part_id, Ogre::MeshPtr mesh, const MeshData& data, VectorTexForGen& textures, Logger* export_text, const int bone_id )
+ModelFile::GetModelPart( const int part_id, Ogre::MeshPtr mesh, const MeshData& data, VectorTexForGen& textures, const int bone_id )
 {
     int pointer_to_part_header = 0x10 + part_id * 0x38;
     int number_of_poly_blocks = GetU16LE( pointer_to_part_header + 0x6 );

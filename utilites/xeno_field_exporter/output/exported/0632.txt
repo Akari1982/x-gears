@@ -1,0 +1,145 @@
+Model:
+number_of_parts: 1
+Part: 0
+    number of poly blocks: 2
+    pointer to polygon data: 336
+    pointer to texture data: 584
+        polygon type: 5, number of polygons: 2
+        polygon type: 13, number of polygons: 28
+Model:
+number_of_parts: 1
+Part: 0
+    number of poly blocks: 1
+    pointer to polygon data: 216
+    pointer to texture data: 316
+        polygon type: 13, number of polygons: 12
+Model:
+number_of_parts: 1
+Part: 0
+    number of poly blocks: 1
+    pointer to polygon data: 264
+    pointer to texture data: 380
+        polygon type: 13, number of polygons: 14
+Model:
+number_of_parts: 1
+Part: 0
+    number of poly blocks: 2
+    pointer to polygon data: 944
+    pointer to texture data: 1816
+        polygon type: 5, number of polygons: 30
+        polygon type: 13, number of polygons: 78
+Model:
+number_of_parts: 1
+Part: 0
+    number of poly blocks: 3
+    pointer to polygon data: 1752
+    pointer to texture data: 3204
+        polygon type: 5, number of polygons: 12
+        polygon type: 12, number of polygons: 2
+        polygon type: 13, number of polygons: 166
+Model:
+number_of_parts: 1
+Part: 0
+    number of poly blocks: 1
+    pointer to polygon data: 168
+    pointer to texture data: 236
+        polygon type: 13, number of polygons: 8
+Model:
+number_of_parts: 1
+Part: 0
+    number of poly blocks: 1
+    pointer to polygon data: 104
+    pointer to texture data: 116
+        polygon type: 13, number of polygons: 1
+Model:
+number_of_parts: 1
+Part: 0
+    number of poly blocks: 1
+    pointer to polygon data: 152
+    pointer to texture data: 204
+        polygon type: 13, number of polygons: 6
+Model:
+number_of_parts: 1
+Part: 0
+    number of poly blocks: 1
+    pointer to polygon data: 136
+    pointer to texture data: 172
+        polygon type: 13, number of polygons: 4
+Model:
+number_of_parts: 1
+Part: 0
+    number of poly blocks: 1
+    pointer to polygon data: 216
+    pointer to texture data: 332
+        polygon type: 13, number of polygons: 14
+Model:
+number_of_parts: 1
+Part: 0
+    number of poly blocks: 3
+    pointer to polygon data: 304
+    pointer to texture data: 532
+        polygon type: 4, number of polygons: 1
+        polygon type: 5, number of polygons: 6
+        polygon type: 13, number of polygons: 20
+Model:
+number_of_parts: 1
+Part: 0
+    number of poly blocks: 2
+    pointer to polygon data: 232
+    pointer to texture data: 360
+        polygon type: 5, number of polygons: 2
+        polygon type: 13, number of polygons: 13
+Model:
+number_of_parts: 1
+Part: 0
+    number of poly blocks: 2
+    pointer to polygon data: 336
+    pointer to texture data: 536
+        polygon type: 5, number of polygons: 2
+        polygon type: 13, number of polygons: 22
+Model:
+number_of_parts: 1
+Part: 0
+    number of poly blocks: 1
+    pointer to polygon data: 104
+    pointer to texture data: 116
+        polygon type: 13, number of polygons: 1
+Model:
+number_of_parts: 1
+Part: 0
+    number of poly blocks: 1
+    pointer to polygon data: 168
+    pointer to texture data: 236
+        polygon type: 13, number of polygons: 8
+Model:
+number_of_parts: 1
+Part: 0
+    number of poly blocks: 2
+    pointer to polygon data: 1280
+    pointer to texture data: 2264
+        polygon type: 5, number of polygons: 26
+        polygon type: 13, number of polygons: 96
+Model:
+number_of_parts: 1
+Part: 0
+    number of poly blocks: 2
+    pointer to polygon data: 360
+    pointer to texture data: 816
+        polygon type: 5, number of polygons: 50
+        polygon type: 13, number of polygons: 6
+Model:
+number_of_parts: 1
+Part: 0
+    number of poly blocks: 2
+    pointer to polygon data: 232
+    pointer to texture data: 400
+        polygon type: 5, number of polygons: 14
+        polygon type: 13, number of polygons: 6
+Model:
+number_of_parts: 1
+Part: 0
+    number of poly blocks: 1
+    pointer to polygon data: 104
+    pointer to texture data: 124
+        polygon type: 0, number of polygons: 2
+ERROR: polygon type "0" not implemented.
