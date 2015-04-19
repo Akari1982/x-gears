@@ -55,6 +55,8 @@
 		<Unit filename="src/ModelFile.h" />
 		<Unit filename="src/PacketFile.cpp" />
 		<Unit filename="src/PacketFile.h" />
+		<Unit filename="src/ScriptFile.cpp" />
+		<Unit filename="src/ScriptFile.h" />
 		<Unit filename="src/SpriteFile.cpp" />
 		<Unit filename="src/SpriteFile.h" />
 		<Unit filename="src/Walkmesh.cpp" />

@@ -334,7 +334,7 @@ V1 = fff7ffff;
 8001D9B8	sw     v0, $0040(s3)
 8001D9CC	lw     v1, $0020(s3)
 
-T1 = w[S7];
+T1 = w[S7 + 0];
 [SP + 28] = w(T1);
 
 if( S0 >= ( hu[T1] & 01ff ) + 1 )
@@ -347,45 +347,28 @@ if( S0 >= ( hu[T1] & 01ff ) + 1 )
 8001D9E8	lw     v1, $003c(s3)
 8001D9EC	nop
 8001D9F0	and    v0, v1, v0
-8001D9F4	beq    v0, zero, L1da84 [$8001da84]
+if( V0 != 0 )
+{
+    [S3] = w(V1 & bfffffff);
+    T0 = w[S7 + c];
 
-8001D9F8	lui    v0, $bfff
-8001D9FC	ori    v0, v0, $ffff
-8001DA00	and    v0, v1, v0
-8001DA04	sw     v0, $003c(s3)
-8001DA08	lw     t0, $000c(s7)
-8001DA0C	nop
-8001DA10	lhu    v0, $0000(t0)
-8001DA14	nop
-8001DA18	beq    v0, zero, L1da84 [$8001da84]
-8001DA1C	ori    v1, zero, $0001
-8001DA20	lhu    v0, $0008(s7)
-8001DA24	nop
-8001DA28	sh     v0, $0020(sp)
-8001DA2C	lhu    v0, $000a(s7)
-8001DA30	nop
-8001DA34	sh     v0, $0022(sp)
-8001DA38	lhu    v0, $0000(t0)
-8001DA3C	sh     v1, $0026(sp)
-8001DA40	sll    v0, v0, $04
-8001DA44	sh     v0, $0024(sp)
-8001DA48	lhu    v0, $003e(s3)
-8001DA4C	lhu    a3, $0000(t0)
-8001DA50	andi   v0, v0, $00f0
-8001DA54	mult   a3, v0
-8001DA58	lh     a1, $0008(s7)
-8001DA5C	lh     a2, $000a(s7)
-8001DA60	ori    v0, zero, $0001
-8001DA64	sll    a3, a3, $14
-8001DA68	sra    a3, a3, $10
-8001DA6C	sw     v0, $0010(sp)
-8001DA70	mflo   a0
-8001DA74	sll    a0, a0, $01
-8001DA78	addiu  a0, a0, $0004
-8001DA7C	jal    func24fac [$80024fac]
-8001DA80	addu   a0, t0, a0
+    if( hu[T0] != 0 )
+    {
+        [SP + 20] = h(hu[S7 + 8]);
+        [SP + 22] = h(hu[S7 + a]);
+        [SP + 26] = h(1);
+        [SP + 24] = h(hu[T0] << 4);
 
-L1da84:	; 8001DA84
+        A0 = hu[T0] * (hu[S3 + 3e] & 00f0);
+        A0 = T0 + 4 + A0 * 2; // address to load
+        A1 = h[S7 + 8]; // x
+        A2 = h[S7 + a]; // y
+        A3 = (hu[T0] << 14) >> 10; // width
+        A4 = 1; // height
+        func24fac;
+    }
+}
+
 8001DA84	lw     t1, $0028(sp)
 8001DA88	nop
 8001DA8C	lhu    v0, $0000(t1)
@@ -422,13 +405,17 @@ if( V0 != 0 )
 8001DAF8	lw     v0, $0040(s3)
 8001DAFC	nop
 8001DB00	and    v0, v0, a1
+V1 = SP + 18;
+
 8001DB04	bne    v0, a0, L1db20 [$8001db20]
-8001DB08	addiu  v1, sp, $0018
+
 8001DB0C	lw     t1, $0030(sp)
 8001DB10	nop
 8001DB14	lbu    a1, $0004(t1)
+
+A0 = V1;
 8001DB18	jal    func1f3a8 [$8001f3a8]
-8001DB1C	addu   a0, v1, zero
+
 
 L1db20:	; 8001DB20
 8001DB20	lw     t1, $0030(sp)
@@ -468,7 +455,7 @@ L1db98:	; 8001DB98
 8001DB98	lw     v1, $003c(s3)
 8001DB9C	sra    v0, v0, $0c
 8001DBA0	sh     v0, $0038(s3)
-8001DBA4	lhu    v0, $0018(sp)
+V0 = hu[SP + 18];
 8001DBA8	srl    v1, v1, $05
 8001DBAC	addu   t1, v1, zero
 8001DBB0	andi   t1, t1, $0007
@@ -590,12 +577,12 @@ L1dd1c:	; 8001DD1C
 L1dd34:	; 8001DD34
 8001DD34	lhu    v0, $0002(s6)
 8001DD38	lhu    v1, $0000(s6)
-8001DD3C	lw     t1, $0028(sp)
+T1 = w[SP + 28];
 8001DD40	andi   a0, v0, $001f
 8001DD44	sll    v1, v1, $02
 8001DD48	sh     a0, $0020(sp)
 8001DD4C	lhu    v0, $0002(s6)
-8001DD50	addu   s0, v1, t1
+S0 = T1 + V1;
 8001DD54	srl    v0, v0, $05
 8001DD58	andi   v0, v0, $003f
 8001DD5C	sh     v0, $0022(sp)
@@ -675,7 +662,7 @@ L1de58:	; 8001DE58
 8001DE64	sll    v0, v0, $05
 8001DE68	or     a0, a0, v0
 8001DE6C	lhu    a1, $001a(sp)
-8001DE70	lhu    v0, $0018(sp)
+V0 = hu[SP + 18];
 8001DE74	srl    v1, a1, $04
 8001DE78	andi   v1, v1, $0010
 8001DE7C	or     a0, a0, v1
@@ -689,24 +676,20 @@ L1de58:	; 8001DE58
 8001DE9C	sll    a0, a2, $04
 8001DEA0	lh     v0, $0008(s7)
 8001DEA4	lh     a1, $000a(s7)
-8001DEA8	jal    func438d0 [$800438d0]
 8001DEAC	addu   a0, v0, a0
-8001DEB0	addiu  a0, s0, $0004
-8001DEB4	addu   a3, s4, zero
-8001DEB8	sh     v0, $000c(s1)
-8001DEBC	lhu    a1, $0018(sp)
-8001DEC0	lhu    v0, $0020(sp)
-8001DEC4	lhu    a2, $001a(sp)
-8001DEC8	addu   a1, a1, v0
-8001DECC	sll    a1, a1, $10
-8001DED0	lhu    v0, $0022(sp)
-8001DED4	sra    a1, a1, $10
-8001DED8	addu   a2, a2, v0
-8001DEDC	sll    a2, a2, $10
-8001DEE0	lbu    v0, $0001(s0)
-8001DEE4	sra    a2, a2, $10
-8001DEE8	jal    func24fac [$80024fac]
-8001DEEC	sw     v0, $0010(sp)
+8001DEA8	jal    func438d0 [$800438d0]
+
+// called many tines on pc sprite change
+
+[S1 + c] = h(V0);
+
+A0 = S0 + 4;
+A1 = ((hu[SP + 18] + hu[SP + 20]) << 10) >> 10;
+A2 = ((hu[SP + 1a] + hu[SP + 22]) << 10) >> 10;
+A3 = S4;
+A4 = bu[S0 + 1];
+func24fac;
+
 8001DEF0	lbu    t1, $0068(sp)
 8001DEF4	nop
 8001DEF8	beq    t1, zero, L1df38 [$8001df38]
@@ -754,16 +737,44 @@ L1df78:	; 8001DF78
 8001DF88	sll    v0, v0, $02
 8001DF8C	or     v1, v1, v0
 8001DF90	sw     v1, $0040(s3)
-8001DF94	lh     a1, $0018(sp)
-8001DF98	lw     t1, $0030(sp)
-8001DF9C	lh     a2, $001a(sp)
-8001DFA0	lbu    a3, $0004(t1)
-8001DFA4	lbu    v0, $0005(t1)
-8001DFA8	addu   a0, zero, zero
-8001DFAC	jal    func24fac [$80024fac]
-8001DFB0	sw     v0, $0010(sp)
+
+// called on change direction of pc sprite
+
+T1 = w[SP + 30];
+
+A0 = 0;
+A1 = h[SP + 18];
+A2 = h[SP + 1a];
+A3 = bu[T1 + 4];
+A4 = bu[T1 + 5];
+func24fac;
 
 L1dfb4:	; 8001DFB4
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func24fac
+T0 = w[GP + 40c];
+V0 = w[GP + 3c0];
+
+T1 = T0 + 10;
+if( T1 < V0 )
+{
+    [T0 + 0] = h(A1); // x
+    [T0 + 2] = h(A2); // y
+    [T0 + 4] = h(A3); // width
+    [T0 + 6] = h(A4); // height
+    [T0 + 8] = w(A0); // address to load
+
+    V0 = w[GP + 188];
+    V1 = w[80058b60 + V0 * 4];
+    [T0 + c] = w(V1);
+
+    [GP + 40c] = w(T1);
+    [80058b60 + V0 * 4] = w(T0);
+}
 ////////////////////////////////
 
 
@@ -1045,7 +1056,7 @@ A3 = V1;
 if( A0 < 5 )
 {
     A2 = w[S1 + 58];
-    // 800223d8
+    // 800223d8 : LHU     8011282c (a0), 0004 (8011282c (a0)) [80112830]
     var = hu[A2 + 4 + A0 * 2];
     [S1 + 54] = w[A2 + 4 + A0 * 2 + var];
 
@@ -1095,6 +1106,8 @@ L22444:	; 80022444
 80022474	lh     s0, $009e(s1)
 80022478	or     v0, v0, v1
 8002247C	and    v0, v0, a1
+
+// 80022480 : LHU     0001f800 (v1), 0002 (80112828 (a0)) [8011282a]
 80022480	lhu    v1, $0002(a0)
 80022484	lw     a1, $0064(s1)
 80022488	andi   a2, a2, $003f

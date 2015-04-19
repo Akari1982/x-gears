@@ -363,8 +363,22 @@ if( w[800595ec] == 0 ) // if texture not started
     T0 = w[A2];
     A2 = A2 + 4;
     V0 = T0 - 1200;
-    V0 = V0 < 2;
-    8002BA18	beq    v0, zero, L2bce8 [$8002bce8]
+    if( V0 >= 2 )
+    {
+        [8004f49c] = w(0);
+
+        V0 = w[80057fcc];
+        V0 = w[V0 + 4];
+        A0 = 3;
+        A1 = 0;
+        8004B660	jalr   v0 ra
+
+        A0 = w[8004f4dc];
+        8002BD00	jal    func2a1a4 [$8002a1a4]
+
+        [8004f4a0] = w(0);
+        return;
+    }
 
     if( T0 == 1200 )
     {
@@ -429,18 +443,13 @@ else
     A1 = A2; // start address
     func4470c;
 
-    8002BC2C	lui    a0, $8006
-    8002BC30	lw     a0, $95e8(a0)
-    8002BC34	lui    v1, $8006
-    8002BC38	lhu    v1, $95e0(v1)
-    8002BC3C	addiu  v0, a0, $0002
-    8002BC40	lui    at, $8006
-    8002BC44	sw     v0, $95e8(at)
-    8002BC50	lhu    a0, $0000(a0)
-    8002BC58	addu   v1, v1, a0
+    A0 = w[800595e8];
+    V1 = hu[800595e0];
+    [800595e8] = w(A0 + 2);
+    A0 = hu[A0];
+    V1 = V1 + A0;
     [800595ec] = w(w[800595ec] - 1); // descrease number of chank by 1
-    8002BC64	lui    at, $8006
-    8002BC68	sh     v1, $95e0(at)
+    [800595e0] = h(V1);
     if( w[800595ec] <= 0 )
     {
         8002BC74	lui    v0, $8006
@@ -452,46 +461,45 @@ else
         8002BC8C	addiu  v0, v0, $ffff (=-$1)
         8002BC90	lui    at, $8006
         8002BC94	sw     v0, $95d8(at)
-        8002BC98	blez   a1, L2bcd4 [$8002bcd4]
         8002BC9C	addu   a0, zero, zero
-        8002BCA0	lui    a2, $8005
-        8002BCA4	lw     a2, $f4d0(a2)
+        if( A1 < 0 )
+        {
+            8002BCA0	lui    a2, $8005
+            8002BCA4	lw     a2, $f4d0(a2)
 
-        loop2bca8:	; 8002BCA8
-        8002BCA8	sll    v1, a0, $10
-        8002BCAC	addiu  v0, a0, $0001
-        8002BCB0	addu   a0, v0, zero
-        8002BCB4	sra    v1, v1, $0d
-        8002BCB8	addu   v1, v1, a2
-        8002BCBC	sll    v0, v0, $10
-        8002BCC0	sra    v0, v0, $10
-        8002BCC4	slt    v0, v0, a1
-        8002BCC8	sh     zero, $0000(v1)
-        8002BCCC	bne    v0, zero, loop2bca8 [$8002bca8]
-        8002BCD0	sh     zero, $0002(v1)
+            loop2bca8:	; 8002BCA8
+                8002BCA8	sll    v1, a0, $10
+                8002BCAC	addiu  v0, a0, $0001
+                8002BCB0	addu   a0, v0, zero
+                8002BCB4	sra    v1, v1, $0d
+                8002BCB8	addu   v1, v1, a2
+                8002BCBC	sll    v0, v0, $10
+                8002BCC0	sra    v0, v0, $10
+                8002BCC4	slt    v0, v0, a1
+                8002BCC8	sh     zero, $0000(v1)
+                8002BCD0	sh     zero, $0002(v1)
+            8002BCCC	bne    v0, zero, loop2bca8 [$8002bca8]
+        }
 
-        L2bcd4:	; 8002BCD4
-        8002BCD4	lui    v0, $8006
-        8002BCD8	lw     v0, $95d8(v0)
-        8002BCDC	nop
-        8002BCE0	bgtz   v0, L2bd18 [$8002bd18]
-        8002BCE4	nop
+        V0 = w[800595d8];
+        if( V0 <= 0 )
+        {
+            [8004f49c] = w(0);
 
-        L2bce8:	; 8002BCE8
-        8002BCE8	lui    at, $8005
-        8002BCEC	sw     zero, $f49c(at)
-        8002BCF4	addu   a0, zero, zero
-        8002BCF0	jal    func41264 [$80041264]
+            V0 = w[80057fcc];
+            V0 = w[V0 + 4];
+            A0 = 3;
+            A1 = 0;
+            8004B660	jalr   v0 ra
 
-        8002BCF8	lui    a0, $8005
-        8002BCFC	lw     a0, $f4dc(a0)
-        8002BD00	jal    func2a1a4 [$8002a1a4]
+            A0 = w[8004f4dc];
+            8002BD00	jal    func2a1a4 [$8002a1a4]
 
-        8002BD08	lui    at, $8005
-        8002BD0C	sw     zero, $f4a0(at)
-        return;
+            [8004f4a0] = w(0);
+            return;
+        }
     }
-    L2bd18:	; 8002BD18
+
     8002BD18	sh     zero, $0000(s0)
 }
 [8004f4cc] = h(hu[8004f4cc] + 1);

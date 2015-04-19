@@ -23,6 +23,7 @@ SpriteFile::SpriteFile( File* file, Vram* vram ):
 
     PacketFile* sub_pack = new PacketFile( file );
     File* sprite0 = sub_pack->ExtractFile( 0 );
+    
     delete sprite0;
     File* sprite1 = sub_pack->ExtractFile( 1 );
 

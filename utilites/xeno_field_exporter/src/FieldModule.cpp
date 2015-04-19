@@ -146,6 +146,15 @@ FieldModule::LoadMap( const int file_id )
         File* file = pack->ExtractFile( 4 );
         file->WriteFile( "exported/3_2dsprite_" + IntToString( 4 ) );
 
+        PacketFile* sub_pack = new PacketFile( file );
+        for( u32 j = 0; j < sub_pack->GetNumberOfFiles(); ++j )
+        {
+            File* sprite = sub_pack->ExtractFile( j );
+            sprite->WriteFile( "exported/3_2dsprite_" + IntToString( 4 ) + "_" + IntToString( j ) );
+            delete sprite;
+        }
+        delete sub_pack;
+
         sprite = new SpriteFile( file, vram );
 
         delete file;
