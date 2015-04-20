@@ -311,3 +311,8 @@
     +06 [][]     rotation z
 +3c []       offset_x
 +3d []       offset_y
+
+
+
+allocated place for sprite data (size 0x164).
++ 86 [][]     size of allocated data (0x164).

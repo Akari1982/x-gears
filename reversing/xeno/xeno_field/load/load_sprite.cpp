@@ -891,33 +891,30 @@ loop708cc:	; 800708CC
 8007090C	addiu  a1, a1, $0004
 
 L70910:	; 80070910
+
 80070910	lui    v0, $800b
 80070914	lw     v0, $eff8(v0)
 80070918	lui    v1, $800b
 8007091C	lw     v1, $eff4(v1)
-80070920	addu   a1, zero, zero
 80070924	subu   v0, v0, v1
-80070928	lui    v1, $8006
-8007092C	lw     v1, $9b70(v1)
-80070930	sra    v0, v0, $02
-80070934	lui    at, $800b
-80070938	sw     v0, $f1e4(at)
-8007093C	lw     v0, $0118(v1)
-80070940	addu   s4, zero, zero
-80070944	addiu  s0, v0, $0010
-80070948	jal    system_memory_allocate [$800319ec]
-8007094C	addu   a0, s0, zero
-80070950	lui    v1, $8006
-80070954	lw     v1, $9b70(v1)
-80070958	addu   a0, s0, zero
-8007095C	lui    at, $800b
-80070960	sw     v0, $eff0(at)
-80070964	lw     a1, $013c(v1)
-80070968	addu   a2, v0, zero
-80070970	addu   a1, a1, v1
-A0 = A1;
-A1 = A2;
+[800af1e4] = w(V0 >> 2);
+S4 = 0;
+
+
+
+// sprite data
+V1 = w[80059b70];
+A0 = w[V1 + 118] + 10;
+A1 = 0;
+system_memory_allocate;
+[800aeff0] = w(V0);
+
+V1 = w[80059b70];
+A0 = V1 + w[V1 + 13c];
+A1 = V0;
 system_extract_archive;
+
+
 
 80070974	lui    a0, $8006
 80070978	lw     a0, $9b70(a0)
@@ -930,8 +927,9 @@ system_extract_archive;
 80070994	sh     v0, $eeb4(at)
 80070998	lui    at, $800b
 8007099C	sh     v0, $eeb6(at)
-800709A0	jal    func6f47c [$8006f47c]
 800709A4	addiu  a0, a0, $0154
+800709A0	jal    func6f47c [$8006f47c]
+
 800709A8	lui    v0, $8006
 800709AC	lw     v0, $9b70(v0)
 800709B0	addu   a1, zero, zero
