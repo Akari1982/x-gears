@@ -1,20 +1,18 @@
 ////////////////////////////////
-// 0x0B_EntityNPCInit
+// 0x0B_EntityNPCSpriteInit
 current_entity_id = w[800af1f0];
+address_2dsprite = w[800aeff0];
+
 V0 = w[800aefe4];
-A0 = hu[V0 + current_entity_id * 64 + 58];
-A0 = A0 & f07f;
-A0 = A0 | 0200;
-[V0 + current_entity_id * 64 + 58] = h(A0);
+[V0 + current_entity_id * 64 + 58] = h((hu[V0 + current_entity_id * 64 + 58] & f07f) | 0200);
 
 A0 = 1;
 read_two_bytes_with_80;
 
 A0 = current_entity_id;
-A1 = V0;
-address_2dsprite = w[800aeff0];
+A1 = V0; // sprite id to load
 A2 = address_2dsprite + w[address_2dsprite + V0 * 4 + 4];
-A3 = 0;
+A3 = 0; // sprite
 A4 = 0;
 A5 = V0 | 80;
 A6 = 0;
@@ -22,16 +20,10 @@ func76150;
 
 funca0224;
 
-// move script pointer
 A0 = w[800af54c];
-[A0 + cc] = h(hu[A0 + cc] + 3);
-
-V1 = w[A0];
-V1 = V1 | 00000100;
-V1 = V1 & ffffff7f; // make solid
-[A0] = w(V1);
-
+[A0 + 0] = w((w[A0 + 0] | 00000100) & ffffff7f); // make solid
 [A0 + 4] = w(w[A0 + 4] & fffff7ff);
+[A0 + cc] = h(hu[A0 + cc] + 3); // move script pointer
 
 V1 = w[800af1f0];
 V0 = w[800aefe4];
@@ -91,7 +83,7 @@ if (S0 != -1)
         A1 = model_id + T1;
         address = w[800aeff0];
         A2 = address + w[address + model_id * 4 + T1 * 4 + 4];
-        A3 = 0;
+        A3 = 0; // sprite
         A4 = 0;
         A5 = (model_id + T1) | 80;
         A6 = 1;
@@ -121,7 +113,7 @@ if (S0 != -1)
         A0 = current_entity_id;
         A1 = S0;
         A2 = w[80059aa4 + S0 * 4];
-        A3 = 1;
+        A3 = 1; // model
         A4 = 0;
         A5 = A1;
         A6 = 1;
@@ -152,7 +144,7 @@ else
     A0 = current_entity_id;
     A1 = 0;
     A2 = w[80059aa4];
-    A3 = 1;
+    A3 = 1; // model
     A4 = 0;
     A5 = 0;
     A6 = 1;
@@ -180,7 +172,7 @@ A0 = w[800af1f0];
 A1 = 0;
 address = w[800aeff0];
 A2 = address + w[address + 4];
-A3 = 0;
+A3 = 0; // sprite
 A4 = 0;
 A5 = 80;
 A6 = 1;
@@ -200,13 +192,13 @@ A0 = w[800af54c];
 
 ////////////////////////////////
 // func76150
-S6 = A4; // [SP + 10] = w(0);
 S3 = A0; // currently entity id
-S1 = A1; // model id to load (local most likely)
+S1 = A1; // sprite id to load
 S4 = A2; // offset to data in 2dsprite block to load
-S7 = A3; // 0
-S0 = A5; // [SP + 14] = w(80);
-FP = A6; // [SP + 18] = w(1); in case of model == 0
+S7 = A3;
+S6 = A4;
+S0 = A5;
+FP = A6;
 
 A0 = 8;
 A1 = 0;
@@ -245,102 +237,71 @@ if( S7 == 0 )
     }
     else
     {
-        80076318	lui    v0, $800b
-        8007631C	lw     v0, $efe4(v0)
-        80076320	nop
-        80076324	addu   v1, s2, v0
-        80076328	lhu    v0, $005a(v1)
-        8007632C	nop
-        80076330	andi   v0, v0, $0001
-        80076334	beq    v0, zero, L7634c [$8007634c]
-        80076338	addu   a0, s4, zero
-        8007633C	lw     a0, $0004(v1)
-        80076340	jal    func22f24 [$80022f24]
-        80076344	nop
-        80076348	addu   a0, s4, zero
+        V1 = w[800aefe4] + S2;
 
-        L7634c:	; 8007634C
-        8007634C	sll    a1, s6, $04
-        80076350	addiu  a1, a1, $0100
-        80076354	sll    a1, a1, $10
-        80076358	sra    a1, a1, $10
-        8007635C	addiu  a2, s1, $01e0
-        80076360	sll    a2, a2, $10
-        80076364	sra    a2, a2, $10
-        80076368	sll    a3, s5, $10
-        8007636C	sra    a3, a3, $10
-        80076370	sll    v0, s0, $10
-        80076374	sra    v0, v0, $10
-        80076378	sw     v0, $0010(sp)
-        8007637C	ori    v0, zero, $0040
-        80076380	sw     v0, $0014(sp)
+        if( hu[V1 + 5a] & 0001 )
+        {
+            A0 = w[V1 + 4];
+            80076340	jal    func22f24 [$80022f24]
+        }
+
+        A0 = S4;
+        A1 = 100 + S6 * 10;
+        A2 = S1 + 1e0;
+        A3 = S5;
+        A4 = S0;
+        A5 = 40;
+        A6 = S6;
         80076384	jal    func240a0 [$800240a0]
-        80076388	sw     s6, $0018(sp)
     }
 
-    8007638C	lui    v1, $800b
-    80076390	lw     v1, $efe4(v1)
-    80076394	addu   s0, v0, zero
-    80076398	addu   v1, s2, v1
-    800763A0	sw     s0, $0004(v1)
+    V1 = w[800aefe4];
+    S0 = V0;
+    [S2 + V1 + 4] = w(S0);
 }
 else
 {
-    800763A4	lui    v0, $800b
-    800763A8	lw     v0, $efe4(v0)
-    800763AC	nop
-    800763B0	addu   v1, s2, v0
-    800763B4	lhu    v0, $005a(v1)
-    800763B8	nop
-    800763BC	andi   v0, v0, $0001
-    800763C0	beq    v0, zero, L763d8 [$800763d8]
-    800763C4	ori    v0, zero, $0001
-    800763C8	lw     a0, $0004(v1)
-    800763CC	jal    func22f24 [$80022f24]
-    800763D0	nop
-    800763D4	ori    v0, zero, $0001
+    V1 = w[800aefe4] + S2;
 
-    L763d8:	; 800763D8
-    800763D8	bne    s7, v0, L76400 [$80076400]
-    800763DC	sll    v0, s1, $06
-    800763E0	addiu  s0, v0, $0100
-    800763E4	addu   a0, s4, zero
-    800763E8	ori    a1, zero, $0100
-    800763EC	addiu  a2, s1, $00e0
-    800763F0	sll    a2, a2, $10
-    800763F4	sra    a2, a2, $10
-    800763F8	j      L7641c [$8007641c]
-    800763FC	ori    a3, zero, $0280
+    if( hu[V1 + 5a] & 0001 )
+    {
+        A0 = w[V1 + 4];
+        800763CC	jal    func22f24 [$80022f24]
+    }
 
-    L76400:	; 80076400
-    80076400	addiu  s0, v0, $0100
-    80076404	addu   a0, s4, zero
-    80076408	ori    a1, zero, $0100
-    8007640C	addiu  a2, s1, $00e3
-    80076410	sll    a2, a2, $10
-    80076414	sra    a2, a2, $10
-    80076418	ori    a3, zero, $02a0
+    if( S7 == 1 )
+    {
+        S0 = S1 << 6 + 100;
+        A0 = S4;
+        A1 = 100;
+        A2 = S1 + e0;
+        A3 = 280;
+    }
+    else
+    {
+        S0 = S1 << 6 + 100;
+        A0 = S4;
+        A1 = 100;
+        A2 = S1 + e3;
+        A3 = 2a0;
+    }
 
-    L7641c:	; 8007641C
-    8007641C	sll    v0, s0, $10
-    80076420	sra    v0, v0, $10
-    80076424	sw     v0, $0010(sp)
-    80076428	ori    v0, zero, $0008
-    8007642C	jal    func24330 [$80024330]
-    80076430	sw     v0, $0014(sp)
-    80076434	addu   s0, v0, zero
-    80076438	addu   a0, s0, zero
-    8007643C	lui    v0, $800b
-    80076440	lw     v0, $efe4(v0)
-    80076444	ori    a1, zero, $0020
-    80076448	addu   v0, s2, v0
+    A4 = S0;
+    A5 = 8;
+    func24330; // sprite set up
+    S0 = V0;
+
+    A0 = S0;
+    V0 = w[800aefe4];
+    A1 = 20;
+    [S2 + V0 + 4] = w(S0);
     8007644C	jal    func231cc [$800231cc]
-    80076450	sw     s0, $0004(v0)
 }
 
-80076454	addu   a0, s0, zero
-80076458	addu   a1, zero, zero
-8007645C	addiu  a2, sp, $0020
+A0 = S0;
+A1 = 0;
+A2 = SP + 20;
+
 80076460	sll    v0, s3, $01
 80076464	addu   v0, v0, s3
 80076468	sll    v0, v0, $03
@@ -351,7 +312,7 @@ else
 8007647C	addu   v1, s1, v1
 80076480	lhu    v0, $005a(v1)
 80076484	addiu  a3, sp, $0024
-80076488	ori    v0, v0, $0001
+-80076488	ori    v0, v0, $0001
 8007648C	sh     v0, $005a(v1)
 80076490	addiu  v0, sp, $0028
 80076494	jal    func1f434 [$8001f434]
@@ -453,10 +414,11 @@ L765c8:	; 800765C8
 800765F4	addiu  a1, a1, $6104
 800765F8	jal    func21a40 [$80021a40]
 800765FC	sh     s3, $0014(v0)
-if (FP == 0)
+if( FP == 0 )
 {
+    A0 = S0;
     80076608	jal    func23090 [$80023090]
-    8007660C	addu   a0, s0, zero
+
     80076610	jal    func1c7f0 [$8001c7f0]
     80076614	nop
     80076618	lw     v0, $007c(s0)

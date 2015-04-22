@@ -13,8 +13,8 @@ v80  variable from memory which can be immediate value if 0x8000 bit is set.
 
 //////////////////////////////////////////////////////////////////
 // ENTITY_INIT
-0x0B_EntityNPCInit(v80 model_id);
-    init values for entity with model.
+0x0B_EntityNPCSpriteInit( v80 sprite_id );
+    init npc sprite.
 
 0x16_EntityPCInit(v80 character_id);
     init values for player character entity with model.

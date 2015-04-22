@@ -148,6 +148,11 @@ ScriptFile::GetScripts()
                     export_script->Log("\", jump_if_false=" + GetU16Variable( script_pointer + 5 ) + " );" );
                     script_pointer += 7;
                 }
+                else if( opcode == 0x0b )
+                {
+                    export_script->Log("EntityNPCSpriteInit( sprite_id=" + GetV80Variable( script_pointer ) + " );");
+                    script_pointer += 2;
+                }
                 else if( opcode == 0x26 )
                 {
                     export_script->Log( "Wait( time=" + GetV80Variable( script_pointer ) + " );" );
@@ -170,12 +175,6 @@ ScriptFile::GetScripts()
                 }
 
 /*
-                else if (opcode == 0x0B)
-                {
-                    LOGGER->Log("0x0B_EntityNPCInit");
-                    GetV80Variable(script_pointer, "model_id");
-                    LOGGER->Log("; // init values for entity with model.\n");
-                }
                 else if (opcode == 0x16)
                 {
                     LOGGER->Log("0x16_EntityPCInit");
