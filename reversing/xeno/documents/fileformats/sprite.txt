@@ -1,6 +1,20 @@
+sprite_0
++00 [][]     0x003f - number of animations.
++02 array of pointers to animations data 2 bytes each.
+
+
+
+
+
+
+
+
+
+
+
 sprite_1
-+00 []       number of frames
-+01 []
++00 [][]     0x00ff - number of frames
+             0xfe00 - number of something (allocate 0x18 for each item)
 +02 array of frame offsets to frame data 2 bytes each
 
 
