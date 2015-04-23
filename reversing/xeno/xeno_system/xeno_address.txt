@@ -315,6 +315,10 @@
 
 
 allocated place for sprite data (size 0x164).
++  c [][][][] init with 0 in some cases.
++ 10 [][][][] init with 0 in some cases.
++ 14 [][][][] init with 0 in some cases.
++ 18 [][][][] init with 0 in some cases.
 + 1c [][][][] some multiplication of +82 with w[80058810 + 28] + 1
 + 20 [][][][] pointer to +b4.
 + 24 [][][][] pointer to +110.
@@ -334,7 +338,7 @@ allocated place for sprite data (size 0x164).
 + 54 [][][][] pointer to some data related with sprite direction in sprite data file 0.
 + 58 [][][][] pointer to animation data in sprite data file 0.
 + 60 [][][][] pointer to 1st animation data in sprite data file 0.
-+ 64 [][][][] pointer to palette data in sprite data file 0.
++ 64 [][][][] pointer to some data in sprite data file 0.
 + 68 [][][][] init with 0.
 + 6c [][][][] init with 0. Pointer to itself (allocated struct start).
 + 70 [][][][] init with 0.
@@ -349,12 +353,21 @@ allocated place for sprite data (size 0x164).
 + af []       animation id to play.
 + b0 [][][][] init with 0.
 + b4 start of some data (+20 points here)
-    + 00 [][]     init with 0.
-    + 02 [][]     init with 0.
-    + 04 [][]     init with 0.
+    + 00 [][]     rotation x.
+    + 02 [][]     rotation y.
+    + 04 [][]     rotation z.
     + 06 [][]     init with 0x1000.
     + 08 [][]     init with 0x1000.
     + 0a [][]     init with 0x1000.
+    + 0c [][]     rot matrix 00.
+    + 0e [][]     rot matrix 01.
+    + 10 [][]     rot matrix 02.
+    + 12 [][]     rot matrix 10.
+    + 14 [][]     rot matrix 11.
+    + 16 [][]     rot matrix 12.
+    + 18 [][]     rot matrix 20.
+    + 1a [][]     rot matrix 21.
+    + 1c [][]     rot matrix 22.
     + 2c [][][][] pointer to allocated data for something.
     + 30 [][][][] pointer to allocated data for something.
     + 34 [][][][] pointer to +124.

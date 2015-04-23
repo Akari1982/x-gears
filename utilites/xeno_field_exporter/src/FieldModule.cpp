@@ -207,6 +207,7 @@ FieldModule::LoadMap( const int file_id )
 
     delete field_pack;
 
+    vram->Save( "exported/texture.png" );
     delete vram;
 }
 

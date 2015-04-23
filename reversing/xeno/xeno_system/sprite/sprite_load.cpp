@@ -343,49 +343,40 @@ if( ((hu[animation_data + 0] >> b) & 0001) == 0 )
 V1 = w[struct + 20];
 if( V1 != 0 )
 {
-    // 80023508 : LHU     00000000 (v0), 0000 (80112828 (s1)) [80112828]
     V0 = (hu[animation_data + 0] >> c) & 0001;
     if( V0 == 0 )
     {
         [V1 + 0] = h(0);
         [V1 + 2] = h(0);
         [V1 + 4] = h(0);
+
         A0 = struct;
-        80023528	jal    func21eec [$80021eec]
+        func21eec;
     }
 
-    // 80023530 : LHU     00000000 (v0), 0000 (80112828 (s1)) [80112828]
-    V0 = (hu[animation_data + 0] >> d) & 0001;
-
-    80023540	bne    v0, zero, L2356c [$8002356c]
-
-    V0 = bu[8005884d];
-    80023554	beq    v0, zero, L23588 [$80023588]
-
-    A0 = struct;
-    A1 = w[80058848];
-    80023564	jal    func21e60 [$80021e60]
-
-    L2356c:	; 8002356C
-    V0 = bu[8005884d];
-    if( V0 != 0 )
+    if( bu[8005884d] != 0 )
     {
+        if( ( (hu[animation_data + 0] >> d) & 0001 ) == 0 )
+        {
+            A0 = struct;
+            A1 = w[80058848];
+            80023564	jal    func21e60 [$80021e60]
+        }
+
         A0 = struct;
-        80023580	jal    func21eec [$80021eec]
+        func21eec;
     }
-    L23588:	; 80023588
 
     if( (w[struct + 3c] & 00000003) == 00000001 )
     {
         V0 = w[struct + 20];
         [V0 + 3c] = b(0);
         [V0 + 3d] = b(0);
-        V0 = w[struct + 40] & 00100000;
-        if( V0 == 0 )
+
+        if( (w[struct + 40] & 00100000) == 0 )
         {
             V0 = w[struct + 20];
-            V0 = w[V0 + 34];
-            if( V0 != 0 )
+            if( w[V0 + 34] != 0 )
             {
                 A0 = struct;
                 800235D8	jal    func2332c [$8002332c]
@@ -411,6 +402,142 @@ if( V1 != 0 )
         [V0 + c] = h(0)
     }
 }
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func21eec
+struct = S2 = A0;
+S1 = SP + 60;
+if( (w[S2 + 40] & 1) == 0 )
+{
+    A0 = w[S2 + 20]; // rot data
+    A1 = A0 + c;
+    func3f5e0; // calculate rotation matrix
+
+    V0 = w[S2 + 20];
+    [SP + 20] = w(h[V0 + 6]);
+    [SP + 24] = w(h[V0 + 8]);
+    [SP + 28] = w(h[V0 + a]);
+
+    A0 = w[S2 + 20] + c; // rot matrix
+    A1 = SP + 20;
+    func495f4; // multiply matrix with vector
+}
+else
+{
+    80021F78	lui    a1, $8002
+    80021F7C	addiu  a1, a1, $8614 (=-$79ec)
+    80021F80	lw     v0, $0000(a1)
+    80021F84	lw     v1, $0004(a1)
+    80021F88	lw     a0, $0008(a1)
+    80021F8C	sw     v0, $0060(sp)
+    80021F90	sw     v1, $0064(sp)
+    80021F94	sw     a0, $0068(sp)
+    80021F98	lw     v0, $000c(a1)
+    80021F9C	lw     v1, $0010(a1)
+    80021FA0	lw     a0, $0014(a1)
+    80021FA4	sw     v0, $006c(sp)
+    80021FA8	sw     v1, $0070(sp)
+    80021FAC	sw     a0, $0074(sp)
+    80021FB0	lw     v0, $0018(a1)
+    80021FB4	lw     v1, $001c(a1)
+    80021FB8	sw     v0, $0078(sp)
+    80021FBC	sw     v1, $007c(sp)
+    80021FC0	lw     v0, $0020(s2)
+    80021FC4	nop
+    80021FC8	lh     v0, $0006(v0)
+    80021FCC	nop
+    80021FD0	sw     v0, $0030(sp)
+    80021FD4	lw     v0, $0020(s2)
+    80021FD8	nop
+    80021FDC	lh     v0, $0008(v0)
+    80021FE0	nop
+    80021FE4	sw     v0, $0034(sp)
+    80021FE8	lw     v0, $0020(s2)
+    80021FEC	addu   a0, s1, zero
+    80021FF0	lh     v0, $000a(v0)
+    80021FF4	addiu  a1, sp, $0030
+    80021FFC	sw     v0, $0038(sp)
+    func495f4; // multiply matrix with vector
+
+    S0 = SP + 40;
+
+    A0 = w[S2 + 20];
+    A1 = S0;
+    func3f5e0; // calculate rotation matrix
+
+    80022010	addu   a0, s0, zero
+    80022014	lw     a2, $0020(s2)
+    80022018	addu   a1, s1, zero
+    8002201C	jal    func490b4 [$800490b4]
+    80022020	addiu  a2, a2, $000c
+}
+
+80022024	lhu    v0, $003a(s2)
+if( V0 != 0 )
+{
+    80022030	srl    v0, v0, $01
+    80022034	sw     v0, $0020(sp)
+    80022038	lhu    v0, $003a(s2)
+    8002203C	nop
+    80022040	srl    v0, v0, $01
+    80022044	sw     v0, $0024(sp)
+    80022048	lhu    v0, $003a(s2)
+    8002204C	nop
+    80022050	srl    v0, v0, $01
+    80022054	sw     v0, $0028(sp)
+    80022058	lw     a0, $0020(s2)
+    80022064	addiu  a0, a0, $000c
+    8002205C	addiu  a1, sp, $0020
+    80022060	jal    func49c74 [$80049c74]
+}
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func3f5e0
+rot_x = h[A0 + 0] & 0fff;
+cos_x = h[80051a90 + rot_x * 4 + 0];
+sin_x = h[80051a90 + rot_x * 4 + 2];
+
+rot_y = h[A0 + 2] & 0fff;
+cos_y = h[80051a90 + rot_y * 4 + 0];
+sin_y = h[80051a90 + rot_y * 4 + 2];
+
+rot_z = h[A0 + 4] & 0fff;
+cos_z = h[80051a90 + rot_z * 4 + 0];
+sin_z = h[80051a90 + rot_z * 4 + 2];
+
+[A1 + 0] = h((sin_z * sin_y) >> c);
+[A1 + 2] = h((0 - (cos_z * sin_y)) >> c);
+[A1 + 4] = h(cos_y);
+[A1 + 6] = h(((cos_z * sin_x) >> c) - ((((sin_z * (0 - cos_y)) >> c) * cos_x) >> c));
+[A1 + 8] = h(((sin_z * sin_x) >> c) + ((((cos_z * (0 - cos_y)) >> c) * cos_x) >> c));
+[A1 + a] = h((0 - (sin_y * cos_x)) >> c);
+[A1 + c] = h(((cos_z * sin_y * sin_x) >> c) + ((cos_z * cos_x) >> c));
+[A1 + e] = h(((sin_z * cos_x) >> c) - ((((cos_z * (0 - cos_y)) >> c) * sin_x) >> c));
+[A1 + 10] = h((sin_y * sin_x) >> c);
+return A1;
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func495f4
+[A0 + 0] = h((h[A0 + 0] * w[A1 + 0]) >> c);
+[A0 + 2] = h((h[A0 + 2] * w[A1 + 0]) >> c);
+[A0 + 4] = h((h[A0 + 4] * w[A1 + 0]) >> c);
+[A0 + 6] = h((h[A0 + 6] * w[A1 + 4]) >> c);
+[A0 + 8] = h((h[A0 + 8] * w[A1 + 4]) >> c);
+[A0 + a] = h((h[A0 + a] * w[A1 + 4]) >> c);
+[A0 + c] = h((h[A0 + c] * w[A1 + 8]) >> c);
+[A0 + e] = h((h[A0 + e] * w[A1 + 8]) >> c);
+[A0 + 10] = h((h[A0 + 10] * w[A1 + 8]) >> c);
+
+return A0;
 ////////////////////////////////
 
 
