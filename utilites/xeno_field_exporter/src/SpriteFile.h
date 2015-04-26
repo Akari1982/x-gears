@@ -22,9 +22,14 @@ struct Tile
     s8 height;
 };
 
+struct Frame
+{
+    std::vector< Tile > tile;
+};
+
 struct Sprite
 {
-    std::vector< Tile > frame;
+    std::vector< Frame > frame;
 };
 
 
@@ -37,7 +42,7 @@ public:
 
     void Initialise();
 
-    void Update();
+    void Update( float delta );
     void UpdateGeometry();
 
     void CreateVertexBuffer();
@@ -47,6 +52,9 @@ public:
 
 private:
     Sprite m_Sprite;
+    size_t m_NumberOfFrames;
+    size_t m_FrameId;
+    float m_Timer;
 
     Ogre::MaterialPtr                   m_Material;
     Ogre::SceneManager*                 m_SceneManager;

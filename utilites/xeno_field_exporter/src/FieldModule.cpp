@@ -36,8 +36,6 @@ FieldModule::LoadMap( const int file_id )
     File* texture = new File( "data/field/0" + IntToString( file_id + 1 ) + ".raw2" );
     for( u32 i = 0; i < texture->GetFileSize(); )
     {
-        vram->Save( "exported/texture_" + IntToString( i ) + ".png" );
-
         u32 texture_header_id = texture->GetU32LE( i + 0x00 );
         u16 texture_header_vram_x = texture->GetU16LE( i + 0x04 );
         u16 texture_header_vram_y = texture->GetU16LE( i + 0x06 );
@@ -117,6 +115,7 @@ FieldModule::LoadMap( const int file_id )
     delete temp;
 
     // part 1
+    /*
     temp = field_pack->Extract( 1 );
     WalkmeshFile* walk = new WalkmeshFile( temp );
     temp->WriteFile( "exported/1_walkmesh" );
@@ -127,8 +126,10 @@ FieldModule::LoadMap( const int file_id )
     walkmesh->SetUpWalkmesh();
     Ogre::SceneNode* node = Ogre::Root::getSingleton().getSceneManager("Scene")->getRootSceneNode()->createChildSceneNode();
     node->attachObject( walkmesh );
+    */
 
     // part 2
+    /*
     temp = field_pack->Extract( 2 );
     {
         FieldModel model;
@@ -136,6 +137,7 @@ FieldModule::LoadMap( const int file_id )
     }
     temp->WriteFile( "exported/2_3dmodel" );
     delete temp;
+    */
 
     // part 3
     temp = field_pack->Extract( 3 );
@@ -214,11 +216,11 @@ FieldModule::LoadMap( const int file_id )
 
 
 void
-FieldModule::Update()
+FieldModule::Update( float delta )
 {
     if( sprite != NULL )
     {
-        sprite->Update();
+        sprite->Update( delta );
     }
 
     if( walkmesh != NULL )

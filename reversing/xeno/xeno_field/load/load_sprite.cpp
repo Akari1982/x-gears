@@ -67,10 +67,9 @@ A1 = S0; // from here
 A2 = w[80059b50]; // this much
 system_copy_memory; // copy clut/texture data
 
-800A5234	lui    a0, $8006
-800A5238	lw     a0, $9b70(a0)
-800A523C	jal    func31ec8 [$80031ec8]
-800A5240	nop
+A0 = w[80059b70];
+[A0 - 4] = w(w[A0 - 4] | 02000000);
+
 800A5248	addu   a0, s0, zero
 800A5244	jal    func31f0c [$80031f0c]
 
@@ -542,7 +541,7 @@ La5898:	; 800A5898
 80070394	sw     a0, $0040(sp)
 80070398	lw     v0, $000c(a1)
 800703A0	sw     v0, $0044(sp)
-800703A4	jal    func6fc6c [$8006fc6c]
+func6fc6c;
 
 A2 = w[80059b70];
 A3 = 800b144c;

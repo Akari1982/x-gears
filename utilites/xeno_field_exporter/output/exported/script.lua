@@ -250,7 +250,7 @@ EntityContainer[ "Entity_08" ] = {
 
 EntityContainer[ "Entity_09" ] = {
     script_00 = function( self )
-        EntityNPCInit( model_id=0x0006 ); -- 0x0174 0x0b
+        EntityNPCSpriteInit( sprite_id=0x0006 ); -- 0x0174 0x0b
         MISSING OPCODE 0x20
     end,
 
@@ -309,7 +309,7 @@ EntityContainer[ "Entity_0a" ] = {
 
 EntityContainer[ "Entity_0b" ] = {
     script_00 = function( self )
-        EntityNPCInit( model_id=0x0002 ); -- 0x02de 0x0b
+        EntityNPCSpriteInit( sprite_id=0x0002 ); -- 0x02de 0x0b
         MISSING OPCODE 0x19
     end,
 
@@ -343,7 +343,7 @@ EntityContainer[ "Entity_0b" ] = {
 
 EntityContainer[ "Entity_0c" ] = {
     script_00 = function( self )
-        EntityNPCInit( model_id=0x0004 ); -- 0x03aa 0x0b
+        EntityNPCSpriteInit( sprite_id=0x0004 ); -- 0x03aa 0x0b
         MISSING OPCODE 0x20
     end,
 
@@ -383,7 +383,7 @@ EntityContainer[ "Entity_0c" ] = {
 
 EntityContainer[ "Entity_0d" ] = {
     script_00 = function( self )
-        EntityNPCInit( model_id=0x0000 ); -- 0x045c 0x0b
+        EntityNPCSpriteInit( sprite_id=0x0000 ); -- 0x045c 0x0b
         MISSING OPCODE 0x20
     end,
 
@@ -413,7 +413,7 @@ EntityContainer[ "Entity_0d" ] = {
 
 EntityContainer[ "Entity_0e" ] = {
     script_00 = function( self )
-        EntityNPCInit( model_id=0x0001 ); -- 0x048c 0x0b
+        EntityNPCSpriteInit( sprite_id=0x0001 ); -- 0x048c 0x0b
         MISSING OPCODE 0x20
     end,
 
@@ -442,7 +442,7 @@ EntityContainer[ "Entity_0e" ] = {
 
 EntityContainer[ "Entity_0f" ] = {
     script_00 = function( self )
-        EntityNPCInit( model_id=0x0003 ); -- 0x04c5 0x0b
+        EntityNPCSpriteInit( sprite_id=0x0003 ); -- 0x04c5 0x0b
         Return(); -- 0x04c8 0x00
     end,
 

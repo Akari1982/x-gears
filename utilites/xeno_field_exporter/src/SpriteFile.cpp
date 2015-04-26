@@ -15,6 +15,10 @@ SpriteFile::SpriteFile( File* file, Vram* vram ):
 
     Logger* log = new Logger( "exported/sprite.txt" );
 
+    m_NumberOfFrames = 0;
+    m_FrameId = 0;
+    m_Timer = 0;
+
     MeshData data;
     data.name = "sprite";
     data.tex_width = 256;
@@ -23,139 +27,159 @@ SpriteFile::SpriteFile( File* file, Vram* vram ):
 
     PacketFile* sub_pack = new PacketFile( file );
     File* sprite0 = sub_pack->ExtractFile( 0 );
-    
-    delete sprite0;
     File* sprite1 = sub_pack->ExtractFile( 1 );
+    File* sprite2 = sub_pack->ExtractFile( 2 );
+    delete sub_pack;
 
-    u8 frame_id = 0;
-    u16 frame_offset = sprite1->GetU16LE( 0x02 + frame_id * 0x02 );
 
-    u8 number_of_tile = sprite1->GetU8( frame_offset ) & 0x3f;
-    u8 double_size_tile = sprite1->GetU8( frame_offset ) & 0x80;
 
-    log->Log( "number_of_tile = 0x" + HexToString( number_of_tile, 2, '0' ) + "\n" );
-    log->Log( "double_size_tile = 0x" + HexToString( double_size_tile, 2, '0' ) + "\n" );
+    m_NumberOfFrames = sprite1->GetU16LE( 0 ) & 0xff;
 
-    u16 offset_to_tile_position = frame_offset + 0x04 + number_of_tile * 0x02;
-
-    for( u8 i = 0; i < number_of_tile; ++i )
+    for( u8 frame_id = 0; frame_id < m_NumberOfFrames; ++frame_id )
     {
-        Tile tile;
-        log->Log( "tile_" + HexToString( i, 2, '0' ) + "\n" );
-        u16 offset_to_tile_desc = sprite1->GetU16LE( frame_offset + 0x04 + i * 0x02 );
+        Frame frame;
 
-        while( true )
+        u16 frame_offset = sprite1->GetU16LE( 0x02 + frame_id * 0x02 );
+
+        u8 number_of_tile = sprite1->GetU8( frame_offset ) & 0x3f;
+        u8 double_size_tile = sprite1->GetU8( frame_offset ) & 0x80;
+
+        log->Log( "number_of_tile = 0x" + HexToString( number_of_tile, 2, '0' ) + "\n" );
+        log->Log( "double_size_tile = 0x" + HexToString( double_size_tile, 2, '0' ) + "\n" );
+
+        u16 offset_to_tile_position = frame_offset + 0x04 + number_of_tile * 0x02;
+
+        for( u8 i = 0; i < number_of_tile; ++i )
         {
-            u8 pos_flag = sprite1->GetU8( offset_to_tile_position );
-            log->Log( "    pos_flag = 0x" + HexToString( pos_flag, 2, '0' ) + "\n" );
+            Tile tile;
+            log->Log( "tile_" + HexToString( i, 2, '0' ) + "\n" );
+            u16 offset_to_tile_desc = sprite1->GetU16LE( frame_offset + 0x04 + i * 0x02 );
 
-            if( pos_flag & 0x80 )
+            while( true )
             {
-                offset_to_tile_position += 1;
-                if( pos_flag & 40 )
-                {
-                    if( pos_flag & 20 )
-                    {
-                        offset_to_tile_position += 2;
-                    }
+                u8 pos_flag = sprite1->GetU8( offset_to_tile_position );
+                log->Log( "    pos_flag = 0x" + HexToString( pos_flag, 2, '0' ) + "\n" );
 
-                    if( pos_flag & 10 )
+                if( pos_flag & 0x80 )
+                {
+                    offset_to_tile_position += 1;
+                    if( pos_flag & 40 )
                     {
-                        offset_to_tile_position += 1;
+                        if( pos_flag & 20 )
+                        {
+                            offset_to_tile_position += 2;
+                        }
+
+                        if( pos_flag & 10 )
+                        {
+                            offset_to_tile_position += 1;
+                        }
+                    }
+                    else
+                    {
+                        if( pos_flag & 01 ) // width increase
+                        {
+                            offset_to_tile_position += 1;
+                        }
+                        if( pos_flag & 02 ) // height increase
+                        {
+                            offset_to_tile_position += 1;
+                        }
                     }
                 }
                 else
                 {
-                    if( pos_flag & 01 ) // width increase
-                    {
-                        offset_to_tile_position += 1;
-                    }
-                    if( pos_flag & 02 ) // height increase
-                    {
-                        offset_to_tile_position += 1;
-                    }
+                    break;
                 }
+            }
+
+
+
+            int clut_x = 0x100;
+            int clut_y = 0x1e0;
+            int vram_x = 0x180;
+            int vram_y = 0x100;
+            TexForGen texture;
+            texture.palette_x = clut_x;
+            texture.palette_y = clut_y;
+            texture.texture_x = vram_x;
+            texture.texture_y = vram_y;
+            texture.bpp = BPP_4;
+            AddTexture( texture, data, textures, log );
+
+
+
+            if( double_size_tile == true )
+            {
+                tile.x = sprite1->GetU16LE( offset_to_tile_position + 1 );
+                log->Log( "    x = 0x" + HexToString( tile.x, 4, '0' ) + "\n" );
+                tile.y = sprite1->GetU16LE( offset_to_tile_position + 3 );
+                log->Log( "    y = 0x" + HexToString( tile.y, 4, '0' ) + "\n" );
+                offset_to_tile_position += 2;
             }
             else
             {
-                break;
+                tile.x = (s8)sprite1->GetU8( offset_to_tile_position + 1 );
+                log->Log( "    x = 0x" + HexToString( tile.x, 4, '0' ) + "\n" );
+                tile.y = (s8)sprite1->GetU8( offset_to_tile_position + 2 );
+                log->Log( "    y = 0x" + HexToString( tile.y, 4, '0' ) + "\n" );
             }
+            offset_to_tile_position += 3;
+
+
+
+            u8 offset = 0;
+            u8 flags = sprite1->GetU8( offset_to_tile_desc + offset ); ++offset;
+            log->Log( "    flags = 0x" + HexToString( flags, 2, '0' ) + "\n" );
+            if( flags & 0x10 )
+            {
+                u8 flags2 = sprite1->GetU8( offset_to_tile_desc + offset ); ++offset;
+                log->Log( "    flags2 = 0x" + HexToString( flags2, 2, '0' ) + "\n" );
+            }
+
+
+            tile.tex_x = sprite1->GetU8( offset_to_tile_desc + offset ); ++offset;
+            log->Log( "    tex_x = 0x" + HexToString( tile.tex_x, 2, '0' ) + "\n" );
+
+            tile.tex_y = sprite1->GetU8( offset_to_tile_desc + offset ); ++offset;
+            log->Log( "    tex_y = 0x" + HexToString( tile.tex_y, 2, '0' ) + "\n" );
+
+            tile.width = sprite1->GetU8( offset_to_tile_desc + offset ); ++offset;
+            log->Log( "    width = 0x" + HexToString( tile.width, 2, '0' ) + "\n" );
+
+            tile.height = sprite1->GetU8( offset_to_tile_desc + offset ); ++offset;
+            log->Log( "    height = 0x" + HexToString( tile.height, 2, '0' ) + "\n" );
+
+            frame.tile.push_back( tile );
         }
 
-
-
-        int clut_x = 0x100;
-        int clut_y = 0x1e3;
-        int vram_x = 0x140;
-        int vram_y = 0x100;
-        TexForGen texture;
-        texture.palette_x = ( clut_x + ( ( sprite1->GetU8( offset_to_tile_position ) & 0x0f ) << 4 ) ) / 2;
-        texture.palette_y = clut_y;
-        texture.texture_x = vram_x;
-        texture.texture_y = vram_y;
-        texture.bpp = BPP_8;
-        AddTexture( texture, data, textures, log );
-
-
-
-        if( double_size_tile == true )
-        {
-            tile.x = sprite1->GetU16LE( offset_to_tile_position + 1 );
-            log->Log( "    x = 0x" + HexToString( tile.x, 4, '0' ) + "\n" );
-            tile.y = sprite1->GetU16LE( offset_to_tile_position + 3 );
-            log->Log( "    y = 0x" + HexToString( tile.y, 4, '0' ) + "\n" );
-            offset_to_tile_position += 2;
-        }
-        else
-        {
-            tile.x = (s8)sprite1->GetU8( offset_to_tile_position + 1 );
-            log->Log( "    x = 0x" + HexToString( tile.x, 4, '0' ) + "\n" );
-            tile.y = (s8)sprite1->GetU8( offset_to_tile_position + 2 );
-            log->Log( "    y = 0x" + HexToString( tile.y, 4, '0' ) + "\n" );
-        }
-        offset_to_tile_position += 3;
-
-
-
-        u8 offset = 0;
-        u8 flags = sprite1->GetU8( offset_to_tile_desc + offset ); ++offset;
-        log->Log( "    flags = 0x" + HexToString( flags, 2, '0' ) + "\n" );
-        if( flags & 0x10 )
-        {
-            u8 flags2 = sprite1->GetU8( offset_to_tile_desc + offset ); ++offset;
-            log->Log( "    flags2 = 0x" + HexToString( flags2, 2, '0' ) + "\n" );
-        }
-
-
-        tile.tex_x = sprite1->GetU8( offset_to_tile_desc + offset ); ++offset;
-        log->Log( "    tex_x = 0x" + HexToString( tile.tex_x, 2, '0' ) + "\n" );
-
-        tile.tex_y = sprite1->GetU8( offset_to_tile_desc + offset ); ++offset;
-        log->Log( "    tex_y = 0x" + HexToString( tile.tex_y, 2, '0' ) + "\n" );
-
-        tile.width = sprite1->GetU8( offset_to_tile_desc + offset ); ++offset;
-        log->Log( "    width = 0x" + HexToString( tile.width, 2, '0' ) + "\n" );
-
-        tile.height = sprite1->GetU8( offset_to_tile_desc + offset ); ++offset;
-        log->Log( "    height = 0x" + HexToString( tile.height, 2, '0' ) + "\n" );
-
-        m_Sprite.frame.push_back( tile );
+        m_Sprite.frame.push_back( frame );
     }
 
 
 
+    log->Log( "Sprite palette:\n" );
+    for( int x = 0; x < 0x10; ++x )
+    {
+        u16 color = sprite2->GetU16LE( 4 + 0 * 20 + x * 0x02 );
+        log->Log( "    0x" + HexToString( color, 4, '0' ) + "\n" );
+        vram->PutU16( 0x100 * 2 + x * 2, 0x1e0, color );
+    }
+
+
+
+    delete sprite0;
     delete sprite1;
-    File* sprite2 = sub_pack->ExtractFile( 2 );
     delete sprite2;
-    delete sub_pack;
 
 
 
     // create and export textures for model
     if( textures.size() > 0 )
     {
-        CreateTexture( vram, data, "exported/models/xeno/" + data.name + ".png", textures );
+        CreateTexture( vram, data, "exported/models/xeno/sprite.png", textures );
     }
+    //CreateMaterial( "xeno/sprite", "exported/models/xeno/sprite.material", ( textures.size() > 0 ) ? "models/xeno/" + data.name + ".png" : "", "", "" );
 
 
 
@@ -200,19 +224,19 @@ SpriteFile::Initialise()
     m_RenderOp.operationType = Ogre::RenderOperation::OT_TRIANGLE_LIST;
     m_RenderOp.useIndexes = false;
 
-    m_Material = Ogre::MaterialManager::getSingleton().create( "sprite", "General" );
+    m_Material = Ogre::MaterialManager::getSingleton().create( "xeno/sprite", "General" );
     Ogre::Pass* pass = m_Material->getTechnique( 0 )->getPass( 0 );
-    pass->setVertexColourTracking( Ogre::TVC_AMBIENT );
+    //pass->setVertexColourTracking( Ogre::TVC_AMBIENT );
     pass->setCullingMode( Ogre::CULL_NONE );
-    pass->setDepthCheckEnabled( true );
-    pass->setDepthWriteEnabled( true );
+    //pass->setDepthCheckEnabled( true );
+    //pass->setDepthWriteEnabled( true );
     pass->setLightingEnabled( false );
-    pass->setSceneBlending( Ogre::SBT_TRANSPARENT_ALPHA );
+    //pass->setSceneBlending( Ogre::SBT_TRANSPARENT_ALPHA );
 
-    pass->setAlphaRejectFunction( Ogre::CMPF_GREATER );
-    pass->setAlphaRejectValue( 0 );
+    //pass->setAlphaRejectFunction( Ogre::CMPF_GREATER );
+    //pass->setAlphaRejectValue( 0 );
     Ogre::TextureUnitState* tex = pass->createTextureUnitState();
-    //tex->setTextureName( "system/blank.png" );
+    tex->setTextureName( "models/xeno/sprite.png" );
     tex->setNumMipmaps( -1 );
     tex->setTextureFiltering( Ogre::TFO_NONE );
 
@@ -222,20 +246,34 @@ SpriteFile::Initialise()
 
 
 void
-SpriteFile::Update()
+SpriteFile::Update( float delta )
 {
+    m_Timer += delta;
+    if( m_Timer > 1 )
+    {
+        m_Timer = 0;
+
+        m_FrameId += 1;
+        if( m_FrameId >= m_NumberOfFrames )
+        {
+            m_FrameId = 0;
+        }
+    }
+
     s32 global_x = 100;
-    s32 global_y = 100;
+    s32 global_y = 300;
+    float scale = 4.0f;
 
     DEBUG_DRAW.SetScreenSpace( true );
     DEBUG_DRAW.SetColour( Ogre::ColourValue( 1, 0, 0, 1 ) );
 
-    for( u8 i = 0; i < m_Sprite.frame.size(); ++i )
+    Frame frame = m_Sprite.frame[ m_FrameId ];
+    for( u8 i = 0; i < frame.tile.size(); ++i )
     {
-        s32 x1 = global_x + m_Sprite.frame[ i ].x;
-        s32 x2 = global_x + m_Sprite.frame[ i ].x + m_Sprite.frame[ i ].width;
-        s32 y1 = global_y + m_Sprite.frame[ i ].y;
-        s32 y2 = global_y + m_Sprite.frame[ i ].y + m_Sprite.frame[ i ].height;
+        s32 x1 = global_x + frame.tile[ i ].x * scale;
+        s32 x2 = global_x + frame.tile[ i ].x * scale + frame.tile[ i ].width * scale;
+        s32 y1 = global_y + frame.tile[ i ].y * scale;
+        s32 y2 = global_y + frame.tile[ i ].y * scale + frame.tile[ i ].height * scale;
 
         DEBUG_DRAW.Line( x1, y1, x2, y1 );
         DEBUG_DRAW.Line( x1, y2, x2, y2 );
@@ -264,23 +302,21 @@ SpriteFile::UpdateGeometry()
     float height = Ogre::Root::getSingleton().getRenderTarget( "QGearsWindow" )->getViewport( 0 )->getActualHeight();
 
     s32 global_x = 100;
-    s32 global_y = 100;
+    s32 global_y = 300;
+    float scale = 4.0f;
 
-    for( u8 i = 0; i < m_Sprite.frame.size(); ++i )
+    Frame frame = m_Sprite.frame[ m_FrameId ];
+    for( u8 i = 0; i < frame.tile.size(); ++i )
     {
-        float new_x1 = ( global_x + m_Sprite.frame[ i ].x ) / width * 2 - 1;
-        float new_y1 = -( ( global_y + m_Sprite.frame[ i ].y ) / height * 2 - 1 );
+        float new_x1 = ( global_x + frame.tile[ i ].x * scale ) / width * 2 - 1;
+        float new_y1 = -( ( global_y + frame.tile[ i ].y * scale ) / height * 2 - 1 );
+        float new_x2 = ( global_x + frame.tile[ i ].x * scale +frame.tile[ i ].width * scale ) / width * 2 - 1;
+        float new_y2 = -( ( global_y + frame.tile[ i ].y * scale + frame.tile[ i ].height * scale ) / height * 2 - 1 );
 
-        float new_x2 = ( global_x + m_Sprite.frame[ i ].x + m_Sprite.frame[ i ].width ) / width * 2 - 1;
-        float new_y2 = -( ( global_y + m_Sprite.frame[ i ].y ) / height * 2 - 1 );
-
-        float new_x3 = ( global_x + m_Sprite.frame[ i ].x + m_Sprite.frame[ i ].width ) / width * 2 - 1;
-        float new_y3 = -( ( global_y + m_Sprite.frame[ i ].y + m_Sprite.frame[ i ].height ) / height * 2 - 1 );
-
-        float new_x4 = ( global_x + m_Sprite.frame[ i ].x ) / width * 2 - 1;
-        float new_y4 = -( ( global_y + m_Sprite.frame[ i ].y + m_Sprite.frame[ i ].height ) / height * 2 - 1 );
-
-        const Ogre::Font::UVRect uv;
+        float tex_x1 = frame.tile[ i ].tex_x / 255.0f;
+        float tex_x2 = ( frame.tile[ i ].tex_x + frame.tile[ i ].width ) / 255.0f;
+        float tex_y1 = frame.tile[ i ].tex_y / 255.0f;
+        float tex_y2 = ( frame.tile[ i ].tex_y + frame.tile[ i ].height ) / 255.0f;
 
         *writeIterator++ = new_x1;
         *writeIterator++ = new_y1;
@@ -289,8 +325,18 @@ SpriteFile::UpdateGeometry()
         *writeIterator++ = 1;
         *writeIterator++ = 1;
         *writeIterator++ = 1;
-        *writeIterator++ = uv.left;
-        *writeIterator++ = uv.top;
+        *writeIterator++ = tex_x1;
+        *writeIterator++ = tex_y1;
+
+        *writeIterator++ = new_x2;
+        *writeIterator++ = new_y1;
+        *writeIterator++ = 0;
+        *writeIterator++ = 1;
+        *writeIterator++ = 1;
+        *writeIterator++ = 1;
+        *writeIterator++ = 1;
+        *writeIterator++ = tex_x2;
+        *writeIterator++ = tex_y1;
 
         *writeIterator++ = new_x2;
         *writeIterator++ = new_y2;
@@ -299,18 +345,8 @@ SpriteFile::UpdateGeometry()
         *writeIterator++ = 1;
         *writeIterator++ = 1;
         *writeIterator++ = 1;
-        *writeIterator++ = uv.right;
-        *writeIterator++ = uv.top;
-
-        *writeIterator++ = new_x3;
-        *writeIterator++ = new_y3;
-        *writeIterator++ = 0;
-        *writeIterator++ = 1;
-        *writeIterator++ = 1;
-        *writeIterator++ = 1;
-        *writeIterator++ = 1;
-        *writeIterator++ = uv.right;
-        *writeIterator++ = uv.bottom;
+        *writeIterator++ = tex_x2;
+        *writeIterator++ = tex_y2;
 
         *writeIterator++ = new_x1;
         *writeIterator++ = new_y1;
@@ -319,31 +355,112 @@ SpriteFile::UpdateGeometry()
         *writeIterator++ = 1;
         *writeIterator++ = 1;
         *writeIterator++ = 1;
-        *writeIterator++ = uv.left;
-        *writeIterator++ = uv.top;
+        *writeIterator++ = tex_x1;
+        *writeIterator++ = tex_y1;
 
-        *writeIterator++ = new_x3;
-        *writeIterator++ = new_y3;
+        *writeIterator++ = new_x2;
+        *writeIterator++ = new_y2;
         *writeIterator++ = 0;
         *writeIterator++ = 1;
         *writeIterator++ = 1;
         *writeIterator++ = 1;
         *writeIterator++ = 1;
-        *writeIterator++ = uv.right;
-        *writeIterator++ = uv.bottom;
+        *writeIterator++ = tex_x2;
+        *writeIterator++ = tex_y2;
 
-        *writeIterator++ = new_x4;
-        *writeIterator++ = new_y4;
+        *writeIterator++ = new_x1;
+        *writeIterator++ = new_y2;
         *writeIterator++ = 0;
         *writeIterator++ = 1;
         *writeIterator++ = 1;
         *writeIterator++ = 1;
         *writeIterator++ = 1;
-        *writeIterator++ = uv.left;
-        *writeIterator++ = uv.bottom;
+        *writeIterator++ = tex_x1;
+        *writeIterator++ = tex_y2;
 
         m_RenderOp.vertexData->vertexCount += 6;
     }
+
+
+
+    float new_x1 = 0;
+    float new_y1 = 0;
+    float new_x2 = 1;
+    float new_y2 = 0;
+    float new_x3 = 1;
+    float new_y3 = -1;
+    float new_x4 = 0;
+    float new_y4 = -1;
+
+    float tex_x1 = 0;
+    float tex_x2 = 1;
+    float tex_y1 = 0;
+    float tex_y2 = 1;
+
+
+    *writeIterator++ = new_x1;
+    *writeIterator++ = new_y1;
+    *writeIterator++ = 0;
+    *writeIterator++ = 1;
+    *writeIterator++ = 1;
+    *writeIterator++ = 1;
+    *writeIterator++ = 1;
+    *writeIterator++ = tex_x1;
+    *writeIterator++ = tex_y1;
+
+    *writeIterator++ = new_x2;
+    *writeIterator++ = new_y2;
+    *writeIterator++ = 0;
+    *writeIterator++ = 1;
+    *writeIterator++ = 1;
+    *writeIterator++ = 1;
+    *writeIterator++ = 1;
+    *writeIterator++ = tex_x2;
+    *writeIterator++ = tex_y1;
+
+    *writeIterator++ = new_x3;
+    *writeIterator++ = new_y3;
+    *writeIterator++ = 0;
+    *writeIterator++ = 1;
+    *writeIterator++ = 1;
+    *writeIterator++ = 1;
+    *writeIterator++ = 1;
+    *writeIterator++ = tex_x2;
+    *writeIterator++ = tex_y2;
+
+    *writeIterator++ = new_x1;
+    *writeIterator++ = new_y1;
+    *writeIterator++ = 0;
+    *writeIterator++ = 1;
+    *writeIterator++ = 1;
+    *writeIterator++ = 1;
+    *writeIterator++ = 1;
+    *writeIterator++ = tex_x1;
+    *writeIterator++ = tex_y1;
+
+    *writeIterator++ = new_x3;
+    *writeIterator++ = new_y3;
+    *writeIterator++ = 0;
+    *writeIterator++ = 1;
+    *writeIterator++ = 1;
+    *writeIterator++ = 1;
+    *writeIterator++ = 1;
+    *writeIterator++ = tex_x2;
+    *writeIterator++ = tex_y2;
+
+    *writeIterator++ = new_x4;
+    *writeIterator++ = new_y4;
+    *writeIterator++ = 0;
+    *writeIterator++ = 1;
+    *writeIterator++ = 1;
+    *writeIterator++ = 1;
+    *writeIterator++ = 1;
+    *writeIterator++ = tex_x1;
+    *writeIterator++ = tex_y2;
+
+    m_RenderOp.vertexData->vertexCount += 6;
+
+
 
     m_VertexBuffer->unlock();
 }

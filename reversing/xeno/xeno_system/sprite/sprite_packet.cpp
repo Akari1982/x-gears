@@ -21,20 +21,20 @@ if( w[S0 + 3c] & 4 )
 
 ////////////////////////////////
 // func1e264
-S3 = A0;
+struct = A0;
 packet_addr = A1;
-addr = w[S3 + 20];
+addr = w[struct + 20];
 addr2 = w[addr + 34];
 sprite_data = w[addr + 30];
-scale = (w[S3 + 40] >> 8) & 1f;
-number_of_tiles = (w[S3 + 40] >> 2) & 3f;
+scale = (w[struct + 40] >> 8) & 1f;
+number_of_tiles = (w[struct + 40] >> 2) & 3f;
 
 
 
 // offset for sprite
 offset_x = b[addr + 3c] << scale;
 offset_y = b[addr + 3d] << scale;
-if( w[S3 + ac] & 00000010 )
+if( w[struct + ac] & 00000010 )
 {
     offset_x = 0 - offset_x;
 }
@@ -56,24 +56,24 @@ L1e324:	; 8001E324
     if( add_id != V0 )
     {
         add_id = V0;
-        [SP + 78] = b((hu[8004f19c + add_id * 2] & bu[S3 + 3d]) < 1);
+        [SP + 78] = b((hu[8004f19c + add_id * 2] & bu[struct + 3d]) < 1);
 
         if( ( addr2 != 0 && ( ( hu[addr2 + add_id * 8 + 0] == 0 ) || ( h[addr2 + add_id * 8 + 6] != 0 ) )
         {
             S0 = b[addr2 + add_id * 8 + 0] << scale;
             S1 = b[addr2 + add_id * 8 + 1] << scale;
-            if( w[S3 + 3c] & 00000008 )
+            if( w[struct + 3c] & 00000008 )
             {
                 S0 = 0 - b[addr2 + add_id * 8 + 0] << scale;
             }
 
-            S1 = (S1 * h[S3 + 2c]) >> c;
-            S0 = (S0 * h[S3 + 2c]) >> c;
+            S1 = (S1 * h[struct + 2c]) >> c;
+            S0 = (S0 * h[struct + 2c]) >> c;
 
             [SP + 48] = h(hu[addr2 + add_id * 8 + 2]); // rotation x
             [SP + 4a] = h(hu[addr2 + add_id * 8 + 4]); // rotation y
             [SP + 4c] = h(hu[addr2 + add_id * 8 + 6]); // rotation z
-            if( w[S3 + 3c] & 00000008 )
+            if( w[struct + 3c] & 00000008 )
             {
                 [SP + 4c] = h(0 - hu[addr2 + add_id * 8 + 6]);
             }
@@ -121,12 +121,12 @@ L1e324:	; 8001E324
         width = (bu[sprite_data + 6] + b[sprite_data + 8]) << scale;
         height = (bu[sprite_data + 7] + b[sprite_data + 9]) << scale;
 
-        if( w[S3 + 3c] & 00000008 )
+        if( w[struct + 3c] & 00000008 )
         {
             x0 = 0 - x0;
             width = 0 - width;
         }
-        if( w[S3 + 3c] & 00000010 )
+        if( w[struct + 3c] & 00000010 )
         {
             y0 = 0 - y0;
             height = 0 - height;
@@ -210,7 +210,7 @@ L1e324:	; 8001E324
 
 
 
-        if( w[S3 + 3c] & 00000800 )
+        if( w[struct + 3c] & 00000800 )
         {
             [S0 + 0] = w((w[S0] & ff000000) | (w[packet_addr - add_id * 4] & 00ffffff));
             [packet_addr - add_id * 4] = w((w[packet_addr - add_id * 4] & ff000000) | (S0 & 00ffffff));

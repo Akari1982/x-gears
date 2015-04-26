@@ -12,7 +12,7 @@ public:
     virtual ~FieldModule();
     void LoadMap( const int file_id );
 
-    void Update();
+    void Update( float delta );
 };
 
 

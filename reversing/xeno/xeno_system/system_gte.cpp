@@ -1,4 +1,38 @@
 ////////////////////////////////
+// system_gte_matrix_multiplication
+R11R12 = w[A0 + 0];
+R13R21 = w[A0 + 4];
+R22R23 = w[A0 + 8];
+R31R32 = w[A0 + c];
+R33 = w[A0 + 10];
+
+VXY0 = hu[A1 + 0] | hu[A1 + 6];
+VZ0 = hu[A1 + c];
+gte_rtv0 // v0 * rotmatrix.
+[A2 + 0] = h(IR1);
+[A2 + 6] = h(IR2);
+[A2 + c] = h(IR3);
+
+VXY0 = hu[A1 + 2] | hu[A1 + 8];
+VZ0 = hu[A1 + e];
+gte_rtv0 // v0 * rotmatrix.
+[A2 + 2] = h(IR1);
+[A2 + 8] = h(IR2);
+[A2 + e] = w(IR3);
+
+VXY0 = hu[A1 + 4] | hu[A1 + a];
+VZ0 = hu[A1 + 10];
+gte_rtv0 // v0 * rotmatrix.
+[A2 + 4] = h(IR1);
+[A2 + a] = h(IR2);
+[A2 + 10] = h(IR3);
+
+return A2;
+////////////////////////////////
+
+
+
+////////////////////////////////
 // system_gte_set_rotation_matrix
 R11R12 = w[A0 + 0];
 R13R21 = w[A0 + 4];

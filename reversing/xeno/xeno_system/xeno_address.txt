@@ -323,14 +323,17 @@ allocated place for sprite data (size 0x164).
 + 20 [][][][] pointer to +b4.
 + 24 [][][][] pointer to +110.
 + 2b []       init with 0x2d.
-+ 2c [][]     init with 0x1000.
++ 2c [][]     scale of sprite. Init with 0x1000.
 + 30 [][]     init with 0.
 + 32 [][]     init with 0.
 + 34 [][]     init with 0.
 + 3a [][]     init with 0.
 + 3c [][][][] init with 0. Some flags.
+                0x10000000 - add if we set scale.
 + 3e [][]     hu[S3 + 3e] & 00f0 palette id to load.
 + 40 [][][][] init with 0. Some flags.
+                0x000000fc - number_of_tiles in current render.
+                0x00001f00 - scale
 + 44 [][][][] pointer to loaded sprite pack.
 + 48 [][][][] pointer to sprite pack.
 + 4c [][][][] 
@@ -348,6 +351,8 @@ allocated place for sprite data (size 0x164).
 + 84 [][]     init with 0.
 + 86 [][]     size of allocated data (0x164).
 + 8c []       init with 0x10.
++ 9e [][]     init with 0x0001.
++ a0 [][][][] some flags related with +a8.
 + a8 [][][][] init with 0. Some flags.
 + ac [][][][] init with 0x00020000.
 + af []       animation id to play.
@@ -356,9 +361,9 @@ allocated place for sprite data (size 0x164).
     + 00 [][]     rotation x.
     + 02 [][]     rotation y.
     + 04 [][]     rotation z.
-    + 06 [][]     init with 0x1000.
-    + 08 [][]     init with 0x1000.
-    + 0a [][]     init with 0x1000.
+    + 06 [][]     scale x. Init with 0x1000.
+    + 08 [][]     scale y. Init with 0x1000.
+    + 0a [][]     scale z. Init with 0x1000.
     + 0c [][]     rot matrix 00.
     + 0e [][]     rot matrix 01.
     + 10 [][]     rot matrix 02.
@@ -368,11 +373,15 @@ allocated place for sprite data (size 0x164).
     + 18 [][]     rot matrix 20.
     + 1a [][]     rot matrix 21.
     + 1c [][]     rot matrix 22.
-    + 2c [][][][] pointer to allocated data for something.
-    + 30 [][][][] pointer to allocated data for something.
+    + 2c [][][][] pointer to allocated data for tiles data.
+    + 30 [][][][] pointer to allocated data for tiles data.
     + 34 [][][][] pointer to +124.
     + 38 [][][][] init with 0.
+    + 3c []       offset x.
+    + 3d []       offset y.
 + f4 start of some data (+7c points here)
+    + 00 [][][][] init with 0.
+    + 04 [][][][] init with 0.
     + 08 [][][][] init with 0.
     + 0c [][]     init with 0.
     + 0e [][][][] some tx.
@@ -385,6 +394,12 @@ allocated place for sprite data (size 0x164).
     + 0a [][]     clut y
     + 0c [][][][] pointer to sprite data 2.
     + 10 [][][][] pointer to sprite data 0.
++124 start of some some array with ox8 items 0x8 size each.
+    + 00 []       init with 0.
+    + 01 []       init with 0.
+    + 02 [][]     init with 0.
+    + 04 [][]     init with 0.
+    + 06 [][]     init with 0.
 
 
 

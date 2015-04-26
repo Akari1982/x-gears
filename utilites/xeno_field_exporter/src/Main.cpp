@@ -12,7 +12,7 @@ FieldModule* field;
 
 void Update( float delta )
 {
-    field->Update();
+    field->Update( delta );
 }
 
 

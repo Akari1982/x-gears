@@ -50524,7 +50524,7 @@ L9e3dc:	; 8009E3DC
 8009E440	addu   a2, s3, zero
 8009E444	mflo   v0
 8009E448	sra    v0, v0, $0c
-8009E44C	jal    func490b4 [$800490b4]
+8009E44C	jal    system_gte_matrix_multiplication [$800490b4]
 8009E450	sh     v0, $0010(a1)
 8009E454	lw     v0, $0040(s2)
 8009E458	lw     v1, $0044(s2)
@@ -50714,7 +50714,7 @@ L9e668:	; 8009E668
 8009E6CC	addu   a2, s1, zero
 8009E6D0	mflo   v0
 8009E6D4	sra    v0, v0, $0c
-8009E6D8	jal    func490b4 [$800490b4]
+8009E6D8	jal    system_gte_matrix_multiplication [$800490b4]
 8009E6DC	sh     v0, $0010(a1)
 8009E6E0	lw     v0, $0040(s3)
 8009E6E4	lw     v1, $0044(s3)
@@ -50789,7 +50789,7 @@ L9e7a4:	; 8009E7A4
 8009E7D0	sh     v0, $0008(s1)
 8009E7D4	lhu    v0, $0024(s0)
 8009E7D8	addu   a2, s2, zero
-8009E7DC	jal    func490b4 [$800490b4]
+8009E7DC	jal    system_gte_matrix_multiplication [$800490b4]
 8009E7E0	sh     v0, $0010(s1)
 8009E7E4	lw     v0, $0000(s3)
 8009E7E8	nop
@@ -50860,7 +50860,7 @@ L9e8bc:	; 8009E8BC
 8009E8BC	mflo   v0
 8009E8C0	addu   a1, s2, zero
 8009E8C4	addu   a2, s2, zero
-8009E8C8	jal    func490b4 [$800490b4]
+8009E8C8	jal    system_gte_matrix_multiplication [$800490b4]
 8009E8CC	sh     v0, $0010(a0)
 
 L9e8d0:	; 8009E8D0
@@ -50966,7 +50966,7 @@ L9e9a0:	; 8009E9A0
 8009EA24	sw     s5, $0024(sp)
 8009EA28	sw     s4, $0020(sp)
 8009EA2C	sw     s3, $001c(sp)
-8009EA30	jal    func490b4 [$800490b4]
+8009EA30	jal    system_gte_matrix_multiplication [$800490b4]
 8009EA34	sw     s2, $0018(sp)
 8009EA38	addu   a0, s0, zero
 8009EA3C	addiu  a1, s1, $000c
@@ -50989,7 +50989,7 @@ loop9ea68:	; 8009EA68
 8009EA78	addu   a0, fp, zero
 8009EA7C	addiu  s0, s1, $002c
 8009EA80	addu   a1, s0, zero
-8009EA84	jal    func490b4 [$800490b4]
+8009EA84	jal    system_gte_matrix_multiplication [$800490b4]
 8009EA88	addu   a2, s4, zero
 8009EA8C	jal    func49dd4 [$80049dd4]
 8009EA90	addu   a0, s4, zero
@@ -51625,7 +51625,7 @@ L9f33c:	; 8009F33C
 8009F33C	lw     a0, $0070(sp)
 8009F340	lw     t2, $0090(sp)
 8009F344	lw     a2, $00a8(sp)
-8009F348	jal    func490b4 [$800490b4]
+8009F348	jal    system_gte_matrix_multiplication [$800490b4]
 8009F34C	addiu  a1, t2, $002c
 8009F350	lw     t2, $0090(sp)
 8009F354	nop
@@ -51652,7 +51652,7 @@ loop9f380:	; 8009F380
 8009F3A0	lw     t2, $0090(sp)
 8009F3A4	lw     a0, $00a8(sp)
 8009F3A8	addiu  s0, t2, $002c
-8009F3AC	jal    func490b4 [$800490b4]
+8009F3AC	jal    system_gte_matrix_multiplication [$800490b4]
 8009F3B0	addu   a1, s0, zero
 8009F3B4	jal    func49dd4 [$80049dd4]
 8009F3B8	addu   a0, s7, zero
@@ -64309,7 +64309,7 @@ La9fb4:	; 800A9FB4
 800AA000	sll    a1, a1, $02
 800AA004	addiu  a0, v0, $002c
 800AA008	addu   a1, a1, v0
-800AA00C	jal    func490b4 [$800490b4]
+800AA00C	jal    system_gte_matrix_multiplication [$800490b4]
 800AA010	addiu  a1, a1, $002c
 800AA014	j      Laa040 [$800aa040]
 800AA018	nop
