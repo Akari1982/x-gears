@@ -33,9 +33,9 @@ SpriteFile::SpriteFile( File* file, Vram* vram ):
 
 
 
-    m_NumberOfFrames = sprite1->GetU16LE( 0 ) & 0xff;
+    m_NumberOfFrames = ( sprite1->GetU16LE( 0 ) & 0x1ff );
 
-    for( u8 frame_id = 0; frame_id < m_NumberOfFrames; ++frame_id )
+    for( u16 frame_id = 0; frame_id < m_NumberOfFrames; ++frame_id )
     {
         Frame frame;
 

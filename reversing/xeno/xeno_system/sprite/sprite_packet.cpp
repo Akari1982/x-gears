@@ -1,17 +1,17 @@
 ////////////////////////////////
 // func1e130
-S0 = A0;
+struct = A0;
 S1 = A1;
 
 8001E144	jal    func1dfe8 [$8001dfe8]
 
-A0 = S0;
+A0 = struct;
 A1 = S1;
 func1e264;
 
-if( w[S0 + 3c] & 4 )
+if( w[struct + 3c] & 00000004 )
 {
-    A0 = S0;
+    A0 = struct;
     A1 = S1;
     func1e834;
 }

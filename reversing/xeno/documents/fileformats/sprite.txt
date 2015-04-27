@@ -13,7 +13,7 @@ sprite_0
 
 
 sprite_1
-+00 [][]     0x00ff - number of frames
++00 [][]     0x01ff - number of frames - 1
              0xfe00 - number of something (allocate 0x18 for each item)
 +02 array of frame offsets to frame data 2 bytes each
 

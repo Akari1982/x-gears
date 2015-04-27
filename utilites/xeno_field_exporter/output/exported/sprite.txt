@@ -2278,6 +2278,8 @@ tile_03
     tex_y = 0x1a
     width = 0x13
     height = 0x15
+number_of_tile = 0x00
+double_size_tile = 0x00
 Sprite palette:
     0x0000
     0xc695
