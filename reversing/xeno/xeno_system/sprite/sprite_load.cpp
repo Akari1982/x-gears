@@ -612,32 +612,17 @@ else if( V1 == 1 )
     }
     else
     {
-        A1 = ffffffef;
-
-        80022358	lw     a2, $0058(s1)
-        8002235C	lw     v0, $00ac(s1)
-        80022360	addu   a0, v1, a2
-        80022364	and    v0, v0, a1
-        80022368	addiu  v1, v1, $0004
-        8002236C	lhu    a0, $0004(a0)
-        80022370	addu   v1, v1, a2
-        80022374	sw     v0, $00ac(s1)
-        8002237C	addu   a0, a0, v1
-        [S1 + 54] = w[A0];
+        [S1 + ac] = w(w[S1 + ac] & ffffffef);
+        A2 = w[S1 + 58];
+        [S1 + 54] = w(hu[V1 + A2 + 4] + V1 + 4 + A2);
     }
 
-    V1 = w[S1 + a8] & fff1ffff;
-    V0 = A3 & 7;
-    V0 = V0 << 11;
-    [S1 + a8] = w(V1 | V0);
+    [S1 + a8] = w((w[S1 + a8] & fff1ffff) | ((A3 & 7) << 11));
 }
 else if( V1 == 2 )
 {
-    800222BC	sll    v0, a3, $10
-    8002239C	sra    v0, v0, $10
-    800223A0	addiu  v0, v0, $0500
-    800223A4	sra    v0, v0, $09
-    800223A8	andi   v1, v0, $0007
+    V0 = (A3 + 500) >> 9;
+    V1 = V0 & 7;
     A0 = V0;
     A3 = V1;
 
@@ -647,17 +632,17 @@ else if( V1 == 2 )
         // 800223d8 : LHU     8011282c (a0), 0004 (8011282c (a0)) [80112830]
         var = hu[A2 + 4 + A0 * 2];
         [S1 + 54] = w[A2 + 4 + A0 * 2 + var];
-
         [S1 + ac] = w(w[S1 + ac] & ffffffef);
     }
     else
     {
         V0 = V1 - 5;
-        800223F0	xori   v0, v0, $0003
-        800223F4	addu   a3, v0, zero
-        800223F8	sll    v0, v0, $01
-        800223FC	lw     a1, $0058(s1)
-        80022400	lw     v1, $00ac(s1)
+        V0 = V0 XOR 3;
+        A3 = V0;
+        V0 = V0 << 1;
+        A1 = w[S1 + 58];
+        V1 = w[S1 + ac];
+
         80022404	addu   a0, v0, a1
         80022408	ori    v1, v1, $0010
         8002240C	addiu  v0, v0, $0004

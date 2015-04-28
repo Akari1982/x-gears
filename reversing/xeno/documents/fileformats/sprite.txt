@@ -22,6 +22,8 @@ sprite_1
 frame data
 +00 []         0x3f - number of tiles
                0x80 - two bytes tile position
++01 []
++02 []
 +03 []
 +04 array of tile offsets to tile description 2 bytes each
 +04 + number_of_tiles * 2 - tile position setting

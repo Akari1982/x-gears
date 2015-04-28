@@ -1,4 +1,70 @@
 ////////////////////////////////
+// func49724
+R11R12 = w[A0 + 0];
+R13R21 = w[A0 + 4];
+R22R23 = w[A0 + 8];
+R31R32 = w[A0 + c];
+R33 = w[A0 + 10];
+
+VXY0 = (w[A1 + 4] & ffff0000) | hu[A1 + 0];
+VZ0 = w[A1 + c];
+gte_rtv0; // v0 * rotmatrix
+T3 = IR1;
+T4 = IR2;
+T5 = IR3;
+
+VXY0 = (w[A1 + 8] << 10) | hu[A1 + 2];
+VZ0 = h[A1 + e];
+gte_rtv0; // v0 * rotmatrix
+T6 = IR1;
+T7 = IR2;
+T8 = IR3;
+
+VXY0 = (w[A1 + 8] & ffff0000) | hu[A1 + 4];
+VZ0 = w[A1 + 10];
+gte_rtv0; // v0 * rotmatrix
+
+R11R12 = (T6 << 10) | (T3 & ffff);
+R13R21 = (T4 << 10) | (IR1 & ffff);
+R22R23 = (IR2 << 10) | (T7 & ffff);
+R31R32 = (T8 << 10) | (T5 & ffff);
+R33 = IR3;
+
+return A0;
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func4a5e4
+VXY0 = w[A0 + 0];
+VZ0  = w[A0 + 4];
+VXY1 = w[A1 + 0];
+VZ1  = w[A1 + 4];
+VXY2 = w[A2 + 0];
+VZ2  = w[A2 + 4];
+gte_RTPT; // Perspective transform on 3 points.
+V1 = FLAG;
+
+[A4] = w(SXY0);
+[A5] = w(SXY1);
+[A6] = w(SXY2);
+
+VXY0 = w[A3 + 0];
+VZ0 = w[A3 + 4];
+gte_RTPS; // Perspective transform
+V0 = FLAG;
+
+[A7] = w(SXY2);
+[A8] = w(IR0); // Interpolation value for depth queing.
+[A9] = w(V0 | V1);
+
+return SZ3 >> 2;
+////////////////////////////////
+
+
+
+////////////////////////////////
 // system_gte_matrix_multiplication
 R11R12 = w[A0 + 0];
 R13R21 = w[A0 + 4];

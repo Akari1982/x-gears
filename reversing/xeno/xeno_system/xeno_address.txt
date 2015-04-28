@@ -281,11 +281,14 @@ allocated place for sprite data (size 0x164).
 + 1c [][][][] some multiplication of +82 with w[80058810 + 28] + 1
 + 20 [][][][] pointer to +b4.
 + 24 [][][][] pointer to +110.
++ 28 [][][][] packet header 2C808080.
 + 2b []       init with 0x2d.
 + 2c [][]     scale of sprite. Init with 0x1000.
 + 30 [][]     init with 0.
 + 32 [][]     init with 0.
 + 34 [][]     frame id to render. Init with 0.
++ 36 [][]     some data from frame_data + 3 * sprite scale. Maybe frame offset.
++ 38 [][]     some data from frame_data + 1 * sprite scale. Maybe frame offset.
 + 3a [][]     init with 0.
 + 3c [][][][] init with 0. Some flags.
                 0x00000004 - call some other function after packet creation.
@@ -369,7 +372,7 @@ allocated place for sprite data (size 0x164).
     + 08 [][][][] init with 0.
     + 0c [][]     init with 0.
     + 0e [][][][] some tx.
-    + 18 [][][][] init with 0.
+    + 18 [][][][] init with 0. Some pointer.
 +110 start of texture data for sprite
     + 00 [][][][] pointer to sprite file 1.
     + 04 [][]     tx

@@ -3,7 +3,8 @@
 struct = A0;
 S1 = A1;
 
-8001E144	jal    func1dfe8 [$8001dfe8]
+A0 = struct;
+func1dfe8;
 
 A0 = struct;
 A1 = S1;
@@ -15,6 +16,120 @@ if( w[struct + 3c] & 00000004 )
     A1 = S1;
     func1e834;
 }
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func1dfe8
+struct = S1 = A0;
+8001DFE8	lui    v0, $8006
+8001DFEC	lbu    v0, $884d(v0)
+
+8001E004	bne    v0, zero, L1e020 [$8001e020]
+
+8001E00C	lui    v0, $8006
+8001E010	lbu    v0, $884e(v0)
+8001E014	nop
+8001E018	beq    v0, zero, L1e028 [$8001e028]
+8001E01C	nop
+
+L1e020:	; 8001E020
+A0 = struct;
+func21e98;
+
+L1e028:	; 8001E028
+8001E028	lw     v1, $0040(s1)
+8001E02C	lw     v0, $0020(s1)
+8001E030	srl    v1, v1, $08
+8001E034	andi   v1, v1, $001f
+8001E038	lb     s2, $003d(v0)
+8001E03C	lb     s0, $003c(v0)
+8001E040	lw     v0, $00ac(s1)
+8001E044	sllv   s2, v1, s2
+8001E048	andi   v0, v0, $0010
+8001E04C	beq    v0, zero, L1e058 [$8001e058]
+8001E050	sllv   s0, v1, s0
+8001E054	subu   s0, zero, s0
+
+L1e058:	; 8001E058
+8001E058	lh     v1, $002c(s1)
+8001E05C	nop
+8001E060	mult   s2, v1
+8001E064	mflo   v0
+8001E068	nop
+8001E06C	bgez   v0, L1e078 [$8001e078]
+8001E070	mult   s0, v1
+8001E074	addiu  v0, v0, $0fff
+
+L1e078:	; 8001E078
+8001E078	mflo   v1
+8001E07C	bgez   v1, L1e088 [$8001e088]
+8001E080	sra    s2, v0, $0c
+8001E084	addiu  v1, v1, $0fff
+
+L1e088:	; 8001E088
+8001E088	sra    s0, v1, $0c
+8001E08C	lh     v0, $0002(s1)
+8001E090	lui    a0, $8005
+8001E094	addiu  a0, a0, $f25c (=-$da4)
+8001E098	sh     v0, $0010(sp)
+8001E09C	lh     v0, $0006(s1)
+8001E0A0	addiu  a1, sp, $0010
+8001E0A4	sh     v0, $0012(sp)
+8001E0A8	lh     v0, $000a(s1)
+8001E0AC	addiu  a2, sp, $0018
+8001E0B4	sh     v0, $0014(sp)
+system_matrix_vector_multiply_GTE;
+
+8001E0B8	lui    v0, $8005
+8001E0BC	lw     v0, $f270(v0)
+
+L1e0c0:	; 8001E0C0
+8001E0C0	lw     v1, $0018(sp)
+8001E0C4	lw     a1, $0020(s1)
+8001E0C8	addu   v0, v0, v1
+8001E0CC	addu   v0, v0, s0
+8001E0D0	sw     v0, $0020(a1)
+8001E0D4	lui    v0, $8005
+8001E0D8	lw     v0, $f274(v0)
+8001E0DC	lw     v1, $001c(sp)
+8001E0E0	addiu  s0, a1, $000c
+8001E0E4	addu   v0, v0, v1
+8001E0E8	addu   v0, v0, s2
+8001E0EC	sw     v0, $0024(a1)
+8001E0F0	lui    v0, $8005
+8001E0F4	lw     v0, $f278(v0)
+8001E0F8	lw     v1, $0020(sp)
+8001E0FC	addu   a0, s0, zero
+8001E100	addu   v0, v0, v1
+8001E108	sw     v0, $0028(a1)
+system_gte_set_rotation_matrix;
+
+A0 = S0;
+system_gte_set_translation_vector;
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func21e98
+struct = S0 = A0;
+
+80021EA8	lw     v0, $003c(s0)
+80021EAC	lui    v1, $1000
+80021EB0	and    v0, v0, v1
+80021EB4	beq    v0, zero, L21ed8 [$80021ed8]
+80021EB8	nop
+func21eec; // calculate matrix
+
+80021EC4	lui    v1, $efff
+80021EC8	lw     v0, $003c(s0)
+80021ECC	ori    v1, v1, $ffff
+80021ED0	and    v0, v0, v1
+80021ED4	sw     v0, $003c(s0)
+
+L21ed8:	; 80021ED8
 ////////////////////////////////
 
 
