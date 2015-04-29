@@ -552,150 +552,99 @@ return A0;
 
 ////////////////////////////////
 // func22218
-S1 = A0;
-A3 = A1;
-A1 = A1 + 0400;
-V0 = w[S1 + a8];
-A1 = A1 & 1;
-[S1 + 80] = h(A3);
-T0 = V0 >> 11;
-T0 = T0 & 7;
+struct = A0;
+data80 = A1;
 
-if( A1 != 0 )
+animation_data = w[struct + 58];
+[struct + 80] = h(data80);
+
+T0 = (w[struct + a8] >> 11) & 7;
+
+if( (data80 + 0400) & 1 )
 {
-    V0 = w[S1 + ac] | 00000010;
+    [struct + ac] = w(w[struct + ac] | 00000010); // invert offset x
 }
 else
 {
-    V0 = w[S1 + ac] & ffffffef;
+    [struct + ac] = w(w[struct + ac] & ffffffef);
 }
-[S1 + ac] = w(V0);
 
-V0 = w[S1 + 48];
-if( V0 == 0 )
+if( w[struct + 48] == 0 ) // sprite pack pointer
 {
     return;
 }
 
-V0 = w[S1 + a8] >> 14;
-V1 = V0 & 3;
-
+V1 = (w[struct + a8] >> 14) & 3;
 if( V1 == 0 )
 {
-    if( ((A3 + 400) & fff) < 801 )
+    if( ((data80 + 400) & fff) < 801 )
     {
-        [S1 + ac] = w(w[S1 + ac] & ffffffef);
+        [struct + ac] = w(w[struct + ac] & ffffffef);
     }
     else
     {
-        [S1 + ac] = w(w[S1 + ac] | 00000010);
+        [struct + ac] = w(w[struct + ac] | 00000010); // invert offset x
     }
 
-    [S1 + a8] = w(w[S1 + a8] & fff1ffff);
-    [S1 + 5c] = w(w[S1 + 58] + 6);
-    A2 = w[S1 + 58];
-    [S1 + 54] = w(A2 + 4 + hu[A2 + 4]);
+    [struct + 54] = w(animation_data + 4 + hu[animation_data + 4]);
+    [struct + 5c] = w(animation_data + 6);
+    [struct + a8] = w(w[struct + a8] & fff1ffff);
 }
 else if( V1 == 1 )
 {
-    V0 = ((A3 + 600) >> a) & 3;
-    A3 = V0;
-    V1 = V0;
-    V0 = V1 < 3;
-    V1 = V1 << 1;
+    A3 = ((data80 + 600) >> a) & 3;
 
-    if( V0 == 0 )
+    if( A3 >= 3 )
     {
-        [S1 + ac] = w(w[S1 + ac] | 00000010);
-        V0 = w[S1 + 58];
-        [S1 + 54] = w[V0 + hu[V0 + 6] + 6];
+        [struct + 54] = w[animation_data + 6 + hu[animation_data + 6]];
+        [struct + ac] = w(w[struct + ac] | 00000010); // invert offset x
     }
     else
     {
-        [S1 + ac] = w(w[S1 + ac] & ffffffef);
-        A2 = w[S1 + 58];
-        [S1 + 54] = w(hu[V1 + A2 + 4] + V1 + 4 + A2);
+        [struct + 54] = w(animation_data + 4 + A3 * 2 + hu[animation_data + 4 + A3 * 2]);
+        [struct + ac] = w(w[struct + ac] & ffffffef);
     }
 
-    [S1 + a8] = w((w[S1 + a8] & fff1ffff) | ((A3 & 7) << 11));
+    [struct + a8] = w((w[struct + a8] & fff1ffff) | ((A3 & 7) << 11));
 }
 else if( V1 == 2 )
 {
-    V0 = (A3 + 500) >> 9;
-    V1 = V0 & 7;
-    A0 = V0;
-    A3 = V1;
+    A3 = ((data80 + 500) >> 9) & 7;
 
-    if( A0 < 5 )
+    if( A3 < 5 )
     {
-        A2 = w[S1 + 58];
-        // 800223d8 : LHU     8011282c (a0), 0004 (8011282c (a0)) [80112830]
-        var = hu[A2 + 4 + A0 * 2];
-        [S1 + 54] = w[A2 + 4 + A0 * 2 + var];
-        [S1 + ac] = w(w[S1 + ac] & ffffffef);
+        [struct + 54] = w(animation_data + 4 + A3 * 2 + hu[animation_data + 4 + A3 * 2]);
+        [struct + ac] = w(w[struct + ac] & ffffffef);
     }
     else
     {
-        V0 = V1 - 5;
-        V0 = V0 XOR 3;
-        A3 = V0;
-        V0 = V0 << 1;
-        A1 = w[S1 + 58];
-        V1 = w[S1 + ac];
+        A3 = (A3 - 5) XOR 3;
 
-        80022404	addu   a0, v0, a1
-        80022408	ori    v1, v1, $0010
-        8002240C	addiu  v0, v0, $0004
-        80022410	lhu    a0, $0004(a0)
-        80022414	addu   v0, v0, a1
-        80022418	sw     v1, $00ac(s1)
-        8002241C	addu   a0, a0, v0
-        [S1 + 54] = w[A0];
+        [struct + 54] = w(animation_data + 4 + A3 * 2 + hu[animation_data + 4 + A3 * 2]);
+        [struct + ac] = w(w[struct + ac] | 00000010); // invert offset x
     }
 
-    80022424	lui    v0, $fff1
-    80022428	lw     v1, $00a8(s1)
-    8002242C	ori    v0, v0, $ffff
-    80022430	and    v1, v1, v0
-    80022434	andi   v0, a3, $0007
-    80022438	sll    v0, v0, $11
-    8002243C	or     v1, v1, v0
-    80022440	sw     v1, $00a8(s1)
+    [struct + a8] = w((w[struct + a8] & fff1ffff) | ((A3 & 7) << 11));
 }
 
-80022444	lw     a2, $00a8(s1)
-80022448	nop
-8002244C	srl    v0, a2, $11
-80022450	andi   v0, v0, $0007
-80022458	srl    a2, a2, $16
-if( T0 != V0)
+if( T0 != ((w[struct + a8] >> 11) & 7) )
 {
-    8002245C	lui    v1, $0001
-    80022460	ori    v1, v1, $f800
-    80022464	lui    a1, $f03f
-    80022468	ori    a1, a1, $ffff
-    8002246C	lw     v0, $00a8(s1)
-    80022470	lw     a0, $0058(s1)
-    80022474	lh     s0, $009e(s1)
-    80022478	or     v0, v0, v1
-    8002247C	and    v0, v0, a1
+    S0 = h[struct + 9e];
 
-    // 80022480 : LHU     0001f800 (v1), 0002 (80112828 (a0)) [8011282a]
-    V1 = A0 + hu[A0 + 2] + 2;
-    [S1 + a8] = w(V0);
+    [struct + a8] = w((w[struct + a8] | 0001f800) & f03fffff);
 
-    A0 = S1;
-    A1 = w[S1 + 64];
-    [S1 + 64] = w(V1);
-    A2 = A2 & 3f;
+    A0 = struct;
+    A1 = w[struct + 64];
+    [struct + 64] = w(animation_data + 2 + hu[animation_data + 2]);
+    A2 = (w[struct + a8] >> 16) & 3f;
     func224f0;
 
-    [S1 + 9e] = h(S0);
+    [struct + 9e] = h(S0);
 }
 
-V1 = w[S1 + ac];
+V1 = w[struct + ac];
 V0 = ((V1 >> 5) & 1) XOR ((V1 >> 4) & 1);
-[S1 + 3c] = w((w[S1 + 3c] & fffffff7) | (V0 << 3));
+[struct + 3c] = w((w[struct + 3c] & fffffff7) | (V0 << 3));
 ////////////////////////////////
 
 
@@ -703,7 +652,7 @@ V0 = ((V1 >> 5) & 1) XOR ((V1 >> 4) & 1);
 ////////////////////////////////
 // func224f0
 struct = S1 = A0;
-S4 = A1;
+S4 = A1; // pointer to some animation data
 S5 = A2;
 
 loop2251c:	; 8002251C

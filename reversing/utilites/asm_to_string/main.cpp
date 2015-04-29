@@ -22,12 +22,27 @@ int main()
 
     bool start_parse = false;
 
-    char string[ 100 ];
-    int str_pos = 0;
+    char string_result[ 10000 ];
+    int string_result_pos = 0;
+
+    char string_new[ 100 ];
+    int string_new_pos = 0;
+
+    char string_old[ 100 ];
+    int string_old_pos = 0;
 
     for( int pos = 0; pos < buffer_size; ++pos )
     {
         char data = buffer[ pos ];
+
+        string_old[ string_old_pos ] = data;
+        ++string_old_pos;
+
+        if( start_parse == true && data != '\n' )
+        {
+            string_new[ string_new_pos ] = data;
+            ++string_new_pos;
+        }
 
         if( data == '\t' )
         {
@@ -36,21 +51,25 @@ int main()
         }
         if( data == '\n' || ( pos + 1 >= buffer_size ) )
         {
-            string[ str_pos ] = '\0';
-            str_pos = 0;
-            start_parse = false;
+            for( int i = 0; i < string_new_pos; ++i )
+            {
+                string_result[ string_result_pos ] = string_new[ i ];
+                ++string_result_pos;
+            }
+            string_result[ string_result_pos ] = '\n';
+            ++string_result_pos;
 
-            printf( string );
-            printf( "\n" );
+            string_new_pos = 0;
+            string_old_pos = 0;
+            start_parse = false;
             continue;
         }
-
-        if( start_parse == true )
-        {
-            string[ str_pos ] = data;
-            ++str_pos;
-        }
     }
+
+    remove( "output.txt" );
+    FILE* file_res = fopen( "output.txt", "ab" );
+    fwrite( string_result, sizeof( char ), string_result_pos, file_res );
+    fclose( file_res );
 
     return 0;
 }

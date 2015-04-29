@@ -307,13 +307,14 @@ allocated place for sprite data (size 0x164).
 + 50 [][][][] init with 0.
 + 54 [][][][] pointer to some data related with sprite direction in sprite data file 0.
 + 58 [][][][] pointer to animation data in sprite data file 0.
++ 5c [][][][] pointer to animation data in sprite data file 0 + 6.
 + 60 [][][][] pointer to 1st animation data in sprite data file 0.
 + 64 [][][][] pointer to some data in sprite data file 0.
 + 68 [][][][] init with 0.
 + 6c [][][][] init with 0. Pointer to itself (allocated struct start).
 + 70 [][][][] init with 0.
 + 7c [][][][] pointer to +f4.
-+ 80 [][]     init with 0.
++ 80 [][]     init with 0. Maybe direction.
 + 82 [][]     not inited but used co calculate +1c.
 + 84 [][]     init with 0.
 + 86 [][]     size of allocated data (0x164).
@@ -323,7 +324,7 @@ allocated place for sprite data (size 0x164).
 + a8 [][][][] init with 0. Some flags.
 + ac [][][][] init with 0x00020000.
                 0x00000010 - invert offset x.
-+ af []       animation id to play.
+                0xff000000 - animation id to play.
 + b0 [][][][] init with 0.
 + b4 start of some data (+20 points here)
     + 00 [][]     rotation x.
