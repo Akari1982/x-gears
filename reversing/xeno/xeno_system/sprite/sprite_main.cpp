@@ -98,33 +98,22 @@ V1 = b[T1 + 3];
 V0 = bu[T1 + 0]
 S6 = T1 + 6;
 T1 = V0 & 80;
-
-8001DB40	andi   v0, v0, $003f
-8001DB44	sw     v0, $0060(sp)
-8001DB48	sll    v0, v0, $02
-8001DB4C	sb     t1, $0068(sp)
-8001DB50	lw     t1, $0030(sp)
-8001DB54	addiu  v0, v0, $0006
-8001DB58	addu   s2, t1, v0
+V0 = V0 & 3f;
+[SP + 60] = w(V0);
+V0 = V0 * 4;
+[SP + 68] = b(T1);
+T1 = w[SP + 30];
+V0 = V0 + 6;
+S2 = T1 + V0;
 8001DB5C	mflo   v0
-8001DB60	bgez   v0, L1db6c [$8001db6c]
-8001DB64	nop
-8001DB68	addiu  v0, v0, $0fff
+V0 = V0 >> c;
+[S3 + 36] = h(V0);
+T1 = w[SP + 30];
+V0 = h[S3 + 2c];
+V1 = bu[T1 + 1];
+V0 = V1 * V0;
+S5 = 4;
 
-L1db6c:	; 8001DB6C
-8001DB6C	sra    v0, v0, $0c
-8001DB70	sh     v0, $0036(s3)
-8001DB74	lw     t1, $0030(sp)
-8001DB78	lh     v0, $002c(s3)
-8001DB7C	lbu    v1, $0001(t1)
-8001DB80	nop
-8001DB84	mult   v1, v0
-8001DB88	mflo   v0
-8001DB8C	bgez   v0, L1db98 [$8001db98]
-8001DB90	ori    s5, zero, $0004
-8001DB94	addiu  v0, v0, $0fff
-
-L1db98:	; 8001DB98
 8001DB98	lw     v1, $003c(s3)
 8001DB9C	sra    v0, v0, $0c
 8001DBA0	sh     v0, $0038(s3)
@@ -623,7 +612,7 @@ if( number_of_tiles != 0 )
         {
             V0 = w[struct + 7c];
             V1 = w[V0 + 18];
-            if( ( w[struct + a8] & 0001 ) && ( V1 != 0 ) )
+            if( ( w[struct + a8] & 00000001 ) && ( V1 != 0 ) )
             {
                 V0 = V1 + ((S1 << 1) & 1c);
 

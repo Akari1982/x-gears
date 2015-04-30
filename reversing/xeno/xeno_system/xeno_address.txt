@@ -322,6 +322,7 @@ allocated place for sprite data (size 0x164).
 + 9e [][]     init with 0x0001.
 + a0 [][][][] some flags related with +a8.
 + a8 [][][][] init with 0. Some flags.
+                0x0001f800 - frame id data id in sprite file 0.
 + ac [][][][] init with 0x00020000.
                 0x00000010 - invert offset x.
                 0xff000000 - animation id to play.
