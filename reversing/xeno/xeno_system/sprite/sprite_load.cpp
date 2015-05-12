@@ -723,12 +723,13 @@ L225dc:	; 800225DC
 
 L225e0:	; 800225E0
 800225E0	sltiu  v0, s2, $0040
-800225E4	beq    v0, zero, L225f4 [$800225f4]
 800225E8	lui    a2, $f03f
-800225EC	andi   v0, s2, $000f
-800225F0	addiu  s3, v0, $0001
+if( V0 != 0 )
+{
+    800225EC	andi   v0, s2, $000f
+    800225F0	addiu  s3, v0, $0001
+}
 
-L225f4:	; 800225F4
 800225F4	ori    a2, a2, $ffff
 800225F8	lw     v0, $00a8(s1)
 800225FC	lhu    v1, $009e(s1)
@@ -757,79 +758,57 @@ L22688:	; 80022688
 if( V1 == b3 ) // set frame
 {
     [S1 + a8] = w((w[S1 + a8] & fffe07ff) | ((b[A2 + 1] & 3f) << b)));
-    800227A4	j      L227b8 [$800227b4]
+    [S1 + 64] = w(w[S1 + 64] + bu[8004f2e4 + S2]); // move pointer by opcode size
+    800227D0	j      loop2251c [$8002251c]
 }
 
 80022690	slti   v0, v1, $00b4
 80022694	beq    v0, zero, L226ac [$800226ac]
-80022698	ori    v0, zero, $0097
-8002269C	beq    v1, v0, L227ac [$800227ac]
+if( V1 == 97 )
+{
+    if( A2 == S4 )
+    {
+        return;
+    }
+
+    [S1 + 64] = w(w[S1 + 64] + bu[8004f2e4 + S2]); // move pointer by opcode size
+    800227D0	j      loop2251c [$8002251c]
+}
 
 800226A4	j      L227b8 [$800227b8]
 800226A8	nop
 
 L226ac:	; 800226AC
-800226AC	ori    v0, zero, $00be
-800226B0	beq    v1, v0, L226c8 [$800226c8]
-800226B4	ori    v0, zero, $00e2
-800226B8	beq    v1, v0, L22750 [$80022750]
-800226BC	addu   a0, s1, zero
+if( V1 == be )
+{
+    A0 = (w[S1 + ac] & ffffffdf) | ((hu[A2 + 1] >> 4) & 0020);
+    [S1 + 3c] = w((w[S1 + 3c] & fffffff7) | ((((A0 >> 5) & 1) XOR ((A0 >> 4) & 1)) << 3));
+    [S1 + ac] = w(A0);
+
+    frame_id = hu[A2 + 1] & 1ff;
+    if( hu[S1 + 34] != frame_id )
+    {
+        A0 = S1;
+        A1 = frame_id;
+        func1d134;
+    }
+
+    [S1 + 9e] = h(hu[S1 + 9e] + 1 + (hu[A2 + 1] >> b) & f);
+    [S1 + 64] = w(w[S1 + 64] + bu[8004f2e4 + S2]); // move pointer by opcode size
+    800227D0	j      loop2251c [$8002251c]
+}
+else if( V1 == e2 )
+{
+    A0 = S1;
+    A1 = A2 + 3;
+    func21b58;
+
+    [S1 + 64] = w(w[S1 + 64] + h[A2 + 1]);
+    8002277C	j      loop2251c [$8002251c]
+}
+
 800226C0	j      L227b8 [$800227b8]
 
-L226c8:	; 800226C8
-800226C8	addiu  v0, zero, $ffdf (=-$21)
-800226CC	lw     a0, $00ac(s1)
-800226D0	lbu    v1, $0001(a2)
-800226D4	and    a0, a0, v0
-800226D8	lbu    v0, $0002(a2)
-800226DC	lw     a1, $003c(s1)
-800226E0	sll    v0, v0, $08
-800226E4	or     s0, v1, v0
-800226E8	srl    v0, s0, $04
-800226EC	andi   v0, v0, $0020
-800226F0	or     a0, a0, v0
-800226F4	addiu  v0, zero, $fff7 (=-$9)
-800226F8	and    a1, a1, v0
-800226FC	srl    v0, a0, $05
-80022700	andi   v0, v0, $0001
-80022704	srl    v1, a0, $04
-80022708	andi   v1, v1, $0001
-8002270C	xor    v0, v0, v1
-80022710	sll    v0, v0, $03
-80022714	or     a1, a1, v0
-80022718	lhu    v0, $0034(s1)
-8002271C	sw     a1, $003c(s1)
-80022720	andi   a1, s0, $01ff
-80022724	beq    v0, a1, L22734 [$80022734]
-80022728	sw     a0, $00ac(s1)
-80022730	addu   a0, s1, zero
-func1d134;
-
-
-L22734:	; 80022734
-80022734	sra    v0, s0, $0b
-80022738	lhu    v1, $009e(s1)
-8002273C	andi   v0, v0, $000f
-80022740	addiu  v1, v1, $0001
-80022744	addu   v1, v1, v0
-80022748	j      L227b8 [$800227b4]
-8002274C	sh     v1, $009e(s1)
-
-L22750:	; 80022750
-80022750	addiu  a1, a2, $0003
-80022754	lbu    v0, $0002(a2)
-80022758	lbu    s0, $0001(a2)
-8002275C	sll    v0, v0, $18
-80022760	sra    v0, v0, $10
-80022768	addu   s0, s0, v0
-func21b58;
-
-8002276C	sll    s0, s0, $10
-80022770	lw     v0, $0064(s1)
-80022774	sra    s0, s0, $10
-80022778	addu   s0, s0, v0
-8002277C	j      loop2251c [$8002251c]
-80022780	sw     s0, $0064(s1)
 
 L227ac:	; 800227AC
 if( A2 == S4 )
@@ -966,23 +945,13 @@ L1d258:	; 8001D258
 
 ////////////////////////////////
 // func21b58
-80021B58	lbu    v0, $008c(a0)
-80021B5C	nop
-80021B60	addiu  v0, v0, $fffd (=-$3)
-80021B64	sb     v0, $008c(a0)
-80021B68	sll    v0, v0, $18
-80021B6C	sra    v0, v0, $18
-80021B70	addu   v0, a0, v0
-80021B74	sb     a1, $008e(v0)
-80021B78	lb     v0, $008c(a0)
-80021B7C	sra    v1, a1, $08
-80021B80	addu   v0, a0, v0
-80021B84	sb     v1, $008f(v0)
-80021B88	lb     v0, $008c(a0)
-80021B8C	sra    a1, a1, $10
-80021B90	addu   a0, a0, v0
-80021B94	jr     ra 
-80021B98	sb     a1, $0090(a0)
+V0 = b[A0 + 8c] - 3;
+[A0 + 8c] = b(V0);
+[A0 + V0 + 8e] = b(A1);
+V0 = A0 + b[A0 + 8c];
+[V0 + 8f] = b(A1 >> 8);
+V0 = b[A0 + 8c];
+[A0 + V0 + 90] = b(A1 >> 10);
 ////////////////////////////////
 
 
