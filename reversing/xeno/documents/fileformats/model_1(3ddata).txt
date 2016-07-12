@@ -1,10 +1,9 @@
 model header
 +0 [][][][] number of parts
 +4 [][][][] flags
+                0x00000002: if not set then set and init something.
 
-18000000 number of parts
-00000000 flags
-0000000000000000
+
 
 parts header
 +00 [][]     init flags
@@ -15,14 +14,15 @@ parts header
 +06 [][]     number of polygons blocks
 +08 [][][][] offset to vertex block
 +0c [][][][] some offset
-+10 [][][][] mesh block.
-+14 [][][][] texture coords block?
++10 [][][][] offset to mesh block.
++14 [][][][] offset to texture coords block.
 +18 [][][][] we store here pointer to allocated memory for normals for polygons lighting with +30 size if +00 & 1 not set.
 +1c [][][][] some offset (if exist).
++24 [][][][] 
 +30 [][][][] memory size for polygon normals for lighting.
-+34 [][][][] allocate twice as much place. Maybe size of all packets.
++34 [][][][] allocate twice as much place. Maybe size of all packets (twice because threre are 2 frames one to display and one to render).
 
-     nov  nop  nopb otvb
+00   02   04   06   08       0c       10       14       18       1c       20       24       28       2c       30       34
 0000 1900 2E00 0100 50050000 50050000 18060000 C82F0000 7373FF4A 00000000 43FFA6FE D3FE6400 69052301 2D01FF52 70010000 C0050000
 0000 0800 0C00 0100 8C070000 8C070000 CC070000 58310000 7373FF4A 00000000 F2FE6D00 37FF1A00 0A01ED00 C900FF52 60000000 80010000
 0000 1900 2E00 0100 30080000 30080000 F8080000 C0310000 7373FF4A 00000000 4E0054FE BEFE6800 A708AC01 4201FF52 70010000 C0050000

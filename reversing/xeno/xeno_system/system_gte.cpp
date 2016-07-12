@@ -1,4 +1,47 @@
 ////////////////////////////////
+// system_gte_calculate_and_set_lighting_matrix
+V1 = 80059600;
+
+R11R12 = w[V1 + 0];
+R13R21 = w[V1 + 4];
+R22R23 = w[V1 + 8];
+R31R32 = w[V1 + c];
+R33 = w[V1 + 10];
+
+IR1 = hu[A0 + 0];
+IR2 = hu[A0 + 6];
+IR3 = hu[A0 + c];
+gte_rtir12; // ir * rotmatrix
+[SP + 0] = h(IR1);
+[SP + 6] = h(IR2);
+[SP + c] = h(IR3);
+
+IR1 = hu[A0 + 2];
+IR2 = hu[A0 + 8];
+IR3 = hu[A0 + e];
+gte_rtir12; // ir * rotmatrix
+[SP + 2] = h(IR1);
+[SP + 8] = h(IR2);
+[SP + e] = h(IR3);
+
+IR1 = hu[A0 + 4];
+IR2 = hu[A0 + a];
+IR3 = hu[A0 + 10];
+gte_rtir12; // ir * rotmatrix
+[SP + 4] = h(IR1);
+[SP + a] = h(IR2);
+[SP + 10] = h(IR3);
+
+L11L12 = w[SP + 0];
+L13L21 = w[SP + 4];
+L22L23 = w[SP + 8];
+L31L32 = w[SP + c];
+L33 = w[SP + 10];
+////////////////////////////////
+
+
+
+////////////////////////////////
 // func49724
 R11R12 = w[A0 + 0];
 R13R21 = w[A0 + 4];

@@ -58,7 +58,7 @@ A0 = 800fc68c;
 funcab4ac; // init some bebug lines buffer 2
 
 S3 = 1;
-S2 = 8009abf4;
+S2 = struct = 8009abf4;
 [80114488] = h(0);
 [801142c8] = h(0);
 [800e4d44] = h(0);
@@ -79,7 +79,7 @@ La25bc:	; 800A25BC
     A1 = 1000;
     S1 = 800e4df0 + V1 * 1789c;
     A0 = S1;
-    [S2] = b(A2);
+    [struct + 0] = b(A2);
     800A2658	jal    func44244 [$80044244]
 
     800A2660	lui    s0, $0001
@@ -88,24 +88,24 @@ La25bc:	; 800A25BC
     800A266C	addu   a0, s0, zero
     800A2670	jal    func44244 [$80044244]
     800A2674	ori    a1, zero, $0001
+
     800A2678	jal    funcab2b4 [$800ab2b4]
-    800A267C	nop
 
     A0 = 80071e38; // screen scroll X
     A1 = 80071e3c; // screen scroll Y
     funca2f78;
 
-    800A2698	lui    v1, $8007
-    800A269C	lw     v1, $5d00(v1)
-    800A26A0	nop
-    800A26A4	lhu    v1, $0008(v1)
-    800A26A8	addu   a0, s0, zero
     800A26AC	lui    at, $8011
     800A26B0	sw     v0, $4454(at)
-    800A26B8	sh     v1, $0088(s2)
+
+    V1 = w[80075d00];
+    V1 = hu[V1 + 8];
+    [struct + 88] = h(V1);
+
+    A0 = S0;
     funcba65c; // script update here
 
-    [800965e0] = h(hu[S2 + 2a]);
+    [800965e0] = h(hu[struct + 2a]);
 
     funca4430; // init screen movement
     funca496c; // make screen movement

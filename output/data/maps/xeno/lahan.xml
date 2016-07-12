@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
 <map>
     <walkmesh file_name="maps/xeno/lahan_wm.xml" />
     <square_trigger name="Gateway0" point1="-20.1406 -42.5313 0" point2="13.5156 -42.5313 0" point3="13.5156 -30.9531 0" point4="-20.1406 -30.9531 0" enabled="true" />

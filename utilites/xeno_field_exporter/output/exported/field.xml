@@ -1,8 +1,4 @@
 <map>
-    <walkmesh file_name="maps/xeno/house1_wm.xml" />
-    <square_trigger name="Gateway0" point1="-2.64063 -0.40625 0" point2="-1.78125 -0.40625 0" point3="-1.78125 0.40625 0" point4="-2.64063 0.40625 0" enabled="true" />
-    <square_trigger name="Gateway1" point1="1.60938 -0.546875 0" point2="2.23438 -0.546875 0" point3="2.23438 0.53125 0" point4="1.60938 0.53125 0" enabled="true" />
-
     <entity_model name="Background_17" file_name="models/xeno/field/maps/0632/13.mesh" position="-3.28125 0.59375 0.90625" direction="0" flags="0290" />
     <entity_model name="Background_20" file_name="models/xeno/field/maps/0632/0.mesh" position="0 0 0" direction="0" flags="8010" />
     <entity_model name="Background_21" file_name="models/xeno/field/maps/0632/1.mesh" position="0 0 0" direction="0" flags="0010" />
@@ -22,4 +18,4 @@
     <entity_model name="Background_35" file_name="models/xeno/field/maps/0632/15.mesh" position="0 0 0" direction="0" flags="0010" />
     <entity_model name="Background_36" file_name="models/xeno/field/maps/0632/16.mesh" position="0.03125 0.015625 0" direction="0" flags="0000" />
     <entity_model name="Background_37" file_name="models/xeno/field/maps/0632/17.mesh" position="0.03125 0.015625 0" direction="0" flags="0010" />
-    </map>
+</map>

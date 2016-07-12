@@ -103,8 +103,15 @@
 
 80058c80 [][][][] last address in spu struct data (0x8006b490).
 
+80059600 light matrix
+    +00 [][][][] R11R12 for light matrix calculation.
+    +04 [][][][] R13R21 for light matrix calculation.
+    +08 [][][][] R22R23 for light matrix calculation.
+    +0c [][][][] R31R32 for light matrix calculation.
+    +10 [][][][] R33 for light matrix calculation.
+
 80059674 struct with data for text.
-+1c [][][][] pointer to next character.
+    +1c [][][][] pointer to next character.
 
 80061bbc array of 4 bytes offsets to SPU channel structures at offset 0xc4.
 

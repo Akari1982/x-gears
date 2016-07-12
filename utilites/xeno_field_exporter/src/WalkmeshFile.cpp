@@ -23,16 +23,15 @@ void
 WalkmeshFile::GetWalkmesh( Walkmesh* walkmesh )
 {
     // numbers of subblock
-    u32 block_count = GetU32LE( 0 );
-    u32 start = 0x04;
+    u32 block_count = GetU32LE( 0x00 );
 
     for( unsigned int i = 0; i < block_count; ++i )
     {
         Logger* export_script = new Logger( "exported/wm" + IntToString( i ) + ".xml" );
         export_script->Log( "<walkmesh>\n" );
-        u32 block_size   = GetU32LE(start + i * 0x04);
-        u32 block_start  = GetU32LE(start + 0x14 + i * 0x08);
-        u32 block_vertex = GetU32LE(start + 0x14 + i * 0x08 + 0x04);
+        u32 block_size   = GetU32LE( 0x04 + i * 0x04 );
+        u32 block_start  = GetU32LE( 0x04 + 0x14 + i * 0x08 + 0x00 );
+        u32 block_vertex = GetU32LE( 0x04 + 0x14 + i * 0x08 + 0x04 );
 
         for( unsigned int j = 0; j < block_size; )
         {
@@ -88,7 +87,7 @@ WalkmeshFile::GetWalkmesh( Walkmesh* walkmesh )
 
             walkmesh->AddTriangle(triangle);
 
-            j += 0x0E;
+            j += 0x0e;
         }
 
         export_script->Log( "</walkmesh>" );

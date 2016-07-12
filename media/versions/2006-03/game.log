@@ -1,6 +1,6 @@
-[12:41:43] Set current renderer: OpenGL!
-[12:41:44] Got 32 bpp (8888), 16 depth, 0 stencil
-[12:41:44] OGL Vendor: Intel
-[12:41:44] OGL Renderer: Intel(R) HD Graphics
-[12:41:44] OGL Version: 4.0.0 - Build 9.17.10.2867
-[12:41:57] SDL_QUIT: shutting down
+[10:30:38] Set current renderer: OpenGL!
+[10:30:40] Got 32 bpp (8888), 16 depth, 0 stencil
+[10:30:40] OGL Vendor: Intel
+[10:30:40] OGL Renderer: Intel(R) HD Graphics
+[10:30:40] OGL Version: 4.0.0 - Build 10.18.10.3958
+[10:30:55] SDL_QUIT: shutting down

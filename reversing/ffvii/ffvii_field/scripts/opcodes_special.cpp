@@ -1,18 +1,8 @@
 ﻿////////////////////////////////
 // 0x0F SPECIAL
-800D2164	lui    v0, $800a
-800D2168	lbu    v0, $d820(v0)
-800D216C	addiu  sp, sp, $ffd0 (=-$30)
-800D2170	sw     ra, $002c(sp)
-800D2174	andi   v0, v0, $0003
-800D2178	beq    v0, zero, Ld2190 [$800d2190]
-800D217C	sw     s0, $0028(sp)
-800D2180	lui    a0, $800a
-800D2184	addiu  a0, a0, $0e78
-800D2188	jal    funcbead4 [$800bead4]
-800D218C	ori    a1, zero, $0008
+current_entity = bu[800722c4];
+script = w[8009c6dc] + hu[800831fc + current_entity * 2];
 
-Ld2190:	; 800D2190
 800D2190	lui    v0, $8007
 800D2194	lbu    v0, $22c4(v0)
 800D2198	nop
@@ -32,6 +22,19 @@ Ld2190:	; 800D2190
 800D21D0	sltiu  v0, v1, $000b
 800D21D4	beq    v0, zero, Ld2734 [$800d2734]
 800D21D8	sll    v0, v1, $02
+
+C0260D80 ARROW
+80250D80
+14250D80 GMSPD
+AC240D80
+40240D80
+F4230D80
+80230D80
+0C230D80 MVLCK
+7C220D80
+44220D80
+F8210D80
+
 800D21DC	lui    at, $800a
 800D21E0	addiu  at, at, $0ee4
 800D21E4	addu   at, at, v0
@@ -117,37 +120,15 @@ Ld22a4:	; 800D22A4
 800D2300	addu   v0, zero, zero
 800D2304	j      Ld277c [$800d277c]
 800D2308	addiu  v1, v1, $0004
-800D230C	lui    v0, $800a
-800D2310	lbu    v0, $d820(v0)
-800D2314	nop
-800D2318	andi   v0, v0, $0003
-800D231C	beq    v0, zero, Ld2334 [$800d2334]
-800D2320	nop
-800D2324	lui    a0, $800a
-800D2328	addiu  a0, a0, $0e98
-800D232C	jal    funcbead4 [$800bead4]
-800D2330	ori    a1, zero, $0002
 
-Ld2334:	; 800D2334
-800D2334	lui    v0, $8008
-800D2338	addiu  v0, v0, $31fc
-800D233C	lui    a0, $8007
-800D2340	lbu    a0, $22c4(a0)
-800D2344	lui    a1, $800a
-800D2348	lw     a1, $c6dc(a1)
-800D234C	sll    a0, a0, $01
-800D2350	addu   a0, a0, v0
-800D2354	lhu    v1, $0000(a0)
-800D2358	nop
-800D235C	addu   a1, a1, v1
-800D2360	lhu    v1, $0000(a0)
-800D2364	lbu    a1, $0002(a1)
-800D2368	addiu  v1, v1, $0003
-800D236C	sh     v1, $0000(a0)
-800D2370	lui    at, $8007
-800D2374	sb     a1, $16cc(at)
-800D2378	j      Ld2780 [$800d2780]
-800D237C	addu   v0, zero, zero
+case fc: // MVLCK
+{
+    [800716cc] = b(bu[script + 2]);
+    [800831fc + current_entity * 2] = h(hu[800831fc + current_entity * 2] + 3);
+    return 0;
+}
+break;
+
 800D2380	lui    v0, $800a
 800D2384	lbu    v0, $d820(v0)
 800D2388	nop

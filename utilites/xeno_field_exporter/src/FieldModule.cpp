@@ -107,6 +107,35 @@ FieldModule::LoadMap( const int file_id )
 
 
     FieldPackFile* field_pack = new FieldPackFile( "data/field/0" + Ogre::StringConverter::toString( file_id ) + "" );
+
+
+
+    Logger* export_script = new Logger( "exported/field.xml" );
+    export_script->Log( "<map>\n" );
+    u16 number_of_model_ent = field_pack->GetU16LE( 0x18c );
+    for( int i = 0; i < number_of_model_ent; ++i )
+    {
+        u16 flags = field_pack->GetU16LE( 0x190 + i * 0x10 + 0x0 );
+        if( ( flags & 0x0040 ) == 0 )
+        {
+            float x = -(s16)field_pack->GetU16LE( 0x190 + i * 0x10 + 0x8 );
+            float y = -(s16)field_pack->GetU16LE( 0x190 + i * 0x10 + 0xc );
+            float z = -(s16)field_pack->GetU16LE( 0x190 + i * 0x10 + 0xa);
+            Ogre::Vector3 pos = Ogre::Vector3( x, y, z ) / 64;
+            u16 model_id = field_pack->GetU16LE( 0x190 + i * 0x10 + 0xe );
+            export_script->Log( "    <entity_model " );
+            export_script->Log( "name=\"Background_" + IntToString( i ) + "\" " );
+            export_script->Log( "file_name=\"models/xeno/field/maps/0" + Ogre::StringConverter::toString( file_id ) + "/" + IntToString( model_id ) + ".mesh\" " );
+            export_script->Log( "position=\"" + Ogre::StringConverter::toString( pos ) + "\" " );
+            export_script->Log( "direction=\"0\" " );
+            export_script->Log( "flags=\"" + HexToString( flags, 4, '0' ) + "\" " );
+            export_script->Log( "/>\n" );
+        }
+    }
+    export_script->Log( "</map>" );
+    delete export_script;
+
+
     File* temp;
 
     // part 0
