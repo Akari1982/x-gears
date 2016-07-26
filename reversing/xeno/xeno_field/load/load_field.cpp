@@ -836,6 +836,7 @@ func6f47c;
 
 
 
+// set up entities
 V0 = w[80059b70];
 number_of_entities = hu[V0 + 18c];
 [800aefe0] = w(number_of_entities);
@@ -847,45 +848,41 @@ system_memory_allocate;
 
 if( number_of_entities > 0 )
 {
-    V1 = w[800aefe4];
+    struct_5c = w[800aefe4];
+
+    // init entity struct with zeroes
     S4 = 0;
     loop709f0:	; 800709F0
-        [V1 + S4] = w(0);
+        [struct_5c + S4] = w(0);
         S4 = S4 + 4;
         V0 = S4 < number_of_entities * 5c;
     800709FC	bne    v0, zero, loop709f0 [$800709f0]
-}
 
-if( number_of_entities > 0 )
-{
-    struct_5c = w[800aefe4];
-    S4 = 0;
-    S2 = 0;
-    S5 = w[80059b70] + 190;
-
+    init_data = w[80059b70] + 190;
+    entity_id = 0;
     L70a1c:	; 80070A1C
-        [struct_5c + S2 + 58] = h(hu[S5 + 0]); // flags
-        [struct_5c + S2 + 50] = h(hu[S5 + 2]); // x rot
-        [struct_5c + S2 + 52] = h(hu[S5 + 4]); // y rot
-        [struct_5c + S2 + 54] = h(hu[S5 + 6]); // z rot
-        [struct_5c + S2 + 20] = w(hu[S5 + 8]); // x
-        [struct_5c + S2 + 40] = w(hu[S5 + 8]); // x
-        [struct_5c + S2 + 24] = w(hu[S5 + a]); // y
-        [struct_5c + S2 + 44] = w(hu[S5 + a]); // y
-        [struct_5c + S2 + 28] = w(hu[S5 + c]); // z
-        [struct_5c + S2 + 48] = w(hu[S5 + c]); // z
+        [struct_5c + entity_id * 5c + 58] = h(hu[init_data + entity_id * 10 + 0]); // flags
+        [struct_5c + entity_id * 5c + 50] = h(hu[init_data + entity_id * 10 + 2]); // x rot
+        [struct_5c + entity_id * 5c + 52] = h(hu[init_data + entity_id * 10 + 4]); // y rot
+        [struct_5c + entity_id * 5c + 54] = h(hu[init_data + entity_id * 10 + 6]); // z rot
+        [struct_5c + entity_id * 5c + 20] = w(hu[init_data + entity_id * 10 + 8]); // x
+        [struct_5c + entity_id * 5c + 40] = w(hu[init_data + entity_id * 10 + 8]); // x
+        [struct_5c + entity_id * 5c + 24] = w(hu[init_data + entity_id * 10 + a]); // y
+        [struct_5c + entity_id * 5c + 44] = w(hu[init_data + entity_id * 10 + a]); // y
+        [struct_5c + entity_id * 5c + 28] = w(hu[init_data + entity_id * 10 + c]); // z
+        [struct_5c + entity_id * 5c + 48] = w(hu[init_data + entity_id * 10 + c]); // z
 
-        if( ( hu[struct_5c + S2 + 58] & 0040 ) == 0 )
+        if( ( hu[struct_5c + entity_id * 5c + 58] & 0040 ) == 0 )
         {
             A0 = 24;
             A1 = 0;
             system_memory_allocate;
             S0 = V0;
 
-            [struct_5c + S2 + 0] = w(S0);
+            [struct_5c + entity_id * 5c + 0] = w(S0);
 
             models = w[800aefe8];
-            model_id = hu[S5 + e];
+            model_id = hu[init_data + entity_id * 10 + e];
             [S0 + 4] = w(models + w[models + 4 + model_id * 4] + 10);
 
             A0 = w[S0 + 4];
@@ -895,7 +892,7 @@ if( number_of_entities > 0 )
 
             A0 = w[S0 + 4]; // data
             A1 = w[S0 + 8]; // memory for packets
-            A2 = ( hu[struct_5c + S2 + 58] & 000c ) >> 2; // lighting flags
+            A2 = ( hu[struct_5c + entity_id * 5c + 58] & 000c ) >> 2; // lighting flags
             system_fill_packets_drafts_for_model_part; // fill 1st buffer
 
             A0 = w[S0 + c]; // to
@@ -904,7 +901,7 @@ if( number_of_entities > 0 )
             A2 = w[V0 + 34]; // size
             system_copy_memory; // copy from 1st buffer to second
 
-            if( hu[struct_5c + S2 + 58] & 2000 )
+            if( hu[struct_5c + entity_id * 5c + 58] & 2000 )
             {
                 [GP + 1ac] = h(3);
                 [80059640 + 3 * 4] = w(0);
@@ -925,19 +922,17 @@ if( number_of_entities > 0 )
         }
         else
         {
-            [struct_5c + S2 + 50] = h(0);
-            [struct_5c + S2 + 52] = h(0);
-            [struct_5c + S2 + 54] = h(0);
-            [struct_5c + S2 + 58] = h(hu[struct_5c + S2 + 58] | 0020);
+            [struct_5c + entity_id * 5c + 50] = h(0);
+            [struct_5c + entity_id * 5c + 52] = h(0);
+            [struct_5c + entity_id * 5c + 54] = h(0);
+            [struct_5c + entity_id * 5c + 58] = h(hu[struct_5c + entity_id * 5c + 58] | 0020);
         }
 
-        A0 = S4;
+        A0 = entity_id;
         func80558;
 
-        S5 = S5 + 10;
-        S2 = S2 + 5c;
-        S4 = S4 + 1;
-        V0 = S4 < number_of_entities;
+        entity_id = entity_id + 1;
+        V0 = entity_id < number_of_entities;
     80070C28	bne    v0, zero, L70a1c [$80070a1c]
 }
 

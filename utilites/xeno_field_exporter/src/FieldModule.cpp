@@ -144,7 +144,6 @@ FieldModule::LoadMap( const int file_id )
     delete temp;
 
     // part 1
-    /*
     temp = field_pack->Extract( 1 );
     WalkmeshFile* walk = new WalkmeshFile( temp );
     temp->WriteFile( "exported/1_walkmesh" );
@@ -155,10 +154,8 @@ FieldModule::LoadMap( const int file_id )
     walkmesh->SetUpWalkmesh();
     Ogre::SceneNode* node = Ogre::Root::getSingleton().getSceneManager("Scene")->getRootSceneNode()->createChildSceneNode();
     node->attachObject( walkmesh );
-    */
 
     // part 2
-    /*
     temp = field_pack->Extract( 2 );
     {
         FieldModel model;
@@ -166,7 +163,6 @@ FieldModule::LoadMap( const int file_id )
     }
     temp->WriteFile( "exported/2_3dmodel" );
     delete temp;
-    */
 
     // part 3
     temp = field_pack->Extract( 3 );

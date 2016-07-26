@@ -54,8 +54,8 @@ spawn table
 800aefe4 [][][][] pointer to model/sprite entity data (size 0x5c each).
     +   0 [][][][] pointer to allocated 0x24 size struct (only for models).
         +  4 [][][][] pointer to start of model parts header.
-        +  8 [][][][] pointer to allocated memory for 1st buffer.
-        +  c [][][][] pointer to allocated memory for 2nd buffer.
+        +  8 [][][][] pointer to allocated memory for 1st packets buffer.
+        +  c [][][][] pointer to allocated memory for 2nd packets buffer.
         + 14 [][][][] inited +1c from model data.
     +   4 [][][][] offset to some data (8012c138).
     +   8 [][][][] pointer to allocates memory (0x70 size).

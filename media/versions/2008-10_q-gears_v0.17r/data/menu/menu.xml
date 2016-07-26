@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
-<menus>
-    <menu id="1" name="start.lua" />
-
-    <menu id="6" name="name.lua" />
-    <menu id="9" name="main.lua" />
-    <menu id="14" name="save.lua" />
-    <menu id="15" name="load.lua" />
-</menus>

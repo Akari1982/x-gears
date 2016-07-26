@@ -91,10 +91,7 @@ main( int argc, char *argv[] )
 
 
     field = new FieldModule();
-
-
-
-    field->LoadMap( 632 );
+    field->LoadMap( 608 );
 
 
 

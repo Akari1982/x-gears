@@ -80,7 +80,7 @@
 
 80058bc8 [][][][] we store here +0c [][][][] from model parts header. Maybe for futher use in inner functions.
 
-80058bd8 [][][][] pointer to vertex block in model data file.
+80058bd8 [][][][] pointer to vertex block in model data file during packet init.
 
 80058bf0 [][][][] flags for turning SPU Voice OFF.
 80058bf4 [][][][] pointer to SND file (with wds signature).

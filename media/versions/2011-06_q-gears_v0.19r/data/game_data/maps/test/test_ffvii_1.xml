@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
-<map>
-    <script file_name="game_data/maps/test/test_ffvii_1.lua" />
-    <walkmesh file_name="game_data/maps/test/test_ffvii_1_wm.xml" />
-    <entity_model name="Cloud" file_name="models/field/units/cloud.mesh" position="0 0 10" direction="0" />
-    <entity_model name="TreasureChest" file_name="models/field/units/treasure_chest.mesh" position="-1 0 -10" direction="0" />
-    <entity_script name="Manager" />
-</map>

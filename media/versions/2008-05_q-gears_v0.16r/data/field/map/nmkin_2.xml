@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
-<map>
-    <scale value="1.0" />
-    <walkmesh file_name="data/field/map/nmkin_2_wm.xml" />
-    <script file_name="data/field/map/nmkin_2.lua" />
-</map>
