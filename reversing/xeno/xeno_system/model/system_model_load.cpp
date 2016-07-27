@@ -325,24 +325,22 @@ if( S2 != -1 )
     loop2c84c:	; 8002C84C
         type_of_polygons = bu[mesh_data_offset + 0];
         number_of_polygons = h[mesh_data_offset + 2] - 1;
-
         mesh_data_offset = mesh_data_offset + 4;
-
-        S1 = 8004f4f4 + type_of_polygons * 28;
 
         if( number_of_polygons != -1 )
         {
+            // calculate lighting for packets
             loop2c894:	; 8002C894
                 A0 = texture_data_offset;
                 A1 = mesh_data_offset;
                 A2 = S5;
-                8002C8A4	jalr   w[S1 + 18] ra
+                8002C8A4	jalr   w[8004f4f4 + type_of_polygons * 28 + 18] ra
 
                 if( V0 != 0 )
                 {
-                    mesh_data_offset = mesh_data_offset + w[S1 + 1c]; // polygon data
-                    texture_data_offset = texture_data_offset + w[S1 + 20]; // tex data
-                    packet_data_offset = packet_data_offset + w[S1 + 24]; // packets
+                    mesh_data_offset = mesh_data_offset + w[8004f4f4 + type_of_polygons * 28 + 1c]; // polygon data
+                    texture_data_offset = texture_data_offset + w[8004f4f4 + type_of_polygons * 28 + 20]; // tex data
+                    packet_data_offset = packet_data_offset + w[8004f4f4 + type_of_polygons * 28 + 24]; // packets
                 }
                 else
                 {

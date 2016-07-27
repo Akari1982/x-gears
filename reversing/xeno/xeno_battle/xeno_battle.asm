@@ -72976,7 +72976,7 @@ Lb16a4:	; 800B16A4
 800B16A8	lw     t0, $0058(sp)
 800B16AC	lbu    s0, $0007(s2)
 800B16B0	sll    a0, a0, $03
-800B16B4	jal    system_calculate_color_by_normal_on_GTE [$8004a044]
+800B16B4	jal    system_gte_calculate_normal_color_by_vector_only [$8004a044]
 800B16B8	addu   a0, a0, t0
 800B16BC	sb     s0, $0007(s2)
 800B16C0	lhu    v0, $000a(s1)
@@ -72997,7 +72997,7 @@ Lb16e8:	; 800B16E8
 800B16EC	lw     t1, $0058(sp)
 800B16F0	lbu    s0, $0007(s2)
 800B16F4	sll    a0, a0, $03
-800B16F8	jal    system_calculate_color_by_normal_on_GTE [$8004a044]
+800B16F8	jal    system_gte_calculate_normal_color_by_vector_only [$8004a044]
 800B16FC	addu   a0, a0, t1
 800B1700	sb     s0, $0007(s2)
 800B1704	lhu    v0, $000a(s1)
@@ -73017,7 +73017,7 @@ Lb172c:	; 800B172C
 800B1734	lw     t0, $0058(sp)
 800B1738	lbu    s0, $0007(s2)
 800B173C	sll    a0, a0, $03
-800B1740	jal    system_calculate_color_by_normal_on_GTE [$8004a044]
+800B1740	jal    system_gte_calculate_normal_color_by_vector_only [$8004a044]
 800B1744	addu   a0, a0, t0
 800B1748	sb     s0, $0007(s2)
 800B174C	lhu    v0, $0012(s1)

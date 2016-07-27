@@ -1,4 +1,44 @@
 ////////////////////////////////
+// system_calculate_normal_for_lighting
+T0 = A0;
+S1 = A3;
+
+[SP + 10] = w(h[A1 + 0] - h[T0 + 0]);
+[SP + 14] = w(h[A1 + 2] - h[T0 + 2]);
+[SP + 18] = w(h[A1 + 4] - h[T0 + 4]);
+
+[SP + 20] = w(h[A2 + 0] - h[T0 + 0])
+[SP + 24] = w(h[A2 + 2] - h[T0 + 2])
+[SP + 28] = w(h[A2 + 4] - h[T0 + 4])
+
+A0 = SP + 20;
+A1 = SP + 10;
+A2 = SP + 30;
+system_outer_product_A0_A1_to_A2;
+
+A0 = w[SP + 30];
+A1 = w[SP + 34];
+A2 = w[SP + 38];
+func2daac;
+
+if (V0 < 0)
+{
+    V0 = -V0;
+}
+A0 = V0;
+system_square_root;
+
+[SP + 30] = w(w[SP + 30] / V0);
+[SP + 34] = w(w[SP + 34] / V0);
+[SP + 38] = w(w[SP + 38] / V0);
+A0 = SP + 30;
+A1 = S1;
+system_normalize_word_vector_T0_T1_T2_to_half;
+////////////////////////////////
+
+
+
+////////////////////////////////
 // func2daac
 norm_x = A0;
 norm_y = A1;

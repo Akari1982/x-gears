@@ -1,4 +1,14 @@
-// triangle monochrome textured packet
+// triangle monochrome packet (type 0x00)
++00 [][][]
++03 []       store 04 here.
++04 []       R.
++05 []       G.
++06 []       B.
++07 []       store control byte here.
+
+
+
+// triangle monochrome textured packet (type 0x01)
 +00 [][][]
 +03 []       store 07 here.
 +04 []       R.
@@ -13,6 +23,21 @@
 +16 [][]     texture page info.
 +18 [][][][] place for vertex 3
 +1c [][]     texture UV for vertex 3.
+
+
+
+// triangle gourad packet (type 0x02)
++00 [][][]
++03 []       store 06 here.
++04 []       R0.
++05 []       G0.
++06 []       B0.
++0c []       R1.
++0d []       G1.
++0e []       B1.
++14 []       R2.
++15 []       G2.
++16 []       B2.
 
 
 

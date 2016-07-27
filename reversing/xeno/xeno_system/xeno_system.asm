@@ -24414,7 +24414,7 @@ L2ce10:	; 8002CE10
 8002CE3C	addu   a2, v0, a2
 8002CE40	addiu  a0, sp, $0010
 8002CE44	addu   a1, s0, zero
-8002CE48	jal    func4a108 [$8004a108]
+8002CE48	jal    system_gte_calculate_normal_color_by_vector_and_color [$8004a108]
 8002CE4C	addiu  a2, s1, $0004
 8002CE50	j      L2ce9c [$8002ce9c]
 8002CE54	nop
@@ -24431,7 +24431,7 @@ L2ce58:	; 8002CE58
 8002CE78	sw     a0, $8b34(at)
 
 L2ce7c:	; 8002CE7C
-8002CE7C	jal    func4a108 [$8004a108]
+8002CE7C	jal    system_gte_calculate_normal_color_by_vector_and_color [$8004a108]
 8002CE80	nop
 8002CE84	lui    v0, $8006
 8002CE88	lw     v0, $8b34(v0)
@@ -24503,7 +24503,7 @@ L2ceb4:	; 8002CEB4
 8002CFF4	sll    a1, a1, $03
 8002CFF8	addu   a1, v0, a1
 8002CFFC	sll    a2, a2, $03
-8002D000	jal    func4a128 [$8004a128]
+8002D000	jal    system_gte_calculate_normals_color_by_3vectors_and_color [$8004a128]
 8002D004	addu   a2, v0, a2
 8002D008	addu   a1, s2, zero
 8002D00C	addiu  a2, s0, $001c
@@ -24513,7 +24513,7 @@ L2ceb4:	; 8002CEB4
 8002D01C	sll    a0, a0, $03
 
 func2d020:	; 8002D020
-8002D020	jal    func4a108 [$8004a108]
+8002D020	jal    system_gte_calculate_normal_color_by_vector_and_color [$8004a108]
 8002D024	addu   a0, v0, a0
 8002D028	lbu    v0, $0003(s2)
 8002D02C	nop
@@ -24556,14 +24556,14 @@ func2d020:	; 8002D020
 8002D0BC	sll    a1, a1, $03
 8002D0C0	addu   a1, v0, a1
 8002D0C4	sll    a2, a2, $03
-8002D0C8	jal    func4a060 [$8004a060]
+8002D0C8	jal    system_gte_calculate_normals_color_by_3vectors_only [$8004a060]
 8002D0CC	addu   a2, v0, a2
 8002D0D0	addiu  a1, s0, $0028
 8002D0D4	lh     a0, $0006(s1)
 8002D0D8	lui    v0, $8006
 8002D0DC	lw     v0, $8bc8(v0)
 8002D0E0	sll    a0, a0, $03
-8002D0E4	jal    system_calculate_color_by_normal_on_GTE [$8004a044]
+8002D0E4	jal    system_gte_calculate_normal_color_by_vector_only [$8004a044]
 8002D0E8	addu   a0, v0, a0
 8002D0EC	lui    v0, $8006
 8002D0F0	lhu    v0, $89ac(v0)
@@ -24630,7 +24630,7 @@ L2d148:	; 8002D148
 8002D1D0	sll    a1, a1, $03
 8002D1D4	addu   a1, v0, a1
 8002D1D8	sll    a2, a2, $03
-8002D1DC	jal    func4a128 [$8004a128]
+8002D1DC	jal    system_gte_calculate_normals_color_by_3vectors_and_color [$8004a128]
 8002D1E0	addu   a2, v0, a2
 
 L2d1e4:	; 8002D1E4
@@ -24640,7 +24640,7 @@ L2d1e4:	; 8002D1E4
 8002D1F0	lui    v0, $8006
 8002D1F4	lw     v0, $8bc8(v0)
 8002D1F8	sll    a0, a0, $03
-8002D1FC	jal    func4a108 [$8004a108]
+8002D1FC	jal    system_gte_calculate_normal_color_by_vector_and_color [$8004a108]
 8002D200	addu   a0, v0, a0
 8002D204	lbu    v0, $0003(s2)
 8002D208	nop
@@ -24683,14 +24683,14 @@ L2d1e4:	; 8002D1E4
 8002D298	sll    a1, a1, $03
 8002D29C	addu   a1, v0, a1
 8002D2A0	sll    a2, a2, $03
-8002D2A4	jal    func4a060 [$8004a060]
+8002D2A4	jal    system_gte_calculate_normals_color_by_3vectors_only [$8004a060]
 8002D2A8	addu   a2, v0, a2
 8002D2AC	addiu  a1, s0, $0028
 8002D2B0	lh     a0, $0006(s1)
 8002D2B4	lui    v0, $8006
 8002D2B8	lw     v0, $8bc8(v0)
 8002D2BC	sll    a0, a0, $03
-8002D2C0	jal    system_calculate_color_by_normal_on_GTE [$8004a044]
+8002D2C0	jal    system_gte_calculate_normal_color_by_vector_only [$8004a044]
 8002D2C4	addu   a0, v0, a0
 8002D2C8	lui    v0, $8006
 8002D2CC	lhu    v0, $89ac(v0)
@@ -24736,62 +24736,12 @@ L2d324:	; 8002D324
 
 
 
-8002D4BC	addiu  sp, sp, $ffd0 (=-$30)
-8002D4C0	sw     s1, $0024(sp)
-8002D4C4	addu   s1, a0, zero
-8002D4C8	addu   a3, a1, zero
-8002D4CC	ori    v0, zero, $0006
-8002D4D0	sw     s0, $0020(sp)
-8002D4D4	lui    s0, $8006
-8002D4D8	lw     s0, $8ac0(s0)
-8002D4DC	andi   a2, a2, $0002
-8002D4E0	sw     ra, $0028(sp)
-8002D4E4	beq    a2, zero, L2d518 [$8002d518]
-8002D4E8	sb     v0, $0003(s0)
-8002D4EC	lui    v1, $8006
-8002D4F0	lw     v1, $8b34(v1)
-8002D4F4	lw     v0, $0000(s1)
-8002D4F8	nop
-8002D4FC	sw     v0, $0000(v1)
-8002D500	lui    v0, $8006
-8002D504	lw     v0, $8b34(v0)
-8002D508	nop
-8002D50C	addiu  v0, v0, $0004
-8002D510	lui    at, $8006
-8002D514	sw     v0, $8b34(at)
+////////////////////////////////
+// load_poly_02_18
+8002D4BC-8002D588
+////////////////////////////////
 
-L2d518:	; 8002D518
-8002D518	lh     a0, $0000(a3)
-8002D51C	lh     a1, $0002(a3)
-8002D520	lh     a2, $0004(a3)
-8002D524	addiu  v0, s0, $0004
-8002D528	sw     v0, $0010(sp)
-8002D52C	addiu  v0, s0, $000c
-8002D530	sw     v0, $0014(sp)
-8002D534	addiu  v0, s0, $0014
-8002D538	addu   a3, s1, zero
-8002D53C	sw     v0, $0018(sp)
-8002D540	lui    v0, $8006
-8002D544	lw     v0, $8bc8(v0)
-8002D548	sll    a0, a0, $03
-8002D54C	sll    a1, a1, $03
-8002D550	sll    a2, a2, $03
-8002D554	addu   a0, v0, a0
-8002D558	addu   a1, v0, a1
-8002D55C	jal    func4a128 [$8004a128]
 
-func2d560:	; 8002D560
-8002D560	addu   a2, v0, a2
-8002D564	lbu    v0, $0003(s1)
-8002D568	nop
-8002D56C	sb     v0, $0007(s0)
-8002D570	ori    v0, zero, $0001
-8002D574	lw     ra, $0028(sp)
-8002D578	lw     s1, $0024(sp)
-8002D57C	lw     s0, $0020(sp)
-8002D580	addiu  sp, sp, $0030
-8002D584	jr     ra 
-8002D588	nop
 
 8002D58C	addiu  sp, sp, $ffd0 (=-$30)
 8002D590	sw     s1, $0024(sp)
@@ -24819,7 +24769,7 @@ func2d560:	; 8002D560
 8002D5E8	sll    a2, a2, $03
 8002D5EC	addu   a0, v0, a0
 8002D5F0	addu   a1, v0, v1
-8002D5F4	jal    func4a128 [$8004a128]
+8002D5F4	jal    system_gte_calculate_normals_color_by_3vectors_and_color [$8004a128]
 8002D5F8	addu   a2, v0, a2
 8002D5FC	lbu    v0, $0003(s1)
 8002D600	nop
@@ -51985,28 +51935,18 @@ func49ff4:	; 80049FF4
 
 
 ////////////////////////////////
-// system_calculate_color_by_normal_on_GTE
+// system_gte_calculate_normal_color_by_vector_only
 8004A044-8004A05C
 ////////////////////////////////
 
 
 
-func4a060:	; 8004A060
-8004A060	lwc2   zero, $0000(a0)
-8004A064	lwc2   at, $0004(a0)
-8004A068	lwc2   v0, $0000(a1)
-8004A06C	lwc2   v1, $0004(a1)
-8004A070	lwc2   a0, $0000(a2)
-8004A074	lwc2   a1, $0004(a2)
-8004A078	nop
-8004A07C	gte_func22t8,r11r12
-8004A080	lw     t0, $0010(sp)
-8004A084	lw     t1, $0014(sp)
-8004A088	swc2   s4, $0000(a3)
-8004A08C	swc2   s5, $0000(t0)
-8004A090	swc2   s6, $0000(t1)
-8004A094	jr     ra 
-8004A098	nop
+////////////////////////////////
+// system_gte_calculate_normals_color_by_3vectors_only
+8004A060-8004A098
+////////////////////////////////
+
+
 
 8004A09C	lwc2   zero, $0000(a0)
 8004A0A0	lwc2   at, $0004(a0)
@@ -52038,35 +51978,20 @@ func4a060:	; 8004A060
 8004A104	nop
 
 
-func4a108:	; 8004A108
-8004A108	lwc2   zero, $0000(a0)
-8004A10C	lwc2   at, $0004(a0)
-8004A110	lwc2   a2, $0000(a1)
-8004A114	nop
-8004A118	gte_func24t0,r11r12
-8004A11C	swc2   s6, $0000(a2)
-8004A120	jr     ra 
-8004A124	nop
+
+////////////////////////////////
+// system_gte_calculate_normal_color_by_vector_and_color
+8004A108-8004A124
+////////////////////////////////
 
 
-func4a128:	; 8004A128
-8004A128	lwc2   zero, $0000(a0)
-8004A12C	lwc2   at, $0004(a0)
-8004A130	lwc2   v0, $0000(a1)
-8004A134	lwc2   v1, $0004(a1)
-8004A138	lwc2   a0, $0000(a2)
-8004A13C	lwc2   a1, $0004(a2)
-8004A140	lwc2   a2, $0000(a3)
-8004A144	nop
-8004A148	gte_func24t8,r11r12
-8004A14C	lw     t0, $0010(sp)
-8004A150	lw     t1, $0014(sp)
-8004A154	lw     t2, $0018(sp)
-8004A158	swc2   s4, $0000(t0)
-8004A15C	swc2   s5, $0000(t1)
-8004A160	swc2   s6, $0000(t2)
-8004A164	jr     ra 
-8004A168	nop
+
+////////////////////////////////
+// system_gte_calculate_normals_color_by_3vectors_and_color
+8004A128-8004A168
+////////////////////////////////
+
+
 
 8004A16C	lwc2   t1, $0000(a0)
 8004A170	lwc2   t2, $0004(a0)

@@ -1,4 +1,58 @@
 ////////////////////////////////
+// system_gte_calculate_normals_color_by_3vectors_only
+VXY0 = w[A0 + 0];
+VZ0 = w[A0 + 4];
+VXY1 = w[A1 + 0];
+VZ1 = w[A1 + 4];
+VXY2 = w[A2 + 0];
+VZ2 = w[A2 + 4];
+gte_NCCT; // Normal color col.v0, v1, v2
+[A3] = w(RGB0);
+[A4] = w(RGB1)
+[A5] = w(RGB2)
+////////////////////////////////
+
+
+
+////////////////////////////////
+// system_gte_calculate_normals_color_by_3vectors_and_color
+VXY0 = w[A0 + 0];
+VZ0 = w[A0 + 4];
+VXY1 = w[A1 + 0];
+VZ1 = w[A1 + 4];
+VXY2 = w[A2 + 0];
+VZ2 = w[A2 + 4];
+RGB = w[A3 + 0];
+gte_NCCT; // Normal color col.v0, v1, v2
+[A4] = w(RGB0);
+[A5] = w(RGB1)
+[A6] = w(RGB2)
+////////////////////////////////
+
+
+
+////////////////////////////////
+// system_gte_calculate_normal_color_by_vector_and_color
+VXY0 = w[A0 + 0];
+VZ0 = w[A0 + 4];
+RGB = w[A1 + 0];
+gte_NCCS; // Normal color col. v0.
+[A2 + 0] = w(RGB2);
+////////////////////////////////
+
+
+
+////////////////////////////////
+// system_gte_calculate_normal_color_by_vector_only
+VXY0 = w[A0 + 0];
+VZ0 = w[A0 + 4];
+gte_NCS; // Normal color v0.
+[A1 + 0] = w(RGB2);
+////////////////////////////////
+
+
+
+////////////////////////////////
 // system_gte_calculate_and_set_lighting_matrix
 V1 = 80059600;
 
@@ -222,7 +276,11 @@ system_normalize_vector_T0_T1_T2;
 [A1 + 0] = h(T0);
 [A1 + 2] = h(T1);
 [A1 + 4] = h(T2);
+////////////////////////////////
 
+
+
+////////////////////////////////
 // system_normalize_word_vector_T0_T1_T2_to_word
 T0 = w[A0 + 0];
 T1 = w[A0 + 4];
@@ -231,7 +289,11 @@ system_normalize_vector_T0_T1_T2;
 [A1 + 0] = w(T0);
 [A1 + 4] = w(T1);
 [A1 + 8] = w(T2);
+////////////////////////////////
 
+
+
+////////////////////////////////
 // system_normalize_half_vector_T0_T1_T2_to_half
 T0 = h[A0 + 0];
 T1 = h[A0 + 2];
@@ -281,18 +343,6 @@ gte_GPF; // General Purpose Interpolation.
 T0 = MAC0 >> T6;
 T1 = MAC1 >> T6;
 T2 = MAC2 >> T6;
-////////////////////////////////
-
-
-
-////////////////////////////////
-// system_calculate_color_by_normal_on_GTE
-VXY0 = w[A0 + 0];
-VZ0 = w[A0 + 4];
-
-NCS; // Normal color v0.
-
-[A1] = w(RGB2);
 ////////////////////////////////
 
 

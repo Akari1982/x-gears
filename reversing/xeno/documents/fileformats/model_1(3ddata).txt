@@ -35,13 +35,34 @@ data
 
 
 UV data (+14 sub file format)(size 0x4)
+monochrome triangle (0x00)
++0 [][][]   BGR.
++3 []       packet control byte.
+all textured poly
 +0 [][]     data.
 +3 []       type of data (0xc4 - texture page settings, 0xc8 - CLUT settings).
-or
+or next
 +0 [][]     texture UV for vertex 3.
 +3 []       packet control byte.
 +4 [][]     texture UV for vertex 1.
 +6 [][]     texture UV for vertex 2.
+
+
+
+normals for polygons (+18 sub file format) calculated during loading
+monochrome triangle (0x00)
++00 [][][][] texture data +14 (BRG and packet control byte).
++04 [][]     normal x.
++06 [][]     normal y.
++08 [][]     normal z.
++0a [][]     filler.
+gourad triangle (0x02)
++00 [][][][] texture data +14 (BRG and packet control byte).
+all textured poly
++00 [][]     normal x.
++02 [][]     normal y.
++04 [][]     normal z.
++06 [][]     filler.
 
 
 
