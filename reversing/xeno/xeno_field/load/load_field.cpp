@@ -1206,11 +1206,11 @@ if( w[800ad0d4] > 0 )
 
 ////////////////////////////////
 // func80558
-S0 = A0;
-struct_5c = w[800aefe4] + S0 * 5c;
+entity_id = A0;
+struct_5c = w[800aefe4] + entity_id * 5c;
 
 // given id greater than number of entitys
-if( S0 >= w[800ad0d4] )
+if( entity_id >= w[800ad0d4] )
 {
     return;
 }
@@ -1231,7 +1231,7 @@ loop805dc:	; 800805DC
 
 [struct_5c + 5a] = h(0);
 
-S2 = w[struct_5c + 4c];
+struct_138 = w[struct_5c + 4c];
 
 if( hu[struct_5c + 58] & 2000 )
 {
@@ -1240,7 +1240,7 @@ if( hu[struct_5c + 58] & 2000 )
     A0 = 80;
     A1 = 0;
     system_memory_allocate;
-    [S2 + 118] = w(V0);
+    [struct_138 + 118] = w(V0);
 
     V1 = w[S1 + 14];
     if( V1 != 0 )
@@ -1248,18 +1248,12 @@ if( hu[struct_5c + 58] & 2000 )
         if( w[V1 + c] > 0 )
         {
             A0 = 0;
-            A1 = 8008002c;
-
             loop80674:	; 80080674
-                80080674	lw     v1, $0010(v1)
-                80080678	sll    v0, a0, $05
-                8008067C	addu   v0, v0, v1
-                80080680	sw     a1, $0000(v0)
-                80080684	lw     v1, $0118(s2)
-                80080688	sll    v0, a0, $02
-                8008068C	addu   v0, v0, v1
-                80080690	sw     zero, $0000(v0)
-                80080694	lw     v1, $0014(s1)
+                V0 = w[V1 + 10];
+                [V0 + A0 * 20 + 0] = w(8008002c);
+
+                V0 = w[struct_138 + 118];
+                [V0 + A0 * 4] = w(0);
 
                 A0 = A0 + 1;
                 V0 = A0 < w[V1 + c];
@@ -1268,7 +1262,7 @@ if( hu[struct_5c + 58] & 2000 )
     }
 }
 
-A0 = S0;
+A0 = entity_id;
 func80088;
 
 A0 = 70;
@@ -1277,16 +1271,16 @@ system_memory_allocate;
 [struct_5c + 8] = w(V0);
 
 A0 = V0;
-func7a058;
+func7a058; // init shadow
 ////////////////////////////////
 
 
 
 ////////////////////////////////
 // func80088
-S5 = A0;
+entity_id = A0;
 
-struct_5c = w[800aefe4] + S0 * 5c;
+struct_5c = w[800aefe4] + entity_id * 5c;
 
 S0 = w[struct_5c + 4c];
 
@@ -1301,6 +1295,7 @@ S0 = w[struct_5c + 4c];
 [S0 + 18] = h(10);
 [S0 + 1a] = h(60);
 [S0 + 1c] = h(10);
+[S0 + 1e] = h(hu[S0 + 18]);
 
 [S0 + 30] = w(0);
 [S0 + 34] = w(0);
@@ -1310,28 +1305,55 @@ S0 = w[struct_5c + 4c];
 [S0 + 44] = w(0);
 [S0 + 48] = w(0);
 
-[S0 + 74] = b(ff);
-[S0 + 75] = b(ff);
-
-
 [S0 + 60] = h(0);
 [S0 + 62] = h(0);
 [S0 + 64] = h(0);
+
+[S0 + 6e] = h(0);
+
+[S0 + 74] = b(ff);
+[S0 + 75] = b(ff);
+[S0 + 76] = h(0100);
+
+[S0 + 80] = b(ff);
+
+[S0 + 82] = b(0);
+[S0 + 83] = b(0);
+[S0 + 84] = w(0);
+[S0 + 88] = h(0);
+[S0 + 8a] = h(0);
+
+// init requested script
+S3 = 0;
+loop8021c:	; 8008021C
+    [S0 + 8c + S3 * 8 + 0] = h(ffff); // pointer to requested script
+    [S0 + 8c + S3 * 8 + 2] = b(0); // wait byte
+    [S0 + 8c + S3 * 8 + 3] = b(ff); // script id
+    [S0 + 8c + S3 * 8 + 4] = w(( w[S0 + 8c + S3 * 8 + 4] & fffcffff & ffbfffff & fe7fffff ) | 003с0000);
+    [S0 + 8c + S3 * 8 + 4] = h(ffff);
+    S3 = S3 + 1;
+    V0 = S3 < 8;
+8008024C	bne    v0, zero, loop8021c [$8008021c]
+
+[S0 + cc] = h(0);
+[S0 + ce] = b(0);
+[S0 + cf] = b(0);
 
 [S0 + d0] = w(0);
 [S0 + d4] = w(0);
 [S0 + d8] = w(0);
 
+[S0 + e2] = b(0);
+[S0 + e3] = b(0);
+[S0 + e4] = h(00ff);
 [S0 + e6] = h(0);
+[S0 + e8] = h(0);
+[S0 + ec] = h(0);
 [S0 + ea] = h(ff);
 
-[S0 + e2] = b(0);
-[S0 + cc] = h(0);
-[S0 + 6e] = h(0);
-[S0 + 12c] = w(w[S0 + 12c] & ffffffdf);
-[S0 + 11e] = h(0200);
-[S0 + 1e] = h(hu[S0 + 18]);
-[S0 + 12c] = w(w[S0 + 12c] & fffffffc);
+[S0 + f4] = h(1000);
+[S0 + f6] = h(1000);
+[S0 + f8] = h(1000);
 
 [S0 + fc] = b(80);
 [S0 + fd] = b(80);
@@ -1340,114 +1362,73 @@ S0 = w[struct_5c + 4c];
 [S0 + 100] = b(80);
 [S0 + 101] = b(80);
 
-[S0 + 128] = h(ffff);
-[S0 + 12c] = w(w[S0 + 12c] & fffcffff);
-[S0 + 130] = w(w[S0 + 130] & f007ffff & fffffe00 & fff801ff);
-[S0 + 12c] = w(w[S0 + 12c] & f003ffff);
-
-S3 = 0;
-loop8021c:	; 8008021C
-    [S0 + 8e + S3 * 8] = b(0);
-    [S0 + 8c + S3 * 8] = h(ffff);
-    [S0 + 8f + S3 * 8] = b(ff);
-
-    [S0 + 90 + S3 * 8] = w(( w[S0 + 90 + S3 * 8] & fffcffff & ffbfffff & fe7fffff ) | 0000003с);
-    [S0 + 90 + S3 * 8] = h(ffff);
-
-    S3 = S3 + 1;
-    V0 = S3 < 8;
-8008024C	bne    v0, zero, loop8021c [$8008021c]
-
-[S0 + 120] = w(0);
-
-[S0 + e4] = h(00ff);
-[S0 + 76] = h(0100);
-[S0 + 83] = b(0);
-[S0 + 82] = b(0);
-[S0 + 8a] = h(0);
-[S0 + 88] = h(0);
-[S0 + 84] = w(0);
-[S0 + cf] = b(0);
-[S0 + ce] = b(0);
-[S0 + e8] = h(0);
-[S0 + ec] = h(0);
-
-[S0 + 134] = w(w[S0 + 134] & ffffff7f);
-[S0 + 12c] = w(w[S0 + 12c] & fffffe3f & fffff1ff & ffffefff);
-[S0 + 134] = w(w[S0 + 134] & ffffff9f);
-
 system_get_random_2_bytes;
 [S0 + 102] = h(V0);
-
-[S0 + f4] = h(1000);
-[S0 + f6] = h(1000);
-[S0 + f8] = h(1000);
-
-[S0 + 10d] = b(ff);
-[S0 + 80] = b(ff);
 
 [S0 + 104] = h(8000);
 [S0 + 106] = h(8000);
 [S0 + 108] = h(8000);
 
+[S0 + 10d] = b(ff);
+
+[S0 + 11e] = h(0200);
+[S0 + 120] = w(0);
 [S0 + 124] = h(ffff);
+[S0 + 128] = h(ffff);
+[S0 + 12c] = w(w[S0 + 12c] & fffffe3f & fffff1ff & ffffefff & f003ffff & fffcffff & ffffffdf & ffffffe3 & fffffffc);
+[S0 + 130] = w(w[S0 + 130] & f007ffff & fffffe00 & fff801ff);
+[S0 + 134] = w(w[S0 + 134] & ffffff9f & ffffff7f);
 
-[S0 + e3] = b(0);
-[S0 + 12c] = w(w[S0 + 12c] & ffffffe3)
 
 
-
+// find triangles to place entity on on all walkmeshes in field
 number_of_walkmeshes = h[800af028] - 1;
 if( number_of_walkmeshes > 0 )
 {
-    S3 = 0;
+    walkmesh_id = 0;
     loop80368:	; 80080368
         A0 = h[struct_5c + 20]; // x
         A1 = h[struct_5c + 28]; // z
-        A2 = S3;
-        A3 = SP + 58 + S3 * 8;
-        A4 = SP + 18 + S3 * 10;
-        func7a7d8;
-        [S0 + 8 + S3 * 2] = h(V0);
+        A2 = walkmesh_id;
+        A3 = SP + 58 + walkmesh_id * 8;  // ret position
+        A4 = SP + 18 + walkmesh_id * 10; // ret normal
+        func7a7d8; // search for triangle model are in
+        [S0 + 8 + walkmesh_id * 2] = h(V0); // store id of triangle
 
         if( V0 != -1 )
         {
-            // if finded triangle greater than total number of triangles - remove it
-            if( V0 >= w[800af018 + S3 * 4] )
+            // if found triangle greater than total number of triangles - remove it
+            if( V0 >= w[800af018 + walkmesh_id * 4] )
             {
-                [800af018 + S3 * 4] = w(0);
+                [800af018 + walkmesh_id * 4] = w(0);
 
-                [SP + 18 + S3 * 10] = w(0);
-                [SP + 1c + S3 * 10] = w(0);
-                [SP + 20 + S3 * 10] = w(0);
+                [SP + 18 + walkmesh_id * 10] = w(0);
+                [SP + 1c + walkmesh_id * 10] = w(0);
+                [SP + 20 + walkmesh_id * 10] = w(0);
 
-                [SP + 58 + S3 * 8] = h(0);
-                [SP + 5a + S3 * 8] = h(0);
-                [SP + 5c + S3 * 8] = h(0);
+                [SP + 58 + walkmesh_id * 8] = h(0);
+                [SP + 5a + walkmesh_id * 8] = h(0);
+                [SP + 5c + walkmesh_id * 8] = h(0);
             }
         }
 
-        S3 = S3 + 1;
-        V0 = S3 < number_of_walkmeshes;
+        walkmesh_id = walkmesh_id + 1;
+        V0 = walkmesh_id < number_of_walkmeshes;
     80080404	bne    v0, zero, loop80368 [$80080368]
 }
 
-
-
 A0 = S0;
-8008040C	jal    func7ff7c [$8007ff7c]
-
+func7ff7c;
 [S0 + 14] = w(V0);
 
-V0 = h[S0 + 10];
-[S0 + 50] = w(w[SP + 18 + V0 * 10]);
-[S0 + 54] = w(w[SP + 1c + V0 * 10]);
-[S0 + 58] = w(w[SP + 20 + V0 * 10]);
+current_walkmesh = h[S0 + 10];
+[S0 + 50] = w(w[SP + 18 + current_walkmesh * 10]);
+[S0 + 54] = w(w[SP + 1c + current_walkmesh * 10]);
+[S0 + 58] = w(w[SP + 20 + current_walkmesh * 10]);
 
 if( ( hu[struct_5c + 58] & 0080 ) == 0 )
 {
-    V0 = SP + h[S0 + 10] * 8;
-    [struct_5c + 24] = w(h[V0 + 5a]);
+    [struct_5c + 24] = w(h[SP + 5a + current_walkmesh * 8]);
 }
 
 [S0 + 20] = w(w[struct_5c + 20] << 10);
@@ -1460,33 +1441,16 @@ if( ( hu[struct_5c + 58] & 0080 ) == 0 )
 
 ////////////////////////////////
 // func7ff7c
-A1 = h[A0 + 10];
+// get material for current walkmesh and current triangle
+walkmesh_id = h[A0 + 10];
 
-8007FF80	lw     v0, $0004(a0)
-8007FF84	addiu  v1, a1, $0003
-8007FF88	srlv   v0, v1, v0
-8007FF8C	andi   v0, v0, $0001
-
-if( V0 == 0 )
+if( ((w[A0 + 4] >> walkmesh_id + 3) & 1) == 0 )
 {
-    8007FF98	sll    v0, a1, $01
-    8007FF9C	addu   v0, v0, a0
-    8007FFA0	lh     v1, $0008(v0)
-    8007FFA4	sll    a0, a1, $02
-    8007FFA8	sll    v0, v1, $03
-    8007FFAC	subu   v0, v0, v1
-    8007FFB0	lui    at, $800b
-    8007FFB4	addu   at, at, a0
-    8007FFB8	lw     v1, $eff8(at)
-    8007FFBC	sll    v0, v0, $01
-    8007FFC0	addu   v0, v0, v1
-    8007FFC4	lbu    v0, $000c(v0)
-    8007FFC8	lui    v1, $800b
-    8007FFCC	lw     v1, $eff4(v1)
-    8007FFD0	sll    v0, v0, $02
-    8007FFD4	addu   v0, v0, v1
-    8007FFD8	lw     v0, $0000(v0)
-    return V0;
+    triangle_data = w[800aeff8 + walkmesh_id * 4];
+    material_data = w[800aeff4];
+    triangle_id = h[A0 + 8 + walkmesh_id * 2];
+    V0 = bu[triangle_data + triangle_id * e + c];
+    return w[material_data + V0 * 4];
 }
 
 return 0;
@@ -1496,75 +1460,70 @@ return 0;
 
 ////////////////////////////////
 // func7a058
-8007A060	addu   s0, a0, zero
-8007A068	addiu  s1, s0, $0020
-8007A074	addu   a0, s1, zero
-8007A070	jal    func43b28 [$80043b28]
+offset_70 = S0 = A0;
+S1 = S0 + 20; // start of packet
 
-8007A078	addu   a0, zero, zero
-8007A07C	ori    a1, zero, $0002
-8007A080	addiu  v0, zero, $ffe8 (=-$18)
-8007A084	ori    v1, zero, $0018
-8007A088	sh     v0, $0018(s0)
-8007A08C	sh     v0, $001c(s0)
-8007A090	sh     v0, $0014(s0)
-8007A094	sh     v0, $0008(s0)
-8007A098	ori    v0, zero, $0080
-8007A09C	ori    a2, zero, $0280
-8007A0A0	ori    a3, zero, $01e0
-8007A0A4	sh     zero, $001a(s0)
-8007A0A8	sh     v1, $0010(s0)
-8007A0AC	sh     zero, $0012(s0)
-8007A0B0	sh     zero, $000a(s0)
-8007A0B4	sh     v1, $000c(s0)
-8007A0B8	sh     v1, $0000(s0)
-8007A0BC	sh     zero, $0002(s0)
-8007A0C0	sh     v1, $0004(s0)
-8007A0C4	sb     v0, $0024(s0)
-8007A0C8	sb     v0, $0025(s0)
-8007A0CC	jal    func43894 [$80043894]
-8007A0D0	sb     v0, $0026(s0)
-8007A0D4	ori    a0, zero, $0100
-8007A0D8	ori    a1, zero, $00f3
-8007A0DC	jal    func438d0 [$800438d0]
-8007A0E0	sh     v0, $0036(s0)
-8007A0E4	addu   a0, s1, zero
-8007A0E8	ori    a1, zero, $0001
-8007A0F0	sh     v0, $002e(s0)
+[offset_70 + 20 + 3] = b(9);
+[offset_70 + 20 + 7] = b(2c);
+
+[offset_70 + 0] = h(18);
+[offset_70 + 2] = h(0);
+[offset_70 + 4] = h(18);
+
+[offset_70 + 8] = h(-18);
+[offset_70 + a] = h(0);
+[offset_70 + c] = h(18);
+
+[offset_70 + 10] = h(18);
+[offset_70 + 12] = h(0);
+[offset_70 + 14] = h(-18);
+
+[offset_70 + 18] = h(-18);
+[offset_70 + 1a] = h(0);
+[offset_70 + 1c] = h(-18);
+
+[offset_70 + 20 + 4] = b(80);
+[offset_70 + 20 + 5] = b(80);
+[offset_70 + 20 + 6] = b(80);
+
+A0 = 0;
+A1 = 2;
+A2 = 280;
+A3 = 1e0;
+func43894; // pack texpage settings
+[offset_70 + 20 + 16] = h(V0);
+
+A0 = 100;
+A1 = f3;
+func438d0; // pack clut
+[offset_70 + 20 + e] = h(V0);
+
+A0 = offset_70 + 20;
+A1 = 1; // transparency on
 system_set_draw_packet_transparency;
 
-8007A0F4	addiu  v0, s0, $0048
-8007A0F8	addu   a2, v0, zero
-8007A0FC	addiu  a3, s0, $0040
-8007A100	ori    v0, zero, $00e0
-8007A104	ori    v1, zero, $000f
-8007A108	sb     v0, $002d(s0)
-8007A10C	sb     v0, $0035(s0)
-8007A110	ori    v0, zero, $00ef
-8007A114	sb     zero, $002c(s0)
-8007A118	sb     v1, $0034(s0)
-8007A11C	sb     zero, $003c(s0)
-8007A120	sb     v0, $003d(s0)
-8007A124	sb     v1, $0044(s0)
-8007A128	sb     v0, $0045(s0)
+[offset_70 + 20 + c] = b(0);
+[offset_70 + 20 + d] = b(e0);
+[offset_70 + 20 + 14] = b(f);
+[offset_70 + 20 + 15] = b(e0);
+[offset_70 + 20 + 1c] = b(0);
+[offset_70 + 20 + 1d] = b(ef);
+[offset_70 + 20 + 24] = b(ef);
+[offset_70 + 20 + 25] = b(f);
 
+// copy data to 2nd buffer
+A2 = 0;
 loop7a12c:	; 8007A12C
-    8007A12C	lw     v0, $0000(s1)
-    8007A130	lw     v1, $0004(s1)
-    8007A134	lw     a0, $0008(s1)
-    8007A138	lw     a1, $000c(s1)
-    8007A13C	sw     v0, $0000(a2)
-    8007A140	sw     v1, $0004(a2)
-    8007A144	sw     a0, $0008(a2)
-    8007A148	sw     a1, $000c(a2)
-    8007A14C	addiu  s1, s1, $0010
-    8007A154	addiu  a2, a2, $0010
-8007A150	bne    s1, a3, loop7a12c [$8007a12c]
+    [S0 + 48 + A2 + 0] = w(w[S1 + 0]);
+    [S0 + 48 + A2 + 4] = w(w[S1 + 4]);
+    [S0 + 48 + A2 + 8] = w(w[S1 + 8]);
+    [S0 + 48 + A2 + c] = w(w[S1 + c]);
+    A2 = A2 + 10;
+    S1 = S1 + 10;
+8007A150	bne    s1, S0 + 40, loop7a12c [$8007a12c]
 
-8007A158	lw     v0, $0000(s1)
-8007A15C	lw     v1, $0004(s1)
-8007A160	sw     v0, $0000(a2)
-8007A164	sw     v1, $0004(a2)
+[S0 + 48 + A2 + 0] = w(w[S1 + 0]);
+[S0 + 48 + A2 + 4] = w(w[S1 + 4]);
 ////////////////////////////////
 
 

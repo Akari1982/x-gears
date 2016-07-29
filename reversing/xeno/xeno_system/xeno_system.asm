@@ -24356,108 +24356,10 @@ L2ca0c:	; 8002CA0C
 
 
 
-8002CD68	addiu  sp, sp, $ffd8 (=-$28)
-8002CD6C	sw     s0, $0018(sp)
-8002CD70	addu   s0, a0, zero
-8002CD74	sw     s1, $001c(sp)
-8002CD78	lui    s1, $8006
-8002CD7C	lw     s1, $8ac0(s1)
-8002CD80	ori    v0, zero, $0004
-8002CD84	sw     ra, $0020(sp)
-8002CD88	sb     v0, $0003(s1)
-8002CD8C	andi   v0, a2, $0001
-8002CD90	beq    v0, zero, L2ce58 [$8002ce58]
-8002CD94	addu   t0, a1, zero
-8002CD98	andi   v0, a2, $0002
-8002CD9C	beq    v0, zero, L2ce10 [$8002ce10]
-8002CDA0	addiu  a3, sp, $0010
-8002CDA4	lui    v1, $8006
-8002CDA8	lw     v1, $8b34(v1)
-8002CDAC	lw     v0, $0000(s0)
-8002CDB0	nop
-8002CDB4	sw     v0, $0000(v1)
-8002CDB8	lh     a0, $0000(t0)
-8002CDBC	lui    v0, $8006
-8002CDC0	lw     v0, $8bd8(v0)
-8002CDC4	lh     a1, $0002(t0)
-8002CDC8	lh     a2, $0004(t0)
-8002CDCC	lui    a3, $8006
-8002CDD0	lw     a3, $8b34(a3)
-8002CDD4	sll    a0, a0, $03
-8002CDD8	addu   a0, v0, a0
-8002CDDC	sll    a1, a1, $03
-8002CDE0	addu   a1, v0, a1
-8002CDE4	sll    a2, a2, $03
-8002CDE8	addiu  a3, a3, $0004
-8002CDEC	lui    at, $8006
-8002CDF0	sw     a3, $8b34(at)
-8002CDF4	jal    system_calculate_normal_for_lighting [$8002d994]
-8002CDF8	addu   a2, v0, a2
-8002CDFC	addu   a1, s0, zero
-8002CE00	lui    a0, $8006
-8002CE04	lw     a0, $8b34(a0)
-8002CE08	j      L2ce7c [$8002ce7c]
-8002CE0C	addiu  a2, s1, $0004
-
-L2ce10:	; 8002CE10
-8002CE10	lh     a0, $0000(t0)
-8002CE14	lui    v0, $8006
-8002CE18	lw     v0, $8bd8(v0)
-8002CE1C	lh     a1, $0002(t0)
-8002CE20	lh     a2, $0004(t0)
-8002CE24	sll    a0, a0, $03
-8002CE28	addu   a0, v0, a0
-8002CE2C	sll    a1, a1, $03
-8002CE30	addu   a1, v0, a1
-8002CE34	sll    a2, a2, $03
-8002CE38	jal    system_calculate_normal_for_lighting [$8002d994]
-8002CE3C	addu   a2, v0, a2
-8002CE40	addiu  a0, sp, $0010
-8002CE44	addu   a1, s0, zero
-8002CE48	jal    system_gte_calculate_normal_color_by_vector_and_color [$8004a108]
-8002CE4C	addiu  a2, s1, $0004
-8002CE50	j      L2ce9c [$8002ce9c]
-8002CE54	nop
-
-L2ce58:	; 8002CE58
-8002CE58	andi   v0, a2, $0004
-8002CE5C	beq    v0, zero, L2cea8 [$8002cea8]
-8002CE60	addu   a1, s0, zero
-8002CE64	lui    a0, $8006
-8002CE68	lw     a0, $8b34(a0)
-8002CE6C	addiu  a2, s1, $0004
-8002CE70	addiu  a0, a0, $0004
-8002CE74	lui    at, $8006
-8002CE78	sw     a0, $8b34(at)
-
-L2ce7c:	; 8002CE7C
-8002CE7C	jal    system_gte_calculate_normal_color_by_vector_and_color [$8004a108]
-8002CE80	nop
-8002CE84	lui    v0, $8006
-8002CE88	lw     v0, $8b34(v0)
-8002CE8C	nop
-8002CE90	addiu  v0, v0, $0008
-8002CE94	lui    at, $8006
-8002CE98	sw     v0, $8b34(at)
-
-L2ce9c:	; 8002CE9C
-8002CE9C	lbu    v0, $0003(s0)
-8002CEA0	j      L2ceb4 [$8002ceb4]
-8002CEA4	sb     v0, $0007(s1)
-
-L2cea8:	; 8002CEA8
-8002CEA8	lw     v0, $0000(s0)
-8002CEAC	nop
-8002CEB0	sw     v0, $0004(s1)
-
-L2ceb4:	; 8002CEB4
-8002CEB4	ori    v0, zero, $0001
-8002CEB8	lw     ra, $0020(sp)
-8002CEBC	lw     s1, $001c(sp)
-8002CEC0	lw     s0, $0018(sp)
-8002CEC4	addiu  sp, sp, $0028
-8002CEC8	jr     ra 
-8002CECC	nop
+////////////////////////////////
+// load_poly_08_18
+8002CD68-8002CECC
+////////////////////////////////
 
 
 
@@ -24475,130 +24377,21 @@ L2ceb4:	; 8002CEB4
 
 
 
-8002CF90	addiu  sp, sp, $ffd0 (=-$30)
-8002CF94	sw     s2, $0028(sp)
-8002CF98	addu   s2, a0, zero
-8002CF9C	sw     s1, $0024(sp)
-8002CFA0	addu   s1, a1, zero
-8002CFA4	ori    v0, zero, $0008
-8002CFA8	sw     s0, $0020(sp)
-8002CFAC	lui    s0, $8006
-8002CFB0	lw     s0, $8ac0(s0)
-8002CFB4	addu   a3, s2, zero
-8002CFB8	sw     ra, $002c(sp)
-8002CFBC	sb     v0, $0003(s0)
-8002CFC0	lh     a0, $0000(s1)
-8002CFC4	lh     a1, $0002(s1)
-8002CFC8	lh     a2, $0004(s1)
-8002CFCC	addiu  v0, s0, $0004
-8002CFD0	sw     v0, $0010(sp)
-8002CFD4	addiu  v0, s0, $000c
-8002CFD8	sw     v0, $0014(sp)
-8002CFDC	addiu  v0, s0, $0014
-8002CFE0	sw     v0, $0018(sp)
-8002CFE4	lui    v0, $8006
-8002CFE8	lw     v0, $8bc8(v0)
-8002CFEC	sll    a0, a0, $03
-8002CFF0	addu   a0, v0, a0
-8002CFF4	sll    a1, a1, $03
-8002CFF8	addu   a1, v0, a1
-8002CFFC	sll    a2, a2, $03
-8002D000	jal    system_gte_calculate_normals_color_by_3vectors_and_color [$8004a128]
-8002D004	addu   a2, v0, a2
-8002D008	addu   a1, s2, zero
-8002D00C	addiu  a2, s0, $001c
-8002D010	lh     a0, $0006(s1)
-8002D014	lui    v0, $8006
-8002D018	lw     v0, $8bc8(v0)
-8002D01C	sll    a0, a0, $03
+////////////////////////////////
+// load_poly_0a_18
+// load_poly_0e_18
+8002CF90-8002D050
+////////////////////////////////
 
-func2d020:	; 8002D020
-8002D020	jal    system_gte_calculate_normal_color_by_vector_and_color [$8004a108]
-8002D024	addu   a0, v0, a0
-8002D028	lbu    v0, $0003(s2)
-8002D02C	nop
-8002D030	sb     v0, $0007(s0)
-8002D034	ori    v0, zero, $0001
-8002D038	lw     ra, $002c(sp)
-8002D03C	lw     s2, $0028(sp)
-8002D040	lw     s1, $0024(sp)
-8002D044	lw     s0, $0020(sp)
-8002D048	addiu  sp, sp, $0030
-8002D04C	jr     ra 
-8002D050	nop
 
-8002D054	addiu  sp, sp, $ffd8 (=-$28)
-8002D058	sw     s2, $0020(sp)
-8002D05C	addu   s2, a0, zero
-8002D060	sw     s1, $001c(sp)
-8002D064	addu   s1, a1, zero
-8002D068	sw     ra, $0024(sp)
-8002D06C	jal    func2cb74 [$8002cb74]
-8002D070	sw     s0, $0018(sp)
-8002D074	beq    v0, zero, L2d144 [$8002d144]
-8002D078	ori    v0, zero, $000c
-8002D07C	lui    s0, $8006
-8002D080	lw     s0, $8ac0(s0)
-8002D084	nop
-8002D088	sb     v0, $0003(s0)
-8002D08C	lh     a0, $0000(s1)
-8002D090	lh     a1, $0002(s1)
-8002D094	lh     a2, $0004(s1)
-8002D098	addiu  v0, s0, $0010
-8002D09C	sw     v0, $0010(sp)
-8002D0A0	addiu  v0, s0, $001c
-8002D0A4	addiu  a3, s0, $0004
-8002D0A8	sw     v0, $0014(sp)
-8002D0AC	lui    v0, $8006
-8002D0B0	lw     v0, $8bc8(v0)
-8002D0B4	sll    a0, a0, $03
-8002D0B8	addu   a0, v0, a0
-8002D0BC	sll    a1, a1, $03
-8002D0C0	addu   a1, v0, a1
-8002D0C4	sll    a2, a2, $03
-8002D0C8	jal    system_gte_calculate_normals_color_by_3vectors_only [$8004a060]
-8002D0CC	addu   a2, v0, a2
-8002D0D0	addiu  a1, s0, $0028
-8002D0D4	lh     a0, $0006(s1)
-8002D0D8	lui    v0, $8006
-8002D0DC	lw     v0, $8bc8(v0)
-8002D0E0	sll    a0, a0, $03
-8002D0E4	jal    system_gte_calculate_normal_color_by_vector_only [$8004a044]
-8002D0E8	addu   a0, v0, a0
-8002D0EC	lui    v0, $8006
-8002D0F0	lhu    v0, $89ac(v0)
-8002D0F4	lhu    v1, $0004(s2)
-8002D0F8	sll    v0, v0, $10
-8002D0FC	or     v1, v1, v0
-8002D100	sw     v1, $000c(s0)
-8002D104	lui    v0, $8006
-8002D108	lhu    v0, $89a8(v0)
-8002D10C	lhu    v1, $0006(s2)
-8002D110	sll    v0, v0, $10
-8002D114	or     v1, v1, v0
-8002D118	sw     v1, $0018(s0)
-8002D11C	lhu    v0, $0008(s2)
-8002D120	nop
-8002D124	sh     v0, $0024(s0)
-8002D128	lhu    v0, $000a(s2)
-8002D12C	nop
-8002D130	sh     v0, $0030(s0)
-8002D134	lbu    v1, $0003(s2)
-8002D138	ori    v0, zero, $0001
-8002D13C	j      L2d148 [$8002d148]
-8002D140	sb     v1, $0007(s0)
 
-L2d144:	; 8002D144
-8002D144	addu   v0, zero, zero
+////////////////////////////////
+// load_poly_0b_18
+// load_poly_0f_18
+8002D054-8002D160
+////////////////////////////////
 
-L2d148:	; 8002D148
-8002D148	lw     ra, $0024(sp)
-8002D14C	lw     s2, $0020(sp)
-8002D150	lw     s1, $001c(sp)
-8002D154	lw     s0, $0018(sp)
-8002D158	addiu  sp, sp, $0028
-8002D15C	jr     ra 
-8002D160	nop
+
 
 8002D164	addiu  sp, sp, $ffd0 (=-$30)
 8002D168	sw     s2, $0028(sp)
@@ -24743,44 +24536,10 @@ L2d324:	; 8002D324
 
 
 
-8002D58C	addiu  sp, sp, $ffd0 (=-$30)
-8002D590	sw     s1, $0024(sp)
-8002D594	addu   s1, a0, zero
-8002D598	ori    v0, zero, $0006
-8002D59C	sw     s0, $0020(sp)
-8002D5A0	lui    s0, $8006
-8002D5A4	lw     s0, $8ac0(s0)
-8002D5A8	addu   a3, s1, zero
-8002D5AC	sw     ra, $0028(sp)
-8002D5B0	sb     v0, $0003(s0)
-8002D5B4	lh     a0, $0000(a1)
-8002D5B8	lh     v1, $0002(a1)
-8002D5BC	lh     a2, $0004(a1)
-8002D5C0	addiu  v0, s0, $0004
-8002D5C4	sw     v0, $0010(sp)
-8002D5C8	addiu  v0, s0, $000c
-8002D5CC	sw     v0, $0014(sp)
-8002D5D0	addiu  v0, s0, $0014
-8002D5D4	sw     v0, $0018(sp)
-8002D5D8	lui    v0, $8006
-8002D5DC	lw     v0, $8bc8(v0)
-8002D5E0	sll    a0, a0, $03
-8002D5E4	sll    v1, v1, $03
-8002D5E8	sll    a2, a2, $03
-8002D5EC	addu   a0, v0, a0
-8002D5F0	addu   a1, v0, v1
-8002D5F4	jal    system_gte_calculate_normals_color_by_3vectors_and_color [$8004a128]
-8002D5F8	addu   a2, v0, a2
-8002D5FC	lbu    v0, $0003(s1)
-8002D600	nop
-8002D604	sb     v0, $0007(s0)
-8002D608	ori    v0, zero, $0001
-8002D60C	lw     ra, $0028(sp)
-8002D610	lw     s1, $0024(sp)
-8002D614	lw     s0, $0020(sp)
-8002D618	addiu  sp, sp, $0030
-8002D61C	jr     ra 
-8002D620	nop
+////////////////////////////////
+// load_poly_06_18
+8002D58C-8002D620
+////////////////////////////////
 
 
 
@@ -24800,6 +24559,7 @@ L2d324:	; 8002D324
 
 ////////////////////////////////
 // load_poly_03_18
+// load_poly_07_18
 8002D824-8002D908
 ////////////////////////////////
 
@@ -27125,6 +26885,7 @@ L2ff24:	; 8002FF24
 8002FF50	or     t1, t1, t8
 8002FF54	j      loop2fdd4 [$8002fdd4]
 8002FF58	sw     t1, $0000(s3)
+
 8002FF5C	lw     a1, $0008(a0)
 8002FF60	lw     v0, $0004(a0)
 8002FF64	nop

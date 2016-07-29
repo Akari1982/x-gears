@@ -1,140 +1,85 @@
 ////////////////////////////////
 // func301d8
-S0 = A0;
-S2 = w[S0 + 1c];
-S4 = A1;
+part_header = A0;
+offset_1c = w[part_header + 1c];
+S4 = A1; // 0
 
-if( S2 == 0 )
+if( offset_1c == 0 )
 {
     return 0;
 }
 
 [GP + 1a8] = h(2b);
 
-A0 = (w[S2] << 5) | 14;
+A0 = w[offset_1c] * 20 + 14;
 A1 = S4;
 system_memory_allocate;
 S1 = V0;
 
-80030230	sw     s0, $0000(s1)
-80030234	lw     v0, $0008(s0)
-80030238	nop
-8003023C	sw     v0, $0004(s1)
-80030240	lw     v0, $000c(s0)
-80030244	addiu  s3, s1, $0014
-80030248	sw     s3, $0010(s1)
-8003024C	sw     v0, $0008(s1)
-80030250	lw     v0, $0000(s2)
-
-8003025C	sw     v0, $000c(s1)
+[S1 + 0] = w(part_header);
+[S1 + 4] = w(w[part_header + 8]); // offset to vertex block
+[S1 + 8] = w(w[part_header + c]); // offset to additional vertex block
+[S1 + c] = w(w[offset_1c]);
+[S1 + 10] = w(S1 + 14);
 
 [GP + 1a8] = h(2c);
 
-
-80030260	lhu    a0, $0002(s0)
-8003026C	sll    a0, a0, $03
+// allocate new vertex block
+A0 = hu[part_header + 2] * 8;
 A1 = S4;
 system_memory_allocate;
+[part_header + 8] = w(V0);
 
-80030270	lhu    a1, $0002(s0)
-80030274	sw     v0, $0008(s0)
-80030278	addiu  v0, zero, $ffff (=-$1)
-8003027C	addiu  a1, a1, $ffff (=-$1)
-80030280	beq    a1, v0, L302e0 [$800302e0]
-80030284	nop
-80030288	addiu  a2, zero, $ffff (=-$1)
+// copy vertexes to new position
+vertex_id = hu[part_header + 2] - 1;
+if( vertex_id != -1 )
+{
+    loop3028c:	; 8003028C
+        V1 = w[S1 + 4];
+        V0 = w[part_header + 8];
+        [V0 + vertex_id * 3 + 0] = h(hu[V1 + vertex_id * 3 + 0]);
+        [V0 + vertex_id * 3 + 2] = h(hu[V1 + vertex_id * 3 + 2]);
+        [V0 + vertex_id * 3 + 4] = h(hu[V1 + vertex_id * 3 + 4]);
+        vertex_id = vertex_id - 1;
+    800302D8	bne    vertex_id, -1, loop3028c [$8003028c]
+}
 
-loop3028c:	; 8003028C
-8003028C	sll    a0, a1, $03
-80030290	addiu  a1, a1, $ffff (=-$1)
-80030294	lw     v1, $0004(s1)
-80030298	lw     v0, $0008(s0)
-8003029C	addu   v1, a0, v1
-800302A0	lhu    v1, $0000(v1)
-800302A4	addu   v0, a0, v0
-800302A8	sh     v1, $0000(v0)
-800302AC	lw     v0, $0004(s1)
-800302B0	lw     v1, $0008(s0)
-800302B4	addu   v0, a0, v0
-800302B8	lhu    v0, $0002(v0)
-800302BC	addu   v1, a0, v1
-800302C0	sh     v0, $0002(v1)
-800302C4	lw     v0, $0004(s1)
-800302C8	lw     v1, $0008(s0)
-800302CC	addu   v0, a0, v0
-800302D0	lhu    v0, $0004(v0)
-800302D4	addu   a0, a0, v1
-800302D8	bne    a1, a2, loop3028c [$8003028c]
-800302DC	sh     v0, $0004(a0)
+if( hu[part_header + 0] & 0010 )
+{
+    [GP + 1a8] = h(2d);
+    A0 = hu[part_header + 2] * 8;
+    A1 = S4;
+    system_memory_allocate;
+    [part_header + c] = w(V0);
 
-L302e0:	; 800302E0
-800302E0	lhu    v0, $0000(s0)
-800302E4	nop
-800302E8	andi   v0, v0, $0010
-800302EC	beq    v0, zero, L3037c [$8003037c]
+    // copy vertexes to new position
+    vertex_id = hu[part_header + 2] - 1;
+    if( vertex_id != -1 )
+    {
+        loop3028c:	; 8003028C
+            V1 = w[S1 + 8];
+            V0 = w[part_header + c];
+            [V0 + vertex_id * 3 + 0] = h(hu[V1 + vertex_id * 3 + 0]);
+            [V0 + vertex_id * 3 + 2] = h(hu[V1 + vertex_id * 3 + 2]);
+            [V0 + vertex_id * 3 + 4] = h(hu[V1 + vertex_id * 3 + 4]);
+            vertex_id = vertex_id - 1;
+        800302D8	bne    vertex_id, -1, loop3028c [$8003028c]
+    }
+}
 
-[GP + 1a8] = h(2d);
-
-800302FC	lhu    a0, $0002(s0)
-80030300	addu   a1, s4, zero
-80030304	jal    system_memory_allocate [$800319ec]
-80030308	sll    a0, a0, $03
-8003030C	lhu    a1, $0002(s0)
-80030310	sw     v0, $000c(s0)
-80030314	addiu  v0, zero, $ffff (=-$1)
-80030318	addiu  a1, a1, $ffff (=-$1)
-8003031C	beq    a1, v0, L3037c [$8003037c]
-80030320	nop
-80030324	addiu  a2, zero, $ffff (=-$1)
-
-loop30328:	; 80030328
-80030328	sll    a0, a1, $03
-8003032C	addiu  a1, a1, $ffff (=-$1)
-80030330	lw     v1, $0008(s1)
-80030334	lw     v0, $000c(s0)
-80030338	addu   v1, a0, v1
-8003033C	lhu    v1, $0000(v1)
-80030340	addu   v0, a0, v0
-80030344	sh     v1, $0000(v0)
-80030348	lw     v0, $0008(s1)
-8003034C	lw     v1, $000c(s0)
-80030350	addu   v0, a0, v0
-80030354	lhu    v0, $0002(v0)
-80030358	addu   v1, a0, v1
-8003035C	sh     v0, $0002(v1)
-80030360	lw     v0, $0008(s1)
-80030364	lw     v1, $000c(s0)
-80030368	addu   v0, a0, v0
-8003036C	lhu    v0, $0004(v0)
-80030370	addu   a0, a0, v1
-80030374	bne    a1, a2, loop30328 [$80030328]
-80030378	sh     v0, $0004(a0)
-
-L3037c:	; 8003037C
-8003037C	lw     v0, $000c(s1)
-80030380	nop
-80030384	blez   v0, L303c0 [$800303c0]
-80030388	addu   a1, zero, zero
-8003038C	lui    a0, $8003
-80030390	addiu  a0, a0, $ff5c (=-$a4)
-80030394	addiu  v1, s3, $000c
-
-loop30398:	; 80030398
-80030398	sw     a0, $0000(s3)
-8003039C	sw     zero, $fff8(v1)
-800303A0	sw     zero, $fffc(v1)
-800303A4	sw     zero, $0000(v1)
-800303A8	addiu  v1, v1, $0020
-800303AC	lw     v0, $000c(s1)
-800303B0	addiu  a1, a1, $0001
-800303B4	slt    v0, a1, v0
-800303B8	bne    v0, zero, loop30398 [$80030398]
-800303BC	addiu  s3, s3, $0020
-
-L303c0:	; 800303C0
-800303C0	addu   v0, s1, zero
-
-L303c4:	; 800303C4
+if( w[S1 + c] > 0 )
+{
+    A1 = 0;
+    loop30398:	; 80030398
+        [S1 + 14 + S3 * 20 + 0] = w(8002ff5c);
+        [S1 + 14 + S3 * 20 + 4] = w(0);
+        [S1 + 14 + S3 * 20 + 8] = w(0);
+        [S1 + 14 + S3 * 20 + c] = w(0);
+        A1 = A1 + 1;
+        V0 = A1 < w[S1 + c];
+    800303B8	bne    v0, zero, loop30398 [$80030398]
+}
+return S1;
 ////////////////////////////////
 
 
@@ -195,12 +140,13 @@ return T2;
 
 ////////////////////////////////
 // func2c454
-if( ( w[A0 + 4] & 00000002 ) == 0 )
+part_header = A0;
+if( ( w[part_header + 4] & 00000002 ) == 0 )
 {
-    [A0 + 4] = w(w[A0 + 4] | 00000002);
+    [part_header + 4] = w(w[part_header + 4] | 00000002);
 
-    A0 = A0;
-    A1 = w[A0 + 24] - A0;
+    A0 = part_header;
+    A1 = w[part_header + 24] - part_header;
     func31d94;
 
     return 0;
@@ -213,15 +159,15 @@ return 1;
 ////////////////////////////////
 // func31d94
 part_header = A0;
+offset24 = A1;
+
 T2 = w[part_header - 8];
-if( A1 + 10 < T2 - part_header - 8 )
+if( offset24 + 10 < T2 - part_header - 8 )
 {
     [GP + 1bc] = w(1);
-
-    [part_header + A1 + 0] = w(T2);
-    [part_header + A1 + 4] = w(w[part_header + A1 + 4] & fe1fffff & 03ffffff | 84000000 & ffe00000 & fdffffff);
-    [part_header - 8] = w(part_header + A1 + 8);
-
+    [part_header + offset24 + 0] = w(T2);
+    [part_header + offset24 + 4] = w(w[part_header + offset24 + 4] & fe1fffff & 03ffffff | 84000000 & ffe00000 & fdffffff);
+    [part_header - 8] = w(part_header + offset24 + 8);
     return part_header - 8;
 }
 

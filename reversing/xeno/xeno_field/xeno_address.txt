@@ -1,5 +1,3 @@
-80059640 array of four bytes values. Store 0 in slot GP + 0x1ac when we start parse model and animation.
-
 80059aa4 array of offsets to player sprite datas by party slot. (size 0x04)
 
 80059ad4 array of party slot - entity id association. (size 0x04).
@@ -52,9 +50,45 @@ spawn table
         +  4 [][][][] pointer to start of model parts header.
         +  8 [][][][] pointer to allocated memory for 1st packets buffer.
         +  c [][][][] pointer to allocated memory for 2nd packets buffer.
-        + 14 [][][][] inited +1c from model data.
+        + 14 [][][][] pointer to data for +1c things. (allocated as number of item in +1c * 20 + 14 size)
+            header (0x14 size)
+            +  0 [][][][] pointer to part data.
+            +  4 [][][][] offset to original vertex block +8.
+            +  8 [][][][] offset to original additional vertex block +c.
+            +  c [][][][] number of items in +1c.
+            + 10 [][][][] pointer to next data (+4 from this address);
+            data (size 0x20 each)
+            +  0 [][][][] init with 8002ff5c. Set to 8008002c during entity initialization.
+            +  4 [][][][] init with 0.
+            +  8 [][][][] init with 0.
+            +  c [][][][] init with 0.
     +   4 [][][][] offset to some data (8012c138).
-    +   8 [][][][] pointer to allocates memory (0x70 size).
+    +   8 [][][][] pointer to allocated memory for model shadow (0x70 size).
+        +  0 [][]     vertex0 x.
+        +  2 [][]     vertex0 y.
+        +  4 [][]     vertex0 z.
+        +  8 [][]     vertex1 x.
+        +  a [][]     vertex1 y.
+        +  c [][]     vertex1 z.
+        + 10 [][]     vertex2 x.
+        + 12 [][]     vertex2 y.
+        + 14 [][]     vertex2 z.
+        + 18 [][]     vertex3 x.
+        + 1a [][]     vertex3 y.
+        + 1c [][]     vertex3 z.
+        + 20 some packet for 1st buffer (maybe shadow under model) (size 0x28).
+        + 48 some packet for 2nd buffer draw (size 0x28).
+            +  3 []       init with 0x09.
+            +  4 []       R. init with 0x80.
+            +  5 []       G. init with 0x80.
+            +  6 []       B. init with 0x80.
+            +  7 []       init with 0x2c.
+            +  c [][]     uv 0.
+            +  e [][]     clut. 100 f3
+            + 14 [][]     uv 1.
+            + 16 [][]     tex page.
+            + 1c [][]     uv 2.
+            + 24 [][]     uv 3.
     +  1e          solid range.
     +  20 [][][][] some X data.
     +  24 [][][][] some Y data.
@@ -95,11 +129,11 @@ spawn table
         +   c [][]     triangle id for walkmesh 2.
         +   e [][]     triangle id for walkmesh 3.
         +  10 [][]     walkmesh id (0 by default).
-        +  14 [][][][] some flags.
+        +  14 [][][][] store current walkmesh triangle material here.
         +  18 [][]     x width of entity. Init with 0x10.
         +  1a [][]     height if entity. Init with 0x60
         +  1c [][]     z width of entity. Init with 0x10.
-        +  1e          solid range.
+        +  1e          solid range. Init from +18 (0x10).
         +  20 [][][][] maybe current X. Used in movement.
         +  24 [][][][] maybe current Y. Used in movement.
         +  28 [][][][] maybe current Z. Used in movement.
@@ -115,45 +149,79 @@ spawn table
         +  60 [][]     maybe X. Init with 0 when set position by x z
         +  62 [][]     maybe Y. Init with 0 when set position by x z
         +  64 [][]     maybe Z. Init with 0 when set position by x z
-        +  72 [][]     store some 2 bytes Y here.
-        +  74 []       some entity id??? We dont calculate interaction with this entity.
-        +  76 [][]     
-        +  80 []       store character id here when we set avatar.
+        +  6e [][]     init with 0.
+        +  72 [][]     store current Y pos here.
+        +  74 []       init with 0xff. Some entity id??? We dont calculate interaction with this entity.
+        +  75 []       init with 0xff.
+        +  76 [][]     init with 0x0100.
+        +  80 []       store character id here when we set avatar. Init with 0xff.
         +  81 []       store something from here to memory block + 14. Dialog related. Maybe cursor position.
-        +  82 []       something dialog related.
-        +  83 []       something dialog related.
-        +  84 [][][][] something dialog related.
-        +  88 [][]     something dialog related.
-        +  8a [][]     something dialog related.
+        +  82 []       something dialog related. Init with 0.
+        +  83 []       something dialog related. Init with 0.
+        +  84 [][][][] something dialog related. Init with 0.
+        +  88 [][]     something dialog related. Init with 0.
+        +  8a [][]     something dialog related. Init with 0.
         +  8c start of slots
-            +0 [][]     pointer to requested script this slot.
-            +2 []       wait byte in this slot.
-            +3 []       script id in this slot. Store 0xff  in 0x00_Return.
+            +0 [][]     pointer to requested script this slot. Init with 0xffff.
+            +2 []       wait byte in this slot. Init with 0.
+            +3 []       script id in this slot. Store 0xff  in 0x00_Return. Init with 0xff.
             +4 [][][][] flags for script this slot (script priority among them).
-                           0x003c0000: priority. Lower value - higher priority. Max value - empty slot?
-                           0x01800000: how read argument in move reading function. (SpriteGoToPosition(vf80 x, vf40 y, f flag) - 0x00). Unknown setting. When add auto script during collision add script only if this not 1.
-                           0x0000ffff: seems like number of steps to move. (SpriteGoToPosition == 0x0000ffff)
+                           0x00030000: remove during init.
+                           0x003c0000: priority. Lower value - higher priority. Init with 0x3c.
+                           0x00600000: remove during init.
+                           0x01800000: how read argument in move reading function. (SpriteGoToPosition(vf80 x, vf40 y, f flag) - 0x00). Unknown setting. When add auto script during collision add script only if this not 1. Remove during init.
+                           0x0000ffff: seems like number of steps to move. (SpriteGoToPosition == 0x0000ffff). Init with 0xffff.
             here 7 more requersed script data 8 bytes each.
-        +  cc [][]     current script pointer.
-        +  ce []       current script slot id. Used in 0x00_Return.
-        +  cf []       byte to get data for Requests.
+        +  cc [][]     current script pointer. Init with 0.
+        +  ce []       current script slot id. Used in 0x00_Return. Init with 0.
+        +  cf []       byte to get data for Requests. Init with 0.
         +  d0 [][][][] maybe current X. Init with 0 when set position by x z
         +  d4 [][][][] maybe current Y. Init with 0 when set position by x z
         +  d8 [][][][] maybe current Z. Init with 0 when set position by x z
-        +  e2 []       current step when opening or closing door.
-        +  e3 []       if this is >= 9 then we discrease it by 1 every step in move function.
-        +  e4 [][]     we store character id here.
-        +  e6 [][]     we store animation id to play here in SpritePlayAnimation2. Looks like default animation.
-        +  e8 [][]     when entity is moving we store here animation id acording to that movement (1,2 and so on) maybe playing animation id.
-        +  ea [][]     we store animation id to play here in SpritePlayAnimation.
-        +  ec [][][][] Init with 0 when set position by x z
-        +  f0 [][][][] Init with 0 when set position by x z
+        +  e2 []       init with 0. Current step when opening or closing door.
+        +  e3 []       if this is >= 9 then we discrease it by 1 every step in move function. Init with 0.
+        +  e4 [][]     we store character id here. Init with 0x00ff.
+        +  e6 [][]     init with 0. we store animation id to play here in SpritePlayAnimation2. Looks like default animation.
+        +  e8 [][]     when entity is moving we store here animation id acording to that movement (1,2 and so on) maybe playing animation id. Init with 0.
+        +  ea [][]     init wiyj 0xff. we store animation id to play here in SpritePlayAnimation.
+        +  ec [][][][] init with 0 when set position by x z. Init with 0.
+        +  f0 [][][][] init with 0 when set position by x z
+        +  f4 [][]     init with 0x1000.
+        +  f6 [][]     init with 0x1000.
+        +  f8 [][]     init with 0x1000.
+        +  fc []       init with 0x80.
+        +  fd []       init with 0x80.
+        +  fe []       init with 0x80.
+        +  ff []       init with 0x80.
+        + 100 []       init with 0x80.
+        + 101 []       init with 0x80.
         + 102 [][]     Init with two random bytes.
-        + 104 [][]     we store rotation data here, also set during DialogShow (flags). Seems like current rotation.
-        + 106 [][]     we store rotation data here.
-        + 108 [][]     we store rotation data here (if 800acff4 == 0).
+        + 104 [][]     we store rotation data here, also set during DialogShow (flags). Seems like current rotation. Init with 0x8000.
+        + 106 [][]     we store rotation data here. Init with 0x8000.
+        + 108 [][]     we store rotation data here (if 800acff4 == 0). Init with 0x8000.
+        + 10d []       init with 0xff.
+        + 118 [][][][] pointer to allocated 0x80 byte for +1c data. Size 0x4 for each +1c item.
+            +  0 [][][][] init with 0.
+        + 11e [][]     init with 0x0200.
+        + 120 [][][][] init with 0.
+        + 124 [][]     init with 0xffff.
+        + 128 [][]     init with 0xffff.
         + 12c [][][][] flags.
-                        0x00000020 - if set - door opening or closing.
+                        0x00000003 - remove during entity init.
+                        0x0000001c - remove during entity init.
+                        0x00000020 - if set - door opening or closing. Remove during init.
+                        0x000001c0 - remove during entity init.
+                        0x00000e00 - remove during entity init.
+                        0x00001000 - remove during entity init.
+                        0x00030000 - remove during entity init.
+                        0x0ffc0000 - remove during entity init.
+        + 130 [][][][] flags.
+                        0x000001ff - remove during entity init.
+                        0x0007fe00 - remove during entity init.
+                        0x0ff80000 - remove during entity init.
+        + 134 [][][][] flags.
+                        0x00000060 - remove during entity init.
+                        0x00000080 - remove during entity init.
     +  50 [][]     X rotation.
     +  52 [][]     Y rotation (door opened with this).
     +  54 [][]     Z rotation.
@@ -164,6 +232,7 @@ spawn table
                            3 - calculate lighing and store it
                    0x0020: set if 0x0040 flag == 1 during init. Set in 0x29 and 0x23(only) opcode. Remove if we init this entity as player.
                    0x0040: if this is 0 - we init model packets.
+                   0x0080: if this is 0 - we set height for model depending on triangle.
                    0x2000: init +1c in model data if this is set.
     +  5a [][]     init with 0.
 
@@ -196,6 +265,8 @@ spawn table
 800afb8c [][][][] offset to 80114f2c struct for current entity.
 
 800b144c copy first 0x100 byte of field file here.
+
+800b1654 [][][][] increment during each entity initialization.
 
 800b168c [][][][] store here id of sound to play.
 

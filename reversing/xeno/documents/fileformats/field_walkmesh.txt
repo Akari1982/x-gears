@@ -7,7 +7,7 @@ walkmesh data
 
 
 
-vertexes (size 0x8)
+vertex data (size 0x8)
 +00 [][]     x.
 +02 [][]     y.
 +04 [][]     z.
@@ -16,7 +16,7 @@ vertexes (size 0x8)
 
 
 
-triangle (size 0x0e)
+triangle data (size 0x0e)
 +00 [][]     vertex1 id.
 +02 [][]     vertex2 id.
 +04 [][]     vertex3 id.

@@ -1,19 +1,18 @@
-model header
-+0 [][][][] number of parts
-+4 [][][][] flags
-                0x00000002: if not set then set and init something.
-
+model header (0x10 size)
++ 0 [][][][] number of parts
++ 8 [][][][] store some address here
 
 
 parts header
 +00 [][]     init flags
              0x0001 - memory +18 (for polygon normals for lighting) allocated.
              0x0002 - polygon normals for lighting are calculated and stored.
+             0x0010 - if flag is set we create copy of vertexes +0c in some cases.
 +02 [][]     number of vertexes
 +04 [][]     number of polygons
 +06 [][]     number of polygons blocks
 +08 [][][][] offset to vertex block
-+0c [][][][] some offset
++0c [][][][] offset to some other vectors block used in gourad shaded poly, maybe normals.
 +10 [][][][] offset to mesh block.
 +14 [][][][] offset to texture coords block.
 +18 [][][][] we store here pointer to allocated memory for normals for polygons lighting with +30 size if +00 & 1 not set.
@@ -35,17 +34,23 @@ data
 
 
 UV data (+14 sub file format)(size 0x4)
-monochrome triangle (0x00)
+all not textured poly
 +0 [][][]   BGR.
 +3 []       packet control byte.
 all textured poly
 +0 [][]     data.
 +3 []       type of data (0xc4 - texture page settings, 0xc8 - CLUT settings).
-or next
+or next for triangle
 +0 [][]     texture UV for vertex 3.
 +3 []       packet control byte.
 +4 [][]     texture UV for vertex 1.
 +6 [][]     texture UV for vertex 2.
+or next for quad
++3 []       packet control byte.
++4 [][]     texture UV for vertex 1.
++6 [][]     texture UV for vertex 2.
++8 [][]     texture UV for vertex 3.
++a [][]     texture UV for vertex 4.
 
 
 
