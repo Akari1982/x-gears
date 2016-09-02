@@ -1,0 +1,337 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="core\CameraManager.cpp" />
+    <ClCompile Include="core\ConfigCmd.cpp" />
+    <ClCompile Include="core\ConfigCmdManager.cpp" />
+    <ClCompile Include="core\ConfigFile.cpp" />
+    <ClCompile Include="core\ConfigVar.cpp" />
+    <ClCompile Include="core\ConfigVarManager.cpp" />
+    <ClCompile Include="core\Console.cpp" />
+    <ClCompile Include="core\DebugDraw.cpp" />
+    <ClCompile Include="core\Entity.cpp" />
+    <ClCompile Include="core\EntityManager.cpp" />
+    <ClCompile Include="core\EntityModel.cpp" />
+    <ClCompile Include="core\EntityTrigger.cpp" />
+    <ClCompile Include="core\GameFrameListner.cpp" />
+    <ClCompile Include="core\InputManager.cpp" />
+    <ClCompile Include="core\library\luabind\class.cpp" />
+    <ClCompile Include="core\library\luabind\class_info.cpp" />
+    <ClCompile Include="core\library\luabind\class_registry.cpp" />
+    <ClCompile Include="core\library\luabind\class_rep.cpp" />
+    <ClCompile Include="core\library\luabind\create_class.cpp" />
+    <ClCompile Include="core\library\luabind\error.cpp" />
+    <ClCompile Include="core\library\luabind\exception_handler.cpp" />
+    <ClCompile Include="core\library\luabind\function.cpp" />
+    <ClCompile Include="core\library\luabind\inheritance.cpp" />
+    <ClCompile Include="core\library\luabind\link_compatibility.cpp" />
+    <ClCompile Include="core\library\luabind\object_rep.cpp" />
+    <ClCompile Include="core\library\luabind\open.cpp" />
+    <ClCompile Include="core\library\luabind\pcall.cpp" />
+    <ClCompile Include="core\library\luabind\scope.cpp" />
+    <ClCompile Include="core\library\luabind\stack_content_by_name.cpp" />
+    <ClCompile Include="core\library\luabind\weak_ref.cpp" />
+    <ClCompile Include="core\library\luabind\wrapper_base.cpp" />
+    <ClCompile Include="core\library\lua\lapi.c" />
+    <ClCompile Include="core\library\lua\lauxlib.c" />
+    <ClCompile Include="core\library\lua\lbaselib.c" />
+    <ClCompile Include="core\library\lua\lcode.c" />
+    <ClCompile Include="core\library\lua\ldblib.c" />
+    <ClCompile Include="core\library\lua\ldebug.c" />
+    <ClCompile Include="core\library\lua\ldo.c" />
+    <ClCompile Include="core\library\lua\ldump.c" />
+    <ClCompile Include="core\library\lua\lfunc.c" />
+    <ClCompile Include="core\library\lua\lgc.c" />
+    <ClCompile Include="core\library\lua\linit.c" />
+    <ClCompile Include="core\library\lua\liolib.c" />
+    <ClCompile Include="core\library\lua\llex.c" />
+    <ClCompile Include="core\library\lua\lmathlib.c" />
+    <ClCompile Include="core\library\lua\lmem.c" />
+    <ClCompile Include="core\library\lua\loadlib.c" />
+    <ClCompile Include="core\library\lua\lobject.c" />
+    <ClCompile Include="core\library\lua\lopcodes.c" />
+    <ClCompile Include="core\library\lua\loslib.c" />
+    <ClCompile Include="core\library\lua\lparser.c" />
+    <ClCompile Include="core\library\lua\lstate.c" />
+    <ClCompile Include="core\library\lua\lstring.c" />
+    <ClCompile Include="core\library\lua\lstrlib.c" />
+    <ClCompile Include="core\library\lua\ltable.c" />
+    <ClCompile Include="core\library\lua\ltablib.c" />
+    <ClCompile Include="core\library\lua\ltm.c" />
+    <ClCompile Include="core\library\lua\lundump.c" />
+    <ClCompile Include="core\library\lua\lvm.c" />
+    <ClCompile Include="core\library\lua\lzio.c" />
+    <ClCompile Include="core\library\lua\print.c" />
+    <ClCompile Include="core\library\tinyxml\tinystr.cpp" />
+    <ClCompile Include="core\library\tinyxml\tinyxml.cpp" />
+    <ClCompile Include="core\library\tinyxml\tinyxmlerror.cpp" />
+    <ClCompile Include="core\library\tinyxml\tinyxmlparser.cpp" />
+    <ClCompile Include="core\Math.cpp" />
+    <ClCompile Include="core\ScriptManager.cpp" />
+    <ClCompile Include="core\TextManager.cpp" />
+    <ClCompile Include="core\Timer.cpp" />
+    <ClCompile Include="core\UiAnimation.cpp" />
+    <ClCompile Include="core\UiFont.cpp" />
+    <ClCompile Include="core\UiManager.cpp" />
+    <ClCompile Include="core\UiSprite.cpp" />
+    <ClCompile Include="core\UiTextArea.cpp" />
+    <ClCompile Include="core\UiWidget.cpp" />
+    <ClCompile Include="core\Utilites.cpp" />
+    <ClCompile Include="core\Walkmesh.cpp" />
+    <ClCompile Include="core\XmlFile.cpp" />
+    <ClCompile Include="core\XmlFontFile.cpp" />
+    <ClCompile Include="core\XmlFontsFile.cpp" />
+    <ClCompile Include="core\XmlMapFile.cpp" />
+    <ClCompile Include="core\XmlMapsFile.cpp" />
+    <ClCompile Include="core\XmlPrototypesFile.cpp" />
+    <ClCompile Include="core\XmlScreenFile.cpp" />
+    <ClCompile Include="core\XmlScreensFile.cpp" />
+    <ClCompile Include="core\XmlScriptsFile.cpp" />
+    <ClCompile Include="core\XmlTextFile.cpp" />
+    <ClCompile Include="core\XmlTextsFile.cpp" />
+    <ClCompile Include="core\XmlWalkmeshFile.cpp" />
+    <ClCompile Include="Main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="core\Assert.h" />
+    <ClInclude Include="core\CameraManager.h" />
+    <ClInclude Include="core\CameraManagerCommands.h" />
+    <ClInclude Include="core\ConfigCmd.h" />
+    <ClInclude Include="core\ConfigCmdManager.h" />
+    <ClInclude Include="core\ConfigCmdManagerCommands.h" />
+    <ClInclude Include="core\ConfigFile.h" />
+    <ClInclude Include="core\ConfigVar.h" />
+    <ClInclude Include="core\ConfigVarManager.h" />
+    <ClInclude Include="core\Console.h" />
+    <ClInclude Include="core\DebugDraw.h" />
+    <ClInclude Include="core\Entity.h" />
+    <ClInclude Include="core\EntityManager.h" />
+    <ClInclude Include="core\EntityModel.h" />
+    <ClInclude Include="core\EntityTrigger.h" />
+    <ClInclude Include="core\Event.h" />
+    <ClInclude Include="core\GameFrameListner.h" />
+    <ClInclude Include="core\InputManager.h" />
+    <ClInclude Include="core\InputManagerCommands.h" />
+    <ClInclude Include="core\library\luabind\adopt_policy.hpp" />
+    <ClInclude Include="core\library\luabind\back_reference.hpp" />
+    <ClInclude Include="core\library\luabind\back_reference_fwd.hpp" />
+    <ClInclude Include="core\library\luabind\class.hpp" />
+    <ClInclude Include="core\library\luabind\class_info.hpp" />
+    <ClInclude Include="core\library\luabind\config.hpp" />
+    <ClInclude Include="core\library\luabind\container_policy.hpp" />
+    <ClInclude Include="core\library\luabind\copy_policy.hpp" />
+    <ClInclude Include="core\library\luabind\dependency_policy.hpp" />
+    <ClInclude Include="core\library\luabind\detail\calc_arity.hpp" />
+    <ClInclude Include="core\library\luabind\detail\call.hpp" />
+    <ClInclude Include="core\library\luabind\detail\call_function.hpp" />
+    <ClInclude Include="core\library\luabind\detail\call_member.hpp" />
+    <ClInclude Include="core\library\luabind\detail\call_operator_iterate.hpp" />
+    <ClInclude Include="core\library\luabind\detail\class_cache.hpp" />
+    <ClInclude Include="core\library\luabind\detail\class_registry.hpp" />
+    <ClInclude Include="core\library\luabind\detail\class_rep.hpp" />
+    <ClInclude Include="core\library\luabind\detail\compute_score.hpp" />
+    <ClInclude Include="core\library\luabind\detail\constructor.hpp" />
+    <ClInclude Include="core\library\luabind\detail\conversion_storage.hpp" />
+    <ClInclude Include="core\library\luabind\detail\convert_to_lua.hpp" />
+    <ClInclude Include="core\library\luabind\detail\debug.hpp" />
+    <ClInclude Include="core\library\luabind\detail\decorate_type.hpp" />
+    <ClInclude Include="core\library\luabind\detail\deduce_signature.hpp" />
+    <ClInclude Include="core\library\luabind\detail\enum_maker.hpp" />
+    <ClInclude Include="core\library\luabind\detail\format_signature.hpp" />
+    <ClInclude Include="core\library\luabind\detail\garbage_collector.hpp" />
+    <ClInclude Include="core\library\luabind\detail\get_signature.hpp" />
+    <ClInclude Include="core\library\luabind\detail\has_get_pointer.hpp" />
+    <ClInclude Include="core\library\luabind\detail\inheritance.hpp" />
+    <ClInclude Include="core\library\luabind\detail\instance_holder.hpp" />
+    <ClInclude Include="core\library\luabind\detail\is_indirect_const.hpp" />
+    <ClInclude Include="core\library\luabind\detail\link_compatibility.hpp" />
+    <ClInclude Include="core\library\luabind\detail\make_instance.hpp" />
+    <ClInclude Include="core\library\luabind\detail\most_derived.hpp" />
+    <ClInclude Include="core\library\luabind\detail\object_call.hpp" />
+    <ClInclude Include="core\library\luabind\detail\object_funs.hpp" />
+    <ClInclude Include="core\library\luabind\detail\object_rep.hpp" />
+    <ClInclude Include="core\library\luabind\detail\open.hpp" />
+    <ClInclude Include="core\library\luabind\detail\operator_id.hpp" />
+    <ClInclude Include="core\library\luabind\detail\other.hpp" />
+    <ClInclude Include="core\library\luabind\detail\pcall.hpp" />
+    <ClInclude Include="core\library\luabind\detail\pointee_sizeof.hpp" />
+    <ClInclude Include="core\library\luabind\detail\pointee_typeid.hpp" />
+    <ClInclude Include="core\library\luabind\detail\policy.hpp" />
+    <ClInclude Include="core\library\luabind\detail\primitives.hpp" />
+    <ClInclude Include="core\library\luabind\detail\property.hpp" />
+    <ClInclude Include="core\library\luabind\detail\ref.hpp" />
+    <ClInclude Include="core\library\luabind\detail\signature_match.hpp" />
+    <ClInclude Include="core\library\luabind\detail\stack_utils.hpp" />
+    <ClInclude Include="core\library\luabind\detail\typetraits.hpp" />
+    <ClInclude Include="core\library\luabind\detail\yes_no.hpp" />
+    <ClInclude Include="core\library\luabind\discard_result_policy.hpp" />
+    <ClInclude Include="core\library\luabind\error.hpp" />
+    <ClInclude Include="core\library\luabind\exception_handler.hpp" />
+    <ClInclude Include="core\library\luabind\from_stack.hpp" />
+    <ClInclude Include="core\library\luabind\function.hpp" />
+    <ClInclude Include="core\library\luabind\get_main_thread.hpp" />
+    <ClInclude Include="core\library\luabind\get_pointer.hpp" />
+    <ClInclude Include="core\library\luabind\handle.hpp" />
+    <ClInclude Include="core\library\luabind\iterator_policy.hpp" />
+    <ClInclude Include="core\library\luabind\luabind.hpp" />
+    <ClInclude Include="core\library\luabind\lua_include.hpp" />
+    <ClInclude Include="core\library\luabind\make_function.hpp" />
+    <ClInclude Include="core\library\luabind\nil.hpp" />
+    <ClInclude Include="core\library\luabind\object.hpp" />
+    <ClInclude Include="core\library\luabind\open.hpp" />
+    <ClInclude Include="core\library\luabind\operator.hpp" />
+    <ClInclude Include="core\library\luabind\out_value_policy.hpp" />
+    <ClInclude Include="core\library\luabind\prefix.hpp" />
+    <ClInclude Include="core\library\luabind\raw_policy.hpp" />
+    <ClInclude Include="core\library\luabind\return_reference_to_policy.hpp" />
+    <ClInclude Include="core\library\luabind\scope.hpp" />
+    <ClInclude Include="core\library\luabind\shared_ptr_converter.hpp" />
+    <ClInclude Include="core\library\luabind\tag_function.hpp" />
+    <ClInclude Include="core\library\luabind\typeid.hpp" />
+    <ClInclude Include="core\library\luabind\value_wrapper.hpp" />
+    <ClInclude Include="core\library\luabind\version.hpp" />
+    <ClInclude Include="core\library\luabind\weak_ref.hpp" />
+    <ClInclude Include="core\library\luabind\wrapper_base.hpp" />
+    <ClInclude Include="core\library\luabind\yield_policy.hpp" />
+    <ClInclude Include="core\library\lua\lapi.h" />
+    <ClInclude Include="core\library\lua\lauxlib.h" />
+    <ClInclude Include="core\library\lua\lcode.h" />
+    <ClInclude Include="core\library\lua\ldebug.h" />
+    <ClInclude Include="core\library\lua\ldo.h" />
+    <ClInclude Include="core\library\lua\lfunc.h" />
+    <ClInclude Include="core\library\lua\lgc.h" />
+    <ClInclude Include="core\library\lua\llex.h" />
+    <ClInclude Include="core\library\lua\llimits.h" />
+    <ClInclude Include="core\library\lua\lmem.h" />
+    <ClInclude Include="core\library\lua\lobject.h" />
+    <ClInclude Include="core\library\lua\lopcodes.h" />
+    <ClInclude Include="core\library\lua\lparser.h" />
+    <ClInclude Include="core\library\lua\lstate.h" />
+    <ClInclude Include="core\library\lua\lstring.h" />
+    <ClInclude Include="core\library\lua\ltable.h" />
+    <ClInclude Include="core\library\lua\ltm.h" />
+    <ClInclude Include="core\library\lua\lua.h" />
+    <ClInclude Include="core\library\lua\luaconf.h" />
+    <ClInclude Include="core\library\lua\lualib.h" />
+    <ClInclude Include="core\library\lua\lundump.h" />
+    <ClInclude Include="core\library\lua\lvm.h" />
+    <ClInclude Include="core\library\lua\lzio.h" />
+    <ClInclude Include="core\library\tinyxml\tinystr.h" />
+    <ClInclude Include="core\library\tinyxml\tinyxml.h" />
+    <ClInclude Include="core\Logger.h" />
+    <ClInclude Include="core\Math.h" />
+    <ClInclude Include="core\ScriptManager.h" />
+    <ClInclude Include="core\ScriptManagerBinds.h" />
+    <ClInclude Include="core\ScriptManagerCommands.h" />
+    <ClInclude Include="core\TextManager.h" />
+    <ClInclude Include="core\TextManagerCommands.h" />
+    <ClInclude Include="core\Timer.h" />
+    <ClInclude Include="core\UiAnimation.h" />
+    <ClInclude Include="core\UiFont.h" />
+    <ClInclude Include="core\UiManager.h" />
+    <ClInclude Include="core\UiSprite.h" />
+    <ClInclude Include="core\UiTextArea.h" />
+    <ClInclude Include="core\UiWidget.h" />
+    <ClInclude Include="core\Utilites.h" />
+    <ClInclude Include="core\Walkmesh.h" />
+    <ClInclude Include="core\XmlFile.h" />
+    <ClInclude Include="core\XmlFontFile.h" />
+    <ClInclude Include="core\XmlFontsFile.h" />
+    <ClInclude Include="core\XmlMapFile.h" />
+    <ClInclude Include="core\XmlMapsFile.h" />
+    <ClInclude Include="core\XmlPrototypesFile.h" />
+    <ClInclude Include="core\XmlScreenFile.h" />
+    <ClInclude Include="core\XmlScreensFile.h" />
+    <ClInclude Include="core\XmlScriptsFile.h" />
+    <ClInclude Include="core\XmlTextFile.h" />
+    <ClInclude Include="core\XmlTextsFile.h" />
+    <ClInclude Include="core\XmlWalkmeshFile.h" />
+    <ClInclude Include="Main.h" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{238A639B-EF57-4003-8F08-5BC83A09B2A3}</ProjectGuid>
+    <RootNamespace>xgears</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>.\output</OutDir>
+    <TargetName>x-gears_d</TargetName>
+    <IntDir>.\compile_d</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>.\..\output\</OutDir>
+    <IntDir>.\compile_r\</IntDir>
+    <TargetName>x-gears</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>.\library;C:\zlib128-dll\include;C:\OgreSDK_vc11_v1-9-0\boost;C:\OgreSDK_vc11_v1-9-0\include\OIS;C:\OgreSDK_vc11_v1-9-0\include\OGRE;$(IncludePath)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>TIXML_USE_STL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\zlib128-dll\lib;C:\OgreSDK_vc11_v1-9-0\lib\debug;C:\OgreSDK_vc11_v1-9-0\boost\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>OgreMain_d.lib;OgreOverlay_d.lib;OIS_d.lib;libboost_system-vc110-mt-gd-1_55.lib;libboost_thread-vc110-mt-gd-1_55.lib;zdll.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Windows</SubSystem>
+      <EntryPointSymbol>mainCRTStartup</EntryPointSymbol>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>C:\boost_1_55_0;D:\reverse\svn\x-gears\src\core\library;C:\zlib128-dll\include;C:\OgreSDK_vc11_v1-9-0\boost;C:\OgreSDK_vc11_v1-9-0\include\OIS;C:\OgreSDK_vc11_v1-9-0\include\OGRE;$(IncludePath)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>TIXML_USE_STL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>C:\zlib128-dll\lib;C:\OgreSDK_vc11_v1-9-0\lib\Release;C:\OgreSDK_vc11_v1-9-0\boost\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>OgreMain.lib;OgreOverlay.lib;OIS.lib;libboost_system-vc110-mt-1_55.lib;libboost_thread-vc110-mt-1_55.lib;zdll.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>NotSet</SubSystem>
+      <EntryPointSymbol>
+      </EntryPointSymbol>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

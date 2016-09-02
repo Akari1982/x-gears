@@ -1,0 +1,754 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="X-Gears files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd;cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="X-Gears files\Luabind">
+      <UniqueIdentifier>{534c3ebb-4ec2-461b-888a-704d5f0af9d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="X-Gears files\Lua">
+      <UniqueIdentifier>{79ba2d05-d87c-4952-a454-d6eb4ed9c4df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="X-Gears files\TinyXml">
+      <UniqueIdentifier>{2a8a35a0-cb85-40af-ad81-45906b03e636}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Main.cpp">
+      <Filter>X-Gears files</Filter>
+    </ClCompile>
+    <ClCompile Include="core\CameraManager.cpp">
+      <Filter>X-Gears files</Filter>
+    </ClCompile>
+    <ClCompile Include="core\ConfigCmd.cpp">
+      <Filter>X-Gears files</Filter>
+    </ClCompile>
+    <ClCompile Include="core\ConfigCmdManager.cpp">
+      <Filter>X-Gears files</Filter>
+    </ClCompile>
+    <ClCompile Include="core\ConfigFile.cpp">
+      <Filter>X-Gears files</Filter>
+    </ClCompile>
+    <ClCompile Include="core\ConfigVar.cpp">
+      <Filter>X-Gears files</Filter>
+    </ClCompile>
+    <ClCompile Include="core\ConfigVarManager.cpp">
+      <Filter>X-Gears files</Filter>
+    </ClCompile>
+    <ClCompile Include="core\Console.cpp">
+      <Filter>X-Gears files</Filter>
+    </ClCompile>
+    <ClCompile Include="core\DebugDraw.cpp">
+      <Filter>X-Gears files</Filter>
+    </ClCompile>
+    <ClCompile Include="core\Entity.cpp">
+      <Filter>X-Gears files</Filter>
+    </ClCompile>
+    <ClCompile Include="core\EntityManager.cpp">
+      <Filter>X-Gears files</Filter>
+    </ClCompile>
+    <ClCompile Include="core\EntityModel.cpp">
+      <Filter>X-Gears files</Filter>
+    </ClCompile>
+    <ClCompile Include="core\EntityTrigger.cpp">
+      <Filter>X-Gears files</Filter>
+    </ClCompile>
+    <ClCompile Include="core\GameFrameListner.cpp">
+      <Filter>X-Gears files</Filter>
+    </ClCompile>
+    <ClCompile Include="core\InputManager.cpp">
+      <Filter>X-Gears files</Filter>
+    </ClCompile>
+    <ClCompile Include="core\Math.cpp">
+      <Filter>X-Gears files</Filter>
+    </ClCompile>
+    <ClCompile Include="core\ScriptManager.cpp">
+      <Filter>X-Gears files</Filter>
+    </ClCompile>
+    <ClCompile Include="core\TextManager.cpp">
+      <Filter>X-Gears files</Filter>
+    </ClCompile>
+    <ClCompile Include="core\Timer.cpp">
+      <Filter>X-Gears files</Filter>
+    </ClCompile>
+    <ClCompile Include="core\UiAnimation.cpp">
+      <Filter>X-Gears files</Filter>
+    </ClCompile>
+    <ClCompile Include="core\UiFont.cpp">
+      <Filter>X-Gears files</Filter>
+    </ClCompile>
+    <ClCompile Include="core\UiManager.cpp">
+      <Filter>X-Gears files</Filter>
+    </ClCompile>
+    <ClCompile Include="core\UiSprite.cpp">
+      <Filter>X-Gears files</Filter>
+    </ClCompile>
+    <ClCompile Include="core\UiTextArea.cpp">
+      <Filter>X-Gears files</Filter>
+    </ClCompile>
+    <ClCompile Include="core\UiWidget.cpp">
+      <Filter>X-Gears files</Filter>
+    </ClCompile>
+    <ClCompile Include="core\Utilites.cpp">
+      <Filter>X-Gears files</Filter>
+    </ClCompile>
+    <ClCompile Include="core\Walkmesh.cpp">
+      <Filter>X-Gears files</Filter>
+    </ClCompile>
+    <ClCompile Include="core\XmlFile.cpp">
+      <Filter>X-Gears files</Filter>
+    </ClCompile>
+    <ClCompile Include="core\XmlFontFile.cpp">
+      <Filter>X-Gears files</Filter>
+    </ClCompile>
+    <ClCompile Include="core\XmlFontsFile.cpp">
+      <Filter>X-Gears files</Filter>
+    </ClCompile>
+    <ClCompile Include="core\XmlMapFile.cpp">
+      <Filter>X-Gears files</Filter>
+    </ClCompile>
+    <ClCompile Include="core\XmlMapsFile.cpp">
+      <Filter>X-Gears files</Filter>
+    </ClCompile>
+    <ClCompile Include="core\XmlPrototypesFile.cpp">
+      <Filter>X-Gears files</Filter>
+    </ClCompile>
+    <ClCompile Include="core\XmlScreenFile.cpp">
+      <Filter>X-Gears files</Filter>
+    </ClCompile>
+    <ClCompile Include="core\XmlScreensFile.cpp">
+      <Filter>X-Gears files</Filter>
+    </ClCompile>
+    <ClCompile Include="core\XmlScriptsFile.cpp">
+      <Filter>X-Gears files</Filter>
+    </ClCompile>
+    <ClCompile Include="core\XmlTextFile.cpp">
+      <Filter>X-Gears files</Filter>
+    </ClCompile>
+    <ClCompile Include="core\XmlTextsFile.cpp">
+      <Filter>X-Gears files</Filter>
+    </ClCompile>
+    <ClCompile Include="core\XmlWalkmeshFile.cpp">
+      <Filter>X-Gears files</Filter>
+    </ClCompile>
+    <ClCompile Include="core\library\luabind\class.cpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClCompile>
+    <ClCompile Include="core\library\luabind\class_info.cpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClCompile>
+    <ClCompile Include="core\library\luabind\class_registry.cpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClCompile>
+    <ClCompile Include="core\library\luabind\class_rep.cpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClCompile>
+    <ClCompile Include="core\library\luabind\create_class.cpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClCompile>
+    <ClCompile Include="core\library\luabind\error.cpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClCompile>
+    <ClCompile Include="core\library\luabind\exception_handler.cpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClCompile>
+    <ClCompile Include="core\library\luabind\function.cpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClCompile>
+    <ClCompile Include="core\library\luabind\inheritance.cpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClCompile>
+    <ClCompile Include="core\library\luabind\link_compatibility.cpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClCompile>
+    <ClCompile Include="core\library\luabind\object_rep.cpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClCompile>
+    <ClCompile Include="core\library\luabind\open.cpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClCompile>
+    <ClCompile Include="core\library\luabind\pcall.cpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClCompile>
+    <ClCompile Include="core\library\luabind\scope.cpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClCompile>
+    <ClCompile Include="core\library\luabind\stack_content_by_name.cpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClCompile>
+    <ClCompile Include="core\library\luabind\weak_ref.cpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClCompile>
+    <ClCompile Include="core\library\luabind\wrapper_base.cpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClCompile>
+    <ClCompile Include="core\library\lua\lapi.c">
+      <Filter>X-Gears files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="core\library\lua\lauxlib.c">
+      <Filter>X-Gears files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="core\library\lua\lbaselib.c">
+      <Filter>X-Gears files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="core\library\lua\lcode.c">
+      <Filter>X-Gears files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="core\library\lua\ldblib.c">
+      <Filter>X-Gears files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="core\library\lua\ldebug.c">
+      <Filter>X-Gears files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="core\library\lua\ldo.c">
+      <Filter>X-Gears files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="core\library\lua\ldump.c">
+      <Filter>X-Gears files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="core\library\lua\lfunc.c">
+      <Filter>X-Gears files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="core\library\lua\lgc.c">
+      <Filter>X-Gears files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="core\library\lua\linit.c">
+      <Filter>X-Gears files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="core\library\lua\liolib.c">
+      <Filter>X-Gears files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="core\library\lua\llex.c">
+      <Filter>X-Gears files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="core\library\lua\lmathlib.c">
+      <Filter>X-Gears files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="core\library\lua\lmem.c">
+      <Filter>X-Gears files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="core\library\lua\loadlib.c">
+      <Filter>X-Gears files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="core\library\lua\lobject.c">
+      <Filter>X-Gears files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="core\library\lua\lopcodes.c">
+      <Filter>X-Gears files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="core\library\lua\loslib.c">
+      <Filter>X-Gears files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="core\library\lua\lparser.c">
+      <Filter>X-Gears files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="core\library\lua\lstate.c">
+      <Filter>X-Gears files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="core\library\lua\lstring.c">
+      <Filter>X-Gears files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="core\library\lua\lstrlib.c">
+      <Filter>X-Gears files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="core\library\lua\ltable.c">
+      <Filter>X-Gears files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="core\library\lua\ltablib.c">
+      <Filter>X-Gears files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="core\library\lua\ltm.c">
+      <Filter>X-Gears files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="core\library\lua\lundump.c">
+      <Filter>X-Gears files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="core\library\lua\lvm.c">
+      <Filter>X-Gears files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="core\library\lua\lzio.c">
+      <Filter>X-Gears files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="core\library\lua\print.c">
+      <Filter>X-Gears files\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="core\library\tinyxml\tinystr.cpp">
+      <Filter>X-Gears files\TinyXml</Filter>
+    </ClCompile>
+    <ClCompile Include="core\library\tinyxml\tinyxml.cpp">
+      <Filter>X-Gears files\TinyXml</Filter>
+    </ClCompile>
+    <ClCompile Include="core\library\tinyxml\tinyxmlerror.cpp">
+      <Filter>X-Gears files\TinyXml</Filter>
+    </ClCompile>
+    <ClCompile Include="core\library\tinyxml\tinyxmlparser.cpp">
+      <Filter>X-Gears files\TinyXml</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Main.h">
+      <Filter>X-Gears files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\Assert.h">
+      <Filter>X-Gears files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\CameraManager.h">
+      <Filter>X-Gears files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\CameraManagerCommands.h">
+      <Filter>X-Gears files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\ConfigCmd.h">
+      <Filter>X-Gears files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\ConfigCmdManager.h">
+      <Filter>X-Gears files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\ConfigCmdManagerCommands.h">
+      <Filter>X-Gears files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\ConfigFile.h">
+      <Filter>X-Gears files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\ConfigVar.h">
+      <Filter>X-Gears files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\ConfigVarManager.h">
+      <Filter>X-Gears files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\Console.h">
+      <Filter>X-Gears files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\DebugDraw.h">
+      <Filter>X-Gears files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\Entity.h">
+      <Filter>X-Gears files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\EntityManager.h">
+      <Filter>X-Gears files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\EntityModel.h">
+      <Filter>X-Gears files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\EntityTrigger.h">
+      <Filter>X-Gears files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\Event.h">
+      <Filter>X-Gears files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\GameFrameListner.h">
+      <Filter>X-Gears files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\InputManager.h">
+      <Filter>X-Gears files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\InputManagerCommands.h">
+      <Filter>X-Gears files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\Logger.h">
+      <Filter>X-Gears files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\Math.h">
+      <Filter>X-Gears files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\ScriptManager.h">
+      <Filter>X-Gears files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\ScriptManagerBinds.h">
+      <Filter>X-Gears files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\ScriptManagerCommands.h">
+      <Filter>X-Gears files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\TextManager.h">
+      <Filter>X-Gears files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\TextManagerCommands.h">
+      <Filter>X-Gears files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\Timer.h">
+      <Filter>X-Gears files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\UiAnimation.h">
+      <Filter>X-Gears files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\UiFont.h">
+      <Filter>X-Gears files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\UiManager.h">
+      <Filter>X-Gears files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\UiSprite.h">
+      <Filter>X-Gears files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\UiTextArea.h">
+      <Filter>X-Gears files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\UiWidget.h">
+      <Filter>X-Gears files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\Utilites.h">
+      <Filter>X-Gears files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\Walkmesh.h">
+      <Filter>X-Gears files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\XmlFile.h">
+      <Filter>X-Gears files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\XmlFontFile.h">
+      <Filter>X-Gears files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\XmlFontsFile.h">
+      <Filter>X-Gears files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\XmlMapFile.h">
+      <Filter>X-Gears files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\XmlMapsFile.h">
+      <Filter>X-Gears files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\XmlPrototypesFile.h">
+      <Filter>X-Gears files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\XmlScreenFile.h">
+      <Filter>X-Gears files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\XmlScreensFile.h">
+      <Filter>X-Gears files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\XmlScriptsFile.h">
+      <Filter>X-Gears files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\XmlTextFile.h">
+      <Filter>X-Gears files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\XmlTextsFile.h">
+      <Filter>X-Gears files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\XmlWalkmeshFile.h">
+      <Filter>X-Gears files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\adopt_policy.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\back_reference.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\back_reference_fwd.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\class.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\class_info.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\config.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\container_policy.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\copy_policy.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\dependency_policy.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\discard_result_policy.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\error.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\exception_handler.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\from_stack.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\function.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\get_main_thread.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\get_pointer.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\handle.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\iterator_policy.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\lua_include.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\luabind.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\make_function.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\nil.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\object.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\open.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\operator.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\out_value_policy.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\prefix.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\raw_policy.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\return_reference_to_policy.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\scope.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\shared_ptr_converter.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\tag_function.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\typeid.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\value_wrapper.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\version.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\weak_ref.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\wrapper_base.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\yield_policy.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\detail\calc_arity.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\detail\call.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\detail\call_function.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\detail\call_member.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\detail\call_operator_iterate.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\detail\class_cache.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\detail\class_registry.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\detail\class_rep.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\detail\compute_score.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\detail\constructor.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\detail\conversion_storage.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\detail\convert_to_lua.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\detail\debug.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\detail\decorate_type.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\detail\deduce_signature.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\detail\enum_maker.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\detail\format_signature.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\detail\garbage_collector.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\detail\get_signature.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\detail\has_get_pointer.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\detail\inheritance.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\detail\instance_holder.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\detail\is_indirect_const.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\detail\link_compatibility.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\detail\make_instance.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\detail\most_derived.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\detail\object_call.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\detail\object_funs.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\detail\object_rep.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\detail\open.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\detail\operator_id.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\detail\other.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\detail\pcall.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\detail\pointee_sizeof.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\detail\pointee_typeid.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\detail\policy.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\detail\primitives.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\detail\property.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\detail\ref.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\detail\signature_match.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\detail\stack_utils.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\detail\typetraits.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\luabind\detail\yes_no.hpp">
+      <Filter>X-Gears files\Luabind</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\lua\lapi.h">
+      <Filter>X-Gears files\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\lua\lauxlib.h">
+      <Filter>X-Gears files\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\lua\lcode.h">
+      <Filter>X-Gears files\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\lua\ldebug.h">
+      <Filter>X-Gears files\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\lua\ldo.h">
+      <Filter>X-Gears files\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\lua\lfunc.h">
+      <Filter>X-Gears files\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\lua\lgc.h">
+      <Filter>X-Gears files\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\lua\llex.h">
+      <Filter>X-Gears files\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\lua\llimits.h">
+      <Filter>X-Gears files\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\lua\lmem.h">
+      <Filter>X-Gears files\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\lua\lobject.h">
+      <Filter>X-Gears files\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\lua\lopcodes.h">
+      <Filter>X-Gears files\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\lua\lparser.h">
+      <Filter>X-Gears files\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\lua\lstate.h">
+      <Filter>X-Gears files\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\lua\lstring.h">
+      <Filter>X-Gears files\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\lua\ltable.h">
+      <Filter>X-Gears files\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\lua\ltm.h">
+      <Filter>X-Gears files\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\lua\lua.h">
+      <Filter>X-Gears files\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\lua\luaconf.h">
+      <Filter>X-Gears files\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\lua\lualib.h">
+      <Filter>X-Gears files\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\lua\lundump.h">
+      <Filter>X-Gears files\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\lua\lvm.h">
+      <Filter>X-Gears files\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\lua\lzio.h">
+      <Filter>X-Gears files\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\tinyxml\tinystr.h">
+      <Filter>X-Gears files\TinyXml</Filter>
+    </ClInclude>
+    <ClInclude Include="core\library\tinyxml\tinyxml.h">
+      <Filter>X-Gears files\TinyXml</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
