@@ -47,7 +47,7 @@ ModelFile::GetModel( Ogre::MeshPtr mesh, const MeshData& data, VectorTexForGen& 
 
     int number_of_parts = GetU32LE( 0x0 );
 
-    m_ExportLog->Log( "Model:\nnumber_of_parts: " + Ogre::StringConverter::toString( number_of_parts ) + "\n" );
+    m_ExportLog->Log( "Model: number_of_parts: " + Ogre::StringConverter::toString( number_of_parts ) + "\n" );
 
     for( int part_id = 0; part_id < number_of_parts; ++part_id )
     {
@@ -67,18 +67,18 @@ ModelFile::GetModelPart( const int part_id, Ogre::MeshPtr mesh, const MeshData& 
     m_PointerToTextureData = GetU32LE( pointer_to_part_header + 0x14 );
 
     m_ExportLog->Log(
-        "Part: " + Ogre::StringConverter::toString( part_id ) + "\n" +
-        "    number of poly blocks: " + Ogre::StringConverter::toString( number_of_poly_blocks ) + "\n"
-        "    pointer to polygon data: " + Ogre::StringConverter::toString( m_PointerToMeshData ) + "\n"
-        "    pointer to texture data: " + Ogre::StringConverter::toString( m_PointerToTextureData ) + "\n"
+        "    Part: " + Ogre::StringConverter::toString( part_id ) + "\n" +
+        "        number of poly blocks: " + Ogre::StringConverter::toString( number_of_poly_blocks ) + "\n"
+        "        pointer to polygon data: " + Ogre::StringConverter::toString( m_PointerToMeshData ) + "\n"
+        "        pointer to texture data: " + Ogre::StringConverter::toString( m_PointerToTextureData ) + "\n"
     );
 
     for( int poly_block_id = 0; poly_block_id < number_of_poly_blocks; ++poly_block_id )
     {
-        u8 polygon_type = GetU8(m_PointerToMeshData + 0);
-        int number_of_polygons = GetU16LE(m_PointerToMeshData + 2);
+        u8 polygon_type = GetU8( m_PointerToMeshData + 0 );
+        int number_of_polygons = GetU16LE( m_PointerToMeshData + 2 );
         int number_of_triangles = number_of_polygons;
-        if (polygon_type == 0x09 || polygon_type == 0x0c || polygon_type == 0x0d) // if quads
+        if( polygon_type >= 0x08 ) // if quads
         {
             number_of_triangles *= 2;
         }
@@ -86,10 +86,10 @@ ModelFile::GetModelPart( const int part_id, Ogre::MeshPtr mesh, const MeshData& 
         m_PointerToMeshData += 4;
 
         m_ExportLog->Log(
-            "        polygon type: " +
-            Ogre::StringConverter::toString(polygon_type) +
-            ", number of polygons: " +
-            Ogre::StringConverter::toString(number_of_polygons) +
+            "            polygon type: 0x" +
+            HexToString( polygon_type, 2, '0' ) +
+            ", number of polygons: 0x" +
+            HexToString( number_of_polygons, 4, '0' ) +
             "\n"
         );
 
@@ -111,7 +111,7 @@ ModelFile::GetModelPart( const int part_id, Ogre::MeshPtr mesh, const MeshData& 
         sub_mesh->indexData->indexCount = sub_mesh->vertexData->vertexCount;
         sub_mesh->indexData->indexBuffer = Ogre::HardwareBufferManager::getSingleton().createIndexBuffer(Ogre::HardwareIndexBuffer::IT_16BIT, sub_mesh->indexData->indexCount, Ogre::HardwareBuffer::HBU_STATIC_WRITE_ONLY);
         u16* idata = static_cast<u16*>(sub_mesh->indexData->indexBuffer->lock(Ogre::HardwareBuffer::HBL_DISCARD));
-        for( int i = 0; i < sub_mesh->vertexData->vertexCount; ++i )
+        for( unsigned int i = 0; i < sub_mesh->vertexData->vertexCount; ++i )
         {
             idata[ i ] = i;
         }
@@ -144,12 +144,12 @@ ModelFile::GetModelPart( const int part_id, Ogre::MeshPtr mesh, const MeshData& 
 
 
 
-        for (int poly_id = 0; poly_id < number_of_polygons; ++poly_id)
+        for( int poly_id = 0; poly_id < number_of_polygons; ++poly_id )
         {
             // textured triangle
-            if (polygon_type == 0x01 || polygon_type == 0x03 || polygon_type == 0x05)
+            if( polygon_type == 0x01 || polygon_type == 0x03 || polygon_type == 0x05 || polygon_type == 0x07 )
             {
-                if (LoadPoly010305_18(pPos, tPos, cPos, data, textures) != 0)
+                if( LoadPoly_01_03_05_07( pPos, tPos, cPos, data, textures ) != 0 )
                 {
                     m_PointerToMeshData += 8;
                     m_PointerToTextureData += 8;
@@ -161,9 +161,9 @@ ModelFile::GetModelPart( const int part_id, Ogre::MeshPtr mesh, const MeshData& 
                 }
             }
             // monochrome triangle
-            else if (polygon_type == 0x04)
+            else if( polygon_type == 0x00 || polygon_type == 0x02 || polygon_type == 0x04 || polygon_type == 0x06 )
             {
-                if (LoadPoly04_18(pPos, tPos, cPos, data, textures) != 0)
+                if( LoadPoly_00_02_04_06( pPos, tPos, cPos, data, textures) != 0 )
                 {
                     m_PointerToMeshData += 8;
                     m_PointerToTextureData += 4;
@@ -175,9 +175,9 @@ ModelFile::GetModelPart( const int part_id, Ogre::MeshPtr mesh, const MeshData& 
                 }
             }
             // textured quad
-            else if( polygon_type == 0x09 || polygon_type == 0x0d )
+            else if( polygon_type == 0x09 || polygon_type == 0x0b || polygon_type == 0x0d || polygon_type == 0x0f )
             {
-                if( LoadPoly090d_18( pPos, tPos, cPos, data, textures ) != 0 )
+                if( LoadPoly_09_0b_0d_0f( pPos, tPos, cPos, data, textures ) != 0 )
                 {
                     m_PointerToMeshData += 8;
                     m_PointerToTextureData += 12;
@@ -189,9 +189,9 @@ ModelFile::GetModelPart( const int part_id, Ogre::MeshPtr mesh, const MeshData& 
                 }
             }
             // monochrome quad
-            else if( polygon_type == 0x0c )
+            else if( polygon_type == 0x08 || polygon_type == 0x0a || polygon_type == 0x0c || polygon_type == 0x0e )
             {
-                if( LoadPoly0c_18( pPos, tPos, cPos, data, textures ) != 0 )
+                if( LoadPoly_08_0a_0c_0e( pPos, tPos, cPos, data, textures ) != 0 )
                 {
                     m_PointerToMeshData += 8;
                     m_PointerToTextureData += 4;
@@ -235,9 +235,9 @@ ModelFile::GetModelPart( const int part_id, Ogre::MeshPtr mesh, const MeshData& 
 
 
 int
-ModelFile::LoadPoly010305_18( float*& pPos, float*& tPos, Ogre::RGBA*& cPos, const MeshData& info, VectorTexForGen& textures )
+ModelFile::LoadPoly_01_03_05_07( float*& pPos, float*& tPos, Ogre::RGBA*& cPos, const MeshData& info, VectorTexForGen& textures )
 {
-    if (TexSettings() == 0)
+    if( TexSettings() == 0 )
     {
         return 0;
     }
@@ -246,15 +246,15 @@ ModelFile::LoadPoly010305_18( float*& pPos, float*& tPos, Ogre::RGBA*& cPos, con
     int offset_b = GetU16LE(m_PointerToMeshData + 0x2);
     int offset_c = GetU16LE(m_PointerToMeshData + 0x4);
 
-    Ogre::Vector3 a((s16)GetU16LE(m_PointerToVertexData + offset_a * 0x8 + 04),
-                    -(s16)GetU16LE(m_PointerToVertexData + offset_a * 0x8 + 00),
-                    -(s16)GetU16LE(m_PointerToVertexData + offset_a * 0x8 + 02));
-    Ogre::Vector3 b((s16)GetU16LE(m_PointerToVertexData + offset_b * 0x8 + 04),
-                    -(s16)GetU16LE(m_PointerToVertexData + offset_b * 0x8 + 00),
-                    -(s16)GetU16LE(m_PointerToVertexData + offset_b * 0x8 + 02));
-    Ogre::Vector3 c((s16)GetU16LE(m_PointerToVertexData + offset_c * 0x8 + 04),
-                    -(s16)GetU16LE(m_PointerToVertexData + offset_c * 0x8 + 00),
-                    -(s16)GetU16LE(m_PointerToVertexData + offset_c * 0x8 + 02));
+    Ogre::Vector3 a((s16)GetU16LE(m_PointerToVertexData + offset_a * 0x8 + 00),
+                    (s16)GetU16LE(m_PointerToVertexData + offset_a * 0x8 + 02),
+                    (s16)GetU16LE(m_PointerToVertexData + offset_a * 0x8 + 04));
+    Ogre::Vector3 b((s16)GetU16LE(m_PointerToVertexData + offset_b * 0x8 + 00),
+                    (s16)GetU16LE(m_PointerToVertexData + offset_b * 0x8 + 02),
+                    (s16)GetU16LE(m_PointerToVertexData + offset_b * 0x8 + 04));
+    Ogre::Vector3 c((s16)GetU16LE(m_PointerToVertexData + offset_c * 0x8 + 00),
+                    (s16)GetU16LE(m_PointerToVertexData + offset_c * 0x8 + 02),
+                    (s16)GetU16LE(m_PointerToVertexData + offset_c * 0x8 + 04));
 
     a /= 64;
     b /= 64;
@@ -314,21 +314,21 @@ ModelFile::LoadPoly010305_18( float*& pPos, float*& tPos, Ogre::RGBA*& cPos, con
 
 
 int
-ModelFile::LoadPoly04_18(float*& pPos, float*& tPos, Ogre::RGBA*& cPos, const MeshData& info, VectorTexForGen& textures)
+ModelFile::LoadPoly_00_02_04_06( float*& pPos, float*& tPos, Ogre::RGBA*& cPos, const MeshData& info, VectorTexForGen& textures )
 {
     int offset_a = GetU16LE(m_PointerToMeshData + 0x0);
     int offset_b = GetU16LE(m_PointerToMeshData + 0x2);
     int offset_c = GetU16LE(m_PointerToMeshData + 0x4);
 
-    Ogre::Vector3 a((s16)GetU16LE(m_PointerToVertexData + offset_a * 0x8 + 04),
-                    -(s16)GetU16LE(m_PointerToVertexData + offset_a * 0x8 + 00),
-                    -(s16)GetU16LE(m_PointerToVertexData + offset_a * 0x8 + 02));
-    Ogre::Vector3 b((s16)GetU16LE(m_PointerToVertexData + offset_b * 0x8 + 04),
-                    -(s16)GetU16LE(m_PointerToVertexData + offset_b * 0x8 + 00),
-                    -(s16)GetU16LE(m_PointerToVertexData + offset_b * 0x8 + 02));
-    Ogre::Vector3 c((s16)GetU16LE(m_PointerToVertexData + offset_c * 0x8 + 04),
-                    -(s16)GetU16LE(m_PointerToVertexData + offset_c * 0x8 + 00),
-                    -(s16)GetU16LE(m_PointerToVertexData + offset_c * 0x8 + 02));
+    Ogre::Vector3 a((s16)GetU16LE(m_PointerToVertexData + offset_a * 0x8 + 00),
+                    (s16)GetU16LE(m_PointerToVertexData + offset_a * 0x8 + 02),
+                    (s16)GetU16LE(m_PointerToVertexData + offset_a * 0x8 + 04));
+    Ogre::Vector3 b((s16)GetU16LE(m_PointerToVertexData + offset_b * 0x8 + 00),
+                    (s16)GetU16LE(m_PointerToVertexData + offset_b * 0x8 + 02),
+                    (s16)GetU16LE(m_PointerToVertexData + offset_b * 0x8 + 04));
+    Ogre::Vector3 c((s16)GetU16LE(m_PointerToVertexData + offset_c * 0x8 + 00),
+                    (s16)GetU16LE(m_PointerToVertexData + offset_c * 0x8 + 02),
+                    (s16)GetU16LE(m_PointerToVertexData + offset_c * 0x8 + 04));
 
     a /= 64;
     b /= 64;
@@ -362,9 +362,9 @@ ModelFile::LoadPoly04_18(float*& pPos, float*& tPos, Ogre::RGBA*& cPos, const Me
 
 
 int
-ModelFile::LoadPoly090d_18(float*& pPos, float*& tPos, Ogre::RGBA*& cPos, const MeshData& info, VectorTexForGen& textures)
+ModelFile::LoadPoly_09_0b_0d_0f( float*& pPos, float*& tPos, Ogre::RGBA*& cPos, const MeshData& info, VectorTexForGen& textures )
 {
-    if (TexSettings() == 0)
+    if( TexSettings() == 0 )
     {
         return 0;
     }
@@ -374,18 +374,18 @@ ModelFile::LoadPoly090d_18(float*& pPos, float*& tPos, Ogre::RGBA*& cPos, const 
     int offset_c = GetU16LE(m_PointerToMeshData + 0x4);
     int offset_d = GetU16LE(m_PointerToMeshData + 0x6);
 
-    Ogre::Vector3 a((s16)GetU16LE(m_PointerToVertexData + offset_a * 0x8 + 04),
-                    -(s16)GetU16LE(m_PointerToVertexData + offset_a * 0x8 + 00),
-                    -(s16)GetU16LE(m_PointerToVertexData + offset_a * 0x8 + 02));
-    Ogre::Vector3 b((s16)GetU16LE(m_PointerToVertexData + offset_b * 0x8 + 04),
-                    -(s16)GetU16LE(m_PointerToVertexData + offset_b * 0x8 + 00),
-                    -(s16)GetU16LE(m_PointerToVertexData + offset_b * 0x8 + 02));
-    Ogre::Vector3 c((s16)GetU16LE(m_PointerToVertexData + offset_c * 0x8 + 04),
-                    -(s16)GetU16LE(m_PointerToVertexData + offset_c * 0x8 + 00),
-                    -(s16)GetU16LE(m_PointerToVertexData + offset_c * 0x8 + 02));
-    Ogre::Vector3 d((s16)GetU16LE(m_PointerToVertexData + offset_d * 0x8 + 04),
-                    -(s16)GetU16LE(m_PointerToVertexData + offset_d * 0x8 + 00),
-                    -(s16)GetU16LE(m_PointerToVertexData + offset_d * 0x8 + 02));
+    Ogre::Vector3 a((s16)GetU16LE(m_PointerToVertexData + offset_a * 0x8 + 00),
+                    (s16)GetU16LE(m_PointerToVertexData + offset_a * 0x8 + 02),
+                    (s16)GetU16LE(m_PointerToVertexData + offset_a * 0x8 + 04));
+    Ogre::Vector3 b((s16)GetU16LE(m_PointerToVertexData + offset_b * 0x8 + 00),
+                    (s16)GetU16LE(m_PointerToVertexData + offset_b * 0x8 + 02),
+                    (s16)GetU16LE(m_PointerToVertexData + offset_b * 0x8 + 04));
+    Ogre::Vector3 c((s16)GetU16LE(m_PointerToVertexData + offset_c * 0x8 + 00),
+                    (s16)GetU16LE(m_PointerToVertexData + offset_c * 0x8 + 02),
+                    (s16)GetU16LE(m_PointerToVertexData + offset_c * 0x8 + 04));
+    Ogre::Vector3 d((s16)GetU16LE(m_PointerToVertexData + offset_d * 0x8 + 00),
+                    (s16)GetU16LE(m_PointerToVertexData + offset_d * 0x8 + 02),
+                    (s16)GetU16LE(m_PointerToVertexData + offset_d * 0x8 + 04));
 
     a /= 64;
     b /= 64;
@@ -460,25 +460,25 @@ ModelFile::LoadPoly090d_18(float*& pPos, float*& tPos, Ogre::RGBA*& cPos, const 
 
 
 int
-ModelFile::LoadPoly0c_18(float*& pPos, float*& tPos, Ogre::RGBA*& cPos, const MeshData& info, VectorTexForGen& textures)
+ModelFile::LoadPoly_08_0a_0c_0e( float*& pPos, float*& tPos, Ogre::RGBA*& cPos, const MeshData& info, VectorTexForGen& textures )
 {
     int offset_a = GetU16LE(m_PointerToMeshData + 0x0);
     int offset_b = GetU16LE(m_PointerToMeshData + 0x2);
     int offset_c = GetU16LE(m_PointerToMeshData + 0x4);
     int offset_d = GetU16LE(m_PointerToMeshData + 0x6);
 
-    Ogre::Vector3 a((s16)GetU16LE(m_PointerToVertexData + offset_a * 0x8 + 04),
-                    -(s16)GetU16LE(m_PointerToVertexData + offset_a * 0x8 + 00),
-                    -(s16)GetU16LE(m_PointerToVertexData + offset_a * 0x8 + 02));
-    Ogre::Vector3 b((s16)GetU16LE(m_PointerToVertexData + offset_b * 0x8 + 04),
-                    -(s16)GetU16LE(m_PointerToVertexData + offset_b * 0x8 + 00),
-                    -(s16)GetU16LE(m_PointerToVertexData + offset_b * 0x8 + 02));
-    Ogre::Vector3 c((s16)GetU16LE(m_PointerToVertexData + offset_c * 0x8 + 04),
-                    -(s16)GetU16LE(m_PointerToVertexData + offset_c * 0x8 + 00),
-                    -(s16)GetU16LE(m_PointerToVertexData + offset_c * 0x8 + 02));
-    Ogre::Vector3 d((s16)GetU16LE(m_PointerToVertexData + offset_d * 0x8 + 04),
-                    -(s16)GetU16LE(m_PointerToVertexData + offset_d * 0x8 + 00),
-                    (s16)GetU16LE(m_PointerToVertexData + offset_d * 0x8 + 02));
+    Ogre::Vector3 a((s16)GetU16LE(m_PointerToVertexData + offset_a * 0x8 + 00),
+                    (s16)GetU16LE(m_PointerToVertexData + offset_a * 0x8 + 02),
+                    (s16)GetU16LE(m_PointerToVertexData + offset_a * 0x8 + 04));
+    Ogre::Vector3 b((s16)GetU16LE(m_PointerToVertexData + offset_b * 0x8 + 00),
+                    (s16)GetU16LE(m_PointerToVertexData + offset_b * 0x8 + 02),
+                    (s16)GetU16LE(m_PointerToVertexData + offset_b * 0x8 + 04));
+    Ogre::Vector3 c((s16)GetU16LE(m_PointerToVertexData + offset_c * 0x8 + 00),
+                    (s16)GetU16LE(m_PointerToVertexData + offset_c * 0x8 + 02),
+                    (s16)GetU16LE(m_PointerToVertexData + offset_c * 0x8 + 04));
+    Ogre::Vector3 d((s16)GetU16LE(m_PointerToVertexData + offset_d * 0x8 + 00),
+                    (s16)GetU16LE(m_PointerToVertexData + offset_d * 0x8 + 02),
+                    (s16)GetU16LE(m_PointerToVertexData + offset_d * 0x8 + 04));
 
     a /= 64;
     b /= 64;

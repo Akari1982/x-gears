@@ -1,6 +1,6 @@
 #include "UiTextArea.h"
 
-#include <OgreFontManager.h>
+#include <Overlay/OgreFontManager.h>
 #include <OgreHardwareBufferManager.h>
 #include <OgreMaterialManager.h>
 

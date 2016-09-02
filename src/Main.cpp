@@ -1,20 +1,18 @@
 #include <OgreRoot.h>
+#include <Overlay/OgreOverlaySystem.h>
 #include <OIS.h>
 
 #include "Main.h"
-//#include "core/AudioManager.h"
 #include "core/CameraManager.h"
 #include "core/ConfigCmdManager.h"
 #include "core/ConfigFile.h"
 #include "core/ConfigVarManager.h"
 #include "core/Console.h"
 #include "core/DebugDraw.h"
-#include "core/DialogsManager.h"
 #include "core/EntityManager.h"
 #include "core/GameFrameListner.h"
 #include "core/InputManager.h"
 #include "core/Logger.h"
-#include "core/ParticleSystemManager.h"
 #include "core/ScriptManager.h"
 #include "core/TextManager.h"
 #include "core/Timer.h"
@@ -34,24 +32,15 @@ main(int argc, char *argv[])
     Ogre::SceneManager* scene_manager;
 
     Ogre::LogManager* log_manager = new Ogre::LogManager();
-    log_manager->createLog( "q-gears.log", true, true );
+    log_manager->createLog( "x-gears.log", true, true );
     log_manager->getDefaultLog()->setLogDetail( ( Ogre::LoggingLevel )3 );
 
     // init root early
     root = new Ogre::Root( "", "" );
 #ifndef _DEBUG
-    #ifdef __WIN32__
-        //root->loadPlugin( "./RenderSystem_Direct3D9.dll" );
-        root->loadPlugin( "./RenderSystem_GL.dll" );
-    #else // Assume Linux for now
-        root->loadPlugin( "./RenderSystem_GL.so" );
-    #endif
+        root->loadPlugin( "./RenderSystem_Direct3D9.dll" );
 #else
-    #ifdef __WIN32__
         root->loadPlugin( "./RenderSystem_Direct3D9_d.dll" );
-    #else // Assume Linux for now
-        root->loadPlugin( "./RenderSystem_GL_d.so" );
-    #endif
 #endif
     root->setRenderSystem( root->getAvailableRenderers()[ 0 ] );
     root->initialise( false );
@@ -70,7 +59,8 @@ main(int argc, char *argv[])
     scene_manager = root->createSceneManager( Ogre::ST_GENERIC, "Scene" );
     scene_manager->setAmbientLight( Ogre::ColourValue( 1.0, 1.0, 1.0 ) );
 
-
+    Ogre::OverlaySystem* overlay_system = new Ogre::OverlaySystem();
+    scene_manager->addRenderQueueListener( overlay_system );
 
     Ogre::ResourceGroupManager::getSingleton().addResourceLocation( "./data", "FileSystem", "Game", true );
     Ogre::ResourceGroupManager::getSingleton().initialiseResourceGroup( "Game" );
@@ -93,17 +83,11 @@ main(int argc, char *argv[])
 
 
 
-    //AudioManager* audio_manager = new AudioManager();
-    //audio_manager->MusicPlay( "loop1" );
-
-
     // create This earlier than DisplayFrameListener cause it can fire event there
     CameraManager* camera_manager = new CameraManager();
     TextManager* text_manager = new TextManager();
     UiManager* ui_manager = new UiManager();
-    DialogsManager* dialogs_manager = new DialogsManager();
     EntityManager* entity_manager = new EntityManager();
-    ParticleSystemManager* particle_system_manager = new ParticleSystemManager();
     Console* console = new Console();
 
     // init after game managers because it attach them to script
@@ -126,7 +110,6 @@ main(int argc, char *argv[])
 
     // init ui and run it scripts
     ui_manager->Initialise();
-    dialogs_manager->Initialise();
 
 
 
@@ -141,15 +124,12 @@ main(int argc, char *argv[])
     root->removeFrameListener( frame_listener );
     delete frame_listener;
     // destroy before script manager because it removes things from it.
-    delete particle_system_manager;
     delete entity_manager;
-    delete dialogs_manager; // after entity manager
     delete ui_manager;
     delete text_manager;
     delete script_manager;
     delete console;
     delete camera_manager;
-    //delete audio_manager;
     delete input_manager;
     delete debug_draw;
     delete config_cmd_manager;

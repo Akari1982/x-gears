@@ -5403,3 +5403,34 @@
 	"../../common/File.h"
 	"../../common/TypeDefine.h"
 
+1469649669 source:d:\reverse\svn\x-gears\utilites\common\file.cpp
+	<cassert>
+	<string.h>
+	"File.h"
+	"FileSystem.h"
+	"Logger.h"
+
+1469649670 d:\reverse\svn\x-gears\utilites\common\file.h
+	"TypeDefine.h"
+	<OgreString.h>
+
+1469649671 d:\reverse\svn\x-gears\utilites\common\typedefine.h
+
+1469649670 d:\reverse\svn\x-gears\utilites\common\filesystem.h
+	<OgreString.h>
+
+1469649670 d:\reverse\svn\x-gears\utilites\common\logger.h
+	<OgreString.h>
+	<OgreLogManager.h>
+	<OgreUTFString.h>
+
+1469649670 source:d:\reverse\svn\x-gears\utilites\common\filesystem.cpp
+	"FileSystem.h"
+	"Logger.h"
+	<stdio.h>
+
+1469649670 source:d:\reverse\svn\x-gears\utilites\common\logger.cpp
+	"Logger.h"
+	"FileSystem.h"
+	<OgreStringConverter.h>
+

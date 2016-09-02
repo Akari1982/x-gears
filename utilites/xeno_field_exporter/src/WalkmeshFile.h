@@ -14,7 +14,7 @@ public:
     WalkmeshFile( File* pFile );
     virtual ~WalkmeshFile();
 
-    void GetWalkmesh( Walkmesh* walkmesh );
+    void GetWalkmesh( Walkmesh* walkmesh, const int file_id );
 };
 
 

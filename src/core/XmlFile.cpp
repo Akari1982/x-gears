@@ -7,7 +7,7 @@
 
 
 XmlFile::XmlFile( const Ogre::String& file ):
-    m_File( file )
+    m_File( file.c_str() )
 {
     m_File.SetCondenseWhiteSpace( false );
     m_NormalFile = m_File.LoadFile();

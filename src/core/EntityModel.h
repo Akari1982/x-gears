@@ -17,17 +17,11 @@ public:
     virtual void        SetVisible( const bool visible );
     virtual bool        IsVisible() const;
 
-    // animation related
-    virtual void        PlayAnimation( const Ogre::String& animation, AnimationState state, AnimationPlayType play_type, const float start, const float end );
-    virtual void        PlayAnimationContinue( const Ogre::String& animation );
-    virtual void        UpdateAnimation( const float delta );
-
 private:
     EntityModel();
 
 private:
     Ogre::Entity* m_Model;
-    Ogre::AnimationState* m_AnimationCurrent;
 };
 
 

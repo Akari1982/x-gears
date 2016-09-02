@@ -28,7 +28,7 @@ Walkmesh::Update()
 {
     for( size_t i = 0; i < m_Triangles.size(); ++i )
     {
-        Ogre::String string = Ogre::StringConverter::toString( m_Triangles[ i ].unknown1 ) + "/" + Ogre::StringConverter::toString( m_Triangles[ i ].unknown2 );
+        Ogre::String string = Ogre::StringConverter::toString( m_Triangles[ i ].material );
 
         DEBUG_DRAW.SetColour( Ogre::ColourValue( 1, 1, 1, 1 ) );
         DEBUG_DRAW.SetFadeDistance( 40, 50 );
@@ -92,7 +92,8 @@ Walkmesh::SetUpWalkmeshVertices()
 
 
     Ogre::RenderSystem* rs = Ogre::Root::getSingleton().getRenderSystem();
-    Ogre::RGBA colours[ m_Triangles.size() * 6 ];
+    Ogre::RGBA* colours;
+    colours = new Ogre::RGBA[ m_Triangles.size() * 6 ];
     Ogre::ColourValue c_access = Ogre::ColourValue( 1, 1, 1 );
     Ogre::ColourValue c_deny   = Ogre::ColourValue( 1, 0, 0 );
 
@@ -115,6 +116,7 @@ Walkmesh::SetUpWalkmeshVertices()
 
     vbuf0->unlock();
     vbuf1->writeData( 0, vbuf1->getSizeInBytes(), colours, true );
+    delete[] colours;
 }
 
 

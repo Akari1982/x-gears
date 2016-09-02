@@ -1,0 +1,59 @@
+Model: number_of_parts: 1
+    Part: 0
+        number of poly blocks: 2
+        pointer to polygon data: 824
+        pointer to texture data: 1056
+            polygon type: 0x05, number of polygons: 0x0004
+            polygon type: 0x0d, number of polygons: 0x0018
+Model: number_of_parts: 1
+    Part: 0
+        number of poly blocks: 1
+        pointer to polygon data: 216
+        pointer to texture data: 340
+            polygon type: 0x0d, number of polygons: 0x000f
+Model: number_of_parts: 1
+    Part: 0
+        number of poly blocks: 2
+        pointer to polygon data: 896
+        pointer to texture data: 1400
+            polygon type: 0x05, number of polygons: 0x0010
+            polygon type: 0x0d, number of polygons: 0x002e
+Model: number_of_parts: 1
+    Part: 0
+        number of poly blocks: 2
+        pointer to polygon data: 896
+        pointer to texture data: 1480
+            polygon type: 0x05, number of polygons: 0x002c
+            polygon type: 0x0d, number of polygons: 0x001c
+Model: number_of_parts: 1
+    Part: 0
+        number of poly blocks: 2
+        pointer to polygon data: 840
+        pointer to texture data: 1528
+            polygon type: 0x05, number of polygons: 0x0006
+            polygon type: 0x0d, number of polygons: 0x004f
+Model: number_of_parts: 1
+    Part: 0
+        number of poly blocks: 1
+        pointer to polygon data: 168
+        pointer to texture data: 236
+            polygon type: 0x0d, number of polygons: 0x0008
+Model: number_of_parts: 1
+    Part: 0
+        number of poly blocks: 1
+        pointer to polygon data: 168
+        pointer to texture data: 236
+            polygon type: 0x0d, number of polygons: 0x0008
+Model: number_of_parts: 1
+    Part: 0
+        number of poly blocks: 1
+        pointer to polygon data: 216
+        pointer to texture data: 332
+            polygon type: 0x0d, number of polygons: 0x000e
+Model: number_of_parts: 1
+    Part: 0
+        number of poly blocks: 2
+        pointer to polygon data: 696
+        pointer to texture data: 864
+            polygon type: 0x05, number of polygons: 0x0002
+            polygon type: 0x0d, number of polygons: 0x0012

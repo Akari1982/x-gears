@@ -1,5 +1,7 @@
 #include <Ogre.h>
-#include <OgreTextAreaOverlayElement.h>
+#include <Overlay/OgreOverlayManager.h>
+#include <Overlay/OgreOverlaySystem.h>
+#include <Overlay/OgreTextAreaOverlayElement.h>
 #include <OIS.h>
 
 #include "DebugDraw.h"
@@ -40,13 +42,9 @@ public:
         windowHndStr << windowHnd;
         pl.insert( std::make_pair( std::string( "WINDOW" ), windowHndStr.str() ) );
 
-    #if defined __WIN32__
         pl.insert( std::make_pair( std::string( "w32_mouse" ), std::string( "DISCL_FOREGROUND" ) ) );
         pl.insert( std::make_pair( std::string( "w32_mouse" ), std::string( "DISCL_NONEXCLUSIVE" ) ) );
-    #else
-        pl.insert( std::make_pair( std::string( "x11_mouse_grab" ), std::string( "false" ) ) );
-        pl.insert( std::make_pair( std::string( "x11_mouse_hide" ), std::string( "false" ) ) );
-    #endif
+
         using namespace OIS;
 
 
@@ -61,17 +59,22 @@ public:
         //Register as a Window listener
         Ogre::WindowEventUtilities::addWindowEventListener( m_Window, this );
 
+
+
         // debug info
-        info_text = new Ogre::TextAreaOverlayElement( "DebugText" );
+        info_text = static_cast< Ogre::TextAreaOverlayElement* >( Ogre::OverlayManager::getSingleton().createOverlayElement( "TextArea", "DebugText" ) );
         info_text->setCaption( "" );
         info_text->setMetricsMode( Ogre::GMM_PIXELS );
         info_text->setPosition( 5, 5 );
         info_text->setFontName( "BlueHighway" );
         info_text->setCharHeight( 18 );
 
+        Ogre::OverlayContainer* panel = static_cast< Ogre::OverlayContainer* >( Ogre::OverlayManager::getSingleton().createOverlayElement( "Panel", "DebugPanel" ) );
+        panel->addChild( info_text );
+
         info_overlay = Ogre::OverlayManager::getSingleton().create( "DebugOverlay" );
         info_overlay->setZOrder( 1 );
-        info_overlay->add2D( ( Ogre::OverlayContainer* )info_text );
+        info_overlay->add2D( panel );
         info_overlay->show();
     }
 
@@ -154,7 +157,7 @@ public:
         }
         if( m_MouseRotate == true )
         {
-            camera->rotate( Ogre::Vector3::UNIT_Z, Ogre::Radian( Ogre::Degree( -m_MouseMoveX * 0.13 ) ) );
+            camera->rotate( Ogre::Vector3::UNIT_Y, Ogre::Radian( Ogre::Degree( -m_MouseMoveX * 0.13 ) ) );
             camera->pitch( Ogre::Degree( -m_MouseMoveY * 0.13 ) );
             m_MouseMoveX = 0;
             m_MouseMoveY = 0;
@@ -338,16 +341,24 @@ void
 InitializeOgreBase( const Ogre::String& name )
 {
     root = new Ogre::Root( "", "" );
-#ifndef _DEBUG
     root->loadPlugin( "RenderSystem_Direct3D9.dll" );
-#else
-    root->loadPlugin( "RenderSystem_GL_d.dll" );
-#endif
     root->setRenderSystem( root->getAvailableRenderers()[ 0 ] );
     root->initialise( false );
     Ogre::NameValuePairList misc;
     misc[ "title" ] = name;
     window = root->createRenderWindow( "QGearsWindow", 800, 600, false, &misc );
+
+
+
+    Ogre::SceneManager* scene_manager;
+    Ogre::Viewport*     viewport;
+
+    scene_manager = root->createSceneManager( Ogre::ST_GENERIC, "Scene" );
+    scene_manager->clearScene();
+    scene_manager->setAmbientLight( Ogre::ColourValue( 1.0, 1.0, 1.0 ) );
+
+    Ogre::OverlaySystem* overlay_system = new Ogre::OverlaySystem();
+    scene_manager->addRenderQueueListener( overlay_system );
 
 
 
@@ -359,21 +370,13 @@ InitializeOgreBase( const Ogre::String& name )
 
 
 
-    Ogre::SceneManager* scene_manager;
-    Ogre::Viewport*     viewport;
-
     frame_listener = new DisplayFrameListener( window );
     root->addFrameListener( frame_listener );
-
-    scene_manager = root->createSceneManager( Ogre::ST_GENERIC, "Scene" );
-    scene_manager->clearScene();
-    scene_manager->setAmbientLight( Ogre::ColourValue( 1.0, 1.0, 1.0 ) );
 
     camera = scene_manager->createCamera( "Camera" );
     camera->setNearClipDistance( 0.01f );
     camera->setPosition( 10, 5, 10 );
     camera->lookAt( 0, 0, 0 );
-    camera->roll( Ogre::Radian( Ogre::Degree( 90 ) ) );
 
     viewport = window->addViewport( camera );
     viewport->setBackgroundColour( Ogre::ColourValue( 0, 0.4, 0 ) );
@@ -382,7 +385,7 @@ InitializeOgreBase( const Ogre::String& name )
 
 
     FILESYSTEM = new FileSystem();
-    LOGGER = new Logger( "game.log" );
+    LOGGER = new Logger( "x-gears.log" );
 
     debug_draw = new DebugDraw();
 };

@@ -20,7 +20,7 @@ void Update( float delta )
 int
 main( int argc, char *argv[] )
 {
-    InitializeOgreBase( "Xenogears Walkmesh Exporter" );
+    InitializeOgreBase( "Xenogears Exporter" );
 
 
 
@@ -91,7 +91,7 @@ main( int argc, char *argv[] )
 
 
     field = new FieldModule();
-    field->LoadMap( 608 );
+    field->LoadMap( Ogre::StringConverter::parseInt( argv[ 1 ] ) );
 
 
 

@@ -63,7 +63,8 @@ DrawSkeleton( const Skeleton& skeleton, const Ogre::MeshPtr& mesh )
     pPos = static_cast< float* >( vbuf0->lock( Ogre::HardwareBuffer::HBL_DISCARD ) );
 
 
-    Ogre::RGBA colours[ sub_mesh->vertexData->vertexCount ];
+    // Ogre::RGBA colours[ sub_mesh->vertexData->vertexCount ];
+	Ogre::RGBA colours[ 1000 ];
 
 
 

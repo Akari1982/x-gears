@@ -20,10 +20,10 @@ public:
     void GetModelPart( const int part_id, Ogre::MeshPtr mesh, const MeshData& info, VectorTexForGen& textures, const int bone_id );
 
 private:
-    int LoadPoly010305_18( float*& pPos, float*& tPos, Ogre::RGBA*& cPos, const MeshData& info, VectorTexForGen& textures );
-    int LoadPoly04_18( float*& pPos, float*& tPos, Ogre::RGBA*& cPos, const MeshData& info, VectorTexForGen& textures );
-    int LoadPoly090d_18( float*& pPos, float*& tPos, Ogre::RGBA*& cPos, const MeshData& info, VectorTexForGen& textures );
-    int LoadPoly0c_18( float*& pPos, float*& tPos, Ogre::RGBA*& cPos, const MeshData& info, VectorTexForGen& textures );
+    int LoadPoly_01_03_05_07( float*& pPos, float*& tPos, Ogre::RGBA*& cPos, const MeshData& info, VectorTexForGen& textures );
+    int LoadPoly_00_02_04_06( float*& pPos, float*& tPos, Ogre::RGBA*& cPos, const MeshData& info, VectorTexForGen& textures );
+    int LoadPoly_09_0b_0d_0f( float*& pPos, float*& tPos, Ogre::RGBA*& cPos, const MeshData& info, VectorTexForGen& textures );
+    int LoadPoly_08_0a_0c_0e( float*& pPos, float*& tPos, Ogre::RGBA*& cPos, const MeshData& info, VectorTexForGen& textures );
 
     int TexSettings();
     void SetTexPageSettings();

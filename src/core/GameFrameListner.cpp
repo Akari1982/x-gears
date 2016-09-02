@@ -6,11 +6,9 @@
 #include "ConfigVar.h"
 #include "Console.h"
 #include "DebugDraw.h"
-#include "DialogsManager.h"
 #include "EntityManager.h"
 #include "InputManager.h"
 #include "Logger.h"
-#include "ParticleSystemManager.h"
 #include "ScriptManager.h"
 #include "Timer.h"
 #include "UiManager.h"
@@ -36,13 +34,8 @@ GameFrameListener::GameFrameListener( Ogre::RenderWindow* win ):
     windowHndStr << windowHnd;
     pl.insert( std::make_pair( std::string( "WINDOW" ), windowHndStr.str() ) );
 
-#if defined __WIN32__
     pl.insert( std::make_pair( std::string( "w32_mouse" ), std::string( "DISCL_FOREGROUND" ) ) );
     pl.insert( std::make_pair( std::string( "w32_mouse" ), std::string( "DISCL_NONEXCLUSIVE" ) ) );
-#else
-    pl.insert( std::make_pair( std::string( "x11_mouse_grab" ), std::string( "false" ) ) );
-    pl.insert( std::make_pair( std::string( "x11_mouse_hide" ), std::string( "false" ) ) );
-#endif
 
     m_InputManager = OIS::InputManager::createInputSystem( pl );
 
@@ -107,7 +100,6 @@ GameFrameListener::frameStarted( const Ogre::FrameEvent& evt )
         if( console_active != true )
         {
             EntityManager::getSingleton().Input( input_event_array[ i ] );
-            DialogsManager::getSingleton().Input( input_event_array[ i ] );
             ScriptManager::getSingleton().Input( input_event_array[ i ] );
             CameraManager::getSingleton().Input( input_event_array[ i ] );
         }
@@ -119,8 +111,6 @@ GameFrameListener::frameStarted( const Ogre::FrameEvent& evt )
     UiManager::getSingleton().Update();
     CameraManager::getSingleton().Update();
     EntityManager::getSingleton().Update();
-    DialogsManager::getSingleton().Update();
-    ParticleSystemManager::getSingleton().Update();
 
     return true;
 }

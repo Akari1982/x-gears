@@ -33,6 +33,11 @@ spawn table
 
 800ad0e4 [][][][] checked if equal to 1 in func83f40.
 
+800ad480 default material walking rotation (size 0x02. items 0x08)
+    000C 000E 0000 0002 0004 0006 0008 000A
+800ad49c default material walking speed. (size 0x02. items 0x4)
+    0400 0800 1000 2000
+
 800ad778          opcodes table. (size 0x4).
 800adb78          extended opcodes table. (size 0x4).
 
@@ -120,7 +125,7 @@ spawn table
         +   4 [][][][] entity flags 2 (0x00000800 init).
                        0x00000001:
                        0x00000002:
-                       0x00000078: flags for material checking in specific walkmesh id. If flag is set - we will not use walkmesh material.
+                       0x00000078: ignore walkmeshes material flags. Set - ignore.
                        0x00000800: remove this flag during initialization in 0x0B opcode (with model). Add it in 0xBC opcode. Looks like if this entity has model or not.
                        0x00002000:
                        0x00200000: removed in 0x19_SetPosition.
@@ -140,12 +145,12 @@ spawn table
         +  30 [][][][] some X. Init with 0 when set position by x z
         +  34 [][][][] some Y. Init with 0 when set position by x z
         +  38 [][][][] some Z. Init with 0 when set position by x z
-        +  40 [][][][] some X. Init with 0 when set position by x z
-        +  44 [][][][] some Y. Init with 0 when set position by x z
-        +  48 [][][][] some Z. Init with 0 when set position by x z
-        +  50 [][][][] X. store normal to triangle where we currently is here (during set by xz)
-        +  54 [][][][] Y. store normal to triangle where we currently is here (during set by xz)
-        +  58 [][][][] Z. store normal to triangle where we currently is here (during set by xz)
+        +  40 [][][][] move vector X.
+        +  44 [][][][] move vector Y.
+        +  48 [][][][] move vector Z.
+        +  50 [][][][] normal X to current triangle.
+        +  54 [][][][] normal Y to current triangle.
+        +  58 [][][][] normal Z to current triangle.
         +  60 [][]     maybe X. Init with 0 when set position by x z
         +  62 [][]     maybe Y. Init with 0 when set position by x z
         +  64 [][]     maybe Z. Init with 0 when set position by x z
@@ -267,6 +272,8 @@ spawn table
 800b144c copy first 0x100 byte of field file here.
 
 800b1654 [][][][] increment during each entity initialization.
+
+800b1660 [][][][] move length (1 << 0xc)
 
 800b168c [][][][] store here id of sound to play.
 

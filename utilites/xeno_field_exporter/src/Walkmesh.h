@@ -24,8 +24,7 @@ struct WalkmeshTriangle
     Ogre::Vector3 c;
 
     int access_side[ 3 ];
-    int unknown1;
-    int unknown2;
+    int material;
 };
 
 

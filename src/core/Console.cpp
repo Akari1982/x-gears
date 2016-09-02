@@ -1,6 +1,6 @@
 #include "Console.h"
 
-#include <OgreFontManager.h>
+#include <Overlay/OgreFontManager.h>
 
 #include "ConfigCmdManager.h"
 #include "ConfigVarManager.h"
@@ -818,7 +818,7 @@ Console::LoadHistory()
 void
 Console::SaveHistory()
 {
-    std::ofstream file( "q-gears_ch.txt" );
+    std::ofstream file( "x-gears_ch.txt" );
     if( !file.is_open() )
     {
         LOG_ERROR( "Failed to open console history file for writing" );

@@ -15,7 +15,7 @@ extern QG_STATE g_ApplicationState;
 
 
 
-#define QG_VERSION_NAME "Q-Gears v0.22 (4th alpha Talking Bombing Mission)"
+#define QG_VERSION_NAME "X-Gears v0.23 (Lahan all together)"
 
 
 

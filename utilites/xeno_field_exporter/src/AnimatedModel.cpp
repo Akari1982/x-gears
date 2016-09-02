@@ -77,7 +77,7 @@ AnimatedModel::Export( const ModelInfo& info )
         int part_id = ( s16 )hrc->GetU16LE( i * 4 + 0x00 );
         if( part_id != -1 )
         {
-            mesh_file->GetModelPart( part_id, mesh, info.data, textures, export_text, i * 2 + 3 );
+            mesh_file->GetModelPart( part_id, mesh, info.data, textures, i * 2 + 3 );
         }
     }
 

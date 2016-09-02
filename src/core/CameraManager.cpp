@@ -37,6 +37,7 @@ CameraManager::CameraManager():
     m_Camera->setFarClipDistance( 1000.0f );
     m_Camera->setPosition( Ogre::Vector3( 0, 0, 0 ) );
     m_Camera->lookAt( Ogre::Vector3( 0, 0, 0 ) );
+    m_Camera->roll( Ogre::Degree( 180 ) );
     m_Viewport = Ogre::Root::getSingleton().getRenderTarget( "QGearsWindow" )->addViewport( m_Camera, 0 );
     m_Viewport->setBackgroundColour( Ogre::ColourValue( 0, 0, 0 ) );
     m_Camera->setAspectRatio( Ogre::Real( m_Viewport->getActualWidth() ) / Ogre::Real( m_Viewport->getActualHeight() ) );
@@ -78,6 +79,10 @@ CameraManager::Input( const Event& event )
         {
             m_Camera->moveRelative( Ogre::Vector3( speed, 0, 0 ) );
         }
+        else if( event.type == ET_REPEAT && event.param1 == OIS::KC_SPACE )
+        {
+            m_Camera->move( Ogre::Vector3( 0, -speed, 0 ) );
+        }
         else if( event.type == ET_PRESS && event.param1 == OIS::MB_Right )
         {
             m_CameraFreeRotate = true;
@@ -88,7 +93,7 @@ CameraManager::Input( const Event& event )
         }
         else if( event.type == ET_MOUSE_MOVE && m_CameraFreeRotate == true )
         {
-            m_Camera->rotate( Ogre::Vector3::UNIT_Z, Ogre::Radian( Ogre::Degree( -event.param1 * 0.13 ) ) );
+            m_Camera->rotate( Ogre::Vector3::UNIT_Y, Ogre::Radian( Ogre::Degree( event.param1 * 0.13 ) ) );
             m_Camera->pitch( Ogre::Degree( -event.param2 * 0.13 ) );
         }
     }

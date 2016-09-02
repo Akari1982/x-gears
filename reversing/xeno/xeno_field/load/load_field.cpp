@@ -1176,7 +1176,7 @@ if( w[800ad0d4] > 0 )
     S0 = 0;
 
     loop7103c:	; 8007103C
-        A0 = S0 + w[800aefe4];
+        A0 = w[800aefe4] + S0;
 
         if( hu[A0 + 58] & 0040 )
         {
@@ -1418,7 +1418,7 @@ if( number_of_walkmeshes > 0 )
 }
 
 A0 = S0;
-func7ff7c;
+func7ff7c; // get current triangle material
 [S0 + 14] = w(V0);
 
 current_walkmesh = h[S0 + 10];

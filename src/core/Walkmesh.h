@@ -12,7 +12,8 @@ struct WalkmeshTriangle
         a( 0, 0, 0 ),
         b( 0, 0, 0 ),
         c( 0, 0, 0 ),
-        locked( false )
+        locked( false ),
+        material( 0 )
     {
         access_side[ 0 ] = -1;
         access_side[ 1 ] = -1;
@@ -23,8 +24,10 @@ struct WalkmeshTriangle
     Ogre::Vector3 b;
     Ogre::Vector3 c;
 
-    int           access_side[ 3 ];
-    bool          locked;
+    int access_side[ 3 ];
+    bool locked;
+
+    int material;
 };
 
 
@@ -36,7 +39,6 @@ public:
     virtual ~Walkmesh();
 
     void UpdateDebug();
-    void Clear();
 
     void AddTriangle( const WalkmeshTriangle& triangle );
 

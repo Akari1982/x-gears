@@ -14,4 +14,4 @@ sprite as walking entity. Sliding down walkmesh feature is also added.
 * Export all Lahan 3d maps and walkmeshes.
 * Implement quad triggers.
 
-* Implement correct backgroung parts position exporting.
+* Implement correct background parts position exporting.

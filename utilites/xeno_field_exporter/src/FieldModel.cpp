@@ -27,7 +27,7 @@ FieldModel::Export( File* model_file, Vram* vram, const int file_id )
     data.tex_width = 4096;
     data.tex_height = 512;
 
-    Logger* export_text = new Logger( "exported/" + data.name + ".txt" );
+    Logger* export_text = new Logger( "exported/debug/" + data.name + "_field.txt" );
 
     VectorTexForGen textures;
 
@@ -57,17 +57,17 @@ FieldModel::Export( File* model_file, Vram* vram, const int file_id )
 
         skeleton->optimiseAllAnimations();
         Ogre::SkeletonSerializer skeleton_serializer;
-        skeleton_serializer.exportSkeleton( skeleton.getPointer(), "exported/models/xeno/field/maps/" + data.name + "/" + Ogre::StringConverter::toString( i ) + ".skeleton" );
+        skeleton_serializer.exportSkeleton( skeleton.getPointer(), "exported/models/field_maps/" + data.name + "/" + Ogre::StringConverter::toString( i ) + ".skeleton" );
 
         // Update bounds
         Ogre::AxisAlignedBox aabb( -999, -999, -999, 999, 999, 999 );
         mesh->_setBounds( aabb, false );
         mesh->_setBoundingSphereRadius( 999 );
 
-        mesh->setSkeletonName( "models/xeno/field/maps/" + data.name + "/" + Ogre::StringConverter::toString( i ) + ".skeleton" );
+        mesh->setSkeletonName( "models/field_maps/" + data.name + "/" + Ogre::StringConverter::toString( i ) + ".skeleton" );
 
         Ogre::MeshSerializer ser;
-        ser.exportMesh( mesh.getPointer(), "exported/models/xeno/field/maps/" + data.name + "/" + Ogre::StringConverter::toString( i ) + ".mesh" );
+        ser.exportMesh( mesh.getPointer(), "exported/models/field_maps/" + data.name + "/" + Ogre::StringConverter::toString( i ) + ".mesh" );
     }
 
 
@@ -75,19 +75,19 @@ FieldModel::Export( File* model_file, Vram* vram, const int file_id )
     // create and export textures for model
     if( textures.size() > 0 )
     {
-        CreateTexture( vram, data, "exported/models/xeno/field/maps/" + data.name + "/" + data.name + ".png", textures );
+        CreateTexture( vram, data, "exported/models/field_maps/" + data.name + "/" + data.name + ".png", textures );
     }
 
 
 
-    CreateMaterial( "xeno/model/" + data.name, "exported/models/xeno/field/maps/" + data.name + "/" + data.name + ".material", (textures.size() > 0) ? "models/xeno/field/maps/" + data.name + "/" + data.name + ".png" : "", "", "" );
+    CreateMaterial( "xeno/model/" + data.name, "exported/models/field_maps/" + data.name + "/" + data.name + ".material", (textures.size() > 0) ? "models/field_maps/" + data.name + "/" + data.name + ".png" : "", "", "" );
 
 
 
     for( int i = 0; i < number_of_models; ++i )
     {
         Ogre::SceneManager* scene_manager = Ogre::Root::getSingleton().getSceneManager( "Scene" );
-        Ogre::Entity* thisEntity = scene_manager->createEntity( data.name + Ogre::StringConverter::toString( i ), "models/xeno/field/maps/" + data.name + "/" + Ogre::StringConverter::toString( i ) + ".mesh" );
+        Ogre::Entity* thisEntity = scene_manager->createEntity( data.name + Ogre::StringConverter::toString( i ), "models/field_maps/" + data.name + "/" + Ogre::StringConverter::toString( i ) + ".mesh" );
         thisEntity->setVisible( true );
         thisEntity->getAnimationState( "Idle" )->setEnabled( true );
         thisEntity->getAnimationState( "Idle" )->setLoop( true );

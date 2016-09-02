@@ -6,6 +6,7 @@
 #include "PacketFile.h"
 #include "ScriptFile.h"
 #include "SpriteFile.h"
+#include "Utilites.h"
 #include "Walkmesh.h"
 #include "WalkmeshFile.h"
 #include "../../common/Logger.h"
@@ -102,58 +103,38 @@ FieldModule::LoadMap( const int file_id )
         }
     }
     delete texture;
-    vram->Save( "exported/texture.png" );
+    vram->Save( "exported/debug/0" + IntToString( file_id ) + "_vram" );
 
 
 
     FieldPackFile* field_pack = new FieldPackFile( "data/field/0" + Ogre::StringConverter::toString( file_id ) + "" );
-
-
-
-    Logger* export_script = new Logger( "exported/field.xml" );
+    Logger* export_script = new Logger( "exported/maps/field/" + GetFieldName( file_id ) + ".xml" );
     export_script->Log( "<map>\n" );
-    u16 number_of_model_ent = field_pack->GetU16LE( 0x18c );
-    for( int i = 0; i < number_of_model_ent; ++i )
-    {
-        u16 flags = field_pack->GetU16LE( 0x190 + i * 0x10 + 0x0 );
-        if( ( flags & 0x0040 ) == 0 )
-        {
-            float x = -(s16)field_pack->GetU16LE( 0x190 + i * 0x10 + 0x8 );
-            float y = -(s16)field_pack->GetU16LE( 0x190 + i * 0x10 + 0xc );
-            float z = -(s16)field_pack->GetU16LE( 0x190 + i * 0x10 + 0xa);
-            Ogre::Vector3 pos = Ogre::Vector3( x, y, z ) / 64;
-            u16 model_id = field_pack->GetU16LE( 0x190 + i * 0x10 + 0xe );
-            export_script->Log( "    <entity_model " );
-            export_script->Log( "name=\"Background_" + IntToString( i ) + "\" " );
-            export_script->Log( "file_name=\"models/xeno/field/maps/0" + Ogre::StringConverter::toString( file_id ) + "/" + IntToString( model_id ) + ".mesh\" " );
-            export_script->Log( "position=\"" + Ogre::StringConverter::toString( pos ) + "\" " );
-            export_script->Log( "direction=\"0\" " );
-            export_script->Log( "flags=\"" + HexToString( flags, 4, '0' ) + "\" " );
-            export_script->Log( "/>\n" );
-        }
-    }
-    export_script->Log( "</map>" );
-    delete export_script;
-
-
     File* temp;
+
+
 
     // part 0
     temp = field_pack->Extract( 0 );
-    temp->WriteFile( "exported/0" );
+    temp->WriteFile( "exported/debug/0" + IntToString( file_id ) + "_0" );
     delete temp;
 
-    // part 1
+
+
+    // part 1 walkmesh
     temp = field_pack->Extract( 1 );
     WalkmeshFile* walk = new WalkmeshFile( temp );
-    temp->WriteFile( "exported/1_walkmesh" );
+    temp->WriteFile( "exported/debug/0" + IntToString( file_id ) + "_1_walkmesh" );
     walkmesh = new Walkmesh();
-    walk->GetWalkmesh( walkmesh );
+    walk->GetWalkmesh( walkmesh, file_id );
     delete temp;
     delete walk;
     walkmesh->SetUpWalkmesh();
     Ogre::SceneNode* node = Ogre::Root::getSingleton().getSceneManager("Scene")->getRootSceneNode()->createChildSceneNode();
     node->attachObject( walkmesh );
+    export_script->Log( "    <walkmesh file_name=\"maps/field/" + GetFieldName( file_id ) + "_wm.xml\" />\n" );
+
+
 
     // part 2
     temp = field_pack->Extract( 2 );
@@ -161,12 +142,15 @@ FieldModule::LoadMap( const int file_id )
         FieldModel model;
         model.Export( temp, vram, file_id );
     }
-    temp->WriteFile( "exported/2_3dmodel" );
+    temp->WriteFile( "exported/debug/0" + IntToString( file_id ) + "_2_3dmodel" );
     delete temp;
+
+
 
     // part 3
     temp = field_pack->Extract( 3 );
-    temp->WriteFile( "exported/3_2dsprite" );
+    temp->WriteFile( "exported/debug/0" + IntToString( file_id ) + "_3_2dsprite" );
+/*
     PacketFile* pack = new PacketFile( temp );
     //for( u32 i = 0; i < pack->GetNumberOfFiles(); ++i )
     {
@@ -187,37 +171,45 @@ FieldModule::LoadMap( const int file_id )
         delete file;
     }
     delete pack;
+*/
     delete temp;
+
+
 
     // part 4
     temp = field_pack->Extract( 4 );
-    temp->WriteFile( "exported/4_2dsprite_tex" );
+    temp->WriteFile( "exported/debug/0" + IntToString( file_id ) + "_4_2dsprite_tex" );
     delete temp;
+
+
 
     // script
     temp = field_pack->Extract( 5 );
-    ScriptFile* script_file = new ScriptFile( temp );
-    temp->WriteFile( "exported/5_script" );
+    //ScriptFile* script_file = new ScriptFile( temp );
+    temp->WriteFile( "exported/debug/0" + IntToString( file_id ) + "_5_script" );
     delete temp;
-    script_file->GetScripts();
-    delete script_file;
+    //script_file->GetScripts();
+    //delete script_file;
+
+
 
     // part 6
     temp = field_pack->Extract( 6 );
-    temp->WriteFile( "exported/6" );
+    temp->WriteFile( "exported/debug/0" + IntToString( file_id ) + "_6" );
     delete temp;
+
+
 
     // part 7
     temp = field_pack->Extract( 7 );
-    temp->WriteFile( "exported/7_dialogs" );
+    temp->WriteFile( "exported/debug/0" + IntToString( file_id ) + "_7_dialogs" );
     delete temp;
+
+
 
     // part 8
     temp = field_pack->Extract( 8 );
-    temp->WriteFile( "exported/8.trigger" );
-
-    Logger* triggers_script = new Logger( "exported/triggers.xml" );
-    triggers_script->Log( "<map>\n" );
+    temp->WriteFile( "exported/debug/0" + IntToString( file_id ) + "_8.trigger" );
     u8 number_of_triggers = temp->GetFileSize() / 0x18;
     for( u8 i = 0; i < number_of_triggers; ++i )
     {
@@ -226,15 +218,55 @@ FieldModule::LoadMap( const int file_id )
         Ogre::Vector3 point3 = Ogre::Vector3( ( s16 )temp->GetU16LE( i * 0x18 + 0x0c ), ( s16 )temp->GetU16LE( i * 0x18 + 0x10 ), 0 ) / 64;
         Ogre::Vector3 point4 = Ogre::Vector3( ( s16 )temp->GetU16LE( i * 0x18 + 0x12 ), ( s16 )temp->GetU16LE( i * 0x18 + 0x16 ), 0 ) / 64;
 
-        triggers_script->Log( "    <square_trigger name=\"Gateway" + IntToString( i ) + "\" point1=\"" + Ogre::StringConverter::toString( point1 ) + "\" point2=\"" + Ogre::StringConverter::toString( point2 ) + "\" point3=\"" + Ogre::StringConverter::toString( point3 ) + "\" point4=\"" + Ogre::StringConverter::toString( point4 ) + "\" enabled=\"true\" />\n" );
+        export_script->Log( "\n    <square_trigger name=\"Gateway" + IntToString( i ) + "\" point1=\"" + Ogre::StringConverter::toString( point1 ) + "\" point2=\"" + Ogre::StringConverter::toString( point2 ) + "\" point3=\"" + Ogre::StringConverter::toString( point3 ) + "\" point4=\"" + Ogre::StringConverter::toString( point4 ) + "\" />" );
     }
-    triggers_script->Log( "</map>\n" );
-
     delete temp;
 
-    delete field_pack;
 
-    vram->Save( "exported/texture.png" );
+
+    // export entities
+    export_script->Log( "\n" );
+    u16 number_of_model_ent = field_pack->GetU16LE( 0x18c );
+    for( int i = 0; i < number_of_model_ent; ++i )
+    {
+        u16 flags = field_pack->GetU16LE( 0x190 + i * 0x10 + 0x0 );
+
+        s16 x_rot = (s16)field_pack->GetU16LE( 0x190 + i * 0x10 + 0x2 );
+        s16 y_rot = (s16)field_pack->GetU16LE( 0x190 + i * 0x10 + 0x4 );
+        s16 z_rot = (s16)field_pack->GetU16LE( 0x190 + i * 0x10 + 0x6);
+
+        float x = (s16)field_pack->GetU16LE( 0x190 + i * 0x10 + 0x8 );
+        float y = (s16)field_pack->GetU16LE( 0x190 + i * 0x10 + 0xa );
+        float z = (s16)field_pack->GetU16LE( 0x190 + i * 0x10 + 0xc);
+        Ogre::Vector3 pos = Ogre::Vector3( x, y, z ) / 64;
+        u16 model_id = field_pack->GetU16LE( 0x190 + i * 0x10 + 0xe );
+
+        if( ( flags & 0x0040 ) == 0 )
+        {
+            export_script->Log( "\n    <entity_model " );
+            export_script->Log( "name=\"Background_" + IntToString( i ) + "\" " );
+            export_script->Log( "file_name=\"models/field_maps/0" + Ogre::StringConverter::toString( file_id ) + "/" + IntToString( model_id ) + ".mesh\" " );
+            export_script->Log( "position=\"" + Ogre::StringConverter::toString( pos ) + "\" " );
+            export_script->Log( "rotation=\"" + Ogre::StringConverter::toString( x_rot ) + " " + Ogre::StringConverter::toString( y_rot ) + " " + Ogre::StringConverter::toString( z_rot ) + "\" " );
+            export_script->Log( "direction=\"" + Ogre::StringConverter::toString( ( y_rot / 4096.0f ) * 360.0f ) + "\" " );
+        }
+        else
+        {
+            export_script->Log( "\n    <entity " );
+            export_script->Log( "name=\"Script_" + IntToString( i ) + "\" " );
+            export_script->Log( "position=\"" + Ogre::StringConverter::toString( pos ) + "\" " );
+        }
+
+        export_script->Log( "flags=\"" + HexToString( flags, 4, '0' ) + "\" " );
+        export_script->Log( "/>" );
+    }
+
+
+
+    export_script->Log( "\n</map>" );
+    delete export_script;
+
+    delete field_pack;
     delete vram;
 }
 

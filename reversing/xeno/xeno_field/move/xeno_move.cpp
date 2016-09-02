@@ -1,273 +1,820 @@
 ////////////////////////////////
-// func821cc
-S5 = A0; // entity id
-S6 = A1; // 80114f2c 5c structure
-S0 = A2; // total entity data
-S2 = h[S0 + 104];
-S3 = w[S6 + 4];
-[80065198] = w(S5);
+// func80720
+80080724	addiu  v0, zero, $ffff (=-$1)
+80080740	lui    at, $800c
+80080744	sw     v0, $2de4(at)
+80080748	jal    funca15c0 [$800a15c0]
+8008074C	addu   s2, zero, zero
+80080750	lui    a1, $800b
+80080754	lw     a1, $d0d4(a1)
+80080758	nop
+8008075C	blez   a1, L807e0 [$800807e0]
+80080760	nop
+80080764	addu   a0, zero, zero
 
-if( ( w[S0 + 0] & 01000000) == 0 )
+loop80768:	; 80080768
+80080768	lui    v0, $800b
+8008076C	lw     v0, $efe4(v0)
+80080770	nop
+80080774	addu   v0, a0, v0
+80080778	lw     v1, $004c(v0)
+8008077C	nop
+80080780	lh     v0, $0022(v1)
+80080784	nop
+80080788	sh     v0, $0068(v1)
+8008078C	lui    v0, $800b
+80080790	lw     v0, $efe4(v0)
+80080794	nop
+80080798	addu   v0, a0, v0
+8008079C	lw     v1, $004c(v0)
+800807A0	nop
+800807A4	lh     v0, $0026(v1)
+800807A8	nop
+800807AC	sh     v0, $006a(v1)
+800807B0	lui    v0, $800b
+800807B4	lw     v0, $efe4(v0)
+800807B8	nop
+800807BC	addu   v0, a0, v0
+800807C0	lw     v1, $004c(v0)
+800807C4	addiu  s2, s2, $0001
+800807C8	lh     v0, $002a(v1)
+800807CC	nop
+800807D0	sh     v0, $006c(v1)
+800807D4	slt    v0, s2, a1
+800807D8	bne    v0, zero, loop80768 [$80080768]
+800807DC	addiu  a0, a0, $005c
+
+L807e0:	; 800807E0
+800807E0	lui    v0, $800c
+800807E4	lw     v0, $1b60(v0)
+800807E8	nop
+800807EC	bne    v0, zero, L80804 [$80080804]
+800807F0	nop
+800807F4	lui    a0, $8007
+800807F8	addiu  a0, a0, $f29c (=-$d64)
+800807FC	0C0A06C6	Ж...
+80080800	nop
+
+L80804:	; 80080804
+80080804	lui    v0, $800b
+80080808	lw     v0, $d0d4(v0)
+8008080C	lui    at, $800b
+80080810	sw     zero, $ed2c(at)
+80080814	blez   v0, L809a8 [$800809a8]
+80080818	addu   s2, zero, zero
+8008081C	addu   s3, zero, zero
+
+loop80820:	; 80080820
+80080820	lui    v0, $800b
+80080824	lw     v0, $efe4(v0)
+80080828	nop
+8008082C	addu   s1, v0, s3
+80080830	lhu    v0, $0058(s1)
+80080834	lw     s0, $004c(s1)
+80080838	andi   v1, v0, $0f80
+8008083C	ori    v0, zero, $0200
+80080840	bne    v1, v0, L8098c [$8008098c]
+80080828	nop
+A0 = w[S0 + 0];
+if( ( A0 & 00010001 ) == 0 )
 {
-    animation_id = 1;
-
-    if( ( w[S0 + 0] & 00004000 ) && ( hu[800af370] & 0040 ) && ( w[800ad040] == 1 ) )
-    {
-        animation_id = 2;
-    }
-
-    V1 = h[S0 + e8]
-    if( ( w[S0 + 0] & 00001800 ) && ( V1 != animation_id ) )
-    {
-        if( V1 == 1 || V1 == 2 )
-        {
-            animation_id = V1;
-        }
-    }
-
-    if( bu[S0 + e3] >= 9 )
-    {
-        [S0 + e3] = b(bu[S0 + e3] - 1);
-    }
-
-    S1 = w[S0 + 40] | w[S0 + 44] | w[S0 + 48];
+    8008085C	lw     v0, $0004(s0)
+    80080860	nop
+    80080864	andi   v0, v0, $0600
+    80080868	beq    v0, v1, L8098c [$8008098c]
+    8008086C	nop
 
     A0 = S0;
-    func83f40;
+    func7ff7c; // get current triangle material
 
-    if( V0 == -1 )
+    [S0 + 14] = w(V0);
+
+    A0 = S2; // entity id
+    A1 = S1; // struct_5c
+    A2 = S0; // struct_138
+    func81c34; // calculate move vector
+
+    A0 = S2;
+    A1 = S1; // struct_5c
+    A2 = S0; // struct_138
+    func821cc; // perform move
+
+    8008089C	j      L80990 [$80080990]
+    800808A0	addiu  s3, s3, $005c
+}
+
+L808a4:	; 800808A4
+800808A4	lw     v0, $0004(s0)
+800808A8	lui    v1, $0100
+800808AC	and    v0, v0, v1
+800808B0	beq    v0, zero, L80924 [$80080924]
+800808B4	lui    v0, $0001
+800808B8	and    v0, a0, v0
+800808BC	bne    v0, zero, L80924 [$80080924]
+800808C0	nop
+800808C4	lh     v1, $00e8(s0)
+800808C8	lh     v0, $00ea(s0)
+800808CC	nop
+800808D0	beq    v1, v0, L8098c [$8008098c]
+800808D4	ori    v0, zero, $0002
+800808D8	sh     v0, $00ea(s0)
+800808DC	lui    v0, $800b
+800808E0	lw     v0, $efe4(v0)
+800808E4	nop
+800808E8	addu   v0, s3, v0
+800808EC	lw     v1, $004c(v0)
+800808F0	nop
+800808F4	lhu    v0, $00ea(v1)
+800808F8	nop
+800808FC	sh     v0, $00e8(v1)
+80080900	lui    v0, $800b
+80080904	lw     v0, $efe4(v0)
+80080908	lh     a1, $00ea(s0)
+8008090C	addu   v0, s3, v0
+80080910	lw     a0, $0004(v0)
+80080914	jal    func243e4 [$800243e4]
+80080918	addiu  s3, s3, $005c
+8008091C	j      L80990 [$80080990]
+80080920	nop
+
+L80924:	; 80080924
+80080924	lw     v0, $0004(s0)
+80080928	lui    v1, $0020
+8008092C	and    v0, v0, v1
+80080930	beq    v0, zero, L8098c [$8008098c]
+80080934	nop
+80080938	lui    v0, $800b
+8008093C	lw     v0, $efe4(v0)
+80080940	nop
+80080944	addu   v0, s3, v0
+80080948	lw     a1, $004c(v0)
+8008094C	nop
+80080950	lh     v1, $00ea(a1)
+80080954	lh     v0, $00e8(a1)
+80080958	nop
+8008095C	beq    v0, v1, L8098c [$8008098c]
+80080960	addu   a0, v1, zero
+80080964	sh     a0, $00e8(a1)
+80080968	lui    a2, $800b
+8008096C	lw     a2, $efe4(a2)
+80080970	nop
+80080974	addu   a2, s3, a2
+80080978	lw     v0, $004c(a2)
+8008097C	lw     a0, $0004(a2)
+80080980	lh     a1, $00ea(v0)
+80080984	jal    func81808 [$80081808]
+80080988	nop
+
+L8098c:	; 8008098C
+8008098C	addiu  s3, s3, $005c
+
+L80990:	; 80080990
+80080990	lui    v0, $800b
+80080994	lw     v0, $d0d4(v0)
+80080998	addiu  s2, s2, $0001
+8008099C	slt    v0, s2, v0
+800809A0	bne    v0, zero, loop80820 [$80080820]
+800809A4	nop
+
+L809a8:	; 800809A8
+800809A8	lui    v0, $800c
+800809AC	lw     v0, $1b60(v0)
+800809B0	nop
+800809B4	bne    v0, zero, L809cc [$800809cc]
+800809B8	nop
+800809BC	lui    a0, $8007
+800809C0	addiu  a0, a0, $f2a8 (=-$d58)
+800809C4	0C0A06C6	Ж...
+800809C8	nop
+
+L809cc:	; 800809CC
+800809CC	lui    a0, $800b
+800809D0	lw     a0, $1740(a0)
+800809D4	lui    v1, $800b
+800809D8	lw     v1, $efe4(v1)
+800809DC	sll    v0, a0, $01
+800809E0	addu   v0, v0, a0
+800809E4	sll    v0, v0, $03
+800809E8	subu   v0, v0, a0
+800809EC	sll    v0, v0, $02
+800809F0	addu   s1, v1, v0
+800809F4	lw     a2, $004c(s1)
+800809F8	jal    func8376c [$8008376c]
+800809FC	addu   a1, s1, zero
+80080A00	lui    v0, $800c
+80080A04	lw     v0, $1b60(v0)
+80080A08	nop
+80080A0C	bne    v0, zero, L80a24 [$80080a24]
+80080A10	nop
+80080A14	lui    a0, $8007
+80080A18	addiu  a0, a0, $f2b4 (=-$d4c)
+80080A1C	0C0A06C6	Ж...
+80080A20	nop
+
+L80a24:	; 80080A24
+80080A24	lui    v0, $800b
+80080A28	lw     v0, $d0d4(v0)
+80080A2C	nop
+80080A30	blez   v0, L80b20 [$80080b20]
+80080A34	addu   s2, zero, zero
+80080A38	ori    s4, zero, $0200
+80080A3C	addu   s3, zero, zero
+
+loop80a40:	; 80080A40
+80080A40	lui    v0, $800b
+80080A44	lw     v0, $efe4(v0)
+80080A48	nop
+80080A4C	addu   a1, s3, v0
+80080A50	lhu    v1, $0058(a1)
+80080A54	nop
+80080A58	andi   v0, v1, $0f00
+80080A5C	beq    v0, zero, L80b08 [$80080b08]
+80080A60	addu   s1, a1, zero
+80080A64	lw     s0, $004c(s1)
+80080A68	nop
+80080A6C	lw     v0, $0004(s0)
+80080A70	nop
+80080A74	andi   v0, v0, $0600
+80080A78	beq    v0, s4, L80b08 [$80080b08]
+80080A7C	andi   v0, v1, $0f80
+80080A80	bne    v0, s4, L80b08 [$80080b08]
+80080A84	lui    v1, $0001
+80080A88	lw     v0, $0000(s0)
+80080A8C	ori    v1, v1, $0001
+80080A90	and    v0, v0, v1
+80080A94	bne    v0, zero, L80b08 [$80080b08]
+80080A98	nop
+80080A9C	lui    v0, $800b
+80080AA0	lw     v0, $1740(v0)
+80080AA4	nop
+80080AA8	beq    s2, v0, L80b08 [$80080b08]
+80080AAC	addu   a0, s2, zero
+80080AB0	lui    a1, $7fff
+80080AB4	ori    a1, a1, $ffff
+80080AB8	addu   a2, s1, zero
+80080ABC	addu   a3, s0, zero
+80080AC0	jal    func84054 [$80084054]
+80080AC4	sw     zero, $0010(sp)
+80080AC8	lui    v0, $800b
+80080ACC	lw     v0, $efe4(v0)
+80080AD0	nop
+80080AD4	addu   v0, s3, v0
+80080AD8	lw     v0, $0004(v0)
+80080ADC	nop
+80080AE0	lw     v0, $007c(v0)
+80080AE4	nop
+80080AE8	lhu    v1, $000c(v0)
+80080AEC	ori    v0, zero, $0001
+80080AF0	bne    v1, v0, L80b08 [$80080b08]
+80080AF4	addiu  v1, zero, $f7ff (=-$801)
+80080AF8	lw     v0, $0000(s0)
+80080AFC	nop
+80080B00	and    v0, v0, v1
+80080B04	sw     v0, $0000(s0)
+
+L80b08:	; 80080B08
+80080B08	lui    v0, $800b
+80080B0C	lw     v0, $d0d4(v0)
+80080B10	addiu  s2, s2, $0001
+80080B14	slt    v0, s2, v0
+80080B18	bne    v0, zero, loop80a40 [$80080a40]
+80080B1C	addiu  s3, s3, $005c
+
+L80b20:	; 80080B20
+80080B20	lui    v0, $800c
+80080B24	lw     v0, $1b60(v0)
+80080B28	nop
+80080B2C	bne    v0, zero, L80b44 [$80080b44]
+80080B30	nop
+80080B34	lui    a0, $8007
+80080B38	addiu  a0, a0, $f2c0 (=-$d40)
+80080B3C	0C0A06C6	Ж...
+80080B40	nop
+
+L80b44:	; 80080B44
+80080B44	lui    v0, $800b
+80080B48	lh     v0, $164a(v0)
+80080B4C	nop
+80080B50	bne    v0, zero, L80bac [$80080bac]
+80080B54	ori    v0, zero, $0001
+80080B58	lui    v0, $800b
+80080B5C	lbu    v0, $16a0(v0)
+80080B60	nop
+80080B64	bne    v0, zero, L80bac [$80080bac]
+80080B68	ori    v0, zero, $0001
+80080B6C	lui    a0, $800b
+80080B70	lw     a0, $1740(a0)
+80080B74	lui    v1, $800b
+80080B78	lw     v1, $efe4(v1)
+80080B7C	lui    a1, $800b
+80080B80	lw     a1, $efe4(a1)
+80080B84	sll    v0, a0, $01
+80080B88	addu   v0, v0, a0
+80080B8C	sll    v0, v0, $03
+80080B90	subu   v0, v0, a0
+80080B94	sll    v0, v0, $02
+80080B98	addu   v1, v0, v1
+80080B9C	lw     a2, $004c(v1)
+80080BA0	jal    func82fb0 [$80082fb0]
+80080BA4	addu   a1, a1, v0
+80080BA8	ori    v0, zero, $0001
+
+L80bac:	; 80080BAC
+80080BAC	lui    at, $800b
+80080BB0	sw     v0, $d0e4(at)
+80080BB4	jal    func80c04 [$80080c04]
+80080BB8	nop
+80080BBC	lui    v0, $800c
+80080BC0	lw     v0, $1b60(v0)
+80080BC4	nop
+80080BC8	bne    v0, zero, L80be0 [$80080be0]
+80080BCC	nop
+80080BD0	lui    a0, $8007
+80080BD4	addiu  a0, a0, $f2cc (=-$d34)
+80080BD8	0C0A06C6	Ж...
+80080BDC	nop
+
+L80be0:	; 80080BE0
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func81c34
+entity_id = A0;
+struct_5c = A1;
+struct_138 = A2;
+
+
+
+// get currecnt walkmesh triangle material
+material = 0;
+V1 = h[struct_138 + 10] + 3; // walkmesh id
+if( ( ( w[struct_138 + 4] >> V1 ) & 1 ) == 0 ) // use walkmesh material
+{
+    if( bu[800b16a0] == 0 )
     {
-        S1 = 1;
+        material = w[struct_138 + 14];
+    }
+}
+
+
+
+A0 = SP + 10; // material self move vector
+speed_id = (material >> 9) & 3;
+A1 = h[800ad49c + speed_id * 2]; // walking speed
+dir_id = (material >> b) & 7;
+A2 = hu[800ad480 + dir_id * 2];
+A2 = (hu[800b164c] + A2) & 0fff; // default + rot
+func7ac28;
+
+
+
+if( ( w[struct_138 + 0] & 00041800 ) == 0 )
+{
+    S0 = 0;
+    S3 = 0;
+
+    // calculate sliding down
+    if( material & 00420000 ) // cant go up and something else
+    {
+        [SP + 20] = w((0 - (w[struct_138 + 50] * w[struct_138 + 54])) >> f);
+        [SP + 24] = w(1);
+        [SP + 28] = w((0 - (w[struct_138 + 58] * w[struct_138 + 54])) >> f);
+
+        if( w[SP + 20] == 0 )
+        {
+            [SP + 20] = w(1);
+        }
+        if( w[SP + 28] == 0 )
+        {
+            [SP + 28] = w(1);
+        }
+
+        A0 = SP + 20;
+        A1 = SP + 30;
+        system_normalize_word_vector_T0_T1_T2_to_word;
+
+        if( w[SP + 30] == 0 )
+        {
+            [SP + 30] = w(1);
+        }
+        if( w[SP + 34] == 0 )
+        {
+            [SP + 34] = w(1);
+        }
+        if( w[SP + 38] == 0 )
+        {
+            [SP + 38] = w(1);
+        }
+
+        V1 = w[struct_138 + f0] >> 11;
+        slide_x = (w[SP + 30] * V1) << 4;
+        slide_z = (w[SP + 38] * V1) << 4;
+
+        V1 = c;
+        if( material & 00400000 ) // 00400000 - we can go down on this material but can't go up.
+        {
+            V1 = 18;
+        }
+        V0 = V1 << 10;
+
+        S5 = w[struct_5c + 4];
+        if( ( w[struct_138 + f0] >> 10 ) < V1 )
+        {
+            V0 = w[struct_138 + f0] + w[S5 + 1c];
+        }
+        [struct_138 + f0] = w(V0);
+
+        [S5 + 10] = w(w[struct_138 + f0] >> 1);
     }
 
-    if( ( S2 & 8000 ) == 0 || S1 != 0 || ( w[S0 + 0] & 00040800 ) != 0 )
+    if( material & 00400000 )
     {
-        if( ( S2 & 8000 ) == 0 )
-        {
-            A0 = S3;
-            A1 = S2 & ffff;
-            A2 = S6;
-            func81594;
-
-            [SP + 10] = w(w[S3 + c] + w[S0 + 40]);
-            [SP + 14] = w(w[S3 + 10] + w[S0 + 44]);
-            [SP + 18] = w(w[S3 + 14] + w[S0 + 48]);
-
-            [S0 + 106] = h(S2);
-        }
-        else
-        {
-            [SP + 10] = w(w[S0 + 40]);
-            [SP + 14] = w(w[S0 + 44]);
-            [SP + 18] = w(w[S0 + 48]);
-
-            S2 = hu[S0 + 106] & 0fff;
-        }
-
-        A0 = SP + 10;
-        A1 = S0;
-        func81aa8; // check if we in some triangle
-
-        if (V0 == 0) 
-        {
-            if (w[SP + 10] != 0 || w[SP + 18] != 0)
-            {
-                A0 = w[SP + 18];
-                A1 = w[SP + 10];
-                system_get_rotation_based_on_vector_x_y;
-
-                V0 = 0 - V0;
-                S2 = V0 & 0fff;
-            }
-
-            A0 = -1;
-
-            V0 = h[S0 + 10]; // walkmesh_id
-            if( h[S0 + 8 + V0 * 2] != -1 ) // if triangle id exist
-            {
-                S1 = w[S0 + 0];
-                if( S5 == w[800b1740] ) // if current entity - party leader
-                {
-                    if( w[80059ad8] != ff || w[80059adc] != ff )
-                    {
-                        V1 = w[800aefe4];
-                        V0 = w[V1 + V0 * 5c + 4c];
-                        [S0 + 0] = w(w[S0 + 0] | (w[V0 + 0] & 00000600));
-                    }
-                }
-
-                A0 = SP + 10; // move vector
-                A1 = S0; // entity structure
-                A2 = SP + 20; // address to store line that we can't intersect
-                A3 = S2 & ffff;
-
-                if ((w[S0 + 0] & 00041800) == 0 && bu[S0 + 74] == ff && w[800ad070] == 0)
-                {
-                    // we move here
-                    func7b0d4;
-                }
-                else
-                {
-                    func7ae28;
-                }
-
-                A0 = V0;
-                [S0 + 0] = w((w[S0 + 0] & fffff9ff) | (S1 & 00000600));
-            }
-
-            if (A0 == -1) // if we can't move
-            {
-                [S0 + f0] = w(00010000);
-                [S0 + 40] = w(0);
-                [S0 + 44] = w(0);
-                [S0 + 48] = w(0);
-                [SP + 10] = w(0);
-                [SP + 14] = w(0);
-                [SP + 18] = w(0);
-                [S3 + c] = w(0);
-                [S3 + 14] = w(0);
-                [S0 + 106] = h(hu[S0 + 106] | 8000);
-            }
-        }
-        else
-        {
-            [S0 + f0] = w(00010000);
-            [S0 + 40] = w(0);
-            [S0 + 44] = w(0);
-            [S0 + 48] = w(0);
-            [SP + 10] = w(0);
-            [SP + 14] = w(0);
-            [SP + 18] = w(0);
-            [S3 + c] = w(0);
-            [S3 + 14] = w(0);
-            [S0 + 106] = h(hu[S0 + 106] | 8000);
-        }
-    }
-    else
-    {
-        animation_id = hu[S0 + e6];
-
-        [S0 + 40] = w(0);
-        [S0 + 44] = w(0);
-        [S0 + 48] = w(0);
-        [S0 + f0] = w(00010000);
-        [S0 + 104] = h(hu[S0 + 104] | 8000);
-        [S0 + 106] = h(hu[S0 + 106] | 8000);
-
-        [SP + 10] = w(0);
-        [SP + 14] = w(0);
-        [SP + 18] = w(0);
-
-        [S3 + c] = w(0);
-        [S3 + 14] = w(0);
+        [struct_138 + 40] = w(w[struct_138 + 40] + slide_x);
+        [struct_138 + 48] = w(w[struct_138 + 48] + slide_z);
+        [struct_138 + 104] = h(hu[struct_138 + 104] | 8000); // change rotation
     }
 
-    [S0 + 4] = w(w[S0 + 4] & ffffefff);
 
-    if (w[S0 + 0] & 00000800)
+    if( bu[struct_138 + 74] == ff )
     {
-        if (h[800b1818] == 0)
+        if( material & 00020000 )
         {
-            if (h[S3 + 6] != h[S3 + 84])
-            {
-                if (animation_id == 2)
-                {
-                    [S3 + 18] = w(h[S3 + 82] * 60);
-                }
-                else
-                {
-                    [S3 + 18] = w(h[S3 + 82] * 30);
-                }
-            }
-            else
-            {
-                [S3 + 18] = w(0);
-            }
+            [struct_138 + 40] = w(w[struct_138 + 40] + slide_x);
+            [struct_138 + 48] = w(w[struct_138 + 48] + slide_z);
         }
 
-        animation_id = hu[800b181a];
+        if( material & 00008000 )
+        {
+            [struct_138 + 40] = w(w[struct_138 + 40] + w[SP + 10]);
+            [struct_138 + 44] = w(w[struct_138 + 44] + w[SP + 14]);
+            [struct_138 + 48] = w(w[struct_138 + 48] + w[SP + 18]);
+        }
     }
-    else
+}
+else
+{
+    if( material & 00004000 )
     {
-        if (h[S0 + 104] & 8000)
+        [struct_138 + 40] = w(w[struct_138 + 40] + w[SP + 10]);
+        [struct_138 + 44] = w(w[struct_138 + 44] + w[SP + 14]);
+        [struct_138 + 48] = w(w[struct_138 + 48] + w[SP + 18]);
+    }
+}
+
+
+
+V1 = bu[struct_138 + 74];
+if( V1 != ff )
+{
+    A0 = w[800aefe4];
+    V0 = w[A0 + V1 * 5c + 4c];
+    if( ( w[V0 + 4] & 000000c0 ) == 000000c0 )
+    {
+        if( ( w[struct_138 + 134] & 00000080 ) == 0 )
         {
-            [S0 + e6] = hu(animation_id);
+            A0 = c;
+            A1 = 0;
+            system_memory_allocate;
+            [struct_138 + 110] = w(V0);
+
+            [struct_138 + 138] = w(w[struct_138 + 138] | 00000080);
         }
+
+        A2 = w[800aefe4];
+        A1 = bu[struct_138 + 74];
+        V1 = w[struct_138 + 110];
+
+        [SP + 50] = h(hu[A2 + A1 * 5c + 50] - hu[V1 + 0]);
+        [SP + 52] = h(hu[A2 + A1 * 5c + 52] - hu[V1 + 2]);
+        [SP + 54] = h(hu[A2 + A1 * 5c + 54] - hu[V1 + 4]);
+
+        [V1 + 2] = h(hu[A2 + A1 * 5c + 52]);
+
+        V0 = w[A2 + A1 * 5c + 4c];
+        S3 = w[V0 + 20];
+        S5 = w[V0 + 28];
+        S0 = (A0 << 10) >> 10;
+
+        S4 = w[struct_138 + 20];
+        S6 = w[struct_138 + 28];
+
+        if( ( h[struct_138 + 104] & 00008000 ) == 0 )
+        {
+            A0 = entity_id;
+            8008207C	jal    func81bc0 [$80081bc0]
+
+            V1 = w[struct_138 + 110];
+            [V1 + 8] = h(V0);
+        }
+
+        A0 = S5 - S6;
+        V0 = w[struct_138 + 110];
+        S1 = h[V0 + 8];
+        A1 = S3 - S4;
+        system_get_rotation_based_on_vector_x_y;
+        V0 = ((V0 << 10) >> 10) - S0;
+
+        S0 = V0 - 800;
 
         A0 = S0;
-        func7ff7c;
+        func3f774; // cos
+        [struct_138 + 40] = w(w[struct_138 + 40] + (S3 + ((V0 * S1) << 4) - S4))
 
-        if (V0 & 00200000)
-        {
-            V0 = h[S0 + 104];
-            if (V0 & 8000)
-            {
-                V1 = h[S0 + e8];
-                if (V1 == 6)
-                {
-                    [S0 + 4] = w(w[S0 + 4] | 00001000)
-                }
-            }
-
-            animation_id = 6;
-        }
+        A0 = S0;
+        func3f758; // sin
+        [struct_138 + 48] = w(w[struct_138 + 48] + (S5 + ((V0 * S1) << 4) - S6))
     }
+}
 
-    V1 = h[S0 + ea]; // animation related
-    if (V1 != ff)
-    {
-        animation_id = V1;
-    }
-
-    if (h[S0 + e8] != animation_id)
-    {
-        if ((w[S0 + 0] & 02000000) == 0)
-        {
-            [S0 + e8] = h(animation_id);
-            A0 = S3;
-            A1 = animation_id;
-            A2 = S6;
-            func81808;
-        }
-    }
-
-    if (w[S0 + 14] & 00000100)
-    {
-        [SP + 10] = w(w[SP + 10] / 2);
-        [SP + 18] = w(w[SP + 18] / 2);
-    }
-
-    [S0 + 30] = w(w[SP + 10]);
-    [S0 + 34] = w(w[SP + 14]);
-    [S0 + 38] = w(w[SP + 18]);
-
-    [S0 + 40] = w(0);
-    [S0 + 44] = w(0);
-    [S0 + 48] = w(0);
+if( (w[struct_138 + 4] & 00022000) == 00022000 )
+{
+    A1 = w[800aed2c];
+    V0 = w[801e8670 + A1 * 4];
+    [struct_138 + 40] = w(w[struct_138 + 40] - (((w[V0 + 128] << 10) / hu[struct_138 + 76]) << 8));
+    [struct_138 + 48] = w(w[struct_138 + 48] - (((w[V0 + 130] << 10) / hu[struct_138 + 76]) << 8));
+    [800aed2c] = w(w[800aed2c] + 1);
 }
 ////////////////////////////////
 
 
 
 ////////////////////////////////
-// func83f40
-if( ( w[A0 + 14] & 00420000 ) == 0 && 
-    w[800ad070] == 0 &&
-    w[A0 + 30] == 0 && // X
-    w[A0 + 34] == 0 && // Y
-    w[A0 + 38] == 0 && // Z
-    w[800ad0e4] == 1 &&
-    bu[A0 + 74] == ff &&
-    (w[A0 + 0] & 00401800) == 0 &&
-    ((w[A0 + 4] & 00000001) == 0 || h[A0 + 10] != 0) &&
-    ((w[A0 + 4] & 00000002) == 0 || h[A0 + 10] != 1))
+// func821cc
+entity_id = A0;
+struct_5c = A1;
+struct_138 = A2;
+
+S2 = h[struct_138 + 104];
+S3 = w[struct_5c + 4];
+[80065198] = w(entity_id);
+
+if( w[struct_138 + 0] & 01000000 )
 {
-    if ((w[A0 + 4] & 00000004) == 0)
+    return;
+}
+
+animation_id = 1;
+
+if( ( w[struct_138 + 0] & 00004000 ) && ( hu[800af370] & 0040 ) && ( w[800ad040] == 1 ) )
+{
+    animation_id = 2;
+}
+
+V1 = h[struct_138 + e8]
+if( ( w[struct_138 + 0] & 00001800 ) && ( V1 != animation_id ) )
+{
+    if( V1 == 1 || V1 == 2 )
+    {
+        animation_id = V1;
+    }
+}
+
+if( bu[struct_138 + e3] >= 9 )
+{
+    [struct_138 + e3] = b(bu[struct_138 + e3] - 1);
+}
+
+S1 = w[struct_138 + 40] | w[struct_138 + 44] | w[struct_138 + 48];
+
+A0 = struct_138;
+func83f40;
+
+if( V0 == -1 )
+{
+    S1 = 1;
+}
+
+if( ( S2 & 8000 ) == 0 || S1 != 0 || ( w[struct_138 + 0] & 00040800 ) != 0 )
+{
+    if( ( S2 & 8000 ) == 0 )
+    {
+        A0 = S3;
+        A1 = S2 & ffff;
+        A2 = struct_5c;
+        func81594;
+
+        [SP + 10] = w(w[S3 + c] + w[struct_138 + 40]);
+        [SP + 14] = w(w[S3 + 10] + w[struct_138 + 44]);
+        [SP + 18] = w(w[S3 + 14] + w[struct_138 + 48]);
+
+        [struct_138 + 106] = h(S2);
+    }
+    else
+    {
+        [SP + 10] = w(w[struct_138 + 40]);
+        [SP + 14] = w(w[struct_138 + 44]);
+        [SP + 18] = w(w[struct_138 + 48]);
+
+        S2 = hu[struct_138 + 106] & 0fff;
+    }
+
+    A0 = SP + 10;
+    A1 = struct_138;
+    func81aa8; // check if we in some triangle
+
+    if (V0 == 0) 
+    {
+        if (w[SP + 10] != 0 || w[SP + 18] != 0)
+        {
+            A0 = w[SP + 18];
+            A1 = w[SP + 10];
+            system_get_rotation_based_on_vector_x_y;
+
+            V0 = 0 - V0;
+            S2 = V0 & 0fff;
+        }
+
+        A0 = -1;
+
+        V0 = h[struct_138 + 10]; // walkmesh_id
+        if( h[struct_138 + 8 + V0 * 2] != -1 ) // if triangle id exist
+        {
+            S1 = w[struct_138 + 0];
+            if( entity_id == w[800b1740] ) // if current entity - party leader
+            {
+                if( w[80059ad8] != ff || w[80059adc] != ff )
+                {
+                    V1 = w[800aefe4];
+                    V0 = w[V1 + V0 * 5c + 4c];
+                    [struct_138 + 0] = w(w[struct_138 + 0] | (w[V0 + 0] & 00000600));
+                }
+            }
+
+            A0 = SP + 10; // move vector
+            A1 = struct_138; // entity structure
+            A2 = SP + 20; // address to store line that we can't intersect
+            A3 = S2 & ffff;
+
+            if ((w[struct_138 + 0] & 00041800) == 0 && bu[struct_138 + 74] == ff && w[800ad070] == 0)
+            {
+                // we move here
+                func7b0d4;
+            }
+            else
+            {
+                func7ae28;
+            }
+
+            A0 = V0;
+            [struct_138 + 0] = w((w[struct_138 + 0] & fffff9ff) | (S1 & 00000600));
+        }
+
+        if (A0 == -1) // if we can't move
+        {
+            [struct_138 + f0] = w(00010000);
+            [struct_138 + 40] = w(0);
+            [struct_138 + 44] = w(0);
+            [struct_138 + 48] = w(0);
+            [SP + 10] = w(0);
+            [SP + 14] = w(0);
+            [SP + 18] = w(0);
+            [S3 + c] = w(0);
+            [S3 + 14] = w(0);
+            [struct_138 + 106] = h(hu[struct_138 + 106] | 8000);
+        }
+    }
+    else
+    {
+        [struct_138 + f0] = w(00010000);
+        [struct_138 + 40] = w(0);
+        [struct_138 + 44] = w(0);
+        [struct_138 + 48] = w(0);
+        [SP + 10] = w(0);
+        [SP + 14] = w(0);
+        [SP + 18] = w(0);
+        [S3 + c] = w(0);
+        [S3 + 14] = w(0);
+        [struct_138 + 106] = h(hu[struct_138 + 106] | 8000);
+    }
+}
+else
+{
+    animation_id = hu[struct_138 + e6];
+
+    [struct_138 + 40] = w(0);
+    [struct_138 + 44] = w(0);
+    [struct_138 + 48] = w(0);
+    [struct_138 + f0] = w(00010000);
+    [struct_138 + 104] = h(hu[struct_138 + 104] | 8000);
+    [struct_138 + 106] = h(hu[struct_138 + 106] | 8000);
+
+    [SP + 10] = w(0);
+    [SP + 14] = w(0);
+    [SP + 18] = w(0);
+
+    [S3 + c] = w(0);
+    [S3 + 14] = w(0);
+}
+
+[struct_138 + 4] = w(w[struct_138 + 4] & ffffefff);
+
+if (w[struct_138 + 0] & 00000800)
+{
+    if (h[800b1818] == 0)
+    {
+        if (h[S3 + 6] != h[S3 + 84])
+        {
+            if (animation_id == 2)
+            {
+                [S3 + 18] = w(h[S3 + 82] * 60);
+            }
+            else
+            {
+                [S3 + 18] = w(h[S3 + 82] * 30);
+            }
+        }
+        else
+        {
+            [S3 + 18] = w(0);
+        }
+    }
+
+    animation_id = hu[800b181a];
+}
+else
+{
+    if (h[struct_138 + 104] & 8000)
+    {
+        [struct_138 + e6] = hu(animation_id);
+    }
+
+    A0 = struct_138;
+    func7ff7c;
+
+    if (V0 & 00200000)
+    {
+        V0 = h[struct_138 + 104];
+        if (V0 & 8000)
+        {
+            V1 = h[struct_138 + e8];
+            if (V1 == 6)
+            {
+                [struct_138 + 4] = w(w[struct_138 + 4] | 00001000)
+            }
+        }
+
+        animation_id = 6;
+    }
+}
+
+V1 = h[struct_138 + ea]; // animation related
+if (V1 != ff)
+{
+    animation_id = V1;
+}
+
+if (h[struct_138 + e8] != animation_id)
+{
+    if ((w[struct_138 + 0] & 02000000) == 0)
+    {
+        [struct_138 + e8] = h(animation_id);
+        A0 = S3;
+        A1 = animation_id;
+        A2 = struct_5c;
+        func81808;
+    }
+}
+
+if (w[struct_138 + 14] & 00000100)
+{
+    [SP + 10] = w(w[SP + 10] / 2);
+    [SP + 18] = w(w[SP + 18] / 2);
+}
+
+[struct_138 + 30] = w(w[SP + 10]);
+[struct_138 + 34] = w(w[SP + 14]);
+[struct_138 + 38] = w(w[SP + 18]);
+
+[struct_138 + 40] = w(0);
+[struct_138 + 44] = w(0);
+[struct_138 + 48] = w(0);
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func83f40
+struct_138 = A0;
+
+if( ( w[struct_138 + 14] & 00420000 ) == 0 && 
+    w[800ad070] == 0 &&
+    w[struct_138 + 30] == 0 && // X
+    w[struct_138 + 34] == 0 && // Y
+    w[struct_138 + 38] == 0 && // Z
+    w[800ad0e4] == 1 &&
+    bu[struct_138 + 74] == ff &&
+    (w[struct_138 + 0] & 00401800) == 0 &&
+    ((w[struct_138 + 4] & 00000001) == 0 || h[A0 + 10] != 0) &&
+    ((w[struct_138 + 4] & 00000002) == 0 || h[A0 + 10] != 1))
+{
+    if ((w[struct_138 + 4] & 00000004) == 0)
     {
         return 0;
     }
 
-    return (h[A0 + 10] ^ 0002) < 1; // -1 if but 0x0002 set, 0 otherwise
+    return (h[struct_138 + 10] ^ 0002) < 1; // -1 if but 0x0002 set, 0 otherwise
 }
 
 return -1;
@@ -949,8 +1496,9 @@ L8411c:	; 8008411C
 80084120	nop
 80084124	bne    v0, zero, L84158 [$80084158]
 80084128	nop
-8008412C	jal    func83f40 [$80083f40]
-80084130	addu   a0, s1, zero
+A0 = S1;
+func83f40;
+
 80084134	bne    v0, zero, L84158 [$80084158]
 80084138	nop
 8008413C	lh     v1, $0084(s5)
@@ -1694,50 +2242,24 @@ L84ab0:	; 80084AB0
 
 ////////////////////////////////
 // func81aa8
-V0 = w[A1 + 12c] & 00001000;
-if( V0 == 0 )
+if( (w[A1 + 12c] & 00001000) == 0 )
 {
     return 0;
 }
 
-V0 = w[A1 + 20];
-V1 = w[A0 + 0];
-A0 = w[A0 + 8];
-
-V0 = V0 + V1;
-V0 = V0 >> 10;
-
-V1 = w[A1 + 28];
-
-V0 = V0 << 10;
-
-80081AF4	addu   v1, v1, a0
-80081AF8	sra    v1, v1, $10
-80081AFC	addu   s0, v0, v1
+S0 = (((w[A1 + 20] + w[A0 + 0]) >> 10) << 10) + ((w[A1 + 28] + w[A0 + 8]) >> 10);
 
 V1 = w[A1 + 114];
-
-80081B10	lh     a1, $0006(v1)
-80081B14	lh     a3, $000a(v1)
-
 S4 = (h[V1 + 0] << 10) + h[V1 + 2];
-
-80081B20	lh     v0, $0004(v1)
-80081B28	sll    v0, v0, $10
-80081B2C	addu   s1, v0, a1
-80081B30	lh     v0, $0008(v1)
-80081B38	sll    v0, v0, $10
-80081B3C	addu   s2, v0, a3
-80081B40	lh     v0, $000c(v1)
-80081B44	lh     v1, $000e(v1)
-80081B48	sll    v0, v0, $10
-S3 = V0 + V1;
+S1 = (h[V1 + 4] << 10) + h[V1 + 6];
+S2 = (h[V1 + 8] << 10) + h[V1 + a];
+S3 = (h[V1 + c] << 10) + h[V1 + e];
 
 A0 = S4;
 A1 = S1;
 A2 = S0;
 system_side_of_vector;
-if (V0 < 0)
+if( V0 < 0 )
 {
     return -1;
 }
@@ -1746,7 +2268,7 @@ A0 = S1;
 A1 = S2;
 A2 = S0;
 system_side_of_vector;
-if (V0 < 0)
+if( V0 < 0 )
 {
     return -1;
 }
@@ -1755,7 +2277,7 @@ A0 = S2;
 A1 = S3;
 A2 = S0;
 system_side_of_vector;
-if (V0 < 0)
+if( V0 < 0 )
 {
     return -1;
 }
@@ -1764,7 +2286,6 @@ A0 = S3;
 A1 = S4;
 A2 = S0;
 system_side_of_vector;
-
 V0 = V0 >> 1f;
 ////////////////////////////////
 
@@ -1772,15 +2293,13 @@ V0 = V0 >> 1f;
 
 ////////////////////////////////
 // func81594
-80081594	addiu  sp, sp, $ffd8 (=-$28)
-80081598	sw     s3, $001c(sp)
-8008159C	addu   s3, a2, zero
-800815A0	sw     ra, $0020(sp)
-800815A4	sw     s2, $0018(sp)
-800815A8	sw     s1, $0014(sp)
-800815AC	sw     s0, $0010(sp)
-800815B0	lhu    v0, $0058(s3)
-800815B4	nop
+//        A0 = S3;
+//        A1 = S2 & ffff;
+
+struct_5c = S3 = A2;
+
+V0 = hu[S3 + 58];
+
 800815B8	andi   v0, v0, $0040
 800815BC	bne    v0, zero, L815fc [$800815fc]
 800815C0	addu   s2, a0, zero
@@ -1830,8 +2349,9 @@ L81650:	; 80081650
 80081660	andi   s0, a1, $0fff
 80081664	addu   a0, s0, zero
 80081668	sra    v0, v0, $08
-8008166C	jal    func3f774 [$8003f774]
 80081670	sll    s1, v0, $05
+func3f774; // cos
+
 80081674	mult   v0, s1
 80081678	lw     v0, $004c(s3)
 8008167C	mflo   a3
@@ -1840,8 +2360,9 @@ L81650:	; 80081650
 80081688	mult   v0, v1
 8008168C	addu   a0, s0, zero
 80081690	mflo   a3
-80081694	jal    func3f758 [$8003f758]
 80081698	sw     a3, $000c(s2)
+func3f758; // sin
+
 8008169C	mult   v0, s1
 800816A0	lw     v1, $004c(s3)
 800816A4	nop
@@ -1875,8 +2396,8 @@ L816e4:	; 800816E4
 8008170C	sll    s1, v0, $05
 
 L81710:	; 80081710
-80081710	jal    func3f774 [$8003f774]
-80081714	nop
+func3f774; // cos
+
 80081718	mult   v0, s1
 8008171C	lw     v0, $004c(s3)
 80081720	mflo   a3
@@ -1885,8 +2406,9 @@ L81710:	; 80081710
 8008172C	mult   v0, v1
 80081730	addu   a0, s0, zero
 80081734	mflo   a3
-80081738	jal    func3f758 [$8003f758]
 8008173C	sw     a3, $000c(s2)
+func3f758; // sin
+
 80081740	mult   v0, s1
 80081744	lw     v1, $004c(s3)
 80081748	nop
@@ -1937,12 +2459,25 @@ L817d0:	; 800817D0
 800817DC	and    a0, a0, v0
 800817E0	sw     v1, $000c(s2)
 800817E4	sw     a0, $0014(s2)
-800817E8	lw     ra, $0020(sp)
-800817EC	lw     s3, $001c(sp)
-800817F0	lw     s2, $0018(sp)
-800817F4	lw     s1, $0014(sp)
-800817F8	lw     s0, $0010(sp)
-800817FC	addiu  sp, sp, $0028
-80081800	jr     ra 
-80081804	nop
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func7ac28
+V0 = h[800b1660]; // base walking speed
+res = A0;
+rot = A2 & 0fff;
+
+S0 = ((A1 << 4) * V0) >> c;
+
+A0 = rot;
+func3f774; // cos
+[res + 0] = w(V0 * S0);
+
+A0 = rot;
+func3f758; // sin
+
+[res + 4] = w(0);
+[res + 8] = w(0 - V0 * S0);
 ////////////////////////////////
