@@ -1,4 +1,4 @@
-//////////////////////////////////////////////////////////
+////////////////////////////////
 // funca1e64
 V0 = w[8004e9b0];
 if (V0 != 0)
@@ -457,160 +457,122 @@ else
 }
 
 La2534:	; 800A2534
-//////////////////////////////////////////////////////////
+////////////////////////////////
 
 
 
-//////////////////////////////////////////////////////////
+////////////////////////////////
 // funca15c0
-800A15C4	lui    v1, $800b
-800A15C8	lw     v1, $d04c(v1)
-800A15CC	ori    v0, zero, $0001
-800A15E4	bne    v1, v0, La15f4 [$800a15f4]
+// run 8 opcodes for non-party entities
+if( w[800ad04c] == 1 )
+{
+    number_of_entity = 1;
+}
+else
+{
+    number_of_entity = w[800ad0d4]; // number of entity
+}
 
-800A15EC	j      La15fc [$800a15fc]
-800A15F0	ori    s2, zero, $0001
+[800ad040] = w(0);
+[800c373c] = w(0); // maybe number of inited windows.
 
-La15f4:	; 800A15F4
-800A15F4	lui    s2, $800b
-800A15F8	lw     s2, $d0d4(s2)
+if( number_of_entity <= 0 )
+{
+    return;
+}
 
-La15fc:	; 800A15FC
-800A15FC	lui    at, $800b
-800A1600	sw     zero, $d040(at)
-800A1604	lui    at, $800c
-800A1608	sw     zero, $373c(at)
-800A160C	blez   s2, La1818 [$800a1818]
-800A1610	addu   s0, zero, zero
-800A1620	addu   s1, zero, zero
-
+entity_id = 0;
 La1624:	; 800A1624
-800A1624	lui    v0, $800b
-800A1628	lw     v0, $efe4(v0)
-800A162C	nop
-800A1630	addu   a1, s1, v0
-800A1634	lhu    v0, $0058(a1)
-800A1638	nop
-800A163C	andi   v0, v0, $0f00
-800A1640	beq    v0, zero, La1808 [$800a1808]
-800A1644	lui    v1, $0010
-800A1648	lw     v0, $004c(a1)
-800A164C	nop
-800A1650	lw     v0, $0004(v0)
-800A1654	nop
-800A1658	and    v0, v0, v1
-800A165C	bne    v0, zero, La1808 [$800a1808]
-800A1660	nop
-800A1664	lui    v0, $800b
-800A1668	lw     v0, $cff4(v0)
-800A166C	nop
-800A1670	beq    v0, zero, La16b4 [$800a16b4]
-800A1674	nop
-800A1678	lui    v0, $800b
-800A167C	lw     v0, $d0b8(v0)
-800A1680	nop
-800A1684	beq    v0, zero, La1818 [$800a1818]
-800A1688	nop
-800A168C	lui    v0, $800b
-800A1690	lw     v0, $d0bc(v0)
-800A1694	nop
-800A1698	beq    v0, zero, La1818 [$800a1818]
-800A169C	nop
-800A16A0	lui    v0, $800b
-800A16A4	lw     v0, $d0c4(v0)
-800A16A8	nop
-800A16AC	beq    v0, zero, La1818 [$800a1818]
-800A16B0	nop
+    struct_5c = w[800aefe4];
 
-La16b4:	; 800A16B4
-800A16B4	lw     a0, $004c(a1)
-800A16BC	lw     v0, $0000(a0)
-V0 = V0 & feffffff;
-800A16C8	sw     v0, $0000(a0)
-800A16D4	lui    at, $800b
-800A16D8	sw     a1, $fb8c(at)
-800A16DC	lui    at, $800b
-800A16E0	sw     s0, $f1f0(at)
-800A16E4	lui    at, $800b
-800A16E8	sw     a0, $f54c(at)
-
-if (bu[800b16a0] != 0)
-{
-    A0 = 0;
-
-    loopa16fc:	; 800A16FC
-    V0 = w[80059ad4 + A0 * 4];
-    if (V0 != ff)
+    if( hu[struct_5c + entity_id * 5c + 58] & 0f00 )
     {
-        800A170C	beq    v0, s0, La1808 [$800a1808]
+        struct_138 = w[struct_5c + entity_id * 5c + 4c];
+        // we dont move if this bit is set
+        if( ( w[struct_138 + 4] & 00100000 ) == 0 )
+        {
+            if( w[800acff4] != 0 )
+            {
+                if( ( w[800ad0b8] == 0 ) || ( w[800ad0bc] == 0 ) || ( w[800ad0c4] == 0 ))
+                {
+                    return;
+                }
+            }
+
+            [struct_138 + 0] = w(w[struct_138 + 0] & feffffff);
+            [800afb8c] = w(struct_5c + entity_id * 5c);
+            [800af1f0] = w(entity_id);
+            [800af54c] = w(struct_138);
+
+            if( bu[800b16a0] != 0 )
+            {
+                party_id = 0;
+                loopa16fc:	; 800A16FC
+                    if( w[80059ad4 + party_id * 4] != ff )
+                    {
+                        // if this entity is in party - skip it
+                        800A170C	beq    v0, entity_id, La1808 [$800a1808]
+                    }
+                    party_id = party_id + 1;
+                    V0 = party_id < 3;
+                800A171C	bne    v0, zero, loopa16fc [$800a16fc]
+            }
+
+            top_priority = f;
+
+            script_slot_id = 0;
+            loopa1728:	; 800A1728
+                priority = (w[struct_138 + 8c + script_slot_id * 8 + 4] >> 12) & f;
+                if( top_priority >= priority )
+                {
+                    top_priority = priority;
+                    [struct_138 + ce] = b(script_slot_id);
+                }
+                script_slot_id = script_slot_id + 1;
+                V0 = script_slot_id < 8;
+            800A1764	bne    v0, zero, loopa1728 [$800a1728]
+
+            // if there is no script in slots add script 1 to first slot
+            if( top_priority == f )
+            {
+                A0 = entity_id;
+                A1 = 1;
+                get_script_offset;
+
+                [struct_138 + 8c + 0] = h(V0);
+                [struct_138 + ce] = b(0);
+                [struct_138 + 8c + 4] = w((w[struct_138 + 8c + 4] & ffc3ffff) | 001c0000); // run script with priority 7
+            }
+
+            [800af4c0] = w(1); // execute once and finish at stop
+
+            V0 = bu[struct_138 + ce]; // current script slot
+            [struct_138 + cc] = h(hu[struct_138 + 8c + V0 * 8 + 0]);
+
+            if( ( w[struct_138 + 0] & 00000001 ) == 0 )
+            {
+                // execute 8 opcodes
+                A0 = 8;
+                run_script;
+            }
+
+            // update script pointer in slot
+            V1 = bu[struct_138 + ce]; // current script slot
+            [struct_138 + 8c + V1 * 8 + 0] = h(hu[struct_138 + cc]);
+        }
     }
 
-    A0 = A0 + 1;
-    V0 = A0 < 3;
-    800A171C	bne    v0, zero, loopa16fc [$800a16fc]
-}
-
-A0 = 0;
-A2 = f;
-loopa1728:	; 800A1728
-    A1 = w[800af54c];
-    V1 = (w[A1 + 8c + A0 * 8 + 4] >> 12) & f;
-    if (A2 >= V1)
-    {
-        A2 = V1;
-        [A1 + ce] = b(A0);
-    }
-
-    A0 = A0 + 1;
-    V0 = A0 < 8;
-800A1764	bne    v0, zero, loopa1728 [$800a1728]
-
-if (A2 == f)
-{
-    A0 = S0;
-    A1 = 1;
-    get_script_offset;
-
-    A0 = w[800af54c];
-    [A0 + 8c + 0] = h(V0);
-    [A0 + ce] = b(0);
-
-    V1 = w[A0 + 8c + 4];
-    V1 = V1 & ffc3ffff;
-    V1 = V1 | 001c0000; // run script with priority 7
-    [A0 + 8c + 4] = w(V1);
-}
-
-[800af4c0] = w(1);
-
-A0 = w[800af54c];
-V0 = bu[A0 + ce];
-[A0 + cc] = h(hu[A0 + 8c + V0 * 8 + 0]);
-
-if ((w[A0 + 0] & 00000001) == 0)
-{
-    A0 = 8;
-    run_script;
-}
-
-V0 = w[800af54c];
-V1 = bu[V0 + ce];
-A0 = hu[V0 + cc];
-V1 = V1 * 8;
-[V0 + V1] = h(A0);
-
-La1808:	; 800A1808
-800A1808	addiu  s0, s0, $0001
-800A180C	slt    v0, s0, s2
+    entity_id = entity_id + 1;
+    V0 = entity_id < number_of_entity;
 800A1810	bne    v0, zero, La1624 [$800a1624]
-800A1814	addiu  s1, s1, $005c
+
 
 La1818:	; 800A1818
-//////////////////////////////////////////////////////////
+////////////////////////////////
 
 
 
-//////////////////////////////////////////////////////////
+////////////////////////////////
 // funca183c
 S1 = A0;
 800A1848	lui    v0, $800b
@@ -731,11 +693,11 @@ loopa19bc:	; 800A19BC
 800A19F4	sw     v1, $0004(a2)
 800A19F8	jal    func31f0c [$80031f0c]
 800A19FC	addu   a0, s0, zero
-//////////////////////////////////////////////////////////
+////////////////////////////////
 
 
 
-//////////////////////////////////////////////////////////
+////////////////////////////////
 // func8af4c
 8008AF54	addu   s3, a0, zero
 8008AF58	lui    a1, $8006
@@ -916,11 +878,11 @@ L8b1e4:	; 8008B1E4
 
 L8b220:	; 8008B220
 return;
-//////////////////////////////////////////////////////////
+////////////////////////////////
 
 
 
-//////////////////////////////////////////////////////////
+////////////////////////////////
 // run_script
 [800af594] = w(0);
 [800af150] = w(A0);
@@ -972,4 +934,4 @@ loopa1488:	; 800A1488
     S0 = S0 + 1;
     V0 = S0 < w[800af150];
 800A15A0	bne    v0, zero, loopa1488 [$800a1488]
-//////////////////////////////////////////////////////////
+////////////////////////////////
