@@ -1,0 +1,20 @@
+
+material xeno/model/0618
+{
+	technique
+	{
+		pass
+		{
+			ambient vertexcolour
+			alpha_rejection greater 0
+
+			texture_unit
+			{
+				texture models/field_maps/0618/0618.png
+				filtering point point none
+			}
+		}
+
+	}
+
+}

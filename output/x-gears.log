@@ -1,0 +1,522 @@
+02:30:18: Creating resource group General
+02:30:18: Creating resource group Internal
+02:30:18: Creating resource group Autodetect
+02:30:18: SceneManagerFactory for type 'DefaultSceneManager' registered.
+02:30:18: Registering ResourceManager for type Material
+02:30:18: Registering ResourceManager for type Mesh
+02:30:18: Registering ResourceManager for type Skeleton
+02:30:18: MovableObjectFactory for type 'ParticleSystem' registered.
+02:30:18: ArchiveFactory for archive type FileSystem registered.
+02:30:18: ArchiveFactory for archive type Zip registered.
+02:30:18: ArchiveFactory for archive type EmbeddedZip registered.
+02:30:18: DDS codec registering
+02:30:18: FreeImage version: 3.15.3
+02:30:18: This program uses FreeImage, a free, open source image library supporting all common bitmap formats. See http://freeimage.sourceforge.net for details
+02:30:18: Supported formats: bmp,ico,jpg,jif,jpeg,jpe,jng,koa,iff,lbm,mng,pbm,pbm,pcd,pcx,pgm,pgm,png,ppm,ppm,ras,tga,targa,tif,tiff,wap,wbmp,wbm,psd,cut,xbm,xpm,gif,hdr,g3,sgi,exr,j2k,j2c,jp2,pfm,pct,pict,pic,3fr,arw,bay,bmq,cap,cine,cr2,crw,cs1,dc2,dcr,drf,dsc,dng,erf,fff,ia,iiq,k25,kc2,kdc,mdc,mef,mos,mrw,nef,nrw,orf,pef,ptx,pxn,qtk,raf,raw,rdc,rw2,rwl,rwz,sr2,srf,srw,sti
+02:30:18: Registering ResourceManager for type HighLevelGpuProgram
+02:30:18: Registering ResourceManager for type Compositor
+02:30:18: MovableObjectFactory for type 'Entity' registered.
+02:30:18: MovableObjectFactory for type 'Light' registered.
+02:30:18: MovableObjectFactory for type 'BillboardSet' registered.
+02:30:18: MovableObjectFactory for type 'ManualObject' registered.
+02:30:18: MovableObjectFactory for type 'BillboardChain' registered.
+02:30:18: MovableObjectFactory for type 'RibbonTrail' registered.
+02:30:18: *-*-* OGRE Initialising
+02:30:18: *-*-* Version 1.9.0 (Ghadamon)
+02:30:18: Loading library ./RenderSystem_Direct3D9.dll
+02:30:18: Installing plugin: D3D9 RenderSystem
+02:30:18: D3D9 : Direct3D9 Rendering Subsystem created.
+02:30:18: D3D9: Driver Detection Starts
+02:30:18: D3D9: Driver Detection Ends
+02:30:18: Plugin successfully installed
+02:30:18: CPU Identifier & Features
+02:30:18: -------------------------
+02:30:18:  *   CPU ID: GenuineIntel: Intel(R) Celeron(R) CPU G1820 @ 2.70GHz
+02:30:18:  *      SSE: yes
+02:30:18:  *     SSE2: yes
+02:30:18:  *     SSE3: yes
+02:30:18:  *      MMX: yes
+02:30:18:  *   MMXEXT: yes
+02:30:18:  *    3DNOW: no
+02:30:18:  * 3DNOWEXT: no
+02:30:18:  *     CMOV: yes
+02:30:18:  *      TSC: yes
+02:30:18:  *      FPU: yes
+02:30:18:  *      PRO: yes
+02:30:18:  *       HT: no
+02:30:18: -------------------------
+02:30:18: D3D9 : Subsystem Initialising
+02:30:18: Registering ResourceManager for type Texture
+02:30:18: Registering ResourceManager for type GpuProgram
+02:30:18: ***************************************
+02:30:18: *** D3D9 : Subsystem Initialised OK ***
+02:30:18: ***************************************
+02:30:18: D3D9RenderSystem::_createRenderWindow "QGearsWindow", 1280x720 windowed  miscParams: title=X-Gears v0.23 (Lahan all together) 
+02:30:19: D3D9 : Created D3D9 Rendering Window 'QGearsWindow' : 1280x720, 32bpp
+02:30:19: D3D9 : WARNING - disabling VSync in windowed mode can cause timing issues at lower frame rates, turn VSync on if you observe this problem.
+02:30:19: D3D9: Vertex texture format supported - PF_A8R8G8B8
+02:30:19: D3D9: Vertex texture format supported - PF_B8G8R8A8
+02:30:19: D3D9: Vertex texture format supported - PF_FLOAT16_RGB
+02:30:19: D3D9: Vertex texture format supported - PF_FLOAT16_RGBA
+02:30:19: D3D9: Vertex texture format supported - PF_FLOAT32_RGB
+02:30:19: D3D9: Vertex texture format supported - PF_FLOAT32_RGBA
+02:30:19: D3D9: Vertex texture format supported - PF_R8G8B8A8
+02:30:19: D3D9: Vertex texture format supported - PF_DEPTH
+02:30:19: D3D9: Vertex texture format supported - PF_FLOAT16_R
+02:30:19: D3D9: Vertex texture format supported - PF_FLOAT32_R
+02:30:19: D3D9: Vertex texture format supported - PF_FLOAT16_GR
+02:30:19: D3D9: Vertex texture format supported - PF_FLOAT32_GR
+02:30:19: D3D9: Vertex texture format supported - PF_PVRTC_RGB2
+02:30:19: D3D9: Vertex texture format supported - PF_PVRTC_RGBA2
+02:30:19: D3D9: Vertex texture format supported - PF_PVRTC_RGB4
+02:30:19: D3D9: Vertex texture format supported - PF_PVRTC_RGBA4
+02:30:19: D3D9: Vertex texture format supported - PF_PVRTC2_2BPP
+02:30:19: D3D9: Vertex texture format supported - PF_PVRTC2_4BPP
+02:30:19: D3D9: Vertex texture format supported - PF_R11G11B10_FLOAT
+02:30:19: D3D9: Vertex texture format supported - PF_R8_UINT
+02:30:19: D3D9: Vertex texture format supported - PF_R8G8_UINT
+02:30:19: D3D9: Vertex texture format supported - PF_R8G8B8_UINT
+02:30:19: D3D9: Vertex texture format supported - PF_R8G8B8A8_UINT
+02:30:19: D3D9: Vertex texture format supported - PF_R16_UINT
+02:30:19: D3D9: Vertex texture format supported - PF_R16G16_UINT
+02:30:19: D3D9: Vertex texture format supported - PF_R16G16B16_UINT
+02:30:19: D3D9: Vertex texture format supported - PF_R16G16B16A16_UINT
+02:30:19: D3D9: Vertex texture format supported - PF_R32_UINT
+02:30:19: D3D9: Vertex texture format supported - PF_R32G32_UINT
+02:30:19: D3D9: Vertex texture format supported - PF_R32G32B32_UINT
+02:30:19: D3D9: Vertex texture format supported - PF_R32G32B32A32_UINT
+02:30:19: D3D9: Vertex texture format supported - PF_R8_SINT
+02:30:19: D3D9: Vertex texture format supported - PF_R8G8_SINT
+02:30:19: D3D9: Vertex texture format supported - PF_R8G8B8_SINT
+02:30:19: D3D9: Vertex texture format supported - PF_R8G8B8A8_SINT
+02:30:19: D3D9: Vertex texture format supported - PF_R16_SINT
+02:30:19: D3D9: Vertex texture format supported - PF_R16G16_SINT
+02:30:19: D3D9: Vertex texture format supported - PF_R16G16B16_SINT
+02:30:19: D3D9: Vertex texture format supported - PF_R16G16B16A16_SINT
+02:30:19: D3D9: Vertex texture format supported - PF_R32_SINT
+02:30:19: D3D9: Vertex texture format supported - PF_R32G32_SINT
+02:30:19: D3D9: Vertex texture format supported - PF_R32G32B32_SINT
+02:30:19: D3D9: Vertex texture format supported - PF_R32G32B32A32_SINT
+02:30:19: D3D9: Vertex texture format supported - PF_R9G9B9E5_SHAREDEXP
+02:30:19: D3D9: Vertex texture format supported - PF_BC4_UNORM
+02:30:19: D3D9: Vertex texture format supported - PF_BC4_SNORM
+02:30:19: D3D9: Vertex texture format supported - PF_BC5_UNORM
+02:30:19: D3D9: Vertex texture format supported - PF_BC5_SNORM
+02:30:19: D3D9: Vertex texture format supported - PF_BC6H_UF16
+02:30:19: D3D9: Vertex texture format supported - PF_BC6H_SF16
+02:30:19: D3D9: Vertex texture format supported - PF_BC7_UNORM
+02:30:19: D3D9: Vertex texture format supported - PF_BC7_UNORM_SRGB
+02:30:19: D3D9: Vertex texture format supported - PF_R8
+02:30:19: D3D9: Vertex texture format supported - PF_RG8
+02:30:19: D3D9: Vertex texture format supported - PF_R8_SNORM
+02:30:19: D3D9: Vertex texture format supported - PF_R8G8_SNORM
+02:30:19: D3D9: Vertex texture format supported - PF_R8G8B8_SNORM
+02:30:19: D3D9: Vertex texture format supported - PF_R8G8B8A8_SNORM
+02:30:19: D3D9: Vertex texture format supported - PF_R16_SNORM
+02:30:19: D3D9: Vertex texture format supported - PF_R16G16_SNORM
+02:30:19: D3D9: Vertex texture format supported - PF_R16G16B16_SNORM
+02:30:19: D3D9: Vertex texture format supported - PF_R16G16B16A16_SNORM
+02:30:19: D3D9: Vertex texture format supported - PF_ETC1_RGB8
+02:30:19: D3D9: Vertex texture format supported - PF_ETC2_RGB8
+02:30:19: D3D9: Vertex texture format supported - PF_ETC2_RGBA8
+02:30:19: D3D9: Vertex texture format supported - PF_ETC2_RGB8A1
+02:30:19: D3D9: Vertex texture format supported - PF_ATC_RGB
+02:30:19: D3D9: Vertex texture format supported - PF_ATC_RGBA_EXPLICIT_ALPHA
+02:30:19: D3D9: Vertex texture format supported - PF_ATC_RGBA_INTERPOLATED_ALPHA
+02:30:19: RenderSystem capabilities
+02:30:19: -------------------------
+02:30:19: RenderSystem Name: Direct3D9 Rendering Subsystem
+02:30:19: GPU Vendor: nvidia
+02:30:19: Device Name: Monitor-1-NVIDIA GeForce GTX 750
+02:30:19: Driver Version: 10.18.13.5560
+02:30:19:  * Fixed function pipeline: yes
+02:30:19:  * Hardware generation of mipmaps: yes
+02:30:19:  * Texture blending: yes
+02:30:19:  * Anisotropic texture filtering: yes
+02:30:19:  * Dot product texture operation: yes
+02:30:19:  * Cube mapping: yes
+02:30:19:  * Hardware stencil buffer: yes
+02:30:19:    - Stencil depth: 8
+02:30:19:    - Two sided stencil support: yes
+02:30:19:    - Wrap stencil values: yes
+02:30:19:  * Hardware vertex / index buffers: yes
+02:30:19:  * Vertex programs: yes
+02:30:19:  * Number of floating-point constants for vertex programs: 256
+02:30:19:  * Number of integer constants for vertex programs: 16
+02:30:19:  * Number of boolean constants for vertex programs: 16
+02:30:19:  * Fragment programs: yes
+02:30:19:  * Number of floating-point constants for fragment programs: 224
+02:30:19:  * Number of integer constants for fragment programs: 16
+02:30:19:  * Number of boolean constants for fragment programs: 16
+02:30:19:  * Geometry programs: no
+02:30:19:  * Number of floating-point constants for geometry programs: 0
+02:30:19:  * Number of integer constants for geometry programs: 0
+02:30:19:  * Number of boolean constants for geometry programs: 0
+02:30:19:  * Tesselation Hull programs: no
+02:30:19:  * Number of floating-point constants for tesselation hull programs: 0
+02:30:19:  * Number of integer constants for tesselation hull programs: 0
+02:30:19:  * Number of boolean constants for tesselation hull programs: 0
+02:30:19:  * Tesselation Domain programs: no
+02:30:19:  * Number of floating-point constants for tesselation domain programs: 0
+02:30:19:  * Number of integer constants for tesselation domain programs: 0
+02:30:19:  * Number of boolean constants for tesselation domain programs: 0
+02:30:19:  * Compute programs: no
+02:30:19:  * Number of floating-point constants for compute programs: 0
+02:30:19:  * Number of integer constants for compute programs: 0
+02:30:19:  * Number of boolean constants for compute programs: 0
+02:30:19:  * Supported Shader Profiles: hlsl ps_1_1 ps_1_2 ps_1_3 ps_1_4 ps_2_0 ps_2_a ps_2_b ps_2_x ps_3_0 vs_1_1 vs_2_0 vs_2_a vs_2_x vs_3_0
+02:30:19:  * Texture Compression: yes
+02:30:19:    - DXT: yes
+02:30:19:    - VTC: no
+02:30:19:    - PVRTC: no
+02:30:19:    - ATC: no
+02:30:19:    - ETC1: no
+02:30:19:    - ETC2: no
+02:30:19:    - BC4/BC5: no
+02:30:19:    - BC6H/BC7: no
+02:30:19:  * Scissor Rectangle: yes
+02:30:19:  * Hardware Occlusion Query: yes
+02:30:19:  * User clip planes: yes
+02:30:19:  * VET_UBYTE4 vertex element type: yes
+02:30:19:  * Infinite far plane projection: yes
+02:30:19:  * Hardware render-to-texture: yes
+02:30:19:  * Floating point textures: yes
+02:30:19:  * Non-power-of-two textures: yes
+02:30:19:  * 1d textures: yes
+02:30:19:  * Volume textures: yes
+02:30:19:  * Multiple Render Targets: 4
+02:30:19:    - With different bit depths: yes
+02:30:19:  * Point Sprites: yes
+02:30:19:  * Extended point parameters: yes
+02:30:19:  * Max Point Size: 8192
+02:30:19:  * Vertex texture fetch: yes
+02:30:19:  * Number of world matrices: 0
+02:30:19:  * Number of texture units: 8
+02:30:19:  * Stencil buffer depth: 8
+02:30:19:  * Number of vertex blend matrices: 0
+02:30:19:    - Max vertex textures: 4
+02:30:19:    - Vertex textures shared: no
+02:30:19:  * Render to Vertex Buffer : no
+02:30:19:  * Hardware Atomic Counters: no
+02:30:19:  * DirectX per stage constants: yes
+02:30:19: DefaultWorkQueue('Root') initialising on thread a58.
+02:30:19: Particle Renderer Type 'billboard' registered
+02:30:19: OverlayElementFactory for type Panel registered.
+02:30:19: OverlayElementFactory for type BorderPanel registered.
+02:30:19: OverlayElementFactory for type TextArea registered.
+02:30:19: Registering ResourceManager for type Font
+02:30:19: Creating resource group Game
+02:30:19: DefaultWorkQueue('Root')::WorkerFunc - thread 1de8 starting.
+02:30:19: DefaultWorkQueue('Root')::WorkerFunc - thread 1d38 starting.
+02:30:19: Added resource location './data' of type 'FileSystem' to resource group 'Game' with recursive option
+02:30:19: Initialising resource group Game
+02:30:19: Parsing scripts for resource group Game
+02:30:19: Parsing script screens/shaders/program.program
+02:30:19: Parsing script models/field_maps/0608/0608.material
+02:30:19: Parsing script models/field_maps/0616/0616.material
+02:30:19: Parsing script models/field_maps/0618/0618.material
+02:30:19: Parsing script models/field_maps/0620/0620.material
+02:30:19: Parsing script models/field_maps/0622/0622.material
+02:30:19: Parsing script models/field_maps/0624/0624.material
+02:30:19: Parsing script models/field_maps/0626/0626.material
+02:30:19: Parsing script models/field_maps/0628/0628.material
+02:30:19: Parsing script models/field_maps/0630/0630.material
+02:30:19: Parsing script models/field_maps/0632/0632.material
+02:30:19: Parsing script models/field_maps/0634/0634.material
+02:30:19: Parsing script models/field_units/robo1.material
+02:30:19: Parsing script models/field_units/weltall.material
+02:30:19: Parsing script system/system.material
+02:30:19: Parsing script system/system.fontdef
+02:30:19: Finished parsing scripts for resource group Game
+02:30:19: Creating resources for group Game
+02:30:19: All done
+02:30:19: Texture: system/courier_new_9_75.png: Loading 1 faces(PF_A8R8G8B8,256x256x1) with 0 generated mipmaps from Image. Internal format is PF_A8R8G8B8,256x256x1.
+02:30:19: CameraManager started.
+02:30:19: Creating viewport on target 'QGearsWindow', rendering from camera 'Camera', relative dimensions 8192L: 0 T: 0 W: 1 H: 1 Z-order: 0
+02:30:19: Viewport for camera 'Camera', actual dimensions 8192L: 0 T: 0 W: 1280 H: 720
+02:30:19: EntityManager created.
+02:30:19: Mesh: Loading system/grid.mesh.
+02:30:19: WARNING: system/grid.mesh is an older format ([MeshSerializer_v1.41]); you should upgrade it as soon as possible using the OgreMeshUpgrade tool.
+02:30:19: Mesh: Loading system/axis.mesh.
+02:30:19: WARNING: system/axis.mesh is an older format ([MeshSerializer_v1.41]); you should upgrade it as soon as possible using the OgreMeshUpgrade tool.
+02:30:19: Created console width 1280, height 288
+02:30:19: ScriptManager started.
+02:30:19: Resized console width to 1280, height to 288
+02:30:19: camera_speed changed to "0.01".
+02:30:44: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "/map lahan_chief_house1". Max number of letters is 16384.
+02:30:44: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "/map lahan_chief_house1". Max number of letters is 16384.
+02:30:44: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "/map lahan_chief_house1". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:44: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "/map ". Max number of letters is 16384.
+02:30:44: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "/map lahan_chief_house1". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:44: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "/map lahan_chief_house1". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:44: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "/map lahan_chief_house1". Max number of letters is 16384.
+02:30:44: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "/map lahan_chief_house1". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:44: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "/map ". Max number of letters is 16384.
+02:30:44: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "/map lahan_chief_house1". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:44: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " lahan_chief_house1". Max number of letters is 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:44: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "/map ". Max number of letters is 16384.
+02:30:44: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " lahan_chief_house1". Max number of letters is 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:44: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "/map ". Max number of letters is 16384.
+02:30:44: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " R] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "/map ". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:44: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERRO". Max number of letters is 16384.
+02:30:44: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " lahan_chief_house1". Max number of letters is 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:44: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:44: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:44: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " lahan_chief_house1". Max number of letters is 16384.". Max number of letters is ". Max number of letters is 16384.
+02:30:44: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " R] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERRO". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:44: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERRO". Max number of letters is 16384.
+02:30:44: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " ax number of letters is 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:44: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " R] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "/map ". M". Max number of letters is 16384.
+02:30:44: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " R] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "/map ". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:44: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERRO". Max number of letters is 16384.
+02:30:44: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:44: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " 16384.". Max number of letters is 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:44: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " 1638". Max number of letters is 16384.
+02:30:44: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " 16384.". Max number of letters is 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:44: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " R] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERRO". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:44: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERRO". Max number of letters is 16384.
+02:30:44: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " ax number of letters is 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " R] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "/map ". M". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " ore\DebugDraw.cpp 339: Max number of text reached. Can't add text "/map ". M". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " R] c". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  letters is 16384.". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  letters is 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  let". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  letters is 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " R] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " R] c". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERRO". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " ax number of letters is 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " ore\DebugDraw.cpp 339: Max number of text reached. Can't add text "/map ". M". M". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " ore\DebugDraw.cpp 339: Max number of text reached. Can't add text "/map ". M". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " R] c". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  letters is 16384.". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  letters is 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  let". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  letters is 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " R] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " R] c". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERRO". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " ax number of letters is 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " ore\DebugDraw.cpp 339: Max number of text reached. Can't add text "/map ". M". M". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " DebugDraw.cpp 339: Max number of text reached. Can't add text "/map ". M". M". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " ore\". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  letters is 16384.". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  letters is 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  let". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  letters is 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " R] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " ore\". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERRO". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " ax number of letters is 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " DebugDraw.cpp 339: Max number of text reached. Can't add text "/map ". M". M". M". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " DebugDraw.cpp 339: Max number of text reached. Can't add text "/map ". M". M". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " ore\". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  letters is 16384.". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  letters is 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  let". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  letters is 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " R] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " ore\". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERRO". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " ax number of letters is 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " DebugDraw.cpp 339: Max number of text reached. Can't add text "/map ". M". M". M". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " gDraw.cpp 339: Max number of text reached. Can't add text "/map ". M". M". M". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " Debu". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  letters is 16384.". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  letters is 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  let". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  letters is 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " R] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " Debu". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERRO". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " ax number of letters is 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " gDraw.cpp 339: Max number of text reached. Can't add text "/map ". M". M". M". M". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " gDraw.cpp 339: Max number of text reached. Can't add text "/map ". M". M". M". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " Debu". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  letters is 16384.". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  letters is 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  let". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  letters is 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " R] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " Debu". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERRO". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " ax number of letters is 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " gDraw.cpp 339: Max number of text reached. Can't add text "/map ". M". M". M". M". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " w.cpp 339: Max number of text reached. Can't add text "/map ". M". M". M". M". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " gDra". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  letters is 16384.". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  letters is 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  let". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  letters is 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " R] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " gDra". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERRO". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " ax number of letters is 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " w.cpp 339: Max number of text reached. Can't add text "/map ". M". M". M". M". M". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " w.cpp 339: Max number of text reached. Can't add text "/map ". M". M". M". M". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " gDra". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  letters is 16384.". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  letters is 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  let". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  letters is 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " R] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " gDra". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERRO". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " ax number of letters is 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " w.cpp 339: Max number of text reached. Can't add text "/map ". M". M". M". M". M". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " p 339: Max number of text reached. Can't add text "/map ". M". M". M". M". M". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " w.cp". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  letters is 16384.". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  letters is 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  let". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  letters is 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " R] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " w.cp". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERRO". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " ax number of letters is 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " p 339: Max number of text reached. Can't add text "/map ". M". M". M". M". M". M". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " p 339: Max number of text reached. Can't add text "/map ". M". M". M". M". M". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " w.cp". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  letters is 16384.". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  letters is 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  let". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  letters is 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " R] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " w.cp". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERRO". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " ax number of letters is 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " p 339: Max number of text reached. Can't add text "/map ". M". M". M". M". M". M". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " 9: Max number of text reached. Can't add text "/map ". M". M". M". M". M". M". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " p 33". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  letters is 16384.". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  letters is 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  let". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  letters is 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " R] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " p 33". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERRO". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " ax number of letters is 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " 9: Max number of text reached. Can't add text "/map ". M". M". M". M". M". M". M". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " 9: Max number of text reached. Can't add text "/map ". M". M". M". M". M". M". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " p 33". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  letters is 16384.". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  letters is 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:45: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  let". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  letters is 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " R] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " p 33". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERRO". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " ax number of letters is 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " 9: Max number of text reached. Can't add text "/map ". M". M". M". M". M". M". M". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " ax number of text reached. Can't add text "/map ". M". M". M". M". M". M". M". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " 9: M". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  letters is 16384.". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  letters is 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  let". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  letters is 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " R] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " 9: M". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERRO". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " ax number of letters is 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " ax number of text reached. Can't add text "/map ". M". M". M". M". M". M". M". M". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " ax number of text reached. Can't add text "/map ". M". M". M". M". M". M". M". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " 9: M". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  letters is 16384.". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  letters is 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  let". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  letters is 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " R] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " 9: M". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERRO". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " ax number of letters is 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " ax number of text reached. Can't add text "/map ". M". M". M". M". M". M". M". M". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " umber of text reached. Can't add text "/map ". M". M". M". M". M". M". M". M". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " ax n". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  letters is 16384.". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  letters is 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  let". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  letters is 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " R] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " ax n". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERRO". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " ax number of letters is 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " umber of text reached. Can't add text "/map ". M". M". M". M". M". M". M". M". M". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " umber of text reached. Can't add text "/map ". M". M". M". M". M". M". M". M". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " ax n". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  letters is 16384.". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  letters is 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  let". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  letters is 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " R] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " ax n". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERRO". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " ax number of letters is 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " umber of text reached. Can't add text "/map ". M". M". M". M". M". M". M". M". M". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " r of text reached. Can't add text "/map ". M". M". M". M". M". M". M". M". M". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " umbe". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  letters is 16384.". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  letters is 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  let". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  letters is 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " R] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " umbe". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERRO". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " ax number of letters is 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " r of text reached. Can't add text "/map ". M". M". M". M". M". M". M". M". M". M". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " r of text reached. Can't add text "/map ". M". M". M". M". M". M". M". M". M". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " umbe". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  letters is 16384.". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  letters is 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  let". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  letters is 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " R] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " umbe". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERRO". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " ax number of letters is 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " r of text reached. Can't add text "/map ". M". M". M". M". M". M". M". M". M". M". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  text reached. Can't add text "/map ". M". M". M". M". M". M". M". M". M". M". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " r of". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  letters is 16384.". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  letters is 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  let". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  letters is 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " R] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " r of". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERRO". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " ax number of letters is 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  text reached. Can't add text "/map ". M". M". M". M". M". M". M". M". M". M". M". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  text reached. Can't add text "/map ". M". M". M". M". M". M". M". M". M". M". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " r of". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  letters is 16384.". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  letters is 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  let". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  letters is 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " R] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " r of". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERRO". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " ax number of letters is 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  text reached. Can't add text "/map ". M". M". M". M". M". M". M". M". M". M". M". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " t reached. Can't add text "/map ". M". M". M". M". M". M". M". M". M". M". M". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  tex". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  letters is 16384.". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  letters is 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  let". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  letters is 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " R] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  tex". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERRO". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " ax number of letters is 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " t reached. Can't add text "/map ". M". M". M". M". M". M". M". M". M". M". M". M". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " t reached. Can't add text "/map ". M". M". M". M". M". M". M". M". M". M". M". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  tex". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  letters is 16384.". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  letters is 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  let". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  letters is 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " R] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  tex". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERRO". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " ax number of letters is 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " t reached. Can't add text "/map ". M". M". M". M". M". M". M". M". M". M". M". M". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " ached. Can't add text "/map ". M". M". M". M". M". M". M". M". M". M". M". M". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " t re". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  letters is 16384.". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  letters is 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  let". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  letters is 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " R] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " t re". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERRO". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " ax number of letters is 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " ached. Can't add text "/map ". M". M". M". M". M". M". M". M". M". M". M". M". M". Max number of letters is 16384.
+02:30:46: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " ached. Can't add text "/map ". M". M". M". M". M". M". M". M". M". M". M". M". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:47: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " t re". Max number of letters is 16384.
+02:30:47: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  letters is 16384.". Max number of letters is 16384.
+02:30:47: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  letters is 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:47: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  let". Max number of letters is 16384.
+02:30:47: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  letters is 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:47: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " R] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " t re". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:47: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERRO". Max number of letters is 16384.
+02:30:47: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " ax number of letters is 16384.". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:47: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " ached. Can't add text "/map ". M". M". M". M". M". M". M". M". M". M". M". M". M". Max number of letters is 16384.
+02:30:47: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " d. Can't add text "/map ". M". M". M". M". M". M". M". M". M". M". M". M". M". Max number of letters is 16384.". Max number of letters is 16384.
+02:30:47: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "[ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text " ache". Max number of letters is 16384.
+02:30:47: [ERROR] core\DebugDraw.cpp 339: Max number of text reached. Can't add text "  letters is 16384.". Max number of letters is 16384.

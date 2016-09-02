@@ -1,0 +1,27 @@
+<map>
+    <walkmesh file_name="maps/field/lahan_shop_wm.xml" />
+
+    <entity_model name="Background_10" file_name="models/field_maps/0618/13.mesh" position="2 -0.71875 -2.85938" rotation="0 3584 0" direction="315" flags="0290" />
+    <entity_model name="Background_15" file_name="models/field_maps/0618/0.mesh" position="0 0 0" rotation="0 3584 0" direction="315" flags="8010" />
+    <entity_model name="Background_16" file_name="models/field_maps/0618/1.mesh" position="0 0 0.765625" rotation="0 3584 0" direction="315" flags="0010" />
+    <entity_model name="Background_17" file_name="models/field_maps/0618/2.mesh" position="0 0 0" rotation="0 3584 0" direction="315" flags="0000" />
+    <entity_model name="Background_18" file_name="models/field_maps/0618/3.mesh" position="3.40625 0.890625 3.67188" rotation="0 3584 0" direction="315" flags="0010" />
+    <entity_model name="Background_19" file_name="models/field_maps/0618/3.mesh" position="0 0 0" rotation="0 3584 0" direction="315" flags="0010" />
+    <entity_model name="Background_20" file_name="models/field_maps/0618/4.mesh" position="0 0 0" rotation="0 3584 0" direction="315" flags="0010" />
+    <entity_model name="Background_21" file_name="models/field_maps/0618/5.mesh" position="0.140625 0 0.328125" rotation="0 3584 0" direction="315" flags="0010" />
+    <entity_model name="Background_22" file_name="models/field_maps/0618/6.mesh" position="3.26563 0 2.9375" rotation="0 3584 0" direction="315" flags="0010" />
+    <entity_model name="Background_23" file_name="models/field_maps/0618/7.mesh" position="-2.59375 2 -5.42188" rotation="0 3584 0" direction="315" flags="0010" />
+    <entity_model name="Background_24" file_name="models/field_maps/0618/7.mesh" position="5.28125 2 -1" rotation="0 3584 0" direction="315" flags="0010" />
+    <entity_model name="Background_25" file_name="models/field_maps/0618/7.mesh" position="0 0 0" rotation="0 3584 0" direction="315" flags="0010" />
+    <entity_model name="Background_26" file_name="models/field_maps/0618/8.mesh" position="0 0 0" rotation="0 3584 0" direction="315" flags="0010" />
+    <entity_model name="Background_27" file_name="models/field_maps/0618/9.mesh" position="0 0 0" rotation="0 3584 0" direction="315" flags="0010" />
+    <entity_model name="Background_28" file_name="models/field_maps/0618/10.mesh" position="4.40625 0 -0.265625" rotation="0 3584 0" direction="315" flags="0010" />
+    <entity_model name="Background_29" file_name="models/field_maps/0618/11.mesh" position="0.53125 0 -0.703125" rotation="0 3584 0" direction="315" flags="0010" />
+    <entity_model name="Background_30" file_name="models/field_maps/0618/11.mesh" position="-8.10938 0 -5.48438" rotation="0 3584 0" direction="315" flags="0010" />
+    <entity_model name="Background_31" file_name="models/field_maps/0618/11.mesh" position="-0.125 0 -0.03125" rotation="0 3584 0" direction="315" flags="0010" />
+    <entity_model name="Background_32" file_name="models/field_maps/0618/6.mesh" position="0.140625 0 -0.46875" rotation="0 3584 0" direction="315" flags="0010" />
+    <entity_model name="Background_33" file_name="models/field_maps/0618/12.mesh" position="0 0 0" rotation="0 3584 0" direction="315" flags="0000" />
+    <entity_model name="Background_34" file_name="models/field_maps/0618/14.mesh" position="0 0 0" rotation="0 3584 0" direction="315" flags="0010" />
+    <entity_model name="Background_35" file_name="models/field_maps/0618/6.mesh" position="-2.26563 0 -3.84375" rotation="0 3584 0" direction="315" flags="0010" />
+    <entity_model name="Background_36" file_name="models/field_maps/0618/15.mesh" position="0 0 0" rotation="0 3584 0" direction="315" flags="0000" />
+</map>

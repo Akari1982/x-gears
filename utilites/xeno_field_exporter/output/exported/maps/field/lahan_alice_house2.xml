@@ -1,0 +1,21 @@
+<map>
+    <walkmesh file_name="maps/field/lahan_alice_house2_wm.xml" />
+
+    <entity_model name="Background_15" file_name="models/field_maps/0630/0.mesh" position="0 0 0" rotation="0 1024 0" direction="90" flags="8010" />
+    <entity_model name="Background_16" file_name="models/field_maps/0630/1.mesh" position="0 0 0" rotation="0 1024 0" direction="90" flags="0000" />
+    <entity_model name="Background_17" file_name="models/field_maps/0630/2.mesh" position="0 0 0" rotation="0 1024 0" direction="90" flags="0000" />
+    <entity_model name="Background_18" file_name="models/field_maps/0630/3.mesh" position="0 0 0" rotation="0 1024 0" direction="90" flags="0010" />
+    <entity_model name="Background_19" file_name="models/field_maps/0630/4.mesh" position="0 0 0" rotation="0 1024 0" direction="90" flags="0010" />
+    <entity_model name="Background_20" file_name="models/field_maps/0630/5.mesh" position="0 0 0" rotation="0 1024 0" direction="90" flags="0010" />
+    <entity_model name="Background_21" file_name="models/field_maps/0630/6.mesh" position="0 0 0" rotation="0 1024 0" direction="90" flags="0010" />
+    <entity_model name="Background_22" file_name="models/field_maps/0630/7.mesh" position="0 0 0" rotation="0 1024 0" direction="90" flags="0010" />
+    <entity_model name="Background_23" file_name="models/field_maps/0630/8.mesh" position="0 0 0" rotation="0 1024 0" direction="90" flags="0000" />
+    <entity_model name="Background_24" file_name="models/field_maps/0630/9.mesh" position="0 0 0" rotation="0 1024 0" direction="90" flags="0000" />
+    <entity_model name="Background_25" file_name="models/field_maps/0630/10.mesh" position="0 0 0" rotation="0 1024 0" direction="90" flags="0010" />
+    <entity_model name="Background_26" file_name="models/field_maps/0630/11.mesh" position="0 0 0" rotation="0 1024 0" direction="90" flags="0010" />
+    <entity_model name="Background_27" file_name="models/field_maps/0630/12.mesh" position="0 0 0" rotation="0 1024 0" direction="90" flags="0010" />
+    <entity_model name="Background_28" file_name="models/field_maps/0630/13.mesh" position="0 0 0" rotation="0 1024 0" direction="90" flags="0010" />
+    <entity_model name="Background_29" file_name="models/field_maps/0630/14.mesh" position="-0.234375 0 -1.54688" rotation="0 1024 0" direction="90" flags="0010" />
+    <entity_model name="Background_30" file_name="models/field_maps/0630/15.mesh" position="0 0 0" rotation="0 1024 0" direction="90" flags="0010" />
+    <entity_model name="Background_31" file_name="models/field_maps/0630/16.mesh" position="0 0 0" rotation="0 1024 0" direction="90" flags="0010" />
+</map>
