@@ -407,7 +407,7 @@ L9969c:	; 8009969C
 80091DE4	addiu  sp, sp, $ffe8 (=-$18)
 80091DE8	sw     ra, $0010(sp)
 80091DEC	lh     a0, $0052(v0)
-80091DF0	jal    func3f774 [$8003f774]
+80091DF0	jal    system_cos [$8003f774]
 80091DF4	nop
 80091DF8	sll    v1, v0, $03
 80091DFC	addu   v1, v1, v0
@@ -418,7 +418,7 @@ L9969c:	; 8009969C
 80091E10	srl    v1, v1, $0a
 80091E14	sh     v1, $0060(v0)
 80091E18	lh     a0, $0052(a0)
-80091E1C	jal    func3f758 [$8003f758]
+80091E1C	jal    system_sin [$8003f758]
 80091E20	nop
 80091E24	sll    v1, v0, $03
 80091E28	addu   v1, v1, v0
@@ -2731,7 +2731,7 @@ L91f88:	; 80091F88
 80091F98	nop
 80091F9C	addu   s0, s0, s4
 80091FA0	addiu  s0, s0, $fc00 (=-$400)
-80091FA4	jal    func3f774 [$8003f774]
+80091FA4	jal    system_cos [$8003f774]
 80091FA8	addu   a0, s0, zero
 80091FAC	lui    v1, $800b
 80091FB0	lw     v1, $f54c(v1)
@@ -2744,7 +2744,7 @@ L91f88:	; 80091F88
 80091FCC	addu   v1, v1, v0
 80091FD0	sll    v1, v1, $03
 80091FD4	sra    v1, v1, $0c
-80091FD8	jal    func3f758 [$8003f758]
+80091FD8	jal    system_sin [$8003f758]
 80091FDC	addu   s0, a1, v1
 80091FE0	lui    v1, $800b
 80091FE4	lw     v1, $f54c(v1)

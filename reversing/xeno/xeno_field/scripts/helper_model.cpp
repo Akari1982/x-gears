@@ -33,7 +33,7 @@ if (V1 <= 0)
 }
 
 A0 = offset_to_current_entity;
-func7ff7c;
+get_current_triangle_material;
 [offset_to_current_entity + 14] = w(V0);
 
 V1 = h[offset_to_current_entity + 10];

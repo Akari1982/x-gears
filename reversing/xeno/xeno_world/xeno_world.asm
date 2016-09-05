@@ -19747,7 +19747,7 @@ func8234c:	; 8008234C
 800823A4	andi   v0, v0, $7fff
 800823A8	sw     v0, $0000(s2)
 800823AC	lw     a0, $006c(s1)
-800823B0	jal    func3f758 [$8003f758]
+800823B0	jal    system_sin [$8003f758]
 800823B4	addiu  s0, s2, $00f0
 800823B8	addiu  a0, s2, $00a0
 800823BC	addu   a1, s0, zero
@@ -23779,12 +23779,12 @@ L85dac:	; 80085DAC
 80085DFC	addu   a2, s2, zero
 80085E00	lui    a0, $800a
 80085E04	lh     a0, $b122(a0)
-80085E08	jal    func3f774 [$8003f774]
+80085E08	jal    system_cos [$8003f774]
 80085E0C	addiu  a0, a0, $fe97 (=-$169)
 80085E10	lui    a0, $800a
 80085E14	lh     a0, $b122(a0)
 80085E18	addu   s0, v0, zero
-80085E1C	jal    func3f758 [$8003f758]
+80085E1C	jal    system_sin [$8003f758]
 80085E20	addiu  a0, a0, $fe97 (=-$169)
 80085E24	sll    s0, s0, $10
 80085E28	andi   v0, v0, $ffff
@@ -23792,19 +23792,19 @@ L85dac:	; 80085DAC
 80085E30	lh     a0, $b122(a0)
 80085E34	or     s0, s0, v0
 80085E38	sw     s0, $0230(s1)
-80085E3C	jal    func3f774 [$8003f774]
+80085E3C	jal    system_cos [$8003f774]
 80085E40	addiu  a0, a0, $0169
 80085E44	lui    a0, $800a
 80085E48	lh     a0, $b122(a0)
 80085E4C	addu   s0, v0, zero
-80085E50	jal    func3f758 [$8003f758]
+80085E50	jal    system_sin [$8003f758]
 80085E54	addiu  a0, a0, $0169
 80085E58	sll    s0, s0, $10
 80085E5C	andi   v0, v0, $ffff
 80085E60	lui    a0, $800a
 80085E64	lh     a0, $b122(a0)
 80085E68	or     s0, s0, v0
-80085E6C	jal    func3f758 [$8003f758]
+80085E6C	jal    system_sin [$8003f758]
 80085E70	sw     s0, $0234(s1)
 80085E74	subu   v0, zero, v0
 80085E78	sra    v0, v0, $01
@@ -23814,7 +23814,7 @@ L85dac:	; 80085DAC
 80085E88	lh     a0, $b122(a0)
 80085E8C	sll    v1, v1, $01
 80085E90	addu   v1, v1, v0
-80085E94	jal    func3f774 [$8003f774]
+80085E94	jal    system_cos [$8003f774]
 80085E98	sw     v1, $0240(s1)
 80085E9C	addu   s3, zero, zero
 80085EA0	addiu  s0, s1, $02d4
@@ -28652,7 +28652,7 @@ loop8a2fc:	; 8008A2FC
 8008A380	sll    a0, v0, $10
 8008A384	sra    a0, a0, $10
 8008A388	sw     v0, $005c(s0)
-8008A38C	jal    func3f758 [$8003f758]
+8008A38C	jal    system_sin [$8003f758]
 8008A390	sh     v0, $0048(s0)
 8008A394	sll    v1, v0, $01
 8008A398	addu   v1, v1, v0
@@ -28661,7 +28661,7 @@ loop8a2fc:	; 8008A2FC
 8008A3A4	addu   v0, v0, v1
 8008A3A8	sw     v0, $0000(s2)
 8008A3AC	lh     a0, $0048(s0)
-8008A3B0	jal    func3f774 [$8003f774]
+8008A3B0	jal    system_cos [$8003f774]
 8008A3B4	nop
 8008A3B8	addiu  a0, s0, $0028
 8008A3BC	addu   a1, s2, zero
@@ -29366,7 +29366,7 @@ L8ad10:	; 8008AD10
 8008ADA8	sll    a0, v0, $10
 8008ADAC	sra    a0, a0, $10
 8008ADB0	sw     v0, $005c(s1)
-8008ADB4	jal    func3f758 [$8003f758]
+8008ADB4	jal    system_sin [$8003f758]
 8008ADB8	sh     v0, $0048(s1)
 8008ADBC	sll    v1, v0, $01
 8008ADC0	addu   v1, v1, v0
@@ -29375,7 +29375,7 @@ L8ad10:	; 8008AD10
 8008ADCC	addu   v0, v0, v1
 8008ADD0	sw     v0, $0000(s3)
 8008ADD4	lh     a0, $0048(s1)
-8008ADD8	jal    func3f774 [$8003f774]
+8008ADD8	jal    system_cos [$8003f774]
 8008ADDC	nop
 8008ADE0	addiu  a0, s1, $0028
 8008ADE4	addu   a1, s3, zero
@@ -31076,7 +31076,7 @@ L8c564:	; 8008C564
 8008C598	nop
 8008C59C	sll    a0, v0, $10
 8008C5A0	sra    a0, a0, $10
-8008C5A4	jal    func3f758 [$8003f758]
+8008C5A4	jal    system_sin [$8003f758]
 8008C5A8	sh     v0, $0048(s1)
 8008C5AC	sll    v1, v0, $01
 8008C5B0	addu   v1, v1, v0
@@ -31085,7 +31085,7 @@ L8c564:	; 8008C564
 8008C5BC	addu   v0, v0, v1
 8008C5C0	sw     v0, $0000(s4)
 8008C5C4	lh     a0, $0048(s1)
-8008C5C8	jal    func3f774 [$8003f774]
+8008C5C8	jal    system_cos [$8003f774]
 8008C5CC	nop
 8008C5D0	addu   a0, s0, zero
 8008C5D4	addu   a1, s4, zero
@@ -31641,10 +31641,10 @@ L8cd80:	; 8008CD80
 8008CDCC	sw     a0, $0008(s3)
 8008CDD0	addiu  a0, v0, $0400
 8008CDD4	andi   a0, a0, $0fff
-8008CDD8	jal    func3f758 [$8003f758]
+8008CDD8	jal    system_sin [$8003f758]
 8008CDDC	sh     a0, $0048(s1)
 8008CDE0	lh     a0, $0048(s1)
-8008CDE4	jal    func3f774 [$8003f774]
+8008CDE4	jal    system_cos [$8003f774]
 8008CDE8	sw     v0, $0038(s1)
 8008CDEC	addiu  a1, zero, $0001
 8008CDF0	lw     a0, $004c(s1)
@@ -31767,7 +31767,7 @@ L8ce8c:	; 8008CE8C
 8008CFBC	nop
 8008CFC0	sll    a0, v0, $10
 8008CFC4	sra    a0, a0, $10
-8008CFC8	jal    func3f758 [$8003f758]
+8008CFC8	jal    system_sin [$8003f758]
 8008CFCC	sh     v0, $0048(s1)
 8008CFD0	sll    v1, v0, $01
 8008CFD4	addu   v1, v1, v0
@@ -31776,7 +31776,7 @@ L8ce8c:	; 8008CE8C
 8008CFE0	addu   v0, v0, v1
 8008CFE4	sw     v0, $0000(s3)
 8008CFE8	lh     a0, $0048(s1)
-8008CFEC	jal    func3f774 [$8003f774]
+8008CFEC	jal    system_cos [$8003f774]
 8008CFF0	nop
 8008CFF4	addu   a0, s0, zero
 8008CFF8	addu   a1, s3, zero
@@ -32144,10 +32144,10 @@ func8d4d8:	; 8008D4D8
 8008D504	sw     ra, $004c(sp)
 
 loop8d508:	; 8008D508
-8008D508	jal    func3f758 [$8003f758]
+8008D508	jal    system_sin [$8003f758]
 8008D50C	addu   a0, s0, zero
 8008D510	addu   a0, s0, zero
-8008D514	jal    func3f774 [$8003f774]
+8008D514	jal    system_cos [$8003f774]
 8008D518	sw     v0, $0028(sp)
 8008D51C	addu   a0, s1, zero
 8008D520	subu   v0, zero, v0
@@ -34471,10 +34471,10 @@ L8f4c8:	; 8008F4C8
 8008F620	lui    v0, $fff0
 8008F624	sw     v0, $002c(s2)
 8008F628	addiu  v0, zero, $0200
-8008F62C	jal    func3f758 [$8003f758]
+8008F62C	jal    system_sin [$8003f758]
 8008F630	sh     v0, $0048(s2)
 8008F634	lh     a0, $0048(s2)
-8008F638	jal    func3f774 [$8003f774]
+8008F638	jal    system_cos [$8003f774]
 8008F63C	sw     v0, $0038(s2)
 8008F640	addiu  s0, s3, $00a0
 8008F644	addu   a0, s0, zero
@@ -35131,10 +35131,10 @@ L8ff38:	; 8008FF38
 8008FF48	beq    v0, zero, L8ff70 [$8008ff70]
 8008FF4C	nop
 8008FF50	lh     a0, $0048(s0)
-8008FF54	jal    func3f758 [$8003f758]
+8008FF54	jal    system_sin [$8003f758]
 8008FF58	nop
 8008FF5C	lh     a0, $0048(s0)
-8008FF60	jal    func3f774 [$8003f774]
+8008FF60	jal    system_cos [$8003f774]
 8008FF64	sw     v0, $0038(s0)
 8008FF68	subu   v0, zero, v0
 8008FF6C	sw     v0, $0040(s0)
@@ -35270,10 +35270,10 @@ L9011c:	; 8009011C
 8009012C	beq    v0, zero, L90154 [$80090154]
 80090130	nop
 80090134	lh     a0, $0048(s0)
-80090138	jal    func3f758 [$8003f758]
+80090138	jal    system_sin [$8003f758]
 8009013C	nop
 80090140	lh     a0, $0048(s0)
-80090144	jal    func3f774 [$8003f774]
+80090144	jal    system_cos [$8003f774]
 80090148	sw     v0, $0038(s0)
 8009014C	subu   v0, zero, v0
 80090150	sw     v0, $0040(s0)
@@ -35393,10 +35393,10 @@ L902c8:	; 800902C8
 800902D8	beq    v0, zero, L90300 [$80090300]
 800902DC	nop
 800902E0	lh     a0, $0048(s0)
-800902E4	jal    func3f758 [$8003f758]
+800902E4	jal    system_sin [$8003f758]
 800902E8	nop
 800902EC	lh     a0, $0048(s0)
-800902F0	jal    func3f774 [$8003f774]
+800902F0	jal    system_cos [$8003f774]
 800902F4	sw     v0, $0038(s0)
 800902F8	subu   v0, zero, v0
 800902FC	sw     v0, $0040(s0)
@@ -35741,15 +35741,15 @@ L90704:	; 80090704
 80090704	lui    s0, $800a
 80090708	addiu  s0, s0, $b122 (=-$4ede)
 8009070C	lh     a0, $0000(s0)
-80090710	jal    func3f758 [$8003f758]
+80090710	jal    system_sin [$8003f758]
 80090714	nop
 80090718	lw     a0, $0070(s1)
 8009071C	sw     v0, $0038(s1)
-80090720	jal    func3f758 [$8003f758]
+80090720	jal    system_sin [$8003f758]
 80090724	sra    a0, a0, $0c
 80090728	sw     v0, $003c(s1)
 8009072C	lh     a0, $0000(s0)
-80090730	jal    func3f774 [$8003f774]
+80090730	jal    system_cos [$8003f774]
 80090734	nop
 80090738	addiu  a0, s1, $0038
 8009073C	subu   v0, zero, v0
@@ -38627,11 +38627,11 @@ func92e44:	; 80092E44
 80092EA0	lui    a0, $800a
 80092EA4	lw     a0, $ba00(a0)
 80092EA8	addu   s5, v1, s3
-80092EAC	jal    func3f758 [$8003f758]
+80092EAC	jal    system_sin [$8003f758]
 80092EB0	addu   a0, a0, s2
 80092EB4	sll    v0, v0, $04
 80092EB8	sra    s4, v0, $03
-80092EBC	jal    func3f758 [$8003f758]
+80092EBC	jal    system_sin [$8003f758]
 80092EC0	addu   a0, s5, zero
 80092EC4	mult   v0, s4
 80092EC8	addiu  s1, s1, $0001
@@ -38649,11 +38649,11 @@ func92e44:	; 80092E44
 80092EF8	addu   v1, v1, v0
 80092EFC	lui    at, $1f80
 80092F00	sh     v1, $00a2(at)
-80092F04	jal    func3f758 [$8003f758]
+80092F04	jal    system_sin [$8003f758]
 80092F08	addu   a0, a0, s2
 80092F0C	sll    v0, v0, $04
 80092F10	sra    s4, v0, $03
-80092F14	jal    func3f758 [$8003f758]
+80092F14	jal    system_sin [$8003f758]
 80092F18	addu   a0, s5, zero
 80092F1C	mult   v0, s4
 80092F20	addiu  s0, s0, $0001
@@ -38671,11 +38671,11 @@ func92e44:	; 80092E44
 80092F50	addu   v1, v1, v0
 80092F54	lui    at, $1f80
 80092F58	sh     v1, $00aa(at)
-80092F5C	jal    func3f758 [$8003f758]
+80092F5C	jal    system_sin [$8003f758]
 80092F60	addu   a0, a0, s0
 80092F64	sll    v0, v0, $04
 80092F68	sra    s4, v0, $03
-80092F6C	jal    func3f758 [$8003f758]
+80092F6C	jal    system_sin [$8003f758]
 80092F70	addu   a0, s5, zero
 80092F74	mult   v0, s4
 80092F78	lui    v0, $800a
@@ -38691,11 +38691,11 @@ func92e44:	; 80092E44
 80092FA0	addu   v1, v1, v0
 80092FA4	lui    at, $1f80
 80092FA8	sh     v1, $00b2(at)
-80092FAC	jal    func3f758 [$8003f758]
+80092FAC	jal    system_sin [$8003f758]
 80092FB0	addu   a0, a0, s0
 80092FB4	sll    v0, v0, $04
 80092FB8	sra    s4, v0, $03
-80092FBC	jal    func3f758 [$8003f758]
+80092FBC	jal    system_sin [$8003f758]
 80092FC0	addu   a0, s5, zero
 80092FC4	mult   v0, s4
 80092FC8	addu   a0, s7, zero
@@ -39159,11 +39159,11 @@ func935ac:	; 800935AC
 800935DC	subu   a1, a2, a1
 800935E0	addiu  a0, v0, $0400
 800935E4	andi   a0, a0, $0fff
-800935E8	jal    func3f758 [$8003f758]
+800935E8	jal    system_sin [$8003f758]
 800935EC	sh     a0, $0000(s0)
 800935F0	sw     v0, $0000(s1)
 800935F4	lh     a0, $0000(s0)
-800935F8	jal    func3f774 [$8003f774]
+800935F8	jal    system_cos [$8003f774]
 800935FC	nop
 80093600	subu   v0, zero, v0
 80093604	sw     v0, $0008(s1)

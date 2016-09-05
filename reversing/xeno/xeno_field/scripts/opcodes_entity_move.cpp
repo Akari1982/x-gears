@@ -127,7 +127,7 @@ switch (V1)
         S0 = V0;
 
         A0 = S0;
-        func3f774;
+        system_cos;
 
         V0 = V0 << c;
         V1 = w[current_entity_data + d0];
@@ -135,7 +135,7 @@ switch (V1)
         S1 = V1 + V0;
 
         A0 = S0;
-        func3f758;
+        system_sin;
         V0 = V0 << c;
         V0 = 0 - V0;
         V1 = w[current_entity_data + d8];

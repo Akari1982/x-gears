@@ -1156,7 +1156,7 @@ L1dd468:	; 801DD468
 801DD478	lw     t2, $0078(sp)
 801DD47C	nop
 801DD480	lh     a0, $0056(t2)
-801DD484	jal    func3f774 [$8003f774]
+801DD484	jal    system_cos [$8003f774]
 801DD488	addiu  a0, a0, $0400
 801DD48C	lui    v1, $801f
 801DD490	lh     v1, $8698(v1)
@@ -1173,7 +1173,7 @@ L1dd4b0:	; 801DD4B0
 801DD4B4	sra    v0, v0, $0c
 801DD4B8	sh     v0, $0060(sp)
 801DD4BC	lh     a0, $0056(t2)
-801DD4C0	jal    func3f758 [$8003f758]
+801DD4C0	jal    system_sin [$8003f758]
 801DD4C4	addiu  a0, a0, $0400
 801DD4C8	lui    v1, $801f
 801DD4CC	lh     v1, $8698(v1)
@@ -3148,7 +3148,7 @@ func1e0844:	; 801E0844
 801E0860	addu   s1, a2, zero
 801E0864	sll    a0, a0, $10
 801E0868	sw     ra, $0018(sp)
-801E086C	jal    func3f774 [$8003f774]
+801E086C	jal    system_cos [$8003f774]
 801E0870	sra    a0, a0, $10
 801E0874	addiu  v0, v0, $1000
 801E0878	sll    s0, s0, $10
@@ -8305,7 +8305,7 @@ L1e7db4:	; 801E7DB4
 801E7DC8	sll    a0, v1, $10
 801E7DCC	lui    at, $801f
 801E7DD0	sh     v1, $869c(at)
-801E7DD4	jal    func3f774 [$8003f774]
+801E7DD4	jal    system_cos [$8003f774]
 801E7DD8	sra    a0, a0, $10
 801E7DDC	lui    v1, $51eb
 801E7DE0	ori    v1, v1, $851f

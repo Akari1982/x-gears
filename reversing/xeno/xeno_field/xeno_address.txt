@@ -10,7 +10,7 @@
 
 80064f6c          extract part 6 of fieldfile here.
 
-80065198 [][][][] store entity id which perform move here duting func821cc.
+80065198 [][][][] store entity id which perform move here during func821cc.
 
 800acff4          we read something from here during rotation set. We will not set 80115cdc + 108 if this is not 0.
 
@@ -163,7 +163,7 @@ spawn table
         +  6c [][]     Z. Init from +2a.
         +  6e [][]     init with 0.
         +  72 [][]     store current Y pos here.
-        +  74 []       init with 0xff. Some entity id??? We dont calculate interaction with this entity.
+        +  74 []       follow entity id. Init with 0xff. We dont calculate interaction with this entity.
         +  75 []       init with 0xff.
         +  76 [][]     init with 0x0100.
         +  80 []       store character id here when we set avatar. Init with 0xff.
@@ -194,13 +194,13 @@ spawn table
         +  e3 []       if this is >= 9 then we discrease it by 1 every step in move function. Init with 0.
         +  e4 [][]     we store character id here. Init with 0x00ff.
         +  e6 [][]     init with 0. we store animation id to play here in SpritePlayAnimation2. Looks like default animation.
-        +  e8 [][]     when entity is moving we store here animation id acording to that movement (1,2 and so on) maybe playing animation id. Init with 0.
+        +  e8 [][]     playing animation id. When entity is moving we store here animation id acording to that movement (1,2 and so on). Init with 0.
         +  ea [][]     init wiyj 0xff. we store animation id to play here in SpritePlayAnimation.
         +  ec [][][][] init with 0 when set position by x z. Init with 0.
         +  f0 [][][][] init with 0 when set position by x z
-        +  f4 [][]     init with 0x1000.
-        +  f6 [][]     init with 0x1000.
-        +  f8 [][]     init with 0x1000.
+        +  f4 [][]     init with 0x1000. X related.
+        +  f6 [][]     init with 0x1000. Y related.
+        +  f8 [][]     init with 0x1000. Z related.
         +  fc []       init with 0x80.
         +  fd []       init with 0x80.
         +  fe []       init with 0x80.
@@ -212,6 +212,7 @@ spawn table
         + 106 [][]     we store rotation data here. Init with 0x8000.
         + 108 [][]     we store rotation data here (if 800acff4 == 0). Init with 0x8000.
         + 10d []       init with 0xff.
+        + 110 [][][][] pointer to something with size 0xc
         + 118 [][][][] pointer to allocated 0x80 byte for +1c data. Size 0x4 for each +1c item.
             +  0 [][][][] init with 0.
         + 11e [][]     init with 0x0200.

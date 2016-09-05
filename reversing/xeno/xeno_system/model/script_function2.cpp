@@ -486,7 +486,7 @@ D8FC0180
     8001FFF8	jal    system_get_random_2_bytes [$8003f8b0]
     8001FFFC	sra    s1, v0, $0c
     80020000	addu   s0, v0, zero
-    80020004	jal    func3f774 [$8003f774]
+    80020004	jal    system_cos [$8003f774]
     80020008	addu   a0, s0, zero
     8002000C	addu   a0, s3, zero
     80020010	jal    func22b34 [$80022b34]
@@ -497,7 +497,7 @@ D8FC0180
     80020024	mflo   v0
     80020028	sll    v0, v0, $04
     8002002C	addu   v0, v0, v1
-    80020030	jal    func3f758 [$8003f758]
+    80020030	jal    system_sin [$8003f758]
     80020034	sw     v0, $0000(s3)
     80020038	addu   a0, s3, zero
     8002003C	jal    func22b34 [$80022b34]

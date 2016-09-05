@@ -1418,7 +1418,7 @@ if( number_of_walkmeshes > 0 )
 }
 
 A0 = S0;
-func7ff7c; // get current triangle material
+get_current_triangle_material; // get current triangle material
 [S0 + 14] = w(V0);
 
 current_walkmesh = h[S0 + 10];
@@ -1435,25 +1435,6 @@ if( ( hu[struct_5c + 58] & 0080 ) == 0 )
 [S0 + 24] = w(w[struct_5c + 24] << 10);
 [S0 + 28] = w(w[struct_5c + 28] << 10);
 [S0 + 72] = h(w[struct_5c + 24]);
-////////////////////////////////
-
-
-
-////////////////////////////////
-// func7ff7c
-// get material for current walkmesh and current triangle
-walkmesh_id = h[A0 + 10];
-
-if( ((w[A0 + 4] >> walkmesh_id + 3) & 1) == 0 )
-{
-    triangle_data = w[800aeff8 + walkmesh_id * 4];
-    material_data = w[800aeff4];
-    triangle_id = h[A0 + 8 + walkmesh_id * 2];
-    V0 = bu[triangle_data + triangle_id * e + c];
-    return w[material_data + V0 * 4];
-}
-
-return 0;
 ////////////////////////////////
 
 
