@@ -117,6 +117,7 @@ spawn table
                        0x00000100: NPC character (initialization with 0xBC and 0x0B opcodes) (movement material check).
                        0x00000200: PC follower (movement material check).
                        0x00000400: PC entity (player entity and this is patry leader. Seems like manipulatable entity) (movement material check).
+                       0x00000800: 
                        0x00004000: if we remove this flag - entity not move, menu not called. Checked in move function. If this flag is set and (hu[800af370] & 0040) && (w[800ad040] == 1) then we set animation_id 2 (run) to play instead of 1 (walk).
                        0x00010000: removed in 0x19_SetPosition.
                        0x00020000: added during initialization with 0x16 (SetPlayableCharacter) opcode.
@@ -131,6 +132,7 @@ spawn table
                        0x00000002:
                        0x00000078: ignore walkmeshes material flags. Set - ignore.
                        0x00000800: remove this flag during initialization in 0x0B opcode (with model). Add it in 0xBC opcode. Looks like if this entity has model or not.
+                       0x00001000: remove this flag after move is done.
                        0x00002000:
                        0x00200000: removed in 0x19_SetPosition.
         +   8 [][]     triangle id for walkmesh 0.
@@ -197,7 +199,7 @@ spawn table
         +  e8 [][]     playing animation id. When entity is moving we store here animation id acording to that movement (1,2 and so on). Init with 0.
         +  ea [][]     init wiyj 0xff. we store animation id to play here in SpritePlayAnimation.
         +  ec [][][][] init with 0 when set position by x z. Init with 0.
-        +  f0 [][][][] init with 0 when set position by x z
+        +  f0 [][][][] init with 0 when set position by x z.
         +  f4 [][]     init with 0x1000. X related.
         +  f6 [][]     init with 0x1000. Y related.
         +  f8 [][]     init with 0x1000. Z related.
@@ -213,21 +215,24 @@ spawn table
         + 108 [][]     we store rotation data here (if 800acff4 == 0). Init with 0x8000.
         + 10d []       init with 0xff.
         + 110 [][][][] pointer to something with size 0xc
+        + 114 [][][][] pointer to some quad data. This quad restrict whole move area.
         + 118 [][][][] pointer to allocated 0x80 byte for +1c data. Size 0x4 for each +1c item.
             +  0 [][][][] init with 0.
         + 11e [][]     init with 0x0200.
         + 120 [][][][] init with 0.
-        + 124 [][]     init with 0xffff.
-        + 128 [][]     init with 0xffff.
+        + 124 [][][][] init with 0x0000ffff.
+        + 128 [][][][] init with 0x0000ffff.
         + 12c [][][][] flags.
                         0x00000003 - remove during entity init.
                         0x0000001c - remove during entity init.
                         0x00000020 - if set - door opening or closing. Remove during init.
                         0x000001c0 - remove during entity init.
                         0x00000e00 - remove during entity init.
-                        0x00001000 - remove during entity init.
+                        0x00001000 - remove during entity init. Checked in func81aa8().
+                        0x0000e000 - index in model pointers 801e8670.
                         0x00030000 - remove during entity init.
                         0x0ffc0000 - remove during entity init.
+
         + 130 [][][][] flags.
                         0x000001ff - remove during entity init.
                         0x0007fe00 - remove during entity init.

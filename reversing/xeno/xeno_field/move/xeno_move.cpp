@@ -232,7 +232,7 @@ L80bac:	; 80080BAC
 if( w[800c1b60] == 0 )
 {
     A0 = 8006f2cc; // MOV CHECK3
-    func281b18;
+    func281b18();
 }
 ////////////////////////////////
 
@@ -497,7 +497,7 @@ if( ( rotation & 8000 ) == 0 || is_move != 0 || ( w[struct_138 + 0] & 00040800 )
         A0 = S3;
         A1 = rotation & ffff;
         A2 = struct_5c;
-        func81594();
+        func81594(); // calculate S3 + c, S3 + 14 (and S3 + 18 in one case)
 
         [SP + 10] = w(w[S3 + c] + w[struct_138 + 40]);
         [SP + 14] = w(w[S3 + 10] + w[struct_138 + 44]);
@@ -514,58 +514,71 @@ if( ( rotation & 8000 ) == 0 || is_move != 0 || ( w[struct_138 + 0] & 00040800 )
         rotation = hu[struct_138 + 106] & 0fff;
     }
 
-    A0 = SP + 10;
+    A0 = SP + 10; // move vector
     A1 = struct_138;
-    func81aa8; // check if we in some triangle
+    func81aa8; // check if we in some quad
 
-    if (V0 == 0) 
+    if( V0 == 0 ) // we inside some quad
     {
-        if (w[SP + 10] != 0 || w[SP + 18] != 0)
+        // get rotation based on movement direction
+        if( w[SP + 10] != 0 || w[SP + 18] != 0 )
         {
             A0 = w[SP + 18];
             A1 = w[SP + 10];
-            system_get_rotation_based_on_vector_x_y;
-
-            V0 = 0 - V0;
-            rotation = V0 & 0fff;
+            system_get_rotation_based_on_vector_x_y();
+            rotation = (0 - V0) & 0fff;
         }
 
-        A0 = -1;
+        A0 = -1; // can't move (will be changed if we move)
 
-        V0 = h[struct_138 + 10]; // walkmesh_id
-        if( h[struct_138 + 8 + V0 * 2] != -1 ) // if triangle id exist
+        walkmesh_id = h[struct_138 + 10];
+        if( h[struct_138 + 8 + walkmesh_id * 2] != -1 ) // if triangle id exist
         {
+            // store initial flags
             S1 = w[struct_138 + 0];
+            // add passable flags from followers
             if( entity_id == w[800b1740] ) // if current entity - party leader
             {
-                if( w[80059ad8] != ff || w[80059adc] != ff )
+                party_2 = w[80059ad8];
+                if( party_2 != ff )
                 {
-                    V1 = w[800aefe4];
-                    V0 = w[V1 + V0 * 5c + 4c];
+                    struct_5c_p = w[800aefe4];
+                    V0 = w[struct_5c_p + party_2 * 5c + 4c];
+                    [struct_138 + 0] = w(w[struct_138 + 0] | (w[V0 + 0] & 00000600));
+                }
+                party_3 = w[80059adc];
+                if( party_3 != ff )
+                {
+                    struct_5c_p = w[800aefe4];
+                    V0 = w[struct_5c_p + party_3 * 5c + 4c];
                     [struct_138 + 0] = w(w[struct_138 + 0] | (w[V0 + 0] & 00000600));
                 }
             }
 
-            A0 = SP + 10; // move vector
-            A1 = struct_138; // entity structure
-            A2 = SP + 20; // address to store line that we can't intersect
-            A3 = rotation & ffff;
-
             if ((w[struct_138 + 0] & 00041800) == 0 && bu[struct_138 + 74] == ff && w[800ad070] == 0)
             {
-                // we move here
-                func7b0d4;
+                A0 = SP + 10; // move vector
+                A1 = struct_138;
+                A2 = SP + 20; // address to store line that we can't intersect
+                A3 = rotation & ffff;
+                func7b0d4(); // modify move vector according to materials and walkmesh
+                A0 = V0;
             }
             else
             {
-                func7ae28;
+                A0 = SP + 10; // move vector
+                A1 = struct_138;
+                A2 = SP + 20; // address to store line that we can't intersect
+                A3 = rotation & ffff;
+                func7ae28();
+                A0 = V0;
             }
 
-            A0 = V0;
+            // restore initial passable flags (femove any addition from followers)
             [struct_138 + 0] = w((w[struct_138 + 0] & fffff9ff) | (S1 & 00000600));
         }
 
-        if (A0 == -1) // if we can't move
+        if( A0 == -1 ) // if we can't move
         {
             [struct_138 + f0] = w(00010000);
             [struct_138 + 40] = w(0);
@@ -612,9 +625,11 @@ else
     [S3 + 14] = w(0);
 }
 
+
+
 [struct_138 + 4] = w(w[struct_138 + 4] & ffffefff);
 
-if (w[struct_138 + 0] & 00000800)
+if( w[struct_138 + 0] & 00000800 )
 {
     if (h[800b1818] == 0)
     {
@@ -694,4 +709,363 @@ if (w[struct_138 + 14] & 00000100)
 [struct_138 + 40] = w(0);
 [struct_138 + 44] = w(0);
 [struct_138 + 48] = w(0);
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func7b0d4()
+// return -1 if we can't move, 0 if we move
+move_vector = A0;
+struct_138 = A1;
+intersect_line = A2;
+rotation = A3;
+
+
+
+// check first rotation
+angle1 = (rotation - 100) & 0fff;
+
+A0 = angle1;
+system_cos();
+[SP + 20] = w(w[move_vector + 0] + (V0 << 6));
+
+A0 = angle1;
+system_sin();
+[SP + 28] = w(w[move_vector + 8] - (V0 << 6));
+
+A0 = SP + 20; // move vector
+A1 = struct_138 + 20; // current pos
+A2 = struct_138;
+A3 = intersect_line; // address to store line that we can't intersect
+A4 = SP + 40; // address of final point
+A5 = -1; // we don't need to calculate height of final point
+A6 = SP + 70; // we store material here
+field_check_walkmesh_triangle_and_calculate_height();
+
+if( V0 != -1 ) // we can move
+{
+    // check second rotation
+    angle2 = (rotation + 100) & 0fff;
+
+    A0 = angle2;
+    system_cos();
+    [SP + 20] = w(w[move_vector + 0] + (V0 << 6));
+
+    A0 = angle2;
+    system_sin();
+    [SP + 28] = w(w[move_vector + 8] - (V0 << 6));
+
+    A0 = SP + 20;
+    A1 = struct_138 + 20;
+    A2 = struct_138;
+    A3 = intersect_line;
+    A4 = SP + 40;
+    A5 = -1;
+    A6 = SP + 70;
+    field_check_walkmesh_triangle_and_calculate_height();
+
+    if( V0 != -1 ) // can move
+    {
+        // check straight
+        A0 = rotation & 0fff;
+        system_cos; // cos
+        [SP + 20] = w(w[move_vector + 0] + (V0 << 6));
+
+        A0 = rotation & 0fff;
+        system_sin; // sin
+        [SP + 28] = w(w[move_vector + 8] - (V0 << 6));
+
+        A0 = SP + 20;
+        A1 = struct_138 + 20;
+        A2 = struct_138;
+        A3 = intersect_line;
+        A4 = SP + 40;
+        A5 = -1;
+        A6 = SP + 70;
+        field_check_walkmesh_triangle_and_calculate_height();
+
+        if( V0 != -1 ) // can move
+        {
+            [SP + 20] = w(w[move_vector + 0]);
+            [SP + 24] = w(w[move_vector + 4]);
+            [SP + 28] = w(w[move_vector + 8]);
+            8007B274	j      L7b2a0 [$8007b2a0]
+        }
+    }
+}
+
+[SP + 20] = w(w[move_vector + 0]);
+[SP + 24] = w(w[move_vector + 4]);
+[SP + 28] = w(w[move_vector + 8]);
+
+A0 = rotation;
+A1 = intersect_line;
+A2 = SP + 20;
+field_get_move_vector_to_move_along_with_line();
+
+L7b2a0:	; 8007B2A0
+A0 = SP + 20;
+A1 = struct_138 + 20;
+A2 = struct_138;
+A3 = intersect_line;
+A4 = SP + 40;
+A5 = 0;
+A6 = SP + 70;
+field_check_walkmesh_triangle_and_calculate_height();
+
+if( V0 != -1 ) // can move
+{
+    // store move vector
+    [SP + 30] = w(w[SP + 20]);
+    [SP + 34] = w(w[SP + 24]);
+    [SP + 38] = w(w[SP + 28]);
+
+    // store new position
+    [SP + 48] = h(hu[SP + 40]);
+    [SP + 4a] = h(hu[SP + 42]);
+    [SP + 4c] = h(hu[SP + 44]);
+
+    start_y = h[struct_138 + 26]; // y current
+    end_y = h[SP + 42]; // y calculated
+
+    // if we do something that can bother movement
+    if( ( end_y < start_y ) || ( w[SP + 70] & 00200000 ) || ( ( w[SP + 70] & 00420000 ) && ( w[struct_138 + 14] & 00420000 ) ) ||
+        ( ( ( w[SP + 70] & 00420000 ) == 0 ) && ( end_y < start_y + 40 ) ) )
+    {
+        [SP + 50] = w((0 - w[SP + 20]) >> 8);
+        [SP + 54] = w(((h[SP + 42] << 10) - w[struct_138 + 24]) >> 8);
+        [SP + 58] = w((0 - w[SP + 28]) >> 8);
+
+        A0 = SP + 50;
+        A1 = SP + 60;
+        system_normalize_word_vector_T0_T1_T2_to_word();
+
+        A0 = w[SP + 20] >> 8;
+        A1 = w[SP + 28] >> 8;
+        length_of_vector_by_x_y();
+        [SP + 20] = w((0 - V0 * w[SP + 60]) >> 4);
+        [SP + 24] = w(V0 * w[SP + 64] >> 4);
+        [SP + 28] = w((0 - (V0 * w[SP + 68])) >> 4);
+
+        A0 = SP + 20;
+        A1 = struct_138 + 20;
+        A2 = struct_138;
+        A3 = intersect_line;
+        A4 = SP + 40;
+        A5 = 0;
+        A6 = SP + 70;
+        field_check_walkmesh_triangle_and_calculate_height();
+
+        if( V0 == -1 ) // we can't move
+        {
+            return -1;
+        }
+
+        [struct_138 + 0] = w(w[struct_138 + 0] | 04000000);
+    }
+    else
+    {
+        // restore previous position
+        [SP + 20] = w(w[SP + 30]);
+        [SP + 24] = w(w[SP + 34]);
+        [SP + 28] = w(w[SP + 38]);
+
+        [SP + 40] = h(hu[SP + 48]);
+        [SP + 42] = h(hu[SP + 4a]);
+        [SP + 44] = h(hu[SP + 4c]);
+    }
+
+    [SP + 24] = w((h[SP + 42] << 10) - w[struct_138 + 24]);
+    [move_vector + 0] = w(w[SP + 20]);
+    [move_vector + 4] = w(w[SP + 24]);
+    [move_vector + 8] = w(w[SP + 28]);
+    [struct_138 + 72] = h((w[struct_138 + 24] + w[move_vector + 4]) >> 10);
+
+    return 0;
+}
+
+return -1;
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func7ae28
+S1 = move_vector = A0;
+S3 = struct_138 = A1;
+S4 = intersect_line = A2;
+S2 = rotation = A3;
+
+S0 = S2 & 0fff;
+
+
+A0 = S0;
+system_cos();
+[SP + 18] = w(w[S1 + 0] + (V0 << 6));
+
+A0 = S0;
+system_sin();
+[SP + 20] = w(w[S1 + 8] - (V0 << 6));
+
+
+8007AE84	addiu  a0, sp, $0018
+8007AE88	addiu  s6, s3, $0020
+8007AE8C	addu   a1, s6, zero
+8007AE90	addu   a2, s3, zero
+8007AE94	addu   a3, s4, zero
+8007AE9C	addiu  s5, sp, $0028
+8007AEA4	addiu  s7, zero, $ffff (=-$1)
+8007AEB0	sw     s5, $0010(sp)
+8007AEB8	sw     s7, $0014(sp)
+
+
+8007AEB4	jal    func7bca8 [$8007bca8]
+
+
+8007AEBC	bne    v0, s7, L7aed0 [$8007aed0]
+8007AEC0	sll    v0, s2, $10
+8007AEC4	sll    a0, s2, $10
+8007AEC8	j      L7af8c [$8007af8c]
+8007AECC	sra    a0, a0, $10
+
+L7aed0:	; 8007AED0
+8007AED0	sra    s2, v0, $10
+8007AED4	addiu  s0, s2, $ff00 (=-$100)
+8007AED8	andi   s0, s0, $0fff
+8007AEE0	addu   a0, s0, zero
+system_cos; // cos
+
+8007AEE4	addu   a0, s0, zero
+8007AEE8	lw     v1, $0000(s1)
+8007AEEC	sll    v0, v0, $06
+8007AEF0	addu   v1, v1, v0
+8007AEF8	sw     v1, $0018(sp)
+system_sin; // sin
+
+8007AEFC	addiu  a0, sp, $0018
+8007AF00	addu   a1, s6, zero
+8007AF04	addu   a2, s3, zero
+8007AF08	addu   a3, s4, zero
+8007AF0C	lw     v1, $0008(s1)
+8007AF10	sll    v0, v0, $06
+8007AF14	subu   v1, v1, v0
+8007AF18	sw     v1, $0020(sp)
+8007AF1C	sw     s5, $0010(sp)
+8007AF20	jal    func7bca8 [$8007bca8]
+8007AF24	sw     s7, $0014(sp)
+8007AF28	beq    v0, s7, L7af88 [$8007af88]
+8007AF2C	addiu  s0, s2, $0100
+8007AF30	andi   s0, s0, $0fff
+8007AF38	addu   a0, s0, zero
+system_cos; // cos
+
+8007AF3C	addu   a0, s0, zero
+8007AF40	lw     v1, $0000(s1)
+8007AF44	sll    v0, v0, $06
+8007AF48	addu   v1, v1, v0
+8007AF50	sw     v1, $0018(sp)
+system_sin; // sin
+
+8007AF54	addiu  a0, sp, $0018
+8007AF58	addu   a1, s6, zero
+8007AF5C	addu   a2, s3, zero
+8007AF60	addu   a3, s4, zero
+8007AF64	lw     v1, $0008(s1)
+8007AF68	sll    v0, v0, $06
+8007AF6C	subu   v1, v1, v0
+8007AF70	sw     v1, $0020(sp)
+8007AF74	sw     s5, $0010(sp)
+8007AF78	jal    func7bca8 [$8007bca8]
+8007AF7C	sw     s7, $0014(sp)
+8007AF80	bne    v0, s7, L7afbc [$8007afbc]
+8007AF84	addiu  a0, sp, $0018
+
+L7af88:	; 8007AF88
+8007AF88	addu   a0, s2, zero
+
+L7af8c:	; 8007AF8C
+8007AF8C	lw     v0, $0000(s1)
+8007AF90	addu   a1, s4, zero
+8007AF94	sw     v0, $0018(sp)
+8007AF98	lw     v0, $0004(s1)
+8007AF9C	addiu  a2, sp, $0018
+8007AFA0	sw     v0, $001c(sp)
+8007AFA4	lw     v0, $0008(s1)
+8007AFA8	addu   a3, zero, zero
+8007AFB0	sw     v0, $0020(sp)
+field_get_move_vector_to_move_along_with_line;
+
+8007AFB4	j      L7afe0 [$8007afe0]
+8007AFB8	addiu  a0, sp, $0018
+
+L7afbc:	; 8007AFBC
+8007AFBC	lw     v0, $0000(s1)
+8007AFC0	nop
+8007AFC4	sw     v0, $0018(sp)
+8007AFC8	lw     v0, $0004(s1)
+8007AFCC	nop
+8007AFD0	sw     v0, $001c(sp)
+8007AFD4	lw     v0, $0008(s1)
+8007AFD8	nop
+8007AFDC	sw     v0, $0020(sp)
+
+L7afe0:	; 8007AFE0
+8007AFE0	addiu  a1, s3, $0020
+8007AFE4	addu   a2, s3, zero
+8007AFE8	addu   a3, s4, zero
+8007AFEC	addiu  v0, sp, $0028
+8007AFF0	sw     v0, $0010(sp)
+8007AFF4	jal    func7bca8 [$8007bca8]
+8007AFF8	sw     zero, $0014(sp)
+8007AFFC	addiu  v1, zero, $ffff (=-$1)
+8007B000	beq    v0, v1, L7b048 [$8007b048]
+8007B004	lui    v1, $0004
+8007B008	lw     v0, $0000(s3)
+8007B00C	nop
+8007B010	and    v0, v0, v1
+8007B014	bne    v0, zero, L7b050 [$8007b050]
+8007B018	nop
+8007B01C	lh     v0, $002a(sp)
+8007B020	lw     v1, $0024(s3)
+8007B024	sll    v0, v0, $10
+8007B028	slt    v0, v0, v1
+8007B02C	beq    v0, zero, L7b05c [$8007b05c]
+8007B030	nop
+8007B034	lui    v0, $800b
+8007B038	lw     v0, $d070(v0)
+8007B03C	nop
+8007B040	bne    v0, zero, L7b05c [$8007b05c]
+8007B044	nop
+
+L7b048:	; 8007B048
+8007B048	j      L7b0a4 [$8007b0a4]
+8007B04C	addiu  v0, zero, $ffff (=-$1)
+
+L7b050:	; 8007B050
+8007B050	lhu    v0, $00ec(s3)
+8007B054	nop
+8007B058	sh     v0, $002a(sp)
+
+L7b05c:	; 8007B05C
+8007B05C	lh     v0, $002a(sp)
+8007B060	lw     v1, $0024(s3)
+8007B064	lw     a0, $0018(sp)
+8007B068	sll    v0, v0, $10
+8007B06C	subu   v0, v0, v1
+8007B070	sw     v0, $001c(sp)
+8007B074	sw     a0, $0000(s1)
+8007B078	lw     v0, $001c(sp)
+8007B07C	nop
+8007B080	sw     v0, $0004(s1)
+8007B084	lw     v0, $0020(sp)
+8007B088	lw     a0, $0004(s1)
+8007B08C	sw     v0, $0008(s1)
+8007B090	lw     v1, $0024(s3)
+8007B094	addu   v0, zero, zero
+8007B098	addu   v1, v1, a0
+8007B09C	sra    v1, v1, $10
+8007B0A0	sh     v1, $0072(s3)
+
+L7b0a4:	; 8007B0A4
 ////////////////////////////////

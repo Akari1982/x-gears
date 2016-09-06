@@ -938,9 +938,10 @@ if( number_of_entities > 0 )
 
 
 
+// DEBUG
 if( w[800c1b60] == 0 )
 {
-    80070C44	0C0A04AF	Ї...
+    func2812bc();
 }
 
 
