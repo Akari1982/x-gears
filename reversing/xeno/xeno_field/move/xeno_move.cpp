@@ -68,9 +68,9 @@ if( number_of_entity > 0 )
                     {
                         [struct_138 + ea] = h(2);
                         [struct_138 + e8] = h(2);
-                        A0 = [struct_5c_p + entity_id * 5c + 4];
+                        A0 = w[struct_5c_p + entity_id * 5c + 4];
                         A1 = h[struct_138 + ea]; // animation id
-                        func243e4(); // maybe play anim
+                        func243e4(); // init animation
                     }
                 }
             }
@@ -80,8 +80,8 @@ if( number_of_entity > 0 )
                 {
                     [struct_138 + e8] = h(h[struct_138 + ea]);
                     A0 = w[struct_5c_p + entity_id * 5c + 4];
-                    A1 = h[struct_138 + ea];
-                    80080984	jal    func81808 [$80081808]
+                    A1 = h[struct_138 + ea]; // animation id
+                    func81808();
                 }
             }
         }
@@ -444,7 +444,7 @@ struct_138 = A2;
 
 rotation = h[struct_138 + 104];
 
-S3 = w[struct_5c + 4];
+struct_164 = w[struct_5c + 4];
 
 [80065198] = w(entity_id);
 
@@ -494,14 +494,14 @@ if( ( rotation & 8000 ) == 0 || is_move != 0 || ( w[struct_138 + 0] & 00040800 )
 {
     if( ( rotation & 8000 ) == 0 )
     {
-        A0 = S3;
+        A0 = struct_164;
         A1 = rotation & ffff;
         A2 = struct_5c;
-        func81594(); // calculate S3 + c, S3 + 14 (and S3 + 18 in one case)
+        func81594(); // calculate struct_164 + c, struct_164 + 14 (and struct_164 + 18 in one case)
 
-        [SP + 10] = w(w[S3 + c] + w[struct_138 + 40]);
-        [SP + 14] = w(w[S3 + 10] + w[struct_138 + 44]);
-        [SP + 18] = w(w[S3 + 14] + w[struct_138 + 48]);
+        [SP + 10] = w(w[struct_164 + c] + w[struct_138 + 40]);
+        [SP + 14] = w(w[struct_164 + 10] + w[struct_138 + 44]);
+        [SP + 18] = w(w[struct_164 + 14] + w[struct_138 + 48]);
 
         [struct_138 + 106] = h(rotation);
     }
@@ -587,8 +587,8 @@ if( ( rotation & 8000 ) == 0 || is_move != 0 || ( w[struct_138 + 0] & 00040800 )
             [SP + 10] = w(0);
             [SP + 14] = w(0);
             [SP + 18] = w(0);
-            [S3 + c] = w(0);
-            [S3 + 14] = w(0);
+            [struct_164 + c] = w(0);
+            [struct_164 + 14] = w(0);
             [struct_138 + 106] = h(hu[struct_138 + 106] | 8000);
         }
     }
@@ -601,8 +601,8 @@ if( ( rotation & 8000 ) == 0 || is_move != 0 || ( w[struct_138 + 0] & 00040800 )
         [SP + 10] = w(0);
         [SP + 14] = w(0);
         [SP + 18] = w(0);
-        [S3 + c] = w(0);
-        [S3 + 14] = w(0);
+        [struct_164 + c] = w(0);
+        [struct_164 + 14] = w(0);
         [struct_138 + 106] = h(hu[struct_138 + 106] | 8000);
     }
 }
@@ -621,8 +621,8 @@ else
     [SP + 14] = w(0);
     [SP + 18] = w(0);
 
-    [S3 + c] = w(0);
-    [S3 + 14] = w(0);
+    [struct_164 + c] = w(0);
+    [struct_164 + 14] = w(0);
 }
 
 
@@ -631,22 +631,22 @@ else
 
 if( w[struct_138 + 0] & 00000800 )
 {
-    if (h[800b1818] == 0)
+    if( h[800b1818] == 0 )
     {
-        if (h[S3 + 6] != h[S3 + 84])
+        if( h[struct_164 + 6] != h[struct_164 + 84] )
         {
-            if (animation_id == 2)
+            if( animation_id == 2 )
             {
-                [S3 + 18] = w(h[S3 + 82] * 60);
+                [struct_164 + 18] = w(h[struct_164 + 82] * 60);
             }
             else
             {
-                [S3 + 18] = w(h[S3 + 82] * 30);
+                [struct_164 + 18] = w(h[struct_164 + 82] * 30);
             }
         }
         else
         {
-            [S3 + 18] = w(0);
+            [struct_164 + 18] = w(0);
         }
     }
 
@@ -654,45 +654,42 @@ if( w[struct_138 + 0] & 00000800 )
 }
 else
 {
-    if (h[struct_138 + 104] & 8000)
+    if( h[struct_138 + 104] & 8000 )
     {
         [struct_138 + e6] = hu(animation_id);
     }
 
     A0 = struct_138;
-    get_current_triangle_material;
+    get_current_triangle_material();
 
-    if (V0 & 00200000)
+    if( V0 & 00200000 )
     {
-        V0 = h[struct_138 + 104];
-        if (V0 & 8000)
+        if( ( h[struct_138 + 104] & 8000 ) && ( h[struct_138 + e8] == 6 ) )
         {
-            V1 = h[struct_138 + e8];
-            if (V1 == 6)
-            {
-                [struct_138 + 4] = w(w[struct_138 + 4] | 00001000)
-            }
+            [struct_138 + 4] = w(w[struct_138 + 4] | 00001000)
         }
 
         animation_id = 6;
     }
 }
 
-V1 = h[struct_138 + ea]; // animation related
-if (V1 != ff)
+V1 = h[struct_138 + ea]; // animation to play with opcode
+if( V1 != ff )
 {
     animation_id = V1;
 }
 
-if (h[struct_138 + e8] != animation_id)
+// we need to start new animation
+if( h[struct_138 + e8] != animation_id )
 {
-    if ((w[struct_138 + 0] & 02000000) == 0)
+    if( ( w[struct_138 + 0] & 02000000 ) == 0 )
     {
         [struct_138 + e8] = h(animation_id);
-        A0 = S3;
+
+        A0 = struct_164;
         A1 = animation_id;
         A2 = struct_5c;
-        func81808;
+        func81808();
     }
 }
 
@@ -891,36 +888,32 @@ return -1;
 
 
 ////////////////////////////////
-// func7ae28
+// func7ae28()
 S1 = move_vector = A0;
 S3 = struct_138 = A1;
 S4 = intersect_line = A2;
 S2 = rotation = A3;
 
-S0 = S2 & 0fff;
-
-
-A0 = S0;
+A0 = rotation & 0fff;
 system_cos();
-[SP + 18] = w(w[S1 + 0] + (V0 << 6));
+[SP + 18] = w(w[move_vector + 0] + (V0 << 6));
 
-A0 = S0;
+A0 = rotation & 0fff;
 system_sin();
-[SP + 20] = w(w[S1 + 8] - (V0 << 6));
+[SP + 20] = w(w[move_vector + 8] - (V0 << 6));
 
+A0 = SP + 18;
+A1 = struct_138 + 20;
+A2 = struct_138;
+A3 = S4;
+A4 = SP + 28;
+A6 = S7;
+func7bca8();
 
-8007AE84	addiu  a0, sp, $0018
-8007AE88	addiu  s6, s3, $0020
-8007AE8C	addu   a1, s6, zero
-8007AE90	addu   a2, s3, zero
-8007AE94	addu   a3, s4, zero
-8007AE9C	addiu  s5, sp, $0028
-8007AEA4	addiu  s7, zero, $ffff (=-$1)
-8007AEB0	sw     s5, $0010(sp)
-8007AEB8	sw     s7, $0014(sp)
+S6 = struct_138 + 20;
+S5 = SP + 28;
+S7 = -1;
 
-
-8007AEB4	jal    func7bca8 [$8007bca8]
 
 
 8007AEBC	bne    v0, s7, L7aed0 [$8007aed0]

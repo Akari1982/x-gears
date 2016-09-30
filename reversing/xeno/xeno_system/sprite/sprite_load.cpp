@@ -1,5 +1,5 @@
 ////////////////////////////////
-// func24330
+// func24330()
 // called from script during initing
 S5 = A0;
 S3 = A1; // clut x
@@ -10,7 +10,7 @@ S2 = A5;
 
 A0 = 164;
 A1 = 0;
-system_memory_allocate;
+system_memory_allocate();
 [V0 + 86] = h(164);
 
 A0 = V0;
@@ -20,171 +20,173 @@ A3 = S4; // clut y
 A4 = S0; // tx
 A5 = S1; // ty
 A6 = S2;
-func24168;
+func24168();
+
+return V0;
 ////////////////////////////////
 
 
 
 ////////////////////////////////
-// func24168
-struct = A0;
+// func24168()
+struct_164 = A0;
 sprite_pack = A1;
 S5 = A2; // clut x
 S6 = A3; // clut y
 S3 = A4; // tx
 S4 = A5; // ty
 
-A0 = struct;
-func23680; // init default
+A0 = struct_164;
+func23680(); // init default
 
-A0 = struct;
-func23814;
+A0 = struct_164;
+func23814();
 
-A0 = struct;
+A0 = struct_164;
 A1 = 1000;
-func21e60;
+func21e60();
 
-[struct + 3c] = w((w[struct + 3c] & fffffffc) | 00000001);
-[struct + 40] = w(w[struct + 40] & fffe1fff); // doesn't affect anything because it was inited with 0.
-[struct + 48] = w(sprite_pack);
+[struct_164 + 3c] = w((w[struct_164 + 3c] & fffffffc) | 00000001);
+[struct_164 + 40] = w(w[struct_164 + 40] & fffe1fff); // doesn't affect anything because it was inited with 0.
+[struct_164 + 48] = w(sprite_pack);
 
 if( bu[80058810 + 3d] != 0 )
 {
-    [struct + a8] = w(w[struct + a8] & fffffffe);
-    A0 = w[struct + 7c];
+    [struct_164 + a8] = w(w[struct_164 + a8] & fffffffe);
+    A0 = w[struct_164 + 7c];
     [A0 + 8] = w(0);
     [A0 + c] = h(0);
 }
 else
 {
-    [struct + a8] = w(w[struct + a8] | 00000001);
-    A0 = w[struct + 7c];
+    [struct_164 + a8] = w(w[struct_164 + a8] | 00000001);
+    A0 = w[struct_164 + 7c];
     [A0 + 18] = w(0);
 }
 
-[struct + 6c] = w(struct);
+[struct_164 + 6c] = w(struct_164);
 
 V1 = w[GP + 48] & 000f;
-[struct + 3c] = w((((w[struct + 3c] & ff0fffff) | (V1 << 14)) & fff0ffff) | (V1 << 10));
+[struct_164 + 3c] = w((((w[struct_164 + 3c] & ff0fffff) | (V1 << 14)) & fff0ffff) | (V1 << 10));
 
 sprite_part_1 = sprite_pack + w[sprite_pack + 8];
 A0 = ((hu[sprite_part_1 + 0] >> 9) & 3f) * 18;
 A1 = 0;
-system_memory_allocate;
-V1 = w[struct + 20];
+system_memory_allocate();
+V1 = w[struct_164 + 20];
 [V1 + 2c] = w(V0);
 [V1 + 30] = w(V0);
 
-V0 = w[struct + 24];
+V0 = w[struct_164 + 24];
 [V0 + 4] = h(S3); // tx
 [V0 + 6] = h(S4); // ty
 [V0 + 8] = h(S5); // clut x
 [V0 + a] = h(S6); // clut y
 
-A0 = struct;
+A0 = struct_164;
 A1 = sprite_pack;
-func22124;
+func22124();
 
-V0 = w[struct + 24];
+V0 = w[struct_164 + 24];
 V1 = w[V0 + 10]; // pointer to sprite data 0.
-[struct + 60] = w(V1 + 2 + (hu[V1 + 0] & 3f) * 2); // pointer to 1st animation
+[struct_164 + 60] = w(V1 + 2 + (hu[V1 + 0] & 3f) * 2); // pointer to 1st animation
 
-A0 = struct;
+A0 = struct_164;
 A1 = 0; // animation id
-func243e4;
+func243e4();
 
-return struct;
+return struct_164;
 ////////////////////////////////
 
 
 
 ////////////////////////////////
-// func23680
-struct = A0; // struct
+// func23680()
+struct_164 = A0;
 
 V0 = w[80058810 + 28] + 1;
 V1 = V0 << e;
-[struct + 1c] = w((V0 * V1 * h[struct + 82]) >> c);
+[struct_164 + 1c] = w((V0 * V1 * h[struct_164 + 82]) >> c);
 
-[struct + 2b] = b(2d);
-[struct + 30] = h(0000);
-[struct + 32] = h(0000);
-[struct + 34] = h(0000);
-[struct + 3a] = h(0000);
-[struct + 3c] = w(00000000);
-[struct + 40] = w(00000000);
-[struct + 44] = w(00000000);
-[struct + 50] = w(00000000);
-[struct + 64] = w(00000000);
-[struct + 68] = w(00000000);
-[struct + 6c] = w(00000000);
-[struct + 70] = w(00000000);
-[struct + 80] = h(0000);
-[struct + 84] = h(0000);
-[struct + 8c] = b(10);
-[struct + a8] = w(00000000);
-[struct + ac] = w(00020000);
-[struct + b0] = w(00000000);
+[struct_164 + 2b] = b(2d);
+[struct_164 + 30] = h(0000);
+[struct_164 + 32] = h(0000);
+[struct_164 + 34] = h(0000);
+[struct_164 + 3a] = h(0000);
+[struct_164 + 3c] = w(00000000);
+[struct_164 + 40] = w(00000000);
+[struct_164 + 44] = w(00000000);
+[struct_164 + 50] = w(00000000);
+[struct_164 + 64] = w(00000000);
+[struct_164 + 68] = w(00000000);
+[struct_164 + 6c] = w(00000000);
+[struct_164 + 70] = w(00000000);
+[struct_164 + 80] = h(0000);
+[struct_164 + 84] = h(0000);
+[struct_164 + 8c] = b(10);
+[struct_164 + a8] = w(00000000);
+[struct_164 + ac] = w(00020000);
+[struct_164 + b0] = w(00000000);
 ////////////////////////////////
 
 
 
 ////////////////////////////////
-// func23814
-struct = A0;
+// func23814()
+struct_164 = A0;
 
-[struct + 20] = w(struct + b4);
-[struct + 24] = w(struct + 110);
-[struct + 7c] = w(struct + f4);
+[struct_164 + 20] = w(struct_164 + b4);
+[struct_164 + 24] = w(struct_164 + 110);
+[struct_164 + 7c] = w(struct_164 + f4);
 
-V1 = w[struct + 20];
+V1 = w[struct_164 + 20];
 [V1 + 0] = h(0);
 [V1 + 2] = h(0);
 [V1 + 4] = h(0);
 [V1 + 2c] = w(0);
-[V1 + 34] = w(struct + 124);
+[V1 + 34] = w(struct_164 + 124);
 [V1 + 38] = w(0);
 ////////////////////////////////
 
 
 
 ////////////////////////////////
-// func21e60
-struct = A0;
+// func21e60()
+struct_164 = A0;
 
-V1 = w[struct + 20];
+V1 = w[struct_164 + 20];
 if( V1 != 0 )
 {
     [V1 + 6] = h(A1);
     [V1 + 8] = h(A1);
     [V1 + a] = h(A1);
 
-    [struct + 2c] = h(A1);
-    [struct + 3c] = w(w[struct + 3c] | 10000000);
+    [struct_164 + 2c] = h(A1);
+    [struct_164 + 3c] = w(w[struct_164 + 3c] | 10000000);
 }
 ////////////////////////////////
 
 
 
 ////////////////////////////////
-// func22124
-struct = A0;
+// func22124()
+struct_164 = A0;
 sprite_pack = A1;
 
 if( sprite_pack != 0 )
 {
-    data110 = w[struct + 24];
+    data110 = w[struct_164 + 24];
 
-    if( sprite_pack != w[struct + 44] )
+    if( sprite_pack != w[struct_164 + 44] )
     {
         A0 = data110;
         A1 = sprite_pack;
         A2 = (hu[data110 + 6] << 10) | hu[data110 + 4]; // tx ty
         A3 = (hu[data110 + a] << 10) | hu[data110 + 8]; // clut x clut y
-        func22084;
+        func22084();
 
-        [struct + 44] = w(sprite_pack);
-        [struct + 3c] = w(w[struct + 3c] | 40000000);
+        [struct_164 + 44] = w(sprite_pack);
+        [struct_164 + 3c] = w(w[struct_164 + 3c] | 40000000);
     }
 
     if( bu[80058810 + 3d] != 0 )
@@ -199,7 +201,7 @@ if( sprite_pack != 0 )
         }
         else
         {
-            V0 = w[struct + 7c];
+            V0 = w[struct_164 + 7c];
             [data110 + 4] = w(w[V0 + e]); // tx
         }
     }
@@ -209,7 +211,7 @@ if( sprite_pack != 0 )
 
 
 ////////////////////////////////
-// func22084
+// func22084()
 data110 = A0;
 sprite_pack = A1;
 
@@ -236,164 +238,162 @@ if( bu[80058810 + 3d] != 0 )
 
 
 ////////////////////////////////
-// func243e4
-struct = A0;
+// func243e4()
+struct_164 = A0;
 animation_id = A1;
 
-if( w[struct + 48] == 0 ) // sprite pack dont exist
+data110 = w[struct_164 + 24];
+
+if( w[struct_164 + 48] == 0 ) // sprite pack dont exist
 {
-    [struct + 64] = w(0);
+    [struct_164 + 64] = w(0);
     return;
 }
 
-if( w[struct + 44] == w[struct + 48] )
+if( w[struct_164 + 44] == w[struct_164 + 48] )
 {
-    [struct + b0] = w(w[struct + b0] & fffffbff);
+    [struct_164 + b0] = w(w[struct_164 + b0] & fffffbff);
 }
 else
 {
-    [struct + b0] = w(w[struct + b0] | 00000400);
+    [struct_164 + b0] = w(w[struct_164 + b0] | 00000400);
 }
 
 if( animation_id < 0 )
 {
-    A0 = struct;
-    A1 = w[struct + 4c];
-    func22124;
+    A0 = struct_164;
+    A1 = w[struct_164 + 4c];
+    func22124();
 
     if( bu[80058810 + 3d] != 0 )
     {
-        V0 = w[struct + 24];
-        A0 = w[V0];
-        if( (hu[A0] >> f) == 0 )
+        A0 = w[data110 + 0];
+        // set some default texture x and y
+        if( (hu[A0 + 0] >> f) == 0 )
         {
-            V1 = w[struct + 24];
-            [V1 + 4] = h(0300);
-            [V1 + 6] = h(0100);
+            [data110 + 4] = h(0300);
+            [data110 + 6] = h(0100);
         }
     }
 }
 else
 {
-    A0 = struct;
-    A1 = w[struct + 48];
-    func22124;
+    A0 = struct_164;
+    A1 = w[struct_164 + 48];
+    func22124();
 
     if( bu[80058810 + 3d] != 0 )
     {
-        V1 = w[struct + 24];
-        V0 = w[struct + 7c];
-        [V1 + 4] = w(w[V0 + e]);
+        dataf4 = w[struct_164 + 7c];
+        [data110 + 4] = w(w[dataf4 + e]);
     }
 }
 
-[struct + af] = b(animation_id);
+[struct_164 + af] = b(animation_id);
+
 if( animation_id < 0 )
 {
-    animation_id = 0 NOR animation_id;
+    animation_id = 0 NOR animation_id; // invert bits
 }
 
-[struct + 40] = w(w[struct + 40] | 00100000);
+[struct_164 + 40] = w(w[struct_164 + 40] | 00100000);
 
 
-V0 = w[struct + 24];
-sprite_data_0 = w[V0 + 10];
+sprite_data_0 = w[data110 + 10];
 
-A0 = struct;
+A0 = struct_164;
 A1 = sprite_data_0 + hu[sprite_data_0 + 2 + animation_id * 2];
-[struct + 58] = w(A1);
-func233b8;
+[struct_164 + 58] = w(A1);
+func233b8();
 
-A0 = struct;
-A1 = h[struct + 80];
-func22218;
+A0 = struct_164;
+A1 = h[struct_164 + 80];
+func22218();
 ////////////////////////////////
 
 
 
 ////////////////////////////////
-// func233b8
-struct = A0;
+// func233b8()
+struct_164 = A0;
 animation_data = A1;
 
-[struct + 54] = w(animation_data + 4 + hu[animation_data + 4]);
-[struct + 58] = w(animation_data);
-[struct + 64] = w(animation_data + 2 + hu[animation_data + 2]);
-[struct + a8] = w((w[struct + a8] & ffcfffff) | ((hu[animation_data + 0] & 0003) << 14));
+[struct_164 + 54] = w(animation_data + 4 + hu[animation_data + 4]);
+[struct_164 + 58] = w(animation_data);
+[struct_164 + 64] = w(animation_data + 2 + hu[animation_data + 2]);
+[struct_164 + a8] = w((w[struct_164 + a8] & ffcfffff) | ((hu[animation_data + 0] & 0003) << 14));
 
 A0 = bu[animation_data + 0] >> 2;
-if( A0 & 0020 )
+if( A0 & 20 )
 {
     A0 = A0 | ffffffc0;
 }
 V1 = A0 << a;
-V0 = w[80058838] + 1;
-A0 = ((V0 * V0 * h[struct + 82]) >> c) * V1;
-V0 = 10000 / ((w[struct + ac] >> 9) & fff);
-[struct + 1c] = w((((V0 * V0) >> 8) * A0) >> 8);
+V0 = w[80058810 + 28] + 1;
+A0 = ((V0 * V0 * h[struct_164 + 82]) >> c) * V1;
+V0 = 10000 / ((w[struct_164 + ac] >> 9) & fff);
+[struct_164 + 1c] = w((((V0 * V0) >> 8) * A0) >> 8);
 
 if( ((hu[animation_data + 0] >> b) & 0001) == 0 )
 {
-    [struct + c] = w(0);
-    [struct + 10] = w(0);
-    [struct + 14] = w(0);
-    [struct + 18] = w(0);
+    [struct_164 + c] = w(0);
+    [struct_164 + 10] = w(0);
+    [struct_164 + 14] = w(0);
+    [struct_164 + 18] = w(0);
 }
 
-V1 = w[struct + 20];
-if( V1 != 0 )
+datab4 = w[struct_164 + 20];
+if( datab4 != 0 )
 {
-    if( ( (hu[animation_data + 0] >> c) & 0001 ) == 0 )
+    if( ( ( hu[animation_data + 0] >> c ) & 0001 ) == 0 )
     {
-        [V1 + 0] = h(0);
-        [V1 + 2] = h(0);
-        [V1 + 4] = h(0);
+        [datab4 + 0] = h(0);
+        [datab4 + 2] = h(0);
+        [datab4 + 4] = h(0);
 
-        A0 = struct;
-        func21eec; // calculate matrix
+        A0 = struct_164;
+        func21eec(); // calculate matrix
     }
 
     if( bu[80058810 + 3d] != 0 )
     {
-        if( ( (hu[animation_data + 0] >> d) & 0001 ) == 0 )
+        if( ( ( hu[animation_data + 0] >> d ) & 0001 ) == 0 )
         {
-            A0 = struct;
+            A0 = struct_164;
             A1 = w[80058810 + 38];
             func21e60;
         }
 
-        A0 = struct;
-        func21eec; // calculate matrix
+        A0 = struct_164;
+        func21eec(); // calculate matrix
     }
 
-    if( (w[struct + 3c] & 00000003) == 00000001 )
+    if( ( w[struct_164 + 3c] & 00000003 ) == 00000001 )
     {
-        V0 = w[struct + 20];
-        [V0 + 3c] = b(0);
-        [V0 + 3d] = b(0);
+        [datab4 + 3c] = b(0);
+        [datab4 + 3d] = b(0);
 
-        if( (w[struct + 40] & 00100000) == 0 )
+        if( ( w[struct_164 + 40] & 00100000 ) == 0 )
         {
-            V0 = w[struct + 20];
-            if( w[V0 + 34] != 0 )
+            if( w[datab4 + 34] != 0 )
             {
-                A0 = struct;
-                func2332c; // init 0x8 items in +124 with 0
+                A0 = struct_164;
+                func2332c(); // init 0x8 items in +124 with 0
             }
         }
     }
 }
 
-[struct + 30] = h(0);
-[struct + 8c] = b(10);
-[struct + 9e] = h(0001);
-[struct + a8] = w(w[struct + a0] & fffff801);
-[struct + a8] = w((w[struct + a8] & cfffffff & f03fffff) | 0001f800 | 20000000);
+[struct_164 + 30] = h(0);
+[struct_164 + 8c] = b(10);
+[struct_164 + 9e] = h(0001);
+[struct_164 + a8] = w(w[struct_164 + a8] & fffff801);
+[struct_164 + a8] = w((w[struct_164 + a8] & cfffffff & f03fffff) | 0001f800 | 20000000);
 
-V1 = w[struct + 7c];
+V1 = w[struct_164 + 7c];
 if( V1 != 0 )
 {
-    if( w[struct + a8] & 00000001 )
+    if( w[struct_164 + a8] & 00000001 )
     {
         [V1 + 0] = w(0);
         [V1 + 4] = w(0);
@@ -405,13 +405,13 @@ if( V1 != 0 )
 
 
 ////////////////////////////////
-// func2332c
-struct = A0;
+// func2332c()
+struct_164 = A0;
 A1 = 0;
 A2 = 8;
 
 loop23334:	; 80023334
-    V0 = w[struct + 20];
+    V0 = w[struct_164 + 20];
     V0 = w[V0 + 34];
     [V0 + A1 * 8 + 0] = b(0);
     [V0 + A1 * 8 + 1] = b(0);
@@ -425,23 +425,23 @@ loop23334:	; 80023334
 
 
 ////////////////////////////////
-// func21eec
-struct = A0;
+// func21eec()
+struct_164 = A0;
 
-if( ( w[struct + 40] & 00000001 ) == 0 )
+if( ( w[struct_164 + 40] & 00000001 ) == 0 )
 {
-    A0 = w[struct + 20]; // rot data
+    A0 = w[struct_164 + 20]; // rot data
     A1 = A0 + c;
-    func3f5e0; // calculate rotation matrix
+    func3f5e0(); // calculate rotation matrix
 
-    V0 = w[struct + 20];
+    V0 = w[struct_164 + 20];
     [SP + 20] = w(h[V0 + 6]);
     [SP + 24] = w(h[V0 + 8]);
     [SP + 28] = w(h[V0 + a]);
 
-    A0 = w[struct + 20] + c; // rot matrix
+    A0 = w[struct_164 + 20] + c; // rot matrix
     A1 = SP + 20;
-    func495f4; // scaled matrix (column)
+    func495f4(); // scaled matrix (column)
 }
 else
 {
@@ -455,41 +455,41 @@ else
     [SP + 78] = w(w[A1 + 18]);
     [SP + 7c] = w(w[A1 + 1c]);
 
-    V0 = w[struct + 20];
+    V0 = w[struct_164 + 20];
     [SP + 30] = w(h[V0 + 6]);
     [SP + 34] = w(h[V0 + 8]);
     [SP + 38] = w(h[V0 + a]);
 
     A0 = SP + 60;
     A1 = SP + 30;
-    func495f4; // scaled matrix (column)
+    func495f4(); // scaled matrix (column)
 
-    A0 = w[struct + 20];
+    A0 = w[struct_164 + 20];
     A1 = SP + 40;
-    func3f5e0; // calculate rotation matrix
+    func3f5e0(); // calculate rotation matrix
 
     A0 = SP + 40;
     A1 = SP + 60;
-    A2 = w[struct + 20] + c;
-    system_gte_matrix_multiplication;
+    A2 = w[struct_164 + 20] + c;
+    system_gte_matrix_multiplication();
 }
 
-if( hu[struct + 3a] != 0 )
+if( hu[struct_164 + 3a] != 0 )
 {
-    [SP + 20] = w(hu[struct + 3a] >> 1);
-    [SP + 24] = w(hu[struct + 3a] >> 1);
-    [SP + 28] = w(hu[struct + 3a] >> 1);
+    [SP + 20] = w(hu[struct_164 + 3a] >> 1);
+    [SP + 24] = w(hu[struct_164 + 3a] >> 1);
+    [SP + 28] = w(hu[struct_164 + 3a] >> 1);
 
-    A0 = w[struct + 20] + c;
+    A0 = w[struct_164 + 20] + c;
     A1 = SP + 20;
-    func49c74; // scaled matrix (row)
+    func49c74(); // scaled matrix (row)
 }
 ////////////////////////////////
 
 
 
 ////////////////////////////////
-// func3f5e0
+// func3f5e0()
 rot_x = h[A0 + 0] & 0fff;
 cos_x = h[80051a90 + rot_x * 4 + 0];
 sin_x = h[80051a90 + rot_x * 4 + 2];
@@ -517,7 +517,7 @@ return A1;
 
 
 ////////////////////////////////
-// func495f4
+// func495f4()
 [A0 + 0] = h((h[A0 + 0] * w[A1 + 0]) >> c);
 [A0 + 2] = h((h[A0 + 2] * w[A1 + 0]) >> c);
 [A0 + 4] = h((h[A0 + 4] * w[A1 + 0]) >> c);
@@ -534,7 +534,7 @@ return A0;
 
 
 ////////////////////////////////
-// func49c74
+// func49c74()
 [A0 + 0] = h((h[A0 + 0] * w[A1 + 0]) >> c);
 [A0 + 2] = h((h[A0 + 2] * w[A1 + 4]) >> c);
 [A0 + 4] = h((h[A0 + 4] * w[A1 + 8]) >> c);
@@ -551,170 +551,238 @@ return A0;
 
 
 ////////////////////////////////
-// func22218
-struct = A0;
+// func22218()
+struct_164 = A0;
 data80 = A1;
 
-animation_data = w[struct + 58];
-[struct + 80] = h(data80);
+[struct_164 + 80] = h(data80);
 
-T0 = (w[struct + a8] >> 11) & 7;
+animation_data = w[struct_164 + 58];
 
-if( (data80 + 0400) & 1 )
+T0 = (w[struct_164 + a8] >> 11) & 7;
+
+if( ( data80 + 0400 ) & 1 )
 {
-    [struct + ac] = w(w[struct + ac] | 00000010); // invert offset x
+    [struct_164 + ac] = w(w[struct_164 + ac] | 00000010); // invert offset x
 }
 else
 {
-    [struct + ac] = w(w[struct + ac] & ffffffef);
+    [struct_164 + ac] = w(w[struct_164 + ac] & ffffffef);
 }
 
-if( w[struct + 48] == 0 ) // sprite pack pointer
+if( w[struct_164 + 48] == 0 ) // sprite pack pointer
 {
     return;
 }
 
-V1 = (w[struct + a8] >> 14) & 3;
-if( V1 == 0 )
+V1 = (w[struct_164 + a8] >> 14) & 3;
+if( V1 == 0 ) // sprite with two directions (left right)
 {
-    if( ((data80 + 400) & fff) < 801 )
+    if( ( ( data80 + 400 ) & fff ) < 801 )
     {
-        [struct + ac] = w(w[struct + ac] & ffffffef);
+        [struct_164 + ac] = w(w[struct_164 + ac] & ffffffef);
     }
     else
     {
-        [struct + ac] = w(w[struct + ac] | 00000010); // invert offset x
+        [struct_164 + ac] = w(w[struct_164 + ac] | 00000010); // invert offset x
     }
 
-    [struct + 54] = w(animation_data + 4 + hu[animation_data + 4]);
-    [struct + 5c] = w(animation_data + 6);
-    [struct + a8] = w(w[struct + a8] & fff1ffff);
+    [struct_164 + 54] = w(animation_data + 4 + hu[animation_data + 4]);
+    [struct_164 + 5c] = w(animation_data + 6);
+    [struct_164 + a8] = w(w[struct_164 + a8] & fff1ffff);
 }
 else if( V1 == 1 )
 {
-    A3 = ((data80 + 600) >> a) & 3;
-
+    A3 = ( ( data80 + 600 ) >> a ) & 3;
     if( A3 >= 3 )
     {
-        [struct + 54] = w[animation_data + 6 + hu[animation_data + 6]];
-        [struct + ac] = w(w[struct + ac] | 00000010); // invert offset x
+        [struct_164 + 54] = w[animation_data + 6 + hu[animation_data + 6]];
+        [struct_164 + ac] = w(w[struct_164 + ac] | 00000010); // invert offset x
     }
     else
     {
-        [struct + 54] = w(animation_data + 4 + A3 * 2 + hu[animation_data + 4 + A3 * 2]);
-        [struct + ac] = w(w[struct + ac] & ffffffef);
+        [struct_164 + 54] = w(animation_data + 4 + A3 * 2 + hu[animation_data + 4 + A3 * 2]);
+        [struct_164 + ac] = w(w[struct_164 + ac] & ffffffef);
     }
-
-    [struct + a8] = w((w[struct + a8] & fff1ffff) | ((A3 & 7) << 11));
+    [struct_164 + a8] = w((w[struct_164 + a8] & fff1ffff) | ((A3 & 7) << 11));
 }
 else if( V1 == 2 )
 {
     A3 = ((data80 + 500) >> 9) & 7;
-
     if( A3 < 5 )
     {
-        [struct + 54] = w(animation_data + 4 + A3 * 2 + hu[animation_data + 4 + A3 * 2]);
-        [struct + ac] = w(w[struct + ac] & ffffffef);
+        [struct_164 + 54] = w(animation_data + 4 + A3 * 2 + hu[animation_data + 4 + A3 * 2]);
+        [struct_164 + ac] = w(w[struct_164 + ac] & ffffffef);
     }
     else
     {
         A3 = (A3 - 5) XOR 3;
-
-        [struct + 54] = w(animation_data + 4 + A3 * 2 + hu[animation_data + 4 + A3 * 2]);
-        [struct + ac] = w(w[struct + ac] | 00000010); // invert offset x
+        [struct_164 + 54] = w(animation_data + 4 + A3 * 2 + hu[animation_data + 4 + A3 * 2]);
+        [struct_164 + ac] = w(w[struct_164 + ac] | 00000010); // invert offset x
     }
-
-    [struct + a8] = w((w[struct + a8] & fff1ffff) | ((A3 & 7) << 11));
+    [struct_164 + a8] = w((w[struct_164 + a8] & fff1ffff) | ((A3 & 7) << 11));
 }
 
-if( T0 != ((w[struct + a8] >> 11) & 7) )
+// if direction animation id changed
+if( T0 != ( ( w[struct_164 + a8] >> 11 ) & 7 ) )
 {
-    S0 = h[struct + 9e];
+    S0 = h[struct_164 + 9e];
 
-    [struct + a8] = w((w[struct + a8] | 0001f800) & f03fffff);
+    [struct_164 + a8] = w((w[struct_164 + a8] | 0001f800) & f03fffff);
 
-    A0 = struct;
-    A1 = w[struct + 64];
-    [struct + 64] = w(animation_data + 2 + hu[animation_data + 2]);
-    A2 = (w[struct + a8] >> 16) & 3f;
-    func224f0;
+    A0 = struct_164;
+    A1 = w[struct_164 + 64];
+    [struct_164 + 64] = w(animation_data + 2 + hu[animation_data + 2]);
+    A2 = (w[struct_164 + a8] >> 16) & 3f; // 0x0fc00000
+    func224f0();
 
-    [struct + 9e] = h(S0);
+    [struct_164 + 9e] = h(S0);
 }
 
-V1 = w[struct + ac];
+V1 = w[struct_164 + ac];
 V0 = ((V1 >> 5) & 1) XOR ((V1 >> 4) & 1);
-[struct + 3c] = w((w[struct + 3c] & fffffff7) | (V0 << 3));
+[struct_164 + 3c] = w((w[struct_164 + 3c] & fffffff7) | (V0 << 3));
 ////////////////////////////////
 
 
 
 ////////////////////////////////
-// func224f0
-struct = S1 = A0;
-S4 = A1; // pointer to some animation data
-S5 = A2;
+// func224f0()
+struct_164 = S1 = A0;
+S4 = A1; // pointer to start of sprite sequence data.
+S5 = A2; // +a8 0x0fc00000 flags
 
 loop2251c:	; 8002251C
-    A2 = w[S1 + 64];
+    A2 = w[struct_164 + 64];
     A0 = A2 + 1;
-    if( A2 == S4 )
+    if( ( A2 == S4 ) && ( ( ( w[struct_164 + a8] >> 16 ) & 3f ) == S5 ) )
     {
-        V0 = (w[S1 + a8] >> 16) & 3f;
-        if( V0 == S5 )
-        {
-            return;
-        }
+        return;
     }
 
     S2 = bu[A2];
+
+    // opcode size 8004f2e4 + 80
+    // 80 01010101010101010101010101010101
+    // 90 01010101010101010101010101010101
+    // a0 02020202020202020202020202020202
+    // b0 02020202020202020202020202020202
+    // c0 02020202020202020303030303030303
+    // d0 03030303030303030303030303030303
+    // e0 03030303030303030303030303030303
+    // f0 03040404040404040404040404040404
+
     V1 = S2;
     if( V1 > 80 )
     {
-        80022650	ori    v0, zero, $0087
-        80022654	beq    v1, v0, L227ac [$800227ac]
-        80022658	slti   v0, v1, $0088
-        8002265C	beq    v0, zero, L22688 [$80022688]
+        if( V1 == 87 || V1 == 86 )
+        {
+            if( A2 == S4 )
+            {
+                return;
+            }
+
+            [struct_164 + 64] = w(w[struct_164 + 64] + bu[8004f2e4 + S2]); // move pointer by opcode size
+            800227D0	j      loop2251c [$8002251c]
+        }
+        if( V1 == b3 ) // set frame
+        {
+            [struct_164 + a8] = w((w[struct_164 + a8] & fffe07ff) | ((b[A2 + 1] & 3f) << b)));
+
+            [struct_164 + 64] = w(w[struct_164 + 64] + bu[8004f2e4 + S2]); // move pointer by opcode size
+            800227D0	j      loop2251c [$8002251c]
+        }
+        if( V1 == be )
+        {
+            A0 = (w[struct_164 + ac] & ffffffdf) | ((hu[A2 + 1] >> 4) & 0020);
+            [struct_164 + 3c] = w((w[struct_164 + 3c] & fffffff7) | ((((A0 >> 5) & 1) XOR ((A0 >> 4) & 1)) << 3));
+            [struct_164 + ac] = w(A0);
+
+            frame_id = hu[A2 + 1] & 1ff;
+            if( hu[struct_164 + 34] != frame_id )
+            {
+                A0 = struct_164;
+                A1 = frame_id;
+                func1d134;
+            }
+
+            [struct_164 + 9e] = h(hu[struct_164 + 9e] + 1 + (hu[A2 + 1] >> b) & f);
+
+            [struct_164 + 64] = w(w[struct_164 + 64] + bu[8004f2e4 + S2]); // move pointer by opcode size
+            800227D0	j      loop2251c [$8002251c]
+        }
+
+        if( V1 >= 88 )
+        {
+            V0 == V1 < b4;
+            if( V0 == 0 )
+            {
+                if( V1 == e2 )
+                {
+                    A0 = struct_164;
+                    A1 = A2 + 3;
+                    func21b58;
+
+                    [struct_164 + 64] = w(w[struct_164 + 64] + h[A2 + 1]);
+                    8002277C	j      loop2251c [$8002251c]
+                }
+
+                800226C0	j      L227b8 [$800227b8]
+            }
+
+            if( V1 == 97 )
+            {
+                if( A2 == S4 )
+                {
+                    return;
+                }
+
+                [struct_164 + 64] = w(w[struct_164 + 64] + bu[8004f2e4 + S2]); // move pointer by opcode size
+                800227D0	j      loop2251c [$8002251c]
+            }
+
+            800226A4	j      L227b8 [$800227b8]
+            800226A8	nop
+        }
+
         80022660	slti   v0, v1, $0080
         80022664	bne    v0, zero, L227b8 [$800227b8]
 
         8002266C	slti   v0, v1, $0083
         80022670	bne    v0, zero, L227d8 [$800227d8]
-        80022674	ori    v0, zero, $0086
-        80022678	beq    v1, v0, L227ac [$800227ac]
 
         80022680	j      L227b8 [$800227b8]
         80022684	nop
     }
 
-    [S1 + 64] = 2(A0);
+    [struct_164 + 64] = w(A0);
     if( V1 >= 10 )
     {
         V0 = V1 < 20;
         80022578	beq    v0, zero, L225b8 [$800225b8]
 
 
-        frame_data_id = (w[S1 + a8] >> b) & 3f;
-        [S1 + a8] = w((w[S1 + a8] & fffe07ff) | (((frame_data_id + 1) & 3f) << b));
+        frame_data_id = (w[struct_164 + a8] >> b) & 3f;
+        [struct_164 + a8] = w((w[struct_164 + a8] & fffe07ff) | (((frame_data_id + 1) & 3f) << b));
 
-        A0 = S1;
+        A0 = struct_164;
         func22bcc;
 
         800225B0	j      L225dc [$800225dc]
     }
 
-A1 = hu[S1 + 34] + 1;
+A1 = hu[struct_164 + 34] + 1;
 8002256C	j      L225d0 [$800225d0]
 
 L225b8:	; 800225B8
 800225B8	sltiu  v0, v1, $0030
 800225BC	beq    v0, zero, L225e0 [$800225e0]
 
-A1 = hu[S1 + 34] - 1;
+A1 = hu[struct_164 + 34] - 1;
 
 
 L225d0:	; 800225D0
-A0 = S1;
+A0 = struct_164;
 func1d134;
 
 L225dc:	; 800225DC
@@ -731,8 +799,8 @@ if( V0 != 0 )
 }
 
 800225F4	ori    a2, a2, $ffff
-800225F8	lw     v0, $00a8(s1)
-800225FC	lhu    v1, $009e(s1)
+800225F8	lw     v0, $00a8(struct_164)
+800225FC	lhu    v1, $009e(struct_164)
 80022600	and    a1, v0, a2
 80022604	srl    v0, v0, $16
 80022608	andi   v0, v0, $003f
@@ -741,9 +809,9 @@ if( V0 != 0 )
 80022614	sll    a0, v0, $16
 80022618	or     a1, a1, a0
 8002261C	addu   v1, v1, s3
-80022620	sh     v1, $009e(s1)
+80022620	sh     v1, $009e(struct_164)
 80022624	bne    v0, zero, loop2251c [$8002251c]
-80022628	sw     a1, $00a8(s1)
+80022628	sw     a1, $00a8(struct_164)
 8002262C	and    v1, a1, a2
 80022630	srl    v0, a1, $16
 80022634	andi   v0, v0, $003f
@@ -752,72 +820,10 @@ if( V0 != 0 )
 80022640	sll    v0, v0, $16
 80022644	or     v1, v1, v0
 80022648	j      loop2251c [$8002251c]
-8002264C	sw     v1, $00a8(s1)
-
-L22688:	; 80022688
-if( V1 == b3 ) // set frame
-{
-    [S1 + a8] = w((w[S1 + a8] & fffe07ff) | ((b[A2 + 1] & 3f) << b)));
-    [S1 + 64] = w(w[S1 + 64] + bu[8004f2e4 + S2]); // move pointer by opcode size
-    800227D0	j      loop2251c [$8002251c]
-}
-
-80022690	slti   v0, v1, $00b4
-80022694	beq    v0, zero, L226ac [$800226ac]
-if( V1 == 97 )
-{
-    if( A2 == S4 )
-    {
-        return;
-    }
-
-    [S1 + 64] = w(w[S1 + 64] + bu[8004f2e4 + S2]); // move pointer by opcode size
-    800227D0	j      loop2251c [$8002251c]
-}
-
-800226A4	j      L227b8 [$800227b8]
-800226A8	nop
-
-L226ac:	; 800226AC
-if( V1 == be )
-{
-    A0 = (w[S1 + ac] & ffffffdf) | ((hu[A2 + 1] >> 4) & 0020);
-    [S1 + 3c] = w((w[S1 + 3c] & fffffff7) | ((((A0 >> 5) & 1) XOR ((A0 >> 4) & 1)) << 3));
-    [S1 + ac] = w(A0);
-
-    frame_id = hu[A2 + 1] & 1ff;
-    if( hu[S1 + 34] != frame_id )
-    {
-        A0 = S1;
-        A1 = frame_id;
-        func1d134;
-    }
-
-    [S1 + 9e] = h(hu[S1 + 9e] + 1 + (hu[A2 + 1] >> b) & f);
-    [S1 + 64] = w(w[S1 + 64] + bu[8004f2e4 + S2]); // move pointer by opcode size
-    800227D0	j      loop2251c [$8002251c]
-}
-else if( V1 == e2 )
-{
-    A0 = S1;
-    A1 = A2 + 3;
-    func21b58;
-
-    [S1 + 64] = w(w[S1 + 64] + h[A2 + 1]);
-    8002277C	j      loop2251c [$8002251c]
-}
-
-800226C0	j      L227b8 [$800227b8]
-
-
-L227ac:	; 800227AC
-if( A2 == S4 )
-{
-    return;
-}
+8002264C	sw     v1, $00a8(struct_164)
 
 L227b8:	; 800227B8
-[S1 + 64] = w(w[S1 + 64] + bu[8004f2e4 + S2]); // move pointer by opcode size
+[struct_164 + 64] = w(w[struct_164 + 64] + bu[8004f2e4 + S2]); // move pointer by opcode size
 800227D0	j      loop2251c [$8002251c]
 
 L227d8:	; 800227D8

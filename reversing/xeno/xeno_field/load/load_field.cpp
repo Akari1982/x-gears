@@ -820,7 +820,7 @@ system_memory_allocate;
 V1 = w[80059b70];
 A0 = V1 + w[V1 + 13c];
 A1 = V0;
-system_extract_archive;
+system_extract_archive();
 
 
 
@@ -832,7 +832,7 @@ system_extract_archive;
 
 
 A0 = w[80059b70] + 154;
-func6f47c;
+func6f47c();
 
 
 
@@ -843,7 +843,7 @@ number_of_entities = hu[V0 + 18c];
 
 A0 = number_of_entities * 5c;
 A1 = 0;
-system_memory_allocate;
+system_memory_allocate();
 [800aefe4] = w(V0);
 
 if( number_of_entities > 0 )
@@ -876,7 +876,7 @@ if( number_of_entities > 0 )
         {
             A0 = 24;
             A1 = 0;
-            system_memory_allocate;
+            system_memory_allocate();
             S0 = V0;
 
             [struct_5c + entity_id * 5c + 0] = w(S0);
@@ -888,18 +888,18 @@ if( number_of_entities > 0 )
             A0 = w[S0 + 4];
             A1 = S0 + 8;
             A2 = S0 + c;
-            system_allocate_memory_for_packets; // allocate place for both packets buffers
+            system_allocate_memory_for_packets(); // allocate place for both packets buffers
 
             A0 = w[S0 + 4]; // data
             A1 = w[S0 + 8]; // memory for packets
             A2 = ( hu[struct_5c + entity_id * 5c + 58] & 000c ) >> 2; // lighting flags
-            system_fill_packets_drafts_for_model_part; // fill 1st buffer
+            system_fill_packets_drafts_for_model_part(); // fill 1st buffer
 
             A0 = w[S0 + c]; // to
             A1 = w[S0 + 8]; // from
             V0 = w[S0 + 4];
             A2 = w[V0 + 34]; // size
-            system_copy_memory; // copy from 1st buffer to second
+            system_copy_memory(); // copy from 1st buffer to second
 
             if( hu[struct_5c + entity_id * 5c + 58] & 2000 )
             {
@@ -909,7 +909,7 @@ if( number_of_entities > 0 )
 
                 A0 = w[S0 + 4];
                 A1 = 0;
-                func301d8; // init +1c in model data
+                func301d8(); // init +1c in model data
                 [S0 + 14] = w(V0);
 
                 [GP + 1ac] = h(8);
@@ -918,7 +918,7 @@ if( number_of_entities > 0 )
             }
 
             A0 = w[S0 + 4];
-            func2c454;
+            func2c454();
         }
         else
         {
@@ -929,7 +929,7 @@ if( number_of_entities > 0 )
         }
 
         A0 = entity_id;
-        func80558;
+        func80558();
 
         entity_id = entity_id + 1;
         V0 = entity_id < number_of_entities;
@@ -1206,7 +1206,7 @@ if( w[800ad0d4] > 0 )
 
 
 ////////////////////////////////
-// func80558
+// func80558()
 entity_id = A0;
 struct_5c = w[800aefe4] + entity_id * 5c;
 
@@ -1220,7 +1220,7 @@ if( entity_id >= w[800ad0d4] )
 
 A0 = 138;
 A1 = 0;
-system_memory_allocate;
+system_memory_allocate();
 [struct_5c + 4c] = w(V0);
 
 A0 = 0;
@@ -1240,7 +1240,7 @@ if( hu[struct_5c + 58] & 2000 )
 
     A0 = 80;
     A1 = 0;
-    system_memory_allocate;
+    system_memory_allocate();
     [struct_138 + 118] = w(V0);
 
     V1 = w[S1 + 14];
@@ -1264,21 +1264,21 @@ if( hu[struct_5c + 58] & 2000 )
 }
 
 A0 = entity_id;
-func80088;
+func80088();
 
 A0 = 70;
 A1 = 0;
-system_memory_allocate;
+system_memory_allocate();
 [struct_5c + 8] = w(V0);
 
 A0 = V0;
-func7a058; // init shadow
+func7a058(); // init shadow
 ////////////////////////////////
 
 
 
 ////////////////////////////////
-// func80088
+// func80088()
 entity_id = A0;
 
 struct_5c = w[800aefe4] + entity_id * 5c;
@@ -1393,7 +1393,7 @@ if( number_of_walkmeshes > 0 )
         A2 = walkmesh_id;
         A3 = SP + 58 + walkmesh_id * 8;  // ret position
         A4 = SP + 18 + walkmesh_id * 10; // ret normal
-        func7a7d8; // search for triangle model are in
+        func7a7d8(); // search for triangle model are in
         [S0 + 8 + walkmesh_id * 2] = h(V0); // store id of triangle
 
         if( V0 != -1 )
@@ -1419,7 +1419,7 @@ if( number_of_walkmeshes > 0 )
 }
 
 A0 = S0;
-get_current_triangle_material; // get current triangle material
+get_current_triangle_material(); // get current triangle material
 [S0 + 14] = w(V0);
 
 current_walkmesh = h[S0 + 10];
@@ -1441,9 +1441,9 @@ if( ( hu[struct_5c + 58] & 0080 ) == 0 )
 
 
 ////////////////////////////////
-// func7a058
-offset_70 = S0 = A0;
-S1 = S0 + 20; // start of packet
+// func7a058()
+offset_70 = A0;
+S1 = offset_70 + 20; // start of packet
 
 [offset_70 + 20 + 3] = b(9);
 [offset_70 + 20 + 7] = b(2c);
@@ -1472,17 +1472,17 @@ A0 = 0;
 A1 = 2;
 A2 = 280;
 A3 = 1e0;
-func43894; // pack texpage settings
+func43894(); // pack texpage settings
 [offset_70 + 20 + 16] = h(V0);
 
 A0 = 100;
 A1 = f3;
-func438d0; // pack clut
+func438d0(); // pack clut
 [offset_70 + 20 + e] = h(V0);
 
 A0 = offset_70 + 20;
 A1 = 1; // transparency on
-system_set_draw_packet_transparency;
+system_set_draw_packet_transparency();
 
 [offset_70 + 20 + c] = b(0);
 [offset_70 + 20 + d] = b(e0);
@@ -1496,16 +1496,16 @@ system_set_draw_packet_transparency;
 // copy data to 2nd buffer
 A2 = 0;
 loop7a12c:	; 8007A12C
-    [S0 + 48 + A2 + 0] = w(w[S1 + 0]);
-    [S0 + 48 + A2 + 4] = w(w[S1 + 4]);
-    [S0 + 48 + A2 + 8] = w(w[S1 + 8]);
-    [S0 + 48 + A2 + c] = w(w[S1 + c]);
+    [offset_70 + 48 + A2 + 0] = w(w[S1 + 0]);
+    [offset_70 + 48 + A2 + 4] = w(w[S1 + 4]);
+    [offset_70 + 48 + A2 + 8] = w(w[S1 + 8]);
+    [offset_70 + 48 + A2 + c] = w(w[S1 + c]);
     A2 = A2 + 10;
     S1 = S1 + 10;
-8007A150	bne    s1, S0 + 40, loop7a12c [$8007a12c]
+8007A150	bne    s1, offset_70 + 40, loop7a12c [$8007a12c]
 
-[S0 + 48 + A2 + 0] = w(w[S1 + 0]);
-[S0 + 48 + A2 + 4] = w(w[S1 + 4]);
+[offset_70 + 48 + A2 + 0] = w(w[S1 + 0]);
+[offset_70 + 48 + A2 + 4] = w(w[S1 + 4]);
 ////////////////////////////////
 
 
@@ -1947,7 +1947,7 @@ system_extract_archive;
 
 
 ////////////////////////////////
-// func6f47c
+// func6f47c()
 S0 = A0; // pointer to field +154
 
 S1 = 800aee64;

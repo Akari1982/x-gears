@@ -56,8 +56,11 @@
 800584d0 [][][][] shifter for spu address (always 3)
 
 80058810 GP
-+1ac [][]     store 4 here when we start parse model and animation.
-+1c0 [][][][] store 0 here when we start parse model and animation.
+    + 28 [][][][] ???
+    + 38 [][][][] rotation dta for some sprite animation if flag 0x2000 in sprite animation data not set.
+    + 3d []       if this != 0 then we use +38 to calculate rotation matrix for sprite animation (if flag 0x2000 not set).
+    +1ac [][]     store 4 here when we start parse model and animation.
+    +1c0 [][][][] store 0 here when we start parse model and animation.
 
 
 800589a8 [][]     store tex page setting here during initialization.
@@ -283,123 +286,3 @@
 +02 [][]     store
 +04 [][][][] store w[src + 28] of snd file here.
 +08 [][][][] store size of snd instruments adpcm (w[src + 14]) here.
-
-
-
-allocated place for sprite data (size 0x164).
-+  0 [][][][] some flags.
-+  c [][][][] init with 0 in some cases.
-+ 10 [][][][] init with 0 in some cases.
-+ 14 [][][][] init with 0 in some cases.
-+ 18 [][][][] init with 0 in some cases.
-+ 1c [][][][] some multiplication of +82 with w[80058810 + 28] + 1
-+ 20 [][][][] pointer to +b4.
-+ 24 [][][][] pointer to +110.
-+ 28 [][][][] packet header 2C808080.
-+ 2b []       init with 0x2d.
-+ 2c [][]     scale of sprite. Init with 0x1000.
-+ 30 [][]     init with 0.
-+ 32 [][]     init with 0.
-+ 34 [][]     frame id to render. Init with 0.
-+ 36 [][]     some data from frame_data + 3 * sprite scale. Maybe frame offset.
-+ 38 [][]     some data from frame_data + 1 * sprite scale. Maybe frame offset.
-+ 3a [][]     init with 0.
-+ 3c [][][][] init with 0. Some flags.
-                0x00000004 - call some other function after packet creation.
-                0x00000008 - invert tile x and width.
-                0x00000010 - invert tile y and height.
-                0x0000ff00 - mask of add tiles.
-                0x00000800 - different queue inserting.
-                0x10000000 - add if we set scale.
-+ 3e [][]     hu[S3 + 3e] & 00f0 palette id to load.
-+ 40 [][][][] init with 0. Some flags.
-                0x000000fc - number_of_tiles in current render.
-                0x00001f00 - scale
-+ 44 [][][][] pointer to loaded sprite pack.
-+ 48 [][][][] pointer to sprite pack.
-+ 4c [][][][] 
-+ 50 [][][][] init with 0.
-+ 54 [][][][] pointer to some data related with sprite direction in sprite data file 0.
-+ 58 [][][][] pointer to animation data in sprite data file 0.
-+ 5c [][][][] pointer to animation data in sprite data file 0 + 6.
-+ 60 [][][][] pointer to 1st animation data in sprite data file 0.
-+ 64 [][][][] pointer to sprite sequence data from file 0.
-+ 68 [][][][] init with 0.
-+ 6c [][][][] init with 0. Pointer to itself (allocated struct start).
-+ 70 [][][][] init with 0.
-+ 7c [][][][] pointer to +f4.
-+ 80 [][]     init with 0. Maybe direction.
-+ 82 [][]     not inited but used co calculate +1c.
-+ 84 [][]     init with 0.
-+ 86 [][]     size of allocated data (0x164).
-+ 8c []       init with 0x10.
-+ 9e [][]     init with 0x0001.
-+ a0 [][][][] some flags related with +a8.
-+ a8 [][][][] init with 0. Some flags.
-                0x0001f800 - frame id data id in sprite file 0.
-+ ac [][][][] init with 0x00020000.
-                0x00000010 - invert offset x.
-                0xff000000 - animation id to play.
-+ b0 [][][][] init with 0.
-+ b4 start of some data (+20 points here)
-    + 00 [][]     rotation x.
-    + 02 [][]     rotation y.
-    + 04 [][]     rotation z.
-    + 06 [][]     scale x. Init with 0x1000.
-    + 08 [][]     scale y. Init with 0x1000.
-    + 0a [][]     scale z. Init with 0x1000.
-    + 0c [][]     rot matrix 00.
-    + 0e [][]     rot matrix 01.
-    + 10 [][]     rot matrix 02.
-    + 12 [][]     rot matrix 10.
-    + 14 [][]     rot matrix 11.
-    + 16 [][]     rot matrix 12.
-    + 18 [][]     rot matrix 20.
-    + 1a [][]     rot matrix 21.
-    + 1c [][]     rot matrix 22.
-    + 20 [][][][] translation x.
-    + 24 [][][][] translation y.
-    + 28 [][][][] translation z.
-    + 2c [][][][] pointer to allocated data for tiles data.
-    + 30 [][][][] pointer to allocated current render tile data
-        +00 [][]     x tile pos
-        +02 [][]     y tile pos
-        +04 []       texture x
-        +05 []       texture y
-        +06 []       width
-        +07 []       height
-        +08 []       width increase
-        +09 []       height inscease
-        +0a [][]     tpage
-        +0c [][]     clut id
-        +10 [][][][] 2c808080 - command + color vertex 0
-        +14 [][][][] flags
-                        0x00000007 - additional tile data id
-                        0x00000008 - ???
-                        0x00000010 - flip horizontal
-                        0x00000020 - flip vertical
-    + 34 [][][][] pointer to +124.
-    + 38 [][][][] pointer to next sprite structure. Init with 0.
-    + 3c []       offset x.
-    + 3d []       offset y.
-+ f4 start of some data (+7c points here)
-    + 00 [][][][] init with 0.
-    + 04 [][][][] init with 0.
-    + 08 [][][][] init with 0.
-    + 0c [][]     init with 0.
-    + 0e [][][][] some tx.
-    + 18 [][][][] init with 0. Some pointer.
-+110 start of texture data for sprite
-    + 00 [][][][] pointer to sprite file 1.
-    + 04 [][]     tx
-    + 06 [][]     ty
-    + 08 [][]     clut x
-    + 0a [][]     clut y
-    + 0c [][][][] pointer to sprite data 2.
-    + 10 [][][][] pointer to sprite data 0.
-+124 additional tile data (0x08 size 0x08 items)
-    + 00 []       translation x
-    + 01 []       translation y
-    + 02 [][]     rotation x
-    + 04 [][]     rotation y
-    + 06 [][]     rotation z

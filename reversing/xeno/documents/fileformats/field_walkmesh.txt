@@ -46,7 +46,7 @@ flags:
 00000600 - self walking speed index. Hardcoded as 0400 0800 1000 2000.
 00003800 - self walking rotation index. Hardcoded as 000C 000E 0000 0002 0004 0006 0008 000A.
 00020000 - auto sliding down.
-00200000 - 
+00200000 - animation_id set to 6.
 00400000 - we can go down on this material but can't go up. Auto sliding down.
 00800000 - we cant pass this material if walkmesh id == 0.
 10000000 0 unpassable if walkmesh id == 0.
