@@ -8,7 +8,7 @@
 
 
 
-SpriteFile::SpriteFile( File* file, Vram* vram ):
+SpriteFile::SpriteFile( File* file, Vram* vram, const int file_id, const int sprite_id ):
     File( file )
 {
     Initialise();
@@ -26,9 +26,16 @@ SpriteFile::SpriteFile( File* file, Vram* vram ):
     VectorTexForGen textures;
 
     PacketFile* sub_pack = new PacketFile( file );
+
     File* sprite0 = sub_pack->ExtractFile( 0 );
+    sprite0->WriteFile( "exported/debug/0" + IntToString( file_id ) + "_3_2dsprite_" + IntToString( sprite_id ) + "_0" );
     File* sprite1 = sub_pack->ExtractFile( 1 );
+    sprite1->WriteFile( "exported/debug/0" + IntToString( file_id ) + "_3_2dsprite_" + IntToString( sprite_id ) + "_1" );
     File* sprite2 = sub_pack->ExtractFile( 2 );
+    sprite2->WriteFile( "exported/debug/0" + IntToString( file_id ) + "_3_2dsprite_" + IntToString( sprite_id ) + "_2" );
+
+
+
     delete sub_pack;
 
 

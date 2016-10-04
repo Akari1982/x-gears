@@ -150,28 +150,15 @@ FieldModule::LoadMap( const int file_id )
     // part 3
     temp = field_pack->Extract( 3 );
     temp->WriteFile( "exported/debug/0" + IntToString( file_id ) + "_3_2dsprite" );
-/*
     PacketFile* pack = new PacketFile( temp );
-    //for( u32 i = 0; i < pack->GetNumberOfFiles(); ++i )
+    for( u32 i = 0; i < pack->GetNumberOfFiles(); ++i )
     {
-        File* file = pack->ExtractFile( 4 );
-        file->WriteFile( "exported/3_2dsprite_" + IntToString( 4 ) );
-
-        PacketFile* sub_pack = new PacketFile( file );
-        for( u32 j = 0; j < sub_pack->GetNumberOfFiles(); ++j )
-        {
-            File* sprite = sub_pack->ExtractFile( j );
-            sprite->WriteFile( "exported/3_2dsprite_" + IntToString( 4 ) + "_" + IntToString( j ) );
-            delete sprite;
-        }
-        delete sub_pack;
-
-        sprite = new SpriteFile( file, vram );
-
+        File* file = pack->ExtractFile( i );
+        file->WriteFile( "exported/debug/0" + IntToString( file_id ) + "_3_2dsprite_" + IntToString( i ) );
+        sprite = new SpriteFile( file, vram, file_id, i );
         delete file;
     }
     delete pack;
-*/
     delete temp;
 
 

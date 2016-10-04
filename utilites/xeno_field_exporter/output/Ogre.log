@@ -1,831 +1,1235 @@
-02:23:00: Creating resource group General
-02:23:00: Creating resource group Internal
-02:23:00: Creating resource group Autodetect
-02:23:00: SceneManagerFactory for type 'DefaultSceneManager' registered.
-02:23:00: Registering ResourceManager for type Material
-02:23:00: Registering ResourceManager for type Mesh
-02:23:00: Registering ResourceManager for type Skeleton
-02:23:00: MovableObjectFactory for type 'ParticleSystem' registered.
-02:23:00: ArchiveFactory for archive type FileSystem registered.
-02:23:00: ArchiveFactory for archive type Zip registered.
-02:23:00: ArchiveFactory for archive type EmbeddedZip registered.
-02:23:00: DDS codec registering
-02:23:00: FreeImage version: 3.15.3
-02:23:00: This program uses FreeImage, a free, open source image library supporting all common bitmap formats. See http://freeimage.sourceforge.net for details
-02:23:00: Supported formats: bmp,ico,jpg,jif,jpeg,jpe,jng,koa,iff,lbm,mng,pbm,pbm,pcd,pcx,pgm,pgm,png,ppm,ppm,ras,tga,targa,tif,tiff,wap,wbmp,wbm,psd,cut,xbm,xpm,gif,hdr,g3,sgi,exr,j2k,j2c,jp2,pfm,pct,pict,pic,3fr,arw,bay,bmq,cap,cine,cr2,crw,cs1,dc2,dcr,drf,dsc,dng,erf,fff,ia,iiq,k25,kc2,kdc,mdc,mef,mos,mrw,nef,nrw,orf,pef,ptx,pxn,qtk,raf,raw,rdc,rw2,rwl,rwz,sr2,srf,srw,sti
-02:23:00: Registering ResourceManager for type HighLevelGpuProgram
-02:23:00: Registering ResourceManager for type Compositor
-02:23:00: MovableObjectFactory for type 'Entity' registered.
-02:23:00: MovableObjectFactory for type 'Light' registered.
-02:23:00: MovableObjectFactory for type 'BillboardSet' registered.
-02:23:00: MovableObjectFactory for type 'ManualObject' registered.
-02:23:00: MovableObjectFactory for type 'BillboardChain' registered.
-02:23:00: MovableObjectFactory for type 'RibbonTrail' registered.
-02:23:00: *-*-* OGRE Initialising
-02:23:00: *-*-* Version 1.9.0 (Ghadamon)
-02:23:00: Loading library RenderSystem_Direct3D9.dll
-02:23:00: Installing plugin: D3D9 RenderSystem
-02:23:00: D3D9 : Direct3D9 Rendering Subsystem created.
-02:23:00: D3D9: Driver Detection Starts
-02:23:00: D3D9: Driver Detection Ends
-02:23:00: Plugin successfully installed
-02:23:00: CPU Identifier & Features
-02:23:00: -------------------------
-02:23:00:  *   CPU ID: GenuineIntel: Intel(R) Celeron(R) CPU G1820 @ 2.70GHz
-02:23:00:  *      SSE: yes
-02:23:00:  *     SSE2: yes
-02:23:00:  *     SSE3: yes
-02:23:00:  *      MMX: yes
-02:23:00:  *   MMXEXT: yes
-02:23:00:  *    3DNOW: no
-02:23:00:  * 3DNOWEXT: no
-02:23:00:  *     CMOV: yes
-02:23:00:  *      TSC: yes
-02:23:00:  *      FPU: yes
-02:23:00:  *      PRO: yes
-02:23:00:  *       HT: no
-02:23:00: -------------------------
-02:23:00: D3D9 : Subsystem Initialising
-02:23:00: Registering ResourceManager for type Texture
-02:23:00: Registering ResourceManager for type GpuProgram
-02:23:00: ***************************************
-02:23:00: *** D3D9 : Subsystem Initialised OK ***
-02:23:00: ***************************************
-02:23:00: D3D9RenderSystem::_createRenderWindow "QGearsWindow", 800x600 windowed  miscParams: title=Xenogears Exporter 
-02:23:00: D3D9 : Created D3D9 Rendering Window 'QGearsWindow' : 800x600, 32bpp
-02:23:00: D3D9 : WARNING - disabling VSync in windowed mode can cause timing issues at lower frame rates, turn VSync on if you observe this problem.
-02:23:00: D3D9: Vertex texture format supported - PF_A8R8G8B8
-02:23:00: D3D9: Vertex texture format supported - PF_B8G8R8A8
-02:23:00: D3D9: Vertex texture format supported - PF_FLOAT16_RGB
-02:23:00: D3D9: Vertex texture format supported - PF_FLOAT16_RGBA
-02:23:00: D3D9: Vertex texture format supported - PF_FLOAT32_RGB
-02:23:00: D3D9: Vertex texture format supported - PF_FLOAT32_RGBA
-02:23:00: D3D9: Vertex texture format supported - PF_R8G8B8A8
-02:23:00: D3D9: Vertex texture format supported - PF_DEPTH
-02:23:00: D3D9: Vertex texture format supported - PF_FLOAT16_R
-02:23:00: D3D9: Vertex texture format supported - PF_FLOAT32_R
-02:23:00: D3D9: Vertex texture format supported - PF_FLOAT16_GR
-02:23:00: D3D9: Vertex texture format supported - PF_FLOAT32_GR
-02:23:00: D3D9: Vertex texture format supported - PF_PVRTC_RGB2
-02:23:00: D3D9: Vertex texture format supported - PF_PVRTC_RGBA2
-02:23:00: D3D9: Vertex texture format supported - PF_PVRTC_RGB4
-02:23:00: D3D9: Vertex texture format supported - PF_PVRTC_RGBA4
-02:23:00: D3D9: Vertex texture format supported - PF_PVRTC2_2BPP
-02:23:00: D3D9: Vertex texture format supported - PF_PVRTC2_4BPP
-02:23:00: D3D9: Vertex texture format supported - PF_R11G11B10_FLOAT
-02:23:00: D3D9: Vertex texture format supported - PF_R8_UINT
-02:23:00: D3D9: Vertex texture format supported - PF_R8G8_UINT
-02:23:00: D3D9: Vertex texture format supported - PF_R8G8B8_UINT
-02:23:00: D3D9: Vertex texture format supported - PF_R8G8B8A8_UINT
-02:23:00: D3D9: Vertex texture format supported - PF_R16_UINT
-02:23:00: D3D9: Vertex texture format supported - PF_R16G16_UINT
-02:23:00: D3D9: Vertex texture format supported - PF_R16G16B16_UINT
-02:23:00: D3D9: Vertex texture format supported - PF_R16G16B16A16_UINT
-02:23:00: D3D9: Vertex texture format supported - PF_R32_UINT
-02:23:00: D3D9: Vertex texture format supported - PF_R32G32_UINT
-02:23:00: D3D9: Vertex texture format supported - PF_R32G32B32_UINT
-02:23:00: D3D9: Vertex texture format supported - PF_R32G32B32A32_UINT
-02:23:00: D3D9: Vertex texture format supported - PF_R8_SINT
-02:23:00: D3D9: Vertex texture format supported - PF_R8G8_SINT
-02:23:00: D3D9: Vertex texture format supported - PF_R8G8B8_SINT
-02:23:00: D3D9: Vertex texture format supported - PF_R8G8B8A8_SINT
-02:23:00: D3D9: Vertex texture format supported - PF_R16_SINT
-02:23:00: D3D9: Vertex texture format supported - PF_R16G16_SINT
-02:23:00: D3D9: Vertex texture format supported - PF_R16G16B16_SINT
-02:23:00: D3D9: Vertex texture format supported - PF_R16G16B16A16_SINT
-02:23:00: D3D9: Vertex texture format supported - PF_R32_SINT
-02:23:00: D3D9: Vertex texture format supported - PF_R32G32_SINT
-02:23:00: D3D9: Vertex texture format supported - PF_R32G32B32_SINT
-02:23:00: D3D9: Vertex texture format supported - PF_R32G32B32A32_SINT
-02:23:00: D3D9: Vertex texture format supported - PF_R9G9B9E5_SHAREDEXP
-02:23:00: D3D9: Vertex texture format supported - PF_BC4_UNORM
-02:23:00: D3D9: Vertex texture format supported - PF_BC4_SNORM
-02:23:00: D3D9: Vertex texture format supported - PF_BC5_UNORM
-02:23:00: D3D9: Vertex texture format supported - PF_BC5_SNORM
-02:23:00: D3D9: Vertex texture format supported - PF_BC6H_UF16
-02:23:00: D3D9: Vertex texture format supported - PF_BC6H_SF16
-02:23:00: D3D9: Vertex texture format supported - PF_BC7_UNORM
-02:23:00: D3D9: Vertex texture format supported - PF_BC7_UNORM_SRGB
-02:23:00: D3D9: Vertex texture format supported - PF_R8
-02:23:00: D3D9: Vertex texture format supported - PF_RG8
-02:23:00: D3D9: Vertex texture format supported - PF_R8_SNORM
-02:23:00: D3D9: Vertex texture format supported - PF_R8G8_SNORM
-02:23:00: D3D9: Vertex texture format supported - PF_R8G8B8_SNORM
-02:23:00: D3D9: Vertex texture format supported - PF_R8G8B8A8_SNORM
-02:23:00: D3D9: Vertex texture format supported - PF_R16_SNORM
-02:23:00: D3D9: Vertex texture format supported - PF_R16G16_SNORM
-02:23:00: D3D9: Vertex texture format supported - PF_R16G16B16_SNORM
-02:23:00: D3D9: Vertex texture format supported - PF_R16G16B16A16_SNORM
-02:23:00: D3D9: Vertex texture format supported - PF_ETC1_RGB8
-02:23:00: D3D9: Vertex texture format supported - PF_ETC2_RGB8
-02:23:00: D3D9: Vertex texture format supported - PF_ETC2_RGBA8
-02:23:00: D3D9: Vertex texture format supported - PF_ETC2_RGB8A1
-02:23:00: D3D9: Vertex texture format supported - PF_ATC_RGB
-02:23:00: D3D9: Vertex texture format supported - PF_ATC_RGBA_EXPLICIT_ALPHA
-02:23:00: D3D9: Vertex texture format supported - PF_ATC_RGBA_INTERPOLATED_ALPHA
-02:23:00: RenderSystem capabilities
-02:23:00: -------------------------
-02:23:00: RenderSystem Name: Direct3D9 Rendering Subsystem
-02:23:00: GPU Vendor: nvidia
-02:23:00: Device Name: Monitor-1-NVIDIA GeForce GTX 750
-02:23:00: Driver Version: 10.18.13.5560
-02:23:00:  * Fixed function pipeline: yes
-02:23:00:  * Hardware generation of mipmaps: yes
-02:23:00:  * Texture blending: yes
-02:23:00:  * Anisotropic texture filtering: yes
-02:23:00:  * Dot product texture operation: yes
-02:23:00:  * Cube mapping: yes
-02:23:00:  * Hardware stencil buffer: yes
-02:23:00:    - Stencil depth: 8
-02:23:00:    - Two sided stencil support: yes
-02:23:00:    - Wrap stencil values: yes
-02:23:00:  * Hardware vertex / index buffers: yes
-02:23:00:  * Vertex programs: yes
-02:23:00:  * Number of floating-point constants for vertex programs: 256
-02:23:00:  * Number of integer constants for vertex programs: 16
-02:23:00:  * Number of boolean constants for vertex programs: 16
-02:23:00:  * Fragment programs: yes
-02:23:00:  * Number of floating-point constants for fragment programs: 224
-02:23:00:  * Number of integer constants for fragment programs: 16
-02:23:00:  * Number of boolean constants for fragment programs: 16
-02:23:00:  * Geometry programs: no
-02:23:00:  * Number of floating-point constants for geometry programs: 0
-02:23:00:  * Number of integer constants for geometry programs: 0
-02:23:00:  * Number of boolean constants for geometry programs: 0
-02:23:00:  * Tesselation Hull programs: no
-02:23:00:  * Number of floating-point constants for tesselation hull programs: 0
-02:23:00:  * Number of integer constants for tesselation hull programs: 0
-02:23:00:  * Number of boolean constants for tesselation hull programs: 0
-02:23:00:  * Tesselation Domain programs: no
-02:23:00:  * Number of floating-point constants for tesselation domain programs: 0
-02:23:00:  * Number of integer constants for tesselation domain programs: 0
-02:23:00:  * Number of boolean constants for tesselation domain programs: 0
-02:23:00:  * Compute programs: no
-02:23:00:  * Number of floating-point constants for compute programs: 0
-02:23:00:  * Number of integer constants for compute programs: 0
-02:23:00:  * Number of boolean constants for compute programs: 0
-02:23:00:  * Supported Shader Profiles: hlsl ps_1_1 ps_1_2 ps_1_3 ps_1_4 ps_2_0 ps_2_a ps_2_b ps_2_x ps_3_0 vs_1_1 vs_2_0 vs_2_a vs_2_x vs_3_0
-02:23:00:  * Texture Compression: yes
-02:23:00:    - DXT: yes
-02:23:00:    - VTC: no
-02:23:00:    - PVRTC: no
-02:23:00:    - ATC: no
-02:23:00:    - ETC1: no
-02:23:00:    - ETC2: no
-02:23:00:    - BC4/BC5: no
-02:23:00:    - BC6H/BC7: no
-02:23:00:  * Scissor Rectangle: yes
-02:23:00:  * Hardware Occlusion Query: yes
-02:23:00:  * User clip planes: yes
-02:23:00:  * VET_UBYTE4 vertex element type: yes
-02:23:00:  * Infinite far plane projection: yes
-02:23:00:  * Hardware render-to-texture: yes
-02:23:00:  * Floating point textures: yes
-02:23:00:  * Non-power-of-two textures: yes
-02:23:00:  * 1d textures: yes
-02:23:00:  * Volume textures: yes
-02:23:00:  * Multiple Render Targets: 4
-02:23:00:    - With different bit depths: yes
-02:23:00:  * Point Sprites: yes
-02:23:00:  * Extended point parameters: yes
-02:23:00:  * Max Point Size: 8192
-02:23:00:  * Vertex texture fetch: yes
-02:23:00:  * Number of world matrices: 0
-02:23:00:  * Number of texture units: 8
-02:23:00:  * Stencil buffer depth: 8
-02:23:00:  * Number of vertex blend matrices: 0
-02:23:00:    - Max vertex textures: 4
-02:23:00:    - Vertex textures shared: no
-02:23:00:  * Render to Vertex Buffer : no
-02:23:00:  * Hardware Atomic Counters: no
-02:23:00:  * DirectX per stage constants: yes
-02:23:00: DefaultWorkQueue('Root') initialising on thread 1708.
-02:23:00: Particle Renderer Type 'billboard' registered
-02:23:00: DefaultWorkQueue('Root')::WorkerFunc - thread 1340 starting.
-02:23:00: DefaultWorkQueue('Root')::WorkerFunc - thread c34 starting.
-02:23:00: OverlayElementFactory for type Panel registered.
-02:23:00: OverlayElementFactory for type BorderPanel registered.
-02:23:00: OverlayElementFactory for type TextArea registered.
-02:23:00: Registering ResourceManager for type Font
-02:23:00: Added resource location './data' of type 'FileSystem' to resource group 'General'
-02:23:00: Added resource location './exported' of type 'FileSystem' to resource group 'General'
-02:23:00: Creating resource group Bootstrap
-02:23:00: Added resource location './data/OgreCore.zip' of type 'Zip' to resource group 'Bootstrap'
-02:23:00: Parsing scripts for resource group Autodetect
-02:23:00: Finished parsing scripts for resource group Autodetect
-02:23:00: Creating resources for group Autodetect
-02:23:00: All done
-02:23:00: Parsing scripts for resource group Bootstrap
-02:23:00: Parsing script OgreCore.material
-02:23:00: Parsing script OgreProfiler.material
-02:23:00: Parsing script Ogre.fontdef
-02:23:00: Parsing script OgreDebugPanel.overlay
-02:23:00: Texture: New_Ogre_Border_Center.png: Loading 1 faces(PF_A8R8G8B8,256x128x1) Internal format is PF_A8R8G8B8,256x128x1.
-02:23:00: Texture: New_Ogre_Border.png: Loading 1 faces(PF_A8R8G8B8,256x256x1) Internal format is PF_A8R8G8B8,256x256x1.
-02:23:00: Texture: New_Ogre_Border_Break.png: Loading 1 faces(PF_A8R8G8B8,32x32x1) Internal format is PF_A8R8G8B8,32x32x1.
-02:23:00: Texture: ogretext.png: Loading 1 faces(PF_A8R8G8B8,256x128x1) Internal format is PF_A8R8G8B8,256x128x1.
-02:23:00: Parsing script OgreLoadingPanel.overlay
-02:23:00: Finished parsing scripts for resource group Bootstrap
-02:23:00: Creating resources for group Bootstrap
-02:23:00: All done
-02:23:00: Parsing scripts for resource group General
-02:23:00: Parsing script debug.material
-02:23:00: Parsing script system.fontdef
-02:23:00: Finished parsing scripts for resource group General
-02:23:00: Creating resources for group General
-02:23:00: All done
-02:23:00: Parsing scripts for resource group Internal
-02:23:00: Finished parsing scripts for resource group Internal
-02:23:00: Creating resources for group Internal
-02:23:00: All done
-02:23:00: Texture: courier_new_9_75.png: Loading 1 faces(PF_A8R8G8B8,256x256x1) with 0 generated mipmaps from Image. Internal format is PF_A8R8G8B8,256x256x1.
-02:23:01: Exporting bones..
-02:23:01: Bones exported.
-02:23:01: Exporting animations, count=1
-02:23:01: Exporting animation: Idle
-02:23:01: Animation exported.
-02:23:01: Skeleton: Loading models/field_maps/0632/0.skeleton
-02:23:01: MeshSerializer writing mesh data to stream ...
-02:23:01: File header written.
-02:23:01: Writing mesh data...
-02:23:01: Writing submesh...
-02:23:01: Exporting submesh texture aliases...
-02:23:01: Submesh texture aliases exported.
-02:23:01: Exporting dedicated geometry bone assignments...
-02:23:01: Dedicated geometry bone assignments exported.
-02:23:01: Submesh exported.
-02:23:01: Writing submesh...
-02:23:01: Exporting submesh texture aliases...
-02:23:01: Submesh texture aliases exported.
-02:23:01: Exporting dedicated geometry bone assignments...
-02:23:01: Dedicated geometry bone assignments exported.
-02:23:01: Submesh exported.
-02:23:01: Exporting skeleton link...
-02:23:01: Skeleton link exported.
-02:23:01: Exporting bounds information....
-02:23:01: Bounds information exported.
-02:23:01: Exporting submesh name table...
-02:23:01: Submesh name table exported.
-02:23:01: Mesh data exported.
-02:23:01: MeshSerializer export successful.
-02:23:01: Exporting bones..
-02:23:01: Bones exported.
-02:23:01: Exporting animations, count=1
-02:23:01: Exporting animation: Idle
-02:23:01: Animation exported.
-02:23:01: Skeleton: Loading models/field_maps/0632/1.skeleton
-02:23:01: MeshSerializer writing mesh data to stream ...
-02:23:01: File header written.
-02:23:01: Writing mesh data...
-02:23:01: Writing submesh...
-02:23:01: Exporting submesh texture aliases...
-02:23:01: Submesh texture aliases exported.
-02:23:01: Exporting dedicated geometry bone assignments...
-02:23:01: Dedicated geometry bone assignments exported.
-02:23:01: Submesh exported.
-02:23:01: Exporting skeleton link...
-02:23:01: Skeleton link exported.
-02:23:01: Exporting bounds information....
-02:23:01: Bounds information exported.
-02:23:01: Exporting submesh name table...
-02:23:01: Submesh name table exported.
-02:23:01: Mesh data exported.
-02:23:01: MeshSerializer export successful.
-02:23:01: Exporting bones..
-02:23:01: Bones exported.
-02:23:01: Exporting animations, count=1
-02:23:01: Exporting animation: Idle
-02:23:01: Animation exported.
-02:23:01: Skeleton: Loading models/field_maps/0632/2.skeleton
-02:23:01: MeshSerializer writing mesh data to stream ...
-02:23:01: File header written.
-02:23:01: Writing mesh data...
-02:23:01: Writing submesh...
-02:23:01: Exporting submesh texture aliases...
-02:23:01: Submesh texture aliases exported.
-02:23:01: Exporting dedicated geometry bone assignments...
-02:23:01: Dedicated geometry bone assignments exported.
-02:23:01: Submesh exported.
-02:23:01: Exporting skeleton link...
-02:23:01: Skeleton link exported.
-02:23:01: Exporting bounds information....
-02:23:01: Bounds information exported.
-02:23:01: Exporting submesh name table...
-02:23:01: Submesh name table exported.
-02:23:01: Mesh data exported.
-02:23:01: MeshSerializer export successful.
-02:23:01: Exporting bones..
-02:23:01: Bones exported.
-02:23:01: Exporting animations, count=1
-02:23:01: Exporting animation: Idle
-02:23:01: Animation exported.
-02:23:01: Skeleton: Loading models/field_maps/0632/3.skeleton
-02:23:01: MeshSerializer writing mesh data to stream ...
-02:23:01: File header written.
-02:23:01: Writing mesh data...
-02:23:01: Writing submesh...
-02:23:01: Exporting submesh texture aliases...
-02:23:01: Submesh texture aliases exported.
-02:23:01: Exporting dedicated geometry bone assignments...
-02:23:01: Dedicated geometry bone assignments exported.
-02:23:01: Submesh exported.
-02:23:01: Writing submesh...
-02:23:01: Exporting submesh texture aliases...
-02:23:01: Submesh texture aliases exported.
-02:23:01: Exporting dedicated geometry bone assignments...
-02:23:01: Dedicated geometry bone assignments exported.
-02:23:01: Submesh exported.
-02:23:01: Exporting skeleton link...
-02:23:01: Skeleton link exported.
-02:23:01: Exporting bounds information....
-02:23:01: Bounds information exported.
-02:23:01: Exporting submesh name table...
-02:23:01: Submesh name table exported.
-02:23:01: Mesh data exported.
-02:23:01: MeshSerializer export successful.
-02:23:01: Exporting bones..
-02:23:01: Bones exported.
-02:23:01: Exporting animations, count=1
-02:23:01: Exporting animation: Idle
-02:23:01: Animation exported.
-02:23:01: Skeleton: Loading models/field_maps/0632/4.skeleton
-02:23:01: MeshSerializer writing mesh data to stream ...
-02:23:01: File header written.
-02:23:01: Writing mesh data...
-02:23:01: Writing submesh...
-02:23:01: Exporting submesh texture aliases...
-02:23:01: Submesh texture aliases exported.
-02:23:01: Exporting dedicated geometry bone assignments...
-02:23:01: Dedicated geometry bone assignments exported.
-02:23:01: Submesh exported.
-02:23:01: Writing submesh...
-02:23:01: Exporting submesh texture aliases...
-02:23:01: Submesh texture aliases exported.
-02:23:01: Exporting dedicated geometry bone assignments...
-02:23:01: Dedicated geometry bone assignments exported.
-02:23:01: Submesh exported.
-02:23:01: Writing submesh...
-02:23:01: Exporting submesh texture aliases...
-02:23:01: Submesh texture aliases exported.
-02:23:01: Exporting dedicated geometry bone assignments...
-02:23:01: Dedicated geometry bone assignments exported.
-02:23:01: Submesh exported.
-02:23:01: Exporting skeleton link...
-02:23:01: Skeleton link exported.
-02:23:01: Exporting bounds information....
-02:23:01: Bounds information exported.
-02:23:01: Exporting submesh name table...
-02:23:01: Submesh name table exported.
-02:23:01: Mesh data exported.
-02:23:01: MeshSerializer export successful.
-02:23:01: Exporting bones..
-02:23:01: Bones exported.
-02:23:01: Exporting animations, count=1
-02:23:01: Exporting animation: Idle
-02:23:01: Animation exported.
-02:23:01: Skeleton: Loading models/field_maps/0632/5.skeleton
-02:23:01: MeshSerializer writing mesh data to stream ...
-02:23:01: File header written.
-02:23:01: Writing mesh data...
-02:23:01: Writing submesh...
-02:23:01: Exporting submesh texture aliases...
-02:23:01: Submesh texture aliases exported.
-02:23:01: Exporting dedicated geometry bone assignments...
-02:23:01: Dedicated geometry bone assignments exported.
-02:23:01: Submesh exported.
-02:23:01: Exporting skeleton link...
-02:23:01: Skeleton link exported.
-02:23:01: Exporting bounds information....
-02:23:01: Bounds information exported.
-02:23:01: Exporting submesh name table...
-02:23:01: Submesh name table exported.
-02:23:01: Mesh data exported.
-02:23:01: MeshSerializer export successful.
-02:23:01: Exporting bones..
-02:23:01: Bones exported.
-02:23:01: Exporting animations, count=1
-02:23:01: Exporting animation: Idle
-02:23:01: Animation exported.
-02:23:01: Skeleton: Loading models/field_maps/0632/6.skeleton
-02:23:01: MeshSerializer writing mesh data to stream ...
-02:23:01: File header written.
-02:23:01: Writing mesh data...
-02:23:01: Writing submesh...
-02:23:01: Exporting submesh texture aliases...
-02:23:01: Submesh texture aliases exported.
-02:23:01: Exporting dedicated geometry bone assignments...
-02:23:01: Dedicated geometry bone assignments exported.
-02:23:01: Submesh exported.
-02:23:01: Exporting skeleton link...
-02:23:01: Skeleton link exported.
-02:23:01: Exporting bounds information....
-02:23:01: Bounds information exported.
-02:23:01: Exporting submesh name table...
-02:23:01: Submesh name table exported.
-02:23:01: Mesh data exported.
-02:23:01: MeshSerializer export successful.
-02:23:01: Exporting bones..
-02:23:01: Bones exported.
-02:23:01: Exporting animations, count=1
-02:23:01: Exporting animation: Idle
-02:23:01: Animation exported.
-02:23:01: Skeleton: Loading models/field_maps/0632/7.skeleton
-02:23:01: MeshSerializer writing mesh data to stream ...
-02:23:01: File header written.
-02:23:01: Writing mesh data...
-02:23:01: Writing submesh...
-02:23:01: Exporting submesh texture aliases...
-02:23:01: Submesh texture aliases exported.
-02:23:01: Exporting dedicated geometry bone assignments...
-02:23:01: Dedicated geometry bone assignments exported.
-02:23:01: Submesh exported.
-02:23:01: Exporting skeleton link...
-02:23:01: Skeleton link exported.
-02:23:01: Exporting bounds information....
-02:23:01: Bounds information exported.
-02:23:01: Exporting submesh name table...
-02:23:01: Submesh name table exported.
-02:23:01: Mesh data exported.
-02:23:01: MeshSerializer export successful.
-02:23:01: Exporting bones..
-02:23:01: Bones exported.
-02:23:01: Exporting animations, count=1
-02:23:01: Exporting animation: Idle
-02:23:01: Animation exported.
-02:23:01: Skeleton: Loading models/field_maps/0632/8.skeleton
-02:23:01: MeshSerializer writing mesh data to stream ...
-02:23:01: File header written.
-02:23:01: Writing mesh data...
-02:23:01: Writing submesh...
-02:23:01: Exporting submesh texture aliases...
-02:23:01: Submesh texture aliases exported.
-02:23:01: Exporting dedicated geometry bone assignments...
-02:23:01: Dedicated geometry bone assignments exported.
-02:23:01: Submesh exported.
-02:23:01: Exporting skeleton link...
-02:23:01: Skeleton link exported.
-02:23:01: Exporting bounds information....
-02:23:01: Bounds information exported.
-02:23:01: Exporting submesh name table...
-02:23:01: Submesh name table exported.
-02:23:01: Mesh data exported.
-02:23:01: MeshSerializer export successful.
-02:23:01: Exporting bones..
-02:23:01: Bones exported.
-02:23:01: Exporting animations, count=1
-02:23:01: Exporting animation: Idle
-02:23:01: Animation exported.
-02:23:01: Skeleton: Loading models/field_maps/0632/9.skeleton
-02:23:01: MeshSerializer writing mesh data to stream ...
-02:23:01: File header written.
-02:23:01: Writing mesh data...
-02:23:01: Writing submesh...
-02:23:01: Exporting submesh texture aliases...
-02:23:01: Submesh texture aliases exported.
-02:23:01: Exporting dedicated geometry bone assignments...
-02:23:01: Dedicated geometry bone assignments exported.
-02:23:01: Submesh exported.
-02:23:01: Exporting skeleton link...
-02:23:01: Skeleton link exported.
-02:23:01: Exporting bounds information....
-02:23:01: Bounds information exported.
-02:23:01: Exporting submesh name table...
-02:23:01: Submesh name table exported.
-02:23:01: Mesh data exported.
-02:23:01: MeshSerializer export successful.
-02:23:01: Exporting bones..
-02:23:01: Bones exported.
-02:23:01: Exporting animations, count=1
-02:23:01: Exporting animation: Idle
-02:23:01: Animation exported.
-02:23:01: Skeleton: Loading models/field_maps/0632/10.skeleton
-02:23:01: MeshSerializer writing mesh data to stream ...
-02:23:01: File header written.
-02:23:01: Writing mesh data...
-02:23:01: Writing submesh...
-02:23:01: Exporting submesh texture aliases...
-02:23:01: Submesh texture aliases exported.
-02:23:01: Exporting dedicated geometry bone assignments...
-02:23:01: Dedicated geometry bone assignments exported.
-02:23:01: Submesh exported.
-02:23:01: Writing submesh...
-02:23:01: Exporting submesh texture aliases...
-02:23:01: Submesh texture aliases exported.
-02:23:01: Exporting dedicated geometry bone assignments...
-02:23:01: Dedicated geometry bone assignments exported.
-02:23:01: Submesh exported.
-02:23:01: Writing submesh...
-02:23:01: Exporting submesh texture aliases...
-02:23:01: Submesh texture aliases exported.
-02:23:01: Exporting dedicated geometry bone assignments...
-02:23:01: Dedicated geometry bone assignments exported.
-02:23:01: Submesh exported.
-02:23:01: Exporting skeleton link...
-02:23:01: Skeleton link exported.
-02:23:01: Exporting bounds information....
-02:23:01: Bounds information exported.
-02:23:01: Exporting submesh name table...
-02:23:01: Submesh name table exported.
-02:23:01: Mesh data exported.
-02:23:01: MeshSerializer export successful.
-02:23:01: Exporting bones..
-02:23:01: Bones exported.
-02:23:01: Exporting animations, count=1
-02:23:01: Exporting animation: Idle
-02:23:01: Animation exported.
-02:23:01: Skeleton: Loading models/field_maps/0632/11.skeleton
-02:23:01: MeshSerializer writing mesh data to stream ...
-02:23:01: File header written.
-02:23:01: Writing mesh data...
-02:23:01: Writing submesh...
-02:23:01: Exporting submesh texture aliases...
-02:23:01: Submesh texture aliases exported.
-02:23:01: Exporting dedicated geometry bone assignments...
-02:23:01: Dedicated geometry bone assignments exported.
-02:23:01: Submesh exported.
-02:23:01: Writing submesh...
-02:23:01: Exporting submesh texture aliases...
-02:23:01: Submesh texture aliases exported.
-02:23:01: Exporting dedicated geometry bone assignments...
-02:23:01: Dedicated geometry bone assignments exported.
-02:23:01: Submesh exported.
-02:23:01: Exporting skeleton link...
-02:23:01: Skeleton link exported.
-02:23:01: Exporting bounds information....
-02:23:01: Bounds information exported.
-02:23:01: Exporting submesh name table...
-02:23:01: Submesh name table exported.
-02:23:01: Mesh data exported.
-02:23:01: MeshSerializer export successful.
-02:23:01: Exporting bones..
-02:23:01: Bones exported.
-02:23:01: Exporting animations, count=1
-02:23:01: Exporting animation: Idle
-02:23:01: Animation exported.
-02:23:01: Skeleton: Loading models/field_maps/0632/12.skeleton
-02:23:01: MeshSerializer writing mesh data to stream ...
-02:23:01: File header written.
-02:23:01: Writing mesh data...
-02:23:01: Writing submesh...
-02:23:01: Exporting submesh texture aliases...
-02:23:01: Submesh texture aliases exported.
-02:23:01: Exporting dedicated geometry bone assignments...
-02:23:01: Dedicated geometry bone assignments exported.
-02:23:01: Submesh exported.
-02:23:01: Writing submesh...
-02:23:01: Exporting submesh texture aliases...
-02:23:01: Submesh texture aliases exported.
-02:23:01: Exporting dedicated geometry bone assignments...
-02:23:01: Dedicated geometry bone assignments exported.
-02:23:01: Submesh exported.
-02:23:01: Exporting skeleton link...
-02:23:01: Skeleton link exported.
-02:23:01: Exporting bounds information....
-02:23:01: Bounds information exported.
-02:23:01: Exporting submesh name table...
-02:23:01: Submesh name table exported.
-02:23:01: Mesh data exported.
-02:23:01: MeshSerializer export successful.
-02:23:01: Exporting bones..
-02:23:01: Bones exported.
-02:23:01: Exporting animations, count=1
-02:23:01: Exporting animation: Idle
-02:23:01: Animation exported.
-02:23:01: Skeleton: Loading models/field_maps/0632/13.skeleton
-02:23:01: MeshSerializer writing mesh data to stream ...
-02:23:01: File header written.
-02:23:01: Writing mesh data...
-02:23:01: Writing submesh...
-02:23:01: Exporting submesh texture aliases...
-02:23:01: Submesh texture aliases exported.
-02:23:01: Exporting dedicated geometry bone assignments...
-02:23:01: Dedicated geometry bone assignments exported.
-02:23:01: Submesh exported.
-02:23:01: Exporting skeleton link...
-02:23:01: Skeleton link exported.
-02:23:01: Exporting bounds information....
-02:23:01: Bounds information exported.
-02:23:01: Exporting submesh name table...
-02:23:01: Submesh name table exported.
-02:23:01: Mesh data exported.
-02:23:01: MeshSerializer export successful.
-02:23:01: Exporting bones..
-02:23:01: Bones exported.
-02:23:01: Exporting animations, count=1
-02:23:01: Exporting animation: Idle
-02:23:01: Animation exported.
-02:23:01: Skeleton: Loading models/field_maps/0632/14.skeleton
-02:23:01: MeshSerializer writing mesh data to stream ...
-02:23:01: File header written.
-02:23:01: Writing mesh data...
-02:23:01: Writing submesh...
-02:23:01: Exporting submesh texture aliases...
-02:23:01: Submesh texture aliases exported.
-02:23:01: Exporting dedicated geometry bone assignments...
-02:23:01: Dedicated geometry bone assignments exported.
-02:23:01: Submesh exported.
-02:23:01: Exporting skeleton link...
-02:23:01: Skeleton link exported.
-02:23:01: Exporting bounds information....
-02:23:01: Bounds information exported.
-02:23:01: Exporting submesh name table...
-02:23:01: Submesh name table exported.
-02:23:01: Mesh data exported.
-02:23:01: MeshSerializer export successful.
-02:23:01: Exporting bones..
-02:23:01: Bones exported.
-02:23:01: Exporting animations, count=1
-02:23:01: Exporting animation: Idle
-02:23:01: Animation exported.
-02:23:01: Skeleton: Loading models/field_maps/0632/15.skeleton
-02:23:01: MeshSerializer writing mesh data to stream ...
-02:23:01: File header written.
-02:23:01: Writing mesh data...
-02:23:01: Writing submesh...
-02:23:01: Exporting submesh texture aliases...
-02:23:01: Submesh texture aliases exported.
-02:23:01: Exporting dedicated geometry bone assignments...
-02:23:01: Dedicated geometry bone assignments exported.
-02:23:01: Submesh exported.
-02:23:01: Writing submesh...
-02:23:01: Exporting submesh texture aliases...
-02:23:01: Submesh texture aliases exported.
-02:23:01: Exporting dedicated geometry bone assignments...
-02:23:01: Dedicated geometry bone assignments exported.
-02:23:01: Submesh exported.
-02:23:01: Exporting skeleton link...
-02:23:01: Skeleton link exported.
-02:23:01: Exporting bounds information....
-02:23:01: Bounds information exported.
-02:23:01: Exporting submesh name table...
-02:23:01: Submesh name table exported.
-02:23:01: Mesh data exported.
-02:23:01: MeshSerializer export successful.
-02:23:01: Exporting bones..
-02:23:01: Bones exported.
-02:23:01: Exporting animations, count=1
-02:23:01: Exporting animation: Idle
-02:23:01: Animation exported.
-02:23:01: Skeleton: Loading models/field_maps/0632/16.skeleton
-02:23:01: MeshSerializer writing mesh data to stream ...
-02:23:01: File header written.
-02:23:01: Writing mesh data...
-02:23:01: Writing submesh...
-02:23:01: Exporting submesh texture aliases...
-02:23:01: Submesh texture aliases exported.
-02:23:01: Exporting dedicated geometry bone assignments...
-02:23:01: Dedicated geometry bone assignments exported.
-02:23:01: Submesh exported.
-02:23:01: Writing submesh...
-02:23:01: Exporting submesh texture aliases...
-02:23:01: Submesh texture aliases exported.
-02:23:01: Exporting dedicated geometry bone assignments...
-02:23:01: Dedicated geometry bone assignments exported.
-02:23:01: Submesh exported.
-02:23:01: Exporting skeleton link...
-02:23:01: Skeleton link exported.
-02:23:01: Exporting bounds information....
-02:23:01: Bounds information exported.
-02:23:01: Exporting submesh name table...
-02:23:01: Submesh name table exported.
-02:23:01: Mesh data exported.
-02:23:01: MeshSerializer export successful.
-02:23:01: Exporting bones..
-02:23:01: Bones exported.
-02:23:01: Exporting animations, count=1
-02:23:01: Exporting animation: Idle
-02:23:01: Animation exported.
-02:23:01: Skeleton: Loading models/field_maps/0632/17.skeleton
-02:23:01: MeshSerializer writing mesh data to stream ...
-02:23:01: File header written.
-02:23:01: Writing mesh data...
-02:23:01: Writing submesh...
-02:23:01: Exporting submesh texture aliases...
-02:23:01: Submesh texture aliases exported.
-02:23:01: Exporting dedicated geometry bone assignments...
-02:23:01: Dedicated geometry bone assignments exported.
-02:23:01: Submesh exported.
-02:23:01: Writing submesh...
-02:23:01: Exporting submesh texture aliases...
-02:23:01: Submesh texture aliases exported.
-02:23:01: Exporting dedicated geometry bone assignments...
-02:23:01: Dedicated geometry bone assignments exported.
-02:23:01: Submesh exported.
-02:23:01: Exporting skeleton link...
-02:23:01: Skeleton link exported.
-02:23:01: Exporting bounds information....
-02:23:01: Bounds information exported.
-02:23:01: Exporting submesh name table...
-02:23:01: Submesh name table exported.
-02:23:01: Mesh data exported.
-02:23:01: MeshSerializer export successful.
-02:23:01: Exporting bones..
-02:23:01: Bones exported.
-02:23:01: Exporting animations, count=1
-02:23:01: Exporting animation: Idle
-02:23:01: Animation exported.
-02:23:01: Skeleton: Loading models/field_maps/0632/18.skeleton
-02:23:01: MeshSerializer writing mesh data to stream ...
-02:23:01: File header written.
-02:23:01: Writing mesh data...
-02:23:01: Writing submesh...
-02:23:01: Exporting submesh texture aliases...
-02:23:01: Submesh texture aliases exported.
-02:23:01: Exporting dedicated geometry bone assignments...
-02:23:01: Dedicated geometry bone assignments exported.
-02:23:01: Submesh exported.
-02:23:01: Exporting skeleton link...
-02:23:01: Skeleton link exported.
-02:23:01: Exporting bounds information....
-02:23:01: Bounds information exported.
-02:23:01: Exporting submesh name table...
-02:23:01: Submesh name table exported.
-02:23:01: Mesh data exported.
-02:23:01: MeshSerializer export successful.
-02:23:02: MaterialSerializer : writing material xeno/model/0632 to queue.
-02:23:02: MaterialSerializer : parsing texture layer.
-02:23:02: MaterialSerializer : done.
-02:23:02: MaterialSerializer : writing material(s) to material script : exported/models/field_maps/0632/0632.material
-02:23:02: MaterialSerializer : done.
-02:23:02: Mesh: Loading models/field_maps/0632/0.mesh.
-02:23:02: Texture: models/field_maps/0632/0632.png: Loading 1 faces(PF_A8R8G8B8,4096x512x1) Internal format is PF_A8R8G8B8,4096x512x1.
-02:23:02: Mesh: Loading models/field_maps/0632/1.mesh.
-02:23:02: Mesh: Loading models/field_maps/0632/2.mesh.
-02:23:02: Mesh: Loading models/field_maps/0632/3.mesh.
-02:23:02: Mesh: Loading models/field_maps/0632/4.mesh.
-02:23:02: Mesh: Loading models/field_maps/0632/5.mesh.
-02:23:02: Mesh: Loading models/field_maps/0632/6.mesh.
-02:23:02: Mesh: Loading models/field_maps/0632/7.mesh.
-02:23:02: Mesh: Loading models/field_maps/0632/8.mesh.
-02:23:02: Mesh: Loading models/field_maps/0632/9.mesh.
-02:23:02: Mesh: Loading models/field_maps/0632/10.mesh.
-02:23:02: Mesh: Loading models/field_maps/0632/11.mesh.
-02:23:02: Mesh: Loading models/field_maps/0632/12.mesh.
-02:23:02: Mesh: Loading models/field_maps/0632/13.mesh.
-02:23:02: Mesh: Loading models/field_maps/0632/14.mesh.
-02:23:02: Mesh: Loading models/field_maps/0632/15.mesh.
-02:23:02: Mesh: Loading models/field_maps/0632/16.mesh.
-02:23:02: Mesh: Loading models/field_maps/0632/17.mesh.
-02:23:02: Mesh: Loading models/field_maps/0632/18.mesh.
-02:23:02: Font BlueHighway using texture size 512x512
-02:23:02: Info: Freetype returned null for character 127 in font BlueHighway
-02:23:02: Info: Freetype returned null for character 128 in font BlueHighway
-02:23:02: Info: Freetype returned null for character 129 in font BlueHighway
-02:23:02: Info: Freetype returned null for character 130 in font BlueHighway
-02:23:02: Info: Freetype returned null for character 131 in font BlueHighway
-02:23:02: Info: Freetype returned null for character 132 in font BlueHighway
-02:23:02: Info: Freetype returned null for character 133 in font BlueHighway
-02:23:02: Info: Freetype returned null for character 134 in font BlueHighway
-02:23:02: Info: Freetype returned null for character 135 in font BlueHighway
-02:23:02: Info: Freetype returned null for character 136 in font BlueHighway
-02:23:02: Info: Freetype returned null for character 137 in font BlueHighway
-02:23:02: Info: Freetype returned null for character 138 in font BlueHighway
-02:23:02: Info: Freetype returned null for character 139 in font BlueHighway
-02:23:02: Info: Freetype returned null for character 140 in font BlueHighway
-02:23:02: Info: Freetype returned null for character 141 in font BlueHighway
-02:23:02: Info: Freetype returned null for character 142 in font BlueHighway
-02:23:02: Info: Freetype returned null for character 143 in font BlueHighway
-02:23:02: Info: Freetype returned null for character 144 in font BlueHighway
-02:23:02: Info: Freetype returned null for character 145 in font BlueHighway
-02:23:02: Info: Freetype returned null for character 146 in font BlueHighway
-02:23:02: Info: Freetype returned null for character 147 in font BlueHighway
-02:23:02: Info: Freetype returned null for character 148 in font BlueHighway
-02:23:02: Info: Freetype returned null for character 149 in font BlueHighway
-02:23:02: Info: Freetype returned null for character 150 in font BlueHighway
-02:23:02: Info: Freetype returned null for character 151 in font BlueHighway
-02:23:02: Info: Freetype returned null for character 152 in font BlueHighway
-02:23:02: Info: Freetype returned null for character 153 in font BlueHighway
-02:23:02: Info: Freetype returned null for character 154 in font BlueHighway
-02:23:02: Info: Freetype returned null for character 155 in font BlueHighway
-02:23:02: Info: Freetype returned null for character 156 in font BlueHighway
-02:23:02: Info: Freetype returned null for character 157 in font BlueHighway
-02:23:02: Info: Freetype returned null for character 158 in font BlueHighway
-02:23:02: Info: Freetype returned null for character 159 in font BlueHighway
-02:23:02: Info: Freetype returned null for character 160 in font BlueHighway
-02:23:02: Texture: BlueHighwayTexture: Loading 1 faces(PF_BYTE_LA,512x512x1) with 0 generated mipmaps from Image. Internal format is PF_BYTE_LA,512x512x1.
-02:23:04: DefaultWorkQueue('Root') shutting down on thread 1708.
-02:23:04: DefaultWorkQueue('Root')::WorkerFunc - thread 1340 stopped.
-02:23:04: DefaultWorkQueue('Root')::WorkerFunc - thread c34 stopped.
-02:23:04: *-*-* OGRE Shutdown
-02:23:04: Unregistering ResourceManager for type Compositor
-02:23:04: Unregistering ResourceManager for type Skeleton
-02:23:04: Unregistering ResourceManager for type Mesh
-02:23:04: Unregistering ResourceManager for type HighLevelGpuProgram
-02:23:04: Uninstalling plugin: D3D9 RenderSystem
-02:23:04: D3D9 device: 0x[0466F820] destroy. Releasing D3D9 texture: BlueHighwayTexture
-02:23:04: Released D3D9 texture: BlueHighwayTexture
-02:23:04: D3D9 device: 0x[0466F820] destroy. Releasing D3D9 texture: New_Ogre_Border_Center.png
-02:23:04: Released D3D9 texture: New_Ogre_Border_Center.png
-02:23:04: D3D9 device: 0x[0466F820] destroy. Releasing D3D9 texture: New_Ogre_Border.png
-02:23:04: Released D3D9 texture: New_Ogre_Border.png
-02:23:04: D3D9 device: 0x[0466F820] destroy. Releasing D3D9 texture: New_Ogre_Border_Break.png
-02:23:04: Released D3D9 texture: New_Ogre_Border_Break.png
-02:23:04: D3D9 device: 0x[0466F820] destroy. Releasing D3D9 texture: ogretext.png
-02:23:04: Released D3D9 texture: ogretext.png
-02:23:04: D3D9 : Shutting down cleanly.
-02:23:04: Unregistering ResourceManager for type Texture
-02:23:04: Unregistering ResourceManager for type GpuProgram
-02:23:04: D3D9 : Direct3D9 Rendering Subsystem destroyed.
-02:23:04: Plugin successfully uninstalled
-02:23:04: Unloading library RenderSystem_Direct3D9.dll
-02:23:04: Unregistering ResourceManager for type Material
+01:12:16: Creating resource group General
+01:12:16: Creating resource group Internal
+01:12:16: Creating resource group Autodetect
+01:12:16: SceneManagerFactory for type 'DefaultSceneManager' registered.
+01:12:16: Registering ResourceManager for type Material
+01:12:16: Registering ResourceManager for type Mesh
+01:12:16: Registering ResourceManager for type Skeleton
+01:12:16: MovableObjectFactory for type 'ParticleSystem' registered.
+01:12:16: ArchiveFactory for archive type FileSystem registered.
+01:12:16: ArchiveFactory for archive type Zip registered.
+01:12:16: ArchiveFactory for archive type EmbeddedZip registered.
+01:12:16: DDS codec registering
+01:12:16: FreeImage version: 3.15.3
+01:12:16: This program uses FreeImage, a free, open source image library supporting all common bitmap formats. See http://freeimage.sourceforge.net for details
+01:12:16: Supported formats: bmp,ico,jpg,jif,jpeg,jpe,jng,koa,iff,lbm,mng,pbm,pbm,pcd,pcx,pgm,pgm,png,ppm,ppm,ras,tga,targa,tif,tiff,wap,wbmp,wbm,psd,cut,xbm,xpm,gif,hdr,g3,sgi,exr,j2k,j2c,jp2,pfm,pct,pict,pic,3fr,arw,bay,bmq,cap,cine,cr2,crw,cs1,dc2,dcr,drf,dsc,dng,erf,fff,ia,iiq,k25,kc2,kdc,mdc,mef,mos,mrw,nef,nrw,orf,pef,ptx,pxn,qtk,raf,raw,rdc,rw2,rwl,rwz,sr2,srf,srw,sti
+01:12:16: Registering ResourceManager for type HighLevelGpuProgram
+01:12:16: Registering ResourceManager for type Compositor
+01:12:16: MovableObjectFactory for type 'Entity' registered.
+01:12:16: MovableObjectFactory for type 'Light' registered.
+01:12:16: MovableObjectFactory for type 'BillboardSet' registered.
+01:12:16: MovableObjectFactory for type 'ManualObject' registered.
+01:12:16: MovableObjectFactory for type 'BillboardChain' registered.
+01:12:16: MovableObjectFactory for type 'RibbonTrail' registered.
+01:12:16: *-*-* OGRE Initialising
+01:12:16: *-*-* Version 1.9.0 (Ghadamon)
+01:12:16: Loading library RenderSystem_Direct3D9.dll
+01:12:16: Installing plugin: D3D9 RenderSystem
+01:12:16: D3D9 : Direct3D9 Rendering Subsystem created.
+01:12:16: D3D9: Driver Detection Starts
+01:12:16: D3D9: Driver Detection Ends
+01:12:16: Plugin successfully installed
+01:12:16: CPU Identifier & Features
+01:12:16: -------------------------
+01:12:16:  *   CPU ID: GenuineIntel: Intel(R) Celeron(R) CPU G1820 @ 2.70GHz
+01:12:16:  *      SSE: yes
+01:12:16:  *     SSE2: yes
+01:12:16:  *     SSE3: yes
+01:12:16:  *      MMX: yes
+01:12:16:  *   MMXEXT: yes
+01:12:16:  *    3DNOW: no
+01:12:16:  * 3DNOWEXT: no
+01:12:16:  *     CMOV: yes
+01:12:16:  *      TSC: yes
+01:12:16:  *      FPU: yes
+01:12:16:  *      PRO: yes
+01:12:16:  *       HT: no
+01:12:16: -------------------------
+01:12:16: D3D9 : Subsystem Initialising
+01:12:16: Registering ResourceManager for type Texture
+01:12:16: Registering ResourceManager for type GpuProgram
+01:12:16: ***************************************
+01:12:16: *** D3D9 : Subsystem Initialised OK ***
+01:12:16: ***************************************
+01:12:16: D3D9RenderSystem::_createRenderWindow "QGearsWindow", 800x600 windowed  miscParams: title=Xenogears Exporter 
+01:12:16: D3D9 : Created D3D9 Rendering Window 'QGearsWindow' : 800x600, 32bpp
+01:12:16: D3D9 : WARNING - disabling VSync in windowed mode can cause timing issues at lower frame rates, turn VSync on if you observe this problem.
+01:12:16: D3D9: Vertex texture format supported - PF_A8R8G8B8
+01:12:16: D3D9: Vertex texture format supported - PF_B8G8R8A8
+01:12:16: D3D9: Vertex texture format supported - PF_FLOAT16_RGB
+01:12:16: D3D9: Vertex texture format supported - PF_FLOAT16_RGBA
+01:12:16: D3D9: Vertex texture format supported - PF_FLOAT32_RGB
+01:12:16: D3D9: Vertex texture format supported - PF_FLOAT32_RGBA
+01:12:16: D3D9: Vertex texture format supported - PF_R8G8B8A8
+01:12:16: D3D9: Vertex texture format supported - PF_DEPTH
+01:12:16: D3D9: Vertex texture format supported - PF_FLOAT16_R
+01:12:16: D3D9: Vertex texture format supported - PF_FLOAT32_R
+01:12:16: D3D9: Vertex texture format supported - PF_FLOAT16_GR
+01:12:16: D3D9: Vertex texture format supported - PF_FLOAT32_GR
+01:12:16: D3D9: Vertex texture format supported - PF_PVRTC_RGB2
+01:12:16: D3D9: Vertex texture format supported - PF_PVRTC_RGBA2
+01:12:16: D3D9: Vertex texture format supported - PF_PVRTC_RGB4
+01:12:16: D3D9: Vertex texture format supported - PF_PVRTC_RGBA4
+01:12:16: D3D9: Vertex texture format supported - PF_PVRTC2_2BPP
+01:12:16: D3D9: Vertex texture format supported - PF_PVRTC2_4BPP
+01:12:16: D3D9: Vertex texture format supported - PF_R11G11B10_FLOAT
+01:12:16: D3D9: Vertex texture format supported - PF_R8_UINT
+01:12:16: D3D9: Vertex texture format supported - PF_R8G8_UINT
+01:12:16: D3D9: Vertex texture format supported - PF_R8G8B8_UINT
+01:12:16: D3D9: Vertex texture format supported - PF_R8G8B8A8_UINT
+01:12:16: D3D9: Vertex texture format supported - PF_R16_UINT
+01:12:16: D3D9: Vertex texture format supported - PF_R16G16_UINT
+01:12:16: D3D9: Vertex texture format supported - PF_R16G16B16_UINT
+01:12:16: D3D9: Vertex texture format supported - PF_R16G16B16A16_UINT
+01:12:16: D3D9: Vertex texture format supported - PF_R32_UINT
+01:12:16: D3D9: Vertex texture format supported - PF_R32G32_UINT
+01:12:16: D3D9: Vertex texture format supported - PF_R32G32B32_UINT
+01:12:16: D3D9: Vertex texture format supported - PF_R32G32B32A32_UINT
+01:12:16: D3D9: Vertex texture format supported - PF_R8_SINT
+01:12:16: D3D9: Vertex texture format supported - PF_R8G8_SINT
+01:12:16: D3D9: Vertex texture format supported - PF_R8G8B8_SINT
+01:12:16: D3D9: Vertex texture format supported - PF_R8G8B8A8_SINT
+01:12:16: D3D9: Vertex texture format supported - PF_R16_SINT
+01:12:16: D3D9: Vertex texture format supported - PF_R16G16_SINT
+01:12:16: D3D9: Vertex texture format supported - PF_R16G16B16_SINT
+01:12:16: D3D9: Vertex texture format supported - PF_R16G16B16A16_SINT
+01:12:16: D3D9: Vertex texture format supported - PF_R32_SINT
+01:12:16: D3D9: Vertex texture format supported - PF_R32G32_SINT
+01:12:16: D3D9: Vertex texture format supported - PF_R32G32B32_SINT
+01:12:16: D3D9: Vertex texture format supported - PF_R32G32B32A32_SINT
+01:12:16: D3D9: Vertex texture format supported - PF_R9G9B9E5_SHAREDEXP
+01:12:16: D3D9: Vertex texture format supported - PF_BC4_UNORM
+01:12:16: D3D9: Vertex texture format supported - PF_BC4_SNORM
+01:12:16: D3D9: Vertex texture format supported - PF_BC5_UNORM
+01:12:16: D3D9: Vertex texture format supported - PF_BC5_SNORM
+01:12:16: D3D9: Vertex texture format supported - PF_BC6H_UF16
+01:12:16: D3D9: Vertex texture format supported - PF_BC6H_SF16
+01:12:16: D3D9: Vertex texture format supported - PF_BC7_UNORM
+01:12:16: D3D9: Vertex texture format supported - PF_BC7_UNORM_SRGB
+01:12:16: D3D9: Vertex texture format supported - PF_R8
+01:12:16: D3D9: Vertex texture format supported - PF_RG8
+01:12:16: D3D9: Vertex texture format supported - PF_R8_SNORM
+01:12:16: D3D9: Vertex texture format supported - PF_R8G8_SNORM
+01:12:16: D3D9: Vertex texture format supported - PF_R8G8B8_SNORM
+01:12:16: D3D9: Vertex texture format supported - PF_R8G8B8A8_SNORM
+01:12:17: D3D9: Vertex texture format supported - PF_R16_SNORM
+01:12:17: D3D9: Vertex texture format supported - PF_R16G16_SNORM
+01:12:17: D3D9: Vertex texture format supported - PF_R16G16B16_SNORM
+01:12:17: D3D9: Vertex texture format supported - PF_R16G16B16A16_SNORM
+01:12:17: D3D9: Vertex texture format supported - PF_ETC1_RGB8
+01:12:17: D3D9: Vertex texture format supported - PF_ETC2_RGB8
+01:12:17: D3D9: Vertex texture format supported - PF_ETC2_RGBA8
+01:12:17: D3D9: Vertex texture format supported - PF_ETC2_RGB8A1
+01:12:17: D3D9: Vertex texture format supported - PF_ATC_RGB
+01:12:17: D3D9: Vertex texture format supported - PF_ATC_RGBA_EXPLICIT_ALPHA
+01:12:17: D3D9: Vertex texture format supported - PF_ATC_RGBA_INTERPOLATED_ALPHA
+01:12:17: RenderSystem capabilities
+01:12:17: -------------------------
+01:12:17: RenderSystem Name: Direct3D9 Rendering Subsystem
+01:12:17: GPU Vendor: nvidia
+01:12:17: Device Name: Monitor-1-NVIDIA GeForce GTX 750
+01:12:17: Driver Version: 10.18.13.5560
+01:12:17:  * Fixed function pipeline: yes
+01:12:17:  * Hardware generation of mipmaps: yes
+01:12:17:  * Texture blending: yes
+01:12:17:  * Anisotropic texture filtering: yes
+01:12:17:  * Dot product texture operation: yes
+01:12:17:  * Cube mapping: yes
+01:12:17:  * Hardware stencil buffer: yes
+01:12:17:    - Stencil depth: 8
+01:12:17:    - Two sided stencil support: yes
+01:12:17:    - Wrap stencil values: yes
+01:12:17:  * Hardware vertex / index buffers: yes
+01:12:17:  * Vertex programs: yes
+01:12:17:  * Number of floating-point constants for vertex programs: 256
+01:12:17:  * Number of integer constants for vertex programs: 16
+01:12:17:  * Number of boolean constants for vertex programs: 16
+01:12:17:  * Fragment programs: yes
+01:12:17:  * Number of floating-point constants for fragment programs: 224
+01:12:17:  * Number of integer constants for fragment programs: 16
+01:12:17:  * Number of boolean constants for fragment programs: 16
+01:12:17:  * Geometry programs: no
+01:12:17:  * Number of floating-point constants for geometry programs: 0
+01:12:17:  * Number of integer constants for geometry programs: 0
+01:12:17:  * Number of boolean constants for geometry programs: 0
+01:12:17:  * Tesselation Hull programs: no
+01:12:17:  * Number of floating-point constants for tesselation hull programs: 0
+01:12:17:  * Number of integer constants for tesselation hull programs: 0
+01:12:17:  * Number of boolean constants for tesselation hull programs: 0
+01:12:17:  * Tesselation Domain programs: no
+01:12:17:  * Number of floating-point constants for tesselation domain programs: 0
+01:12:17:  * Number of integer constants for tesselation domain programs: 0
+01:12:17:  * Number of boolean constants for tesselation domain programs: 0
+01:12:17:  * Compute programs: no
+01:12:17:  * Number of floating-point constants for compute programs: 0
+01:12:17:  * Number of integer constants for compute programs: 0
+01:12:17:  * Number of boolean constants for compute programs: 0
+01:12:17:  * Supported Shader Profiles: hlsl ps_1_1 ps_1_2 ps_1_3 ps_1_4 ps_2_0 ps_2_a ps_2_b ps_2_x ps_3_0 vs_1_1 vs_2_0 vs_2_a vs_2_x vs_3_0
+01:12:17:  * Texture Compression: yes
+01:12:17:    - DXT: yes
+01:12:17:    - VTC: no
+01:12:17:    - PVRTC: no
+01:12:17:    - ATC: no
+01:12:17:    - ETC1: no
+01:12:17:    - ETC2: no
+01:12:17:    - BC4/BC5: no
+01:12:17:    - BC6H/BC7: no
+01:12:17:  * Scissor Rectangle: yes
+01:12:17:  * Hardware Occlusion Query: yes
+01:12:17:  * User clip planes: yes
+01:12:17:  * VET_UBYTE4 vertex element type: yes
+01:12:17:  * Infinite far plane projection: yes
+01:12:17:  * Hardware render-to-texture: yes
+01:12:17:  * Floating point textures: yes
+01:12:17:  * Non-power-of-two textures: yes
+01:12:17:  * 1d textures: yes
+01:12:17:  * Volume textures: yes
+01:12:17:  * Multiple Render Targets: 4
+01:12:17:    - With different bit depths: yes
+01:12:17:  * Point Sprites: yes
+01:12:17:  * Extended point parameters: yes
+01:12:17:  * Max Point Size: 8192
+01:12:17:  * Vertex texture fetch: yes
+01:12:17:  * Number of world matrices: 0
+01:12:17:  * Number of texture units: 8
+01:12:17:  * Stencil buffer depth: 8
+01:12:17:  * Number of vertex blend matrices: 0
+01:12:17:    - Max vertex textures: 4
+01:12:17:    - Vertex textures shared: no
+01:12:17:  * Render to Vertex Buffer : no
+01:12:17:  * Hardware Atomic Counters: no
+01:12:17:  * DirectX per stage constants: yes
+01:12:17: DefaultWorkQueue('Root') initialising on thread 1558.
+01:12:17: Particle Renderer Type 'billboard' registered
+01:12:17: OverlayElementFactory for type Panel registered.
+01:12:17: DefaultWorkQueue('Root')::WorkerFunc - thread 19d8 starting.
+01:12:17: OverlayElementFactory for type BorderPanel registered.
+01:12:17: OverlayElementFactory for type TextArea registered.
+01:12:17: Registering ResourceManager for type Font
+01:12:17: Added resource location './data' of type 'FileSystem' to resource group 'General'
+01:12:17: DefaultWorkQueue('Root')::WorkerFunc - thread 1560 starting.
+01:12:17: Added resource location './exported' of type 'FileSystem' to resource group 'General'
+01:12:17: Creating resource group Bootstrap
+01:12:17: Added resource location './data/OgreCore.zip' of type 'Zip' to resource group 'Bootstrap'
+01:12:17: Parsing scripts for resource group Autodetect
+01:12:17: Finished parsing scripts for resource group Autodetect
+01:12:17: Creating resources for group Autodetect
+01:12:17: All done
+01:12:17: Parsing scripts for resource group Bootstrap
+01:12:17: Parsing script OgreCore.material
+01:12:17: Parsing script OgreProfiler.material
+01:12:17: Parsing script Ogre.fontdef
+01:12:17: Parsing script OgreDebugPanel.overlay
+01:12:17: Texture: New_Ogre_Border_Center.png: Loading 1 faces(PF_A8R8G8B8,256x128x1) Internal format is PF_A8R8G8B8,256x128x1.
+01:12:17: Texture: New_Ogre_Border.png: Loading 1 faces(PF_A8R8G8B8,256x256x1) Internal format is PF_A8R8G8B8,256x256x1.
+01:12:17: Texture: New_Ogre_Border_Break.png: Loading 1 faces(PF_A8R8G8B8,32x32x1) Internal format is PF_A8R8G8B8,32x32x1.
+01:12:17: Texture: ogretext.png: Loading 1 faces(PF_A8R8G8B8,256x128x1) Internal format is PF_A8R8G8B8,256x128x1.
+01:12:17: Parsing script OgreLoadingPanel.overlay
+01:12:17: Finished parsing scripts for resource group Bootstrap
+01:12:17: Creating resources for group Bootstrap
+01:12:17: All done
+01:12:17: Parsing scripts for resource group General
+01:12:17: Parsing script debug.material
+01:12:17: Parsing script system.fontdef
+01:12:17: Finished parsing scripts for resource group General
+01:12:17: Creating resources for group General
+01:12:17: All done
+01:12:17: Parsing scripts for resource group Internal
+01:12:17: Finished parsing scripts for resource group Internal
+01:12:17: Creating resources for group Internal
+01:12:17: All done
+01:12:17: Texture: courier_new_9_75.png: Loading 1 faces(PF_A8R8G8B8,256x256x1) with 0 generated mipmaps from Image. Internal format is PF_A8R8G8B8,256x256x1.
+01:12:17: Exporting bones..
+01:12:17: Bones exported.
+01:12:17: Exporting animations, count=1
+01:12:17: Exporting animation: Idle
+01:12:17: Animation exported.
+01:12:17: Skeleton: Loading models/field_maps/0632/0.skeleton
+01:12:17: MeshSerializer writing mesh data to stream ...
+01:12:17: File header written.
+01:12:17: Writing mesh data...
+01:12:17: Writing submesh...
+01:12:17: Exporting submesh texture aliases...
+01:12:17: Submesh texture aliases exported.
+01:12:17: Exporting dedicated geometry bone assignments...
+01:12:17: Dedicated geometry bone assignments exported.
+01:12:17: Submesh exported.
+01:12:17: Writing submesh...
+01:12:17: Exporting submesh texture aliases...
+01:12:17: Submesh texture aliases exported.
+01:12:17: Exporting dedicated geometry bone assignments...
+01:12:17: Dedicated geometry bone assignments exported.
+01:12:17: Submesh exported.
+01:12:17: Exporting skeleton link...
+01:12:17: Skeleton link exported.
+01:12:17: Exporting bounds information....
+01:12:17: Bounds information exported.
+01:12:17: Exporting submesh name table...
+01:12:17: Submesh name table exported.
+01:12:17: Mesh data exported.
+01:12:17: MeshSerializer export successful.
+01:12:17: Exporting bones..
+01:12:17: Bones exported.
+01:12:17: Exporting animations, count=1
+01:12:17: Exporting animation: Idle
+01:12:17: Animation exported.
+01:12:17: Skeleton: Loading models/field_maps/0632/1.skeleton
+01:12:17: MeshSerializer writing mesh data to stream ...
+01:12:17: File header written.
+01:12:17: Writing mesh data...
+01:12:17: Writing submesh...
+01:12:17: Exporting submesh texture aliases...
+01:12:17: Submesh texture aliases exported.
+01:12:17: Exporting dedicated geometry bone assignments...
+01:12:17: Dedicated geometry bone assignments exported.
+01:12:17: Submesh exported.
+01:12:17: Exporting skeleton link...
+01:12:17: Skeleton link exported.
+01:12:17: Exporting bounds information....
+01:12:17: Bounds information exported.
+01:12:17: Exporting submesh name table...
+01:12:17: Submesh name table exported.
+01:12:17: Mesh data exported.
+01:12:17: MeshSerializer export successful.
+01:12:17: Exporting bones..
+01:12:17: Bones exported.
+01:12:17: Exporting animations, count=1
+01:12:17: Exporting animation: Idle
+01:12:17: Animation exported.
+01:12:17: Skeleton: Loading models/field_maps/0632/2.skeleton
+01:12:17: MeshSerializer writing mesh data to stream ...
+01:12:17: File header written.
+01:12:17: Writing mesh data...
+01:12:17: Writing submesh...
+01:12:17: Exporting submesh texture aliases...
+01:12:17: Submesh texture aliases exported.
+01:12:17: Exporting dedicated geometry bone assignments...
+01:12:17: Dedicated geometry bone assignments exported.
+01:12:17: Submesh exported.
+01:12:17: Exporting skeleton link...
+01:12:17: Skeleton link exported.
+01:12:17: Exporting bounds information....
+01:12:17: Bounds information exported.
+01:12:17: Exporting submesh name table...
+01:12:17: Submesh name table exported.
+01:12:17: Mesh data exported.
+01:12:17: MeshSerializer export successful.
+01:12:17: Exporting bones..
+01:12:17: Bones exported.
+01:12:17: Exporting animations, count=1
+01:12:17: Exporting animation: Idle
+01:12:17: Animation exported.
+01:12:17: Skeleton: Loading models/field_maps/0632/3.skeleton
+01:12:17: MeshSerializer writing mesh data to stream ...
+01:12:17: File header written.
+01:12:17: Writing mesh data...
+01:12:17: Writing submesh...
+01:12:17: Exporting submesh texture aliases...
+01:12:17: Submesh texture aliases exported.
+01:12:17: Exporting dedicated geometry bone assignments...
+01:12:17: Dedicated geometry bone assignments exported.
+01:12:17: Submesh exported.
+01:12:17: Writing submesh...
+01:12:17: Exporting submesh texture aliases...
+01:12:17: Submesh texture aliases exported.
+01:12:17: Exporting dedicated geometry bone assignments...
+01:12:17: Dedicated geometry bone assignments exported.
+01:12:17: Submesh exported.
+01:12:17: Exporting skeleton link...
+01:12:17: Skeleton link exported.
+01:12:17: Exporting bounds information....
+01:12:17: Bounds information exported.
+01:12:17: Exporting submesh name table...
+01:12:17: Submesh name table exported.
+01:12:17: Mesh data exported.
+01:12:17: MeshSerializer export successful.
+01:12:17: Exporting bones..
+01:12:17: Bones exported.
+01:12:17: Exporting animations, count=1
+01:12:17: Exporting animation: Idle
+01:12:17: Animation exported.
+01:12:17: Skeleton: Loading models/field_maps/0632/4.skeleton
+01:12:17: MeshSerializer writing mesh data to stream ...
+01:12:17: File header written.
+01:12:17: Writing mesh data...
+01:12:17: Writing submesh...
+01:12:17: Exporting submesh texture aliases...
+01:12:17: Submesh texture aliases exported.
+01:12:17: Exporting dedicated geometry bone assignments...
+01:12:17: Dedicated geometry bone assignments exported.
+01:12:17: Submesh exported.
+01:12:17: Writing submesh...
+01:12:17: Exporting submesh texture aliases...
+01:12:17: Submesh texture aliases exported.
+01:12:17: Exporting dedicated geometry bone assignments...
+01:12:17: Dedicated geometry bone assignments exported.
+01:12:17: Submesh exported.
+01:12:17: Writing submesh...
+01:12:17: Exporting submesh texture aliases...
+01:12:17: Submesh texture aliases exported.
+01:12:17: Exporting dedicated geometry bone assignments...
+01:12:17: Dedicated geometry bone assignments exported.
+01:12:17: Submesh exported.
+01:12:17: Exporting skeleton link...
+01:12:17: Skeleton link exported.
+01:12:17: Exporting bounds information....
+01:12:17: Bounds information exported.
+01:12:17: Exporting submesh name table...
+01:12:17: Submesh name table exported.
+01:12:17: Mesh data exported.
+01:12:17: MeshSerializer export successful.
+01:12:17: Exporting bones..
+01:12:17: Bones exported.
+01:12:17: Exporting animations, count=1
+01:12:17: Exporting animation: Idle
+01:12:17: Animation exported.
+01:12:17: Skeleton: Loading models/field_maps/0632/5.skeleton
+01:12:17: MeshSerializer writing mesh data to stream ...
+01:12:17: File header written.
+01:12:17: Writing mesh data...
+01:12:17: Writing submesh...
+01:12:17: Exporting submesh texture aliases...
+01:12:17: Submesh texture aliases exported.
+01:12:17: Exporting dedicated geometry bone assignments...
+01:12:17: Dedicated geometry bone assignments exported.
+01:12:17: Submesh exported.
+01:12:17: Exporting skeleton link...
+01:12:17: Skeleton link exported.
+01:12:17: Exporting bounds information....
+01:12:17: Bounds information exported.
+01:12:17: Exporting submesh name table...
+01:12:17: Submesh name table exported.
+01:12:17: Mesh data exported.
+01:12:17: MeshSerializer export successful.
+01:12:17: Exporting bones..
+01:12:17: Bones exported.
+01:12:17: Exporting animations, count=1
+01:12:17: Exporting animation: Idle
+01:12:17: Animation exported.
+01:12:17: Skeleton: Loading models/field_maps/0632/6.skeleton
+01:12:17: MeshSerializer writing mesh data to stream ...
+01:12:17: File header written.
+01:12:17: Writing mesh data...
+01:12:17: Writing submesh...
+01:12:17: Exporting submesh texture aliases...
+01:12:17: Submesh texture aliases exported.
+01:12:17: Exporting dedicated geometry bone assignments...
+01:12:17: Dedicated geometry bone assignments exported.
+01:12:17: Submesh exported.
+01:12:17: Exporting skeleton link...
+01:12:17: Skeleton link exported.
+01:12:17: Exporting bounds information....
+01:12:17: Bounds information exported.
+01:12:17: Exporting submesh name table...
+01:12:17: Submesh name table exported.
+01:12:17: Mesh data exported.
+01:12:17: MeshSerializer export successful.
+01:12:17: Exporting bones..
+01:12:17: Bones exported.
+01:12:17: Exporting animations, count=1
+01:12:17: Exporting animation: Idle
+01:12:17: Animation exported.
+01:12:17: Skeleton: Loading models/field_maps/0632/7.skeleton
+01:12:17: MeshSerializer writing mesh data to stream ...
+01:12:17: File header written.
+01:12:17: Writing mesh data...
+01:12:17: Writing submesh...
+01:12:17: Exporting submesh texture aliases...
+01:12:17: Submesh texture aliases exported.
+01:12:17: Exporting dedicated geometry bone assignments...
+01:12:17: Dedicated geometry bone assignments exported.
+01:12:17: Submesh exported.
+01:12:17: Exporting skeleton link...
+01:12:17: Skeleton link exported.
+01:12:17: Exporting bounds information....
+01:12:17: Bounds information exported.
+01:12:17: Exporting submesh name table...
+01:12:17: Submesh name table exported.
+01:12:17: Mesh data exported.
+01:12:17: MeshSerializer export successful.
+01:12:17: Exporting bones..
+01:12:17: Bones exported.
+01:12:17: Exporting animations, count=1
+01:12:17: Exporting animation: Idle
+01:12:17: Animation exported.
+01:12:17: Skeleton: Loading models/field_maps/0632/8.skeleton
+01:12:17: MeshSerializer writing mesh data to stream ...
+01:12:17: File header written.
+01:12:17: Writing mesh data...
+01:12:17: Writing submesh...
+01:12:17: Exporting submesh texture aliases...
+01:12:17: Submesh texture aliases exported.
+01:12:17: Exporting dedicated geometry bone assignments...
+01:12:17: Dedicated geometry bone assignments exported.
+01:12:17: Submesh exported.
+01:12:17: Exporting skeleton link...
+01:12:17: Skeleton link exported.
+01:12:17: Exporting bounds information....
+01:12:17: Bounds information exported.
+01:12:17: Exporting submesh name table...
+01:12:17: Submesh name table exported.
+01:12:17: Mesh data exported.
+01:12:17: MeshSerializer export successful.
+01:12:17: Exporting bones..
+01:12:17: Bones exported.
+01:12:17: Exporting animations, count=1
+01:12:17: Exporting animation: Idle
+01:12:17: Animation exported.
+01:12:17: Skeleton: Loading models/field_maps/0632/9.skeleton
+01:12:17: MeshSerializer writing mesh data to stream ...
+01:12:17: File header written.
+01:12:17: Writing mesh data...
+01:12:17: Writing submesh...
+01:12:17: Exporting submesh texture aliases...
+01:12:17: Submesh texture aliases exported.
+01:12:17: Exporting dedicated geometry bone assignments...
+01:12:17: Dedicated geometry bone assignments exported.
+01:12:17: Submesh exported.
+01:12:17: Exporting skeleton link...
+01:12:17: Skeleton link exported.
+01:12:17: Exporting bounds information....
+01:12:17: Bounds information exported.
+01:12:17: Exporting submesh name table...
+01:12:17: Submesh name table exported.
+01:12:17: Mesh data exported.
+01:12:17: MeshSerializer export successful.
+01:12:17: Exporting bones..
+01:12:17: Bones exported.
+01:12:17: Exporting animations, count=1
+01:12:17: Exporting animation: Idle
+01:12:17: Animation exported.
+01:12:17: Skeleton: Loading models/field_maps/0632/10.skeleton
+01:12:17: MeshSerializer writing mesh data to stream ...
+01:12:17: File header written.
+01:12:17: Writing mesh data...
+01:12:17: Writing submesh...
+01:12:17: Exporting submesh texture aliases...
+01:12:17: Submesh texture aliases exported.
+01:12:17: Exporting dedicated geometry bone assignments...
+01:12:17: Dedicated geometry bone assignments exported.
+01:12:17: Submesh exported.
+01:12:17: Writing submesh...
+01:12:17: Exporting submesh texture aliases...
+01:12:17: Submesh texture aliases exported.
+01:12:17: Exporting dedicated geometry bone assignments...
+01:12:17: Dedicated geometry bone assignments exported.
+01:12:17: Submesh exported.
+01:12:17: Writing submesh...
+01:12:17: Exporting submesh texture aliases...
+01:12:17: Submesh texture aliases exported.
+01:12:17: Exporting dedicated geometry bone assignments...
+01:12:17: Dedicated geometry bone assignments exported.
+01:12:17: Submesh exported.
+01:12:17: Exporting skeleton link...
+01:12:17: Skeleton link exported.
+01:12:17: Exporting bounds information....
+01:12:17: Bounds information exported.
+01:12:17: Exporting submesh name table...
+01:12:17: Submesh name table exported.
+01:12:17: Mesh data exported.
+01:12:17: MeshSerializer export successful.
+01:12:17: Exporting bones..
+01:12:17: Bones exported.
+01:12:17: Exporting animations, count=1
+01:12:17: Exporting animation: Idle
+01:12:17: Animation exported.
+01:12:17: Skeleton: Loading models/field_maps/0632/11.skeleton
+01:12:17: MeshSerializer writing mesh data to stream ...
+01:12:17: File header written.
+01:12:17: Writing mesh data...
+01:12:17: Writing submesh...
+01:12:17: Exporting submesh texture aliases...
+01:12:17: Submesh texture aliases exported.
+01:12:17: Exporting dedicated geometry bone assignments...
+01:12:17: Dedicated geometry bone assignments exported.
+01:12:17: Submesh exported.
+01:12:17: Writing submesh...
+01:12:17: Exporting submesh texture aliases...
+01:12:17: Submesh texture aliases exported.
+01:12:17: Exporting dedicated geometry bone assignments...
+01:12:17: Dedicated geometry bone assignments exported.
+01:12:17: Submesh exported.
+01:12:17: Exporting skeleton link...
+01:12:17: Skeleton link exported.
+01:12:17: Exporting bounds information....
+01:12:17: Bounds information exported.
+01:12:17: Exporting submesh name table...
+01:12:17: Submesh name table exported.
+01:12:17: Mesh data exported.
+01:12:17: MeshSerializer export successful.
+01:12:17: Exporting bones..
+01:12:17: Bones exported.
+01:12:17: Exporting animations, count=1
+01:12:17: Exporting animation: Idle
+01:12:17: Animation exported.
+01:12:17: Skeleton: Loading models/field_maps/0632/12.skeleton
+01:12:17: MeshSerializer writing mesh data to stream ...
+01:12:17: File header written.
+01:12:17: Writing mesh data...
+01:12:17: Writing submesh...
+01:12:17: Exporting submesh texture aliases...
+01:12:17: Submesh texture aliases exported.
+01:12:17: Exporting dedicated geometry bone assignments...
+01:12:17: Dedicated geometry bone assignments exported.
+01:12:17: Submesh exported.
+01:12:17: Writing submesh...
+01:12:17: Exporting submesh texture aliases...
+01:12:17: Submesh texture aliases exported.
+01:12:17: Exporting dedicated geometry bone assignments...
+01:12:17: Dedicated geometry bone assignments exported.
+01:12:17: Submesh exported.
+01:12:17: Exporting skeleton link...
+01:12:17: Skeleton link exported.
+01:12:17: Exporting bounds information....
+01:12:17: Bounds information exported.
+01:12:17: Exporting submesh name table...
+01:12:17: Submesh name table exported.
+01:12:17: Mesh data exported.
+01:12:17: MeshSerializer export successful.
+01:12:17: Exporting bones..
+01:12:17: Bones exported.
+01:12:17: Exporting animations, count=1
+01:12:17: Exporting animation: Idle
+01:12:17: Animation exported.
+01:12:17: Skeleton: Loading models/field_maps/0632/13.skeleton
+01:12:17: MeshSerializer writing mesh data to stream ...
+01:12:17: File header written.
+01:12:17: Writing mesh data...
+01:12:17: Writing submesh...
+01:12:17: Exporting submesh texture aliases...
+01:12:17: Submesh texture aliases exported.
+01:12:17: Exporting dedicated geometry bone assignments...
+01:12:17: Dedicated geometry bone assignments exported.
+01:12:17: Submesh exported.
+01:12:17: Exporting skeleton link...
+01:12:17: Skeleton link exported.
+01:12:18: Exporting bounds information....
+01:12:18: Bounds information exported.
+01:12:18: Exporting submesh name table...
+01:12:18: Submesh name table exported.
+01:12:18: Mesh data exported.
+01:12:18: MeshSerializer export successful.
+01:12:18: Exporting bones..
+01:12:18: Bones exported.
+01:12:18: Exporting animations, count=1
+01:12:18: Exporting animation: Idle
+01:12:18: Animation exported.
+01:12:18: Skeleton: Loading models/field_maps/0632/14.skeleton
+01:12:18: MeshSerializer writing mesh data to stream ...
+01:12:18: File header written.
+01:12:18: Writing mesh data...
+01:12:18: Writing submesh...
+01:12:18: Exporting submesh texture aliases...
+01:12:18: Submesh texture aliases exported.
+01:12:18: Exporting dedicated geometry bone assignments...
+01:12:18: Dedicated geometry bone assignments exported.
+01:12:18: Submesh exported.
+01:12:18: Exporting skeleton link...
+01:12:18: Skeleton link exported.
+01:12:18: Exporting bounds information....
+01:12:18: Bounds information exported.
+01:12:18: Exporting submesh name table...
+01:12:18: Submesh name table exported.
+01:12:18: Mesh data exported.
+01:12:18: MeshSerializer export successful.
+01:12:18: Exporting bones..
+01:12:18: Bones exported.
+01:12:18: Exporting animations, count=1
+01:12:18: Exporting animation: Idle
+01:12:18: Animation exported.
+01:12:18: Skeleton: Loading models/field_maps/0632/15.skeleton
+01:12:18: MeshSerializer writing mesh data to stream ...
+01:12:18: File header written.
+01:12:18: Writing mesh data...
+01:12:18: Writing submesh...
+01:12:18: Exporting submesh texture aliases...
+01:12:18: Submesh texture aliases exported.
+01:12:18: Exporting dedicated geometry bone assignments...
+01:12:18: Dedicated geometry bone assignments exported.
+01:12:18: Submesh exported.
+01:12:18: Writing submesh...
+01:12:18: Exporting submesh texture aliases...
+01:12:18: Submesh texture aliases exported.
+01:12:18: Exporting dedicated geometry bone assignments...
+01:12:18: Dedicated geometry bone assignments exported.
+01:12:18: Submesh exported.
+01:12:18: Exporting skeleton link...
+01:12:18: Skeleton link exported.
+01:12:18: Exporting bounds information....
+01:12:18: Bounds information exported.
+01:12:18: Exporting submesh name table...
+01:12:18: Submesh name table exported.
+01:12:18: Mesh data exported.
+01:12:18: MeshSerializer export successful.
+01:12:18: Exporting bones..
+01:12:18: Bones exported.
+01:12:18: Exporting animations, count=1
+01:12:18: Exporting animation: Idle
+01:12:18: Animation exported.
+01:12:18: Skeleton: Loading models/field_maps/0632/16.skeleton
+01:12:18: MeshSerializer writing mesh data to stream ...
+01:12:18: File header written.
+01:12:18: Writing mesh data...
+01:12:18: Writing submesh...
+01:12:18: Exporting submesh texture aliases...
+01:12:18: Submesh texture aliases exported.
+01:12:18: Exporting dedicated geometry bone assignments...
+01:12:18: Dedicated geometry bone assignments exported.
+01:12:18: Submesh exported.
+01:12:18: Writing submesh...
+01:12:18: Exporting submesh texture aliases...
+01:12:18: Submesh texture aliases exported.
+01:12:18: Exporting dedicated geometry bone assignments...
+01:12:18: Dedicated geometry bone assignments exported.
+01:12:18: Submesh exported.
+01:12:18: Exporting skeleton link...
+01:12:18: Skeleton link exported.
+01:12:18: Exporting bounds information....
+01:12:18: Bounds information exported.
+01:12:18: Exporting submesh name table...
+01:12:18: Submesh name table exported.
+01:12:18: Mesh data exported.
+01:12:18: MeshSerializer export successful.
+01:12:18: Exporting bones..
+01:12:18: Bones exported.
+01:12:18: Exporting animations, count=1
+01:12:18: Exporting animation: Idle
+01:12:18: Animation exported.
+01:12:18: Skeleton: Loading models/field_maps/0632/17.skeleton
+01:12:18: MeshSerializer writing mesh data to stream ...
+01:12:18: File header written.
+01:12:18: Writing mesh data...
+01:12:18: Writing submesh...
+01:12:18: Exporting submesh texture aliases...
+01:12:18: Submesh texture aliases exported.
+01:12:18: Exporting dedicated geometry bone assignments...
+01:12:18: Dedicated geometry bone assignments exported.
+01:12:18: Submesh exported.
+01:12:18: Writing submesh...
+01:12:18: Exporting submesh texture aliases...
+01:12:18: Submesh texture aliases exported.
+01:12:18: Exporting dedicated geometry bone assignments...
+01:12:18: Dedicated geometry bone assignments exported.
+01:12:18: Submesh exported.
+01:12:18: Exporting skeleton link...
+01:12:18: Skeleton link exported.
+01:12:18: Exporting bounds information....
+01:12:18: Bounds information exported.
+01:12:18: Exporting submesh name table...
+01:12:18: Submesh name table exported.
+01:12:18: Mesh data exported.
+01:12:18: MeshSerializer export successful.
+01:12:18: Exporting bones..
+01:12:18: Bones exported.
+01:12:18: Exporting animations, count=1
+01:12:18: Exporting animation: Idle
+01:12:18: Animation exported.
+01:12:18: Skeleton: Loading models/field_maps/0632/18.skeleton
+01:12:18: MeshSerializer writing mesh data to stream ...
+01:12:18: File header written.
+01:12:18: Writing mesh data...
+01:12:18: Writing submesh...
+01:12:18: Exporting submesh texture aliases...
+01:12:18: Submesh texture aliases exported.
+01:12:18: Exporting dedicated geometry bone assignments...
+01:12:18: Dedicated geometry bone assignments exported.
+01:12:18: Submesh exported.
+01:12:18: Exporting skeleton link...
+01:12:18: Skeleton link exported.
+01:12:18: Exporting bounds information....
+01:12:18: Bounds information exported.
+01:12:18: Exporting submesh name table...
+01:12:18: Submesh name table exported.
+01:12:18: Mesh data exported.
+01:12:18: MeshSerializer export successful.
+01:12:18: MaterialSerializer : writing material xeno/model/0632 to queue.
+01:12:18: MaterialSerializer : parsing texture layer.
+01:12:18: MaterialSerializer : done.
+01:12:18: MaterialSerializer : writing material(s) to material script : exported/models/field_maps/0632/0632.material
+01:12:18: MaterialSerializer : done.
+01:12:18: Mesh: Loading models/field_maps/0632/0.mesh.
+01:12:19: Texture: models/field_maps/0632/0632.png: Loading 1 faces(PF_A8R8G8B8,4096x512x1) Internal format is PF_A8R8G8B8,4096x512x1.
+01:12:19: Mesh: Loading models/field_maps/0632/1.mesh.
+01:12:19: Mesh: Loading models/field_maps/0632/2.mesh.
+01:12:19: Mesh: Loading models/field_maps/0632/3.mesh.
+01:12:19: Mesh: Loading models/field_maps/0632/4.mesh.
+01:12:19: Mesh: Loading models/field_maps/0632/5.mesh.
+01:12:19: Mesh: Loading models/field_maps/0632/6.mesh.
+01:12:19: Mesh: Loading models/field_maps/0632/7.mesh.
+01:12:19: Mesh: Loading models/field_maps/0632/8.mesh.
+01:12:19: Mesh: Loading models/field_maps/0632/9.mesh.
+01:12:19: Mesh: Loading models/field_maps/0632/10.mesh.
+01:12:19: Mesh: Loading models/field_maps/0632/11.mesh.
+01:12:19: Mesh: Loading models/field_maps/0632/12.mesh.
+01:12:19: Mesh: Loading models/field_maps/0632/13.mesh.
+01:12:19: Mesh: Loading models/field_maps/0632/14.mesh.
+01:12:19: Mesh: Loading models/field_maps/0632/15.mesh.
+01:12:19: Mesh: Loading models/field_maps/0632/16.mesh.
+01:12:19: Mesh: Loading models/field_maps/0632/17.mesh.
+01:12:19: Mesh: Loading models/field_maps/0632/18.mesh.
+01:12:20: FreeImage error: 'FreeImage_Save: failed to open file exported/models/xeno/sprite.png' when loading format PNG
+01:12:20: FreeImage error: 'FreeImage_Save: failed to open file exported/models/xeno/sprite.png' when loading format PNG
+01:12:21: FreeImage error: 'FreeImage_Save: failed to open file exported/models/xeno/sprite.png' when loading format PNG
+01:12:21: FreeImage error: 'FreeImage_Save: failed to open file exported/models/xeno/sprite.png' when loading format PNG
+01:12:22: FreeImage error: 'FreeImage_Save: failed to open file exported/models/xeno/sprite.png' when loading format PNG
+01:12:22: FreeImage error: 'FreeImage_Save: failed to open file exported/models/xeno/sprite.png' when loading format PNG
+01:12:22: FreeImage error: 'FreeImage_Save: failed to open file exported/models/xeno/sprite.png' when loading format PNG
+01:12:22: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:22: Font BlueHighway using texture size 512x512
+01:12:22: Info: Freetype returned null for character 127 in font BlueHighway
+01:12:22: Info: Freetype returned null for character 128 in font BlueHighway
+01:12:22: Info: Freetype returned null for character 129 in font BlueHighway
+01:12:22: Info: Freetype returned null for character 130 in font BlueHighway
+01:12:22: Info: Freetype returned null for character 131 in font BlueHighway
+01:12:22: Info: Freetype returned null for character 132 in font BlueHighway
+01:12:22: Info: Freetype returned null for character 133 in font BlueHighway
+01:12:23: Info: Freetype returned null for character 134 in font BlueHighway
+01:12:23: Info: Freetype returned null for character 135 in font BlueHighway
+01:12:23: Info: Freetype returned null for character 136 in font BlueHighway
+01:12:23: Info: Freetype returned null for character 137 in font BlueHighway
+01:12:23: Info: Freetype returned null for character 138 in font BlueHighway
+01:12:23: Info: Freetype returned null for character 139 in font BlueHighway
+01:12:23: Info: Freetype returned null for character 140 in font BlueHighway
+01:12:23: Info: Freetype returned null for character 141 in font BlueHighway
+01:12:23: Info: Freetype returned null for character 142 in font BlueHighway
+01:12:23: Info: Freetype returned null for character 143 in font BlueHighway
+01:12:23: Info: Freetype returned null for character 144 in font BlueHighway
+01:12:23: Info: Freetype returned null for character 145 in font BlueHighway
+01:12:23: Info: Freetype returned null for character 146 in font BlueHighway
+01:12:23: Info: Freetype returned null for character 147 in font BlueHighway
+01:12:23: Info: Freetype returned null for character 148 in font BlueHighway
+01:12:23: Info: Freetype returned null for character 149 in font BlueHighway
+01:12:23: Info: Freetype returned null for character 150 in font BlueHighway
+01:12:23: Info: Freetype returned null for character 151 in font BlueHighway
+01:12:23: Info: Freetype returned null for character 152 in font BlueHighway
+01:12:23: Info: Freetype returned null for character 153 in font BlueHighway
+01:12:23: Info: Freetype returned null for character 154 in font BlueHighway
+01:12:23: Info: Freetype returned null for character 155 in font BlueHighway
+01:12:23: Info: Freetype returned null for character 156 in font BlueHighway
+01:12:23: Info: Freetype returned null for character 157 in font BlueHighway
+01:12:23: Info: Freetype returned null for character 158 in font BlueHighway
+01:12:23: Info: Freetype returned null for character 159 in font BlueHighway
+01:12:23: Info: Freetype returned null for character 160 in font BlueHighway
+01:12:23: Texture: BlueHighwayTexture: Loading 1 faces(PF_BYTE_LA,512x512x1) with 0 generated mipmaps from Image. Internal format is PF_BYTE_LA,512x512x1.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:23: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:24: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+01:12:25: DefaultWorkQueue('Root') shutting down on thread 1558.
+01:12:25: DefaultWorkQueue('Root')::WorkerFunc - thread 1560 stopped.
+01:12:25: DefaultWorkQueue('Root')::WorkerFunc - thread 19d8 stopped.
+01:12:25: *-*-* OGRE Shutdown
+01:12:25: Unregistering ResourceManager for type Compositor
+01:12:25: Unregistering ResourceManager for type Skeleton
+01:12:25: Unregistering ResourceManager for type Mesh
+01:12:25: Unregistering ResourceManager for type HighLevelGpuProgram
+01:12:25: Uninstalling plugin: D3D9 RenderSystem
+01:12:25: D3D9 device: 0x[0386F820] destroy. Releasing D3D9 texture: BlueHighwayTexture
+01:12:25: Released D3D9 texture: BlueHighwayTexture
+01:12:25: D3D9 device: 0x[0386F820] destroy. Releasing D3D9 texture: New_Ogre_Border_Center.png
+01:12:25: Released D3D9 texture: New_Ogre_Border_Center.png
+01:12:25: D3D9 device: 0x[0386F820] destroy. Releasing D3D9 texture: New_Ogre_Border.png
+01:12:25: Released D3D9 texture: New_Ogre_Border.png
+01:12:25: D3D9 device: 0x[0386F820] destroy. Releasing D3D9 texture: New_Ogre_Border_Break.png
+01:12:25: Released D3D9 texture: New_Ogre_Border_Break.png
+01:12:25: D3D9 device: 0x[0386F820] destroy. Releasing D3D9 texture: ogretext.png
+01:12:25: Released D3D9 texture: ogretext.png
+01:12:25: D3D9 : Shutting down cleanly.
+01:12:25: Unregistering ResourceManager for type Texture
+01:12:25: Unregistering ResourceManager for type GpuProgram
+01:12:25: D3D9 : Direct3D9 Rendering Subsystem destroyed.
+01:12:25: Plugin successfully uninstalled
+01:12:25: Unloading library RenderSystem_Direct3D9.dll
+01:12:25: Unregistering ResourceManager for type Material

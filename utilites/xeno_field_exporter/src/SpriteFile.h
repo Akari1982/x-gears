@@ -37,7 +37,7 @@ struct Sprite
 class SpriteFile : public File, public Ogre::RenderQueueListener
 {
 public:
-    SpriteFile( File* file, Vram* vram );
+    SpriteFile( File* file, Vram* vram, const int file_id, const int sprite_id );
     virtual ~SpriteFile();
 
     void Initialise();
