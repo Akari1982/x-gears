@@ -92,6 +92,7 @@ spawn table
         + 3a [][]     init with 0. Some scale. Multiplied with rotation matrix.
         + 3c [][][][] init with 0. Some flags.
                         0x00000003 - set to 1 during init. If 1 then remove sprite offset in b4+3c and b4+3d.
+                                        0x1 - init animation.
                         0x00000004 - call some other function after packet creation.
                         0x00000008 - invert tile x and width.
                         0x00000010 - invert tile y and height.
@@ -104,6 +105,8 @@ spawn table
                         0x000000fc - number_of_tiles in current render.
                         0x00001f00 - scale
                         0x0001e000 - removed during init.
+                        0x00020000 - this struct was added to sprite struct list.
+                        0x00080000 - if set we init frame.
                         0x00100000 - add when we starting animation. If 0 and +3c 0x00000003 == 1 and b4+34 != 0 then reset all data in +124 (add rot and trans).
         + 44 [][][][] pointer to loaded sprite pack.
         + 48 [][][][] pointer to sprite pack.
@@ -113,7 +116,7 @@ spawn table
         + 58 [][][][] pointer to animation data in sprite data file 0.
         + 5c [][][][] pointer to animation data in sprite data file 0 + 6, set when sprite has only two directions (one animation sequence).
         + 60 [][][][] pointer to 1st animation data in sprite data file 0.
-        + 64 [][][][] pointer to start of sprite sequence data from file 0. Init with 0.
+        + 64 [][][][] current pointer to sprite sequence data from file 0. Init with 0.
         + 68 [][][][] init with 0.
         + 6c [][][][] init with 0. Pointer to itself (allocated struct start).
         + 70 [][][][] init with 0.
@@ -122,12 +125,16 @@ spawn table
         + 82 [][]     not inited but used co calculate +1c. Set to +18 as * 30 or * 60.
         + 84 [][]     init with 0. Checked with +6.
         + 86 [][]     size of allocated data (0x164).
-        + 8c []       init with 0x10.
+        + 8c []       pointer to item in stack +8e. Init with 0x10.
+        + 8e start of stack for positions in script for function calls.
+            + 0 []       1st byte.
+            + 1 []       2nd byte.
+            + 2 []       3rd byte.
         + 9e [][]     init with 0x0001.
         + a8 [][][][] init with 0. Some flags.
                         0x00000001 - set if bu[80058810 + 3d] == 0, removed otherwise. Reset f4+0, f4+4, f4+c if set.
                         0x000007fe - removed when start animation.
-                        0x0001f800 - frame id data in sprite file 0.
+                        0x0001f800 - frame id for direction data sprite file 0 (frames differ for different direction).
                         0x000e0000 - direction animation id.
                         0x00300000 - store here flags from animation data 0x0003. Looks like this types of direction behaviour in animation.
                                         0x00 - 2 direction sprite.
@@ -180,7 +187,7 @@ spawn table
                                 0x00000010 - flip horizontal
                                 0x00000020 - flip vertical
             + 34 [][][][] pointer to +124.
-            + 38 [][][][] pointer to next sprite structure. Init with 0.
+            + 38 [][][][] pointer to previous sprite structure (struct_164). Init with 0.
             + 3c []       offset x.
             + 3d []       offset y.
         + f4 start of some data (+7c points here)
