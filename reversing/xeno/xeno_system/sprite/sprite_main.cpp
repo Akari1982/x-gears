@@ -1,25 +1,25 @@
 ////////////////////////////////
 // func1d2e4()
-struct = w[GP + 20];
-if( struct != 0 )
+struct_164 = w[GP + 20];
+if( struct_164 != 0 )
 {
     loop1d300:	; 8001D300
-        frame_id = hu[struct + 34];
+        frame_id = hu[struct_164 + 34];
         if( frame_id == 0 )
         {
-            [struct + 40] = w(w[struct + 40] & ffffff03); // set number of tiles to 0
+            [struct_164 + 40] = w(w[struct_164 + 40] & ffffff03); // set number of tiles to 0
         }
         else
         {
-            A0 = struct; // struct
+            A0 = struct_164;
             A1 = frame_id;
-            A2 = w[struct + 24];
+            A2 = w[struct_164 + 24];
             func1d968;
         }
 
-        V0 = w[struct + 20];
-        struct = w[V0 + 38];
-    8001D340	bne    struct, zero, loop1d300 [$8001d300]
+        V0 = w[struct_164 + 20];
+        struct_164 = w[V0 + 38];
+    8001D340	bne    struct_164, zero, loop1d300 [$8001d300]
 }
 [GP + 20] = w(0);
 ////////////////////////////////

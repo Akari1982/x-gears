@@ -724,10 +724,12 @@ L7bdc8:	; 8007BDC8
     8007BED4	lh     s0, $0008(v0)
     8007BED8	j      L7bf9c [$8007bf9c]
     8007BEDC	sll    v0, s0, $03
-    8007BEE0	addu   a0, s3, zero
-    8007BEE4	lw     a2, $0040(sp)
-    8007BEE8	jal    system_side_of_vector [$8004a5b4]
-    8007BEEC	addu   a1, fp, zero
+
+    A0 = S3;
+    A1 = FP;
+    A2 = w[SP + 40];
+    system_side_of_vector();
+
     8007BEF0	bltz   v0, L7bf34 [$8007bf34]
     8007BEF4	sll    v0, s0, $03
     8007BEF8	j      L7bf68 [$8007bf68]
@@ -850,27 +852,27 @@ L7c044:	; 8007C044
 8007C05C	nop
 8007C060	lw     t2, $0094(sp)
 8007C064	nop
-8007C068	bne    t2, v1, L7c078 [$8007c078]
 8007C06C	sll    v0, s0, $03
-return 0;
 
-L7c078:	; 8007C078
-8007C078	subu   v0, v0, s0
-8007C07C	sll    v0, v0, $01
-8007C080	addu   v0, v0, s5
+if( T2 == V1 )
+{
+    return 0;
+}
+
+V0 = V0 - S0;
+V0 = V0 << 1;
+V0 = V0 + S5;
 A0 = h[V0 + 0];
 A1 = h[V0 + 2];
 A2 = h[V0 + 4];
 A3 = w[SP + 90];
 V0 = SP + 18;
 [SP + 10] = w(V0);
-8007C09C	sll    a0, a0, $03
-8007C0A0	addu   a0, s6, a0
-8007C0A4	sll    a1, a1, $03
-8007C0A8	addu   a1, s6, a1
-8007C0AC	sll    a2, a2, $03
-8007C0B0	jal    field_calculate_walkmesh_height [$8007a690]
-8007C0B4	addu   a2, s6, a2
+A0 = S6 + A0 * 8;
+A1 = S6 + A1 * 8;
+A2 = S6 + A2 * 8;
+field_calculate_walkmesh_height();
+
 return 0;
 
 L7c0c0:	; 8007C0C0

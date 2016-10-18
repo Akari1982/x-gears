@@ -1,7 +1,25 @@
 <map>
     <walkmesh file_name="maps/field/lahan_tutorial_wm.xml" />
 
+    <square_trigger name="Gateway0" point1="-0.296875 -1.71875 0" point2="0.328125 -1.71875 0" point3="0.328125 -1.54688 0" point4="-0.296875 -1.54688 0" />
+
+    <entity name="Script_0" position="0 0 0" flags="01e0" />
+    <entity name="Script_1" position="0 0 0" flags="01e0" />
+    <entity name="Script_2" position="0 0 0" flags="01e0" />
+    <entity name="Script_3" position="0 0 0" flags="01e0" />
+    <entity name="Script_4" position="0 0 0" flags="01e0" />
+    <entity name="Script_5" position="0 0 0" flags="01e0" />
+    <entity name="Script_6" position="0 0 0" flags="01e0" />
+    <entity name="Script_7" position="0 0 0" flags="01e0" />
+    <entity name="Script_8" position="0 0 0" flags="01e0" />
+    <entity name="Script_9" position="0 0 0" flags="01e0" />
+    <entity name="Script_10" position="0 0 0" flags="01e0" />
+    <entity name="Script_11" position="0 0 0" flags="01e0" />
+    <entity name="Script_12" position="0 0 0" flags="01e0" />
+    <entity name="Script_13" position="0 0 0" flags="01e0" />
     <entity_model name="Background_14" file_name="models/field_maps/0616/17.mesh" position="1.875 -0.90625 1.03125" rotation="0 2560 0" direction="225" flags="0290" />
+    <entity name="Script_15" position="0 0 0" flags="01e0" />
+    <entity name="Script_16" position="0 0 0" flags="01e0" />
     <entity_model name="Background_17" file_name="models/field_maps/0616/0.mesh" position="0 0 0" rotation="0 2560 0" direction="225" flags="8010" />
     <entity_model name="Background_18" file_name="models/field_maps/0616/1.mesh" position="0 0 0" rotation="0 2560 0" direction="225" flags="0010" />
     <entity_model name="Background_19" file_name="models/field_maps/0616/2.mesh" position="0 0 0" rotation="0 2560 0" direction="225" flags="0010" />

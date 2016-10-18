@@ -191,7 +191,7 @@ if( datab4 != 0 )
         {
             A0 = struct_164;
             A1 = w[80058810 + 38];
-            func21e60;
+            func21e60();
         }
 
         A0 = struct_164;
@@ -318,7 +318,7 @@ if( T0 != ( ( w[struct_164 + a8] >> 11 ) & 7 ) )
     A1 = w[struct_164 + 64];
     [struct_164 + 64] = w(animation_data + 2 + hu[animation_data + 2]);
     A2 = (w[struct_164 + a8] >> 16) & 3f; // 0x0fc00000
-    func224f0();
+    func224f0(); // opcode run for frame set (don't do other things)
 
     [struct_164 + 9e] = h(S0);
 }
@@ -370,10 +370,10 @@ loop2251c:	; 8002251C
             {
                 A0 = struct_164;
                 A1 = frame_id;
-                func1d134(); // set frame
+                system_set_sprite_frame();
             }
 
-            [struct_164 + 9e] = h(hu[struct_164 + 9e] + 1 + (hu[A2 + 1] >> b) & f);
+            [struct_164 + 9e] = h(hu[struct_164 + 9e] + 1 + (hu[A2 + 1] >> b) & f); // wait
         }
         else if( opcode == e2 )
         {
@@ -409,7 +409,7 @@ loop2251c:	; 8002251C
         {
             A0 = struct_164;
             A1 = hu[struct_164 + 34] + 1;
-            func1d134(); // set frame
+            system_set_sprite_frame();
         }
         else if( opcode < 20 )
         {
@@ -417,20 +417,20 @@ loop2251c:	; 8002251C
             [struct_164 + a8] = w((w[struct_164 + a8] & fffe07ff) | (((frame_data_id + 1) & 3f) << b));
 
             A0 = struct_164;
-            func22bcc();
+            system_set_rotated_sprite_frame();
         }
         else if( opcode < 30 )
         {
             A1 = hu[struct_164 + 34] - 1;
             A0 = struct_164;
-            func1d134(); // set frame
+            system_set_sprite_frame();
         }
 
         if( opcode < 40 )
         {
-            S3 = (opcode & f) + 1;
+            wait = (opcode & f) + 1;
         }
-        [struct_164 + 9e] = h(hu[struct_164 + 9e] + S3);
+        [struct_164 + 9e] = h(hu[struct_164 + 9e] + wait;
 
         // increment unknown clamp 0x3f
         V0 = (((w[struct_164 + a8] >> 16) & 3f) + 1) & 3f; // 0x0fc00000
@@ -447,7 +447,7 @@ loop2251c:	; 8002251C
 
 
 ////////////////////////////////
-// func22bcc()
+// system_set_rotated_sprite_frame()
 struct_164 = A0;
 
 V1 = (w[struct_164 + a8] >> b) & 3f;
@@ -469,13 +469,13 @@ V1 = w[struct_164 + ac];
 
 A0 = struct_164;
 A1 = frame_id & 01ff;
-func1d134(); // set frame
+system_set_sprite_frame();
 ////////////////////////////////
 
 
 
 ////////////////////////////////
-// func1d134()
+// system_set_sprite_frame()
 struct_164 = A0;
 frame_id = A1;
 
@@ -512,7 +512,7 @@ if( ( w[struct_164 + 40] & 00020000 ) && ( last_struct != 0 ) )
                     A0 = struct_164;
                     A1 = hu[struct_164 + 34]; // prev frame
                     A2 = data110;
-                    func1f764();
+                    func1f764(); // init sprite data124 with data for short and long tile data.
                 }
             }
 
@@ -552,7 +552,9 @@ if( frame_id >= ((hu[sprite_file_1 + 0] & 01ff) + 1) )
 if( hu[sprite_file_1 + 0] & 8000 )
 {
     A0 = struct_164;
-    func1f5d0();
+    A1 = frame_id;
+    A2 = data110;
+    func1f5d0(); // init sprite data124 with data for short tile data.
 
     return;
 }
@@ -589,15 +591,14 @@ if( number_of_tiles != 0 )
                     func2332c(); // init 0x8 items in +124 with 0
                 }
 
+                A1 = S1 & 7;
                 if( S1 & 20 ) // additional offset
                 {
-                    A1 = S1 & 7;
                     V0 = w[datab4 + 34];
                     [V0 + A1 * 8 + 0] = b(bu[S0 + 0]);
                     [V0 + A1 * 8 + 1] = b(bu[S0 + 1]);
                     S0 = S0 + 2;
                 }
-
                 if( S1 & 10 )
                 {
                     V0 = w[datab4 + 34];
@@ -640,106 +641,84 @@ if( number_of_tiles != 0 )
 ////////////////////////////////
 // func1f5d0()
 struct_164 = A0;
+frame_id = A1;
+data110 = A2;
 
-8001F5F4	lw     v0, $0000(a2)
-8001F5F8	sll    a1, a1, $01
-8001F5FC	addu   a1, a1, v0
-8001F600	lhu    v1, $0000(a1)
-8001F604	addu   s3, a0, zero
-8001F608	addu   v1, v1, v0
-8001F60C	lbu    v0, $0000(v1)
-8001F610	addu   s4, zero, zero
-8001F614	andi   s6, v0, $0080
-8001F618	andi   s5, v0, $003f
-8001F61C	sll    v0, s5, $01
-8001F620	addiu  v0, v0, $0004
-8001F628	addu   s0, v1, v0
+sprite_file_1 = w[data110 + 0];
 
-if( S5 != 0 )
+frame_data = sprite_file_1 + hu[sprite_file_1 + frame_id * 2];
+V0 = bu[frame_data + 0];
+bytes2 = V0 & 80;
+number_of_tiles = V0 & 3f;
+
+if( number_of_tiles != 0 )
 {
+    S0 = frame_data + 4 + number_of_tiles * 2;
+
+    tile_id = 0;
     L1f62c:	; 8001F62C
-    8001F62C	lbu    s1, $0000(s0)
-    8001F630	nop
-    8001F634	andi   v0, s1, $0080
-    8001F638	beq    v0, zero, L1f724 [$8001f724]
-    8001F63C	andi   v0, s1, $0040
-    8001F640	beq    v0, zero, L1f704 [$8001f704]
-    8001F644	addiu  s0, s0, $0001
-    8001F648	lw     v0, $0020(s3)
-    8001F64C	nop
-    8001F650	lw     v0, $0034(v0)
-    if( V0 == 0 )
-    {
-        A0 = 40;
-        A1 = 0;
-        system_memory_allocate();
+        S1 = bu[S0];
+        if( S1 & 80 )
+        {
+            S0 = S0 + 1;
 
-        V1 = w[S3 + 20];
-        [V1 + 34] = w(V0);
+            if( S1 & 40 )
+            {
+                // if pointer to additional tile data not exist
+                // allocate place and create pointer
+                datab4 = w[struct_164 + 20];
+                if( w[datab4 + 34] == 0 )
+                {
+                    A0 = 40;
+                    A1 = 0;
+                    system_memory_allocate();
+                    [datab4 + 34] = w(V0);
 
-        A0 = S3;
-        func2332c(); // init 0x8 items in +124 with 0
-    }
+                    A0 = struct_164;
+                    func2332c(); // init 0x8 items in +124 with 0
+               }
 
-    8001F65C	andi   s2, s1, $0007
-    8001F67C	andi   v0, s1, $0020
-    8001F680	beq    v0, zero, L1f6b8 [$8001f6b8]
-    8001F684	sll    a0, s2, $03
-    8001F688	lw     v0, $0020(s3)
-    8001F68C	lbu    v1, $0000(s0)
-    8001F690	lw     v0, $0034(v0)
-    8001F694	addiu  s0, s0, $0001
-    8001F698	addu   v0, a0, v0
-    8001F69C	sb     v1, $0000(v0)
-    8001F6A0	lw     v0, $0020(s3)
-    8001F6A4	lbu    v1, $0000(s0)
-    8001F6A8	lw     v0, $0034(v0)
-    8001F6AC	addiu  s0, s0, $0001
-    8001F6B0	addu   a0, a0, v0
-    8001F6B4	sb     v1, $0001(a0)
+                A1 = S1 & 7;
+                if( S1 & 20 ) // additional offset
+                {
+                    V0 = w[datab4 + 34];
+                    [V0 + A1 * 8 + 0] = b(bu[S0 + 0]);
+                    [V0 + A1 * 8 + 1] = b(bu[S0 + 1]);
+                    S0 = S0 + 2;
+                }
+                if( S1 & 10 )
+                {
+                    V0 = w[datab4 + 34];
+                    [V0 + A1 * 8 + 6] = h(bu[S0] << 4);
+                    S0 = S0 + 1;
+                }
+                else
+                {
+                    V0 = w[datab4 + 34];
+                    [V0 + A1 * 8 + 6] = h(0);
+                }
+            }
+            else
+            {
+                if( S1 & 01 )
+                {
+                    S0 = S0 + 1;
+                }
+                if( S1 & 02 )
+                {
+                    S0 = S0 + 1;
+                }
+            }
 
-    L1f6b8:	; 8001F6B8
-    8001F6B8	andi   v0, s1, $0010
-    8001F6BC	beq    v0, zero, L1f6e8 [$8001f6e8]
-    8001F6C0	nop
-    8001F6C4	lbu    a0, $0000(s0)
-    8001F6C8	addiu  s0, s0, $0001
-    8001F6CC	lw     v0, $0020(s3)
-    8001F6D0	sll    a0, a0, $04
-    8001F6D4	lw     v1, $0034(v0)
-    8001F6D8	sll    v0, s2, $03
-    8001F6DC	addu   v0, v0, v1
-    8001F6E0	j      L1f62c [$8001f62c]
-    8001F6E4	sh     a0, $0006(v0)
+            8001F71C	j      L1f62c [$8001f62c]
+        }
 
-    L1f6e8:	; 8001F6E8
-    8001F6E8	lw     v0, $0020(s3)
-    8001F6EC	nop
-    8001F6F0	lw     v1, $0034(v0)
-    8001F6F4	sll    v0, s2, $03
-    8001F6F8	addu   v0, v0, v1
-    8001F6FC	j      L1f62c [$8001f62c]
-    8001F700	sh     zero, $0006(v0)
-
-    L1f704:	; 8001F704
-    8001F704	andi   v0, s1, $0001
-    8001F708	beq    v0, zero, L1f714 [$8001f714]
-    8001F70C	andi   v0, s1, $0002
-    8001F710	addiu  s0, s0, $0001
-
-    L1f714:	; 8001F714
-    8001F714	beq    v0, zero, L1f62c [$8001f62c]
-    8001F718	nop
-    8001F71C	j      L1f62c [$8001f62c]
-    8001F720	addiu  s0, s0, $0001
-
-    L1f724:	; 8001F724
-    8001F724	beq    s6, zero, L1f730 [$8001f730]
-    8001F728	addiu  s4, s4, $0001
-    8001F72C	addiu  s0, s0, $0002
-
-    L1f730:	; 8001F730
-    8001F730	bne    s4, s5, L1f62c [$8001f62c]
-    8001F734	addiu  s0, s0, $0003
+        S0 = S0 + 3;
+        if( bytes2 != 0 )
+        {
+            S0 = S0 + 2;
+        }
+        tile_id = tile_id + 1;
+    8001F730	bne    tile_id, number_of_tiles, L1f62c [$8001f62c]
 }
 ////////////////////////////////

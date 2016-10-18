@@ -130,11 +130,11 @@ spawn table
             + 0 []       1st byte.
             + 1 []       2nd byte.
             + 2 []       3rd byte.
-        + 9e [][]     init with 0x0001.
+        + 9e [][]     animation script wait timer. Init with 0x0001.
         + a8 [][][][] init with 0. Some flags.
                         0x00000001 - set if bu[80058810 + 3d] == 0, removed otherwise. Reset f4+0, f4+4, f4+c if set.
                         0x000007fe - removed when start animation.
-                        0x0001f800 - frame id for direction data sprite file 0 (frames differ for different direction).
+                        0x0001f800 - direction frame id (frames differ for different direction).
                         0x000e0000 - direction animation id.
                         0x00300000 - store here flags from animation data 0x0003. Looks like this types of direction behaviour in animation.
                                         0x00 - 2 direction sprite.
@@ -148,6 +148,7 @@ spawn table
                         0x001ffe00 - something multiplied and stored to +1c.
                         0xff000000 - animation id to play.
         + b0 [][][][] some flags. Init with 0.
+                        0x000000ff - animation to play when we end animation script with 0x81 opcode. Maybe default animation id.
                         0x00000400 - remove this if we restarting animation. Add otherwise.
         + b4 start of some data (+20 points here)
             +  0 [][]     rotation x.

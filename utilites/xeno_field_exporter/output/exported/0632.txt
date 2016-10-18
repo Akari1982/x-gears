@@ -276,7 +276,7 @@ Script: 0173, 03
 // Timothy
 Entity: 09
 Script: 0174, 00
-	0x0B(0680};
+	EntityNPCSpriteInit(0680};
 	SpriteSetSolid(0880};
 	SpriteSetPosition(fbff5fffc0};
 	SetRotation(0480};
@@ -435,7 +435,7 @@ Script: 02dd, 03
 // Dan
 Entity: 0b
 Script: 02de, 00
-	0x0B(0280};
+	EntityNPCSpriteInit(0280};
 	SpriteSetPosition(0c010000c0};
 	SetRotation(0680};
 	SpriteSetSolid(0d80};
@@ -523,7 +523,7 @@ Script: 0345, 06
 // Lee
 Entity: 0c
 Script: 03aa, 00
-	0x0B(0480};
+	EntityNPCSpriteInit(0480};
 	SpriteSetSolid(0880};
 	SetRotation(0080};
 	EO_SetAvatar(0f80};
@@ -600,7 +600,7 @@ Script: 0455, 07
 // Timothy Father
 Entity: 0d
 Script: 045c, 00
-	0x0B(0080};
+	EntityNPCSpriteInit(0080};
 	SpriteSetSolid(0880};
 	SetRotation(0580};
 	Return(};
@@ -634,7 +634,7 @@ Script: 0485, 04
 // Aruru no Shukufu
 Entity: 0e
 Script: 048c, 00
-	0x0B(0180};
+	EntityNPCSpriteInit(0180};
 	SpriteSetSolid(0880};
 	SetRotation(0380};
 	Return(};
@@ -675,7 +675,7 @@ Script: 04be, 04
 
 Entity: 0f
 Script: 04c5, 00
-	0x0B(0380};
+	EntityNPCSpriteInit(0380};
 	Return(};
 
 Script: 04c9, 01

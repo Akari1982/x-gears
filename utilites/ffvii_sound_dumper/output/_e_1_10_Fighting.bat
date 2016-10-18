@@ -1,1 +1,0 @@
-start q-gears.exe 1_10_Fighting.snd

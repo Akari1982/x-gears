@@ -100,7 +100,7 @@ if (V0 == 0)
 
                 [S1 + 3C] = w(V0);
                 A0 = S1;
-                func1d134;
+                system_set_sprite_frame;
             }
 
             V0 = hu[S1 + 9E];
@@ -141,7 +141,7 @@ if (V0 == 0)
             800C0988	andi   v1, v1, $003f
             800C098C	sll    v1, v1, $0b
             800C0990	or     v0, v0, v1
-            800C0994	jal    func22bcc [$80022bcc]
+            800C0994	jal    system_set_rotated_sprite_frame [$80022bcc]
             800C0998	sw     v0, $00a8(s1)
             800C099C	j      Lc09c8 [$800c09c8]
             800C09A0	andi   v0, s5, $000f
@@ -156,7 +156,7 @@ if (V0 == 0)
         }
 
         Lc09bc:	; 800C09BC
-        800C09BC	jal    func1d134 [$8001d134]
+        800C09BC	jal    system_set_sprite_frame [$8001d134]
         800C09C0	nop
         800C09C4	andi   v0, s5, $000f
 

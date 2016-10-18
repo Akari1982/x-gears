@@ -57,7 +57,7 @@ if( number_of_entity > 0 )
                     A0 = entity_id;
                     A1 = struct_5c_p + entity_id * 5c;
                     A2 = struct_138;
-                    func821cc(); // perform move
+                    func821cc(); // check move
                 }
             }
             else if( w[struct_138 + 4] & 01000000 )

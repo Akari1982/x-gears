@@ -1,11 +1,70 @@
 <map>
     <walkmesh file_name="maps/field/lahan_city_wm.xml" />
 
+    <square_trigger name="Gateway0" point1="-20.1406 -42.5313 0" point2="13.5156 -42.5313 0" point3="13.5156 -30.9531 0" point4="-20.1406 -30.9531 0" />
+    <square_trigger name="Gateway1" point1="12.9063 -41.3594 0" point2="36.6719 -17.5156 0" point3="28.4688 -9.32813 0" point4="4.6875 -33.1719 0" />
+    <square_trigger name="Gateway2" point1="36.7969 22.1406 0" point2="13.0625 46.0156 0" point3="4.84375 37.8438 0" point4="28.5781 13.9688 0" />
+    <square_trigger name="Gateway3" point1="-34.1719 14.0313 0" point2="-10.4063 37.8594 0" point3="-18.6094 46.0469 0" point4="-42.375 22.2031 0" />
+    <square_trigger name="Gateway4" point1="-44.0625 -16.8438 0" point2="-20.0469 -40.4375 0" point3="-11.9219 -32.1719 0" point4="-35.9531 -8.57813 0" />
+    <square_trigger name="Gateway5" point1="-19.4844 35.0156 0" point2="14.1719 35.0156 0" point3="14.1719 46.6094 0" point4="-19.4844 46.6094 0" />
+    <square_trigger name="Gateway6" point1="-44.8594 -18.3906 0" point2="-32.625 -18.3906 0" point3="-32.625 22.3438 0" point4="-44.8594 22.3438 0" />
+    <square_trigger name="Gateway7" point1="25.625 -18 0" point2="37.8594 -18 0" point3="37.8594 22.75 0" point4="25.625 22.75 0" />
+    <square_trigger name="Gateway8" point1="6.84375 -24.5156 0" point2="8.92188 -24.5156 0" point3="8.92188 -22.6875 0" point4="6.84375 -22.6875 0" />
+    <square_trigger name="Gateway9" point1="6.90625 -19.9531 0" point2="8.96875 -19.9531 0" point3="8.96875 -18.125 0" point4="6.90625 -18.125 0" />
+    <square_trigger name="Gateway10" point1="-22.4063 22.7188 0" point2="-20.3438 22.7188 0" point3="-20.3438 24.5469 0" point4="-22.4063 24.5469 0" />
+    <square_trigger name="Gateway11" point1="2.34375 -24.5938 0" point2="4.42188 -24.5938 0" point3="4.42188 -22.7656 0" point4="2.34375 -22.7656 0" />
+
+    <entity name="Script_0" position="0 0 0" flags="01e0" />
+    <entity name="Script_1" position="0.203125 0.109375 3.26563" flags="0241" />
+    <entity name="Script_2" position="0 0 0" flags="01e0" />
+    <entity name="Script_3" position="0 0 0" flags="01e0" />
+    <entity name="Script_4" position="0 0 0" flags="01e0" />
+    <entity name="Script_5" position="0 0 0" flags="01e0" />
+    <entity name="Script_6" position="0 0 0" flags="01e0" />
+    <entity name="Script_7" position="0 0 0" flags="01e0" />
+    <entity name="Script_8" position="0 0 0" flags="01e0" />
+    <entity name="Script_9" position="0 0 0" flags="01e0" />
+    <entity name="Script_10" position="-4.8125 0.8125 27.1719" flags="0241" />
+    <entity name="Script_11" position="-6.28125 2.26563 -23.5156" flags="0241" />
+    <entity name="Script_12" position="5.23438 2.14063 11.4063" flags="0241" />
+    <entity name="Script_13" position="-6.375 1.29688 18.9531" flags="0241" />
+    <entity name="Script_14" position="-1.09375 2.65625 -3.34375" flags="0241" />
     <entity_model name="Background_15" file_name="models/field_maps/0608/67.mesh" position="7.85938 -1.46875 -19.125" rotation="0 0 0" direction="0" flags="0280" />
     <entity_model name="Background_16" file_name="models/field_maps/0608/67.mesh" position="-21.3594 -5.07813 23.625" rotation="0 0 0" direction="0" flags="0280" />
     <entity_model name="Background_17" file_name="models/field_maps/0608/69.mesh" position="7.875 -2.46875 -23.6094" rotation="0 0 0" direction="0" flags="0280" />
     <entity_model name="Background_18" file_name="models/field_maps/0608/69.mesh" position="3.35938 -1.46875 -23.6094" rotation="0 0 0" direction="0" flags="0280" />
+    <entity name="Script_19" position="0 0 0" flags="01e0" />
     <entity_model name="Background_20" file_name="models/field_maps/0608/55.mesh" position="10.125 -5.89063 -6.28125" rotation="0 0 0" direction="0" flags="0290" />
+    <entity name="Script_21" position="7.8125 -2.70313 12.4688" flags="0241" />
+    <entity name="Script_22" position="5.40625 0 1.03125" flags="0241" />
+    <entity name="Script_23" position="7.92188 0.84375 7.90625" flags="0241" />
+    <entity name="Script_24" position="-14.6406 -3.51563 1.375" flags="0241" />
+    <entity name="Script_25" position="-0.171875 -12.5156 6.98438" flags="0241" />
+    <entity name="Script_26" position="-5.48438 -11.2344 4.5625" flags="0241" />
+    <entity name="Script_27" position="2.67188 1.57813 9.42188" flags="0241" />
+    <entity name="Script_28" position="-3.46875 0.5625 -0.859375" flags="0241" />
+    <entity name="Script_29" position="-0.796875 0.375 3.79688" flags="0241" />
+    <entity name="Script_30" position="-3.20313 1.53125 -11.5781" flags="0241" />
+    <entity name="Script_31" position="-0.15625 0 15.9063" flags="0241" />
+    <entity name="Script_32" position="-0.140625 0.734375 17.1094" flags="0241" />
+    <entity name="Script_33" position="13.0313 0 1.73438" flags="0241" />
+    <entity name="Script_34" position="-3.0625 1.60938 -8.875" flags="0241" />
+    <entity name="Script_35" position="-3.21875 1.84375 -10.1563" flags="0241" />
+    <entity name="Script_36" position="-5.125 0.515625 -9.64063" flags="0241" />
+    <entity name="Script_37" position="6.875 1.25 -1.14063" flags="0241" />
+    <entity name="Script_38" position="-8.21875 1.51563 -16.9063" flags="0241" />
+    <entity name="Script_39" position="-8.64063 0.6875 -4.04688" flags="0241" />
+    <entity name="Script_40" position="-8 0.703125 -4.84375" flags="0241" />
+    <entity name="Script_41" position="11.8906 0 -21.25" flags="0241" />
+    <entity name="Script_42" position="-2.20313 0 4.64063" flags="0241" />
+    <entity name="Script_43" position="-21.9688 0.21875 9.34375" flags="0241" />
+    <entity name="Script_44" position="-25.1406 0 7.42188" flags="0241" />
+    <entity name="Script_45" position="16.8906 -3.1875 -9.60938" flags="0241" />
+    <entity name="Script_46" position="-14.2188 1.09375 -11.4688" flags="0241" />
+    <entity name="Script_47" position="-8.96875 1.625 14.0938" flags="0241" />
+    <entity name="Script_48" position="0 0 0" flags="01e0" />
+    <entity name="Script_49" position="0 0 0" flags="01e0" />
+    <entity name="Script_50" position="0 0 0" flags="01e0" />
     <entity_model name="Background_51" file_name="models/field_maps/0608/0.mesh" position="7.40625 0.453125 -0.515625" rotation="0 1024 0" direction="90" flags="0290" />
     <entity_model name="Background_52" file_name="models/field_maps/0608/0.mesh" position="1.54688 1.71875 -14.1875" rotation="0 1536 0" direction="135" flags="0290" />
     <entity_model name="Background_53" file_name="models/field_maps/0608/0.mesh" position="-14.375 -0.265625 -14.375" rotation="0 2559 0" direction="224.912" flags="0290" />
@@ -18,6 +77,7 @@
     <entity_model name="Background_60" file_name="models/field_maps/0608/64.mesh" position="11.875 -0.890625 -22.0313" rotation="0 3578 0" direction="314.473" flags="2290" />
     <entity_model name="Background_61" file_name="models/field_maps/0608/65.mesh" position="11.3438 -0.890625 -22.5781" rotation="0 3578 0" direction="314.473" flags="2290" />
     <entity_model name="Background_62" file_name="models/field_maps/0608/66.mesh" position="10.8125 -0.890625 -23.125" rotation="0 3578 0" direction="314.473" flags="2290" />
+    <entity name="Script_63" position="0 0 0" flags="01e0" />
     <entity_model name="Background_64" file_name="models/field_maps/0608/1.mesh" position="0 0 0" rotation="0 0 0" direction="0" flags="0010" />
     <entity_model name="Background_65" file_name="models/field_maps/0608/2.mesh" position="0 0 0" rotation="0 0 0" direction="0" flags="0010" />
     <entity_model name="Background_66" file_name="models/field_maps/0608/3.mesh" position="0 0 0" rotation="0 0 0" direction="0" flags="0000" />

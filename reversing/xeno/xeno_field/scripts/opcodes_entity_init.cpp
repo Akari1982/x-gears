@@ -233,7 +233,7 @@ if( S7 == 0 )
         A3 = S5;       // tx
         A4 = S0;       // ty
         A5 = 40;
-        func24330; // sprite set up
+        func24330(); // sprite set up
     }
     else
     {

@@ -34,19 +34,21 @@ animation data
 +04 [][]     offset to something related to sprite direction. If there is more directions then there is more offsets to differend data up to 5 for 8 directions.
 
 sequence data (just animation script)
-00-0f                               load frame from +34 + 1.
-10-1f                               load frame from +a8 + 1 (and store incremented value back).
-20-2f                               load frame from +34 - 1.
-30-3f                               do nothing.
-                                    for 00-3f lower 4 bits + 1 used as increment to +9e.
-40-7f                               do nothing.
-                                    for 00-7f increment 0x0fc00000 in +a8 and clamp by 0x3f.
-86 & 87 & 97                        length 0x1.
-b3( [[frame_id]] )                  set frame id & 0x3f to [struct_164 + a8] flags.
-be( [[flags]] )                     0x0200 - invert y flag in [struct_164 + ac] (if y and x inversion in [struct_164 + ac] not equal then set [struct_164 + 3c] x inversion).
-                                    0x01ff - frame id.
-                                    0x7800 - add this + 1 to [struct_164 + 9e].
-e2( [[jump]], [[[script_pos]]] )    store script_pos to +8e stack and jump by number of bytes defined in jump (function call).
+00-0f                       play next frame and wait 0x0f frames (used frame from +34).
+10-1f                       play next direction frame and wait 0x0f frames (used frame from +a8).
+20-2f                       play previous frame and wait 0x0f frames (used frame from +34).
+30-3f                       wait 0x0f frames
+a0[speed]                   set move speed.
+a7[wait]                    set wait 0x7f if 0x80 not set, set wait 0x7f to 0x80058ac4 otherwise.
+b3[direction_frame_id]      set direction frame id & 0x3f.
+b4[value]                   push value to track +8e.
+b5[scale]                   set scale to sprite.
+be[[flags]]                 0x0200 - invert y flag in [struct_164 + ac] (if y and x inversion in [struct_164 + ac] not equal then set [struct_164 + 3c] x inversion).
+c6[value]                   set value to +f4 +c (unknown).
+                            0x01ff - frame id.
+                            0x7800 - wait value. Stored as this + 1.
+e2[[jump]][[[script_pos]]]  store script_pos to +8e stack and jump by number of bytes defined in jump (function call).
+e4[[jump]]                  decrement and jump if top calue in stack +8e not 0. Move forward otherwise.
 
 direction frame id (array of two bytes frame_id)
 +00 [][]     frame id.
@@ -57,7 +59,7 @@ SPRITE_1
 header
 +00 [][]     0x01ff - number of frames - 1
              0x7e00 - number of tiles (allocate 0x18 for each item)
-             0x8000 - some flag.
+             0x8000 - if flag is set then tile position is +04 + number_of_tiles * 2, +06 + number_of_tiles * 4 otherwise.
 +02 array of offsets to frame data 2 bytes each
 
 frame data
@@ -66,8 +68,9 @@ frame data
 +01 []
 +02 []
 +03 []
-+04 array of tile offsets to tile description 2 bytes each
-+04 + number_of_tiles * 2 - tile position setting
++04 array of tile offsets to tile description 2 bytes each.
++04 + number_of_tiles * 2 - tile position setting if flag 0x8000 set.
++06 + number_of_tiles * 4 - tile position setting if flag 0x8000 not set.
 
 tile position setting
 +0 [] 0x80 - special settings. After special settings we go next cycle
