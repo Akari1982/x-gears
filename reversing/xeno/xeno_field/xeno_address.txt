@@ -36,6 +36,7 @@ spawn table
 +6 []       rotation. If 0xff - use rotation from slot 6 in memory block. (8 directions)
 
 800ad0e4 [][][][] checked if equal to 1 in func83f40.
+800ad0e8 [][][][] some index in 0x1f800000. Maybe move stack?
 
 800ad480 default material walking rotation (size 0x02. items 0x08)
     000C 000E 0000 0002 0004 0006 0008 000A
@@ -286,12 +287,12 @@ spawn table
         +  1a [][]     height if entity. Init with 0x60
         +  1c [][]     z width of entity. Init with 0x10.
         +  1e          solid range. Init from +18 (0x10).
-        +  20 [][][][] maybe current X. Used in movement.
-        +  24 [][][][] maybe current Y. Used in movement.
-        +  28 [][][][] maybe current Z. Used in movement.
-        +  30 [][][][] some X. Init with 0 when set position by x z
-        +  34 [][][][] some Y. Init with 0 when set position by x z
-        +  38 [][][][] some Z. Init with 0 when set position by x z
+        +  20 [][][][] current X.
+        +  24 [][][][] current Y.
+        +  28 [][][][] current Z.
+        +  30 [][][][] modified move vector X.
+        +  34 [][][][] modified move vector Y.
+        +  38 [][][][] modified move vector Z.
         +  40 [][][][] move vector X.
         +  44 [][][][] move vector Y.
         +  48 [][][][] move vector Z.

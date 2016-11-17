@@ -1,4 +1,29 @@
 ////////////////////////////////
+// func827e4()
+[A0 + 0] = h(h[A1 + 2]);
+[A0 + 2] = h(h[A1 + 6]);
+[A0 + 4] = h(h[A1 + a]);
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func7c374()
+[800ad0e8] = w(w[800ad0e8] - A0);
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func7c350()
+V0 = w[800ad0e8];
+[800ad0e8] = w(V0 + A0);
+return 1f800000 + V0 * 4;
+////////////////////////////////
+
+
+
+////////////////////////////////
 // get_current_triangle_material()
 walkmesh_id = h[A0 + 10];
 if( ( ( w[A0 + 4] >> walkmesh_id + 3 ) & 1 ) == 0 )
@@ -464,7 +489,7 @@ L7b68c:	; 8007B68C
 
 
 
-if( triangle_id != -1 && triangle_check_count != 20 )
+if( ( triangle_id != -1 ) && ( triangle_check_count != 20 ) )
 {
     if( flag != -1 )
     {
@@ -621,19 +646,21 @@ else
 
 ////////////////////////////////
 // func7bca8()
-T1 = move_vector = A0;
-T0 = current_pos = A1;
-[SP + 28] = struct_138 = A2;
-S7 = intersect_line = A3;
+// return -1 if we can't move, 0 otherwise.
+move_vector = A0;
+current_pos = A1;
+struct_138 = A2;
+intersect_line = A3;
 final_pos = A4;
 flag = A5; // if -1 then we don't need to really calculate height of final point. If 00000080 then we can go only down. Simulate material 00400000.
 material_ret = A6;
 
 walkmesh_id = h[struct_138 + 10];
-S0 = triangle_id = h[struct_138 + 08 + walkmesh_id * 2];
+triangle_id = h[struct_138 + 08 + walkmesh_id * 2];
 
-S6 = walkmesh_vertex_data = w[800af008 + walkmesh_id * 4];
-S5 = walkmesh_triangle_data = w[800aeff8 + walkmesh_id * 4];
+walkmesh_vertex_data = w[800af008 + walkmesh_id * 4];
+walkmesh_triangle_data = w[800aeff8 + walkmesh_id * 4];
+walkmesh_material_data = w[800aeff4];
 
 if( triangle_id == -1 )
 {
@@ -644,8 +671,8 @@ start_x = w[current_pos + 0];
 start_z = w[current_pos + 8];
 end_x = (start_x + w[move_vector + 0]) >> 10;
 end_z = (start_z + w[move_vector + 8]) >> 10;
-[SP + 40] = start_x_z = ((start_x >> 10) << 10) + (start_z >> 10);
-FP = ending_point_x_z = (end_x << 10) + end_z;
+start_x_z = ((start_x >> 10) << 10) + (start_z >> 10);
+ending_point_x_z = (end_x << 10) + end_z;
 
 [final_pos + 0] = h(end_x);
 [final_pos + 2] = h(0);
@@ -653,389 +680,224 @@ FP = ending_point_x_z = (end_x << 10) + end_z;
 
 if( ( ( w[struct_138 + 4] >> ( walkmesh_id + 3 ) ) & 1 ) == 0 && bu[800b16a0] == 0 )
 {
-    [SP + 38] = material_mask = ffffffff;
+    material_mask = ffffffff;
 }
 else
 {
-    [SP + 38] = material_mask = 00000000;
+    material_mask = 00000000;
 }
 
-[SP + 48] = triangle_check_count = 0;
+triangle_check_count = 0;
 L7bdc8:	; 8007BDC8
-    [SP + 30] = w(S0);
+    current_triangle_id = triangle_id;
+    S1 = 0;
 
-    V0 = walkmesh_vertex_data + h[S5 + S0 * e + 0] * 8;
-    S4 = (h[V0 + 0] << 10) + h[V0 + 4];
-    V0 = (walkmesh_vertex_data + h[S5 + S0 * e + 2]) * 8;
-    S3 = (h[V0 + 0] << 10) + h[V0 + 4];
-    V0 = walkmesh_vertex_data + h[S5 + S0 * e + 4] * 8;
-    S2 = (h[V0 + 0] << 10) + h[V0 + 4];
+    V0 = h[walkmesh_triangle_data + triangle_id * e + 00];
+    a_x_z = (h[walkmesh_vertex_data + V0 * 8 + 00] << 10) + h[walkmesh_vertex_data + V0 * 8 + 04];
 
-    A0 = S4;
-    A1 = S3;
-    A2 = FP;
+    V0 = h[walkmesh_triangle_data + triangle_id * e + 02];
+    b_x_z = (h[walkmesh_vertex_data + V0 * 8 + 00] << 10) + h[walkmesh_vertex_data + V0 * 8 + 04];
+
+    V0 = h[walkmesh_triangle_data + triangle_id * e + 04];
+    c_x_z = (h[walkmesh_vertex_data + V0 * 8 + 00] << 10) + h[walkmesh_vertex_data + V0 * 8 + 04];
+
+    A0 = a_x_z;
+    A1 = b_x_z;
+    A2 = ending_point_x_z;
     system_side_of_vector();
-    S1 = V0 >> 1f;
+    if( V0 < 0 )
+    {
+        S1 = S1 | 1;
+    }
 
-    A0 = S3;
-    A1 = S2;
-    A2 = FP;
+    A0 = b_x_z;
+    A1 = c_x_z;
+    A2 = ending_point_x_z;
     system_side_of_vector();
-
     if( V0 < 0 )
     {
         S1 = S1 | 2;
     }
 
-    A0 = S2;
-    A1 = S4;
-    A2 = FP;
+    A0 = c_x_z;
+    A1 = a_x_z;
+    A2 = ending_point_x_z;
     system_side_of_vector();
-
     if( V0 < 0 )
     {
         S1 = S1 | 4;
     }
 
-    8007BE70	sltiu  v0, s1, $0008
-    8007BE7C	beq    v0, zero, L7bf98 [$8007bf98]
-    8007BE80	sll    v0, s1, $02
-    8007BE84	lui    at, $8007
-    8007BE88	addu   at, at, v0
-    8007BE8C	lw     v0, $f23c(at)
-    8007BE90	nop
-    8007BE94	jr     v0 
-    8007BE98	nop
-
-    8007BE9C	ori    t2, zero, $00ff
-    8007BEA0	j      L7bf98 [$8007bf98]
-    8007BEA4	sw     t2, $0048(sp)
-    8007BEA8	sll    v0, s0, $03
-    8007BEAC	subu   v0, v0, s0
-    8007BEB0	sll    v0, v0, $01
-    8007BEB4	addu   v0, v0, s5
-    8007BEB8	lh     s0, $0006(v0)
-    8007BEBC	j      L7bf9c [$8007bf9c]
-    8007BEC0	sll    v0, s0, $03
-    8007BEC4	sll    v0, s0, $03
-    8007BEC8	subu   v0, v0, s0
-    8007BECC	sll    v0, v0, $01
-    8007BED0	addu   v0, v0, s5
-    8007BED4	lh     s0, $0008(v0)
-    8007BED8	j      L7bf9c [$8007bf9c]
-    8007BEDC	sll    v0, s0, $03
-
-    A0 = S3;
-    A1 = FP;
-    A2 = w[SP + 40];
-    system_side_of_vector();
-
-    8007BEF0	bltz   v0, L7bf34 [$8007bf34]
-    8007BEF4	sll    v0, s0, $03
-    8007BEF8	j      L7bf68 [$8007bf68]
-    8007BEFC	subu   v0, v0, s0
-    8007BF00	sll    v0, s0, $03
-    8007BF04	subu   v0, v0, s0
-    8007BF08	sll    v0, v0, $01
-    8007BF0C	addu   v0, v0, s5
-    8007BF10	lh     s0, $000a(v0)
-    8007BF14	j      L7bf9c [$8007bf9c]
-    8007BF18	sll    v0, s0, $03
-    8007BF1C	addu   a0, s4, zero
-    8007BF20	lw     a2, $0040(sp)
-    8007BF24	jal    system_side_of_vector [$8004a5b4]
-    8007BF28	addu   a1, fp, zero
-    8007BF2C	bltz   v0, L7bf7c [$8007bf7c]
-    8007BF30	sll    v0, s0, $03
-
-    L7bf34:	; 8007BF34
-    8007BF34	subu   v0, v0, s0
-    8007BF38	sll    v0, v0, $01
-    8007BF3C	addu   v0, v0, s5
-    8007BF40	lh     s0, $0006(v0)
-    8007BF44	j      L7bf98 [$8007bf98]
-    8007BF48	ori    s1, zero, $0001
-    8007BF4C	addu   a0, s2, zero
-    8007BF50	lw     a2, $0040(sp)
-    8007BF54	jal    system_side_of_vector [$8004a5b4]
-    8007BF58	addu   a1, fp, zero
-    8007BF5C	bgez   v0, L7bf7c [$8007bf7c]
-    8007BF60	sll    v0, s0, $03
-    8007BF64	subu   v0, v0, s0
-
-    L7bf68:	; 8007BF68
-    8007BF68	sll    v0, v0, $01
-    8007BF6C	addu   v0, v0, s5
-    8007BF70	lh     s0, $0008(v0)
-    8007BF74	j      L7bf98 [$8007bf98]
-    8007BF78	ori    s1, zero, $0002
-
-    L7bf7c:	; 8007BF7C
-    8007BF7C	subu   v0, v0, s0
-    8007BF80	sll    v0, v0, $01
-    8007BF84	addu   v0, v0, s5
-    8007BF88	lh     s0, $000a(v0)
-    8007BF8C	j      L7bf98 [$8007bf98]
-    8007BF90	ori    s1, zero, $0004
-    8007BF94	addiu  s0, zero, $ffff (=-$1)
-
-    L7bf98:	; 8007BF98
-    8007BF98	sll    v0, s0, $03
-
-    L7bf9c:	; 8007BF9C
-    8007BF9C	subu   v0, v0, s0
-    8007BFA0	sll    v0, v0, $01
-    8007BFA4	addu   v0, v0, s5
-    8007BFA8	lbu    v0, $000c(v0)
-    8007BFAC	lui    v1, $800b
-    8007BFB0	lw     v1, $eff4(v1)
-    8007BFB4	lw     t2, $0028(sp)
-    8007BFB8	sll    v0, v0, $02
-    8007BFBC	addu   v0, v0, v1
-    8007BFC0	lw     v0, $0000(v0)
-    8007BFC4	lw     a1, $0000(t2)
-    8007BFC8	lw     t2, $0038(sp)
-    8007BFCC	nop
-    8007BFD0	and    a0, v0, t2
-    8007BFD4	srl    v0, a1, $09
-    8007BFD8	andi   v0, v0, $0003
-    8007BFDC	srl    v1, a0, $03
-    8007BFE0	and    v0, v0, v1
-    if( V0 != 0 )
+    switch( S1 )
     {
-        8007BD24	j      L7c044 [$8007c044]
-        8007BD28	addiu  s0, zero, $ffff (=-$1)
+        case 0: // we not cross anything
+        {
+            triangle_check_count = ff;
+        }
+        break;
+        case 1:
+        {
+            triangle_id = h[walkmesh_triangle_data + triangle_id * e + 06];
+        }
+        case 2:
+        {
+            triangle_id = h[walkmesh_triangle_data + triangle_id * e + 08];
+        }
+        break;
+        case 3:
+        {
+            A0 = b_x_z;
+            A1 = ending_point_x_z;
+            A2 = start_x_z;
+            system_side_of_vector();
+            if( V0 >= 0 )
+            {
+                triangle_id = h[walkmesh_triangle_data + triangle_id * e + 8];
+                S1 = 2;
+            }
+            else
+            {
+                triangle_id = h[walkmesh_triangle_data + triangle_id * e + 6];
+                S1 = 1;
+            }
+        }
+        break;
+        case 4:
+        {
+            triangle_id = h[walkmesh_triangle_data + triangle_id * e + a];
+        }
+        break;
+        case 5:
+        {
+            A0 = a_x_z;
+            A1 = ending_point_x_z;
+            A2 = start_x_z;
+            system_side_of_vector();
+            if( V0 >= 0 )
+            {
+                triangle_id = h[walkmesh_triangle_data + triangle_id * e + 6];
+                S1 = 1;
+            }
+            else
+            {
+                triangle_id = h[walkmesh_triangle_data + triangle_id * e + a];
+                S1= 4;
+            }
+        }
+        break;
+        case 6:
+        {
+            A0 = c_x_z;
+            A1 = ending_point_x_z;
+            A2 = start_x_z;
+            system_side_of_vector();
+            if( V0 >= 0 )
+            {
+                triangle_id = h[walkmesh_triangle_data + triangle_id * e + a];
+                S1 = 4;
+            }
+            else
+            {
+                triangle_id = h[walkmesh_triangle_data + triangle_id * e + 8];
+                S1 = 2;
+            }
+        }
+        break;
+        case 7:
+        {
+            triangle_id = -1;
+        }
+        break;
     }
 
-    8007BFE8	srl    v0, a1, $08
-    8007BFEC	andi   v0, v0, $0007
-    8007BFF0	srl    v1, a0, $05
-    8007BFF4	and    v0, v0, v1
-    if( V0 != 0 )
+    material_id = bu[walkmesh_triangle_data + triangle_id * e + c];
+    material = w[walkmesh_material_data + material_id * 4];
+
+    A0 = material & material_mask;
+
+    if( ((w[struct_138 + 0] >> 9) & 3) & (A0 >> 3) )
     {
-        8007BD24	j      L7c044 [$8007c044]
-        8007BD28	addiu  s0, zero, $ffff (=-$1)
+        triangle_id = -1;
+        break;
     }
 
-    8007BFFC	lui    v0, $0080
-    8007C000	and    v0, a0, v0
-    8007C004	beq    v0, zero, L7c024 [$8007c024]
-    8007C008	addiu  v0, zero, $ffff (=-$1)
-    8007C00C	lw     t2, $0028(sp)
-    8007C010	nop
-    8007C014	lh     v0, $0010(t2)
-    if( V0 == 0 )
+    if( ((w[struct_138 + 0] >> 8) & 7) & (A0 >> 5) )
     {
-        8007BD24	j      L7c044 [$8007c044]
-        8007BD28	addiu  s0, zero, $ffff (=-$1)
+        triangle_id = -1;
+        break;
     }
 
-    8007C020	addiu  v0, zero, $ffff (=-$1)
+    if( ( A0 & 00800000 ) && ( h[struct_138 + 10] == 0 ) )
+    {
+        triangle_id = -1;
+        break;
+    }
 
-    L7c024:	; 8007C024
-    8007C024	beq    s0, v0, L7c0c4 [$8007c0c4]
-    8007C028	ori    v0, zero, $0002
-    8007C02C	lw     t2, $0048(sp)
-    8007C030	nop
-    8007C034	addiu  t2, t2, $0001
-    8007C038	slti   v0, t2, $0020
-    8007C040	sw     t2, $0048(sp)
+    if( triangle_id == -1 )
+    {
+        break;
+    }
+
+    triangle_check_count = triangle_check_count + 1;
+
+    V0 = triangle_check_count < 20;
 8007C03C	bne    v0, zero, L7bdc8 [$8007bdc8]
 
-L7c044:	; 8007C044
-8007C044	addiu  v1, zero, $ffff (=-$1)
-8007C048	beq    s0, v1, L7c0c0 [$8007c0c0]
-8007C04C	ori    v0, zero, $0020
-8007C050	lw     t2, $0048(sp)
-8007C054	nop
-8007C058	beq    t2, v0, L7c0c0 [$8007c0c0]
-8007C05C	nop
-8007C060	lw     t2, $0094(sp)
-8007C064	nop
-8007C06C	sll    v0, s0, $03
 
-if( T2 == V1 )
+
+L7c044:	; 8007C044
+if( ( triangle_id != -1 ) && ( triangle_check_count != 20 ) )
 {
+    if( flag != -1 )
+    {
+        A0 = walkmesh_vertex_data + h[walkmesh_triangle_data + triangle_id * e + 0] * 8;
+        A1 = walkmesh_vertex_data + h[walkmesh_triangle_data + triangle_id * e + 2] * 8;
+        A2 = walkmesh_vertex_data + h[walkmesh_triangle_data + triangle_id * e + 4] * 8;
+        A3 = final_pos;
+        A4 = SP + 18; // address to store normal
+        field_calculate_walkmesh_height();
+    }
     return 0;
 }
 
-V0 = V0 - S0;
-V0 = V0 << 1;
-V0 = V0 + S5;
-A0 = h[V0 + 0];
-A1 = h[V0 + 2];
-A2 = h[V0 + 4];
-A3 = w[SP + 90];
-V0 = SP + 18;
-[SP + 10] = w(V0);
-A0 = S6 + A0 * 8;
-A1 = S6 + A1 * 8;
-A2 = S6 + A2 * 8;
-field_calculate_walkmesh_height();
 
-return 0;
 
-L7c0c0:	; 8007C0C0
-8007C0C0	ori    v0, zero, $0002
+if( S1 == 1 )
+{
+    V0 = h[walkmesh_triangle_data + current_triangle_id * e + 0];
+    [intersect_line + 0] = h(hu[walkmesh_vertex_data + V0 * 8 + 0]);
+    [intersect_line + 2] = h(hu[walkmesh_vertex_data + V0 * 8 + 2]);
+    [intersect_line + 4] = h(hu[walkmesh_vertex_data + V0 * 8 + 4]);
 
-L7c0c4:	; 8007C0C4
-8007C0C4	beq    s1, v0, L7c1a8 [$8007c1a8]
-8007C0C8	slti   v0, s1, $0003
-8007C0CC	beq    v0, zero, L7c0e4 [$8007c0e4]
-8007C0D0	ori    v0, zero, $0001
-8007C0D4	beq    s1, v0, L7c0f8 [$8007c0f8]
+    V0 = h[walkmesh_triangle_data + current_triangle_id * e + 2];
+    [intersect_line + 8] = h(hu[walkmesh_vertex_data + V0 * 8 + 0]);
+    [intersect_line + a] = h(hu[walkmesh_vertex_data + V0 * 8 + 2]);
+    [intersect_line + c] = h(hu[walkmesh_vertex_data + V0 * 8 + 4]);
+}
+else if( S1 == 2 )
+{
+    V0 = h[walkmesh_triangle_data + current_triangle_id * e + 2];
+    [intersect_line + 0] = h(hu[walkmesh_vertex_data + V0 * 8 + 0]);
+    [intersect_line + 2] = h(hu[walkmesh_vertex_data + V0 * 8 + 2]);
+    [intersect_line + 4] = h(hu[walkmesh_vertex_data + V0 * 8 + 4]);
 
-return -1;
+    V0 = h[walkmesh_triangle_data + current_triangle_id * e + 4];
+    [intersect_line + 8] = h(hu[walkmesh_vertex_data + V0 * 8 + 0]);
+    [intersect_line + a] = h(hu[walkmesh_vertex_data + V0 * 8 + 2]);
+    [intersect_line + c] = h(hu[walkmesh_vertex_data + V0 * 8 + 4]);
+}
+else if( S1 == 4 )
+{
+    V0 = h[walkmesh_triangle_data + current_triangle_id * e + 4];
+    [intersect_line + 0] = h(hu[walkmesh_vertex_data + V0 * 8 + 0]);
+    [intersect_line + 2] = h(hu[walkmesh_vertex_data + V0 * 8 + 2]);
+    [intersect_line + 4] = h(hu[walkmesh_vertex_data + V0 * 8 + 4]);
 
-L7c0e4:	; 8007C0E4
-8007C0E4	ori    v0, zero, $0004
-8007C0E8	beq    s1, v0, L7c258 [$8007c258]
-
-return -1;
-
-L7c0f8:	; 8007C0F8
-8007C0F8	lw     t2, $0030(sp)
-8007C0FC	nop
-8007C100	sll    v1, t2, $03
-8007C104	subu   v1, v1, t2
-8007C108	sll    v1, v1, $01
-8007C10C	addu   v1, v1, s5
-8007C110	lh     v0, $0000(v1)
-8007C114	nop
-8007C118	sll    v0, v0, $03
-8007C11C	addu   v0, v0, s6
-8007C120	lhu    v0, $0000(v0)
-8007C124	nop
-8007C128	sh     v0, $0000(s7)
-8007C12C	lh     v0, $0000(v1)
-8007C130	nop
-8007C134	sll    v0, v0, $03
-8007C138	addu   v0, v0, s6
-8007C13C	lhu    v0, $0002(v0)
-8007C140	nop
-8007C144	sh     v0, $0002(s7)
-8007C148	lh     v0, $0000(v1)
-8007C14C	nop
-8007C150	sll    v0, v0, $03
-8007C154	addu   v0, v0, s6
-8007C158	lhu    v0, $0004(v0)
-8007C15C	nop
-8007C160	sh     v0, $0004(s7)
-8007C164	lh     v0, $0002(v1)
-8007C168	nop
-8007C16C	sll    v0, v0, $03
-8007C170	addu   v0, v0, s6
-8007C174	lhu    v0, $0000(v0)
-8007C178	nop
-8007C17C	sh     v0, $0008(s7)
-8007C180	lh     v0, $0002(v1)
-8007C184	nop
-8007C188	sll    v0, v0, $03
-8007C18C	addu   v0, v0, s6
-8007C190	lhu    v0, $0002(v0)
-8007C194	nop
-8007C198	sh     v0, $000a(s7)
-8007C19C	lh     v0, $0002(v1)
-8007C1A0	j      L7c308 [$8007c308]
-8007C1A4	sll    v0, v0, $03
-
-L7c1a8:	; 8007C1A8
-8007C1A8	lw     t2, $0030(sp)
-8007C1AC	nop
-8007C1B0	sll    v1, t2, $03
-8007C1B4	subu   v1, v1, t2
-8007C1B8	sll    v1, v1, $01
-8007C1BC	addu   v1, v1, s5
-8007C1C0	lh     v0, $0002(v1)
-8007C1C4	nop
-8007C1C8	sll    v0, v0, $03
-8007C1CC	addu   v0, v0, s6
-8007C1D0	lhu    v0, $0000(v0)
-8007C1D4	nop
-8007C1D8	sh     v0, $0000(s7)
-8007C1DC	lh     v0, $0002(v1)
-8007C1E0	nop
-8007C1E4	sll    v0, v0, $03
-8007C1E8	addu   v0, v0, s6
-8007C1EC	lhu    v0, $0002(v0)
-8007C1F0	nop
-8007C1F4	sh     v0, $0002(s7)
-8007C1F8	lh     v0, $0002(v1)
-8007C1FC	nop
-8007C200	sll    v0, v0, $03
-8007C204	addu   v0, v0, s6
-8007C208	lhu    v0, $0004(v0)
-8007C20C	nop
-8007C210	sh     v0, $0004(s7)
-8007C214	lh     v0, $0004(v1)
-8007C218	nop
-8007C21C	sll    v0, v0, $03
-8007C220	addu   v0, v0, s6
-8007C224	lhu    v0, $0000(v0)
-8007C228	nop
-8007C22C	sh     v0, $0008(s7)
-8007C230	lh     v0, $0004(v1)
-8007C234	nop
-8007C238	sll    v0, v0, $03
-8007C23C	addu   v0, v0, s6
-8007C240	lhu    v0, $0002(v0)
-8007C244	nop
-8007C248	sh     v0, $000a(s7)
-8007C24C	lh     v0, $0004(v1)
-8007C250	j      L7c308 [$8007c308]
-8007C254	sll    v0, v0, $03
-
-L7c258:	; 8007C258
-8007C258	lw     t2, $0030(sp)
-8007C25C	nop
-8007C260	sll    v1, t2, $03
-8007C264	subu   v1, v1, t2
-8007C268	sll    v1, v1, $01
-8007C26C	addu   v1, v1, s5
-8007C270	lh     v0, $0004(v1)
-8007C274	nop
-8007C278	sll    v0, v0, $03
-8007C27C	addu   v0, v0, s6
-8007C280	lhu    v0, $0000(v0)
-8007C284	nop
-8007C288	sh     v0, $0000(s7)
-8007C28C	lh     v0, $0004(v1)
-8007C290	nop
-8007C294	sll    v0, v0, $03
-8007C298	addu   v0, v0, s6
-8007C29C	lhu    v0, $0002(v0)
-8007C2A0	nop
-8007C2A4	sh     v0, $0002(s7)
-8007C2A8	lh     v0, $0004(v1)
-8007C2AC	nop
-8007C2B0	sll    v0, v0, $03
-8007C2B4	addu   v0, v0, s6
-8007C2B8	lhu    v0, $0004(v0)
-8007C2BC	nop
-8007C2C0	sh     v0, $0004(s7)
-8007C2C4	lh     v0, $0000(v1)
-8007C2C8	nop
-8007C2CC	sll    v0, v0, $03
-8007C2D0	addu   v0, v0, s6
-8007C2D4	lhu    v0, $0000(v0)
-8007C2D8	nop
-8007C2DC	sh     v0, $0008(s7)
-8007C2E0	lh     v0, $0000(v1)
-8007C2E4	nop
-8007C2E8	sll    v0, v0, $03
-8007C2EC	addu   v0, v0, s6
-8007C2F0	lhu    v0, $0002(v0)
-8007C2F4	nop
-8007C2F8	sh     v0, $000a(s7)
-8007C2FC	lh     v0, $0000(v1)
-8007C300	nop
-8007C304	sll    v0, v0, $03
-
-L7c308:	; 8007C308
-8007C308	addu   v0, v0, s6
-8007C30C	lhu    v0, $0004(v0)
-8007C310	nop
-8007C314	sh     v0, $000c(s7)
+    V0 = h[walkmesh_triangle_data + current_triangle_id * e + 0];
+    [intersect_line + 8] = h(hu[walkmesh_vertex_data + V0 * 8 + 0]);
+    [intersect_line + a] = h(hu[walkmesh_vertex_data + V0 * 8 + 2]);
+    [intersect_line + c] = h(hu[walkmesh_vertex_data + V0 * 8 + 4]);
+}
 return -1;
 ////////////////////////////////
 
@@ -1044,7 +906,7 @@ return -1;
 ////////////////////////////////
 // func81808()
 struct_164 = A0;
-animation_id = S0 = A1;
+animation_id = A1;
 struct_5c = A2;
 
 struct_138 = w[struct_5c + 4c];

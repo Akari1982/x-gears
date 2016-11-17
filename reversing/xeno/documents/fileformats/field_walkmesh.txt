@@ -47,6 +47,6 @@ flags:
 00003800 - self walking rotation index. Hardcoded as 000C 000E 0000 0002 0004 0006 0008 000A.
 00020000 - auto sliding down.
 00200000 - animation_id set to 6.
-00400000 - we can go down on this material but can't go up. Auto sliding down.
+00400000 - we can go down on this material but can't go up. Auto sliding down. If we encount eny entity on the way - we don't collide with it.
 00800000 - we cant pass this material if walkmesh id == 0.
 10000000 0 unpassable if walkmesh id == 0.
