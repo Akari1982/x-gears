@@ -260,6 +260,7 @@ spawn table
                        0x00000200: PC follower (movement material check).
                        0x00000400: PC entity (player entity and this is patry leader. Seems like manipulatable entity) (movement material check).
                        0x00000800: 
+                       0x00002000: 
                        0x00004000: if we remove this flag - entity not move, menu not called. Checked in move function. If this flag is set and (hu[800af370] & 0040) && (w[800ad040] == 1) then we set animation_id 2 (run) to play instead of 1 (walk).
                        0x00010000: removed in 0x19_SetPosition.
                        0x00020000: added during initialization with 0x16 (SetPlayableCharacter) opcode.
@@ -277,6 +278,7 @@ spawn table
                        0x00001000: remove this flag after move is done.
                        0x00002000:
                        0x00200000: removed in 0x19_SetPosition.
+                       0x00400000: maybe means that we checked this entity during movement collision check.
         +   8 [][]     triangle id for walkmesh 0.
         +   a [][]     triangle id for walkmesh 1.
         +   c [][]     triangle id for walkmesh 2.
@@ -335,7 +337,7 @@ spawn table
         +  d4 [][][][] maybe current Y. Init with 0 when set position by x z
         +  d8 [][][][] maybe current Z. Init with 0 when set position by x z
         +  e2 []       init with 0. Current step when opening or closing door.
-        +  e3 []       if this is >= 9 then we discrease it by 1 every step in move function. Init with 0.
+        +  e3 []       if this is >= 9 then we discrease it by 1 every step in move function. Init with 0. Used as push timer. When this > 20 then we push entity.
         +  e4 [][]     we store character id here. Init with 0x00ff.
         +  e6 [][]     init with 0. we store animation id to play here in SpritePlayAnimation2. Looks like default animation.
         +  e8 [][]     playing animation id. When entity is moving we store here animation id acording to that movement (1,2 and so on). Init with 0.
@@ -356,7 +358,11 @@ spawn table
         + 106 [][]     we store rotation data here. Init with 0x8000.
         + 108 [][]     we store rotation data here (if 800acff4 == 0). Init with 0x8000.
         + 10d []       init with 0xff.
-        + 110 [][][][] pointer to something with size 0xc
+        + 110 [][][][] pointer to something with size 0xc.
+            + 0 [][]     ???
+            + 2 [][]     ???
+            + 4 [][]     ???
+            + 8 [][]     ???
         + 114 [][][][] pointer to some quad data. This quad restrict whole move area.
         + 118 [][][][] pointer to allocated 0x80 byte for +1c data. Size 0x4 for each +1c item.
             +  0 [][][][] init with 0.
@@ -381,7 +387,7 @@ spawn table
                         0x0ff80000 - remove during entity init.
         + 134 [][][][] flags.
                         0x00000060 - remove during entity init.
-                        0x00000080 - remove during entity init.
+                        0x00000080 - set if struct_138 + 110 is allocated.
     +  50 [][]     X rotation.
     +  52 [][]     Y rotation (door opened with this).
     +  54 [][]     Z rotation.

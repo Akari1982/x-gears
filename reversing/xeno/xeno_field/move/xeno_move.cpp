@@ -91,6 +91,8 @@ if( number_of_entity > 0 )
     800809A0	bne    v0, zero, loop80820 [$80080820]
 }
 
+
+
 // DEBUG TEXT
 if( w[800c1b60] == 0 )
 {
@@ -98,19 +100,14 @@ if( w[800c1b60] == 0 )
     func281b18;
 }
 
-800809CC	lui    a0, $800b
-800809D0	lw     a0, $1740(a0)
-800809D4	lui    v1, $800b
-800809D8	lw     v1, $efe4(v1)
-800809DC	sll    v0, a0, $01
-800809E0	addu   v0, v0, a0
-800809E4	sll    v0, v0, $03
-800809E8	subu   v0, v0, a0
-800809EC	sll    v0, v0, $02
-800809F0	addu   s1, v1, v0
-800809F4	lw     a2, $004c(s1)
-800809F8	jal    func8376c [$8008376c]
-800809FC	addu   a1, s1, zero
+
+
+A0 = w[800b1740];
+A1 = w[800aefe4] + leader_id * 5c;
+A2 = w[A1 + 4c];
+func8376c()
+
+
 
 // DEBUG TEXT
 if( w[800c1b60] == 0 )
@@ -873,9 +870,8 @@ if( V0 != -1 ) // can move
         [SP + 44] = h(hu[SP + 4c]);
     }
 
-    [SP + 24] = w((h[SP + 42] << 10) - w[struct_138 + 24]);
     [move_vector + 0] = w(w[SP + 20]);
-    [move_vector + 4] = w(w[SP + 24]);
+    [move_vector + 4] = w((h[SP + 42] << 10) - w[struct_138 + 24]);
     [move_vector + 8] = w(w[SP + 28]);
     [struct_138 + 72] = h((w[struct_138 + 24] + w[move_vector + 4]) >> 10);
 
@@ -923,30 +919,25 @@ S7 = -1;
 8007AECC	sra    a0, a0, $10
 
 L7aed0:	; 8007AED0
-8007AED0	sra    s2, v0, $10
-8007AED4	addiu  s0, s2, $ff00 (=-$100)
-8007AED8	andi   s0, s0, $0fff
-8007AEE0	addu   a0, s0, zero
-system_cos; // cos
+S2 = V0 >> 10;
+S0 = (S2 - 100) & fff;
 
-8007AEE4	addu   a0, s0, zero
-8007AEE8	lw     v1, $0000(s1)
-8007AEEC	sll    v0, v0, $06
-8007AEF0	addu   v1, v1, v0
-8007AEF8	sw     v1, $0018(sp)
-system_sin; // sin
+A0 = S0;
+system_cos();
+[SP + 18] = w(w[S1 + 0] + (V0 << 6));
 
-8007AEFC	addiu  a0, sp, $0018
-8007AF00	addu   a1, s6, zero
-8007AF04	addu   a2, s3, zero
-8007AF08	addu   a3, s4, zero
-8007AF0C	lw     v1, $0008(s1)
-8007AF10	sll    v0, v0, $06
-8007AF14	subu   v1, v1, v0
-8007AF18	sw     v1, $0020(sp)
-8007AF1C	sw     s5, $0010(sp)
-8007AF20	jal    func7bca8 [$8007bca8]
-8007AF24	sw     s7, $0014(sp)
+A0 = S0;
+system_sin();
+[SP + 20] = w(w[S1 + 8] - (V0 << 6));
+
+A0 = SP + 18;
+A1 = S6;
+A2 = S3;
+A3 = S4;
+A4 = S5;
+A5 = S7;
+func7bca8();
+
 8007AF28	beq    v0, s7, L7af88 [$8007af88]
 8007AF2C	addiu  s0, s2, $0100
 8007AF30	andi   s0, s0, $0fff
@@ -987,26 +978,20 @@ L7af8c:	; 8007AF8C
 8007AFA4	lw     v0, $0008(s1)
 8007AFA8	addu   a3, zero, zero
 8007AFB0	sw     v0, $0020(sp)
-field_get_move_vector_to_move_along_with_line;
+field_get_move_vector_to_move_along_with_line();
 
 8007AFB4	j      L7afe0 [$8007afe0]
 8007AFB8	addiu  a0, sp, $0018
 
 L7afbc:	; 8007AFBC
-8007AFBC	lw     v0, $0000(s1)
-8007AFC0	nop
-8007AFC4	sw     v0, $0018(sp)
-8007AFC8	lw     v0, $0004(s1)
-8007AFCC	nop
-8007AFD0	sw     v0, $001c(sp)
-8007AFD4	lw     v0, $0008(s1)
-8007AFD8	nop
-8007AFDC	sw     v0, $0020(sp)
+[SP + 18] = w(w[S1 + 0]);
+[SP + 1c] = w(w[S1 + 4]);
+[SP + 20] = w(w[S1 + 8]);
 
 L7afe0:	; 8007AFE0
-8007AFE0	addiu  a1, s3, $0020
-8007AFE4	addu   a2, s3, zero
-8007AFE8	addu   a3, s4, zero
+A1 = S3 + 20;
+A2 = S3;
+A3 = S4;
 8007AFEC	addiu  v0, sp, $0028
 8007AFF0	sw     v0, $0010(sp)
 8007AFF4	jal    func7bca8 [$8007bca8]
@@ -1032,33 +1017,315 @@ L7afe0:	; 8007AFE0
 8007B044	nop
 
 L7b048:	; 8007B048
-8007B048	j      L7b0a4 [$8007b0a4]
-8007B04C	addiu  v0, zero, $ffff (=-$1)
+return -1;
 
 L7b050:	; 8007B050
-8007B050	lhu    v0, $00ec(s3)
-8007B054	nop
-8007B058	sh     v0, $002a(sp)
+[SP + 2a] = h(hu[S3 + ec]);
 
 L7b05c:	; 8007B05C
-8007B05C	lh     v0, $002a(sp)
-8007B060	lw     v1, $0024(s3)
-8007B064	lw     a0, $0018(sp)
-8007B068	sll    v0, v0, $10
-8007B06C	subu   v0, v0, v1
-8007B070	sw     v0, $001c(sp)
-8007B074	sw     a0, $0000(s1)
-8007B078	lw     v0, $001c(sp)
-8007B07C	nop
-8007B080	sw     v0, $0004(s1)
-8007B084	lw     v0, $0020(sp)
-8007B088	lw     a0, $0004(s1)
-8007B08C	sw     v0, $0008(s1)
-8007B090	lw     v1, $0024(s3)
-8007B094	addu   v0, zero, zero
-8007B098	addu   v1, v1, a0
-8007B09C	sra    v1, v1, $10
-8007B0A0	sh     v1, $0072(s3)
+[S1 + 0] = w(w[SP + 18]);
+[S1 + 4] = w((h[SP + 2a] << 10) - w[S3 + 24]);
+[S1 + 8] = w(w[SP + 20]);
 
-L7b0a4:	; 8007B0A4
+[S3 + 72] = h((w[S3 + 24] + w[S1 + 4]) >> 10);
+
+return 0;
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func8376c
+leader_id = A0;
+leader_5c = A1;
+leader_138 = A2;
+
+data_ptr = w[800aefe4];
+
+A0 = 20;
+func7c350(); // get pointer to temporary memory.
+S3 = V0;
+
+leader_fin_x = (w[leader_138 + 20] + w[leader_138 + 30]) >> 10;
+leader_fin_z = (w[leader_138 + 28] + w[leader_138 + 38]) >> 10;
+
+leader_cur_y = h[leader_138 + 26];
+leader_top_y = leader_cur_y - hu[leader_138 + 1a];
+
+leader_flags0 = w[leader_138 + 0];
+leader_follow_id = bu[leader_138 + 74];
+
+[SP + 70] = w(0);
+[SP + 78] = w(0);
+
+S7 = 7fffffff;
+
+number_of_entities = w[800ad0d4];
+if( number_of_entities > 0 )
+{
+    entity_id = 0;
+
+    L83878:	; 80083878
+        if( entity_id != leader_id ) // don't collide with itself
+        {
+            data_138 = w[data_ptr + entity_id * 5c + 4c];
+
+            if( ( w[data_138 + 0] & 00000001 ) == 0 ) // entity not disabled
+            {
+                [data_138 + 4] = w(w[data_138 + 4] & ffff3eff);
+
+                if( w[data_138 + 4] & 00000080 )
+                {
+                    A0 = entity_id;
+                    V1 = w[data_ptr + entity_id * 5c + 0];
+                    A1 = w[V1 + 4]; // model parts header
+                    A2 = leader_fin_x;
+                    A3 = leader_fin_z;
+                    A4 = SP + 40;
+                    A5 = SP + 30; // normal
+                    800838F8	jal    func8289c [$8008289c]
+                    if( V0 != 0 )
+                    {
+                        [data_138 + 4] = w(w[data_138 + 4] & ff3fffff);
+                    }
+
+                    // DEBUG TEXT
+                    if( w[800c1b60] == 0 )
+                    {
+                        A0 = 8006f2d8; // POLYCHECK %d
+                        A1 = entity_id;
+                        func37870();
+                    }
+
+                    A0 = w[SP + 40] + hu[data_138 + 1a];
+                    [data_138 + 4] = w(w[data_138 + 4] | 00000100);
+                    V1 = bu[leader_138 + 74];
+                    80083958	bne    v1, entity_id, L83aec [$80083aec]
+
+                    [leader_138 + 50] = w(w[SP + 30]);
+                    [leader_138 + 54] = w(w[SP + 34]);
+                    [leader_138 + 58] = w(w[SP + 38]);
+
+                    [data_138 + 4] = w(w[data_138 + 4] | 00004000);
+                    80083990	j      L83acc [$80083acc]
+                }
+                else
+                {
+                    if( ( w[data_138 + 0] & 00002000 ) == 0 )
+                    {
+                        [S3 + 0] = w(((w[data_138 + 20] + w[data_138 + 30]) >> 10) - leader_fin_x);
+                        [S3 + 4] = w(hu[leader_138 + 1e] + hu[data_138 + 1e]); // solid range
+                        [S3 + 8] = w(((w[data_138 + 28] + w[data_138 + 38]) >> 10) - leader_fin_z);
+
+                        A0 = S3 + 0;
+                        A1 = S3 + 10;
+                        system_gte_square_of_vector();
+
+                        V0 = (w[S3 + 10] + w[S3 + 18]) < w[S3 + 14];
+                    }
+                    else
+                    {
+                        A0 = leader_fin_x;
+                        A1 = leader_fin_z;
+                        A2 = data_138;
+                        A3 = 0;
+                        800839AC	jal    func81990 [$80081990]
+                    }
+
+                    if( V0 != 0 )
+                    {
+                        [data_138 + 4] = w(w[data_138 + 4] & ff3fffff);
+                    }
+                    else
+                    {
+                        if( w[leader_138 + 14] & 00400000 ) // auto slide down
+                        {
+                            // DEBUG TEXT
+                            if( w[800c1b60] == 0 )
+                            {
+                                A0 = 8006f2e8; // HITOFF
+                                func37870();
+                            }
+                        }
+                        else if( ( ( w[data_138 + 0] | leader_flags0 ) & 00000080 ) == 0 ) // both entity solid
+                        {
+                            if( bu[800b16a0] == 0 ) // looks like this flag stops all movement
+                            {
+                                A0 = h[data_138 + 26];
+                                [SP + 40] = w(h[data_138 + 26] - hu[data_138 + 1a]);
+
+                                L83acc:	; 80083ACC
+                                if( bu[leader_138 + 74] == entity_id )
+                                {
+                                    T1 = leader_flags0 & 00040800;
+                                    80083AE4	beq    t1, zero, L83b34 [$80083b34]
+                                }
+
+                                L83aec:	; 80083AEC
+                                if( A0 >= leader_top_y )
+                                {
+                                    if( leader_cur_y >= w[SP + 40] )
+                                    {
+                                        if( ( leader_cur_y < w[SP + 40] ) || ( w[data_138 + 4] & 00800000 ) )
+                                        {
+                                            L83b34:	; 80083B34
+                                            S7 = w[SP + 40];
+
+                                            [leader_138 + 40] = w(w[data_138 + 30]);
+                                            [leader_138 + 44] = w(w[data_138 + 34]);
+                                            [leader_138 + 48] = w(w[data_138 + 38]);
+                                            [SP + 78] = w(2);
+
+                                            if( ( leader_flags0 & 00040800 ) == 0 )
+                                            {
+                                                [leader_138 + 74] = b(entity_id);
+                                                [SP + 70] = w(1);
+                                            }
+
+                                            [data_138 + 4] = w(w[data_138 + 4] | 00800000);
+
+                                            [data_138 + 4] = w(w[data_138 + 4] | 00400000);
+                                            80083B7C	j      L83ccc [$80083ccc]
+                                        }
+                                        if( ( w[data_138 + 0] & 00000010 ) == 0 ) // entity pushable
+                                        {
+                                            if( bu[data_138 + e3] < 30 ) // if entity stand we wait first
+                                            {
+                                                [data_138 + e3] = b(bu[data_138 + e3] + 2);
+                                            }
+                                            if( bu[data_138 + e3] >= 21 ) // and then push
+                                            {
+                                                // push entity but stop leader movement
+                                                [data_138 + 40] = w(w[data_138 + 40] + (w[leader_138 + 30] / 4))
+                                                [data_138 + 48] = w(w[data_138 + 48] + (w[leader_138 + 38] / 4))
+                                                [leader_138 + 30] = w(0);
+                                                [leader_138 + 34] = w(0);
+                                                [leader_138 + 38] = w(0);
+                                                [leader_138 + 40] = w(0);
+                                                [leader_138 + 44] = w(0);
+                                                [leader_138 + 48] = w(0);
+
+                                                [data_138 + 4] = w(w[data_138 + 4] | 00400000);
+                                                80083C34	j      L83ccc [$80083ccc]
+                                            }
+                                        }
+
+                                        // stops movement in both entities
+                                        [data_138 + 30] = w(0);
+                                        [data_138 + 34] = w(0);
+                                        [data_138 + 38] = w(0);
+                                        [data_138 + 40] = w(0);
+                                        [data_138 + 44] = w(0);
+                                        [data_138 + 48] = w(0);
+                                        [leader_138 + 30] = w(0);
+                                        [leader_138 + 34] = w(0);
+                                        [leader_138 + 38] = w(0);
+                                        [leader_138 + 40] = w(0);
+                                        [leader_138 + 44] = w(0);
+                                        [leader_138 + 48] = w(0);
+                                        [data_138 + 4] = w(w[data_138 + 4] | 00400000);
+                                        80083C68	j      L83ccc [$80083ccc]
+                                    }
+                                }
+
+                                A0 = w[SP + 40];
+                                [data_138 + 4] = w(w[data_138 + 4] & feffffff);
+
+                                if( leader_cur_y < A0 )
+                                {
+                                    [data_138 + 4] = w(w[data_138 + 4] | 00800000);
+
+                                    if( A0 < S7 )
+                                    {
+                                        S7 = A0;
+                                    }
+                                }
+                                else
+                                {
+                                    [data_138 + 4] = w(w[data_138 + 4] & ff7fffff);
+                                }
+
+                                L83cbc:	; 80083CBC
+                                [data_138 + 4] = w(w[data_138 + 4] | 00400000);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        L83ccc:	; 80083CCC
+        entity_id = entity_id + 1;
+        V0 = entity_id < number_of_entities;
+    80083CE0	bne    v0, zero, L83878 [$80083878]
+}
+
+if( w[800ad070] != 0 )
+{
+    S7 = w[800ad06c];
+    [SP + 78] = w(w[SP + 78] + 1);
+    [SP + 70] = w(0);
+}
+
+if( w[SP + 70] == 0 )
+{
+    [leader_138 + 74] = b(ff);
+}
+else
+{
+    V1 = bu[leader_138 + 74];
+    V1 = w[data_ptr + V1 * 5c + 4c];
+    [V1 + 4] = w(w[V1 + 4] | 80000000 );
+
+    if( leader_follow_id == ff )
+    {
+        if( ( w[leader_138 + 134] & 00000080 ) == 0 )
+        {
+            A0 = c;
+            A1 = 0;
+            system_memory_allocate();
+            [leader_138 + 110] = w(V0);
+            [leader_138 + 134] = w(w[leader_138 + 134] | 00000080);
+        }
+
+        V1 = bu[leader_138 + 74];
+        V0 = w[leader_138 + 110];
+        [V0 + 0] = h(hu[data_ptr + V1 * 5c + 50]);
+        [V0 + 2] = h(hu[data_ptr + V1 * 5c + 52]);
+        [V0 + 4] = h(hu[data_ptr + V1 * 5c + 54]);
+
+        A0 = leader_id;
+        A1 = bu[leader_138 + 74];
+        get_distance_between_entities();
+
+        V1 = w[leader_138 + 110];
+        [V1 + 8] = h(V0);
+    }
+}
+
+if( ( w[leader_138 + 0] & 00010000 ) == 0 )
+{
+    if( ( w[leader_138 + 4] & 00200000 ) == 0 )
+    {
+        A0 = leader_id;
+        A1 = S7;
+        A2 = leader_5c;
+        A3 = leader_138;
+        A4 = w[SP + 78];
+        80083EA4	jal    func84054 [$80084054]
+    }
+}
+
+V0 = w[data_ptr + leader_id * 5c + 4];
+V0 = w[data_ptr + leader_id * 5c + 7c];
+
+if( hu[V0 + c] == 1 )
+{
+    80083EEC	jal    func35c84 [$80035c84]
+
+    [leader_138 + 0] = w(w[leader_138 + 0] & f7ffffff);
+}
+
+A0 = 20;
+func7c374(); // return temporary memory
 ////////////////////////////////
