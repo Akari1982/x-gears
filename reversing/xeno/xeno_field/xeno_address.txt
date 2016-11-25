@@ -362,7 +362,7 @@ spawn table
             + 0 [][]     ???
             + 2 [][]     ???
             + 4 [][]     ???
-            + 8 [][]     ???
+            + 8 [][]     store here distance between entity and follower.
         + 114 [][][][] pointer to some quad data. This quad restrict whole move area.
         + 118 [][][][] pointer to allocated 0x80 byte for +1c data. Size 0x4 for each +1c item.
             +  0 [][][][] init with 0.

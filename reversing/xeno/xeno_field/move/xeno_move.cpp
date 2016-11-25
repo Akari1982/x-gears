@@ -1303,17 +1303,14 @@ else
     }
 }
 
-if( ( w[leader_138 + 0] & 00010000 ) == 0 )
+if( ( ( w[leader_138 + 0] & 00010000 ) == 0 ) && ( ( w[leader_138 + 4] & 00200000 ) == 0 ) ) // both flags removed in 0x19_SetPosition.
 {
-    if( ( w[leader_138 + 4] & 00200000 ) == 0 )
-    {
-        A0 = leader_id;
-        A1 = S7;
-        A2 = leader_5c;
-        A3 = leader_138;
-        A4 = w[SP + 78];
-        80083EA4	jal    func84054 [$80084054]
-    }
+    A0 = leader_id;
+    A1 = S7;
+    A2 = leader_5c;
+    A3 = leader_138;
+    A4 = w[SP + 78];
+    func84054();
 }
 
 V0 = w[data_ptr + leader_id * 5c + 4];

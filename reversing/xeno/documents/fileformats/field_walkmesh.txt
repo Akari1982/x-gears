@@ -24,6 +24,7 @@ triangle data (size 0x0e)
 +08 [][]     side B access.
 +0a [][]     side C access.
 +0c []       material id
++0d []       ???
 
 
 
