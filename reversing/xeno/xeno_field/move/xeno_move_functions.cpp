@@ -1,6 +1,5 @@
 ////////////////////////////////
 // func84054()
-//    A1 = S7;
 //    A2 = leader_5c;
 //    A4 = w[SP + 78];
 
@@ -11,6 +10,10 @@ V1 = w[800aefe4];
 S5 = w[V1 + entity_id * 5c + 4];
 
 data_138 = S1 = A3;
+
+walkmesh_blocks = h[800af028] - 1;
+
+
 
 if( entity_id == w[800b1740] ) // if entity is party leader
 {
@@ -65,10 +68,9 @@ loop841ac:	; 800841AC
     V0 = S0 < 4;
 800841C0	bne    v0, zero, loop841ac [$800841ac]
 
-walkmesh_blocks = h[800af028] - 1;
+S4 = 0;
 if( walkmesh_blocks > 0 )
 {
-    S4 = 0;
     loop841ec:	; 800841EC
         A0 = data_138;
         A1 = S4;
@@ -141,204 +143,133 @@ loop842c4:	; 800842C4
 
 
 
-A1 = 800af028;
-V0 = h[A1];
-V0 = V0 - 1;
-
-80084350	bne    s4, v0, L845e0 [$800845e0]
-
-if( S4 > 0 )
+if( S4 == walkmesh_blocks )
 {
-    S0 = 0;
-    A0 = SP + 18;
-    V1 = S1;
-
-    loop84368:	; 80084368
-        V0 = hu[A0 + 30];
-        A0 = A0 + 2;
-        S0 = S0 + 1;
-        [V1 + 8] = h(V0);
-
-        V1 = V1 + 2;
-
-        V0 = h[A1 + 0];
-        V0 = V0 - 1;
-        V0 = S0 < V0;
-    80084388	bne    v0, zero, loop84368 [$80084368]
-}
-
-80084390	lh     a0, $0026(s1)
-80084394	nop
-80084398	slt    v0, a0, t4
-8008439C	bne    v0, zero, L843b8 [$800843b8]
-800843A0	nop
-800843A4	lw     v0, $0000(s1)
-800843A8	nop
-800843AC	andi   v0, v0, $1800
-800843B0	beq    v0, zero, L84414 [$80084414]
-800843B4	nop
-
-L843b8:	; 800843B8
-800843B8	lui    v0, $800b
-800843BC	lh     v0, $f028(v0)
-800843C0	nop
-800843C4	addiu  v0, v0, $ffff (=-$1)
-800843C8	blez   v0, L84458 [$80084458]
-800843CC	addu   s0, zero, zero
-800843D0	addu   a2, v0, zero
-800843D4	addiu  a1, sp, $0018
-
-loop843d8:	; 800843D8
-800843D8	addu   v1, a1, zero
-800843DC	lw     v0, $0000(v1)
-800843E0	nop
-800843E4	slt    v0, v0, a0
-800843E8	beq    v0, zero, L84408 [$80084408]
-800843EC	nop
-800843F0	addiu  s0, s0, $0001
-800843F4	slt    v0, s0, a2
-800843F8	bne    v0, zero, loop843d8 [$800843d8]
-800843FC	addiu  a1, v1, $0004
-80084400	j      L84458 [$80084458]
-80084404	nop
-
-L84408:	; 80084408
-80084408	lw     v0, $0020(a1)
-8008440C	j      L84458 [$80084458]
-80084410	sh     v0, $0010(s1)
-
-L84414:	; 80084414
-80084414	lui    v0, $800b
-80084418	lh     v0, $f028(v0)
-8008441C	nop
-80084420	addiu  v0, v0, $ffff (=-$1)
-80084424	blez   v0, L84458 [$80084458]
-80084428	addu   s0, zero, zero
-8008442C	lh     a1, $0010(s1)
-80084430	addu   a0, v0, zero
-80084434	addiu  v1, sp, $0018
-
-loop84438:	; 80084438
-    80084438	lw     v0, $0020(v1)
-    8008443C	nop
-    80084440	beq    a1, v0, L84458 [$80084458]
-    80084444	nop
-    80084448	addiu  s0, s0, $0001
-    80084454	addiu  v1, v1, $0004
-    8008444C	slt    v0, s0, a0
-80084450	bne    v0, zero, loop84438 [$80084438]
-
-L84458:	; 80084458
-80084458	jal    get_current_triangle_material [$8007ff7c]
-8008445C	addu   a0, s1, zero
-80084460	andi   v0, v0, $0004
-80084464	beq    v0, zero, L844a4 [$800844a4]
-80084468	nop
-8008446C	beq    s0, zero, L844a4 [$800844a4]
-80084470	nop
-80084474	lui    v0, $800b
-80084478	lh     v0, $f028(v0)
-8008447C	lh     v1, $0010(s1)
-80084480	addiu  v0, v0, $ffff (=-$1)
-80084484	slt    v0, v0, v1
-80084488	bne    v0, zero, L844a4 [$800844a4]
-8008448C	addiu  s0, s0, $ffff (=-$1)
-80084490	sll    v0, s0, $02
-80084494	addu   v0, sp, v0
-80084498	lw     v0, $0038(v0)
-8008449C	nop
-800844A0	sh     v0, $0010(s1)
-
-L844a4:	; 800844A4
-A0 = data_138;
-get_current_triangle_material();
-material = V0;
-
-if( ( ( w[data_138 + 0] >> 8 ) & 7 ) & ( material >> 5 ) ) // unpassable triangle for this entity
-{
-    // DEBUG TEXT
-    if( w[800c1b60] == 0 )
+    if( walkmesh_blocks > 0 )
     {
-        A0 = 8006f2f0; // ERROR ID1 ACT=%d
-        A1 = entity_id;
-        func37870();
+        S0 = 0;
+        loop84368:	; 80084368
+            [data_138 + 8 + S0 * 2] = h(hu[SP + 48 + S0 * 2]);
+            S0 = S0 + 1;
+            V0 = S0 < walkmesh_blocks;
+        80084388	bne    v0, zero, loop84368 [$80084368]
     }
 
-    if( S6 == w[800b1470] )
+    if( ( h[data_138 + 26] < T4 ) || ( w[data_138 + 0] & 00001800 ) )
     {
-        [800acfd8] = h(0fff);
+        S0 = 0;
+        if( walkmesh_blocks > 0 )
+        {
+            loop843d8:	; 800843D8
+                if( w[SP + 18 + S0 * 4] >= h[data_138 + 26] )
+                {
+                    [data_138 + 10] = h(w[SP + 38 + S0 * 4]);
+                    break;
+                }
+                S0 = S0 + 1;
+                V0 = S0 < walkmesh_blocks;
+            800843F8	bne    v0, zero, loop843d8 [$800843d8]
+        }
+    }
+    else
+    {
+        S0 = 0;
+        if( walkmesh_blocks > 0 )
+        {
+            loop84438:	; 80084438
+                if( h[data_138 + 10] == w[SP + 38 + S0 * 4] )
+                {
+                    break;
+                }
+                S0 = S0 + 1;
+                V0 = S0 < walkmesh_blocks;
+            80084450	bne    v0, zero, loop84438 [$80084438]
+        }
     }
 
-    [S1 + 24] = w(w[S1 + 24] + w[S5 + 10]);
-    8008454C	j      L849ac [$800849ac]
+    A0 = data_138;
+    get_current_triangle_material();
+    material = V0;
 
+    if( material & 00000004 )
+    {
+        if( S0 != 0 )
+        {
+            S0 = S0 - 1;
+            if( walkmesh_blocks >= h[data_138 + 10] )
+            {
+                [data_138 + 10] = h(w[SP + 38 + S0 * 4]);
+            }
+        }
+    }
+
+    if( ( ( w[data_138 + 0] >> 8 ) & 7 ) & ( material >> 5 ) ) // unpassable triangle for this entity
+    {
+        // DEBUG TEXT
+        if( w[800c1b60] == 0 )
+        {
+            A0 = 8006f2f0; // ERROR ID1 ACT=%d
+            A1 = entity_id;
+            func37870();
+        }
+
+        if( entity_id == w[800b1740] ) // if entity is party leader
+        {
+            [800acfd8] = h(0fff);
+        }
+
+        [data_138 + 24] = w(w[data_138 + 24] + w[S5 + 10]);
+        8008454C	j      L849ac [$800849ac]
+    }
+    else if( ( material & 00800000 ) != 0 ) // unpassable material for walkmesh 0
+    {
+        if( w[800c1b60] == 0 )
+        {
+            A0 = 8006f304; // ERROR ID0 ACT=%d
+            A1 = entity_id;
+            func37870();
+        }
+
+        if( entity_id == w[800b1740] ) // if entity is party leader
+        {
+            [800acfd8] = h(0fff);
+        }
+
+        [data_138 + 24] = w(w[data_138 + 24] + w[S5 + 10]);
+        8008454C	j      L849ac [$800849ac]
+    }
+
+
+
+    // perform move
+    [data_138 + 20] = w(w[data_138 + 20] + w[data_138 + 30]);
+    [data_138 + 28] = w(w[data_138 + 28] + w[data_138 + 38]);
+
+
+
+    if( walkmesh_blocks > 0 )
+    {
+        S0 = 0;
+        loop845a4:	; 800845A4
+            if( h[data_138 + 10] == w[SP + 38 + S0 * 4] )
+            {
+                [S5 + 84] = h(h[SP + 18 + S0 * 4]);
+                break;
+            }
+            S0 = S0 + 1;
+            V0 = S0 < walkmesh_blocks;
+        800845B8	bne    v0, zero, loop845a4 [$800845a4]
+    }
+
+    A0 = SP + 50 + h[data_138 + 10] * 10;
+    A1 = data_138 + 50;
+    system_normalize_word_vector_T0_T1_T2_to_word();
 }
-else if( ( material & 00800000 ) != 0 ) // unpassable material for walkmesh 0
+else
 {
-    if( w[800c1b60] == 0 )
-    {
-        A0 = 8006f304; // ERROR ID0 ACT=%d
-        A1 = entity_id;
-        func37870();
-    }
-
-    if( S6 == w[800b1470] )
-    {
-        [800acfd8] = h(0fff);
-    }
-
-    [S1 + 24] = w(w[S1 + 24] + w[S5 + 10]);
-    8008454C	j      L849ac [$800849ac]
+    [data_138 + f0] = w(0);
 }
 
-80084560	lw     v0, $0020(s1)
-80084564	lw     a0, $0030(s1)
-80084568	lw     v1, $0028(s1)
-8008456C	lw     a1, $0038(s1)
-80084570	addu   v0, v0, a0
-80084574	addu   v1, v1, a1
-80084578	sw     v0, $0020(s1)
-8008457C	sw     v1, $0028(s1)
-80084580	lui    v0, $800b
-80084584	lh     v0, $f028(v0)
-80084588	nop
-8008458C	addiu  v0, v0, $ffff (=-$1)
-80084590	blez   v0, L845c0 [$800845c0]
-80084594	addu   s0, zero, zero
-80084598	lh     a1, $0010(s1)
-8008459C	addu   a0, v0, zero
-800845A0	addiu  v1, sp, $0018
-
-loop845a4:	; 800845A4
-800845A4	lw     v0, $0020(v1)
-800845B0	addiu  s0, s0, $0001
-
-if( A1 == V0 )
-{
-    80084554	lw     v0, $0000(v1)
-    80084558	j      L845c0 [$800845c0]
-    8008455C	sh     v0, $0084(s5)
-
-}
-
-800845B4	slt    v0, s0, a0
-800845B8	bne    v0, zero, loop845a4 [$800845a4]
-800845BC	addiu  v1, v1, $0004
-
-L845c0:	; 800845C0
-800845C0	addiu  a1, s1, $0050
-800845C4	lh     a0, $0010(s1)
-800845C8	addiu  v0, sp, $0050
-800845CC	sll    a0, a0, $04
-800845D0	jal    system_normalize_word_vector_T0_T1_T2_to_word [$80048c24]
-800845D4	addu   a0, v0, a0
-800845D8	j      L845e4 [$800845e4]
-800845DC	nop
-
-L845e0:	; 800845E0
-800845E0	sw     zero, $00f0(s1)
-
-L845e4:	; 800845E4
 800845E4	lui    v0, $800b
 800845E8	lw     v0, $d070(v0)
 800845EC	nop
@@ -433,65 +364,54 @@ else
 
     L84718:	; 80084718
     80084718	and    v0, a1, v0
-    8008471C	bne    v0, zero, L84728 [$80084728]
-    80084720	nop
-    80084724	sw     zero, $00f0(s1)
+    if( V0 == 0 )
+    {
+        [S1 + f0] = w(0);
+    }
 
-    L84728:	; 80084728
-    80084728	lw     v0, $0010(s5)
-    8008472C	nop
-    if (V0 > 0)
+    if( w[S5 + 10] > 0 )
     {
         [S5 + 10] = w(0);
     }
 
     [S1 + 0] = w(w[S1 + 0] & ffbfefff); // remove automove flag
-
-    8008474C	lh     v0, $0084(s5)
-    80084750	nop
-    80084754	sll    v0, v0, $10
-    80084758	sw     v0, $0024(s1)
+    [S1 + 24] = w(h[S5 + 84] << 10);
 }
 
 [S1 + 0] = w(w[S1 + 0] & fbffffff);
 
-80084770	lui    v0, $800b
-80084774	lh     v0, $f028(v0)
-80084778	nop
-8008477C	addiu  v0, v0, $ffff (=-$1)
-80084780	blez   v0, L847d8 [$800847d8]
-80084784	addu   s0, zero, zero
-80084788	lh     a2, $0026(s1)
-8008478C	addu   a3, v0, zero
-80084790	addiu  a0, sp, $0018
+S0 = 0;
+if( walkmesh_blocks > 0 )
+{
+    A2 = h[S1 + 26];
+    A0 = SP + 18;
 
-loop84794:	; 80084794
-80084794	lw     a1, $0000(a0)
-80084798	nop
-8008479C	slt    v0, a1, a2
-800847A0	beq    v0, zero, L847c8 [$800847c8]
-800847A4	nop
-800847A8	lhu    v0, $001a(s1)
-800847AC	lw     v1, $0010(a0)
-800847B0	subu   v0, a2, v0
-800847B4	slt    v0, v0, v1
-800847B8	beq    v0, zero, L847c8 [$800847c8]
-800847BC	nop
-800847C0	bne    a1, v1, L847d8 [$800847d8]
-800847C4	nop
+    loop84794:	; 80084794
+        80084794	lw     a1, $0000(a0)
+        80084798	nop
+        8008479C	slt    v0, a1, a2
+        800847A0	beq    v0, zero, L847c8 [$800847c8]
+        800847A4	nop
+        800847A8	lhu    v0, $001a(s1)
+        800847AC	lw     v1, $0010(a0)
+        800847B0	subu   v0, a2, v0
+        800847B4	slt    v0, v0, v1
+        800847B8	beq    v0, zero, L847c8 [$800847c8]
+        800847BC	nop
+        800847C0	bne    a1, v1, L847d8 [$800847d8]
+        800847C4	nop
 
-L847c8:	; 800847C8
-800847C8	addiu  s0, s0, $0001
-800847CC	slt    v0, s0, a3
-800847D0	bne    v0, zero, loop84794 [$80084794]
-800847D4	addiu  a0, a0, $0004
+        L847c8:	; 800847C8
+        800847D4	addiu  a0, a0, $0004
+        800847C8	addiu  s0, s0, $0001
+        V0 = S0 < walkmesh_blocks;
+    800847D0	bne    v0, zero, loop84794 [$80084794]
+}
 
 L847d8:	; 800847D8
 800847D8	lui    a1, $800b
 800847DC	addiu  a1, a1, $f028 (=-$fd8)
-800847E0	lh     v0, $0000(a1)
-800847E4	nop
-800847E8	addiu  v0, v0, $ffff (=-$1)
+V0 = walkmesh_blocks;
 800847EC	bne    s0, v0, L848d0 [$800848d0]
 800847F0	nop
 800847F4	lh     v0, $0010(s1)
@@ -619,7 +539,7 @@ L84958:	; 80084958
 
 L849a4:	; 800849A4
 800849A4	j      L84aa4 [$80084aa4]
-800849A8	addu   a0, s6, zero
+
 
 L849ac:	; 800849AC
 800849AC	addu   s0, zero, zero
@@ -656,13 +576,12 @@ loop849d0:	; 800849D0
 80084A20	sw     v0, $0010(s5)
 
 L84a24:	; 80084A24
-80084A24	lw     v0, $0010(s5)
-80084A28	nop
-80084A2C	blez   v0, L84a38 [$80084a38]
-80084A30	lui    v1, $ffbf
-80084A34	sw     zero, $0010(s5)
+if( w[S5 + 10] > 0 )
+{
+    [S5 + 10] = w(0);
+}
 
-L84a38:	; 80084A38
+80084A30	lui    v1, $ffbf
 80084A38	lw     v0, $0000(s1)
 80084A3C	ori    v1, v1, $efff
 80084A40	and    v0, v0, v1
@@ -673,30 +592,71 @@ L84a38:	; 80084A38
 80084A54	sw     v0, $0024(s1)
 
 L84a58:	; 80084A58
-80084A58	lw     v0, $0020(s1)
-80084A5C	nop
-80084A60	sw     v0, $0000(s5)
-80084A64	lw     v0, $0024(s1)
-80084A68	nop
-80084A6C	sw     v0, $0004(s5)
-80084A70	lw     v0, $0028(s1)
-80084A74	addu   a0, s6, zero
-80084A78	sw     v0, $0008(s5)
-80084A7C	sll    v0, a0, $01
-80084A80	addu   v0, v0, a0
-80084A84	sll    v0, v0, $03
-80084A88	subu   v0, v0, a0
-80084A8C	sll    v0, v0, $02
-80084A90	lui    v1, $800b
-80084A94	lw     v1, $efe4(v1)
-80084A98	lh     a1, $0026(s1)
-80084A9C	addu   v0, v0, v1
-80084AA0	sw     a1, $0024(v0)
+[S5 + 0] = w(w[S1 + 20]);
+[S5 + 4] = w(w[S1 + 24]);
+[S5 + 8] = w(w[S1 + 28]);
+
+V1 = w[800aefe4];
+[V1 + entity_id * 5c + 24] = w(h[S1 + 26]);
 
 L84aa4:	; 80084AA4
-80084AA4	jal    func81268 [$80081268]
-80084AA8	nop
+A0 = entity_id;
+func81268();
+
 return 0;
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func81268()
+entity_id = A0;
+
+if( entity_id != w[800b1740] )
+{
+    return;
+}
+
+if( bu[800b16a0] != 0 )
+{
+    return;
+}
+
+V1 = w[800aefe4];
+T0 = w[V1 + entity_id * 5c + 4c];
+A2 = w[V1 + entity_id * 5c + 4];
+
+V1 = w[800b1834];
+[800b09e4 + V1 * 48] = w(w[A2 + c]); // anim move x
+[800b09e8 + V1 * 48] = w(w[A2 + 10]); // anim move y
+[800b09ec + V1 * 48] = w(w[A2 + 14]); // anim move z
+[800b09d4 + V1 * 48] = h(hu[A2 + 84]);
+
+[800b09c4 + V1 * 48] = w(w[T0 + 0]);
+[800b09c8 + V1 * 48] = w(w[T0 + 4]);
+[800b09cc + V1 * 48] = h(h[T0 + 22]);
+[800b09ce + V1 * 48] = h(h[T0 + 26]);
+[800b09d0 + V1 * 48] = h(h[T0 + 2a]);
+
+[800b09d6 + V1 * 48] = h(hu[T0 + e8]); // anim id
+[800b09d8 + V1 * 48] = h(hu[T0 + 106] & fff); // rotation
+
+// copy triangle id for different walkmeshes
+A3 = 0;
+loop814ec:	; 800814EC
+    [800b09da + V1 * 48 + A3 * 2] = h(hu[T0 + 8 + A3 * 2]);
+    A3 = A3 + 1;
+    V0 = A3 < 4;
+80081518	bne    v0, zero, loop814ec [$800814ec]
+
+[800b09f4 + V1 * 48] = w(w[T0 + 50]); // normal x
+[800b09f8 + V1 * 48] = w(w[T0 + 54]); // normal y
+[800b09fc + V1 * 48] = w(w[T0 + 58]); // normal z
+[800b0a04 + V1 * 48] = h(hu[T0 + 14]); // current material
+[800b0a08 + V1 * 48] = b(hu[T0 + 10]); // walkmesh id
+
+[800b1834] = w((w[800b1834] - 1) & 1f);
+[800c2de4] = w(0);
 ////////////////////////////////
 
 
