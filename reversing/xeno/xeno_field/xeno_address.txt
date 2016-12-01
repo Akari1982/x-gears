@@ -124,7 +124,7 @@ spawn table
         + 7c [][][][] pointer to +f4.
         + 80 [][]     init with 0. Maybe direction.
         + 82 [][]     not inited but used co calculate +1c. Set to +18 as * 30 or * 60.
-        + 84 [][]     init with 0. Checked with +6.
+        + 84 [][]     init with 0. Checked with +6. Store triangle Y here during move.
         + 86 [][]     size of allocated data (0x164).
         + 8c []       pointer to item in stack +8e. Init with 0x10.
         + 8e start of stack for positions in script for function calls.

@@ -1,15 +1,13 @@
 ////////////////////////////////
 // func84054()
-//    A2 = leader_5c;
-//    A4 = w[SP + 78];
 
-entity_id = S6 = A0;
-S7 = A1;
+entity_id = A0;
+y_pos = A1;
+data_138 = A3;
+value = A4;
 
 V1 = w[800aefe4];
 S5 = w[V1 + entity_id * 5c + 4];
-
-data_138 = S1 = A3;
 
 walkmesh_blocks = h[800af028] - 1;
 
@@ -19,7 +17,6 @@ if( entity_id == w[800b1740] ) // if entity is party leader
 {
     [800acfd8] = h(ffff);
 }
-
 if( w[data_138 + 0] & 01000000 ) // skip movement flag
 {
     return -1;
@@ -28,8 +25,7 @@ if( ( w[data_138 + 4] & 00200000 ) || ( w[data_138 + 0] & 00010000 ) ) // both f
 {
     return -1;
 }
-
-if( ( entity_id != w[800b1740] ) || ( bu[800b16a3] != 1 ) ) // if entity not party leader or 
+if( ( entity_id != w[800b1740] ) || ( bu[800b16a3] != 1 ) ) // if entity not party leader or
 {
     if( w[S5 + 10] == 0 )
     {
@@ -45,12 +41,13 @@ if( ( entity_id != w[800b1740] ) || ( bu[800b16a3] != 1 ) ) // if entity not par
     }
 }
 
-[SP + 90] = w(w[data_138 + 20]); // cur x
-[SP + 94] = w(w[data_138 + 24]); // cur y
-[SP + 98] = w(w[data_138 + 28]); // cur z
 
-walkmesh_id = FP = hu[data_138 + 10];
 
+// store coords walkmesh and triangle ids
+stored_x = w[data_138 + 20];
+stored_y = w[data_138 + 24];
+stored_z = w[data_138 + 28];
+stored_walkmesh_id = hu[data_138 + 10];
 S0 = 0;
 loop84180:	; 80084180
     [SP + a0 + S0 * 2] = h(hu[data_138 + 8 + S0 * 2]);
@@ -58,16 +55,22 @@ loop84180:	; 80084180
     V0 = S0 < 4;
 80084194	bne    v0, zero, loop84180 [$80084180]
 
+
+
+// init y pos and walkmesh ids
 S0 = 0;
 loop841ac:	; 800841AC
     [SP + 18 + S0 * 4] = w(7fffffff);
     [SP + 28 + S0 * 4] = w(7fffffff);
     [SP + 38 + S0 * 4] = w(S0);
-
     S0 = S0 + 1;
     V0 = S0 < 4;
 800841C0	bne    v0, zero, loop841ac [$800841ac]
 
+
+
+// get data for final position triangle
+// search through all walkmesh block
 S4 = 0;
 if( walkmesh_blocks > 0 )
 {
@@ -88,26 +91,24 @@ if( walkmesh_blocks > 0 )
     80084238	bne    v0, zero, loop841ec [$800841ec]
 }
 
+
+
+// if entity flag forbid us to move on some walkmeshes
 if( w[data_138 + 4] & 00000001 )
 {
     [SP + 18] = w(7fffffff);
     [SP + 28] = w(7fffffff);
 }
-
 if( w[data_138 + 4] & 00000002 )
 {
     [SP + 1c] = w(7fffffff);
     [SP + 2c] = w(7fffffff);
 }
-
 if( w[data_138 + 4] & 00000004 )
 {
     [SP + 20] = w(7fffffff);
     [SP + 30] = w(7fffffff);
 }
-
-walkmesh_id = h[data_138 + 10];
-T4 = w[SP + 18 + walkmesh_id * 4];
 
 
 
@@ -143,8 +144,10 @@ loop842c4:	; 800842C4
 
 
 
+// if we found all walkmeshes triangle ids
 if( S4 == walkmesh_blocks )
 {
+    // store triangle ids to entity
     if( walkmesh_blocks > 0 )
     {
         S0 = 0;
@@ -155,42 +158,42 @@ if( S4 == walkmesh_blocks )
         80084388	bne    v0, zero, loop84368 [$80084368]
     }
 
-    if( ( h[data_138 + 26] < T4 ) || ( w[data_138 + 0] & 00001800 ) )
+    S0 = 0;
+    if( walkmesh_blocks > 0 )
     {
-        S0 = 0;
-        if( walkmesh_blocks > 0 )
-        {
-            loop843d8:	; 800843D8
-                if( w[SP + 18 + S0 * 4] >= h[data_138 + 26] )
+        loop843d8:	; 800843D8
+            // if current Y less than newly found Y in current walkmesh or ...
+            if( ( h[data_138 + 26] < w[SP + 18 + stored_walkmesh_id * 4] ) || ( w[data_138 + 0] & 00001800 ) )
+            {
+                // select new walkmesh id by lowest Y higher that current
+                if( h[data_138 + 26] <= w[SP + 18 + S0 * 4] )
                 {
                     [data_138 + 10] = h(w[SP + 38 + S0 * 4]);
                     break;
                 }
-                S0 = S0 + 1;
-                V0 = S0 < walkmesh_blocks;
-            800843F8	bne    v0, zero, loop843d8 [$800843d8]
-        }
-    }
-    else
-    {
-        S0 = 0;
-        if( walkmesh_blocks > 0 )
-        {
-            loop84438:	; 80084438
+            }
+            else
+            {
+                // find current walkmesh id in temp array
                 if( h[data_138 + 10] == w[SP + 38 + S0 * 4] )
                 {
                     break;
                 }
-                S0 = S0 + 1;
-                V0 = S0 < walkmesh_blocks;
-            80084450	bne    v0, zero, loop84438 [$80084438]
-        }
+            }
+            S0 = S0 + 1;
+            V0 = S0 < walkmesh_blocks;
+        800843F8	bne    v0, zero, loop843d8 [$800843d8]
     }
+
+
 
     A0 = data_138;
     get_current_triangle_material();
     material = V0;
 
+
+
+    // jump one walkmesh down
     if( material & 00000004 )
     {
         if( S0 != 0 )
@@ -203,12 +206,24 @@ if( S4 == walkmesh_blocks )
         }
     }
 
-    if( ( ( w[data_138 + 0] >> 8 ) & 7 ) & ( material >> 5 ) ) // unpassable triangle for this entity
+
+
+    
+    err0 = ( material & 00800000 ) != 0; // unpassable material for walkmesh 0
+    err1 = ( ( w[data_138 + 0] >> 8 ) & 7 ) & ( material >> 5 ); // unpassable triangle for this entity
+    if( err0 || err1 )
     {
         // DEBUG TEXT
         if( w[800c1b60] == 0 )
         {
-            A0 = 8006f2f0; // ERROR ID1 ACT=%d
+            if( err0 )
+            {
+                A0 = 8006f304; // ERROR ID0 ACT=%d
+            }
+            else
+            {
+                A0 = 8006f2f0; // ERROR ID1 ACT=%d
+            }
             A1 = entity_id;
             func37870();
         }
@@ -218,28 +233,49 @@ if( S4 == walkmesh_blocks )
             [800acfd8] = h(0fff);
         }
 
-        [data_138 + 24] = w(w[data_138 + 24] + w[S5 + 10]);
-        8008454C	j      L849ac [$800849ac]
-    }
-    else if( ( material & 00800000 ) != 0 ) // unpassable material for walkmesh 0
-    {
-        if( w[800c1b60] == 0 )
+        [data_138 + 24] = w(w[data_138 + 24] + w[S5 + 10]); // animation move y
+
+        [data_138 + 20] = w(stored_x);
+        [data_138 + 28] = w(stored_z);
+        [data_138 + 10] = h(stored_walkmesh_id);
+        [data_138 + f0] = w(0);
+
+        S0 = 0;
+        loop849d0:	; 800849D0
+            [data_138 + 8 + S0 * 2] = h(hu[SP + a0 + S0 * 2]);
+            S0 = S0 + 1;
+            V0 = S0 < 4;
+        800849E4	bne    v0, zero, loop849d0 [$800849d0]
+
+        if( h[data_138 + 26] < h[S5 + 84] )
         {
-            A0 = 8006f304; // ERROR ID0 ACT=%d
-            A1 = entity_id;
-            func37870();
+            if( h[S5 + 84] != h[data_138 + 26] )
+            {
+                [S5 + 10] = w(w[S5 + 10] + w[S5 + 1c]);
+            }
+        }
+        else
+        {
+            if( w[S5 + 10] > 0 )
+            {
+                [S5 + 10] = w(0);
+            }
+            [data_138 + 0] = w(w[data_138 + 0] & ffbfefff);
+            [data_138 + 24] = w(h[S5 + 84] << 10)
         }
 
-        if( entity_id == w[800b1740] ) // if entity is party leader
-        {
-            [800acfd8] = h(0fff);
-        }
+        [S5 + 0] = w(w[data_138 + 20]);
+        [S5 + 4] = w(w[data_138 + 24]);
+        [S5 + 8] = w(w[data_138 + 28]);
 
-        [data_138 + 24] = w(w[data_138 + 24] + w[S5 + 10]);
-        8008454C	j      L849ac [$800849ac]
+        V1 = w[800aefe4];
+        [V1 + entity_id * 5c + 24] = w(h[data_138 + 26]);
+
+        A0 = entity_id;
+        func81268();
+
+        return 0;
     }
-
-
 
     // perform move
     [data_138 + 20] = w(w[data_138 + 20] + w[data_138 + 30]);
@@ -247,6 +283,7 @@ if( S4 == walkmesh_blocks )
 
 
 
+    // store triangle Y
     if( walkmesh_blocks > 0 )
     {
         S0 = 0;
@@ -261,6 +298,9 @@ if( S4 == walkmesh_blocks )
         800845B8	bne    v0, zero, loop845a4 [$800845a4]
     }
 
+
+
+    // store normalized normal
     A0 = SP + 50 + h[data_138 + 10] * 10;
     A1 = data_138 + 50;
     system_normalize_word_vector_T0_T1_T2_to_word();
@@ -270,336 +310,158 @@ else
     [data_138 + f0] = w(0);
 }
 
-800845E4	lui    v0, $800b
-800845E8	lw     v0, $d070(v0)
-800845EC	nop
-800845F0	beq    v0, zero, L84614 [$80084614]
-800845F4	nop
-800845F8	lw     t5, $0110(sp)
-800845FC	nop
-80084600	sltiu  v0, t5, $0002
-80084604	beq    v0, zero, L84648 [$80084648]
-80084608	nop
-8008460C	j      L84648 [$80084648]
-80084610	sh     s7, $0084(s5)
 
-L84614:	; 80084614
-80084614	lw     t5, $0110(sp)
-80084618	nop
-8008461C	beq    t5, zero, L84648 [$80084648]
-80084620	addiu  v1, s7, $000a
-80084624	lh     v0, $0084(s5)
-80084628	nop
-8008462C	slt    v0, v0, v1
-80084630	beq    v0, zero, L8463c [$8008463c]
-80084634	ori    v0, zero, $00ff
-80084638	sb     v0, $0074(s1)
 
-L8463c:	; 8008463C
-8008463C	sll    v0, s7, $10
-80084640	sh     s7, $0084(s5)
-80084644	sw     v0, $0024(s1)
-
-L84648:	; 80084648
-80084648	lw     v0, $0000(s1)
-8008464C	lui    v1, $0004
-80084650	and    v0, v0, v1
-80084654	beq    v0, zero, L84670 [$80084670]
-80084658	nop
-8008465C	lh     v0, $00ec(s1)
-80084660	nop
-80084664	sll    v0, v0, $10
-80084668	sw     v0, $0024(s1)
-8008466C	sw     zero, $0010(s5)
-
-L84670:	; 80084670
-80084670	lw     v0, $0024(s1)
-80084674	lw     v1, $0010(s5)
-80084678	addu   a0, s1, zero
-8008467C	addu   v0, v0, v1
-80084680	jal    get_current_triangle_material [$8007ff7c]
-80084684	sw     v0, $0024(s1)
-80084688	addu   a1, v0, zero
-8008468C	sll    v0, fp, $10
-80084690	lh     v1, $0010(s1)
-80084694	sra    v0, v0, $10
-80084698	beq    v1, v0, L846b0 [$800846b0]
-8008469C	lui    v1, $fbff
-800846A0	lw     v0, $0000(s1)
-800846A4	ori    v1, v1, $ffff
-800846A8	and    v0, v0, v1
-800846AC	sw     v0, $0000(s1)
-
-L846b0:	; 800846B0
-800846B0	lw     v0, $0000(s1)
-800846B4	lui    v1, $0400
-800846B8	and    v0, v0, v1
-800846BC	bne    v0, zero, L84718 [$80084718]
-800846C0	lui    v0, $0042
-800846C4	lh     a0, $0084(s5)
-800846C8	lh     v1, $0026(s1)
-800846CC	nop
-800846D0	slt    v0, v1, a0
-if (V0 != 0)
+if( w[800ad070] != 0 )
 {
-    if (A0 != V1)
+    if( value < 2 )
     {
-        800846E4	lw     v0, $0010(s5)
-        800846E8	lw     v1, $001c(s5)
-        800846EC	nop
-        800846F0	addu   v0, v0, v1
-        800846F4	sw     v0, $0010(s5)
+        [S5 + 84] = h(y_pos);
     }
-
-    800846F8	lw     v0, $0000(s1)
-    800846FC	nop
-    80084700	ori    v0, v0, $1000
-    80084704	sw     v0, $0000(s1)
-    80084708	lw     v0, $0010(s5)
-    80084710	sw     v0, $00f0(s1)
 }
 else
 {
-    80084714	lui    v0, $0042
-
-    L84718:	; 80084718
-    80084718	and    v0, a1, v0
-    if( V0 == 0 )
+    if( value != 0 )
     {
-        [S1 + f0] = w(0);
+        if( h[S5 + 84] < ( y_pos + a ) )
+        {
+            [data_138 + 74] = b(ff);
+        }
+        [S5 + 84] = h(y_pos);
+        [data_138 + 24] = w(y_pos << 10);
     }
+}
 
+
+
+if( w[data_138 + 0] & 00040000 )
+{
+    [data_138 + 24] = w(h[data_138 + ec] << 10);
+    [S5 + 10] = w(0);
+}
+
+
+
+[data_138 + 24] = w(w[data_138 + 24] + w[S5 + 10]);
+
+
+
+A0 = data_138;
+get_current_triangle_material();
+material = V0;
+
+
+
+if( h[data_138 + 10] != stored_walkmesh_id )
+{
+    [data_138 + 0] = w(w[data_138 + 0] & fbffffff); // 0x04000000 remove can move bit
+}
+
+
+
+if( ( ( w[data_138 + 0] & 04000000 ) == 0 ) && ( h[data_138 + 26] < h[S5 + 84] ) )
+{
+    if( h[S5 + 84] != h[data_138 + 26] )
+    {
+        [S5 + 10] = w(w[S5 + 10] + w[S5 + 1c]);
+    }
+    [data_138 + 0] = w(w[data_138 + 0] | 00001000);
+    [data_138 + f0] = w(w[S5 + 10]);
+}
+else
+{
+    if( ( material & 00420000 ) == 0 ) // not auto sliding down
+    {
+        [data_138 + f0] = w(0);
+    }
     if( w[S5 + 10] > 0 )
     {
         [S5 + 10] = w(0);
     }
-
-    [S1 + 0] = w(w[S1 + 0] & ffbfefff); // remove automove flag
-    [S1 + 24] = w(h[S5 + 84] << 10);
+    [data_138 + 0] = w(w[data_138 + 0] & ffbfefff); // remove automove flag
+    [data_138 + 24] = w(h[S5 + 84] << 10);
 }
 
-[S1 + 0] = w(w[S1 + 0] & fbffffff);
+
+
+[data_138 + 0] = w(w[data_138 + 0] & fbffffff);
+
+
 
 S0 = 0;
 if( walkmesh_blocks > 0 )
 {
-    A2 = h[S1 + 26];
-    A0 = SP + 18;
-
     loop84794:	; 80084794
-        80084794	lw     a1, $0000(a0)
-        80084798	nop
-        8008479C	slt    v0, a1, a2
-        800847A0	beq    v0, zero, L847c8 [$800847c8]
-        800847A4	nop
-        800847A8	lhu    v0, $001a(s1)
-        800847AC	lw     v1, $0010(a0)
-        800847B0	subu   v0, a2, v0
-        800847B4	slt    v0, v0, v1
-        800847B8	beq    v0, zero, L847c8 [$800847c8]
-        800847BC	nop
-        800847C0	bne    a1, v1, L847d8 [$800847d8]
-        800847C4	nop
-
-        L847c8:	; 800847C8
-        800847D4	addiu  a0, a0, $0004
-        800847C8	addiu  s0, s0, $0001
+        if( w[SP + 18 + S0 * 4] < h[data_138 + 26] )
+        {
+            if( ( h[data_138 + 26] - hu[data_138 + 1a] ) < w[SP + 28 + S0 * 4] )
+            {
+                if( w[SP + 18 + S0 * 4] != w[SP + 28 + S0 * 4] )
+                {
+                    break;
+                }
+            }
+        }
+        S0 = S0 + 1;
         V0 = S0 < walkmesh_blocks;
     800847D0	bne    v0, zero, loop84794 [$80084794]
 }
 
-L847d8:	; 800847D8
-800847D8	lui    a1, $800b
-800847DC	addiu  a1, a1, $f028 (=-$fd8)
-V0 = walkmesh_blocks;
-800847EC	bne    s0, v0, L848d0 [$800848d0]
-800847F0	nop
-800847F4	lh     v0, $0010(s1)
-800847F8	nop
-800847FC	sll    v1, v0, $02
-80084800	sll    v0, v0, $01
-80084804	addu   v0, v0, s1
-80084808	addu   v1, a1, v1
-8008480C	lh     a0, $0008(v0)
-80084810	lw     v1, $ffd0(v1)
-80084814	sll    v0, a0, $03
-80084818	subu   v0, v0, a0
-8008481C	sll    v0, v0, $01
-80084820	addu   v0, v0, v1
-80084824	lb     v0, $000d(v0)
-80084828	nop
-8008482C	sll    a1, v0, $02
-80084830	bgez   a1, L8485c [$8008485c]
-80084834	addu   a0, s1, zero
-80084838	lh     v0, $0026(s1)
-8008483C	lhu    a0, $001a(s1)
-80084840	lh     v1, $0084(s5)
-80084844	subu   v0, v0, a0
-80084848	addu   v1, a1, v1
-8008484C	slt    v0, v0, v1
-80084850	bne    v0, zero, L848d4 [$800848d4]
-80084854	addu   s0, zero, zero
-80084858	addu   a0, s1, zero
-
-L8485c:	; 8008485C
-8008485C	sll    v1, s6, $01
-80084860	addu   v1, v1, s6
-80084864	lw     v0, $0020(s1)
-80084868	sll    v1, v1, $03
-8008486C	sw     v0, $0000(s5)
-80084870	lw     v0, $0024(s1)
-80084874	subu   v1, v1, s6
-80084878	sw     v0, $0004(s5)
-8008487C	lw     v0, $0028(s1)
-80084880	sll    v1, v1, $02
-80084884	sw     v0, $0008(s5)
-80084888	lui    v0, $800b
-8008488C	lw     v0, $efe4(v0)
-80084890	lh     a1, $0022(s1)
-80084894	addu   v0, v1, v0
-80084898	sw     a1, $0020(v0)
-8008489C	lui    v0, $800b
-800848A0	lw     v0, $efe4(v0)
-800848A4	lh     a1, $0026(s1)
-800848A8	addu   v0, v1, v0
-800848AC	sw     a1, $0024(v0)
-800848B0	lui    v0, $800b
-800848B4	lw     v0, $efe4(v0)
-800848B8	lh     a1, $002a(s1)
-800848BC	addu   v1, v1, v0
-800848C0	jal    get_current_triangle_material [$8007ff7c]
-800848C4	sw     a1, $0028(v1)
-800848C8	j      L849a4 [$800849a4]
-800848CC	sw     v0, $0014(s1)
-
-L848d0:	; 800848D0
-800848D0	addu   s0, zero, zero
-
-L848d4:	; 800848D4
-800848D4	lw     v0, $0090(sp)
-800848D8	addiu  a0, sp, $0018
-800848DC	sw     v0, $0020(s1)
-800848E0	lw     v0, $0098(sp)
-800848E4	addu   v1, s1, zero
-800848E8	sh     fp, $0010(s1)
-800848EC	sw     zero, $00f0(s1)
-800848F0	sw     v0, $0028(s1)
-
-loop848f4:	; 800848F4
-800848F4	lhu    v0, $0088(a0)
-
-L848f8:	; 800848F8
-800848F8	addiu  a0, a0, $0002
-800848FC	addiu  s0, s0, $0001
-80084900	sh     v0, $0008(v1)
-80084904	slti   v0, s0, $0004
-80084908	bne    v0, zero, loop848f4 [$800848f4]
-8008490C	addiu  v1, v1, $0002
-80084910	lh     v1, $0084(s5)
-80084914	lh     v0, $0026(s1)
-80084918	nop
-8008491C	beq    v1, v0, L84938 [$80084938]
-80084920	nop
-80084924	lw     v0, $0010(s5)
-80084928	lw     v1, $001c(s5)
-8008492C	nop
-80084930	addu   v0, v0, v1
-80084934	sw     v0, $0010(s5)
-
-L84938:	; 80084938
-80084938	lw     v0, $0010(s5)
-8008493C	nop
-80084940	bgez   v0, L84958 [$80084958]
-80084944	nop
-80084948	sw     zero, $0010(s5)
-8008494C	lw     v0, $0094(sp)
-80084950	nop
-80084954	sw     v0, $0024(s1)
-
-L84958:	; 80084958
-80084958	lw     v0, $0020(s1)
-8008495C	nop
-80084960	sw     v0, $0000(s5)
-80084964	lw     v0, $0024(s1)
-80084968	nop
-8008496C	sw     v0, $0004(s5)
-80084970	lw     v0, $0028(s1)
-80084974	nop
-80084978	sw     v0, $0008(s5)
-8008497C	sll    v0, s6, $01
-80084980	addu   v0, v0, s6
-80084984	sll    v0, v0, $03
-80084988	subu   v0, v0, s6
-8008498C	sll    v0, v0, $02
-80084990	lui    v1, $800b
-80084994	lw     v1, $efe4(v1)
-80084998	lh     a0, $0026(s1)
-8008499C	addu   v0, v0, v1
-800849A0	sw     a0, $0024(v0)
-
-L849a4:	; 800849A4
-800849A4	j      L84aa4 [$80084aa4]
-
-
-L849ac:	; 800849AC
-800849AC	addu   s0, zero, zero
-800849B0	lw     v0, $0090(sp)
-800849B4	addiu  a0, sp, $0018
-800849B8	sw     v0, $0020(s1)
-800849BC	lw     v0, $0098(sp)
-800849C0	addu   v1, s1, zero
-800849C4	sh     fp, $0010(s1)
-800849C8	sw     zero, $00f0(s1)
-800849CC	sw     v0, $0028(s1)
-
-loop849d0:	; 800849D0
-800849D0	lhu    v0, $0088(a0)
-800849D4	addiu  a0, a0, $0002
-800849D8	addiu  s0, s0, $0001
-800849DC	sh     v0, $0008(v1)
-800849E0	slti   v0, s0, $0004
-800849E4	bne    v0, zero, loop849d0 [$800849d0]
-800849E8	addiu  v1, v1, $0002
-800849EC	lh     a0, $0084(s5)
-800849F0	lh     v1, $0026(s1)
-800849F4	nop
-800849F8	slt    v0, v1, a0
-800849FC	beq    v0, zero, L84a24 [$80084a24]
-80084A00	nop
-80084A04	beq    a0, v1, L84a58 [$80084a58]
-80084A08	nop
-80084A0C	lw     v0, $0010(s5)
-80084A10	lw     v1, $001c(s5)
-80084A14	nop
-80084A18	addu   v0, v0, v1
-80084A1C	j      L84a58 [$80084a58]
-80084A20	sw     v0, $0010(s5)
-
-L84a24:	; 80084A24
-if( w[S5 + 10] > 0 )
+if( S0 == walkmesh_blocks )
 {
-    [S5 + 10] = w(0);
+    V0 = h[data_138 + 10];
+    A0 = h[data_138 + 8 + V0 * 2];
+    V1 = w[800aeff8 + V0 * 4]; // triangle data pointer
+    if( ( b[V1 + A0 * e + d] * 4 >= 0 ) || ( ( h[data_138 + 26] - hu[data_138 + 1a] ) >= ( b[V1 + A0 * e + d] * 4 + h[S5 + 84] ) ) )
+    {
+        [S5 + 0] = w(w[data_138 + 20]);
+        [S5 + 4] = w(w[data_138 + 24]);
+        [S5 + 8] = w(w[data_138 + 28]);
+        V0 = w[800aefe4];
+        [V0 + entity_id * 5c + 20] = w(h[data_138 + 22]);
+        [V0 + entity_id * 5c + 24] = w(h[data_138 + 26]);
+        [V0 + entity_id * 5c + 28] = w(h[data_138 + 2a]);
+
+        A0 = data_138;
+        get_current_triangle_material();
+        [data_138 + 14] = w(V0);
+
+        A0 = entity_id;
+        func81268();
+
+        return 0;
+    }
 }
 
-80084A30	lui    v1, $ffbf
-80084A38	lw     v0, $0000(s1)
-80084A3C	ori    v1, v1, $efff
-80084A40	and    v0, v0, v1
-80084A44	sw     v0, $0000(s1)
-80084A48	lh     v0, $0084(s5)
-80084A4C	nop
-80084A50	sll    v0, v0, $10
-80084A54	sw     v0, $0024(s1)
+[data_138 + 20] = w(stored_x);
+[data_138 + 28] = w(stored_z);
+[data_138 + 10] = h(stored_walkmesh_id);
+[data_138 + f0] = w(0);
 
-L84a58:	; 80084A58
-[S5 + 0] = w(w[S1 + 20]);
-[S5 + 4] = w(w[S1 + 24]);
-[S5 + 8] = w(w[S1 + 28]);
+S0 = 0;
+loop848f4:	; 800848F4
+    [data_138 + 8 + S0 * 2] = h(hu[SP + a0 + S0 * 2]);
+    S0 = S0 + 1;
+    V0 = S0 < 4;
+80084908	bne    v0, zero, loop848f4 [$800848f4]
 
+if( h[S5 + 84] != h[data_138 + 26] )
+{
+    [S5 + 10] = w(w[S5 + 10] + w[S5 + 1c]);
+}
+
+if( w[S5 + 10] < 0 )
+{
+    [S5 + 10] = w(0);
+    [data_138 + 24] = w(stored_y);
+}
+
+
+[S5 + 0] = w(w[data_138 + 20]);
+[S5 + 4] = w(w[data_138 + 24]);
+[S5 + 8] = w(w[data_138 + 28]);
 V1 = w[800aefe4];
-[V1 + entity_id * 5c + 24] = w(h[S1 + 26]);
-
-L84aa4:	; 80084AA4
+[V1 + entity_id * 5c + 24] = w(h[data_138 + 26]);
 A0 = entity_id;
 func81268();
 
@@ -665,10 +527,10 @@ loop814ec:	; 800814EC
 // func7c9e8()
 data_138 = A0;
 block_id = A1;
-pointer18 = A2;
-pointer50 = A3;
-pointer48 = A4;
-pointer28 = A5;
+pointer_end_y = A2;
+pointer_normal = A3;
+pointer_triangle_id = A4;
+pointer_end_y_d = A5;
 
 triangle_id = h[data_138 + 8 + A1 * 2];
 walkmesh_triangle_data = w[800aeff8 + A1 * 4];
@@ -830,16 +692,16 @@ A0 = walkmesh_vertex_data + h[walkmesh_triangle_data + triangle_id * e + 0] * 8;
 A1 = walkmesh_vertex_data + h[walkmesh_triangle_data + triangle_id * e + 2] * 8;
 A2 = walkmesh_vertex_data + h[walkmesh_triangle_data + triangle_id * e + 4] * 8;
 A3 = SP + 18;
-A4 = pointer50;
+A4 = pointer_normal;
 field_calculate_walkmesh_height();
 
-[pointer48] = h(triangle_id);
+[pointer_triangle_id] = h(triangle_id);
 
 material_id = bu[walkmesh_triangle_data + triangle_id * e + c];
 if(  w[walkmesh_material_data + material_id * 4] & w[SP + 40] & 00800000 ) // if we cant pass this material
 {
-    [pointer18] = w(7fffffff);
-    [pointer28] = w(7fffffff);
+    [pointer_end_y] = w(7fffffff);
+    [pointer_end_y_d] = w(7fffffff);
     return 0;
 }
 
@@ -862,8 +724,8 @@ if( A2 < 0 )
     A2 = 0;
 }
 
-[pointer18] = w(V0);
-[pointer28] = w(V0 + A2);
+[pointer_end_y] = w(V0);
+[pointer_end_y_d] = w(V0 + A2);
 return 0;
 ////////////////////////////////
 

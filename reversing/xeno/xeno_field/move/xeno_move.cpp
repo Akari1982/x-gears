@@ -885,11 +885,15 @@ return -1;
 
 ////////////////////////////////
 // func7ae28()
-S1 = move_vector = A0;
-S3 = struct_138 = A1;
-S4 = intersect_line = A2;
-S2 = rotation = A3;
+// return -1 if we can't move, 0 if we move
+move_vector = A0;
+struct_138 = A1;
+intersect_line = A2;
+rotation = A3;
 
+
+
+// check straight
 A0 = rotation & 0fff;
 system_cos();
 [SP + 18] = w(w[move_vector + 0] + (V0 << 6));
@@ -901,135 +905,108 @@ system_sin();
 A0 = SP + 18;
 A1 = struct_138 + 20;
 A2 = struct_138;
-A3 = S4;
+A3 = intersect_line;
 A4 = SP + 28;
-A6 = S7;
+A5 = -1;
 func7bca8();
 
-S6 = struct_138 + 20;
-S5 = SP + 28;
-S7 = -1;
+if( V0 != -1 )
+{
+    // check first rotation
+    angle1 = (rotation - 100) & 0fff;
 
+    A0 = angle1;
+    system_cos();
+    [SP + 18] = w(w[move_vector + 0] + (V0 << 6));
 
+    A0 = angle1;
+    system_sin();
+    [SP + 20] = w(w[move_vector + 8] - (V0 << 6));
 
-8007AEBC	bne    v0, s7, L7aed0 [$8007aed0]
-8007AEC0	sll    v0, s2, $10
-8007AEC4	sll    a0, s2, $10
-8007AEC8	j      L7af8c [$8007af8c]
-8007AECC	sra    a0, a0, $10
+    A0 = SP + 18;
+    A1 = struct_138 + 20;
+    A2 = struct_138;
+    A3 = intersect_line;
+    A4 = SP + 28;
+    A5 = -1;
+    func7bca8();
 
-L7aed0:	; 8007AED0
-S2 = V0 >> 10;
-S0 = (S2 - 100) & fff;
+    if( V0 != 0 )
+    {
+        // check second rotation
+        angle2 = (rotation + 100) & 0fff;
 
-A0 = S0;
-system_cos();
-[SP + 18] = w(w[S1 + 0] + (V0 << 6));
+        A0 = angle2
+        system_cos();
+        [SP + 18] = w(w[move_vector + 0] + (V0 << 6));
 
-A0 = S0;
-system_sin();
-[SP + 20] = w(w[S1 + 8] - (V0 << 6));
+        A0 = angle2;
+        system_sin();
+        [SP + 20] = w(w[move_vector + 8] - (V0 << 6));
 
-A0 = SP + 18;
-A1 = S6;
-A2 = S3;
-A3 = S4;
-A4 = S5;
-A5 = S7;
-func7bca8();
+        A0 = SP + 18;
+        A1 = struct_138 + 20;
+        A2 = struct_138;
+        A3 = intersect_line;
+        A4 = SP + 28;
+        A5 = -1;
+        func7bca8();
 
-8007AF28	beq    v0, s7, L7af88 [$8007af88]
-8007AF2C	addiu  s0, s2, $0100
-8007AF30	andi   s0, s0, $0fff
-8007AF38	addu   a0, s0, zero
-system_cos; // cos
+        if( V0 != -1 )
+        {
+            [SP + 18] = w(w[move_vector + 0]);
+            [SP + 1c] = w(w[move_vector + 4]);
+            [SP + 20] = w(w[move_vector + 8]);
+            8007B274	j      L7afe0 [$8007AFE0]
+        }
+    }
+}
 
-8007AF3C	addu   a0, s0, zero
-8007AF40	lw     v1, $0000(s1)
-8007AF44	sll    v0, v0, $06
-8007AF48	addu   v1, v1, v0
-8007AF50	sw     v1, $0018(sp)
-system_sin; // sin
+[SP + 18] = w(w[move_vector + 0]);
+[SP + 1c] = w(w[move_vector + 4]);
+[SP + 20] = w(w[move_vector + 8]);
 
-8007AF54	addiu  a0, sp, $0018
-8007AF58	addu   a1, s6, zero
-8007AF5C	addu   a2, s3, zero
-8007AF60	addu   a3, s4, zero
-8007AF64	lw     v1, $0008(s1)
-8007AF68	sll    v0, v0, $06
-8007AF6C	subu   v1, v1, v0
-8007AF70	sw     v1, $0020(sp)
-8007AF74	sw     s5, $0010(sp)
-8007AF78	jal    func7bca8 [$8007bca8]
-8007AF7C	sw     s7, $0014(sp)
-8007AF80	bne    v0, s7, L7afbc [$8007afbc]
-8007AF84	addiu  a0, sp, $0018
-
-L7af88:	; 8007AF88
-8007AF88	addu   a0, s2, zero
-
-L7af8c:	; 8007AF8C
-8007AF8C	lw     v0, $0000(s1)
-8007AF90	addu   a1, s4, zero
-8007AF94	sw     v0, $0018(sp)
-8007AF98	lw     v0, $0004(s1)
-8007AF9C	addiu  a2, sp, $0018
-8007AFA0	sw     v0, $001c(sp)
-8007AFA4	lw     v0, $0008(s1)
-8007AFA8	addu   a3, zero, zero
-8007AFB0	sw     v0, $0020(sp)
+A0 = rotation;
+A1 = intersect_line;
+A2 = SP + 18;
 field_get_move_vector_to_move_along_with_line();
 
-8007AFB4	j      L7afe0 [$8007afe0]
-8007AFB8	addiu  a0, sp, $0018
-
-L7afbc:	; 8007AFBC
-[SP + 18] = w(w[S1 + 0]);
-[SP + 1c] = w(w[S1 + 4]);
-[SP + 20] = w(w[S1 + 8]);
-
 L7afe0:	; 8007AFE0
-A1 = S3 + 20;
-A2 = S3;
-A3 = S4;
-8007AFEC	addiu  v0, sp, $0028
-8007AFF0	sw     v0, $0010(sp)
-8007AFF4	jal    func7bca8 [$8007bca8]
-8007AFF8	sw     zero, $0014(sp)
-8007AFFC	addiu  v1, zero, $ffff (=-$1)
-8007B000	beq    v0, v1, L7b048 [$8007b048]
-8007B004	lui    v1, $0004
-8007B008	lw     v0, $0000(s3)
-8007B00C	nop
-8007B010	and    v0, v0, v1
-8007B014	bne    v0, zero, L7b050 [$8007b050]
-8007B018	nop
-8007B01C	lh     v0, $002a(sp)
-8007B020	lw     v1, $0024(s3)
-8007B024	sll    v0, v0, $10
-8007B028	slt    v0, v0, v1
-8007B02C	beq    v0, zero, L7b05c [$8007b05c]
-8007B030	nop
-8007B034	lui    v0, $800b
-8007B038	lw     v0, $d070(v0)
-8007B03C	nop
-8007B040	bne    v0, zero, L7b05c [$8007b05c]
-8007B044	nop
+A0 = SP + 18;
+A1 = struct_138 + 20;
+A2 = struct_138;
+A3 = intersect_line;
+A4 = SP + 28;
+A5 = 0;
+func7bca8();
 
-L7b048:	; 8007B048
+if( V0 != -1 )
+{
+    if( ( w[struct_138 + 0] & 00040000 ) == 0 )
+    {
+        [SP + 2a] = h(hu[struct_138 + ec]);
+    }
+    else
+    {
+        if( ( h[SP + 2a] << 10 ) < w[struct_138 + 24] )
+        {
+            if( w[800ad070] == 0 )
+            {
+                return -1;
+            }
+        }
+    }
+
+    [move_vector + 0] = w(w[SP + 18]);
+    [move_vector + 4] = w((h[SP + 2a] << 10) - w[struct_138 + 24]);
+    [move_vector + 8] = w(w[SP + 20]);
+
+    [struct_138 + 72] = h((w[struct_138 + 24] + w[move_vector + 4]) >> 10);
+
+    return 0;
+}
+
 return -1;
-
-L7b050:	; 8007B050
-[SP + 2a] = h(hu[S3 + ec]);
-
-L7b05c:	; 8007B05C
-[S1 + 0] = w(w[SP + 18]);
-[S1 + 4] = w((h[SP + 2a] << 10) - w[S3 + 24]);
-[S1 + 8] = w(w[SP + 20]);
-
-[S3 + 72] = h((w[S3 + 24] + w[S1 + 4]) >> 10);
-
-return 0;
 ////////////////////////////////
 
 
