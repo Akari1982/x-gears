@@ -3030,7 +3030,7 @@ func72e14:	; 80072E14
 80072EA4	sw     zero, $0040(at)
 80072EA8	lui    at, $1f80
 80072EAC	sw     zero, $003c(at)
-80072EB0	jal    func491c4 [$800491c4]
+80072EB0	jal    system_gte_matrix_mult_and_trans [$800491c4]
 80072EB4	ori    a2, a2, $0008
 80072EB8	lui    a0, $1f80
 80072EBC	jal    system_gte_set_rotation_matrix [$80049da4]
@@ -3289,7 +3289,7 @@ func7312c:	; 8007312C
 80073280	sw     zero, $0050(at)
 80073284	lui    at, $1f80
 80073288	sw     zero, $004c(at)
-8007328C	jal    func491c4 [$800491c4]
+8007328C	jal    system_gte_matrix_mult_and_trans [$800491c4]
 80073290	ori    a2, a2, $0018
 80073294	lui    a0, $1f80
 80073298	jal    system_gte_set_rotation_matrix [$80049da4]
@@ -5816,7 +5816,7 @@ L7549c:	; 8007549C
 80075824	sw     a3, $0108(at)
 80075828	lui    at, $1f80
 8007582C	sw     v0, $010c(at)
-80075830	jal    func491c4 [$800491c4]
+80075830	jal    system_gte_matrix_mult_and_trans [$800491c4]
 80075834	ori    a2, a2, $0110
 80075838	lui    a0, $1f80
 8007583C	jal    system_gte_set_rotation_matrix [$80049da4]
@@ -21692,7 +21692,7 @@ L83f98:	; 80083F98
 80083FE0	addiu  a0, a0, $bbf0 (=-$4410)
 80083FE4	addu   a1, s3, zero
 80083FE8	addiu  s0, s1, $0110
-80083FEC	jal    func491c4 [$800491c4]
+80083FEC	jal    system_gte_matrix_mult_and_trans [$800491c4]
 80083FF0	addu   a2, s0, zero
 80083FF4	jal    system_gte_set_rotation_matrix [$80049da4]
 80083FF8	addu   a0, s0, zero
@@ -44098,7 +44098,7 @@ L977c8:	; 800977C8
 
 L9781c:	; 8009781C
 8009781C	sw     s1, $004c(sp)
-80097820	jal    func491c4 [$800491c4]
+80097820	jal    system_gte_matrix_mult_and_trans [$800491c4]
 80097824	sw     s0, $0048(sp)
 80097828	lui    a0, $1f80
 8009782C	jal    system_gte_set_rotation_matrix [$80049da4]
@@ -45293,7 +45293,7 @@ loop9878c:	; 8009878C
 800987F4	addiu  a0, a0, $bbf0 (=-$4410)
 800987F8	ori    a1, s2, $0350
 800987FC	addiu  s0, s2, $0370
-80098800	jal    func491c4 [$800491c4]
+80098800	jal    system_gte_matrix_mult_and_trans [$800491c4]
 80098804	addu   a2, s0, zero
 80098808	jal    system_gte_set_rotation_matrix [$80049da4]
 8009880C	addu   a0, s0, zero

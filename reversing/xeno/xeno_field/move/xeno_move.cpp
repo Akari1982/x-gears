@@ -1,12 +1,14 @@
 ////////////////////////////////
 // func80720()
 struct_5c_p = w[800aefe4];
+number_of_entity = w[800ad0d4];
+
+
 
 [800c2de4] = w(ffffffff);
 
 funca15c0(); // run 8 opcodes for non-party entities
 
-number_of_entity = w[800ad0d4];
 if( number_of_entity > 0 )
 {
     entity_id = 0;
@@ -32,10 +34,9 @@ if( w[800c1b60] == 0 )
 
 
 
-entity_id = 0;
-number_of_entity = w[800ad0d4];
 if( number_of_entity > 0 )
 {
+    entity_id = 0;
     loop80820:	; 80080820
         struct_138 = w[struct_5c_p; + entity_id * 5c + 4c];
 
@@ -103,9 +104,9 @@ if( w[800c1b60] == 0 )
 
 
 A0 = w[800b1740];
-A1 = w[800aefe4] + leader_id * 5c;
+A1 = struct_5c_p + leader_id * 5c;
 A2 = w[A1 + 4c];
-func8376c()
+func8376c(); // move player
 
 
 
@@ -116,75 +117,50 @@ if( w[800c1b60] == 0 )
     func281b18;
 }
 
-80080A24	lui    v0, $800b
-80080A28	lw     v0, $d0d4(v0)
-80080A2C	nop
-80080A30	blez   v0, L80b20 [$80080b20]
-80080A34	addu   s2, zero, zero
-80080A38	ori    s4, zero, $0200
-80080A3C	addu   s3, zero, zero
 
-loop80a40:	; 80080A40
-80080A40	lui    v0, $800b
-80080A44	lw     v0, $efe4(v0)
-80080A48	nop
-80080A4C	addu   a1, s3, v0
-80080A50	lhu    v1, $0058(a1)
-80080A54	nop
-80080A58	andi   v0, v1, $0f00
-80080A5C	beq    v0, zero, L80b08 [$80080b08]
-80080A60	addu   s1, a1, zero
-80080A64	lw     s0, $004c(s1)
-80080A68	nop
-80080A6C	lw     v0, $0004(s0)
-80080A70	nop
-80080A74	andi   v0, v0, $0600
-80080A78	beq    v0, s4, L80b08 [$80080b08]
-80080A7C	andi   v0, v1, $0f80
-80080A80	bne    v0, s4, L80b08 [$80080b08]
-80080A84	lui    v1, $0001
-80080A88	lw     v0, $0000(s0)
-80080A8C	ori    v1, v1, $0001
-80080A90	and    v0, v0, v1
-80080A94	bne    v0, zero, L80b08 [$80080b08]
-80080A98	nop
-80080A9C	lui    v0, $800b
-80080AA0	lw     v0, $1740(v0)
-80080AA4	nop
-80080AA8	beq    s2, v0, L80b08 [$80080b08]
-80080AAC	addu   a0, s2, zero
-80080AB0	lui    a1, $7fff
-80080AB4	ori    a1, a1, $ffff
-80080AB8	addu   a2, s1, zero
-80080ABC	addu   a3, s0, zero
-80080AC0	jal    func84054 [$80084054]
-80080AC4	sw     zero, $0010(sp)
-80080AC8	lui    v0, $800b
-80080ACC	lw     v0, $efe4(v0)
-80080AD0	nop
-80080AD4	addu   v0, s3, v0
-80080AD8	lw     v0, $0004(v0)
-80080ADC	nop
-80080AE0	lw     v0, $007c(v0)
-80080AE4	nop
-80080AE8	lhu    v1, $000c(v0)
-80080AEC	ori    v0, zero, $0001
-80080AF0	bne    v1, v0, L80b08 [$80080b08]
-80080AF4	addiu  v1, zero, $f7ff (=-$801)
-80080AF8	lw     v0, $0000(s0)
-80080AFC	nop
-80080B00	and    v0, v0, v1
-80080B04	sw     v0, $0000(s0)
 
-L80b08:	; 80080B08
-80080B08	lui    v0, $800b
-80080B0C	lw     v0, $d0d4(v0)
-80080B10	addiu  s2, s2, $0001
-80080B14	slt    v0, s2, v0
-80080B18	bne    v0, zero, loop80a40 [$80080a40]
-80080B1C	addiu  s3, s3, $005c
+if( number_of_entity > 0 )
+{
+    entity_id = 0;
+    loop80a40:	; 80080A40
+        if( hu[struct_5c_p + entity_id * 5c + 58] & 0f00 )
+        {
+            struct_138 = w[struct_5c_p + entity_id * 5c + 4c];
+            if( ( w[struct_138 + 4] & 00000600 ) != 200 )
+            {
+                if( ( hu[struct_5c_p + entity_id * 5c + 58] & 00000f80 ) == 200 )
+                {
+                    if( ( w[struct_138 + 0] & 00010001 ) == 0 )
+                    {
+                        // if not party leader
+                        if( entity_id != w[800b1740] )
+                        {
+                            A0 = entity_id;
+                            A1 = 7fffffff;
+                            A2 = struct_5c_p + entity_id * 5c;
+                            A3 = struct_138;
+                            A4 = 0;
+                            func84054(); // perform move for all nonplayer
 
-L80b20:	; 80080B20
+                            V0 = w[struct_5c_p + entity_id * 5c + 4];
+                            V0 = w[V0 + 7c]; // +f4
+                            if( hu[V0 + c] == 1 )
+                            {
+                                [struct_138 + 0] = w(w[struct_138 + 0] & f7ffffff);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        entity_id = entity_id + 1;
+        V0 = entity_id < number_of_entity;
+    80080B18	bne    v0, zero, loop80a40 [$80080a40]
+}
+
+
+
 // DEBUG TEXT
 if( w[800c1b60] == 0 )
 {
@@ -192,38 +168,25 @@ if( w[800c1b60] == 0 )
     func281b18;
 }
 
-80080B44	lui    v0, $800b
-80080B48	lh     v0, $164a(v0)
-80080B4C	nop
-80080B50	bne    v0, zero, L80bac [$80080bac]
-80080B54	ori    v0, zero, $0001
-80080B58	lui    v0, $800b
-80080B5C	lbu    v0, $16a0(v0)
-80080B60	nop
-80080B64	bne    v0, zero, L80bac [$80080bac]
-80080B68	ori    v0, zero, $0001
-80080B6C	lui    a0, $800b
-80080B70	lw     a0, $1740(a0)
-80080B74	lui    v1, $800b
-80080B78	lw     v1, $efe4(v1)
-80080B7C	lui    a1, $800b
-80080B80	lw     a1, $efe4(a1)
-80080B84	sll    v0, a0, $01
-80080B88	addu   v0, v0, a0
-80080B8C	sll    v0, v0, $03
-80080B90	subu   v0, v0, a0
-80080B94	sll    v0, v0, $02
-80080B98	addu   v1, v0, v1
-80080B9C	lw     a2, $004c(v1)
-80080BA0	jal    func82fb0 [$80082fb0]
-80080BA4	addu   a1, a1, v0
-80080BA8	ori    v0, zero, $0001
 
-L80bac:	; 80080BAC
-80080BAC	lui    at, $800b
-80080BB0	sw     v0, $d0e4(at)
-80080BB4	jal    func80c04 [$80080c04]
-80080BB8	nop
+
+if( ( h[800b164a] == 0 ) && ( bu[800b16a0] == 0 ) )
+{
+    A0 = w[800b1740]; // party leader id
+    A1 = struct_5c_p + A0 * 5c;
+    A2 = w[A1 + 4c];
+    func82fb0(); // check collision with entity and run scripts 2 and 3 based on conditions
+}
+
+
+
+[800ad0e4] = w(1);
+
+
+
+func80c04();
+
+
 
 // DEBUG TEXT
 if( w[800c1b60] == 0 )
@@ -1012,7 +975,7 @@ return -1;
 
 
 ////////////////////////////////
-// func8376c
+// func8376c()
 leader_id = A0;
 leader_5c = A1;
 leader_138 = A2;
@@ -1060,7 +1023,7 @@ if( number_of_entities > 0 )
                     A3 = leader_fin_z;
                     A4 = SP + 40;
                     A5 = SP + 30; // normal
-                    800838F8	jal    func8289c [$8008289c]
+                    func8289c();
                     if( V0 != 0 )
                     {
                         [data_138 + 4] = w(w[data_138 + 4] & ff3fffff);
@@ -1106,7 +1069,7 @@ if( number_of_entities > 0 )
                         A1 = leader_fin_z;
                         A2 = data_138;
                         A3 = 0;
-                        800839AC	jal    func81990 [$80081990]
+                        field_in_entity_quad();
                     }
 
                     if( V0 != 0 )
@@ -1302,4 +1265,701 @@ if( hu[V0 + c] == 1 )
 
 A0 = 20;
 func7c374(); // return temporary memory
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func82fb0()
+// run scripts based on leader entity/other entities interaction
+leader_id = A0;
+leader_5c = A1;
+leader_138 = A2;
+
+struct_5c_p = w[800aefe4];
+
+solid_radius_8 = hu[leader_138 + 1e] + 8;
+solid_radius_20 = hu[leader_138 + 1e] + 20;
+leader_x = h[leader_138 + 22];
+leader_y = h[leader_138 + 26];
+leader_z = h[leader_138 + 2a]; // Z
+leader_top_y = h[leader_138 + 26] - hu[leader_138 + 1a];
+leader_rot = hu[leader_138 + 106] & 0fff;
+
+number_of_entity = w[800ad0d4];
+if( number_of_entity > 0 )
+{
+    entity_id = 0;
+    already_talk = 0; // we call only one talk script at time
+    script_priority = 7;
+
+    L83054:	; 80083054
+        script_to_call = ff;
+        data_138 = w[struct_5c_p + entity_id * 5c + 4c];
+
+        if( ( ( w[data_138 + 0] & 00000001 ) == 0 ) && ( bu[leader_138 + 74] != entity_id ) )
+        {
+            if( w[data_138 + 4] & 00000180 )
+            {
+                if( ( w[data_138 + 4] & 00000100 ) == 0 )
+                {
+                    [800ad43c] = w(0);
+                }
+                else if( ( ( hu[800c1b68] & 0020 ) == 0 ) || ( already_talk != 0 ) || ( w[data_138 + 4] & 04000000 ) )
+                {
+                    if( ( w[data_138 + 0] & 00a20000 ) == 0 )
+                    {
+                        script_to_call = 3;
+                        script_priority = 4;
+
+                        A0 = h[data_138 + 2a] - leader_z + h[data_138 + 64];
+                        A1 = h[data_138 + 22] - leader_x + h[data_138 + 60];
+                        [SP + 10] = w(A1);
+                        [SP + 18] = w(A0);
+                        system_get_rotation_based_on_vector_x_y();
+
+                        [data_138 + 12c] = w((w[data_138 + 12c] & fffff1ff) | ((0 - V0) & 0e00));
+
+                        if( w[800ad43c] == 0 )
+                        {
+                            if( w[data_138 + 0] & 08000000 )
+                            {
+                                [800ad43c] = w(1);
+
+                                V1 = w[leader_5c + 4];
+                                [V1 + 10] = w(0);
+                            }
+                        }
+                    }
+                }
+                else if( ( w[data_138 + 0] & 00220000 ) == 0 )
+                {
+                    if( h[800b1648] == 0 )
+                    {
+                        already_talk = 1;
+                        script_to_call = 2; // talk script
+                        script_priority = 3;
+
+                        A0 = h[data_138 + 2a] - leader_z + h[data_138 + 64];
+                        A1 = h[data_138 + 22] - leader_x + h[data_138 + 60];
+                        [SP + 10] = w(A1);
+                        [SP + 18] = w(A0);
+                        system_get_rotation_based_on_vector_x_y();
+
+                        [data_138 + 12c] = w((w[data_138 + 12c] & fffff1ff) | ((0 - V0) & 0e00));
+                    }
+                }
+                else
+                {
+                    [800ad43c] = w(0);
+                }
+            }
+
+            if( w[data_138 + 0] & 00002000 )
+            {
+                // y pos between top and low part of leader and entity intersect
+                if( ( ( h[data_138 + 26] + h[data_138 + 62] ) >= leader_top_y ) && ( leader_y >= ( h[data_138 + 26] + h[data_138 + 62] - hu[data_138 + 1a]) ) )
+                {
+                    if( entity_id != leader_id )
+                    {
+                        A0 = leader_x;
+                        A1 = leader_z;
+                        A2 = data_138;
+                        A3 = 10; // additional radius
+                        field_in_entity_quad();
+                        if( V0 == 0 )
+                        {
+                            if( ( ( hu[800c1b68] & 0020 ) == 0 ) || ( already_talk != 0 ) || ( w[data_138 + 4] & 04000000 ) )
+                            {
+                                if( ( w[data_138 + 0] & 00a20000 ) == 0 )
+                                {
+                                    script_to_call = 3;
+                                    script_priority = 4;
+
+                                    A0 = h[data_138 + 2a] + h[data_138 + 64] - leader_z;
+                                    A1 = h[data_138 + 22] + h[data_138 + 60] - leader_x;
+                                    [SP + 10] = w(A1);
+                                    [SP + 18] = w(A0);
+                                    system_get_rotation_based_on_vector_x_y();
+
+                                    [data_138 + 12c] = w((w[data_138 + 12c] & fffff1ff) | ((0 - V0) & 0e00));
+
+                                    // some debug
+                                    if( w[800c1b60] == 0 )
+                                    {
+                                        [802859dc] = w(1);
+                                    }
+                                }
+                            }
+                            else if( ( w[data_138 + 0] & 00220000 ) == 0 )
+                            {
+                                if( h[800b1648] == 0 )
+                                {
+                                    // direction to entity
+                                    A0 = h[data_138 + 2a] + h[data_138 + 64] - leader_z;
+                                    A1 = h[data_138 + 22] + h[data_138 + 60] - leader_x;
+                                    [SP + 10] = w(A1);
+                                    [SP + 18] = w(A0);
+                                    system_get_rotation_based_on_vector_x_y();
+                                    A0 = 0 - V0;
+                                    // if direction is to this entity
+                                    if( ( ( w[data_138 + 4] & 00040000 ) == 0 ) || ( ( (leader_rot - (A0 & fff)) & fff - 2bc ) >= a89 ) )
+                                    {
+                                        already_talk = 1;
+                                        script_to_call = 2; // talk script
+                                        script_priority = 3;
+                                        [data_138 + 12c] = w((w[data_138 + 12c] & fffff1ff) | (((A0 >> 9) & 7) << 9));
+
+                                        // some debug
+                                        if( w[800c1b60] == 0 )
+                                        {
+                                            [802859dc] = w(already_talk);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            else
+            {
+                [SP + 10] = w(h[data_138 + 22] + h[data_138 + 60] - leader_x); // x vector
+                [SP + 14] = w(hu[data_138 + 1e] + solid_radius_20); // solid
+                [SP + 18] = w(h[data_138 + 2a] + h[data_138 + 64] - leader_z); // z vector
+                A0 = SP + 10;
+                A1 = SP + 20;
+                system_gte_square_of_vector();
+
+                // if square of 2d distance less than square of sum of solid and talk radius distance
+                if( ( w[SP + 20] + w[SP + 28] ) < w[SP + 24] )
+                {
+                    // y pos between top and low part of leader and entity intersect
+                    if( ( ( h[data_138 + 26] + h[data_138 + 62] ) >= leader_y_top ) && ( leader_y >= ( h[data_138 + 26] + h[data_138 + 62] - hu[data_138 + 1a] ) ) )
+                    {
+                        if( entity_id != leader_id )
+                        {
+                            // if button is pressed, no other dialogs started and ???
+                            if( ( hu[800c1b68] & 0020 ) && ( already_talk == 0 ) && ( ( w[data_138 + 4] & 04000000 ) == 0 ) )
+                            {
+                                if( ( w[data_138 + 0] & 00220000 ) == 0 )
+                                {
+                                    A0 = w[SP + 18];
+                                    A1 = w[SP + 10];
+                                    system_get_rotation_based_on_vector_x_y();
+                                    A0 = 0 - V0;
+                                    // if direction is to this entity
+                                    if( ( ( ( leader_rot - ( A0 & fff ) ) & fff ) - 2bc ) >= a89 )
+                                    {
+                                        // talking not disabled
+                                        if( h[800b1648] == 0 )
+                                        {
+                                            already_talk = 1;
+                                            script_to_call = 2;
+                                            script_priority = 3;
+                                            // set rotation to this entity
+                                            [data_138 + 12c] = w((w[data_138 + 12c] & fffff1ff) | (((A0 >> 9) & 7) << 9));
+                                        }
+                                    }
+                                }
+                            }
+                            else if( ( w[data_138 + 0] & 00a20000 ) == 0 )
+                            {
+                                solid_dist8 = solid_radius_8 + hu[data_138 + 1e];
+                                // if square distanse less than square solid + 8.
+                                if( ( w[SP + 20] + w[SP + 28] ) < ( solid_dist8 * solid_dist8 ) )
+                                {
+                                    script_to_call = 3;
+                                    script_priority = 4;
+
+                                    A0 = w[SP + 18];
+                                    A1 = w[SP + 10];
+                                    system_get_rotation_based_on_vector_x_y();
+                                    [data_138 + 12c] = w((w[data_138 + 12c] & fffff1ff) | ((0 - V0) & 0e00));
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        if( script_to_call != ff )
+        {
+            A0 = 0;
+            loop836b4:	; 800836B4
+                if( bu[data_138 + 8c + A0 * 8 + 3] == script_to_call ) // script id
+                {
+                    break;
+                }
+                A0 = A0 + 1;
+                V0 = A0 < 8;
+            800836CC	bne    v0, zero, loop836b4 [$800836b4]
+
+            // if script not found
+            if( A0 == 8 )
+            {
+                slot_id = 0;
+                loop836ec:	; 800836EC
+                    V1 = w[data_138 + 8c + slot_id * 8 + 4];
+                    // if some script has lowest priority
+                    if( ( ( V1 >> 12 ) & f ) == f )
+                    {
+                        if( ( ( V1 >> 16) & 1 ) == 0 )
+                        {
+                            A0 = entity_id;
+                            A1 = script_to_call;
+                            get_script_offset();
+                            [data_138 + 8c + slot_id * 8 + 0] = h(V0);
+                            [data_138 + 8c + slot_id * 8 + 3] = b(script_to_call);
+                            [data_138 + 8c + slot_id * 8 + 4] = w((w[data_138 + 8c + slot_id * 8 + 4] & ffc3ffff) | (script_priority << 12));
+                            [data_138 + 104] = h(hu[data_138 + 106] | 8000);
+                            [data_138 + 106] = h(hu[data_138 + 106] | 8000);
+                            break;
+                        }
+                    }
+                    slot_id = slot_id + 1;
+                    V0 = slot_id < 8;
+                80083718	bne    v0, zero, loop836ec [$800836ec]
+            }
+        }
+
+        entity_id = entity_id + 1;
+        V0 = entity_id < number_of_entity;
+    80083730	bne    v0, zero, L83054 [$80083054]
+}
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func80c04
+V1 = 800b1822;
+80080C38	lh     v0, $0000(v1)
+80080C3C	nop
+80080C40	beq    v0, zero, L80d0c [$80080d0c]
+80080C44	nop
+80080C48	lui    v0, $800b
+80080C4C	lw     v0, $d0d4(v0)
+80080C50	nop
+80080C54	blez   v0, L81234 [$80081234]
+80080C58	addu   s5, zero, zero
+80080C5C	addu   s1, zero, zero
+
+loop80c60:	; 80080C60
+80080C60	lui    v0, $800b
+80080C64	lw     v0, $efe4(v0)
+80080C68	nop
+80080C6C	addu   a2, s1, v0
+80080C70	lw     a0, $004c(a2)
+80080C74	nop
+80080C78	lw     v0, $0000(a0)
+80080C7C	lui    v1, $0100
+80080C80	and    v0, v0, v1
+80080C84	beq    v0, zero, L80cec [$80080cec]
+80080C88	nop
+80080C8C	lui    v0, $800b
+80080C90	lw     v0, $1740(v0)
+80080C94	nop
+80080C98	beq    s5, v0, L80cec [$80080cec]
+80080C9C	nop
+80080CA0	lhu    v0, $0058(a2)
+80080CA4	nop
+80080CA8	andi   v0, v0, $0020
+80080CAC	bne    v0, zero, L80cec [$80080cec]
+80080CB0	addu   s0, a0, zero
+80080CB4	addu   s4, a2, zero
+80080CB8	lw     s3, $0004(s4)
+80080CBC	lh     a0, $00e6(s0)
+80080CC0	lh     v0, $00e8(s0)
+80080CC4	nop
+80080CC8	beq    v0, a0, L80cec [$80080cec]
+80080CCC	addu   v1, a0, zero
+80080CD0	bgez   a0, L80cdc [$80080cdc]
+80080CD4	sh     v1, $00e8(s0)
+80080CD8	sh     zero, $00e8(s0)
+
+L80cdc:	; 80080CDC
+80080CDC	addu   a0, s3, zero
+80080CE0	lh     a1, $00e8(s0)
+80080CE4	jal    func81808 [$80081808]
+80080CE8	addu   a2, s4, zero
+
+L80cec:	; 80080CEC
+80080CEC	lui    v0, $800b
+80080CF0	lw     v0, $d0d4(v0)
+80080CF4	addiu  s5, s5, $0001
+80080CF8	slt    v0, s5, v0
+80080CFC	bne    v0, zero, loop80c60 [$80080c60]
+80080D00	addiu  s1, s1, $005c
+80080D04	j      L81234 [$80081234]
+80080D08	nop
+
+L80d0c:	; 80080D0C
+80080D0C	lui    v0, $800b
+80080D10	lw     v0, $d0d4(v0)
+80080D14	nop
+80080D18	blez   v0, L81234 [$80081234]
+80080D1C	addu   s5, zero, zero
+80080D20	lui    s6, $800b
+80080D24	addiu  s6, s6, $1834
+80080D28	lui    fp, $800b
+80080D2C	addiu  fp, fp, $09f4
+80080D30	addu   s7, zero, zero
+
+L80d34:	; 80080D34
+80080D34	lui    v0, $800b
+80080D38	lw     v0, $efe4(v0)
+80080D3C	nop
+80080D40	addu   a2, s7, v0
+80080D44	lw     a0, $004c(a2)
+80080D48	nop
+80080D4C	lw     v0, $0000(a0)
+80080D50	lui    v1, $0100
+80080D54	and    v0, v0, v1
+80080D58	beq    v0, zero, L8121c [$8008121c]
+80080D5C	nop
+80080D60	lui    v0, $800b
+80080D64	lw     v0, $1740(v0)
+80080D68	nop
+80080D6C	beq    s5, v0, L8121c [$8008121c]
+80080D70	nop
+80080D74	lhu    v0, $0058(a2)
+80080D78	nop
+80080D7C	andi   v0, v0, $0020
+80080D80	bne    v0, zero, L8121c [$8008121c]
+80080D84	addu   s4, a2, zero
+80080D88	addu   s0, a0, zero
+80080D8C	lh     a0, $00e4(s0)
+80080D90	lw     s3, $0004(s4)
+80080D94	jal    get_party_slot_id [$8009ef90]
+80080D98	nop
+80080D9C	addu   s2, v0, zero
+80080DA0	addiu  t1, zero, $ffff (=-$1)
+80080DA4	beq    s2, t1, L8121c [$8008121c]
+80080DA8	sll    v0, s2, $02
+80080DAC	addu   s1, v0, s6
+80080DB0	lw     v1, $0000(s1)
+80080DB4	addu   a0, s3, zero
+80080DB8	sll    v0, v1, $03
+80080DBC	addu   v0, v0, v1
+80080DC0	sll    v0, v0, $03
+80080DC4	lui    at, $800b
+80080DC8	addu   at, at, v0
+80080DCC	lh     a1, $09d8(at)
+80080DD0	jal    func81594 [$80081594]
+80080DD4	addu   a2, s4, zero
+80080DD8	lw     v1, $0000(s1)
+80080DDC	ori    t1, zero, $0001
+80080DE0	sll    v0, v1, $03
+80080DE4	addu   v0, v0, v1
+80080DE8	sll    v0, v0, $03
+80080DEC	lui    at, $800b
+80080DF0	addu   at, at, v0
+80080DF4	lw     a2, $09c4(at)
+80080DF8	lui    v0, $800b
+80080DFC	lbu    v0, $16a3(v0)
+80080E00	lw     a0, $0014(s0)
+80080E04	bne    v0, t1, L80e24 [$80080e24]
+80080E08	andi   v0, a2, $0800
+80080E0C	lw     v0, $0000(s6)
+80080E10	nop
+80080E14	addiu  v0, v0, $0001
+80080E18	andi   v0, v0, $001f
+80080E1C	j      L80f30 [$80080f30]
+80080E20	sw     v0, $0000(s1)
+
+L80e24:	; 80080E24
+80080E24	bne    v0, zero, L80edc [$80080edc]
+80080E28	sll    v0, s2, $02
+80080E2C	lw     v1, $0004(s0)
+80080E30	addiu  v0, zero, $efff (=-$1001)
+80080E34	and    a1, v1, v0
+80080E38	lui    v0, $0042
+80080E3C	and    v0, a0, v0
+80080E40	bne    v0, zero, L80ed8 [$80080ed8]
+80080E44	sw     a1, $0004(s0)
+80080E48	lui    v0, $800c
+80080E4C	lw     v0, $2de4(v0)
+80080E50	addiu  t1, zero, $ffff (=-$1)
+80080E54	bne    v0, t1, L80eac [$80080eac]
+80080E58	nop
+80080E5C	lh     v1, $0084(s3)
+80080E60	lh     v0, $0026(s0)
+80080E64	nop
+80080E68	bne    v1, v0, L80edc [$80080edc]
+80080E6C	sll    v0, s2, $02
+80080E70	lh     a0, $00e8(s0)
+80080E74	ori    v0, zero, $0006
+80080E78	beq    a0, v0, L80ea0 [$80080ea0]
+80080E7C	nop
+80080E80	lh     v1, $00e6(s0)
+80080E84	nop
+80080E88	beq    a0, v1, L8121c [$8008121c]
+80080E8C	addu   v0, v1, zero
+80080E90	bgez   v1, L80f18 [$80080f18]
+
+L80e94:	; 80080E94
+80080E94	sh     v0, $00e8(s0)
+80080E98	j      L80f18 [$80080f18]
+80080E9C	sh     zero, $00e8(s0)
+
+L80ea0:	; 80080EA0
+80080EA0	ori    v0, a1, $1000
+80080EA4	j      L8121c [$8008121c]
+80080EA8	sw     v0, $0004(s0)
+
+L80eac:	; 80080EAC
+80080EAC	ori    t1, zero, $0001
+80080EB0	bne    s2, t1, L80ebc [$80080ebc]
+80080EB4	ori    v1, zero, $0014
+80080EB8	ori    v1, zero, $000a
+
+L80ebc:	; 80080EBC
+80080EBC	lw     v0, $0000(s6)
+80080EC0	nop
+80080EC4	addu   v0, v0, v1
+80080EC8	lw     v1, $0000(s1)
+80080ECC	andi   v0, v0, $001f
+80080ED0	bne    v0, v1, L8121c [$8008121c]
+80080ED4	nop
+
+L80ed8:	; 80080ED8
+80080ED8	sll    v0, s2, $02
+
+L80edc:	; 80080EDC
+80080EDC	addu   v0, v0, s6
+80080EE0	lw     v1, $0000(v0)
+80080EE4	lw     v0, $0000(s6)
+80080EE8	nop
+80080EEC	bne    v1, v0, L80f34 [$80080f34]
+80080EF0	andi   v0, a2, $0800
+80080EF4	addiu  v0, zero, $f7ff (=-$801)
+80080EF8	lw     v1, $0000(s0)
+80080EFC	lhu    a0, $00e6(s0)
+80080F00	and    v1, v1, v0
+80080F04	sh     a0, $00e8(s0)
+80080F08	sll    a0, a0, $10
+80080F0C	bgez   a0, L80f18 [$80080f18]
+80080F10	sw     v1, $0000(s0)
+80080F14	sh     zero, $00e8(s0)
+
+L80f18:	; 80080F18
+80080F18	addu   a0, s3, zero
+80080F1C	lh     a1, $00e8(s0)
+80080F20	jal    func81808 [$80081808]
+80080F24	addu   a2, s4, zero
+80080F28	j      L8121c [$8008121c]
+80080F2C	nop
+
+L80f30:	; 80080F30
+80080F30	andi   v0, a2, $0800
+
+L80f34:	; 80080F34
+80080F34	beq    v0, zero, L80f48 [$80080f48]
+80080F38	nop
+80080F3C	lw     v0, $0000(s0)
+80080F40	j      L80f54 [$80080f54]
+80080F44	ori    v0, v0, $0800
+
+L80f48:	; 80080F48
+80080F48	lw     v0, $0000(s0)
+80080F4C	addiu  v1, zero, $f7ff (=-$801)
+80080F50	and    v0, v0, v1
+
+L80f54:	; 80080F54
+80080F54	sw     v0, $0000(s0)
+80080F58	sll    v0, s2, $02
+80080F5C	addu   v0, v0, s6
+80080F60	lw     v1, $0000(v0)
+80080F64	nop
+80080F68	sll    v0, v1, $03
+80080F6C	addu   v0, v0, v1
+80080F70	sll    v0, v0, $03
+80080F74	lui    at, $800b
+80080F78	addu   at, at, v0
+80080F7C	lh     a0, $09d6(at)
+80080F80	lh     v0, $00e8(s0)
+80080F84	nop
+80080F88	beq    v0, a0, L80fac [$80080fac]
+80080F8C	addu   v1, a0, zero
+80080F90	bgez   a0, L80f9c [$80080f9c]
+80080F94	sh     v1, $00e8(s0)
+80080F98	sh     zero, $00e8(s0)
+
+L80f9c:	; 80080F9C
+80080F9C	addu   a0, s3, zero
+80080FA0	lh     a1, $00e8(s0)
+80080FA4	jal    func81808 [$80081808]
+80080FA8	addu   a2, s4, zero
+
+L80fac:	; 80080FAC
+80080FAC	addu   a2, zero, zero
+80080FB0	sll    v0, s2, $02
+80080FB4	addu   a3, v0, s6
+80080FB8	lui    t0, $800b
+80080FBC	addiu  t0, t0, $09da
+80080FC0	addu   a1, s0, zero
+
+loop80fc4:	; 80080FC4
+80080FC4	lw     v1, $0000(a3)
+80080FC8	sll    a0, a2, $01
+80080FCC	sll    v0, v1, $03
+80080FD0	addu   v0, v0, v1
+80080FD4	sll    v0, v0, $03
+80080FD8	addu   v0, v0, t0
+80080FDC	addu   a0, a0, v0
+80080FE0	lhu    v0, $0000(a0)
+80080FE4	addiu  a2, a2, $0001
+80080FE8	sh     v0, $0008(a1)
+80080FEC	slti   v0, a2, $0004
+80080FF0	bne    v0, zero, loop80fc4 [$80080fc4]
+80080FF4	addiu  a1, a1, $0002
+80080FF8	sll    a0, s2, $02
+80080FFC	addu   a0, a0, s6
+80081000	lw     v1, $0000(a0)
+80081004	nop
+80081008	sll    v0, v1, $03
+8008100C	addu   v0, v0, v1
+80081010	sll    v0, v0, $03
+80081014	lui    at, $800b
+80081018	addu   at, at, v0
+8008101C	lbu    v0, $0a08(at)
+80081020	nop
+80081024	sh     v0, $0010(s0)
+80081028	lw     v1, $0000(a0)
+8008102C	nop
+80081030	sll    v0, v1, $03
+80081034	addu   v0, v0, v1
+80081038	sll    v0, v0, $03
+8008103C	addu   v0, v0, fp
+80081040	lw     v0, $0000(v0)
+80081044	nop
+80081048	sw     v0, $0050(s0)
+8008104C	lw     v1, $0000(a0)
+80081050	nop
+80081054	sll    v0, v1, $03
+80081058	addu   v0, v0, v1
+8008105C	sll    v0, v0, $03
+80081060	addu   v0, v0, fp
+80081064	lw     v0, $0004(v0)
+80081068	nop
+8008106C	sw     v0, $0054(s0)
+80081070	lw     v1, $0000(a0)
+80081074	nop
+80081078	sll    v0, v1, $03
+8008107C	addu   v0, v0, v1
+80081080	sll    v0, v0, $03
+80081084	addu   v0, v0, fp
+80081088	lw     v0, $0008(v0)
+8008108C	nop
+80081090	sw     v0, $0058(s0)
+80081094	lw     v1, $0000(a0)
+80081098	lui    t1, $800b
+8008109C	addiu  t1, t1, $09e4
+800810A0	sll    v0, v1, $03
+800810A4	addu   v0, v0, v1
+800810A8	sll    v0, v0, $03
+800810AC	addu   v0, v0, t1
+800810B0	lw     v0, $0000(v0)
+800810B4	nop
+800810B8	sw     v0, $000c(s3)
+800810BC	lw     v1, $0000(a0)
+800810C0	nop
+800810C4	sll    v0, v1, $03
+800810C8	addu   v0, v0, v1
+800810CC	sll    v0, v0, $03
+800810D0	addu   v0, v0, t1
+800810D4	lw     v0, $0004(v0)
+800810D8	nop
+800810DC	sw     v0, $0010(s3)
+800810E0	lw     v1, $0000(a0)
+800810E4	nop
+800810E8	sll    v0, v1, $03
+800810EC	addu   v0, v0, v1
+800810F0	sll    v0, v0, $03
+800810F4	addu   v0, v0, t1
+800810F8	lw     v0, $0008(v0)
+800810FC	nop
+80081100	sw     v0, $0014(s3)
+80081104	lw     v1, $0000(a0)
+80081108	nop
+8008110C	sll    v0, v1, $03
+80081110	addu   v0, v0, v1
+80081114	sll    v0, v0, $03
+80081118	lui    at, $800b
+8008111C	addu   at, at, v0
+80081120	lh     v0, $09cc(at)
+80081124	nop
+80081128	sw     v0, $0020(s4)
+8008112C	lw     v1, $0000(a0)
+80081130	nop
+80081134	sll    v0, v1, $03
+80081138	addu   v0, v0, v1
+8008113C	sll    v0, v0, $03
+80081140	lui    at, $800b
+80081144	addu   at, at, v0
+80081148	lh     v0, $09ce(at)
+8008114C	nop
+80081150	sw     v0, $0024(s4)
+80081154	lw     v1, $0000(a0)
+80081158	nop
+8008115C	sll    v0, v1, $03
+80081160	addu   v0, v0, v1
+80081164	sll    v0, v0, $03
+80081168	lui    at, $800b
+8008116C	addu   at, at, v0
+80081170	lh     v1, $09d0(at)
+80081174	lw     v0, $0020(s4)
+80081178	nop
+8008117C	sll    v0, v0, $10
+80081180	sw     v1, $0028(s4)
+80081184	sw     v0, $0000(s3)
+80081188	sw     v0, $0020(s0)
+8008118C	lw     v0, $0024(s4)
+80081190	nop
+80081194	sll    v0, v0, $10
+80081198	sw     v0, $0004(s3)
+8008119C	sw     v0, $0024(s0)
+800811A0	lw     v0, $0028(s4)
+800811A4	nop
+800811A8	sll    v0, v0, $10
+800811AC	sw     v0, $0008(s3)
+800811B0	sw     v0, $0028(s0)
+800811B4	lw     v1, $0000(a0)
+800811B8	nop
+800811BC	sll    v0, v1, $03
+800811C0	addu   v0, v0, v1
+800811C4	sll    v0, v0, $03
+800811C8	lui    at, $800b
+800811CC	addu   at, at, v0
+800811D0	lhu    v0, $09d4(at)
+800811D4	nop
+800811D8	sh     v0, $0084(s3)
+800811DC	lw     v1, $0000(a0)
+800811E0	nop
+800811E4	sll    v0, v1, $03
+800811E8	addu   v0, v0, v1
+800811EC	sll    v0, v0, $03
+800811F0	lui    at, $800b
+800811F4	addu   at, at, v0
+800811F8	lhu    v0, $09d8(at)
+800811FC	nop
+80081200	sh     v0, $0106(s0)
+80081204	sh     v0, $0104(s0)
+80081208	lw     v0, $0000(a0)
+8008120C	nop
+80081210	addiu  v0, v0, $ffff (=-$1)
+80081214	andi   v0, v0, $001f
+80081218	sw     v0, $0000(a0)
+
+L8121c:	; 8008121C
+8008121C	lui    v0, $800b
+80081220	lw     v0, $d0d4(v0)
+80081224	addiu  s5, s5, $0001
+80081228	slt    v0, s5, v0
+8008122C	bne    v0, zero, L80d34 [$80080d34]
+80081230	addiu  s7, s7, $005c
+
+L81234:	; 80081234
 ////////////////////////////////

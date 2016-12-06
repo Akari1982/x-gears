@@ -1,6 +1,474 @@
 ////////////////////////////////
-// func84054()
+// field_in_entity_quad()
+x_pos = A0;
+z_pos = A1;
+data_138 = A2;
+add_radius = A3;
 
+ending_point_x_z = (x_pos << 10) + z_pos;
+top_left     = ((h[data_138 + 22] - hu[data_138 + 18] - add_radius) << 10) + h[data_138 + 2a] + hu[data_138 + 1c] + add_radius;
+top_right    = ((h[data_138 + 22] + hu[data_138 + 18] + add_radius) << 10) + h[data_138 + 2a] + hu[data_138 + 1c] + add_radius;
+bottom_right = ((h[data_138 + 22] + hu[data_138 + 18] + add_radius) << 10) + h[data_138 + 2a] - hu[data_138 + 1c] - add_radius;
+bottom_left  = ((h[data_138 + 22] - hu[data_138 + 18] - add_radius) << 10) + h[data_138 + 2a] - hu[data_138 + 1c] - add_radius;
+
+A0 = top_left;
+A1 = top_right;
+A2 = ending_point_x_z;
+system_side_of_vector();
+if( V0 >= 0 )
+{
+    A0 = top_right;
+    A1 = bottom_right;
+    A2 = ending_point_x_z;
+    system_side_of_vector();
+    if( V0 >= 0 )
+    {
+        A0 = bottom_right;
+        A1 = bottom_left;
+        A2 = ending_point_x_z;
+        system_side_of_vector();
+        if( V0 >= 0 )
+        {
+            A0 = bottom_left;
+            A1 = top_left;
+            A2 = ending_point_x_z;
+            system_side_of_vector();
+            if( V0 >= 0 )
+            {
+                if( w[800c1b60] == 0 )
+                {
+                    A0 = data_138;
+                    80081A74	0C0A05A4	....
+                }
+                return 0;
+            }
+        }
+    }
+}
+return -1;
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func8289c()
+//                    A4 = SP + 40;
+//                    A5 = SP + 30; // normal
+
+S5 = entity_id = A0;
+S6 = model_parts_header = A1;
+[SP + 18] = leader_fin_x = A2;
+[SP + 20] = leader_fin_z = A3;
+
+A0 = b8;
+func7c350(); // get pointer to temporary memory.
+S3 = V0;
+
+S4 = mesh_data = w[model_parts_header + 10];
+
+V0 = leader_fin_x << 10;
+V1 = vertex_data = w[model_parts_header + 8];
+T0 = leader_fin_z;
+
+struct_5c_p = w[800aefe4];
+
+[S3 + a0] = w(7fffffff);
+[S3 + a4] = vertex_data;
+[S3 + 10] = w(V0 + T0);
+
+A1 = w[struct_5c_p + S5 * 5c + 4c];
+V1 = w[A1 + 12c] & 3;
+
+if( V1 == 1 )
+{
+    [S3 + b0] = h(hu[A1 + 70]);
+    [S3 + b2] = h(0);
+    [S3 + b4] = h(0);
+}
+else if( V1 == 2 )
+{
+    [S3 + b0] = h(0);
+    [S3 + b2] = h(hu[A1 + 70]);
+    [S3 + b4] = h(0);
+}
+else if( V1 == 3 )
+{
+    [S3 + b0] = h(0);
+    [S3 + b2] = h(0);
+    [S3 + b4] = h(hu[A1 + 70]);
+}
+else
+{
+    S1 = S5 * 5c;
+    [S3 + 5c] = w(0);
+    [S3 + 58] = w(0);
+    [S3 + 54] = w(0);
+    [S3 + 9c] = w(0);
+    [S3 + 98] = w(0);
+    [S3 + 94] = w(0);
+    V0 = w[struct_5c_p + S1 + 4c];
+    V1 = bu[V0 + 75];
+
+    S0 = S3 + 80;
+
+    if( V1 == ff )
+    {
+        A0 = 800aef78;
+        A1 = 800af104;
+        A2 = S0;
+    }
+    else
+    {
+        A0 = 800aef78;
+        A1 = 800af104;
+        A2 = S0; // res
+        system_gte_matrix_mult_and_trans();
+
+        V0 = w[struct_5c_p + S1 + 4c];
+        A0 = S0;
+        S0 = S3 + 60;
+        A1 = A1 + bu[V0 + 75] * 5c + 2c;
+        A2 = S0;
+    }
+
+    system_gte_matrix_mult_and_trans();
+
+    A0 = S0;
+    A1 = struct_5c_p + S1 + c;
+    A2 = S3 + 40;
+    80082B1C	j      L82b58 [$80082B58]
+}
+
+800829E8	addiu  a0, s3, $00b0
+800829EC	addiu  s1, s3, $0060
+800829F0	jal    func3f5e0 [$8003f5e0]
+800829F4	addu   a1, s1, zero
+800829F8	addu   a1, s1, zero
+800829FC	lui    s2, $800b
+80082A00	addiu  s2, s2, $efe4 (=-$101c)
+80082A04	sll    s0, s5, $01
+80082A08	addu   s0, s0, s5
+80082A0C	sll    s0, s0, $03
+80082A10	subu   s0, s0, s5
+80082A14	lw     a0, $0000(s2)
+80082A18	sll    s0, s0, $02
+80082A1C	addu   a0, a0, s0
+80082A20	jal    func49a84 [$80049a84]
+80082A24	addiu  a0, a0, $000c
+
+80082A28	lui    v0, $800b
+80082A2C	lw     v0, $efe4(v0)
+80082A30	nop
+80082A34	addu   v0, s0, v0
+80082A38	lw     v0, $0020(v0)
+80082A3C	nop
+80082A40	sw     v0, $0074(s3)
+80082A44	lui    v0, $800b
+80082A48	lw     v0, $efe4(v0)
+80082A4C	nop
+80082A50	addu   v0, s0, v0
+80082A54	lw     v0, $0024(v0)
+80082A58	addiu  a0, s2, $ff94 (=-$6c)
+80082A5C	sw     v0, $0078(s3)
+80082A60	lui    v0, $800b
+80082A64	lw     v0, $efe4(v0)
+80082A68	addu   a1, s1, zero
+80082A6C	addu   s0, s0, v0
+80082A70	lw     v0, $0028(s0)
+80082A74	addiu  a2, s3, $0040
+80082A7C	sw     v0, $007c(s3)
+
+L82b58:	; 80082B58
+80082B58	jal    system_gte_matrix_mult_and_trans [$800491c4]
+80082B5C	addiu  s0, s3, $0040
+80082B60	jal    system_gte_set_rotation_matrix [$80049da4]
+80082B64	addu   a0, s0, zero
+80082B68	jal    system_gte_set_translation_vector [$80049e34]
+80082B6C	addu   a0, s0, zero
+80082B70	lhu    s6, $0006(s6)
+80082B74	nop
+80082B7C	sw     s6, $0028(sp)
+if( S6 > 0 )
+{
+    80082B80	addiu  s7, s3, $0014
+    80082B84	addiu  s1, s3, $003c
+    80082B88	addiu  s5, s3, $001c
+    80082B8C	addiu  s2, s3, $0024
+
+    L82b90:	; 80082B90
+        80082B90	lw     a0, $0000(s4)
+        80082B94	ori    v0, zero, $00c4
+        80082B98	andi   v1, a0, $00ff
+        80082B9C	srl    fp, a0, $10
+        80082BA0	beq    v1, v0, L82bb4 [$80082bb4]
+        80082BA4	sw     v1, $00ac(s3)
+        80082BA8	ori    v0, zero, $00c8
+        80082BAC	bne    v1, v0, L82bbc [$80082bbc]
+        80082BB0	andi   v0, a0, $0008
+
+        L82bb4:	; 80082BB4
+        80082BB4	j      L82f24 [$80082f24]
+        80082BB8	addiu  s4, s4, $0004
+
+        L82bbc:	; 80082BBC
+        80082BBC	bne    v0, zero, L82d34 [$80082d34]
+        80082BC0	addiu  s4, s4, $0004
+        80082BC4	beq    fp, zero, L82f24 [$80082f24]
+        80082BC8	addu   s0, zero, zero
+        80082BCC	addu   a1, s7, zero
+
+        loop82bd0:	; 80082BD0
+        80082BD0	addu   a2, s1, zero
+        80082BD4	lhu    a0, $0000(s4)
+        80082BD8	lw     v0, $00a4(s3)
+        80082BDC	sll    a0, a0, $03
+        80082BE0	jal    func4a3f4 [$8004a3f4]
+        80082BE4	addu   a0, v0, a0
+        80082BE8	addu   a1, s5, zero
+        80082BEC	addu   a2, s1, zero
+        80082BF0	lhu    a0, $0002(s4)
+        80082BF4	addiu  s4, s4, $0004
+        80082BF8	lw     v0, $00a4(s3)
+        80082BFC	sll    a0, a0, $03
+        80082C00	jal    func4a3f4 [$8004a3f4]
+        80082C04	addu   a0, v0, a0
+        80082C08	addu   a1, s2, zero
+        80082C0C	addu   a2, s1, zero
+        80082C10	lhu    a0, $0000(s4)
+        80082C14	addiu  s4, s4, $0004
+        80082C18	lw     v0, $00a4(s3)
+        80082C1C	sll    a0, a0, $03
+        80082C20	jal    func4a3f4 [$8004a3f4]
+        80082C24	addu   a0, v0, a0
+        80082C28	lw     a2, $0010(s3)
+        80082C2C	lh     v0, $0014(s3)
+        80082C30	lh     v1, $0018(s3)
+        80082C34	sll    v0, v0, $10
+        80082C38	addu   v0, v0, v1
+        80082C3C	sw     v0, $0000(s3)
+        80082C40	lw     a0, $0000(s3)
+        80082C44	lh     v0, $001c(s3)
+        80082C48	lh     v1, $0020(s3)
+        80082C4C	sll    v0, v0, $10
+        80082C50	addu   v0, v0, v1
+        80082C54	sw     v0, $0004(s3)
+        80082C58	lw     a1, $0004(s3)
+        80082C5C	lh     v0, $0024(s3)
+        80082C60	lh     v1, $0028(s3)
+        80082C64	sll    v0, v0, $10
+        80082C68	addu   v0, v0, v1
+        80082C6C	jal    system_side_of_vector [$8004a5b4]
+        80082C70	sw     v0, $0008(s3)
+        80082C74	bltz   v0, L82d1c [$80082d1c]
+        80082C78	nop
+        80082C7C	lw     a0, $0004(s3)
+        80082C80	lw     a1, $0008(s3)
+        80082C84	lw     a2, $0010(s3)
+        80082C88	jal    system_side_of_vector [$8004a5b4]
+        80082C8C	nop
+        80082C90	bltz   v0, L82d1c [$80082d1c]
+        80082C94	nop
+        80082C98	lw     a0, $0008(s3)
+        80082C9C	lw     a1, $0000(s3)
+        80082CA0	lw     a2, $0010(s3)
+        80082CA4	jal    system_side_of_vector [$8004a5b4]
+        80082CA8	nop
+        80082CAC	bltz   v0, L82d1c [$80082d1c]
+        80082CB0	nop
+        80082CB4	lw     a0, $0000(s3)
+        80082CB8	lw     a1, $0004(s3)
+        80082CBC	lw     a2, $0008(s3)
+        80082CC0	jal    system_side_of_vector [$8004a5b4]
+        80082CC4	nop
+        80082CC8	bltz   v0, L82d1c [$80082d1c]
+        80082CCC	addu   a0, s7, zero
+        80082CD0	addu   a1, s5, zero
+        80082CD4	addu   a2, s2, zero
+        80082CD8	lhu    t0, $0018(sp)
+        80082CDC	nop
+        80082CE0	sh     t0, $0034(s3)
+        80082CE4	lhu    t0, $0020(sp)
+        80082CE8	nop
+        80082CEC	sh     t0, $0038(s3)
+        80082CF0	lw     t0, $007c(sp)
+        80082CF4	addiu  a3, s3, $0034
+        80082CF8	jal    field_calculate_walkmesh_height [$8007a690]
+        80082CFC	sw     t0, $0010(sp)
+        80082D00	lh     v1, $0036(s3)
+        80082D04	lw     v0, $00a0(s3)
+        80082D08	nop
+        80082D0C	slt    v0, v1, v0
+        80082D10	beq    v0, zero, L82d1c [$80082d1c]
+        80082D14	nop
+        80082D18	sw     v1, $00a0(s3)
+
+        L82d1c:	; 80082D1C
+        80082D1C	addiu  s0, s0, $0001
+        80082D20	slt    v0, s0, fp
+        80082D24	bne    v0, zero, loop82bd0 [$80082bd0]
+        80082D28	addu   a1, s7, zero
+        80082D2C	j      L82f24 [$80082f24]
+        80082D30	nop
+
+        L82d34:	; 80082D34
+        80082D34	beq    fp, zero, L82f24 [$80082f24]
+        80082D38	addu   s0, zero, zero
+        80082D3C	addiu  s6, s3, $002c
+        80082D40	addu   a1, s7, zero
+
+        L82d44:	; 80082D44
+        80082D44	addu   a2, s1, zero
+        80082D48	lhu    a0, $0000(s4)
+        80082D4C	lw     v0, $00a4(s3)
+        80082D50	sll    a0, a0, $03
+        80082D54	jal    func4a3f4 [$8004a3f4]
+        80082D58	addu   a0, v0, a0
+        80082D5C	addu   a1, s5, zero
+        80082D60	addu   a2, s1, zero
+        80082D64	lhu    a0, $0002(s4)
+        80082D68	addiu  s4, s4, $0004
+        80082D6C	lw     v0, $00a4(s3)
+        80082D70	sll    a0, a0, $03
+        80082D74	jal    func4a3f4 [$8004a3f4]
+        80082D78	addu   a0, v0, a0
+        80082D7C	addu   a1, s2, zero
+        80082D80	addu   a2, s1, zero
+        80082D84	lhu    a0, $0000(s4)
+        80082D88	lw     v0, $00a4(s3)
+        80082D8C	sll    a0, a0, $03
+        80082D90	jal    func4a3f4 [$8004a3f4]
+        80082D94	addu   a0, v0, a0
+        80082D98	addu   a1, s6, zero
+        80082D9C	addu   a2, s1, zero
+        80082DA0	lhu    a0, $0002(s4)
+        80082DA4	addiu  s4, s4, $0004
+        80082DA8	lw     v0, $00a4(s3)
+        80082DAC	sll    a0, a0, $03
+        80082DB0	jal    func4a3f4 [$8004a3f4]
+        80082DB4	addu   a0, v0, a0
+        80082DB8	lw     a2, $0010(s3)
+        80082DBC	lh     v0, $0014(s3)
+        80082DC0	lh     v1, $0018(s3)
+        80082DC4	sll    v0, v0, $10
+        80082DC8	addu   v0, v0, v1
+        80082DCC	sw     v0, $0000(s3)
+        80082DD0	lw     a0, $0000(s3)
+        80082DD4	lh     v0, $001c(s3)
+        80082DD8	lh     v1, $0020(s3)
+        80082DDC	sll    v0, v0, $10
+        80082DE0	addu   v0, v0, v1
+        80082DE4	sw     v0, $0004(s3)
+        80082DE8	lw     a1, $0004(s3)
+        80082DEC	lh     v0, $0024(s3)
+        80082DF0	lh     v1, $0028(s3)
+        80082DF4	sll    v0, v0, $10
+        80082DF8	addu   v0, v0, v1
+        80082DFC	sw     v0, $0008(s3)
+        80082E00	lh     v0, $002c(s3)
+        80082E04	lh     v1, $0030(s3)
+        80082E08	sll    v0, v0, $10
+        80082E0C	addu   v0, v0, v1
+        80082E10	jal    system_side_of_vector [$8004a5b4]
+        80082E14	sw     v0, $000c(s3)
+        80082E18	bltz   v0, L82f14 [$80082f14]
+        80082E1C	nop
+        80082E20	lw     a0, $0004(s3)
+        80082E24	lw     a1, $000c(s3)
+        80082E28	lw     a2, $0010(s3)
+        80082E2C	jal    system_side_of_vector [$8004a5b4]
+        80082E30	nop
+        80082E34	bltz   v0, L82f14 [$80082f14]
+        80082E38	nop
+        80082E3C	lw     a0, $000c(s3)
+        80082E40	lw     a1, $0008(s3)
+        80082E44	lw     a2, $0010(s3)
+        80082E48	jal    system_side_of_vector [$8004a5b4]
+        80082E4C	nop
+        80082E50	bltz   v0, L82f14 [$80082f14]
+        80082E54	nop
+        80082E58	lw     a0, $0008(s3)
+        80082E5C	lw     a1, $0000(s3)
+        80082E60	lw     a2, $0010(s3)
+        80082E64	jal    system_side_of_vector [$8004a5b4]
+        80082E68	nop
+        80082E6C	bltz   v0, L82f14 [$80082f14]
+        80082E70	nop
+        80082E74	lw     a0, $0000(s3)
+        80082E78	lw     a1, $0004(s3)
+        80082E7C	lw     a2, $0008(s3)
+        80082E80	jal    system_side_of_vector [$8004a5b4]
+        80082E84	nop
+        80082E88	bltz   v0, L82f14 [$80082f14]
+        80082E8C	nop
+        80082E90	lw     a0, $0004(s3)
+        80082E94	lw     a1, $0008(s3)
+        80082E98	lw     a2, $0010(s3)
+        80082E9C	lhu    t0, $0018(sp)
+        80082EA0	nop
+        80082EA4	sh     t0, $0034(s3)
+        80082EA8	lhu    t0, $0020(sp)
+        80082EAC	jal    system_side_of_vector [$8004a5b4]
+        80082EB0	sh     t0, $0038(s3)
+        80082EB4	bltz   v0, L82ed8 [$80082ed8]
+        80082EB8	addu   a0, s7, zero
+        80082EBC	lw     t0, $007c(sp)
+        80082EC0	nop
+        80082EC4	sw     t0, $0010(sp)
+        80082EC8	addu   a1, s5, zero
+        80082ECC	addu   a2, s2, zero
+        80082ED0	j      L82ef0 [$80082ef0]
+        80082ED4	addiu  a3, s3, $0034
+
+        L82ed8:	; 80082ED8
+        80082ED8	addu   a0, s5, zero
+        80082EDC	addu   a1, s6, zero
+        80082EE0	addu   a2, s2, zero
+        80082EE4	lw     t0, $007c(sp)
+        80082EE8	addiu  a3, s3, $0034
+        80082EEC	sw     t0, $0010(sp)
+
+        L82ef0:	; 80082EF0
+        80082EF0	jal    field_calculate_walkmesh_height [$8007a690]
+        80082EF4	nop
+        80082EF8	lh     v1, $0036(s3)
+        80082EFC	lw     v0, $00a0(s3)
+        80082F00	nop
+        80082F04	slt    v0, v1, v0
+        80082F08	beq    v0, zero, L82f14 [$80082f14]
+        80082F0C	nop
+        80082F10	sw     v1, $00a0(s3)
+
+        L82f14:	; 80082F14
+        80082F14	addiu  s0, s0, $0001
+        80082F18	slt    v0, s0, fp
+        80082F1C	bne    v0, zero, L82d44 [$80082d44]
+        80082F20	addu   a1, s7, zero
+
+        L82f24:	; 80082F24
+        80082F24	lw     t0, $0028(sp)
+        80082F28	nop
+        80082F2C	addiu  t0, t0, $ffff (=-$1)
+        80082F34	sw     t0, $0028(sp)
+    80082F30	bgtz   t0, L82b90 [$80082b90]
+}
+
+A0 = b8;
+func7c374(); // return temporary memory
+
+if( w[S3 + a0] != 7fffffff )
+{
+    T0 = w[SP + 78];
+    [T0] = w(A0);
+    return 0;
+}
+
+return -1;
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func84054()
 entity_id = A0;
 y_pos = A1;
 data_138 = A3;
@@ -821,7 +1289,7 @@ length_of_vector_by_x_y();
 
 
 
-////////////////////////////////////////////////////////
+////////////////////////////////
 // length_of_vector_by_x_y()
 [SP + 10] = w(A0);
 [SP + 14] = w(A1);
@@ -829,15 +1297,15 @@ length_of_vector_by_x_y();
 
 A0 = SP + 10;
 A1 = SP + 20;
-system_gte_square_of_vector;
+system_gte_square_of_vector();
 
 V0 = w[SP + 20];
 A0 = w[SP + 24];
 A0 = V0 + A0;
-system_square_root;
+system_square_root();
 
 return V0;
-////////////////////////////////////////////////////////
+////////////////////////////////
 
 
 

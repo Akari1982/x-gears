@@ -182,7 +182,7 @@ FieldModule::LoadMap( const int file_id )
 
     // part 6
     temp = field_pack->Extract( 6 );
-    temp->WriteFile( "exported/debug/0" + IntToString( file_id ) + "_6" );
+    temp->WriteFile( "exported/debug/0" + IntToString( file_id ) + "_6_encounter" );
     delete temp;
 
 

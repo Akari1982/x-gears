@@ -83,6 +83,8 @@
 
 80058b98 [][][][] flags for turning SPU Voice ON.
 
+80058ba4 [][][][] store here id of encounter in field.
+
 80058bc4 [][][][] store here pointer to polygons data block in 3d model file.
 80058bc8 [][][][] we store here +0c [][][][] from model parts header. Maybe for futher use in inner functions.
 
