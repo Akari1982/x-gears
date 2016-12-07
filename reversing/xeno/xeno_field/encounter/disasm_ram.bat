@@ -1,0 +1,1 @@
+adisasm 0440 ram.asm -v -b 80000000 80000000 -u -a
