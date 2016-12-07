@@ -8,8 +8,26 @@
 80061c24 [][][][] party member 2.
 80061c28 [][][][] party member 3.
 
-80064f6c          extract part 6 of fieldfile here.
-8006516c          last row in encounter file (0x10 byte size).
+80064f6c extract part 6 of fieldfile here (encounter).
+80064f6c array of encounters (0x20 size 0x10 items).
+// tutorial field 0x616
+09A3120100 000000 8081818181FFFFFF 0000000000FFFFFF 0001020304FFFFFF
+0B001C0000 000000 80FFFFFFFFFFFFFF 00000000000000FF 00020000FFFFFFFF
+0200110000 000000 0101010180FFFFFF 0000000000FFFFFF 0000000000FFFFFF
+0100030080 808000 000001010101FFFF 000000000000FFFF 000001010101FFFF
+0F00070000 000000 80FFFFFFFFFFFFFF 0000000000000000 0001020001010101
+0B001D0000 000000 80FFFFFFFFFFFFFF 0000000000000000 0001020001010101
+02001E0000 000000 8282FFFFFFFFFFFF 0000000000000000 0100020001010101
+0900110000 000000 818181FFFFFFFFFF 00000000000000FF 00010200000000FF
+0400000000 000000 010101010101FFFF 000000000000FFFF 010100000202FFFF
+09000B0002 020200 818181FFFFFFFFFF 000000FFFFFFFFFF 000102FFFFFFFFFF
+0300160000 000000 00000000FFFFFFFF 000000000000FFFF 000000000202FFFF
+0700020000 000000 01010102FFFFFFFF 0000000000000000 0000000001010101
+0200070000 000000 00000000FFFFFFFF 00000000FFFFFFFF 00000000FFFFFFFF
+0200070000 000000 00000000FFFFFFFF 00000000FFFFFFFF 00000000FFFFFFFF
+0200070000 000000 00000000FFFFFFFF 00000000FFFFFFFF 00000000FFFFFFFF
+0200070000 000000 00000000FFFFFFFF 00000000FFFFFFFF 00000000FFFFFFFF
+8006516c chances for encounters (0x10 items 0x1 byte size).
 
 80065198 [][][][] store entity id which perform move here during func821cc.
 
@@ -41,17 +59,21 @@ spawn table
 
 800ad43c [][][][] store here 0, 1 during entity script2 3 call checking.
 
+800ad440 array of rotations. Used if 800b1828 == 0. (size 0x02. items 0x10).
+800ad460 array of rotations 2. Used if 800b1828 != 0. (size 0x02. items 0x10).
 800ad480 default material walking rotation (size 0x02. items 0x08)
     000C 000E 0000 0002 0004 0006 0008 000A
 800ad49c default material walking speed. (size 0x02. items 0x4)
     0400 0800 1000 2000
 
-800ad778          opcodes table. (size 0x4).
-800adb78          extended opcodes table. (size 0x4).
+800ad778 opcodes table. (size 0x4).
+800adb78 extended opcodes table. (size 0x4).
 
-800adf08          data for rotation (each 2 bytes)
+800adf08 data for rotation (each 2 bytes)
 
-800aec3c          some data during texture set (func910b0).
+800aec3c some data during texture set (func910b0).
+
+800aee60 [][]     some rotation.
 
 800aeeba [][]     store some direction here. maybe for camera. func9efe4.
 800aeec4 [][][][] store some direction here. maybe for camera. func9efe4.
@@ -433,6 +455,7 @@ spawn table
 800af1f4 [][]     store 0xff40 here if we init player entity.
 
 800af370 [][]     some flags. Checked hu[800af370] & 0040 in move function (func821cc) as well as some other condition to make entity play run animation.
+                0xf000 - rotation related. XOR with 0xf to get index into 800ad440.
 
 800af4c0 [][][][] if this is 0 then we execute script till the end (or until wait type opcode). If 1 together with 800af594 then we end script cycle.
 
@@ -458,6 +481,12 @@ spawn table
 
 800b1740 [][][][] store entity id which controls party leader here.
 
+800b1764 [][]     store here value from 800b1774 + encounter * 2
+800b1768 [][][][] decrement this by 1 each func7889c (encounter) call and when it reached 0 reinit 800b1774 array.
+800b176c [][][][] after this number of calls we reinit 800b1774 array.
+800b1770 [][][][] number of used 800b1774 values.
+800b1774 array of 0x20 encounter random values (0x2 bytes each).
+
 800b1812 [][]     store entity id which controls party leader here.
 
 800b1818 [][]     do something animation related during movement if this is 0.
@@ -465,7 +494,7 @@ spawn table
 
 800c1b68 [][]     button mask. Maybe pressed (not repeated) button mask?
 
-800c1b6c          dialogs struct (0x498 size)(4 items)
+800c1b6c dialogs struct (0x498 size)(4 items)
 + 18 [][]     store 0x64 here in case of new row. Maybe how much symbols in new row we can put.
 + 1a [][]     
 + 22 [][]     total number of symbols???
@@ -493,7 +522,7 @@ spawn table
 + 9e [][]     store value for 0x0F0E text opcode here.
 + a0 [][]     store value for 0x0F0E text opcode here.
 + a8 [][][][] offset to dialog text data.
-+37c [][]
++37c [][]     ???
 +3c4 [][]     we store 0 here if 37c != 0 and 83 != 0 and 28 flag 0x0008 is set
 +40c [][]     
 +40e [][]     
