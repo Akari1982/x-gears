@@ -31,12 +31,15 @@
 
 80065198 [][][][] store entity id which perform move here during func821cc.
 
+800acfda [][]     looks like this is timer when we stack during auto slide down.
+
 800acff4          we read something from here during rotation set. We will not set 80115cdc + 108 if this is not 0.
 
 800ad040 [][][][] init with 0. checked in move function (func821cc) as well as some other condition to make entity play run animation if equal to 1.
 
 800ad070 [][][][] checked if equal to 0 in func83f40.
 
+800ad0b4 [][][][] battle not started ( 0 - started ).
 800ad0b8 [][][][] if this is 0 - we dont perform something in funca15c0 (move related).
 800ad0bc [][][][] if this is 0 - we dont perform something in funca15c0 (move related).
 800ad0c4 [][][][] if this is 0 - we dont perform something in funca15c0 (move related).
@@ -290,6 +293,7 @@ spawn table
                        0x00000800: 
                        0x00002000: 
                        0x00004000: if we remove this flag - entity not move, menu not called. Checked in move function. If this flag is set and (hu[800af370] & 0040) && (w[800ad040] == 1) then we set animation_id 2 (run) to play instead of 1 (walk).
+                       0x00008000: managed in opcode 0xF6.
                        0x00010000: removed in 0x19_SetPosition.
                        0x00020000: added during initialization with 0x16 (SetPlayableCharacter) opcode.
                        0x00040000: removed during set position by x z.
@@ -306,6 +310,7 @@ spawn table
                        0x00000800: remove this flag during initialization in 0x0B opcode (with model). Add it in 0xBC opcode. Looks like if this entity has model or not.
                        0x00001000: remove this flag after move is done.
                        0x00002000:
+                       0x00080000: managed in opcode 0xF6.
                        0x00200000: removed in 0x19_SetPosition.
                        0x00400000: maybe means that we checked this entity during movement collision check.
                        0x04000000: if flag is set we wil not talk on button press.
@@ -334,9 +339,9 @@ spawn table
         +  60 [][]     some X. Init with 0 when set position by x z
         +  62 [][]     some Y. Init with 0 when set position by x z
         +  64 [][]     some Z. Init with 0 when set position by x z
-        +  68 [][]     X. Init from +22.
-        +  6a [][]     Y. Init from +26.
-        +  6c [][]     Z. Init from +2a.
+        +  68 [][]     presious pos X.
+        +  6a [][]     presious pos Y.
+        +  6c [][]     presious pos Z.
         +  6e [][]     init with 0.
         +  70 [][]     some coord applied to X or Y or Z.
         +  72 [][]     store current Y pos here.
@@ -355,11 +360,11 @@ spawn table
             +2 []       wait byte in this slot. Init with 0.
             +3 []       script id in this slot. Store 0xff  in 0x00_Return. Init with 0xff.
             +4 [][][][] flags for script this slot (script priority among them).
+                           0x0000ffff: seems like number of steps to move. (SpriteGoToPosition == 0x0000ffff). Init with 0xffff.
                            0x00030000: remove during init.
                            0x003c0000: priority. Lower value - higher priority. Init with 0x3c.
                            0x00600000: remove during init. Maybe state os script. If 0 then we add new script in this slot.
                            0x01800000: how read argument in move reading function. (SpriteGoToPosition(vf80 x, vf40 y, f flag) - 0x00). Unknown setting. When add auto script during collision add script only if this not 1. Remove during init.
-                           0x0000ffff: seems like number of steps to move. (SpriteGoToPosition == 0x0000ffff). Init with 0xffff.
             here 7 more requersed script data 8 bytes each.
         +  cc [][]     current script pointer. Init with 0.
         +  ce []       current script slot id. Used in 0x00_Return. Init with 0.
@@ -397,6 +402,7 @@ spawn table
         + 114 [][][][] pointer to some quad data. This quad restrict whole move area.
         + 118 [][][][] pointer to allocated 0x80 byte for +1c data. Size 0x4 for each +1c item.
             +  0 [][][][] init with 0.
+        + 11c [][]     rotation stored to +106 sometimes.
         + 11e [][]     init with 0x0200.
         + 120 [][][][] init with 0.
         + 124 [][][][] init with 0x0000ffff.
@@ -454,8 +460,24 @@ spawn table
 800af1f0 [][][][] current entity id.
 800af1f4 [][]     store 0xff40 here if we init player entity.
 
-800af370 [][]     some flags. Checked hu[800af370] & 0040 in move function (func821cc) as well as some other condition to make entity play run animation.
-                0xf000 - rotation related. XOR with 0xf to get index into 800ad440.
+800af370 [][]     current button mask for controller 1. (1 = pressed, 0 = released)
+                    0x0001 L2
+                    0x0002 R2
+                    0x0004 L1
+                    0x0008 R1
+                    0x0010 Triangle
+                    0x0020 Circle
+                    0x0040 Cross
+                    0x0080 Square
+                    0x0100 Select
+                    0x0200 L3
+                    0x0400 R3
+                    0x0800 Start
+                    0x1000 Up
+                    0x2000 Right
+                    0x4000 Down
+                    0x8000 Left
+800af374 [][]     current button mask for controller 2 (details in 800af370).
 
 800af4c0 [][][][] if this is 0 then we execute script till the end (or until wait type opcode). If 1 together with 800af594 then we end script cycle.
 
@@ -492,7 +514,7 @@ spawn table
 800b1818 [][]     do something animation related during movement if this is 0.
 800b181a [][]     maybe default animation id. Init with 3.
 
-800c1b68 [][]     button mask. Maybe pressed (not repeated) button mask?
+800c1b68 [][]     pressed button mask for controller 1 (details in 800af370).
 
 800c1b6c dialogs struct (0x498 size)(4 items)
 + 18 [][]     store 0x64 here in case of new row. Maybe how much symbols in new row we can put.
@@ -530,6 +552,10 @@ spawn table
 +414 [][]     we set this to 0 if we tried to open new window but all window slots are filled. Maybe say this window to close. Usually 0xffff (not used in usual window render)
 +416 [][]     some entity id??? maybe owner.
 +418 [][]     some entity id???
+
+800c2dcc [][]     pressed button mask for controller 2 (details in 800af370).
+800c2dd4 [][]     repeated button mask for controller 1 (details in 800af370).
+800c2ddc [][]     repeated button mask for controller 2 (details in 800af370).
 
 
 

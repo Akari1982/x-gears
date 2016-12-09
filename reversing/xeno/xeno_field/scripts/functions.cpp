@@ -1,19 +1,20 @@
 ////////////////////////////////
-// read_two_bytes_with_80
-a0 - offset from current script pointer
-v0 - 2 bytes interpreted from value from given offset
+// read_two_bytes_with_80()
+script_offset = A0
 
-read data from given offset
+A0 = script_offset;
+read_two_bytes_unsigned();
 
-if( 0x8000 bit in data is set )
+if( V0 & 8000 )
 {
-    this is immediate value and we return all bit from 0x7fff
+    V0 = V0 & 7fff;
 }
 else
 {
-    A0 = A0 & ffff
-    get_bytes_from_800C2F3C;
+    A0 = V0 & ffff;
+    get_bytes_from_800C2F3C();
 }
+return V0;
 ////////////////////////////////
 
 
@@ -46,9 +47,9 @@ else
 
 
 ////////////////////////////////
-// read_two_bytes_unsigned
-current_entity_data = w[800af54c];
-V0 = hu[current_entity_data + cc];
+// read_two_bytes_unsigned()
+data_138 = w[800af54c];
+V0 = hu[data_138 + cc];
 script_offset = w[800ad0d8];
 return (bu[script_offset + V0 + A0 + 1] << 8) | bu[script_offset + V0 + A0 + 0];
 ////////////////////////////////
@@ -56,9 +57,9 @@ return (bu[script_offset + V0 + A0 + 1] << 8) | bu[script_offset + V0 + A0 + 0];
 
 
 ////////////////////////////////
-// read_two_bytes_signed
-current_entity_data = w[800af54c];
-V0 = hu[current_entity_data + cc];
+// read_two_bytes_signed()
+data_138 = w[800af54c];
+V0 = hu[data_138 + cc];
 script_offset = w[800ad0d8];
 return (((bu[script_offset + V0 + A0 + 1] << 8) + bu[script_offset + V0 + A0 + 0]) << 10) >> 10;
 ////////////////////////////////
@@ -79,7 +80,7 @@ return 0 - (0 < (sign_data & sign_mask)); // 0 - signed, -1 unsigned
 
 
 ////////////////////////////////
-//get_bytes_from_800C2F3C
+// get_bytes_from_800C2F3C()
 // [xxxxxxxx][xxxxxxx0] => x (offset to read)
 // [xxxxxxxx][xx000000] => x * 4 (offset to sign)
 entity_file = w[800ad0d0];

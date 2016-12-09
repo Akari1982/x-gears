@@ -1,121 +1,102 @@
 ////////////////////////////////
 // 0x4A SpriteGoToPosition
+data_138 = w[800af54c];
 
-entity = w[800af54c];
-
-V1 = bu[entity + ce];
-[entity + 8c + V1 * 8 + 4] = w((w[entity + 8c + V1 * 8 + 4] & fe7fffff) | 0000ffff);
+slot_id = bu[data_138 + ce];
+[data_138 + 8c + slot_id * 8 + 4] = w((w[data_138 + 8c + slot_id * 8 + 4] & fe7fffff) | 0000ffff);
 
 A0 = ffff;
-func99094;
-
-if (V0 == 0)
+func99094();
+if( V0 == 0 )
 {
-    [entity + cc] = h(hu[entity + cc] + 6);
+    [data_138 + cc] = h(hu[data_138 + cc] + 6);
 }
 ////////////////////////////////
 
 
 
-////////////////////////////////////////////////////////
-// func99094
-current_entity_data = w[800af54c];
-entity_id           = w[800af1f0]; // current entity id
+////////////////////////////////
+// func99094()
+data_138 = w[800af54c];
+entity_id = w[800af1f0]; // current entity id
+struct_5c_p = w[800aefe4];
+field_script = w[800ad0d8];
+script_pos = hu[data_138 + cc];
+script_slot = bu[data_138 + ce];
 
 S6 = A0; // ffff
 S2 = 0;
-S1 = 0;
-S0 = 0;
 
-V0 = w[800aefe4];
-V1 = w[V0 + entity_id * 5c + 4c];
-V1 = w[V1 + 4];
-A0 = w[V0 + entity_id * 5c + 4];
-if (V1 & 00002000)
+V1 = w[struct_5c_p + entity_id * 5c + 4c];
+A0 = w[struct_5c_p + entity_id * 5c + 4];
+if( w[V1 + 4] & 00002000 )
 {
-    [A0 + 18] = w(08000000 / hu[current_entity_data + 76]);
+    [A0 + 18] = w(08000000 / hu[data_138 + 76]); // move speed
 }
-else if (w[A0 + 18] == 0)
+else if( w[A0 + 18] == 0 )
 {
-    [A0 + 18] = w(04000000 / hu[current_entity_data + 76]);
+    [A0 + 18] = w(04000000 / hu[data_138 + 76]); // move speed
 }
 
-A0 = w[A0 + 18];
-A0 = A0 >> f;
-length_of_vector_by_x;
+A0 = (w[A0 + 18]) >> f;
+length_of_vector_by_x();
 S5 = V0 + 1;
 
-S3 = h[current_entity_data + 22];
-S4 = h[current_entity_data + 2a];
+dest_x = 0;
+dest_z = 0;
 
-
-
-V1 = bu[current_entity_data + ce];
-V1 = (w[current_entity_data + 8c + V1 * 8 + 4] >>> 17) & 3;
-
-switch (V1)
+read_type = (w[data_138 + 8c + script_slot * 8 + 4] >>> 17) & 3;
+switch( read_type )
 {
     case 0:
     {
-        V1 = w[800ad0d8];
-        V0 = hu[current_entity_data + cc];
-
         A0 = 1;
-        A1 = bu[V1 + V0 + 5];
-        read_two_bytes_based_on_flag_80;
-        S1 = V0;
+        A1 = bu[field_script + script_pos + 5];
+        read_two_bytes_based_on_flag_80();
+        dest_x = V0;
 
         A0 = 3;
-        A1 = bu[V1 + V0 + 5];
-        read_two_bytes_based_on_flag_40;
-        S0 = V0;
+        A1 = bu[field_script + script_pos + 5];
+        read_two_bytes_based_on_flag_40();
+        dest_z = V0;
     }
     break;
 
     case 1:
     {
-        V1 = w[800ad0d8];
-        V0 = hu[current_entity_data + cc];
-
         A0 = 1;
-        A1 = bu[V1 + V0 + 5];
-        read_two_bytes_based_on_flag_80;
-        S1 = V0 + w[current_entity_data + d0];
+        A1 = bu[field_script + script_pos + 5];
+        read_two_bytes_based_on_flag_80();
+        dest_x = w[data_138 + d0] + V0;
 
         A0 = 3;
-        A1 = bu[V1 + V0 + 5];
-        read_two_bytes_based_on_flag_40;
-        S0 = V0 + w[current_entity_data + d8];
+        A1 = bu[field_script + script_pos + 5];
+        read_two_bytes_based_on_flag_40();
+        dest_z = w[data_138 + d8] + V0;
     }
     break;
 
     case 2:
     {
         A0 = 1;
-        get_entity_id_from_opcode;
-        if (V0 == ff)
+        get_entity_id_from_opcode();
+        if( V0 == ff )
         {
             return 0;
         }
 
-        A0 = w[800aefe4];
-        S0 = w[A0 + V0 * 5c + 4c];
+        S0 = w[struct_5c_p + V0 * 5c + 4c];
 
-        A0 = hu[current_entity_data + 1e] + hu[S0 + 1e]; // solid range?
-        length_of_vector_by_x;
+        A0 = hu[data_138 + 1e] + hu[S0 + 1e];
+        length_of_vector_by_x();
         S2 = V0;
 
-        S1 = h[S0 + 22];
-        S0 = h[S0 + 2a];
+        dest_x = h[S0 + 22];
+        dest_z = h[S0 + 2a];
 
-        V1 = w[800ad0d8];
-        V0 = hu[current_entity_data + cc];
-        V1 = bu[V0 + V1 + 1]; // byte in opcode
-
-        V0 = w[800b1740]; // party leader
-        if (V1 == V0)
+        if( bu[field_script + script_pos + 1] == w[800b1740] ) // if given entity is party leader
         {
-            [current_entity_data + 0] = w(w[current_entity_data + 0] | 00200000);
+            [data_138 + 0] = w(w[data_138 + 0] | 00200000);
         }
     }
     break;
@@ -123,87 +104,95 @@ switch (V1)
     case 3:
     {
         A0 = 1;
-        read_two_bytes_with_80;
+        read_two_bytes_with_80();
         S0 = V0;
 
         A0 = S0;
-        system_cos;
-
-        V0 = V0 << c;
-        V1 = w[current_entity_data + d0];
-        V0 = V0 >> c;
-        S1 = V1 + V0;
+        system_cos();
+        dest_x = w[data_138 + d0] + ((V0 << c) >> c);
 
         A0 = S0;
-        system_sin;
-        V0 = V0 << c;
-        V0 = 0 - V0;
-        V1 = w[current_entity_data + d8];
-        V0 = V0 >> c;
-        S0 = V1 + V0;
+        system_sin();
+        dest_z = w[data_138 + d8] + ((0 - (V0 << c)) >> c);
     }
     break;
 }
 
-A0 = S1 - S3;
-A1 = S0 - S4;
+// calculate how much we need to go
+A0 = dest_x - h[data_138 + 22];
+A1 = dest_z - h[data_138 + 2a];
 [SP + 10] = w(A0);
 [SP + 14] = w(0);
 [SP + 18] = w(A1);
+length_of_vector_by_x_y();
 
-length_of_vector_by_x_y; // calculate how much we need to go
+[data_138 + 0] = w(w[data_138 + 0] | 00400000);
 
-A0 = w[current_entity_data + 00] | 00400000;
-[current_entity_data + 00] = w(A0);
-
-V1 = bu[current_entity_data + ce]
-A1 = h[current_entity_data + 8c + V1 * 8 + 4];
-
-if (A1 == 0 || S5 + S2 >= V0) // we finished
+if( ( h[data_138 + 8c + script_slot * 8 + 4] == 0 ) || ( S5 + S2 >= V0 ) ) // we finished
 {
-    if (S6 != 0)
+    if( S6 != 0 )
     {
-        if ((A0 & 00008000) == 0)
+        if( ( w[data_138 + 0] & 00008000 ) == 0 )
         {
-            V0 = hu[current_entity_data + 106];
+            V0 = hu[data_138 + 106];
         }
         else
         {
-            V0 = hu[current_entity_data + 11c];
+            V0 = hu[data_138 + 11c];
         }
-
-        V0 = V0 | 8000;
-        [current_entity_data + 104] = h(V0);
-        [current_entity_data + 106] = h(V0);
+        [data_138 + 104] = h(V0 | 8000);
+        [data_138 + 106] = h(V0 | 8000);
     }
     else
     {
-        A0 = SP + 10;
-        func7aca8;
-
-        [current_entity_data + 104] = h(V0);
-        [current_entity_data + 106] = h(V0);
+        A0 = SP + 10; // move vector
+        func7aca8();
+        [data_138 + 104] = h(V0);
+        [data_138 + 106] = h(V0);
     }
 
-    V1 = bu[current_entity_data + ce];
-    [current_entity_data + 8c + V1 * 8 + 4] = h(ffff);
-    [current_entity_data + 8c + V1 * 8 + 4] = w(w[current_entity_data + 8c + V1 * 8 + 4] & fe7fffff);
+    [data_138 + 8c + script_slot * 8 + 4] = h(ffff);
+    [data_138 + 8c + script_slot * 8 + 4] = w(w[data_138 + 8c + script_slot * 8 + 4] & fe7fffff);
 
-    [current_entity_data + 00] = w(w[current_entity_data + 00] & f7fffddf);
+    [data_138 + 00] = w(w[data_138 + 00] & f7fffddf);
 
     return 0;
 }
 else
 {
-    [current_entity_data + 8c + V1 * 8 + 4] = h(A1 - 1);
+    [data_138 + 8c + script_slot * 8 + 4] = h(h[data_138 + 8c + script_slot * 8 + 4] - 1);
 
-    A0 = SP + 10;
-    func7aca8;
-    [current_entity_data + 104] = h(V0);
-    [current_entity_data + 106] = h(V0);
+    A0 = SP + 10; // move vector
+    func7aca8();
+    [data_138 + 104] = h(V0);
+    [data_138 + 106] = h(V0);
 
     [800af594] = w(1); // set wait
 
     return -1;
 }
-////////////////////////////////////////////////////////
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func7aca8()
+vector = A0;
+A0 = w[vector + 8];
+A1 = w[vector + 0];
+system_get_rotation_based_on_vector_x_y();
+return (0 - V0) & 0fff;
+////////////////////////////////
+
+
+
+////////////////////////////////
+// length_of_vector_by_x()
+[SP + 10] = w(A0);
+A0 = SP + 10;
+A1 = SP + 20;
+system_gte_square_of_vector();
+A0 = w[SP + 20];
+system_square_root();
+return V0;
+////////////////////////////////

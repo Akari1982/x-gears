@@ -1534,16 +1534,14 @@ if( w[800c1b60] == 0 )
 8006FCC4	lui    at, $800b
 8006FCC8	sh     v0, $cfd8(at)
 8006FCCC	ori    v0, zero, $0005
-8006FCD0	lui    at, $800b
-8006FCD4	sh     zero, $f370(at)
-8006FCD8	lui    at, $800b
-8006FCDC	sh     zero, $f374(at)
-8006FCE0	lui    at, $800c
-8006FCE4	sh     zero, $1b68(at)
 
-[800c2dcc] = h(0);
-[800c2dd4] = h(0);
-[800c2ddc] = h(0);
+[800af370] = h(0); // current button mask c1
+[800af374] = h(0); // current button mask c2
+[800c1b68] = h(0); // pressed button mask c1
+[800c2dcc] = h(0); // pressed button mask c2
+[800c2dd4] = h(0); // repeated button mask c1
+[800c2ddc] = h(0); // repeated button mask c2
+
 [800b181a] = h(3);
 [800b181e] = h(40);
 [800b1820] = h(ff);

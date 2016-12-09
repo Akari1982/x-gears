@@ -462,7 +462,7 @@ La2534:	; 800A2534
 
 
 ////////////////////////////////
-// funca15c0
+// funca15c0()
 // run 8 opcodes for non-party entities
 if( w[800ad04c] == 1 )
 {
@@ -565,9 +565,6 @@ La1624:	; 800A1624
     entity_id = entity_id + 1;
     V0 = entity_id < number_of_entity;
 800A1810	bne    v0, zero, La1624 [$800a1624]
-
-
-La1818:	; 800A1818
 ////////////////////////////////
 
 

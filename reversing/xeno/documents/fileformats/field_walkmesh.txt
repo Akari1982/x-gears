@@ -42,6 +42,7 @@ C0000000
 
 flags:
 00000004 - looks like we jump one waklmesh id down if we move on this material
+00000018 - some flags checked with PC entity and PC folower.
 00000020 - unpassable for NPC.
 00000040 - unpassable for PC follower.
 00000080 - unpassable for PC.

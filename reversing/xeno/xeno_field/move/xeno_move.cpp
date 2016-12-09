@@ -9,6 +9,9 @@ number_of_entity = w[800ad0d4];
 
 funca15c0(); // run 8 opcodes for non-party entities
 
+
+
+// store previous position
 if( number_of_entity > 0 )
 {
     entity_id = 0;
@@ -417,6 +420,7 @@ if( w[struct_138 + 0] & 01000000 )
 
 // deside if we play run or walk animation
 animation_id = 1; // walk
+// something and cross button currently pressed and something.
 if( ( w[struct_138 + 0] & 00004000 ) && ( hu[800af370] & 0040 ) && ( w[800ad040] == 1 ) )
 {
     animation_id = 2; // run

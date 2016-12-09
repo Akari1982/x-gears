@@ -1,6 +1,5 @@
 entity_id. (FF - 1st character in party entity id, FE - 2nd character in party entity id, FD - 3rd character in party entity id, FB - current entity)
 flag used to set type of data for vfXX type.
-
 u8   unsigned byte.
 s16  signed two bytes.
 u16  unsigned two bytes.
@@ -8,6 +7,50 @@ vf40 variable from memory wich can be immediate value if bit 0x40 in "f" set.
 vf80 variable from memory wich can be immediate value if bit 0x80 in "f" set.
 v    variable from memory.
 v80  variable from memory which can be immediate value if 0x8000 bit is set.
+
+
+
+0x0C EncounterInf()
+        Size: 1 (waitable).
+        Infinite encounter routine (calls opcode 0xA7). Set script to wait after each call and nether moves script forward.
+
+0x4A SpriteGoToPosition( vf80 x, vf40 y, f flag )
+        Size: 6 (waitable)
+        Set ???
+
+0xA7 Encounter()
+        Size: 1
+        Encounter routine.
+
+0xF7 EncounterSetup( v80 reinit_timer, v80 number_of_encounter_slot )
+        Size: 5
+        Set setup timer and number of slots used in encounter. Reinit encounter slots with random values.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -140,11 +183,3 @@ v80  variable from memory which can be immediate value if 0x8000 bit is set.
 0xA8 VariableRandom(u16 address, v80 border);
     store random variable (0 - border) to address.
 //////////////////////////////////////////////////////////////////
-
-
-
-//////////////////////////////////////////////////////////////////
-// MODEL OPCODES
-0x4A SpriteGoToPosition(vf80 x, vf40 y, f flag);
-//////////////////////////////////////////////////////////////////
-

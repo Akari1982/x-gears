@@ -47,6 +47,9 @@
 
 8004ff84 [][][][] address of SPU registers 0x1f801c00.
 
+8004f8d0 [][][][] timer for repeated buttons for controller 1 (80058b40).
+8004f8d4 [][][][] timer for repeated buttons for controller 2 (80058b44).
+
 800560a0 square root data (0x2 each). 12bit fixed point.
 
 80056234
@@ -71,6 +74,14 @@
 
 800589e8 [][][][] store start of extended text characters here. 0xf8 in japanese.
 
+80058a10 [][]     previously pressed button mask for controller 1 (details in 80058c0c).
+80058a14 [][]     previously pressed button mask for controller 2 (details in 80058c0c).
+80058a18 [][][][] number of button mask received since last update.
+80058a1c [][][][] current store index of buffer for received button masks
+80058a20 [][][][] current receive index of buffer for received button masks.
+
+80058a24 []       ID1 of last reveived controller input.
+
 80058aa0 [][][][] number of channels to activate. Store 2 here when starting new sound.
 
 80058aac [][][][] pointer to first element in channel struct (0x800651a0). Struct is dynamic size with 0x10 bytes header. Can be in range 800651a0-8006b490
@@ -79,7 +90,14 @@
 80058ac0 [][][][] store here pointer to place for packets.
 80058ac4 [][][][] store here data from sprite opcode 0xa7 & 0x7f if 0x80 is set.
 
+80058b24 [][][][] if this &3 then we always return pressed buttons in 80058b40.
+80058b28 [][]     mask of buttons that was pressed in last update for controller 1 (details in 80058c0c).
+80058b28 [][]     mask of buttons that was pressed in last update for controller 2 (details in 80058c0c).
+
 80058b34 [][][][] store here pointer to precalculated normal for polygon lighting. Allocated memory from +18 in model data file.
+
+80058b40 [][]     repeated buttons for controller 1 (details in 80058c0c). 0x20 timer to repeat.
+80058b44 [][]     repeated buttons for controller 2 (details in 80058c0c). 0x20 timer to repeat.
 
 80058b98 [][][][] flags for turning SPU Voice ON.
 
@@ -95,6 +113,25 @@
 80058bf4 [][][][] pointer to SND file (with wds signature).
 
 80058c00 [][][][] pointer to snd music structs data after header.
+
+80058c0c [][]     pressed buttons in Xeno format for controller 1. (1=Pressed, 0=Released)
+                    0x0001 L2
+                    0x0002 R2
+                    0x0004 L1
+                    0x0008 R1
+                    0x0010 Triangle
+                    0x0020 Circle
+                    0x0040 Cross
+                    0x0080 Square
+                    0x0100 Select
+                    0x0200 L3
+                    0x0400 R3
+                    0x0800 Start
+                    0x1000 Up
+                    0x2000 Right
+                    0x4000 Down
+                    0x8000 Left
+80058c10 [][]     pressed buttons in Xeno format for controller 2.
 
 80058c18 [][]     some sound control flags.
                     0x0040 we don't play sound thread if this is set.
@@ -126,6 +163,25 @@
 
 80059674 struct with data for text.
     +1c [][][][] pointer to next character.
+
+80061c8c controller input buffers (size 0x22 2 items).
+    +02 [][]     button mask. (0=Pressed, 1=Released)
+                    0x0001 Select
+                    0x0002 L3
+                    0x0004 R3
+                    0x0008 Start
+                    0x0010 Up
+                    0x0020 Right
+                    0x0040 Down
+                    0x0080 Left
+                    0x0100 L2
+                    0x0200 R2
+                    0x0400 L1
+                    0x0800 R1
+                    0x1000 Triangle
+                    0x2000 Circle
+                    0x4000 Cross
+                    0x8000 Square
 
 80061bbc array of 4 bytes offsets to SPU channel structures at offset 0xc4.
 

@@ -1,5 +1,5 @@
 ////////////////////////////////
-// func77518
+// func77518()
 80077518	addiu  sp, sp, $ffc8 (=-$38)
 8007751C	lui    v1, $8001
 80077520	lw     v1, $0000(v1)
@@ -216,57 +216,45 @@ L777e8:	; 800777E8
 8007780C	ori    s3, zero, $00ff
 
 L77810:	; 80077810
-80077810	lui    v0, $800c
-80077814	lhu    v0, $2dd4(v0)
-80077818	nop
-8007781C	andi   v0, v0, $0800
-80077820	beq    v0, zero, L778cc [$800778cc]
-80077824	nop
-80077828	lui    v0, $800b
-8007782C	lhu    v0, $f370(v0)
-80077830	nop
-80077834	andi   v0, v0, $0040
-80077838	bne    v0, zero, L778cc [$800778cc]
-8007783C	nop
-80077840	lui    v0, $800b
-80077844	lbu    v0, $182c(v0)
-80077848	nop
-8007784C	bne    v0, zero, L778cc [$800778cc]
-80077850	nop
-80077854	lui    s0, $8006
-80077858	lw     s0, $8b24(s0)
-8007785C	jal    func37d8c [$80037d8c]
-80077860	nop
-80077864	lui    a1, $800b
-80077868	lw     a1, $cfe0(a1)
-8007786C	ori    a0, zero, $0088
-80077870	addiu  a1, a1, $0001
-80077874	andi   a1, a1, $0001
-80077878	sll    a1, a1, $08
-8007787C	jal    func1f92c [$8001f92c]
-80077880	ori    a1, a1, $0064
+if( hu[800c2dd4] & 0800 ) // start repeated
+{
+    if( ( hu[800af370] & 0040 ) == 0 ) // cross currently not pressed
+    {
+        if( bu[800b182c] == 0 )
+        {
+            80077854	lui    s0, $8006
+            80077858	lw     s0, $8b24(s0)
+            8007785C	jal    func37d8c [$80037d8c]
+            80077860	nop
+            80077864	lui    a1, $800b
+            80077868	lw     a1, $cfe0(a1)
+            8007786C	ori    a0, zero, $0088
+            80077870	addiu  a1, a1, $0001
+            80077874	andi   a1, a1, $0001
+            80077878	sll    a1, a1, $08
+            8007787C	jal    func1f92c [$8001f92c]
+            80077880	ori    a1, a1, $0064
 
-loop77884:	; 80077884
-80077884	jal    func44448 [$80044448]
-80077888	addu   a0, zero, zero
-8007788C	jal    func4b3f4 [$8004b3f4]
-80077890	ori    a0, zero, $0002
-80077894	jal    func73d90 [$80073d90]
-80077898	nop
-8007789C	jal    func19d24 [$80019d24]
-800778A0	nop
-800778A4	lui    v0, $800c
-800778A8	lhu    v0, $2dd4(v0)
-800778AC	nop
-800778B0	andi   v0, v0, $0800
-800778B4	beq    v0, zero, loop77884 [$80077884]
-800778B8	nop
-800778BC	jal    func37d34 [$80037d34]
-800778C0	nop
-800778C4	lui    at, $8006
-800778C8	sw     s0, $8b24(at)
+            loop77884:	; 80077884
+                80077884	jal    func44448 [$80044448]
+                80077888	addu   a0, zero, zero
+                8007788C	jal    func4b3f4 [$8004b3f4]
+                80077890	ori    a0, zero, $0002
+                80077894	jal    func73d90 [$80073d90]
+                80077898	nop
+                8007789C	jal    func19d24 [$80019d24]
 
-L778cc:	; 800778CC
+                V0 = hu[800c2dd4] & 0800; // start repeated
+            800778B4	beq    v0, zero, loop77884 [$80077884]
+            800778B8	nop
+            800778BC	jal    func37d34 [$80037d34]
+            800778C0	nop
+            800778C4	lui    at, $8006
+            800778C8	sw     s0, $8b24(at)
+        }
+    }
+}
+
 800778CC	lui    v0, $800c
 800778D0	lw     v0, $1b60(v0)
 800778D4	nop
@@ -572,10 +560,9 @@ L77d04:	; 80077D04
 80077D0C	nop
 80077D10	bne    v0, zero, L77e20 [$80077e20]
 80077D14	nop
-80077D18	lui    v1, $800c
-80077D1C	lhu    v1, $2ddc(v1)
-80077D20	nop
-80077D24	andi   v0, v1, $0040
+V1 = hu[800c2ddc];
+V0 = V1 & 0040; // cross on second controller repeated
+
 80077D28	beq    v0, zero, L77d50 [$80077d50]
 80077D2C	andi   v0, v1, $0010
 80077D30	lui    v0, $8005
@@ -611,39 +598,27 @@ L77d78:	; 80077D78
 80077D98	sw     v0, $ea24(at)
 
 L77d9c:	; 80077D9C
-80077D9C	lui    v0, $800b
-80077DA0	lhu    v0, $f370(v0)
-80077DA4	nop
-80077DA8	andi   v0, v0, $0040
-80077DAC	beq    v0, zero, L77e20 [$80077e20]
-80077DB0	nop
-80077DB4	lui    v0, $800c
-80077DB8	lhu    v0, $2dd4(v0)
-80077DBC	nop
-80077DC0	andi   v0, v0, $0100
-80077DC4	beq    v0, zero, L77e20 [$80077e20]
-80077DC8	nop
-80077DCC	lui    v0, $800b
-80077DD0	lw     v0, $d0c4(v0)
-80077DD4	nop
-80077DD8	bne    v0, s2, L77e20 [$80077e20]
-80077DDC	nop
-80077DE0	lui    v0, $8005
-80077DE4	lw     v0, $e9ac(v0)
-80077DE8	nop
-80077DEC	bne    v0, zero, L77e20 [$80077e20]
-80077DF0	nop
-80077DF4	lui    v0, $800b
-80077DF8	lw     v0, $d00c(v0)
-80077DFC	nop
-80077E00	bne    v0, zero, L77e20 [$80077e20]
-80077E04	ori    a0, zero, $0002
-80077E08	lui    at, $8005
-80077E0C	sw     zero, $e9f0(at)
-80077E10	lui    at, $800b
-80077E14	sw     zero, $d0c4(at)
-80077E18	jal    put_bytes_to_800C2F3C [$800a2604]
-80077E1C	addu   a1, zero, zero
+if( hu[800af370] & 0040 ) // cross currently pressed
+{
+    if( hu[800c2dd4] & 0100 ) // select repeated
+    {
+        if( w[800ad0c4] == S2 )
+        {
+            if( w[8004e9ac] == 0 )
+            {
+                if( w[800ad00c] == 0 )
+                {
+                    [8004e9f0] = w(0);
+                    [800ad0c4] = w(0);
+
+                    A0 = 2;
+                    A1 = 0;
+                    put_bytes_to_800C2F3C();
+                }
+            }
+        }
+    }
+}
 
 L77e20:	; 80077E20
 80077E20	lui    v0, $800b
@@ -670,15 +645,14 @@ L77e20:	; 80077E20
 80077E74	nop
 80077E78	bne    v0, s2, L780bc [$800780bc]
 80077E7C	nop
-80077E80	lui    v1, $800b
-80077E84	lhu    v1, $f370(v1)
-80077E88	nop
-80077E8C	andi   v0, v1, $0003
-80077E90	bne    v0, zero, L77e9c [$80077e9c]
-80077E94	andi   v0, v1, $0001
-80077E98	addu   s4, zero, zero
+V1 = hu[800af370];
+V0 = V1 & 0003; // R2 L2 currently pressed
+if( V0 == 0 )
+{
+    S4 = 0;
+}
+V0 = V1 & 1; // L2 currently pressed
 
-L77e9c:	; 80077E9C
 80077E9C	beq    v0, zero, L77f48 [$80077f48]
 80077EA0	nop
 80077EA4	lui    v0, $800b
@@ -724,10 +698,7 @@ L77e9c:	; 80077E9C
 80077F44	nop
 
 L77f48:	; 80077F48
-80077F48	lui    v0, $800c
-80077F4C	lhu    v0, $2dd4(v0)
-80077F50	nop
-80077F54	andi   v0, v0, $0100
+V0 = hu[800c2dd4] & 0100; // select repeated
 80077F58	beq    v0, zero, L77f90 [$80077f90]
 80077F5C	nop
 80077F60	lui    v0, $800b
@@ -796,10 +767,7 @@ L77fc8:	; 80077FC8
 8007804C	sw     s3, $d03c(at)
 
 L78050:	; 80078050
-80078050	lui    v0, $800c
-80078054	lhu    v0, $2dd4(v0)
-80078058	nop
-8007805C	andi   v0, v0, $0010
+V0 = hu[800c2dd4] & 0010; // triangle repeated
 80078060	beq    v0, zero, L780bc [$800780bc]
 80078064	nop
 80078068	lui    v0, $800b
