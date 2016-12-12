@@ -195,7 +195,7 @@ L1e324:	; 8001E324
 
             A0 = SP + 48;
             A1 = SP + 28;
-            func3f5e0; // rotaion matrix from rotation angles
+            system_calculate_rotation_matrix(); // rotaion matrix from rotation angles
 
             // translation vector
             [SP + 3c] = w(w[addr + 20] + S0);

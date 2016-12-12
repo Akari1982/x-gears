@@ -37,12 +37,14 @@
 
 800ad040 [][][][] init with 0. checked in move function (func821cc) as well as some other condition to make entity play run animation if equal to 1.
 
+800ad04c [][][][] if this is 1 then we set number of entities to 1 in script call call_run_script_8().
+
 800ad070 [][][][] checked if equal to 0 in func83f40.
 
 800ad0b4 [][][][] battle not started ( 0 - started ).
-800ad0b8 [][][][] if this is 0 - we dont perform something in funca15c0 (move related).
-800ad0bc [][][][] if this is 0 - we dont perform something in funca15c0 (move related).
-800ad0c4 [][][][] if this is 0 - we dont perform something in funca15c0 (move related).
+800ad0b8 [][][][] if this is 0 - we dont perform something in call_run_script_8 (move related).
+800ad0bc [][][][] if this is 0 - we dont perform something in call_run_script_8 (move related).
+800ad0c4 [][][][] if this is 0 - we dont perform something in call_run_script_8 (move related).
 
 800ad0c8 [][][][] pointer to field dialogs block (file 7).
 800ad0cc [][][][] pointer to field triggers (file 8).
@@ -453,7 +455,7 @@ spawn table
 
 800af148 [][][][] every time we init entity model with func76150 we increment this by 1.
 
-800af150 [][][][] store here how much opcodes to execute in run_script.
+800af150 [][][][] store here how much opcodes to execute in run_script().
 
 800af1e4 [][][][] number of materials.
 
@@ -485,7 +487,7 @@ spawn table
 
 800af594 [][][][] seems like return result from function (wait opcode returns 1). Set to 0 at start of run_script function.
 
-800afb8c [][][][] offset to struct 0x5c for current entity.
+800afb8c [][][][] offset to struct 0x5c for current entity in script call.
 
 800b144c copy first 0x100 byte of field file here.
 
@@ -497,7 +499,7 @@ spawn table
 
 800b168c [][][][] store here id of sound to play.
 
-800b16a0 []       if this is not 0 we nulify triangle material mask. If this not 0 we do not run scripts for party character entity (in funca15c0 (move related)).
+800b16a0 []       if this is not 0 we nulify triangle material mask. If this not 0 we do not run scripts for party character entity (in call_run_script_8 (move related)).
 
 800b16aa [][]     if this != 8 then dialog speed doubled (store 2 instead of 1)
 

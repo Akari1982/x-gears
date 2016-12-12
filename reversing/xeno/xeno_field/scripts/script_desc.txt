@@ -1,3 +1,7 @@
+Scripts execute not more than 0x400 opcode. If exceed then EVENTLOOP ERROR will be generated.
+
+
+
 Script auto run:
 
 script 0: run to execute for each entity at initialization. Not waitable - finish as soon as meet return or any wait opcode.

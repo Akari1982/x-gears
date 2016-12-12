@@ -391,7 +391,7 @@ AC0C0C80 // 9C
         800C0CD0	addu   a1, s0, zero
         800C0CD4	sh     zero, $001a(sp)
         800C0CD8	sh     zero, $001c(sp)
-        800C0CDC	jal    func3f5e0 [$8003f5e0]
+        800C0CDC	jal    system_calculate_rotation_matrix [$8003f5e0]
         800C0CE0	sh     v0, $0018(sp)
         800C0CE4	addu   a0, s0, zero
         800C0CE8	addiu  a1, sp, $0018

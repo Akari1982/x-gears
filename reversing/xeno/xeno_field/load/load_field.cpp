@@ -1,5 +1,5 @@
 ////////////////////////////////
-// funca5118
+// funca5118()
 800A5128	jal    func37334 [$80037334]
 
 800A5130	jal    funca8938 [$800a8938]
@@ -1036,14 +1036,13 @@ S2 = 800af558;
 [800afcff4] = w(0);
 S1 = S2 + c;
 
-80070DF8	jal    funca1e64 [$800a1e64]
-
-A1 = 800af104;
+funca1e64(); // we run script from here
 
 [800acff4] = w(1);
 
 A0 = S0 - b8;
-80070E14	jal    func3f5e0 [$8003f5e0]
+A1 = 800af104;
+system_calculate_rotation_matrix();
 
 [800af120] = w(0);
 [800af11c] = w(0);
@@ -1118,7 +1117,7 @@ if( V1 > 0 )
 
         A0 = A1 + 50;
         A1 = A1 + c;
-        80070F60	jal    func3f5e0 [$8003f5e0]
+        system_calculate_rotation_matrix();
 
         V0 = S0 + w[800aefe4];
 
@@ -1715,7 +1714,7 @@ if( w[800c1b60] == 0 )
 8006FFC0	sw     v0, $d03c(at)
 8006FFC4	sh     zero, $0020(sp)
 8006FFC8	sh     zero, $0022(sp)
-8006FFCC	jal    func3f5e0 [$8003f5e0]
+8006FFCC	jal    system_calculate_rotation_matrix [$8003f5e0]
 8006FFD0	sh     zero, $0024(sp)
 8006FFD4	addiu  v0, zero, $ffff (=-$1)
 8006FFD8	ori    a1, zero, $0002
@@ -1915,7 +1914,7 @@ loop70224:	; 80070224
 800702B0	sh     zero, $ef34(at)
 800702B4	lui    at, $800b
 800702B8	sw     v0, $ef98(at)
-800702BC	jal    func3f5e0 [$8003f5e0]
+800702BC	jal    system_calculate_rotation_matrix [$8003f5e0]
 800702C0	addu   a1, s1, zero
 800702C4	lui    v0, $800b
 800702C8	addiu  v0, v0, $1970
@@ -1960,7 +1959,7 @@ S2 = S1 + d4;
 
 A0 = S1 + c4; // rot data
 A1 = S1 + d4;
-func3f5e0; // calculate rotation matrix
+system_calculate_rotation_matrix();
 
 A0 = S1;
 A1 = S1 + d4;

@@ -1,8 +1,3 @@
-
-
-
-
-
 ////////////////////////////////
 // funca8b60
 V0 = w[800ad00c];
@@ -109,8 +104,8 @@ if( V0 == 0 )
 
     if( w[800c1b60] == 0 )
     {
-        A0 = 8006f458;
-        funca8c88;
+        A0 = 8006f458; // PARTICLE
+        funca8c88();
     }
 }
 La8d2c:	; 800A8D2C
@@ -181,7 +176,7 @@ La9480:	; 800A9480
 800A94C8	lhu    v0, $0108(v0)
 800A94CC	addiu  a1, sp, $0030
 800A94D0	sh     zero, $002c(sp)
-800A94D4	jal    func3f5e0 [$8003f5e0]
+800A94D4	jal    system_calculate_rotation_matrix [$8003f5e0]
 800A94D8	sh     v0, $002a(sp)
 800A94DC	lh     v1, $0052(s2)
 800A94E0	lui    a0, $800b
@@ -254,7 +249,7 @@ La95b0:	; 800A95B0
 800A95E4	lhu    v0, $0108(v0)
 800A95E8	addiu  a1, sp, $0030
 800A95EC	sh     zero, $002c(sp)
-800A95F0	jal    func3f5e0 [$8003f5e0]
+800A95F0	jal    system_calculate_rotation_matrix [$8003f5e0]
 800A95F4	sh     v0, $002a(sp)
 800A95F8	lh     v1, $0052(s2)
 800A95FC	lui    a0, $800b

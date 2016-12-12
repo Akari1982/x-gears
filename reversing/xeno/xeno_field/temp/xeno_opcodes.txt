@@ -100,20 +100,13 @@ La1084:	; 800A1084
 800A0D38	sw     v1, $012c(a0)
 
 La0d3c:	; 800A0D3C
-800A0D3C	lui    v0, $800c
-800A0D40	lw     v0, $1b60(v0)
-800A0D44	nop
-800A0D48	bne    v0, zero, La0d6c [$800a0d6c]
-800A0D4C	ori    v0, zero, $0001
-800A0D50	lui    a1, $800b
-800A0D54	lw     a1, $f1f0(a1)
-800A0D58	lui    a0, $8007
-800A0D5C	addiu  a0, a0, $f3d4 (=-$c2c)
-800A0D60	jal    func37870 [$80037870]
-800A0D64	nop
+if( w[800c1b60] == 0 )
+{
+    A0 = 8006f3d4; // STACKERR ACT=%d
+    A1 = w[800af1f0];
+    func37870();
+}
 800A0D68	ori    v0, zero, $0001
-
-La0d6c:	; 800A0D6C
 800A0D6C	lui    at, $800b
 800A0D70	sw     v0, $f594(at)
 

@@ -158,7 +158,7 @@ if( ( w[struct_164 + 40] & 00000001 ) == 0 )
 {
     A0 = w[struct_164 + 20]; // rot data
     A1 = A0 + c;
-    func3f5e0(); // calculate rotation matrix
+    system_calculate_rotation_matrix();
 
     V0 = w[struct_164 + 20];
     [SP + 20] = w(h[V0 + 6]);
@@ -190,9 +190,9 @@ else
     A1 = SP + 30;
     func495f4(); // scaled matrix (column)
 
-    A0 = w[struct_164 + 20];
+    A0 = w[struct_164 + 20]; // rot data
     A1 = SP + 40;
-    func3f5e0(); // calculate rotation matrix
+    system_calculate_rotation_matrix();
 
     A0 = SP + 40;
     A1 = SP + 60;
@@ -210,34 +210,6 @@ if( hu[struct_164 + 3a] != 0 )
     A1 = SP + 20;
     func49c74(); // scaled matrix (row)
 }
-////////////////////////////////
-
-
-
-////////////////////////////////
-// func3f5e0()
-rot_x = h[A0 + 0] & 0fff;
-cos_x = h[80051a90 + rot_x * 4 + 0];
-sin_x = h[80051a90 + rot_x * 4 + 2];
-
-rot_y = h[A0 + 2] & 0fff;
-cos_y = h[80051a90 + rot_y * 4 + 0];
-sin_y = h[80051a90 + rot_y * 4 + 2];
-
-rot_z = h[A0 + 4] & 0fff;
-cos_z = h[80051a90 + rot_z * 4 + 0];
-sin_z = h[80051a90 + rot_z * 4 + 2];
-
-[A1 + 0] = h((sin_z * sin_y) >> c);
-[A1 + 2] = h((0 - (cos_z * sin_y)) >> c);
-[A1 + 4] = h(cos_y);
-[A1 + 6] = h(((cos_z * sin_x) >> c) - ((((sin_z * (0 - cos_y)) >> c) * cos_x) >> c));
-[A1 + 8] = h(((sin_z * sin_x) >> c) + ((((cos_z * (0 - cos_y)) >> c) * cos_x) >> c));
-[A1 + a] = h((0 - (sin_y * cos_x)) >> c);
-[A1 + c] = h(((cos_z * sin_y * sin_x) >> c) + ((cos_z * cos_x) >> c));
-[A1 + e] = h(((sin_z * cos_x) >> c) - ((((cos_z * (0 - cos_y)) >> c) * sin_x) >> c));
-[A1 + 10] = h((sin_y * sin_x) >> c);
-return A1;
 ////////////////////////////////
 
 

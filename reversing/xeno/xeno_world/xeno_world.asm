@@ -3623,7 +3623,7 @@ loop73754:	; 80073754
 80073760	addu   a1, s5, zero
 80073764	sh     zero, $00ba(s3)
 80073768	sh     zero, $00b8(s3)
-8007376C	jal    func3f5e0 [$8003f5e0]
+8007376C	jal    system_calculate_rotation_matrix [$8003f5e0]
 80073770	sh     v0, $00bc(s3)
 80073774	lui    v0, $d00d
 80073778	lw     a0, $0000(s7)
@@ -19754,7 +19754,7 @@ func8234c:	; 8008234C
 800823C0	sll    v1, v0, $01
 800823C4	addu   v1, v1, v0
 800823C8	sll    v1, v1, $01
-800823CC	jal    func3f5e0 [$8003f5e0]
+800823CC	jal    system_calculate_rotation_matrix [$8003f5e0]
 800823D0	sw     v1, $0008(s2)
 800823D4	addu   a0, s0, zero
 800823D8	jal    func49c74 [$80049c74]
@@ -24727,11 +24727,11 @@ L86ac4:	; 80086AC4
 80086B8C	sh     v0, $00ac(at)
 80086B90	lui    at, $1f80
 80086B94	sh     v0, $00a4(at)
-80086B98	jal    func3f5e0 [$8003f5e0]
+80086B98	jal    system_calculate_rotation_matrix [$8003f5e0]
 80086B9C	addiu  a1, s0, $0410
 80086BA0	lui    a0, $1f80
 80086BA4	ori    a0, a0, $00a8
-80086BA8	jal    func3f5e0 [$8003f5e0]
+80086BA8	jal    system_calculate_rotation_matrix [$8003f5e0]
 80086BAC	addiu  a1, s0, $04b8
 80086BB0	addiu  v0, zero, $0001
 80086BB4	lw     ra, $0014(sp)
@@ -24802,11 +24802,11 @@ L86ac4:	; 80086AC4
 80086CB0	sh     v0, $00ac(at)
 80086CB4	lui    at, $1f80
 80086CB8	sh     v0, $00a4(at)
-80086CBC	jal    func3f5e0 [$8003f5e0]
+80086CBC	jal    system_calculate_rotation_matrix [$8003f5e0]
 80086CC0	addiu  a1, a1, $0020
 80086CC4	lui    a0, $1f80
 80086CC8	ori    a0, a0, $00a8
-80086CCC	jal    func3f5e0 [$8003f5e0]
+80086CCC	jal    system_calculate_rotation_matrix [$8003f5e0]
 80086CD0	addiu  a1, s0, $0020
 80086CD4	addiu  v0, zero, $0001
 80086CD8	lw     ra, $001c(sp)
@@ -24974,11 +24974,11 @@ func86dc8:	; 80086DC8
 80086F30	sll    v0, v0, $02
 80086F34	addu   v0, v0, v1
 80086F38	sll    v0, v0, $02
-80086F3C	jal    func3f5e0 [$8003f5e0]
+80086F3C	jal    system_calculate_rotation_matrix [$8003f5e0]
 80086F40	addu   s0, s0, v0
 80086F44	lui    a0, $1f80
 80086F48	ori    a0, a0, $00a8
-80086F4C	jal    func3f5e0 [$8003f5e0]
+80086F4C	jal    system_calculate_rotation_matrix [$8003f5e0]
 80086F50	addiu  a1, s0, $0020
 80086F54	addiu  v0, zero, $0001
 80086F58	lw     ra, $001c(sp)

@@ -50492,7 +50492,7 @@ func9e360:	; 8009E360
 
 L9e3d0:	; 8009E3D0
 8009E3D0	addiu  a0, s4, $0054
-8009E3D4	jal    func3f5e0 [$8003f5e0]
+8009E3D4	jal    system_calculate_rotation_matrix [$8003f5e0]
 8009E3D8	addiu  a1, s4, $002c
 
 L9e3dc:	; 8009E3DC
@@ -50557,7 +50557,7 @@ loop9e488:	; 8009E488
 8009E4BC	sb     zero, $ffd9(s0)
 
 L9e4c0:	; 8009E4C0
-8009E4C0	jal    func3f5e0 [$8003f5e0]
+8009E4C0	jal    system_calculate_rotation_matrix [$8003f5e0]
 8009E4C4	addu   a1, s3, zero
 8009E4C8	sb     zero, $ffd9(s0)
 
@@ -50682,7 +50682,7 @@ func9e5e8:	; 8009E5E8
 
 L9e65c:	; 8009E65C
 8009E65C	addiu  a0, s6, $0054
-8009E660	jal    func3f5e0 [$8003f5e0]
+8009E660	jal    system_calculate_rotation_matrix [$8003f5e0]
 8009E664	addiu  a1, s6, $002c
 
 L9e668:	; 8009E668
@@ -50771,7 +50771,7 @@ L9e764:	; 8009E764
 
 L9e798:	; 8009E798
 8009E798	addu   a0, s5, zero
-8009E79C	jal    func3f5e0 [$8003f5e0]
+8009E79C	jal    system_calculate_rotation_matrix [$8003f5e0]
 8009E7A0	addu   a1, s2, zero
 
 L9e7a4:	; 8009E7A4
@@ -51434,7 +51434,7 @@ L9ef7c:	; 8009EF7C
 8009F080	subu   v0, zero, v0
 8009F084	sh     v0, $0022(sp)
 8009F088	sh     zero, $0020(sp)
-8009F08C	jal    func3f5e0 [$8003f5e0]
+8009F08C	jal    system_calculate_rotation_matrix [$8003f5e0]
 8009F090	sh     zero, $0024(sp)
 8009F094	lw     v0, $0038(sp)
 8009F098	lw     a1, $00a8(sp)
@@ -57950,7 +57950,7 @@ La4794:	; 800A4794
 800A47BC	addu   a1, s5, zero
 800A47C0	subu   v0, zero, v0
 800A47C4	sh     v0, $005a(sp)
-800A47C8	jal    func3f5e0 [$8003f5e0]
+800A47C8	jal    system_calculate_rotation_matrix [$8003f5e0]
 800A47CC	sh     zero, $005c(sp)
 800A47D0	addu   a0, s0, zero
 800A47D4	addiu  s2, sp, $0018
@@ -76232,7 +76232,7 @@ Lb4538:	; 800B4538
 800B4574	addu   v0, a1, v0
 800B4578	lhu    v0, $0006(v0)
 800B457C	addu   a1, s2, zero
-800B4580	jal    func3f5e0 [$8003f5e0]
+800B4580	jal    system_calculate_rotation_matrix [$8003f5e0]
 800B4584	sh     v0, $0014(sp)
 800B4588	lw     v0, $0020(s0)
 800B458C	nop
@@ -77141,7 +77141,7 @@ funcb5130:	; 800B5130
 800B522C	addiu  a1, sp, $0010
 800B5230	sh     v0, $0030(sp)
 800B5234	sh     zero, $0032(sp)
-800B5238	jal    func3f5e0 [$8003f5e0]
+800B5238	jal    system_calculate_rotation_matrix [$8003f5e0]
 800B523C	sh     zero, $0034(sp)
 800B5240	addiu  a0, sp, $0010
 800B5244	addiu  a1, sp, $0030
@@ -77887,7 +77887,7 @@ Lb5cac:	; 800B5CAC
 800B5CD0	sh     v0, $001c(sp)
 800B5CD4	addiu  a0, sp, $0018
 800B5CD8	addiu  s0, sp, $0058
-800B5CDC	jal    func3f5e0 [$8003f5e0]
+800B5CDC	jal    system_calculate_rotation_matrix [$8003f5e0]
 800B5CE0	addu   a1, s0, zero
 800B5CE4	addu   a0, s0, zero
 800B5CE8	addu   a1, s1, zero
@@ -77966,7 +77966,7 @@ funcb5d48:	; 800B5D48
 800B5E00	sh     v0, $0032(s1)
 800B5E04	addiu  a0, sp, $0010
 800B5E08	addiu  s0, sp, $0040
-800B5E0C	jal    func3f5e0 [$8003f5e0]
+800B5E0C	jal    system_calculate_rotation_matrix [$8003f5e0]
 800B5E10	addu   a1, s0, zero
 800B5E14	addu   a0, s0, zero
 800B5E18	addu   a1, s2, zero
@@ -78391,7 +78391,7 @@ funcb63c4:	; 800B63C4
 800B63EC	sll    a3, a3, $04
 800B63F0	addiu  a0, sp, $0010
 800B63F4	addiu  s0, sp, $0018
-800B63F8	jal    func3f5e0 [$8003f5e0]
+800B63F8	jal    system_calculate_rotation_matrix [$8003f5e0]
 800B63FC	addu   a1, s0, zero
 800B6400	addu   a0, s0, zero
 800B6404	addiu  a1, s1, $000c
@@ -78631,7 +78631,7 @@ loopb6710:	; 800B6710
 800B6738	bne    v0, zero, Lb67c8 [$800b67c8]
 800B673C	addu   s1, s0, v1
 800B6740	addu   a0, s0, zero
-800B6744	jal    func3f5e0 [$8003f5e0]
+800B6744	jal    system_calculate_rotation_matrix [$8003f5e0]
 800B6748	addu   a1, s2, zero
 800B674C	addu   a0, s2, zero
 800B6750	jal    func49c44 [$80049c44]
@@ -85352,7 +85352,7 @@ Lbc550:	; 800BC550
 800BC59C	jal    func49c44 [$80049c44]
 800BC5A0	addiu  a1, s1, $003c
 800BC5A4	addiu  a0, s1, $004c
-800BC5A8	jal    func3f5e0 [$8003f5e0]
+800BC5A8	jal    system_calculate_rotation_matrix [$8003f5e0]
 800BC5AC	addiu  a1, sp, $0018
 800BC5B0	lui    a0, $8005
 800BC5B4	addiu  a0, a0, $f25c (=-$da4)
@@ -86183,7 +86183,7 @@ funcbd084:	; 800BD084
 800BD17C	jal    funcbd084 [$800bd084]
 800BD180	sh     v0, $0034(sp)
 800BD184	addiu  a0, s2, $0040
-800BD188	jal    func3f5e0 [$8003f5e0]
+800BD188	jal    system_calculate_rotation_matrix [$8003f5e0]
 800BD18C	addiu  a1, sp, $0010
 800BD190	addiu  a0, sp, $0010
 800BD194	jal    func49c44 [$80049c44]
@@ -86423,7 +86423,7 @@ funcbd408:	; 800BD408
 800BD4D0	addiu  a1, sp, $0018
 800BD4D4	lui    s0, $800c
 800BD4D8	addiu  s0, s0, $2eb4
-800BD4DC	jal    func3f5e0 [$8003f5e0]
+800BD4DC	jal    system_calculate_rotation_matrix [$8003f5e0]
 800BD4E0	sw     v0, $0000(s0)
 800BD4E4	addiu  a0, sp, $0018
 800BD4E8	jal    func49c44 [$80049c44]
@@ -86766,7 +86766,7 @@ Lbd8dc:	; 800BD8DC
 
 loopbd984:	; 800BD984
 800BD984	addiu  a0, sp, $0038
-800BD988	jal    func3f5e0 [$8003f5e0]
+800BD988	jal    system_calculate_rotation_matrix [$8003f5e0]
 800BD98C	addiu  a1, sp, $0010
 800BD990	addiu  a0, sp, $0010
 800BD994	jal    func49c44 [$80049c44]
@@ -94613,7 +94613,7 @@ L1e817c:	; 801E817C
 801E817C	bne    v0, zero, L1e820c [$801e820c]
 801E8180	addu   s1, s0, v1
 801E8184	addu   a0, s0, zero
-801E8188	jal    func3f5e0 [$8003f5e0]
+801E8188	jal    system_calculate_rotation_matrix [$8003f5e0]
 801E818C	addu   a1, s2, zero
 801E8190	addu   a0, s2, zero
 801E8194	jal    func49c44 [$80049c44]
@@ -95352,7 +95352,7 @@ func1e8ad8:	; 801E8AD8
 L1e8b40:	; 801E8B40
 801E8B40	sw     zero, $0058(sp)
 801E8B44	sw     t0, $0060(sp)
-801E8B48	jal    func3f5e0 [$8003f5e0]
+801E8B48	jal    system_calculate_rotation_matrix [$8003f5e0]
 801E8B4C	addiu  a0, s5, $005c
 801E8B50	addu   a0, s0, zero
 801E8B54	jal    func49c44 [$80049c44]

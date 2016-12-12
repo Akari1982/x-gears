@@ -951,7 +951,7 @@ D8FC0180 // fc
     8002010C	jal    system_gte_set_translation_vector [$80049e34]
     80020110	addu   a0, s0, zero
     80020114	addu   a0, s2, zero
-    80020118	jal    func3f5e0 [$8003f5e0]
+    80020118	jal    system_calculate_rotation_matrix [$8003f5e0]
     8002011C	addu   a1, s0, zero
     80020120	jal    system_gte_set_rotation_matrix [$80049da4]
     80020124	addu   a0, s0, zero
@@ -2294,7 +2294,7 @@ D8FC0180 // fc
     80021454	sra    a3, a3, $10
     80021458	addiu  a0, sp, $0018
     8002145C	addiu  s0, sp, $0038
-    80021460	jal    func3f5e0 [$8003f5e0]
+    80021460	jal    system_calculate_rotation_matrix [$8003f5e0]
     80021464	addu   a1, s0, zero
     80021468	addu   a0, s0, zero
     8002146C	addiu  a1, s3, $000c

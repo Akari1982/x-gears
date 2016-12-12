@@ -1,5 +1,6 @@
 #include <Ogre.h>
 
+#include "DialogsFile.h"
 #include "FieldModel.h"
 #include "FieldModule.h"
 #include "FieldPackFile.h"
@@ -189,8 +190,11 @@ FieldModule::LoadMap( const int file_id )
 
     // part 7
     temp = field_pack->Extract( 7 );
+    DialogsFile* dialogs_file = new DialogsFile( temp );
     temp->WriteFile( "exported/debug/0" + IntToString( file_id ) + "_7_dialogs" );
     delete temp;
+    dialogs_file->GetDialogs( file_id );
+    delete dialogs_file;
 
 
 
