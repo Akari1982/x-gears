@@ -13,7 +13,7 @@ SpriteFile::SpriteFile( File* file, Vram* vram, const int file_id, const int spr
 {
     Initialise();
 
-    Logger* log = new Logger( "exported/sprite.txt" );
+    Logger* log = new Logger( "exported/debug/0" + IntToString( file_id ) + "_3_2dsprite_log.txt" );
 
     m_NumberOfFrames = 0;
     m_FrameId = 0;
@@ -184,9 +184,9 @@ SpriteFile::SpriteFile( File* file, Vram* vram, const int file_id, const int spr
     // create and export textures for model
     if( textures.size() > 0 )
     {
-        CreateTexture( vram, data, "exported/models/xeno/sprite.png", textures );
+        CreateTexture( vram, data, "exported/debug/0" + IntToString( file_id ) + "_3_2dsprite.png", textures );
     }
-    //CreateMaterial( "xeno/sprite", "exported/models/xeno/sprite.material", ( textures.size() > 0 ) ? "models/xeno/" + data.name + ".png" : "", "", "" );
+    CreateMaterial( "xeno/sprite", "exported/debug/0" + IntToString( file_id ) + "_3_2dsprite.material", ( textures.size() > 0 ) ? "exported/debug/0" + IntToString( file_id ) + "_3_2dsprite.png" : "", "", "" );
 
 
 

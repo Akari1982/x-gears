@@ -1,18 +1,10 @@
 ////////////////////////////////
 // func77518()
-80077518	addiu  sp, sp, $ffc8 (=-$38)
 8007751C	lui    v1, $8001
 80077520	lw     v1, $0000(v1)
 80077524	addiu  v0, zero, $ffff (=-$1)
-80077528	sw     ra, $0034(sp)
-8007752C	sw     s6, $0030(sp)
-80077530	sw     s5, $002c(sp)
-80077534	sw     s4, $0028(sp)
-80077538	sw     s3, $0024(sp)
-8007753C	sw     s2, $0020(sp)
-80077540	sw     s1, $001c(sp)
 80077544	beq    v1, v0, L7755c [$8007755c]
-80077548	sw     s0, $0018(sp)
+
 8007754C	lui    at, $800c
 80077550	sw     zero, $1b60(at)
 80077554	j      L77568 [$80077568]
@@ -222,33 +214,31 @@ if( hu[800c2dd4] & 0800 ) // start repeated
     {
         if( bu[800b182c] == 0 )
         {
-            80077854	lui    s0, $8006
-            80077858	lw     s0, $8b24(s0)
+            S0 = w[80058b24];
+
             8007785C	jal    func37d8c [$80037d8c]
-            80077860	nop
-            80077864	lui    a1, $800b
-            80077868	lw     a1, $cfe0(a1)
-            8007786C	ori    a0, zero, $0088
-            80077870	addiu  a1, a1, $0001
-            80077874	andi   a1, a1, $0001
-            80077878	sll    a1, a1, $08
+
+            A0 = 88;
+            A1 = (((w[800acfe0] + 1) & 1 ) << 8) | 64;
             8007787C	jal    func1f92c [$8001f92c]
-            80077880	ori    a1, a1, $0064
+
 
             loop77884:	; 80077884
-                80077884	jal    func44448 [$80044448]
                 80077888	addu   a0, zero, zero
-                8007788C	jal    func4b3f4 [$8004b3f4]
+                80077884	jal    func44448 [$80044448]
+
                 80077890	ori    a0, zero, $0002
-                80077894	jal    func73d90 [$80073d90]
-                80077898	nop
+                8007788C	jal    func4b3f4 [$8004b3f4]
+
+                func73d90(); // update buttons
+
                 8007789C	jal    func19d24 [$80019d24]
 
                 V0 = hu[800c2dd4] & 0800; // start repeated
             800778B4	beq    v0, zero, loop77884 [$80077884]
-            800778B8	nop
+
             800778BC	jal    func37d34 [$80037d34]
-            800778C0	nop
+
             800778C4	lui    at, $8006
             800778C8	sw     s0, $8b24(at)
         }
@@ -555,72 +545,46 @@ L77cf4:	; 80077CF4
 80077D00	nop
 
 L77d04:	; 80077D04
-80077D04	lui    v0, $800c
-80077D08	lw     v0, $1b60(v0)
-80077D0C	nop
-80077D10	bne    v0, zero, L77e20 [$80077e20]
-80077D14	nop
-V1 = hu[800c2ddc];
-V0 = V1 & 0040; // cross on second controller repeated
-
-80077D28	beq    v0, zero, L77d50 [$80077d50]
-80077D2C	andi   v0, v1, $0010
-80077D30	lui    v0, $8005
-80077D34	lw     v0, $ea1c(v0)
-80077D38	nop
-80077D3C	addiu  v0, v0, $0001
-80077D40	andi   v0, v0, $0001
-80077D44	lui    at, $8005
-80077D48	sw     v0, $ea1c(at)
-80077D4C	andi   v0, v1, $0010
-
-L77d50:	; 80077D50
-80077D50	beq    v0, zero, L77d78 [$80077d78]
-80077D54	andi   v0, v1, $0080
-80077D58	lui    v0, $8005
-80077D5C	lw     v0, $ea20(v0)
-80077D60	nop
-80077D64	addiu  v0, v0, $0001
-80077D68	andi   v0, v0, $0001
-80077D6C	lui    at, $8005
-80077D70	sw     v0, $ea20(at)
-80077D74	andi   v0, v1, $0080
-
-L77d78:	; 80077D78
-80077D78	beq    v0, zero, L77d9c [$80077d9c]
-80077D7C	nop
-80077D80	lui    v0, $8005
-80077D84	lw     v0, $ea24(v0)
-80077D88	nop
-80077D8C	addiu  v0, v0, $0001
-80077D90	andi   v0, v0, $0001
-80077D94	lui    at, $8005
-80077D98	sw     v0, $ea24(at)
-
-L77d9c:	; 80077D9C
-if( hu[800af370] & 0040 ) // cross currently pressed
+if( w[800c1b60] == 0 )
 {
-    if( hu[800c2dd4] & 0100 ) // select repeated
+    if( hu[800c2ddc] & 0040 ) // cross on second controller repeated
     {
-        if( w[800ad0c4] == S2 )
-        {
-            if( w[8004e9ac] == 0 )
-            {
-                if( w[800ad00c] == 0 )
-                {
-                    [8004e9f0] = w(0);
-                    [800ad0c4] = w(0);
+        [8004ea1c] = w((w[8004ea1c] + 1) & 1);
+    }
 
-                    A0 = 2;
-                    A1 = 0;
-                    put_bytes_to_800C2F3C();
+    if( hu[800c2ddc] & 0010 ) // triangle on second controller repeated
+    {
+        [8004ea20] = w((w[8004ea20] + 1) & 1);
+    }
+
+    if( hu[800c2ddc] & 0080 ) // square on second controller repeated
+    {
+        [8004ea24] = w((w[8004ea24] + 1) & 1);
+    }
+
+    if( hu[800af370] & 0040 ) // cross currently pressed
+    {
+        if( hu[800c2dd4] & 0100 ) // select repeated
+        {
+            if( w[800ad0c4] == S2 )
+            {
+                if( w[8004e9ac] == 0 )
+                {
+                    if( w[800ad00c] == 0 )
+                    {
+                        [8004e9f0] = w(0);
+                        [800ad0c4] = w(0);
+
+                        A0 = 2;
+                        A1 = 0;
+                        put_bytes_to_800C2F3C();
+                    }
                 }
             }
         }
     }
 }
 
-L77e20:	; 80077E20
 80077E20	lui    v0, $800b
 80077E24	lw     v0, $d0b0(v0)
 80077E28	nop
@@ -757,42 +721,32 @@ L77fc8:	; 80077FC8
 80078024	lw     v0, $0000(v0)
 80078028	nop
 8007802C	andi   v0, v0, $1800
-80078030	bne    v0, zero, L78050 [$80078050]
-80078034	nop
-80078038	jal    func7f5fc [$8007f5fc]
-8007803C	nop
-80078040	jal    func78fe8 [$80078fe8]
-80078044	nop
-80078048	lui    at, $800b
-8007804C	sw     s3, $d03c(at)
+
+if( V0 == 0 )
+{
+    80078038	jal    func7f5fc [$8007f5fc]
+
+    80078040	jal    func78fe8 [$80078fe8]
+
+    80078048	lui    at, $800b
+    8007804C	sw     s3, $d03c(at)
+}
 
 L78050:	; 80078050
-V0 = hu[800c2dd4] & 0010; // triangle repeated
-80078060	beq    v0, zero, L780bc [$800780bc]
-80078064	nop
-80078068	lui    v0, $800b
-8007806C	lbu    v0, $16a4(v0)
-80078070	nop
-80078074	bne    v0, zero, L780bc [$800780bc]
-80078078	nop
-8007807C	lui    v0, $800b
-80078080	lw     v0, $d03c(v0)
-80078084	nop
-80078088	bne    v0, s3, L780bc [$800780bc]
-8007808C	nop
-80078090	lui    v0, $800b
-80078094	lw     v0, $d040(v0)
-80078098	nop
-8007809C	bne    v0, s1, L780bc [$800780bc]
-800780A0	ori    v0, zero, $0080
-
-L780a4:	; 800780A4
-800780A4	lui    v1, $800b
-800780A8	lhu    v1, $1840(v1)
-800780AC	lui    at, $800b
-800780B0	sw     v0, $d03c(at)
-800780B4	lui    at, $8006
-800780B8	sb     v1, $8811(at)
+if( hu[800c2dd4] & 0010 ) // triangle repeated
+{
+    if( bu[800b16a4] == 0 )
+    {
+        if( w[800ad03c] == S3 )
+        {
+            if( w[800ad040] == S1 )
+            {
+                [800ad03c] = w(80);
+                [80058811] = b(hu[800b1840]);
+            }
+        }
+    }
+}
 
 L780bc:	; 800780BC
 800780BC	jal    func78170 [$80078170]
@@ -831,16 +785,4 @@ L780cc:	; 800780CC
 80078138	nop
 8007813C	jal    func78b60 [$80078b60]
 80078140	addu   a0, s0, zero
-80078144	lw     ra, $0034(sp)
-80078148	lw     s6, $0030(sp)
-8007814C	lw     s5, $002c(sp)
-80078150	lw     s4, $0028(sp)
-80078154	lw     s3, $0024(sp)
-80078158	lw     s2, $0020(sp)
-8007815C	lw     s1, $001c(sp)
-80078160	lw     s0, $0018(sp)
-80078164	addiu  sp, sp, $0038
-80078168	jr     ra 
-8007816C	nop
 ////////////////////////////////
-

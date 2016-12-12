@@ -18,9 +18,9 @@ ScriptFile::~ScriptFile()
 
 
 void
-ScriptFile::GetScripts()
+ScriptFile::GetScripts( const int file_id )
 {
-    Logger* export_script = new Logger( "exported/script.lua" );
+    Logger* export_script = new Logger( "exported/debug/0" + IntToString( file_id ) + "_5_script.txt" );
     export_script->Log( "EntityContainer = {}\n\n\n\n" );
 
     u32 number_of_entity = GetU8( 0x80 );
@@ -92,16 +92,16 @@ ScriptFile::GetScripts()
 
                 if( opcode == 0x00 )
                 {
-                    export_script->Log( "Return();" );
+                    export_script->Log( "0x00_Return();" );
                 }
                 else if( opcode == 0x01 )
                 {
-                    export_script->Log( "JumpTo( 0x" + HexToString( GetU16LE( script_pointer ), 4, '0' ) + " );" );
+                    export_script->Log( "0x01_JumpTo( 0x" + HexToString( GetU16LE( script_pointer ), 4, '0' ) + " );" );
                     script_pointer += 2;
                 }
                 else if( opcode == 0x02 )
                 {
-                    export_script->Log( "ConditionalJumpTo( " );
+                    export_script->Log( "0x02_ConditionalJumpTo( " );
                     u8 flag = GetU8( script_pointer + 4 );
                     switch( flag & 0xf0 )
                     {
@@ -150,45 +150,69 @@ ScriptFile::GetScripts()
                 }
                 else if( opcode == 0x0b )
                 {
-                    export_script->Log("EntityNPCSpriteInit( sprite_id=" + GetV80Variable( script_pointer ) + " );");
+                    export_script->Log("0x0B_EntityNPCSpriteInit( sprite_id=" + GetV80Variable( script_pointer ) + " );");
                     script_pointer += 2;
+                }
+                else if( opcode == 0x0c )
+                {
+                    export_script->Log( "0x0C_Encounter();" );
+                }
+                else if (opcode == 0x16)
+                {
+                    export_script->Log( "0x16_EntityPCInit( character_id=" + GetV80Variable( script_pointer ) + " );" );
+                    script_pointer += 2;
+                }
+                else if( opcode == 0x19 )
+                {
+                    export_script->Log( "0x19_SetPosition( x=" + GetVF80Variable( script_pointer ) + ", z=" + GetVF40Variable( script_pointer + 2 ) + ", flag=" + GetFVariable( script_pointer + 5 ) + " )");
+                    script_pointer += 5;
                 }
                 else if( opcode == 0x26 )
                 {
-                    export_script->Log( "Wait( time=" + GetV80Variable( script_pointer ) + " );" );
+                    export_script->Log( "0x26_Wait( time=" + GetV80Variable( script_pointer ) + " );" );
                     script_pointer += 2;
+                }
+                else if( opcode == 0x2a )
+                {
+                    export_script->Log( "0x2A();");
                 }
                 else if( opcode == 0x84 )
                 {
-                    export_script->Log( "ProgressLessEqualJumpTo( value=" + GetV80Variable( script_pointer ) + ", jump=" + GetU16Variable( script_pointer + 2 ) + " );" );
+                    export_script->Log( "0x84_ProgressLessEqualJumpTo( value=" + GetV80Variable( script_pointer ) + ", jump=" + GetU16Variable( script_pointer + 2 ) + " );" );
                     script_pointer += 4;
                 }
                 else if( opcode == 0x86 )
                 {
-                    export_script->Log( "ProgressNotEqualJumpTo( value=" + GetV80Variable( script_pointer ) + ", jump=" + GetU16Variable( script_pointer + 2 ) + " );" );
+                    export_script->Log( "0x86_ProgressNotEqualJumpTo( value=" + GetV80Variable( script_pointer ) + ", jump=" + GetU16Variable( script_pointer + 2 ) + " );" );
                     script_pointer += 4;
+                }
+                else if( opcode == 0xbc )
+                {
+                    export_script->Log("0xBC_EntityNoModelInit();");
                 }
                 else if( opcode == 0xcb )
                 {
-                    export_script->Log( "TriggerJumpTo( trigger_id=" + GetV80Variable( script_pointer ) + ", jump=" + GetU16Variable( script_pointer + 2 ) + " );" );
+                    export_script->Log( "0xCB_TriggerJumpTo( trigger_id=" + GetV80Variable( script_pointer ) + ", jump=" + GetU16Variable( script_pointer + 2 ) + " );" );
                     script_pointer += 4;
+                }
+                else if( opcode == 0xfe )
+                {
+                    u8 eo_opcode = GetU8( script_pointer );
+                    script_pointer += 1;
+
+                    if( eo_opcode == 0x0D )
+                    {
+                        export_script->Log( "0xFE0D_SetAvatar( character_id=" + GetV80Variable( script_pointer ) + " );" );
+                        script_pointer += 2;
+                    }
+                    else
+                    {
+                        export_script->Log( "MISSING OPCODE 0xFE" + HexToString( eo_opcode, 2, '0' ) + "\n" );
+                        break;
+                    }
                 }
 
 /*
-                else if (opcode == 0x16)
-                {
-                    LOGGER->Log("0x16_EntityPCInit");
-                    GetV80Variable(script_pointer, "character_id");
-                    LOGGER->Log("; // init values for player character entity with model.\n");
-                }
-                else if (opcode == 0x19)
-                {
-                    LOGGER->Log("0x19_SetPosition");
-                    GetVF80Variable(script_pointer, "x");
-                    GetVF40Variable(script_pointer, "z");
-                    GetFVariable(script_pointer);
-                    LOGGER->Log("; // set entity on walkmesh based on given x and y.\n");
-                }
                 else if (opcode == 0x20)
                 {
                     LOGGER->Log("0x20_SetFlags");
@@ -204,10 +228,6 @@ ScriptFile::GetScripts()
                     LOGGER->Log("0x29_EntityTurnOff");
                     GetEVariable(script_pointer);
                     LOGGER->Log("; // turn entity off (script will not be runned, close dialog from this entity and so on).\n");
-                }
-                else if (opcode == 0x2A)
-                {
-                    LOGGER->Log("0x2A(); // add flag 00000002 in 80115cdc + 0 of current entity.\n");
                 }
                 else if (opcode == 0x69)
                 {
@@ -233,10 +253,6 @@ ScriptFile::GetScripts()
                     GetEVariable(script_pointer);
                     LOGGER->Log(";\n");
                 }
-                else if (opcode == 0xBC)
-                {
-                    LOGGER->Log("0xBC_EntityNoModelInit(); // init values for entity without model.\n");
-                }
                 else if (opcode == 0xC4)
                 {
                     LOGGER->Log("0xC4_DoorOpen(0x%02x); // 0 - clockwise, 1 - anticlockwise\n", GetU8(script_pointer));
@@ -253,23 +269,6 @@ ScriptFile::GetScripts()
                     GetU16Variable(script_pointer, "dialog_id");
                     GetU8Variable(script_pointer, "flags");
                     LOGGER->Log(";\n", GetU16LE(script_pointer));
-                }
-                else if (opcode == 0xFE)
-                {
-                    u8 eo_opcode = GetU8(script_pointer);
-                    script_pointer += 1;
-
-                    if (eo_opcode == 0x0D)
-                    {
-                        LOGGER->Log("0xFE0D_SetAvatar");
-                        GetV80Variable(script_pointer, "character_id");
-                        LOGGER->Log("; // assign avatar for current entity.\n");
-                    }
-                    else
-                    {
-                        LOGGER->Log("MISSING OPCODE 0xFE%02x\n", eo_opcode);
-                        break;
-                    }
                 }
 /*
                 if (opcode == 0x10)
@@ -318,22 +317,18 @@ ScriptFile::GetScripts()
 
 
 
-void
-ScriptFile::GetEVariable( u32& script_pointer )
+Ogre::String
+ScriptFile::GetEVariable( const u32 script_pointer )
 {
-    u8 data = GetU8(script_pointer);
-    //LOGGER->Log("(entity_id 0x%02x)", data);
-    script_pointer += 1;
+    return "(entity)0x" + HexToString( GetU8( script_pointer ), 2, '0' );
 }
 
 
 
-void
-ScriptFile::GetFVariable( u32& script_pointer )
+Ogre::String
+ScriptFile::GetFVariable( const u32 script_pointer )
 {
-    u8 data = GetU8(script_pointer);
-    //LOGGER->Log("(flags 0x%02x)", data);
-    script_pointer += 1;
+    return "(flag)0x" + HexToString( GetU8( script_pointer ), 2, '0' );
 }
 
 
@@ -362,22 +357,18 @@ ScriptFile::GetU16Variable( const u32 script_pointer )
 
 
 
-void
-ScriptFile::GetVF40Variable( u32& script_pointer, const Ogre::String& name )
+Ogre::String
+ScriptFile::GetVF40Variable( const u32 script_pointer )
 {
-    u16 data = GetU16LE(script_pointer);
-    //LOGGER->Log("(vf40 %s 0x%04x)", name.c_str(), data);
-    script_pointer += 2;
+    return "(vf40)0x" + HexToString( GetU16LE( script_pointer ), 4, '0' );
 }
 
 
 
-void
-ScriptFile::GetVF80Variable( u32& script_pointer, const Ogre::String& name )
+Ogre::String
+ScriptFile::GetVF80Variable( const u32 script_pointer )
 {
-    u16 data = GetU16LE(script_pointer);
-    //LOGGER->Log("(vf80 %s 0x%04x)", name.c_str(), data);
-    script_pointer += 2;
+    return "(vf80)0x" + HexToString( GetU16LE( script_pointer ), 4, '0' );
 }
 
 

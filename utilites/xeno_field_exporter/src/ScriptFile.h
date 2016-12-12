@@ -11,16 +11,16 @@ public:
     ScriptFile( File* pFile );
     virtual ~ScriptFile();
 
-    void GetScripts();
-    void GetEVariable( u32& script_pointer );
-    void GetFVariable( u32& script_pointer );
+    void GetScripts( const int file_id );
+    Ogre::String GetEVariable( const u32 script_pointer );
+    Ogre::String GetFVariable( const u32 script_pointer );
 
     Ogre::String GetU8Variable( const u32 script_pointer );
     Ogre::String GetS16Variable( const u32 script_pointer );
     Ogre::String GetU16Variable( const u32 script_pointer );
 
-    void GetVF40Variable( u32& script_pointer, const Ogre::String& name );
-    void GetVF80Variable( u32& script_pointer, const Ogre::String& name );
+    Ogre::String GetVF40Variable( const u32 script_pointer );
+    Ogre::String GetVF80Variable( const u32 script_pointer );
     Ogre::String GetVVariable( const u32 script_pointer );
     Ogre::String GetV80Variable( const u32 script_pointer );
 };

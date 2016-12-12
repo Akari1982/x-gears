@@ -172,11 +172,11 @@ FieldModule::LoadMap( const int file_id )
 
     // script
     temp = field_pack->Extract( 5 );
-    //ScriptFile* script_file = new ScriptFile( temp );
+    ScriptFile* script_file = new ScriptFile( temp );
     temp->WriteFile( "exported/debug/0" + IntToString( file_id ) + "_5_script" );
     delete temp;
-    //script_file->GetScripts();
-    //delete script_file;
+    script_file->GetScripts( file_id );
+    delete script_file;
 
 
 

@@ -1,5 +1,5 @@
-Start load field with id "616".
-Loading file: data/field/0617.raw2
+Start load field with id "636".
+Loading file: data/field/0637.raw2
 Load texture:
     texture_header_id     = 0x00001201
     texture_header_vram_x = 0x00000000
@@ -11,7 +11,49 @@ Load texture:
     texture_header_id     = 0x00001200
     texture_header_vram_x = 0x00000140
     texture_header_vram_y = 0x00000000
+    texture_header_move_x = 0x00000100
+    texture_header_move_y = 0x00000000
+    texture_header_width  = 0x00000080
+Load texture:
+    texture_header_id     = 0x00001200
+    texture_header_vram_x = 0x00000140
+    texture_header_vram_y = 0x00000000
+    texture_header_move_x = 0x00000180
+    texture_header_move_y = 0x00000000
+    texture_header_width  = 0x00000080
+Load texture:
+    texture_header_id     = 0x00001200
+    texture_header_vram_x = 0x00000140
+    texture_header_vram_y = 0x00000000
+    texture_header_move_x = 0x00000000
+    texture_header_move_y = 0x00000080
+    texture_header_width  = 0x00000040
+Load texture:
+    texture_header_id     = 0x00001200
+    texture_header_vram_x = 0x00000140
+    texture_header_vram_y = 0x00000000
     texture_header_move_x = 0x00000080
+    texture_header_move_y = 0x00000000
+    texture_header_width  = 0x00000034
+Load texture:
+    texture_header_id     = 0x00001200
+    texture_header_vram_x = 0x00000140
+    texture_header_vram_y = 0x00000000
+    texture_header_move_x = 0x00000040
+    texture_header_move_y = 0x00000000
+    texture_header_width  = 0x00000020
+Load texture:
+    texture_header_id     = 0x00001200
+    texture_header_vram_x = 0x00000140
+    texture_header_vram_y = 0x00000000
+    texture_header_move_x = 0x000000c0
+    texture_header_move_y = 0x00000000
+    texture_header_width  = 0x00000027
+Load texture:
+    texture_header_id     = 0x00001200
+    texture_header_vram_x = 0x00000140
+    texture_header_vram_y = 0x00000000
+    texture_header_move_x = 0x00000200
     texture_header_move_y = 0x00000000
     texture_header_width  = 0x00000040
 Load texture:
@@ -25,52 +67,101 @@ Load texture:
     texture_header_id     = 0x00001200
     texture_header_vram_x = 0x00000140
     texture_header_vram_y = 0x00000000
-    texture_header_move_x = 0x00000040
-    texture_header_move_y = 0x00000000
-    texture_header_width  = 0x00000040
-Load texture:
-    texture_header_id     = 0x00001200
-    texture_header_vram_x = 0x00000140
-    texture_header_vram_y = 0x00000000
-    texture_header_move_x = 0x00000200
-    texture_header_move_y = 0x00000000
-    texture_header_width  = 0x00000040
-Load texture:
-    texture_header_id     = 0x00001200
-    texture_header_vram_x = 0x00000140
-    texture_header_vram_y = 0x00000000
-    texture_header_move_x = 0x00000240
-    texture_header_move_y = 0x00000000
-    texture_header_width  = 0x00000040
-Load texture:
-    texture_header_id     = 0x00001200
-    texture_header_vram_x = 0x00000140
-    texture_header_vram_y = 0x00000000
-    texture_header_move_x = 0x00000100
-    texture_header_move_y = 0x00000100
-    texture_header_width  = 0x00000040
-Load texture:
-    texture_header_id     = 0x00001200
-    texture_header_vram_x = 0x00000140
-    texture_header_vram_y = 0x00000000
     texture_header_move_x = 0x000000c0
+    texture_header_move_y = 0x000000a0
+    texture_header_width  = 0x00000027
+Load texture:
+    texture_header_id     = 0x00001200
+    texture_header_vram_x = 0x00000140
+    texture_header_vram_y = 0x00000000
+    texture_header_move_x = 0x00000280
+    texture_header_move_y = 0x00000080
+    texture_header_width  = 0x00000040
+Load texture:
+    texture_header_id     = 0x00001200
+    texture_header_vram_x = 0x00000140
+    texture_header_vram_y = 0x00000000
+    texture_header_move_x = 0x000000b4
+    texture_header_move_y = 0x000000a0
+    texture_header_width  = 0x0000000c
+Load texture:
+    texture_header_id     = 0x00001200
+    texture_header_vram_x = 0x00000140
+    texture_header_vram_y = 0x00000000
+    texture_header_move_x = 0x00000070
+    texture_header_move_y = 0x00000040
+    texture_header_width  = 0x00000010
+Load texture:
+    texture_header_id     = 0x00001200
+    texture_header_vram_x = 0x00000140
+    texture_header_vram_y = 0x00000000
+    texture_header_move_x = 0x00000060
+    texture_header_move_y = 0x00000040
+    texture_header_width  = 0x00000008
+Load texture:
+    texture_header_id     = 0x00001200
+    texture_header_vram_x = 0x00000140
+    texture_header_vram_y = 0x00000000
+    texture_header_move_x = 0x000000b4
+    texture_header_move_y = 0x00000000
+    texture_header_width  = 0x0000000c
+Load texture:
+    texture_header_id     = 0x00001200
+    texture_header_vram_x = 0x00000140
+    texture_header_vram_y = 0x00000000
+    texture_header_move_x = 0x000000e7
+    texture_header_move_y = 0x0000003e
+    texture_header_width  = 0x00000010
+Load texture:
+    texture_header_id     = 0x00001200
+    texture_header_vram_x = 0x00000140
+    texture_header_vram_y = 0x00000000
+    texture_header_move_x = 0x000000e7
+    texture_header_move_y = 0x000000a0
+    texture_header_width  = 0x00000010
+Load texture:
+    texture_header_id     = 0x00001200
+    texture_header_vram_x = 0x00000140
+    texture_header_vram_y = 0x00000000
+    texture_header_move_x = 0x00000068
+    texture_header_move_y = 0x00000040
+    texture_header_width  = 0x00000008
+Load texture:
+    texture_header_id     = 0x00001200
+    texture_header_vram_x = 0x00000140
+    texture_header_vram_y = 0x00000000
+    texture_header_move_x = 0x00000060
+    texture_header_move_y = 0x00000180
+    texture_header_width  = 0x00000010
+Load texture:
+    texture_header_id     = 0x00001200
+    texture_header_vram_x = 0x00000140
+    texture_header_vram_y = 0x00000000
+    texture_header_move_x = 0x000000f7
+    texture_header_move_y = 0x0000003e
+    texture_header_width  = 0x00000009
+Load texture:
+    texture_header_id     = 0x00001200
+    texture_header_vram_x = 0x00000140
+    texture_header_vram_y = 0x00000000
+    texture_header_move_x = 0x000000f7
+    texture_header_move_y = 0x000000a0
+    texture_header_width  = 0x00000009
+Load texture:
+    texture_header_id     = 0x00001200
+    texture_header_vram_x = 0x00000140
+    texture_header_vram_y = 0x00000000
+    texture_header_move_x = 0x00000280
     texture_header_move_y = 0x00000000
     texture_header_width  = 0x00000040
 Load texture:
     texture_header_id     = 0x00001200
     texture_header_vram_x = 0x00000140
     texture_header_vram_y = 0x00000000
-    texture_header_move_x = 0x000000c0
-    texture_header_move_y = 0x00000040
-    texture_header_width  = 0x00000018
-Load texture:
-    texture_header_id     = 0x00001200
-    texture_header_vram_x = 0x00000140
-    texture_header_vram_y = 0x00000000
-    texture_header_move_x = 0x000000d8
-    texture_header_move_y = 0x00000040
-    texture_header_width  = 0x00000004
-Loading file: data/field/0616
+    texture_header_move_x = 0x000000e7
+    texture_header_move_y = 0x00000000
+    texture_header_width  = 0x00000010
+Loading file: data/field/0636
 Assign bones to vertexes
 Assign bones to vertexes
 Assign bones to vertexes
@@ -99,4 +190,12 @@ Assign bones to vertexes
 Assign bones to vertexes
 Assign bones to vertexes
 Assign bones to vertexes
-CreateTexture palette_x="0" palette_y="480" bpp="1".CreateTexture palette_x="0" palette_y="480" bpp="1".CreateTexture palette_x="0" palette_y="482" bpp="1".CreateTexture palette_x="0" palette_y="486" bpp="1".CreateTexture palette_x="0" palette_y="481" bpp="1".CreateTexture palette_x="0" palette_y="485" bpp="1".CreateTexture palette_x="0" palette_y="483" bpp="1".CreateTexture palette_x="0" palette_y="484" bpp="1".CreateTexture palette_x="0" palette_y="487" bpp="0".CreateTexture palette_x="0" palette_y="488" bpp="1".CreateTexture palette_x="256" palette_y="480" bpp="0".CreateTexture palette_x="256" palette_y="480" bpp="0".CreateTexture palette_x="256" palette_y="480" bpp="0".CreateTexture palette_x="256" palette_y="480" bpp="0".CreateTexture palette_x="256" palette_y="480" bpp="0".CreateTexture palette_x="256" palette_y="480" bpp="0".CreateTexture palette_x="256" palette_y="480" bpp="0".CreateTexture palette_x="256" palette_y="480" bpp="0".
+Assign bones to vertexes
+Assign bones to vertexes
+Assign bones to vertexes
+Assign bones to vertexes
+Assign bones to vertexes
+Assign bones to vertexes
+Assign bones to vertexes
+Assign bones to vertexes
+CreateTexture palette_x="0" palette_y="484" bpp="1".CreateTexture palette_x="0" palette_y="486" bpp="0".CreateTexture palette_x="0" palette_y="485" bpp="1".CreateTexture palette_x="0" palette_y="484" bpp="1".CreateTexture palette_x="48" palette_y="486" bpp="0".CreateTexture palette_x="0" palette_y="490" bpp="1".CreateTexture palette_x="0" palette_y="491" bpp="1".CreateTexture palette_x="0" palette_y="491" bpp="1".CreateTexture palette_x="0" palette_y="483" bpp="1".CreateTexture palette_x="0" palette_y="482" bpp="1".CreateTexture palette_x="0" palette_y="481" bpp="1".CreateTexture palette_x="0" palette_y="480" bpp="1".CreateTexture palette_x="0" palette_y="480" bpp="1".CreateTexture palette_x="0" palette_y="487" bpp="1".CreateTexture palette_x="0" palette_y="488" bpp="1".CreateTexture palette_x="0" palette_y="489" bpp="1".CreateTexture palette_x="16" palette_y="486" bpp="0".CreateTexture palette_x="32" palette_y="486" bpp="0".CreateTexture palette_x="256" palette_y="480" bpp="0".CreateTexture palette_x="256" palette_y="480" bpp="0".CreateTexture palette_x="256" palette_y="480" bpp="0".CreateTexture palette_x="256" palette_y="480" bpp="0".CreateTexture palette_x="256" palette_y="480" bpp="0".CreateTexture palette_x="256" palette_y="480" bpp="0".
