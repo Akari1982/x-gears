@@ -1,1079 +1,1077 @@
-01:55:08: Creating resource group General
-01:55:08: Creating resource group Internal
-01:55:08: Creating resource group Autodetect
-01:55:08: SceneManagerFactory for type 'DefaultSceneManager' registered.
-01:55:08: Registering ResourceManager for type Material
-01:55:08: Registering ResourceManager for type Mesh
-01:55:08: Registering ResourceManager for type Skeleton
-01:55:08: MovableObjectFactory for type 'ParticleSystem' registered.
-01:55:08: ArchiveFactory for archive type FileSystem registered.
-01:55:08: ArchiveFactory for archive type Zip registered.
-01:55:08: ArchiveFactory for archive type EmbeddedZip registered.
-01:55:08: DDS codec registering
-01:55:08: FreeImage version: 3.15.3
-01:55:08: This program uses FreeImage, a free, open source image library supporting all common bitmap formats. See http://freeimage.sourceforge.net for details
-01:55:08: Supported formats: bmp,ico,jpg,jif,jpeg,jpe,jng,koa,iff,lbm,mng,pbm,pbm,pcd,pcx,pgm,pgm,png,ppm,ppm,ras,tga,targa,tif,tiff,wap,wbmp,wbm,psd,cut,xbm,xpm,gif,hdr,g3,sgi,exr,j2k,j2c,jp2,pfm,pct,pict,pic,3fr,arw,bay,bmq,cap,cine,cr2,crw,cs1,dc2,dcr,drf,dsc,dng,erf,fff,ia,iiq,k25,kc2,kdc,mdc,mef,mos,mrw,nef,nrw,orf,pef,ptx,pxn,qtk,raf,raw,rdc,rw2,rwl,rwz,sr2,srf,srw,sti
-01:55:08: Registering ResourceManager for type HighLevelGpuProgram
-01:55:08: Registering ResourceManager for type Compositor
-01:55:08: MovableObjectFactory for type 'Entity' registered.
-01:55:08: MovableObjectFactory for type 'Light' registered.
-01:55:08: MovableObjectFactory for type 'BillboardSet' registered.
-01:55:08: MovableObjectFactory for type 'ManualObject' registered.
-01:55:08: MovableObjectFactory for type 'BillboardChain' registered.
-01:55:08: MovableObjectFactory for type 'RibbonTrail' registered.
-01:55:08: *-*-* OGRE Initialising
-01:55:08: *-*-* Version 1.9.0 (Ghadamon)
-01:55:08: Loading library RenderSystem_Direct3D9.dll
-01:55:08: Installing plugin: D3D9 RenderSystem
-01:55:08: D3D9 : Direct3D9 Rendering Subsystem created.
-01:55:08: D3D9: Driver Detection Starts
-01:55:08: D3D9: Driver Detection Ends
-01:55:08: Plugin successfully installed
-01:55:08: CPU Identifier & Features
-01:55:08: -------------------------
-01:55:08:  *   CPU ID: GenuineIntel: Intel(R) Celeron(R) CPU G1820 @ 2.70GHz
-01:55:08:  *      SSE: yes
-01:55:08:  *     SSE2: yes
-01:55:08:  *     SSE3: yes
-01:55:08:  *      MMX: yes
-01:55:08:  *   MMXEXT: yes
-01:55:08:  *    3DNOW: no
-01:55:08:  * 3DNOWEXT: no
-01:55:08:  *     CMOV: yes
-01:55:08:  *      TSC: yes
-01:55:08:  *      FPU: yes
-01:55:08:  *      PRO: yes
-01:55:08:  *       HT: no
-01:55:08: -------------------------
-01:55:08: D3D9 : Subsystem Initialising
-01:55:08: Registering ResourceManager for type Texture
-01:55:08: Registering ResourceManager for type GpuProgram
-01:55:08: ***************************************
-01:55:08: *** D3D9 : Subsystem Initialised OK ***
-01:55:08: ***************************************
-01:55:08: D3D9RenderSystem::_createRenderWindow "QGearsWindow", 800x600 windowed  miscParams: title=Xenogears Exporter 
-01:55:08: D3D9 : Created D3D9 Rendering Window 'QGearsWindow' : 800x600, 32bpp
-01:55:08: D3D9 : WARNING - disabling VSync in windowed mode can cause timing issues at lower frame rates, turn VSync on if you observe this problem.
-01:55:08: D3D9: Vertex texture format supported - PF_A8R8G8B8
-01:55:08: D3D9: Vertex texture format supported - PF_B8G8R8A8
-01:55:08: D3D9: Vertex texture format supported - PF_FLOAT16_RGB
-01:55:08: D3D9: Vertex texture format supported - PF_FLOAT16_RGBA
-01:55:08: D3D9: Vertex texture format supported - PF_FLOAT32_RGB
-01:55:08: D3D9: Vertex texture format supported - PF_FLOAT32_RGBA
-01:55:08: D3D9: Vertex texture format supported - PF_R8G8B8A8
-01:55:08: D3D9: Vertex texture format supported - PF_DEPTH
-01:55:08: D3D9: Vertex texture format supported - PF_FLOAT16_R
-01:55:08: D3D9: Vertex texture format supported - PF_FLOAT32_R
-01:55:08: D3D9: Vertex texture format supported - PF_FLOAT16_GR
-01:55:08: D3D9: Vertex texture format supported - PF_FLOAT32_GR
-01:55:08: D3D9: Vertex texture format supported - PF_PVRTC_RGB2
-01:55:08: D3D9: Vertex texture format supported - PF_PVRTC_RGBA2
-01:55:08: D3D9: Vertex texture format supported - PF_PVRTC_RGB4
-01:55:08: D3D9: Vertex texture format supported - PF_PVRTC_RGBA4
-01:55:08: D3D9: Vertex texture format supported - PF_PVRTC2_2BPP
-01:55:08: D3D9: Vertex texture format supported - PF_PVRTC2_4BPP
-01:55:08: D3D9: Vertex texture format supported - PF_R11G11B10_FLOAT
-01:55:08: D3D9: Vertex texture format supported - PF_R8_UINT
-01:55:08: D3D9: Vertex texture format supported - PF_R8G8_UINT
-01:55:08: D3D9: Vertex texture format supported - PF_R8G8B8_UINT
-01:55:08: D3D9: Vertex texture format supported - PF_R8G8B8A8_UINT
-01:55:08: D3D9: Vertex texture format supported - PF_R16_UINT
-01:55:08: D3D9: Vertex texture format supported - PF_R16G16_UINT
-01:55:08: D3D9: Vertex texture format supported - PF_R16G16B16_UINT
-01:55:08: D3D9: Vertex texture format supported - PF_R16G16B16A16_UINT
-01:55:08: D3D9: Vertex texture format supported - PF_R32_UINT
-01:55:08: D3D9: Vertex texture format supported - PF_R32G32_UINT
-01:55:08: D3D9: Vertex texture format supported - PF_R32G32B32_UINT
-01:55:08: D3D9: Vertex texture format supported - PF_R32G32B32A32_UINT
-01:55:08: D3D9: Vertex texture format supported - PF_R8_SINT
-01:55:08: D3D9: Vertex texture format supported - PF_R8G8_SINT
-01:55:08: D3D9: Vertex texture format supported - PF_R8G8B8_SINT
-01:55:08: D3D9: Vertex texture format supported - PF_R8G8B8A8_SINT
-01:55:08: D3D9: Vertex texture format supported - PF_R16_SINT
-01:55:08: D3D9: Vertex texture format supported - PF_R16G16_SINT
-01:55:08: D3D9: Vertex texture format supported - PF_R16G16B16_SINT
-01:55:08: D3D9: Vertex texture format supported - PF_R16G16B16A16_SINT
-01:55:08: D3D9: Vertex texture format supported - PF_R32_SINT
-01:55:08: D3D9: Vertex texture format supported - PF_R32G32_SINT
-01:55:08: D3D9: Vertex texture format supported - PF_R32G32B32_SINT
-01:55:08: D3D9: Vertex texture format supported - PF_R32G32B32A32_SINT
-01:55:08: D3D9: Vertex texture format supported - PF_R9G9B9E5_SHAREDEXP
-01:55:08: D3D9: Vertex texture format supported - PF_BC4_UNORM
-01:55:08: D3D9: Vertex texture format supported - PF_BC4_SNORM
-01:55:08: D3D9: Vertex texture format supported - PF_BC5_UNORM
-01:55:08: D3D9: Vertex texture format supported - PF_BC5_SNORM
-01:55:08: D3D9: Vertex texture format supported - PF_BC6H_UF16
-01:55:08: D3D9: Vertex texture format supported - PF_BC6H_SF16
-01:55:08: D3D9: Vertex texture format supported - PF_BC7_UNORM
-01:55:08: D3D9: Vertex texture format supported - PF_BC7_UNORM_SRGB
-01:55:08: D3D9: Vertex texture format supported - PF_R8
-01:55:08: D3D9: Vertex texture format supported - PF_RG8
-01:55:08: D3D9: Vertex texture format supported - PF_R8_SNORM
-01:55:08: D3D9: Vertex texture format supported - PF_R8G8_SNORM
-01:55:08: D3D9: Vertex texture format supported - PF_R8G8B8_SNORM
-01:55:08: D3D9: Vertex texture format supported - PF_R8G8B8A8_SNORM
-01:55:08: D3D9: Vertex texture format supported - PF_R16_SNORM
-01:55:08: D3D9: Vertex texture format supported - PF_R16G16_SNORM
-01:55:08: D3D9: Vertex texture format supported - PF_R16G16B16_SNORM
-01:55:08: D3D9: Vertex texture format supported - PF_R16G16B16A16_SNORM
-01:55:08: D3D9: Vertex texture format supported - PF_ETC1_RGB8
-01:55:08: D3D9: Vertex texture format supported - PF_ETC2_RGB8
-01:55:08: D3D9: Vertex texture format supported - PF_ETC2_RGBA8
-01:55:08: D3D9: Vertex texture format supported - PF_ETC2_RGB8A1
-01:55:08: D3D9: Vertex texture format supported - PF_ATC_RGB
-01:55:08: D3D9: Vertex texture format supported - PF_ATC_RGBA_EXPLICIT_ALPHA
-01:55:08: D3D9: Vertex texture format supported - PF_ATC_RGBA_INTERPOLATED_ALPHA
-01:55:08: RenderSystem capabilities
-01:55:08: -------------------------
-01:55:08: RenderSystem Name: Direct3D9 Rendering Subsystem
-01:55:08: GPU Vendor: nvidia
-01:55:08: Device Name: Monitor-1-NVIDIA GeForce GTX 750
-01:55:08: Driver Version: 10.18.13.5560
-01:55:08:  * Fixed function pipeline: yes
-01:55:08:  * Hardware generation of mipmaps: yes
-01:55:08:  * Texture blending: yes
-01:55:08:  * Anisotropic texture filtering: yes
-01:55:08:  * Dot product texture operation: yes
-01:55:08:  * Cube mapping: yes
-01:55:08:  * Hardware stencil buffer: yes
-01:55:08:    - Stencil depth: 8
-01:55:08:    - Two sided stencil support: yes
-01:55:08:    - Wrap stencil values: yes
-01:55:08:  * Hardware vertex / index buffers: yes
-01:55:08:  * Vertex programs: yes
-01:55:08:  * Number of floating-point constants for vertex programs: 256
-01:55:08:  * Number of integer constants for vertex programs: 16
-01:55:08:  * Number of boolean constants for vertex programs: 16
-01:55:08:  * Fragment programs: yes
-01:55:08:  * Number of floating-point constants for fragment programs: 224
-01:55:08:  * Number of integer constants for fragment programs: 16
-01:55:08:  * Number of boolean constants for fragment programs: 16
-01:55:08:  * Geometry programs: no
-01:55:08:  * Number of floating-point constants for geometry programs: 0
-01:55:08:  * Number of integer constants for geometry programs: 0
-01:55:08:  * Number of boolean constants for geometry programs: 0
-01:55:08:  * Tesselation Hull programs: no
-01:55:08:  * Number of floating-point constants for tesselation hull programs: 0
-01:55:08:  * Number of integer constants for tesselation hull programs: 0
-01:55:08:  * Number of boolean constants for tesselation hull programs: 0
-01:55:08:  * Tesselation Domain programs: no
-01:55:08:  * Number of floating-point constants for tesselation domain programs: 0
-01:55:08:  * Number of integer constants for tesselation domain programs: 0
-01:55:08:  * Number of boolean constants for tesselation domain programs: 0
-01:55:08:  * Compute programs: no
-01:55:08:  * Number of floating-point constants for compute programs: 0
-01:55:08:  * Number of integer constants for compute programs: 0
-01:55:08:  * Number of boolean constants for compute programs: 0
-01:55:08:  * Supported Shader Profiles: hlsl ps_1_1 ps_1_2 ps_1_3 ps_1_4 ps_2_0 ps_2_a ps_2_b ps_2_x ps_3_0 vs_1_1 vs_2_0 vs_2_a vs_2_x vs_3_0
-01:55:08:  * Texture Compression: yes
-01:55:08:    - DXT: yes
-01:55:08:    - VTC: no
-01:55:08:    - PVRTC: no
-01:55:08:    - ATC: no
-01:55:08:    - ETC1: no
-01:55:08:    - ETC2: no
-01:55:08:    - BC4/BC5: no
-01:55:08:    - BC6H/BC7: no
-01:55:08:  * Scissor Rectangle: yes
-01:55:08:  * Hardware Occlusion Query: yes
-01:55:08:  * User clip planes: yes
-01:55:08:  * VET_UBYTE4 vertex element type: yes
-01:55:08:  * Infinite far plane projection: yes
-01:55:08:  * Hardware render-to-texture: yes
-01:55:08:  * Floating point textures: yes
-01:55:08:  * Non-power-of-two textures: yes
-01:55:08:  * 1d textures: yes
-01:55:08:  * Volume textures: yes
-01:55:08:  * Multiple Render Targets: 4
-01:55:08:    - With different bit depths: yes
-01:55:08:  * Point Sprites: yes
-01:55:08:  * Extended point parameters: yes
-01:55:08:  * Max Point Size: 8192
-01:55:08:  * Vertex texture fetch: yes
-01:55:08:  * Number of world matrices: 0
-01:55:08:  * Number of texture units: 8
-01:55:08:  * Stencil buffer depth: 8
-01:55:08:  * Number of vertex blend matrices: 0
-01:55:08:    - Max vertex textures: 4
-01:55:08:    - Vertex textures shared: no
-01:55:08:  * Render to Vertex Buffer : no
-01:55:08:  * Hardware Atomic Counters: no
-01:55:08:  * DirectX per stage constants: yes
-01:55:08: DefaultWorkQueue('Root') initialising on thread 222c.
-01:55:08: Particle Renderer Type 'billboard' registered
-01:55:08: DefaultWorkQueue('Root')::WorkerFunc - thread 1008 starting.
-01:55:08: OverlayElementFactory for type Panel registered.
-01:55:08: OverlayElementFactory for type BorderPanel registered.
-01:55:08: OverlayElementFactory for type TextArea registered.
-01:55:08: DefaultWorkQueue('Root')::WorkerFunc - thread 1038 starting.
-01:55:08: Registering ResourceManager for type Font
-01:55:08: Added resource location './data' of type 'FileSystem' to resource group 'General'
-01:55:08: Added resource location './exported' of type 'FileSystem' to resource group 'General'
-01:55:08: Creating resource group Bootstrap
-01:55:08: Added resource location './data/OgreCore.zip' of type 'Zip' to resource group 'Bootstrap'
-01:55:08: Parsing scripts for resource group Autodetect
-01:55:08: Finished parsing scripts for resource group Autodetect
-01:55:08: Creating resources for group Autodetect
-01:55:08: All done
-01:55:08: Parsing scripts for resource group Bootstrap
-01:55:08: Parsing script OgreCore.material
-01:55:08: Parsing script OgreProfiler.material
-01:55:08: Parsing script Ogre.fontdef
-01:55:08: Parsing script OgreDebugPanel.overlay
-01:55:08: Texture: New_Ogre_Border_Center.png: Loading 1 faces(PF_A8R8G8B8,256x128x1) Internal format is PF_A8R8G8B8,256x128x1.
-01:55:08: Texture: New_Ogre_Border.png: Loading 1 faces(PF_A8R8G8B8,256x256x1) Internal format is PF_A8R8G8B8,256x256x1.
-01:55:08: Texture: New_Ogre_Border_Break.png: Loading 1 faces(PF_A8R8G8B8,32x32x1) Internal format is PF_A8R8G8B8,32x32x1.
-01:55:08: Texture: ogretext.png: Loading 1 faces(PF_A8R8G8B8,256x128x1) Internal format is PF_A8R8G8B8,256x128x1.
-01:55:08: Parsing script OgreLoadingPanel.overlay
-01:55:08: Finished parsing scripts for resource group Bootstrap
-01:55:08: Creating resources for group Bootstrap
-01:55:08: All done
-01:55:08: Parsing scripts for resource group General
-01:55:08: Parsing script debug.material
-01:55:08: Parsing script system.fontdef
-01:55:08: Finished parsing scripts for resource group General
-01:55:08: Creating resources for group General
-01:55:08: All done
-01:55:08: Parsing scripts for resource group Internal
-01:55:08: Finished parsing scripts for resource group Internal
-01:55:08: Creating resources for group Internal
-01:55:08: All done
-01:55:09: Texture: courier_new_9_75.png: Loading 1 faces(PF_A8R8G8B8,256x256x1) with 0 generated mipmaps from Image. Internal format is PF_A8R8G8B8,256x256x1.
-01:55:09: Exporting bones..
-01:55:09: Bones exported.
-01:55:09: Exporting animations, count=1
-01:55:09: Exporting animation: Idle
-01:55:09: Animation exported.
-01:55:09: Skeleton: Loading models/field_maps/0636/0.skeleton
-01:55:09: MeshSerializer writing mesh data to stream ...
-01:55:09: File header written.
-01:55:09: Writing mesh data...
-01:55:09: Writing submesh...
-01:55:09: Exporting submesh texture aliases...
-01:55:09: Submesh texture aliases exported.
-01:55:09: Exporting dedicated geometry bone assignments...
-01:55:09: Dedicated geometry bone assignments exported.
-01:55:09: Submesh exported.
-01:55:09: Exporting skeleton link...
-01:55:09: Skeleton link exported.
-01:55:09: Exporting bounds information....
-01:55:09: Bounds information exported.
-01:55:09: Exporting submesh name table...
-01:55:09: Submesh name table exported.
-01:55:09: Mesh data exported.
-01:55:09: MeshSerializer export successful.
-01:55:09: Exporting bones..
-01:55:09: Bones exported.
-01:55:09: Exporting animations, count=1
-01:55:09: Exporting animation: Idle
-01:55:09: Animation exported.
-01:55:09: Skeleton: Loading models/field_maps/0636/1.skeleton
-01:55:09: MeshSerializer writing mesh data to stream ...
-01:55:09: File header written.
-01:55:09: Writing mesh data...
-01:55:09: Writing submesh...
-01:55:09: Exporting submesh texture aliases...
-01:55:09: Submesh texture aliases exported.
-01:55:09: Exporting dedicated geometry bone assignments...
-01:55:09: Dedicated geometry bone assignments exported.
-01:55:09: Submesh exported.
-01:55:09: Writing submesh...
-01:55:09: Exporting submesh texture aliases...
-01:55:09: Submesh texture aliases exported.
-01:55:09: Exporting dedicated geometry bone assignments...
-01:55:09: Dedicated geometry bone assignments exported.
-01:55:09: Submesh exported.
-01:55:09: Exporting skeleton link...
-01:55:09: Skeleton link exported.
-01:55:09: Exporting bounds information....
-01:55:09: Bounds information exported.
-01:55:09: Exporting submesh name table...
-01:55:09: Submesh name table exported.
-01:55:09: Mesh data exported.
-01:55:09: MeshSerializer export successful.
-01:55:09: Exporting bones..
-01:55:09: Bones exported.
-01:55:09: Exporting animations, count=1
-01:55:09: Exporting animation: Idle
-01:55:09: Animation exported.
-01:55:09: Skeleton: Loading models/field_maps/0636/2.skeleton
-01:55:09: MeshSerializer writing mesh data to stream ...
-01:55:09: File header written.
-01:55:09: Writing mesh data...
-01:55:09: Writing submesh...
-01:55:09: Exporting submesh texture aliases...
-01:55:09: Submesh texture aliases exported.
-01:55:09: Exporting dedicated geometry bone assignments...
-01:55:09: Dedicated geometry bone assignments exported.
-01:55:09: Submesh exported.
-01:55:09: Writing submesh...
-01:55:09: Exporting submesh texture aliases...
-01:55:09: Submesh texture aliases exported.
-01:55:09: Exporting dedicated geometry bone assignments...
-01:55:09: Dedicated geometry bone assignments exported.
-01:55:09: Submesh exported.
-01:55:09: Exporting skeleton link...
-01:55:09: Skeleton link exported.
-01:55:09: Exporting bounds information....
-01:55:09: Bounds information exported.
-01:55:09: Exporting submesh name table...
-01:55:09: Submesh name table exported.
-01:55:09: Mesh data exported.
-01:55:09: MeshSerializer export successful.
-01:55:09: Exporting bones..
-01:55:09: Bones exported.
-01:55:09: Exporting animations, count=1
-01:55:09: Exporting animation: Idle
-01:55:09: Animation exported.
-01:55:09: Skeleton: Loading models/field_maps/0636/3.skeleton
-01:55:09: MeshSerializer writing mesh data to stream ...
-01:55:09: File header written.
-01:55:09: Writing mesh data...
-01:55:09: Writing submesh...
-01:55:09: Exporting submesh texture aliases...
-01:55:09: Submesh texture aliases exported.
-01:55:09: Exporting dedicated geometry bone assignments...
-01:55:09: Dedicated geometry bone assignments exported.
-01:55:09: Submesh exported.
-01:55:09: Writing submesh...
-01:55:09: Exporting submesh texture aliases...
-01:55:09: Submesh texture aliases exported.
-01:55:09: Exporting dedicated geometry bone assignments...
-01:55:09: Dedicated geometry bone assignments exported.
-01:55:09: Submesh exported.
-01:55:09: Exporting skeleton link...
-01:55:09: Skeleton link exported.
-01:55:09: Exporting bounds information....
-01:55:09: Bounds information exported.
-01:55:09: Exporting submesh name table...
-01:55:09: Submesh name table exported.
-01:55:09: Mesh data exported.
-01:55:09: MeshSerializer export successful.
-01:55:09: Exporting bones..
-01:55:09: Bones exported.
-01:55:09: Exporting animations, count=1
-01:55:09: Exporting animation: Idle
-01:55:09: Animation exported.
-01:55:09: Skeleton: Loading models/field_maps/0636/4.skeleton
-01:55:09: MeshSerializer writing mesh data to stream ...
-01:55:09: File header written.
-01:55:09: Writing mesh data...
-01:55:09: Writing submesh...
-01:55:09: Exporting submesh texture aliases...
-01:55:09: Submesh texture aliases exported.
-01:55:09: Exporting dedicated geometry bone assignments...
-01:55:09: Dedicated geometry bone assignments exported.
-01:55:09: Submesh exported.
-01:55:09: Exporting skeleton link...
-01:55:09: Skeleton link exported.
-01:55:09: Exporting bounds information....
-01:55:09: Bounds information exported.
-01:55:09: Exporting submesh name table...
-01:55:09: Submesh name table exported.
-01:55:09: Mesh data exported.
-01:55:09: MeshSerializer export successful.
-01:55:09: Exporting bones..
-01:55:09: Bones exported.
-01:55:09: Exporting animations, count=1
-01:55:09: Exporting animation: Idle
-01:55:09: Animation exported.
-01:55:09: Skeleton: Loading models/field_maps/0636/5.skeleton
-01:55:09: MeshSerializer writing mesh data to stream ...
-01:55:09: File header written.
-01:55:09: Writing mesh data...
-01:55:09: Writing submesh...
-01:55:09: Exporting submesh texture aliases...
-01:55:09: Submesh texture aliases exported.
-01:55:09: Exporting dedicated geometry bone assignments...
-01:55:09: Dedicated geometry bone assignments exported.
-01:55:09: Submesh exported.
-01:55:09: Exporting skeleton link...
-01:55:09: Skeleton link exported.
-01:55:09: Exporting bounds information....
-01:55:09: Bounds information exported.
-01:55:09: Exporting submesh name table...
-01:55:09: Submesh name table exported.
-01:55:09: Mesh data exported.
-01:55:09: MeshSerializer export successful.
-01:55:09: Exporting bones..
-01:55:09: Bones exported.
-01:55:09: Exporting animations, count=1
-01:55:09: Exporting animation: Idle
-01:55:09: Animation exported.
-01:55:09: Skeleton: Loading models/field_maps/0636/6.skeleton
-01:55:09: MeshSerializer writing mesh data to stream ...
-01:55:09: File header written.
-01:55:09: Writing mesh data...
-01:55:09: Writing submesh...
-01:55:09: Exporting submesh texture aliases...
-01:55:09: Submesh texture aliases exported.
-01:55:09: Exporting dedicated geometry bone assignments...
-01:55:09: Dedicated geometry bone assignments exported.
-01:55:09: Submesh exported.
-01:55:09: Exporting skeleton link...
-01:55:09: Skeleton link exported.
-01:55:09: Exporting bounds information....
-01:55:09: Bounds information exported.
-01:55:09: Exporting submesh name table...
-01:55:09: Submesh name table exported.
-01:55:09: Mesh data exported.
-01:55:09: MeshSerializer export successful.
-01:55:09: Exporting bones..
-01:55:09: Bones exported.
-01:55:09: Exporting animations, count=1
-01:55:09: Exporting animation: Idle
-01:55:09: Animation exported.
-01:55:09: Skeleton: Loading models/field_maps/0636/7.skeleton
-01:55:09: MeshSerializer writing mesh data to stream ...
-01:55:09: File header written.
-01:55:09: Writing mesh data...
-01:55:09: Writing submesh...
-01:55:09: Exporting submesh texture aliases...
-01:55:09: Submesh texture aliases exported.
-01:55:09: Exporting dedicated geometry bone assignments...
-01:55:09: Dedicated geometry bone assignments exported.
-01:55:09: Submesh exported.
-01:55:09: Exporting skeleton link...
-01:55:09: Skeleton link exported.
-01:55:09: Exporting bounds information....
-01:55:09: Bounds information exported.
-01:55:09: Exporting submesh name table...
-01:55:09: Submesh name table exported.
-01:55:09: Mesh data exported.
-01:55:09: MeshSerializer export successful.
-01:55:09: Exporting bones..
-01:55:09: Bones exported.
-01:55:09: Exporting animations, count=1
-01:55:09: Exporting animation: Idle
-01:55:09: Animation exported.
-01:55:09: Skeleton: Loading models/field_maps/0636/8.skeleton
-01:55:09: MeshSerializer writing mesh data to stream ...
-01:55:09: File header written.
-01:55:09: Writing mesh data...
-01:55:09: Writing submesh...
-01:55:09: Exporting submesh texture aliases...
-01:55:09: Submesh texture aliases exported.
-01:55:09: Exporting dedicated geometry bone assignments...
-01:55:09: Dedicated geometry bone assignments exported.
-01:55:09: Submesh exported.
-01:55:09: Exporting skeleton link...
-01:55:09: Skeleton link exported.
-01:55:09: Exporting bounds information....
-01:55:09: Bounds information exported.
-01:55:09: Exporting submesh name table...
-01:55:09: Submesh name table exported.
-01:55:09: Mesh data exported.
-01:55:09: MeshSerializer export successful.
-01:55:09: Exporting bones..
-01:55:09: Bones exported.
-01:55:09: Exporting animations, count=1
-01:55:09: Exporting animation: Idle
-01:55:09: Animation exported.
-01:55:09: Skeleton: Loading models/field_maps/0636/9.skeleton
-01:55:09: MeshSerializer writing mesh data to stream ...
-01:55:09: File header written.
-01:55:09: Writing mesh data...
-01:55:09: Writing submesh...
-01:55:09: Exporting submesh texture aliases...
-01:55:09: Submesh texture aliases exported.
-01:55:09: Exporting dedicated geometry bone assignments...
-01:55:09: Dedicated geometry bone assignments exported.
-01:55:09: Submesh exported.
-01:55:09: Exporting skeleton link...
-01:55:09: Skeleton link exported.
-01:55:09: Exporting bounds information....
-01:55:09: Bounds information exported.
-01:55:09: Exporting submesh name table...
-01:55:09: Submesh name table exported.
-01:55:09: Mesh data exported.
-01:55:09: MeshSerializer export successful.
-01:55:09: Exporting bones..
-01:55:09: Bones exported.
-01:55:09: Exporting animations, count=1
-01:55:09: Exporting animation: Idle
-01:55:09: Animation exported.
-01:55:09: Skeleton: Loading models/field_maps/0636/10.skeleton
-01:55:09: MeshSerializer writing mesh data to stream ...
-01:55:09: File header written.
-01:55:09: Writing mesh data...
-01:55:09: Writing submesh...
-01:55:09: Exporting submesh texture aliases...
-01:55:09: Submesh texture aliases exported.
-01:55:09: Exporting dedicated geometry bone assignments...
-01:55:09: Dedicated geometry bone assignments exported.
-01:55:09: Submesh exported.
-01:55:09: Exporting skeleton link...
-01:55:09: Skeleton link exported.
-01:55:09: Exporting bounds information....
-01:55:09: Bounds information exported.
-01:55:09: Exporting submesh name table...
-01:55:09: Submesh name table exported.
-01:55:09: Mesh data exported.
-01:55:09: MeshSerializer export successful.
-01:55:09: Exporting bones..
-01:55:09: Bones exported.
-01:55:09: Exporting animations, count=1
-01:55:09: Exporting animation: Idle
-01:55:09: Animation exported.
-01:55:09: Skeleton: Loading models/field_maps/0636/11.skeleton
-01:55:09: MeshSerializer writing mesh data to stream ...
-01:55:09: File header written.
-01:55:09: Writing mesh data...
-01:55:09: Writing submesh...
-01:55:09: Exporting submesh texture aliases...
-01:55:09: Submesh texture aliases exported.
-01:55:09: Exporting dedicated geometry bone assignments...
-01:55:09: Dedicated geometry bone assignments exported.
-01:55:09: Submesh exported.
-01:55:09: Exporting skeleton link...
-01:55:09: Skeleton link exported.
-01:55:09: Exporting bounds information....
-01:55:09: Bounds information exported.
-01:55:09: Exporting submesh name table...
-01:55:09: Submesh name table exported.
-01:55:09: Mesh data exported.
-01:55:09: MeshSerializer export successful.
-01:55:09: Exporting bones..
-01:55:09: Bones exported.
-01:55:09: Exporting animations, count=1
-01:55:09: Exporting animation: Idle
-01:55:09: Animation exported.
-01:55:09: Skeleton: Loading models/field_maps/0636/12.skeleton
-01:55:09: MeshSerializer writing mesh data to stream ...
-01:55:09: File header written.
-01:55:09: Writing mesh data...
-01:55:09: Writing submesh...
-01:55:09: Exporting submesh texture aliases...
-01:55:09: Submesh texture aliases exported.
-01:55:09: Exporting dedicated geometry bone assignments...
-01:55:09: Dedicated geometry bone assignments exported.
-01:55:09: Submesh exported.
-01:55:09: Exporting skeleton link...
-01:55:09: Skeleton link exported.
-01:55:09: Exporting bounds information....
-01:55:09: Bounds information exported.
-01:55:09: Exporting submesh name table...
-01:55:09: Submesh name table exported.
-01:55:09: Mesh data exported.
-01:55:09: MeshSerializer export successful.
-01:55:09: Exporting bones..
-01:55:09: Bones exported.
-01:55:09: Exporting animations, count=1
-01:55:09: Exporting animation: Idle
-01:55:09: Animation exported.
-01:55:09: Skeleton: Loading models/field_maps/0636/13.skeleton
-01:55:09: MeshSerializer writing mesh data to stream ...
-01:55:09: File header written.
-01:55:09: Writing mesh data...
-01:55:09: Writing submesh...
-01:55:09: Exporting submesh texture aliases...
-01:55:09: Submesh texture aliases exported.
-01:55:09: Exporting dedicated geometry bone assignments...
-01:55:09: Dedicated geometry bone assignments exported.
-01:55:09: Submesh exported.
-01:55:09: Exporting skeleton link...
-01:55:09: Skeleton link exported.
-01:55:09: Exporting bounds information....
-01:55:09: Bounds information exported.
-01:55:09: Exporting submesh name table...
-01:55:09: Submesh name table exported.
-01:55:09: Mesh data exported.
-01:55:09: MeshSerializer export successful.
-01:55:09: Exporting bones..
-01:55:09: Bones exported.
-01:55:09: Exporting animations, count=1
-01:55:09: Exporting animation: Idle
-01:55:09: Animation exported.
-01:55:09: Skeleton: Loading models/field_maps/0636/14.skeleton
-01:55:09: MeshSerializer writing mesh data to stream ...
-01:55:09: File header written.
-01:55:09: Writing mesh data...
-01:55:09: Writing submesh...
-01:55:09: Exporting submesh texture aliases...
-01:55:09: Submesh texture aliases exported.
-01:55:09: Exporting dedicated geometry bone assignments...
-01:55:09: Dedicated geometry bone assignments exported.
-01:55:09: Submesh exported.
-01:55:09: Exporting skeleton link...
-01:55:09: Skeleton link exported.
-01:55:09: Exporting bounds information....
-01:55:09: Bounds information exported.
-01:55:09: Exporting submesh name table...
-01:55:09: Submesh name table exported.
-01:55:09: Mesh data exported.
-01:55:09: MeshSerializer export successful.
-01:55:09: Exporting bones..
-01:55:09: Bones exported.
-01:55:09: Exporting animations, count=1
-01:55:09: Exporting animation: Idle
-01:55:09: Animation exported.
-01:55:09: Skeleton: Loading models/field_maps/0636/15.skeleton
-01:55:09: MeshSerializer writing mesh data to stream ...
-01:55:09: File header written.
-01:55:09: Writing mesh data...
-01:55:09: Writing submesh...
-01:55:09: Exporting submesh texture aliases...
-01:55:09: Submesh texture aliases exported.
-01:55:09: Exporting dedicated geometry bone assignments...
-01:55:09: Dedicated geometry bone assignments exported.
-01:55:09: Submesh exported.
-01:55:09: Exporting skeleton link...
-01:55:09: Skeleton link exported.
-01:55:09: Exporting bounds information....
-01:55:09: Bounds information exported.
-01:55:09: Exporting submesh name table...
-01:55:09: Submesh name table exported.
-01:55:09: Mesh data exported.
-01:55:09: MeshSerializer export successful.
-01:55:09: Exporting bones..
-01:55:09: Bones exported.
-01:55:09: Exporting animations, count=1
-01:55:09: Exporting animation: Idle
-01:55:09: Animation exported.
-01:55:09: Skeleton: Loading models/field_maps/0636/16.skeleton
-01:55:09: MeshSerializer writing mesh data to stream ...
-01:55:09: File header written.
-01:55:09: Writing mesh data...
-01:55:09: Writing submesh...
-01:55:09: Exporting submesh texture aliases...
-01:55:09: Submesh texture aliases exported.
-01:55:09: Exporting dedicated geometry bone assignments...
-01:55:09: Dedicated geometry bone assignments exported.
-01:55:09: Submesh exported.
-01:55:09: Exporting skeleton link...
-01:55:09: Skeleton link exported.
-01:55:09: Exporting bounds information....
-01:55:09: Bounds information exported.
-01:55:09: Exporting submesh name table...
-01:55:09: Submesh name table exported.
-01:55:09: Mesh data exported.
-01:55:09: MeshSerializer export successful.
-01:55:09: Exporting bones..
-01:55:09: Bones exported.
-01:55:09: Exporting animations, count=1
-01:55:09: Exporting animation: Idle
-01:55:09: Animation exported.
-01:55:09: Skeleton: Loading models/field_maps/0636/17.skeleton
-01:55:10: MeshSerializer writing mesh data to stream ...
-01:55:10: File header written.
-01:55:10: Writing mesh data...
-01:55:10: Writing submesh...
-01:55:10: Exporting submesh texture aliases...
-01:55:10: Submesh texture aliases exported.
-01:55:10: Exporting dedicated geometry bone assignments...
-01:55:10: Dedicated geometry bone assignments exported.
-01:55:10: Submesh exported.
-01:55:10: Exporting skeleton link...
-01:55:10: Skeleton link exported.
-01:55:10: Exporting bounds information....
-01:55:10: Bounds information exported.
-01:55:10: Exporting submesh name table...
-01:55:10: Submesh name table exported.
-01:55:10: Mesh data exported.
-01:55:10: MeshSerializer export successful.
-01:55:10: Exporting bones..
-01:55:10: Bones exported.
-01:55:10: Exporting animations, count=1
-01:55:10: Exporting animation: Idle
-01:55:10: Animation exported.
-01:55:10: Skeleton: Loading models/field_maps/0636/18.skeleton
-01:55:10: MeshSerializer writing mesh data to stream ...
-01:55:10: File header written.
-01:55:10: Writing mesh data...
-01:55:10: Writing submesh...
-01:55:10: Exporting submesh texture aliases...
-01:55:10: Submesh texture aliases exported.
-01:55:10: Exporting dedicated geometry bone assignments...
-01:55:10: Dedicated geometry bone assignments exported.
-01:55:10: Submesh exported.
-01:55:10: Writing submesh...
-01:55:10: Exporting submesh texture aliases...
-01:55:10: Submesh texture aliases exported.
-01:55:10: Exporting dedicated geometry bone assignments...
-01:55:10: Dedicated geometry bone assignments exported.
-01:55:10: Submesh exported.
-01:55:10: Exporting skeleton link...
-01:55:10: Skeleton link exported.
-01:55:10: Exporting bounds information....
-01:55:10: Bounds information exported.
-01:55:10: Exporting submesh name table...
-01:55:10: Submesh name table exported.
-01:55:10: Mesh data exported.
-01:55:10: MeshSerializer export successful.
-01:55:10: Exporting bones..
-01:55:10: Bones exported.
-01:55:10: Exporting animations, count=1
-01:55:10: Exporting animation: Idle
-01:55:10: Animation exported.
-01:55:10: Skeleton: Loading models/field_maps/0636/19.skeleton
-01:55:10: MeshSerializer writing mesh data to stream ...
-01:55:10: File header written.
-01:55:10: Writing mesh data...
-01:55:10: Writing submesh...
-01:55:10: Exporting submesh texture aliases...
-01:55:10: Submesh texture aliases exported.
-01:55:10: Exporting dedicated geometry bone assignments...
-01:55:10: Dedicated geometry bone assignments exported.
-01:55:10: Submesh exported.
-01:55:10: Exporting skeleton link...
-01:55:10: Skeleton link exported.
-01:55:10: Exporting bounds information....
-01:55:10: Bounds information exported.
-01:55:10: Exporting submesh name table...
-01:55:10: Submesh name table exported.
-01:55:10: Mesh data exported.
-01:55:10: MeshSerializer export successful.
-01:55:10: Exporting bones..
-01:55:10: Bones exported.
-01:55:10: Exporting animations, count=1
-01:55:10: Exporting animation: Idle
-01:55:10: Animation exported.
-01:55:10: Skeleton: Loading models/field_maps/0636/20.skeleton
-01:55:10: MeshSerializer writing mesh data to stream ...
-01:55:10: File header written.
-01:55:10: Writing mesh data...
-01:55:10: Writing submesh...
-01:55:10: Exporting submesh texture aliases...
-01:55:10: Submesh texture aliases exported.
-01:55:10: Exporting dedicated geometry bone assignments...
-01:55:10: Dedicated geometry bone assignments exported.
-01:55:10: Submesh exported.
-01:55:10: Exporting skeleton link...
-01:55:10: Skeleton link exported.
-01:55:10: Exporting bounds information....
-01:55:10: Bounds information exported.
-01:55:10: Exporting submesh name table...
-01:55:10: Submesh name table exported.
-01:55:10: Mesh data exported.
-01:55:10: MeshSerializer export successful.
-01:55:10: Exporting bones..
-01:55:10: Bones exported.
-01:55:10: Exporting animations, count=1
-01:55:10: Exporting animation: Idle
-01:55:10: Animation exported.
-01:55:10: Skeleton: Loading models/field_maps/0636/21.skeleton
-01:55:10: MeshSerializer writing mesh data to stream ...
-01:55:10: File header written.
-01:55:10: Writing mesh data...
-01:55:10: Writing submesh...
-01:55:10: Exporting submesh texture aliases...
-01:55:10: Submesh texture aliases exported.
-01:55:10: Exporting dedicated geometry bone assignments...
-01:55:10: Dedicated geometry bone assignments exported.
-01:55:10: Submesh exported.
-01:55:10: Exporting skeleton link...
-01:55:10: Skeleton link exported.
-01:55:10: Exporting bounds information....
-01:55:10: Bounds information exported.
-01:55:10: Exporting submesh name table...
-01:55:10: Submesh name table exported.
-01:55:10: Mesh data exported.
-01:55:10: MeshSerializer export successful.
-01:55:10: Exporting bones..
-01:55:10: Bones exported.
-01:55:10: Exporting animations, count=1
-01:55:10: Exporting animation: Idle
-01:55:10: Animation exported.
-01:55:10: Skeleton: Loading models/field_maps/0636/22.skeleton
-01:55:10: MeshSerializer writing mesh data to stream ...
-01:55:10: File header written.
-01:55:10: Writing mesh data...
-01:55:10: Writing submesh...
-01:55:10: Exporting submesh texture aliases...
-01:55:10: Submesh texture aliases exported.
-01:55:10: Exporting dedicated geometry bone assignments...
-01:55:10: Dedicated geometry bone assignments exported.
-01:55:10: Submesh exported.
-01:55:10: Exporting skeleton link...
-01:55:10: Skeleton link exported.
-01:55:10: Exporting bounds information....
-01:55:10: Bounds information exported.
-01:55:10: Exporting submesh name table...
-01:55:10: Submesh name table exported.
-01:55:10: Mesh data exported.
-01:55:10: MeshSerializer export successful.
-01:55:10: Exporting bones..
-01:55:10: Bones exported.
-01:55:10: Exporting animations, count=1
-01:55:10: Exporting animation: Idle
-01:55:10: Animation exported.
-01:55:10: Skeleton: Loading models/field_maps/0636/23.skeleton
-01:55:10: MeshSerializer writing mesh data to stream ...
-01:55:10: File header written.
-01:55:10: Writing mesh data...
-01:55:10: Writing submesh...
-01:55:10: Exporting submesh texture aliases...
-01:55:10: Submesh texture aliases exported.
-01:55:10: Exporting dedicated geometry bone assignments...
-01:55:10: Dedicated geometry bone assignments exported.
-01:55:10: Submesh exported.
-01:55:10: Exporting skeleton link...
-01:55:10: Skeleton link exported.
-01:55:10: Exporting bounds information....
-01:55:10: Bounds information exported.
-01:55:10: Exporting submesh name table...
-01:55:10: Submesh name table exported.
-01:55:10: Mesh data exported.
-01:55:10: MeshSerializer export successful.
-01:55:10: Exporting bones..
-01:55:10: Bones exported.
-01:55:10: Exporting animations, count=1
-01:55:10: Exporting animation: Idle
-01:55:10: Animation exported.
-01:55:10: Skeleton: Loading models/field_maps/0636/24.skeleton
-01:55:10: MeshSerializer writing mesh data to stream ...
-01:55:10: File header written.
-01:55:10: Writing mesh data...
-01:55:10: Writing submesh...
-01:55:10: Exporting submesh texture aliases...
-01:55:10: Submesh texture aliases exported.
-01:55:10: Exporting dedicated geometry bone assignments...
-01:55:10: Dedicated geometry bone assignments exported.
-01:55:10: Submesh exported.
-01:55:10: Writing submesh...
-01:55:10: Exporting submesh texture aliases...
-01:55:10: Submesh texture aliases exported.
-01:55:10: Exporting dedicated geometry bone assignments...
-01:55:10: Dedicated geometry bone assignments exported.
-01:55:10: Submesh exported.
-01:55:10: Exporting skeleton link...
-01:55:10: Skeleton link exported.
-01:55:10: Exporting bounds information....
-01:55:10: Bounds information exported.
-01:55:10: Exporting submesh name table...
-01:55:10: Submesh name table exported.
-01:55:10: Mesh data exported.
-01:55:10: MeshSerializer export successful.
-01:55:10: Exporting bones..
-01:55:10: Bones exported.
-01:55:10: Exporting animations, count=1
-01:55:10: Exporting animation: Idle
-01:55:10: Animation exported.
-01:55:10: Skeleton: Loading models/field_maps/0636/25.skeleton
-01:55:10: MeshSerializer writing mesh data to stream ...
-01:55:10: File header written.
-01:55:10: Writing mesh data...
-01:55:10: Writing submesh...
-01:55:10: Exporting submesh texture aliases...
-01:55:10: Submesh texture aliases exported.
-01:55:10: Exporting dedicated geometry bone assignments...
-01:55:10: Dedicated geometry bone assignments exported.
-01:55:10: Submesh exported.
-01:55:10: Writing submesh...
-01:55:10: Exporting submesh texture aliases...
-01:55:10: Submesh texture aliases exported.
-01:55:10: Exporting dedicated geometry bone assignments...
-01:55:10: Dedicated geometry bone assignments exported.
-01:55:10: Submesh exported.
-01:55:10: Exporting skeleton link...
-01:55:10: Skeleton link exported.
-01:55:10: Exporting bounds information....
-01:55:10: Bounds information exported.
-01:55:10: Exporting submesh name table...
-01:55:10: Submesh name table exported.
-01:55:10: Mesh data exported.
-01:55:10: MeshSerializer export successful.
-01:55:10: Exporting bones..
-01:55:10: Bones exported.
-01:55:10: Exporting animations, count=1
-01:55:10: Exporting animation: Idle
-01:55:10: Animation exported.
-01:55:10: Skeleton: Loading models/field_maps/0636/26.skeleton
-01:55:10: MeshSerializer writing mesh data to stream ...
-01:55:10: File header written.
-01:55:10: Writing mesh data...
-01:55:10: Writing submesh...
-01:55:10: Exporting submesh texture aliases...
-01:55:10: Submesh texture aliases exported.
-01:55:10: Exporting dedicated geometry bone assignments...
-01:55:10: Dedicated geometry bone assignments exported.
-01:55:10: Submesh exported.
-01:55:10: Exporting skeleton link...
-01:55:10: Skeleton link exported.
-01:55:10: Exporting bounds information....
-01:55:10: Bounds information exported.
-01:55:10: Exporting submesh name table...
-01:55:10: Submesh name table exported.
-01:55:10: Mesh data exported.
-01:55:10: MeshSerializer export successful.
-01:55:10: Exporting bones..
-01:55:10: Bones exported.
-01:55:10: Exporting animations, count=1
-01:55:10: Exporting animation: Idle
-01:55:10: Animation exported.
-01:55:10: Skeleton: Loading models/field_maps/0636/27.skeleton
-01:55:10: MeshSerializer writing mesh data to stream ...
-01:55:10: File header written.
-01:55:10: Writing mesh data...
-01:55:10: Writing submesh...
-01:55:10: Exporting submesh texture aliases...
-01:55:10: Submesh texture aliases exported.
-01:55:10: Exporting dedicated geometry bone assignments...
-01:55:10: Dedicated geometry bone assignments exported.
-01:55:10: Submesh exported.
-01:55:10: Exporting skeleton link...
-01:55:10: Skeleton link exported.
-01:55:10: Exporting bounds information....
-01:55:10: Bounds information exported.
-01:55:10: Exporting submesh name table...
-01:55:10: Submesh name table exported.
-01:55:10: Mesh data exported.
-01:55:10: MeshSerializer export successful.
-01:55:10: Exporting bones..
-01:55:10: Bones exported.
-01:55:10: Exporting animations, count=1
-01:55:10: Exporting animation: Idle
-01:55:10: Animation exported.
-01:55:10: Skeleton: Loading models/field_maps/0636/28.skeleton
-01:55:10: MeshSerializer writing mesh data to stream ...
-01:55:10: File header written.
-01:55:10: Writing mesh data...
-01:55:10: Writing submesh...
-01:55:10: Exporting submesh texture aliases...
-01:55:10: Submesh texture aliases exported.
-01:55:10: Exporting dedicated geometry bone assignments...
-01:55:10: Dedicated geometry bone assignments exported.
-01:55:10: Submesh exported.
-01:55:10: Writing submesh...
-01:55:10: Exporting submesh texture aliases...
-01:55:10: Submesh texture aliases exported.
-01:55:10: Exporting dedicated geometry bone assignments...
-01:55:10: Dedicated geometry bone assignments exported.
-01:55:10: Submesh exported.
-01:55:10: Exporting skeleton link...
-01:55:10: Skeleton link exported.
-01:55:10: Exporting bounds information....
-01:55:10: Bounds information exported.
-01:55:10: Exporting submesh name table...
-01:55:10: Submesh name table exported.
-01:55:10: Mesh data exported.
-01:55:10: MeshSerializer export successful.
-01:55:11: MaterialSerializer : writing material xeno/model/0636 to queue.
-01:55:11: MaterialSerializer : parsing texture layer.
-01:55:11: MaterialSerializer : done.
-01:55:11: MaterialSerializer : writing material(s) to material script : exported/models/field_maps/0636/0636.material
-01:55:11: MaterialSerializer : done.
-01:55:11: Mesh: Loading models/field_maps/0636/0.mesh.
-01:55:11: Texture: models/field_maps/0636/0636.png: Loading 1 faces(PF_A8R8G8B8,4096x512x1) Internal format is PF_A8R8G8B8,4096x512x1.
-01:55:11: Mesh: Loading models/field_maps/0636/1.mesh.
-01:55:11: Mesh: Loading models/field_maps/0636/2.mesh.
-01:55:11: Mesh: Loading models/field_maps/0636/3.mesh.
-01:55:11: Mesh: Loading models/field_maps/0636/4.mesh.
-01:55:11: Mesh: Loading models/field_maps/0636/5.mesh.
-01:55:11: Mesh: Loading models/field_maps/0636/6.mesh.
-01:55:11: Mesh: Loading models/field_maps/0636/7.mesh.
-01:55:11: Mesh: Loading models/field_maps/0636/8.mesh.
-01:55:11: Mesh: Loading models/field_maps/0636/9.mesh.
-01:55:11: Mesh: Loading models/field_maps/0636/10.mesh.
-01:55:11: Mesh: Loading models/field_maps/0636/11.mesh.
-01:55:11: Mesh: Loading models/field_maps/0636/12.mesh.
-01:55:11: Mesh: Loading models/field_maps/0636/13.mesh.
-01:55:11: Mesh: Loading models/field_maps/0636/14.mesh.
-01:55:11: Mesh: Loading models/field_maps/0636/15.mesh.
-01:55:11: Mesh: Loading models/field_maps/0636/16.mesh.
-01:55:11: Mesh: Loading models/field_maps/0636/17.mesh.
-01:55:11: Mesh: Loading models/field_maps/0636/18.mesh.
-01:55:11: Mesh: Loading models/field_maps/0636/19.mesh.
-01:55:11: Mesh: Loading models/field_maps/0636/20.mesh.
-01:55:11: Mesh: Loading models/field_maps/0636/21.mesh.
-01:55:11: Mesh: Loading models/field_maps/0636/22.mesh.
-01:55:11: Mesh: Loading models/field_maps/0636/23.mesh.
-01:55:11: Mesh: Loading models/field_maps/0636/24.mesh.
-01:55:11: Mesh: Loading models/field_maps/0636/25.mesh.
-01:55:11: Mesh: Loading models/field_maps/0636/26.mesh.
-01:55:11: Mesh: Loading models/field_maps/0636/27.mesh.
-01:55:11: Mesh: Loading models/field_maps/0636/28.mesh.
-01:55:11: MaterialSerializer : writing material xeno/sprite to queue.
-01:55:11: MaterialSerializer : parsing texture layer.
-01:55:11: MaterialSerializer : done.
-01:55:11: MaterialSerializer : writing material(s) to material script : exported/debug/0636_3_2dsprite.material
-01:55:11: MaterialSerializer : done.
-01:55:11: MaterialSerializer : writing material xeno/sprite to queue.
-01:55:11: MaterialSerializer : parsing texture layer.
-01:55:11: MaterialSerializer : done.
-01:55:11: MaterialSerializer : writing material(s) to material script : exported/debug/0636_3_2dsprite.material
-01:55:11: MaterialSerializer : done.
-01:55:11: MaterialSerializer : writing material xeno/sprite to queue.
-01:55:11: MaterialSerializer : parsing texture layer.
-01:55:11: MaterialSerializer : done.
-01:55:11: MaterialSerializer : writing material(s) to material script : exported/debug/0636_3_2dsprite.material
-01:55:11: MaterialSerializer : done.
-01:55:11: MaterialSerializer : writing material xeno/sprite to queue.
-01:55:11: MaterialSerializer : parsing texture layer.
-01:55:11: MaterialSerializer : done.
-01:55:11: MaterialSerializer : writing material(s) to material script : exported/debug/0636_3_2dsprite.material
-01:55:11: MaterialSerializer : done.
-01:55:12: MaterialSerializer : writing material xeno/sprite to queue.
-01:55:12: MaterialSerializer : parsing texture layer.
-01:55:12: MaterialSerializer : done.
-01:55:12: MaterialSerializer : writing material(s) to material script : exported/debug/0636_3_2dsprite.material
-01:55:12: MaterialSerializer : done.
-01:55:12: MaterialSerializer : writing material xeno/sprite to queue.
-01:55:12: MaterialSerializer : parsing texture layer.
-01:55:12: MaterialSerializer : done.
-01:55:12: MaterialSerializer : writing material(s) to material script : exported/debug/0636_3_2dsprite.material
-01:55:12: MaterialSerializer : done.
-01:55:12: Font BlueHighway using texture size 512x512
-01:55:12: Info: Freetype returned null for character 127 in font BlueHighway
-01:55:12: Info: Freetype returned null for character 128 in font BlueHighway
-01:55:12: Info: Freetype returned null for character 129 in font BlueHighway
-01:55:12: Info: Freetype returned null for character 130 in font BlueHighway
-01:55:12: Info: Freetype returned null for character 131 in font BlueHighway
-01:55:12: Info: Freetype returned null for character 132 in font BlueHighway
-01:55:12: Info: Freetype returned null for character 133 in font BlueHighway
-01:55:12: Info: Freetype returned null for character 134 in font BlueHighway
-01:55:12: Info: Freetype returned null for character 135 in font BlueHighway
-01:55:12: Info: Freetype returned null for character 136 in font BlueHighway
-01:55:12: Info: Freetype returned null for character 137 in font BlueHighway
-01:55:12: Info: Freetype returned null for character 138 in font BlueHighway
-01:55:12: Info: Freetype returned null for character 139 in font BlueHighway
-01:55:12: Info: Freetype returned null for character 140 in font BlueHighway
-01:55:12: Info: Freetype returned null for character 141 in font BlueHighway
-01:55:12: Info: Freetype returned null for character 142 in font BlueHighway
-01:55:12: Info: Freetype returned null for character 143 in font BlueHighway
-01:55:12: Info: Freetype returned null for character 144 in font BlueHighway
-01:55:12: Info: Freetype returned null for character 145 in font BlueHighway
-01:55:12: Info: Freetype returned null for character 146 in font BlueHighway
-01:55:12: Info: Freetype returned null for character 147 in font BlueHighway
-01:55:12: Info: Freetype returned null for character 148 in font BlueHighway
-01:55:12: Info: Freetype returned null for character 149 in font BlueHighway
-01:55:12: Info: Freetype returned null for character 150 in font BlueHighway
-01:55:12: Info: Freetype returned null for character 151 in font BlueHighway
-01:55:12: Info: Freetype returned null for character 152 in font BlueHighway
-01:55:12: Info: Freetype returned null for character 153 in font BlueHighway
-01:55:12: Info: Freetype returned null for character 154 in font BlueHighway
-01:55:12: Info: Freetype returned null for character 155 in font BlueHighway
-01:55:12: Info: Freetype returned null for character 156 in font BlueHighway
-01:55:12: Info: Freetype returned null for character 157 in font BlueHighway
-01:55:12: Info: Freetype returned null for character 158 in font BlueHighway
-01:55:12: Info: Freetype returned null for character 159 in font BlueHighway
-01:55:12: Info: Freetype returned null for character 160 in font BlueHighway
-01:55:12: Texture: BlueHighwayTexture: Loading 1 faces(PF_BYTE_LA,512x512x1) with 0 generated mipmaps from Image. Internal format is PF_BYTE_LA,512x512x1.
-01:55:12: OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource models/xeno/sprite.png in resource group General or any other group. in ResourceGroupManager::openResource at ..\..\..\..\OgreMain\src\OgreResourceGroupManager.cpp (line 756)
-01:55:12: Error loading texture models/xeno/sprite.png. Texture layer will be blank. Loading the texture failed with the following exception: OGRE EXCEPTION(6:FileNotFoundException): Cannot locate resource models/xeno/sprite.png in resource group General or any other group. in ResourceGroupManager::openResource at ..\..\..\..\OgreMain\src\OgreResourceGroupManager.cpp (line 756)
-01:55:14: DefaultWorkQueue('Root') shutting down on thread 222c.
-01:55:14: DefaultWorkQueue('Root')::WorkerFunc - thread 1008 stopped.
-01:55:14: DefaultWorkQueue('Root')::WorkerFunc - thread 1038 stopped.
-01:55:14: *-*-* OGRE Shutdown
-01:55:14: Unregistering ResourceManager for type Compositor
-01:55:14: Unregistering ResourceManager for type Skeleton
-01:55:14: Unregistering ResourceManager for type Mesh
-01:55:14: Unregistering ResourceManager for type HighLevelGpuProgram
-01:55:14: Uninstalling plugin: D3D9 RenderSystem
-01:55:14: D3D9 device: 0x[037EF820] destroy. Releasing D3D9 texture: BlueHighwayTexture
-01:55:14: Released D3D9 texture: BlueHighwayTexture
-01:55:14: D3D9 device: 0x[037EF820] destroy. Releasing D3D9 texture: New_Ogre_Border_Center.png
-01:55:14: Released D3D9 texture: New_Ogre_Border_Center.png
-01:55:14: D3D9 device: 0x[037EF820] destroy. Releasing D3D9 texture: New_Ogre_Border.png
-01:55:14: Released D3D9 texture: New_Ogre_Border.png
-01:55:14: D3D9 device: 0x[037EF820] destroy. Releasing D3D9 texture: New_Ogre_Border_Break.png
-01:55:14: Released D3D9 texture: New_Ogre_Border_Break.png
-01:55:14: D3D9 device: 0x[037EF820] destroy. Releasing D3D9 texture: ogretext.png
-01:55:14: Released D3D9 texture: ogretext.png
-01:55:14: D3D9 : Shutting down cleanly.
-01:55:14: Unregistering ResourceManager for type Texture
-01:55:14: Unregistering ResourceManager for type GpuProgram
-01:55:14: D3D9 : Direct3D9 Rendering Subsystem destroyed.
-01:55:14: Plugin successfully uninstalled
-01:55:14: Unloading library RenderSystem_Direct3D9.dll
-01:55:14: Unregistering ResourceManager for type Material
+23:15:04: Creating resource group General
+23:15:04: Creating resource group Internal
+23:15:04: Creating resource group Autodetect
+23:15:04: SceneManagerFactory for type 'DefaultSceneManager' registered.
+23:15:04: Registering ResourceManager for type Material
+23:15:04: Registering ResourceManager for type Mesh
+23:15:04: Registering ResourceManager for type Skeleton
+23:15:04: MovableObjectFactory for type 'ParticleSystem' registered.
+23:15:04: ArchiveFactory for archive type FileSystem registered.
+23:15:04: ArchiveFactory for archive type Zip registered.
+23:15:04: ArchiveFactory for archive type EmbeddedZip registered.
+23:15:04: DDS codec registering
+23:15:04: FreeImage version: 3.15.3
+23:15:04: This program uses FreeImage, a free, open source image library supporting all common bitmap formats. See http://freeimage.sourceforge.net for details
+23:15:04: Supported formats: bmp,ico,jpg,jif,jpeg,jpe,jng,koa,iff,lbm,mng,pbm,pbm,pcd,pcx,pgm,pgm,png,ppm,ppm,ras,tga,targa,tif,tiff,wap,wbmp,wbm,psd,cut,xbm,xpm,gif,hdr,g3,sgi,exr,j2k,j2c,jp2,pfm,pct,pict,pic,3fr,arw,bay,bmq,cap,cine,cr2,crw,cs1,dc2,dcr,drf,dsc,dng,erf,fff,ia,iiq,k25,kc2,kdc,mdc,mef,mos,mrw,nef,nrw,orf,pef,ptx,pxn,qtk,raf,raw,rdc,rw2,rwl,rwz,sr2,srf,srw,sti
+23:15:04: Registering ResourceManager for type HighLevelGpuProgram
+23:15:04: Registering ResourceManager for type Compositor
+23:15:04: MovableObjectFactory for type 'Entity' registered.
+23:15:04: MovableObjectFactory for type 'Light' registered.
+23:15:04: MovableObjectFactory for type 'BillboardSet' registered.
+23:15:04: MovableObjectFactory for type 'ManualObject' registered.
+23:15:04: MovableObjectFactory for type 'BillboardChain' registered.
+23:15:04: MovableObjectFactory for type 'RibbonTrail' registered.
+23:15:04: *-*-* OGRE Initialising
+23:15:04: *-*-* Version 1.9.0 (Ghadamon)
+23:15:04: Loading library RenderSystem_Direct3D9.dll
+23:15:04: Installing plugin: D3D9 RenderSystem
+23:15:04: D3D9 : Direct3D9 Rendering Subsystem created.
+23:15:04: D3D9: Driver Detection Starts
+23:15:04: D3D9: Driver Detection Ends
+23:15:04: Plugin successfully installed
+23:15:04: CPU Identifier & Features
+23:15:04: -------------------------
+23:15:04:  *   CPU ID: GenuineIntel: Intel(R) Celeron(R) CPU G1820 @ 2.70GHz
+23:15:04:  *      SSE: yes
+23:15:04:  *     SSE2: yes
+23:15:04:  *     SSE3: yes
+23:15:04:  *      MMX: yes
+23:15:04:  *   MMXEXT: yes
+23:15:04:  *    3DNOW: no
+23:15:04:  * 3DNOWEXT: no
+23:15:04:  *     CMOV: yes
+23:15:04:  *      TSC: yes
+23:15:04:  *      FPU: yes
+23:15:04:  *      PRO: yes
+23:15:04:  *       HT: no
+23:15:04: -------------------------
+23:15:04: D3D9 : Subsystem Initialising
+23:15:04: Registering ResourceManager for type Texture
+23:15:04: Registering ResourceManager for type GpuProgram
+23:15:04: ***************************************
+23:15:04: *** D3D9 : Subsystem Initialised OK ***
+23:15:04: ***************************************
+23:15:04: D3D9RenderSystem::_createRenderWindow "QGearsWindow", 800x600 windowed  miscParams: title=Xenogears Exporter 
+23:15:04: D3D9 : Created D3D9 Rendering Window 'QGearsWindow' : 800x600, 32bpp
+23:15:04: D3D9 : WARNING - disabling VSync in windowed mode can cause timing issues at lower frame rates, turn VSync on if you observe this problem.
+23:15:04: D3D9: Vertex texture format supported - PF_A8R8G8B8
+23:15:04: D3D9: Vertex texture format supported - PF_B8G8R8A8
+23:15:04: D3D9: Vertex texture format supported - PF_FLOAT16_RGB
+23:15:04: D3D9: Vertex texture format supported - PF_FLOAT16_RGBA
+23:15:05: D3D9: Vertex texture format supported - PF_FLOAT32_RGB
+23:15:05: D3D9: Vertex texture format supported - PF_FLOAT32_RGBA
+23:15:05: D3D9: Vertex texture format supported - PF_R8G8B8A8
+23:15:05: D3D9: Vertex texture format supported - PF_DEPTH
+23:15:05: D3D9: Vertex texture format supported - PF_FLOAT16_R
+23:15:05: D3D9: Vertex texture format supported - PF_FLOAT32_R
+23:15:05: D3D9: Vertex texture format supported - PF_FLOAT16_GR
+23:15:05: D3D9: Vertex texture format supported - PF_FLOAT32_GR
+23:15:05: D3D9: Vertex texture format supported - PF_PVRTC_RGB2
+23:15:05: D3D9: Vertex texture format supported - PF_PVRTC_RGBA2
+23:15:05: D3D9: Vertex texture format supported - PF_PVRTC_RGB4
+23:15:05: D3D9: Vertex texture format supported - PF_PVRTC_RGBA4
+23:15:05: D3D9: Vertex texture format supported - PF_PVRTC2_2BPP
+23:15:05: D3D9: Vertex texture format supported - PF_PVRTC2_4BPP
+23:15:05: D3D9: Vertex texture format supported - PF_R11G11B10_FLOAT
+23:15:05: D3D9: Vertex texture format supported - PF_R8_UINT
+23:15:05: D3D9: Vertex texture format supported - PF_R8G8_UINT
+23:15:05: D3D9: Vertex texture format supported - PF_R8G8B8_UINT
+23:15:05: D3D9: Vertex texture format supported - PF_R8G8B8A8_UINT
+23:15:05: D3D9: Vertex texture format supported - PF_R16_UINT
+23:15:05: D3D9: Vertex texture format supported - PF_R16G16_UINT
+23:15:05: D3D9: Vertex texture format supported - PF_R16G16B16_UINT
+23:15:05: D3D9: Vertex texture format supported - PF_R16G16B16A16_UINT
+23:15:05: D3D9: Vertex texture format supported - PF_R32_UINT
+23:15:05: D3D9: Vertex texture format supported - PF_R32G32_UINT
+23:15:05: D3D9: Vertex texture format supported - PF_R32G32B32_UINT
+23:15:05: D3D9: Vertex texture format supported - PF_R32G32B32A32_UINT
+23:15:05: D3D9: Vertex texture format supported - PF_R8_SINT
+23:15:05: D3D9: Vertex texture format supported - PF_R8G8_SINT
+23:15:05: D3D9: Vertex texture format supported - PF_R8G8B8_SINT
+23:15:05: D3D9: Vertex texture format supported - PF_R8G8B8A8_SINT
+23:15:05: D3D9: Vertex texture format supported - PF_R16_SINT
+23:15:05: D3D9: Vertex texture format supported - PF_R16G16_SINT
+23:15:05: D3D9: Vertex texture format supported - PF_R16G16B16_SINT
+23:15:05: D3D9: Vertex texture format supported - PF_R16G16B16A16_SINT
+23:15:05: D3D9: Vertex texture format supported - PF_R32_SINT
+23:15:05: D3D9: Vertex texture format supported - PF_R32G32_SINT
+23:15:05: D3D9: Vertex texture format supported - PF_R32G32B32_SINT
+23:15:05: D3D9: Vertex texture format supported - PF_R32G32B32A32_SINT
+23:15:05: D3D9: Vertex texture format supported - PF_R9G9B9E5_SHAREDEXP
+23:15:05: D3D9: Vertex texture format supported - PF_BC4_UNORM
+23:15:05: D3D9: Vertex texture format supported - PF_BC4_SNORM
+23:15:05: D3D9: Vertex texture format supported - PF_BC5_UNORM
+23:15:05: D3D9: Vertex texture format supported - PF_BC5_SNORM
+23:15:05: D3D9: Vertex texture format supported - PF_BC6H_UF16
+23:15:05: D3D9: Vertex texture format supported - PF_BC6H_SF16
+23:15:05: D3D9: Vertex texture format supported - PF_BC7_UNORM
+23:15:05: D3D9: Vertex texture format supported - PF_BC7_UNORM_SRGB
+23:15:05: D3D9: Vertex texture format supported - PF_R8
+23:15:05: D3D9: Vertex texture format supported - PF_RG8
+23:15:05: D3D9: Vertex texture format supported - PF_R8_SNORM
+23:15:05: D3D9: Vertex texture format supported - PF_R8G8_SNORM
+23:15:05: D3D9: Vertex texture format supported - PF_R8G8B8_SNORM
+23:15:05: D3D9: Vertex texture format supported - PF_R8G8B8A8_SNORM
+23:15:05: D3D9: Vertex texture format supported - PF_R16_SNORM
+23:15:05: D3D9: Vertex texture format supported - PF_R16G16_SNORM
+23:15:05: D3D9: Vertex texture format supported - PF_R16G16B16_SNORM
+23:15:05: D3D9: Vertex texture format supported - PF_R16G16B16A16_SNORM
+23:15:05: D3D9: Vertex texture format supported - PF_ETC1_RGB8
+23:15:05: D3D9: Vertex texture format supported - PF_ETC2_RGB8
+23:15:05: D3D9: Vertex texture format supported - PF_ETC2_RGBA8
+23:15:05: D3D9: Vertex texture format supported - PF_ETC2_RGB8A1
+23:15:05: D3D9: Vertex texture format supported - PF_ATC_RGB
+23:15:05: D3D9: Vertex texture format supported - PF_ATC_RGBA_EXPLICIT_ALPHA
+23:15:05: D3D9: Vertex texture format supported - PF_ATC_RGBA_INTERPOLATED_ALPHA
+23:15:05: RenderSystem capabilities
+23:15:05: -------------------------
+23:15:05: RenderSystem Name: Direct3D9 Rendering Subsystem
+23:15:05: GPU Vendor: nvidia
+23:15:05: Device Name: Monitor-1-NVIDIA GeForce GTX 750
+23:15:05: Driver Version: 10.18.13.5560
+23:15:05:  * Fixed function pipeline: yes
+23:15:05:  * Hardware generation of mipmaps: yes
+23:15:05:  * Texture blending: yes
+23:15:05:  * Anisotropic texture filtering: yes
+23:15:05:  * Dot product texture operation: yes
+23:15:05:  * Cube mapping: yes
+23:15:05:  * Hardware stencil buffer: yes
+23:15:05:    - Stencil depth: 8
+23:15:05:    - Two sided stencil support: yes
+23:15:05:    - Wrap stencil values: yes
+23:15:05:  * Hardware vertex / index buffers: yes
+23:15:05:  * Vertex programs: yes
+23:15:05:  * Number of floating-point constants for vertex programs: 256
+23:15:05:  * Number of integer constants for vertex programs: 16
+23:15:05:  * Number of boolean constants for vertex programs: 16
+23:15:05:  * Fragment programs: yes
+23:15:05:  * Number of floating-point constants for fragment programs: 224
+23:15:05:  * Number of integer constants for fragment programs: 16
+23:15:05:  * Number of boolean constants for fragment programs: 16
+23:15:05:  * Geometry programs: no
+23:15:05:  * Number of floating-point constants for geometry programs: 0
+23:15:05:  * Number of integer constants for geometry programs: 0
+23:15:05:  * Number of boolean constants for geometry programs: 0
+23:15:05:  * Tesselation Hull programs: no
+23:15:05:  * Number of floating-point constants for tesselation hull programs: 0
+23:15:05:  * Number of integer constants for tesselation hull programs: 0
+23:15:05:  * Number of boolean constants for tesselation hull programs: 0
+23:15:05:  * Tesselation Domain programs: no
+23:15:05:  * Number of floating-point constants for tesselation domain programs: 0
+23:15:05:  * Number of integer constants for tesselation domain programs: 0
+23:15:05:  * Number of boolean constants for tesselation domain programs: 0
+23:15:05:  * Compute programs: no
+23:15:05:  * Number of floating-point constants for compute programs: 0
+23:15:05:  * Number of integer constants for compute programs: 0
+23:15:05:  * Number of boolean constants for compute programs: 0
+23:15:05:  * Supported Shader Profiles: hlsl ps_1_1 ps_1_2 ps_1_3 ps_1_4 ps_2_0 ps_2_a ps_2_b ps_2_x ps_3_0 vs_1_1 vs_2_0 vs_2_a vs_2_x vs_3_0
+23:15:05:  * Texture Compression: yes
+23:15:05:    - DXT: yes
+23:15:05:    - VTC: no
+23:15:05:    - PVRTC: no
+23:15:05:    - ATC: no
+23:15:05:    - ETC1: no
+23:15:05:    - ETC2: no
+23:15:05:    - BC4/BC5: no
+23:15:05:    - BC6H/BC7: no
+23:15:05:  * Scissor Rectangle: yes
+23:15:05:  * Hardware Occlusion Query: yes
+23:15:05:  * User clip planes: yes
+23:15:05:  * VET_UBYTE4 vertex element type: yes
+23:15:05:  * Infinite far plane projection: yes
+23:15:05:  * Hardware render-to-texture: yes
+23:15:05:  * Floating point textures: yes
+23:15:05:  * Non-power-of-two textures: yes
+23:15:05:  * 1d textures: yes
+23:15:05:  * Volume textures: yes
+23:15:05:  * Multiple Render Targets: 4
+23:15:05:    - With different bit depths: yes
+23:15:05:  * Point Sprites: yes
+23:15:05:  * Extended point parameters: yes
+23:15:05:  * Max Point Size: 8192
+23:15:05:  * Vertex texture fetch: yes
+23:15:05:  * Number of world matrices: 0
+23:15:05:  * Number of texture units: 8
+23:15:05:  * Stencil buffer depth: 8
+23:15:05:  * Number of vertex blend matrices: 0
+23:15:05:    - Max vertex textures: 4
+23:15:05:    - Vertex textures shared: no
+23:15:05:  * Render to Vertex Buffer : no
+23:15:05:  * Hardware Atomic Counters: no
+23:15:05:  * DirectX per stage constants: yes
+23:15:05: DefaultWorkQueue('Root') initialising on thread 1a64.
+23:15:05: Particle Renderer Type 'billboard' registered
+23:15:05: OverlayElementFactory for type Panel registered.
+23:15:05: OverlayElementFactory for type BorderPanel registered.
+23:15:05: OverlayElementFactory for type TextArea registered.
+23:15:05: Registering ResourceManager for type Font
+23:15:05: Added resource location './data' of type 'FileSystem' to resource group 'General'
+23:15:05: Added resource location './exported' of type 'FileSystem' to resource group 'General'
+23:15:05: Creating resource group Bootstrap
+23:15:05: Added resource location './data/OgreCore.zip' of type 'Zip' to resource group 'Bootstrap'
+23:15:05: Parsing scripts for resource group Autodetect
+23:15:05: Finished parsing scripts for resource group Autodetect
+23:15:05: Creating resources for group Autodetect
+23:15:05: All done
+23:15:05: Parsing scripts for resource group Bootstrap
+23:15:05: Parsing script OgreCore.material
+23:15:05: Parsing script OgreProfiler.material
+23:15:05: Parsing script Ogre.fontdef
+23:15:05: Parsing script OgreDebugPanel.overlay
+23:15:05: Texture: New_Ogre_Border_Center.png: Loading 1 faces(PF_A8R8G8B8,256x128x1) Internal format is PF_A8R8G8B8,256x128x1.
+23:15:05: Texture: New_Ogre_Border.png: Loading 1 faces(PF_A8R8G8B8,256x256x1) Internal format is PF_A8R8G8B8,256x256x1.
+23:15:05: Texture: New_Ogre_Border_Break.png: Loading 1 faces(PF_A8R8G8B8,32x32x1) Internal format is PF_A8R8G8B8,32x32x1.
+23:15:05: Texture: ogretext.png: Loading 1 faces(PF_A8R8G8B8,256x128x1) Internal format is PF_A8R8G8B8,256x128x1.
+23:15:05: Parsing script OgreLoadingPanel.overlay
+23:15:05: Finished parsing scripts for resource group Bootstrap
+23:15:05: Creating resources for group Bootstrap
+23:15:05: All done
+23:15:05: Parsing scripts for resource group General
+23:15:05: Parsing script debug.material
+23:15:05: Parsing script system.fontdef
+23:15:05: DefaultWorkQueue('Root')::WorkerFunc - thread 13f8 starting.
+23:15:05: Finished parsing scripts for resource group General
+23:15:05: Creating resources for group General
+23:15:05: All done
+23:15:05: Parsing scripts for resource group Internal
+23:15:05: Finished parsing scripts for resource group Internal
+23:15:05: Creating resources for group Internal
+23:15:05: All done
+23:15:05: DefaultWorkQueue('Root')::WorkerFunc - thread be4 starting.
+23:15:05: Texture: courier_new_9_75.png: Loading 1 faces(PF_A8R8G8B8,256x256x1) with 0 generated mipmaps from Image. Internal format is PF_A8R8G8B8,256x256x1.
+23:15:05: Exporting bones..
+23:15:05: Bones exported.
+23:15:05: Exporting animations, count=1
+23:15:05: Exporting animation: Idle
+23:15:05: Animation exported.
+23:15:05: Skeleton: Loading models/field_maps/0632/0.skeleton
+23:15:05: MeshSerializer writing mesh data to stream ...
+23:15:05: File header written.
+23:15:05: Writing mesh data...
+23:15:05: Writing submesh...
+23:15:05: Exporting submesh texture aliases...
+23:15:05: Submesh texture aliases exported.
+23:15:05: Exporting dedicated geometry bone assignments...
+23:15:05: Dedicated geometry bone assignments exported.
+23:15:05: Submesh exported.
+23:15:05: Writing submesh...
+23:15:05: Exporting submesh texture aliases...
+23:15:05: Submesh texture aliases exported.
+23:15:05: Exporting dedicated geometry bone assignments...
+23:15:05: Dedicated geometry bone assignments exported.
+23:15:06: Submesh exported.
+23:15:06: Exporting skeleton link...
+23:15:06: Skeleton link exported.
+23:15:06: Exporting bounds information....
+23:15:06: Bounds information exported.
+23:15:06: Exporting submesh name table...
+23:15:06: Submesh name table exported.
+23:15:06: Mesh data exported.
+23:15:06: MeshSerializer export successful.
+23:15:06: Exporting bones..
+23:15:06: Bones exported.
+23:15:06: Exporting animations, count=1
+23:15:06: Exporting animation: Idle
+23:15:06: Animation exported.
+23:15:06: Skeleton: Loading models/field_maps/0632/1.skeleton
+23:15:06: MeshSerializer writing mesh data to stream ...
+23:15:06: File header written.
+23:15:06: Writing mesh data...
+23:15:06: Writing submesh...
+23:15:06: Exporting submesh texture aliases...
+23:15:06: Submesh texture aliases exported.
+23:15:06: Exporting dedicated geometry bone assignments...
+23:15:06: Dedicated geometry bone assignments exported.
+23:15:06: Submesh exported.
+23:15:06: Exporting skeleton link...
+23:15:06: Skeleton link exported.
+23:15:06: Exporting bounds information....
+23:15:06: Bounds information exported.
+23:15:06: Exporting submesh name table...
+23:15:06: Submesh name table exported.
+23:15:06: Mesh data exported.
+23:15:06: MeshSerializer export successful.
+23:15:06: Exporting bones..
+23:15:06: Bones exported.
+23:15:06: Exporting animations, count=1
+23:15:06: Exporting animation: Idle
+23:15:06: Animation exported.
+23:15:06: Skeleton: Loading models/field_maps/0632/2.skeleton
+23:15:06: MeshSerializer writing mesh data to stream ...
+23:15:06: File header written.
+23:15:06: Writing mesh data...
+23:15:06: Writing submesh...
+23:15:06: Exporting submesh texture aliases...
+23:15:06: Submesh texture aliases exported.
+23:15:06: Exporting dedicated geometry bone assignments...
+23:15:06: Dedicated geometry bone assignments exported.
+23:15:06: Submesh exported.
+23:15:06: Exporting skeleton link...
+23:15:06: Skeleton link exported.
+23:15:06: Exporting bounds information....
+23:15:06: Bounds information exported.
+23:15:06: Exporting submesh name table...
+23:15:06: Submesh name table exported.
+23:15:06: Mesh data exported.
+23:15:06: MeshSerializer export successful.
+23:15:06: Exporting bones..
+23:15:06: Bones exported.
+23:15:06: Exporting animations, count=1
+23:15:06: Exporting animation: Idle
+23:15:06: Animation exported.
+23:15:06: Skeleton: Loading models/field_maps/0632/3.skeleton
+23:15:06: MeshSerializer writing mesh data to stream ...
+23:15:06: File header written.
+23:15:06: Writing mesh data...
+23:15:06: Writing submesh...
+23:15:06: Exporting submesh texture aliases...
+23:15:06: Submesh texture aliases exported.
+23:15:06: Exporting dedicated geometry bone assignments...
+23:15:06: Dedicated geometry bone assignments exported.
+23:15:06: Submesh exported.
+23:15:06: Writing submesh...
+23:15:06: Exporting submesh texture aliases...
+23:15:06: Submesh texture aliases exported.
+23:15:06: Exporting dedicated geometry bone assignments...
+23:15:06: Dedicated geometry bone assignments exported.
+23:15:06: Submesh exported.
+23:15:06: Exporting skeleton link...
+23:15:06: Skeleton link exported.
+23:15:06: Exporting bounds information....
+23:15:06: Bounds information exported.
+23:15:06: Exporting submesh name table...
+23:15:06: Submesh name table exported.
+23:15:06: Mesh data exported.
+23:15:06: MeshSerializer export successful.
+23:15:06: Exporting bones..
+23:15:06: Bones exported.
+23:15:06: Exporting animations, count=1
+23:15:06: Exporting animation: Idle
+23:15:06: Animation exported.
+23:15:06: Skeleton: Loading models/field_maps/0632/4.skeleton
+23:15:06: MeshSerializer writing mesh data to stream ...
+23:15:06: File header written.
+23:15:06: Writing mesh data...
+23:15:06: Writing submesh...
+23:15:06: Exporting submesh texture aliases...
+23:15:06: Submesh texture aliases exported.
+23:15:06: Exporting dedicated geometry bone assignments...
+23:15:06: Dedicated geometry bone assignments exported.
+23:15:06: Submesh exported.
+23:15:06: Writing submesh...
+23:15:06: Exporting submesh texture aliases...
+23:15:06: Submesh texture aliases exported.
+23:15:06: Exporting dedicated geometry bone assignments...
+23:15:06: Dedicated geometry bone assignments exported.
+23:15:06: Submesh exported.
+23:15:06: Writing submesh...
+23:15:06: Exporting submesh texture aliases...
+23:15:06: Submesh texture aliases exported.
+23:15:06: Exporting dedicated geometry bone assignments...
+23:15:06: Dedicated geometry bone assignments exported.
+23:15:06: Submesh exported.
+23:15:06: Exporting skeleton link...
+23:15:06: Skeleton link exported.
+23:15:06: Exporting bounds information....
+23:15:06: Bounds information exported.
+23:15:06: Exporting submesh name table...
+23:15:06: Submesh name table exported.
+23:15:06: Mesh data exported.
+23:15:06: MeshSerializer export successful.
+23:15:06: Exporting bones..
+23:15:06: Bones exported.
+23:15:06: Exporting animations, count=1
+23:15:06: Exporting animation: Idle
+23:15:06: Animation exported.
+23:15:06: Skeleton: Loading models/field_maps/0632/5.skeleton
+23:15:06: MeshSerializer writing mesh data to stream ...
+23:15:06: File header written.
+23:15:06: Writing mesh data...
+23:15:06: Writing submesh...
+23:15:06: Exporting submesh texture aliases...
+23:15:06: Submesh texture aliases exported.
+23:15:06: Exporting dedicated geometry bone assignments...
+23:15:06: Dedicated geometry bone assignments exported.
+23:15:06: Submesh exported.
+23:15:06: Exporting skeleton link...
+23:15:06: Skeleton link exported.
+23:15:06: Exporting bounds information....
+23:15:06: Bounds information exported.
+23:15:06: Exporting submesh name table...
+23:15:06: Submesh name table exported.
+23:15:06: Mesh data exported.
+23:15:06: MeshSerializer export successful.
+23:15:06: Exporting bones..
+23:15:06: Bones exported.
+23:15:06: Exporting animations, count=1
+23:15:06: Exporting animation: Idle
+23:15:06: Animation exported.
+23:15:06: Skeleton: Loading models/field_maps/0632/6.skeleton
+23:15:06: MeshSerializer writing mesh data to stream ...
+23:15:06: File header written.
+23:15:06: Writing mesh data...
+23:15:06: Writing submesh...
+23:15:06: Exporting submesh texture aliases...
+23:15:06: Submesh texture aliases exported.
+23:15:06: Exporting dedicated geometry bone assignments...
+23:15:06: Dedicated geometry bone assignments exported.
+23:15:06: Submesh exported.
+23:15:06: Exporting skeleton link...
+23:15:06: Skeleton link exported.
+23:15:06: Exporting bounds information....
+23:15:06: Bounds information exported.
+23:15:06: Exporting submesh name table...
+23:15:06: Submesh name table exported.
+23:15:06: Mesh data exported.
+23:15:06: MeshSerializer export successful.
+23:15:06: Exporting bones..
+23:15:06: Bones exported.
+23:15:06: Exporting animations, count=1
+23:15:06: Exporting animation: Idle
+23:15:06: Animation exported.
+23:15:06: Skeleton: Loading models/field_maps/0632/7.skeleton
+23:15:06: MeshSerializer writing mesh data to stream ...
+23:15:06: File header written.
+23:15:06: Writing mesh data...
+23:15:06: Writing submesh...
+23:15:06: Exporting submesh texture aliases...
+23:15:06: Submesh texture aliases exported.
+23:15:06: Exporting dedicated geometry bone assignments...
+23:15:06: Dedicated geometry bone assignments exported.
+23:15:06: Submesh exported.
+23:15:06: Exporting skeleton link...
+23:15:06: Skeleton link exported.
+23:15:06: Exporting bounds information....
+23:15:06: Bounds information exported.
+23:15:06: Exporting submesh name table...
+23:15:06: Submesh name table exported.
+23:15:06: Mesh data exported.
+23:15:06: MeshSerializer export successful.
+23:15:06: Exporting bones..
+23:15:06: Bones exported.
+23:15:06: Exporting animations, count=1
+23:15:06: Exporting animation: Idle
+23:15:06: Animation exported.
+23:15:06: Skeleton: Loading models/field_maps/0632/8.skeleton
+23:15:06: MeshSerializer writing mesh data to stream ...
+23:15:06: File header written.
+23:15:06: Writing mesh data...
+23:15:06: Writing submesh...
+23:15:06: Exporting submesh texture aliases...
+23:15:06: Submesh texture aliases exported.
+23:15:06: Exporting dedicated geometry bone assignments...
+23:15:06: Dedicated geometry bone assignments exported.
+23:15:06: Submesh exported.
+23:15:06: Exporting skeleton link...
+23:15:06: Skeleton link exported.
+23:15:06: Exporting bounds information....
+23:15:06: Bounds information exported.
+23:15:06: Exporting submesh name table...
+23:15:06: Submesh name table exported.
+23:15:06: Mesh data exported.
+23:15:06: MeshSerializer export successful.
+23:15:06: Exporting bones..
+23:15:06: Bones exported.
+23:15:06: Exporting animations, count=1
+23:15:06: Exporting animation: Idle
+23:15:06: Animation exported.
+23:15:06: Skeleton: Loading models/field_maps/0632/9.skeleton
+23:15:06: MeshSerializer writing mesh data to stream ...
+23:15:06: File header written.
+23:15:06: Writing mesh data...
+23:15:06: Writing submesh...
+23:15:06: Exporting submesh texture aliases...
+23:15:06: Submesh texture aliases exported.
+23:15:06: Exporting dedicated geometry bone assignments...
+23:15:06: Dedicated geometry bone assignments exported.
+23:15:06: Submesh exported.
+23:15:06: Exporting skeleton link...
+23:15:06: Skeleton link exported.
+23:15:06: Exporting bounds information....
+23:15:06: Bounds information exported.
+23:15:06: Exporting submesh name table...
+23:15:06: Submesh name table exported.
+23:15:06: Mesh data exported.
+23:15:06: MeshSerializer export successful.
+23:15:06: Exporting bones..
+23:15:06: Bones exported.
+23:15:06: Exporting animations, count=1
+23:15:06: Exporting animation: Idle
+23:15:06: Animation exported.
+23:15:06: Skeleton: Loading models/field_maps/0632/10.skeleton
+23:15:06: MeshSerializer writing mesh data to stream ...
+23:15:06: File header written.
+23:15:06: Writing mesh data...
+23:15:06: Writing submesh...
+23:15:06: Exporting submesh texture aliases...
+23:15:06: Submesh texture aliases exported.
+23:15:06: Exporting dedicated geometry bone assignments...
+23:15:06: Dedicated geometry bone assignments exported.
+23:15:06: Submesh exported.
+23:15:06: Writing submesh...
+23:15:06: Exporting submesh texture aliases...
+23:15:06: Submesh texture aliases exported.
+23:15:06: Exporting dedicated geometry bone assignments...
+23:15:06: Dedicated geometry bone assignments exported.
+23:15:06: Submesh exported.
+23:15:06: Writing submesh...
+23:15:06: Exporting submesh texture aliases...
+23:15:06: Submesh texture aliases exported.
+23:15:06: Exporting dedicated geometry bone assignments...
+23:15:06: Dedicated geometry bone assignments exported.
+23:15:06: Submesh exported.
+23:15:06: Exporting skeleton link...
+23:15:06: Skeleton link exported.
+23:15:06: Exporting bounds information....
+23:15:06: Bounds information exported.
+23:15:06: Exporting submesh name table...
+23:15:06: Submesh name table exported.
+23:15:06: Mesh data exported.
+23:15:06: MeshSerializer export successful.
+23:15:06: Exporting bones..
+23:15:06: Bones exported.
+23:15:06: Exporting animations, count=1
+23:15:06: Exporting animation: Idle
+23:15:06: Animation exported.
+23:15:06: Skeleton: Loading models/field_maps/0632/11.skeleton
+23:15:06: MeshSerializer writing mesh data to stream ...
+23:15:06: File header written.
+23:15:06: Writing mesh data...
+23:15:06: Writing submesh...
+23:15:06: Exporting submesh texture aliases...
+23:15:06: Submesh texture aliases exported.
+23:15:06: Exporting dedicated geometry bone assignments...
+23:15:06: Dedicated geometry bone assignments exported.
+23:15:06: Submesh exported.
+23:15:06: Writing submesh...
+23:15:06: Exporting submesh texture aliases...
+23:15:06: Submesh texture aliases exported.
+23:15:06: Exporting dedicated geometry bone assignments...
+23:15:06: Dedicated geometry bone assignments exported.
+23:15:06: Submesh exported.
+23:15:06: Exporting skeleton link...
+23:15:06: Skeleton link exported.
+23:15:06: Exporting bounds information....
+23:15:06: Bounds information exported.
+23:15:06: Exporting submesh name table...
+23:15:06: Submesh name table exported.
+23:15:06: Mesh data exported.
+23:15:06: MeshSerializer export successful.
+23:15:06: Exporting bones..
+23:15:06: Bones exported.
+23:15:06: Exporting animations, count=1
+23:15:06: Exporting animation: Idle
+23:15:06: Animation exported.
+23:15:06: Skeleton: Loading models/field_maps/0632/12.skeleton
+23:15:06: MeshSerializer writing mesh data to stream ...
+23:15:06: File header written.
+23:15:06: Writing mesh data...
+23:15:06: Writing submesh...
+23:15:06: Exporting submesh texture aliases...
+23:15:06: Submesh texture aliases exported.
+23:15:06: Exporting dedicated geometry bone assignments...
+23:15:06: Dedicated geometry bone assignments exported.
+23:15:06: Submesh exported.
+23:15:06: Writing submesh...
+23:15:06: Exporting submesh texture aliases...
+23:15:06: Submesh texture aliases exported.
+23:15:06: Exporting dedicated geometry bone assignments...
+23:15:06: Dedicated geometry bone assignments exported.
+23:15:06: Submesh exported.
+23:15:06: Exporting skeleton link...
+23:15:06: Skeleton link exported.
+23:15:06: Exporting bounds information....
+23:15:06: Bounds information exported.
+23:15:06: Exporting submesh name table...
+23:15:06: Submesh name table exported.
+23:15:06: Mesh data exported.
+23:15:06: MeshSerializer export successful.
+23:15:06: Exporting bones..
+23:15:06: Bones exported.
+23:15:06: Exporting animations, count=1
+23:15:06: Exporting animation: Idle
+23:15:06: Animation exported.
+23:15:06: Skeleton: Loading models/field_maps/0632/13.skeleton
+23:15:06: MeshSerializer writing mesh data to stream ...
+23:15:06: File header written.
+23:15:06: Writing mesh data...
+23:15:06: Writing submesh...
+23:15:06: Exporting submesh texture aliases...
+23:15:06: Submesh texture aliases exported.
+23:15:06: Exporting dedicated geometry bone assignments...
+23:15:06: Dedicated geometry bone assignments exported.
+23:15:06: Submesh exported.
+23:15:06: Exporting skeleton link...
+23:15:06: Skeleton link exported.
+23:15:06: Exporting bounds information....
+23:15:06: Bounds information exported.
+23:15:06: Exporting submesh name table...
+23:15:06: Submesh name table exported.
+23:15:06: Mesh data exported.
+23:15:06: MeshSerializer export successful.
+23:15:06: Exporting bones..
+23:15:06: Bones exported.
+23:15:06: Exporting animations, count=1
+23:15:06: Exporting animation: Idle
+23:15:06: Animation exported.
+23:15:06: Skeleton: Loading models/field_maps/0632/14.skeleton
+23:15:06: MeshSerializer writing mesh data to stream ...
+23:15:06: File header written.
+23:15:06: Writing mesh data...
+23:15:06: Writing submesh...
+23:15:06: Exporting submesh texture aliases...
+23:15:06: Submesh texture aliases exported.
+23:15:06: Exporting dedicated geometry bone assignments...
+23:15:06: Dedicated geometry bone assignments exported.
+23:15:06: Submesh exported.
+23:15:06: Exporting skeleton link...
+23:15:06: Skeleton link exported.
+23:15:06: Exporting bounds information....
+23:15:06: Bounds information exported.
+23:15:06: Exporting submesh name table...
+23:15:06: Submesh name table exported.
+23:15:06: Mesh data exported.
+23:15:06: MeshSerializer export successful.
+23:15:06: Exporting bones..
+23:15:06: Bones exported.
+23:15:06: Exporting animations, count=1
+23:15:06: Exporting animation: Idle
+23:15:06: Animation exported.
+23:15:06: Skeleton: Loading models/field_maps/0632/15.skeleton
+23:15:06: MeshSerializer writing mesh data to stream ...
+23:15:06: File header written.
+23:15:06: Writing mesh data...
+23:15:06: Writing submesh...
+23:15:06: Exporting submesh texture aliases...
+23:15:06: Submesh texture aliases exported.
+23:15:06: Exporting dedicated geometry bone assignments...
+23:15:06: Dedicated geometry bone assignments exported.
+23:15:06: Submesh exported.
+23:15:06: Writing submesh...
+23:15:06: Exporting submesh texture aliases...
+23:15:06: Submesh texture aliases exported.
+23:15:06: Exporting dedicated geometry bone assignments...
+23:15:06: Dedicated geometry bone assignments exported.
+23:15:06: Submesh exported.
+23:15:06: Exporting skeleton link...
+23:15:06: Skeleton link exported.
+23:15:06: Exporting bounds information....
+23:15:06: Bounds information exported.
+23:15:06: Exporting submesh name table...
+23:15:06: Submesh name table exported.
+23:15:06: Mesh data exported.
+23:15:06: MeshSerializer export successful.
+23:15:06: Exporting bones..
+23:15:06: Bones exported.
+23:15:06: Exporting animations, count=1
+23:15:06: Exporting animation: Idle
+23:15:06: Animation exported.
+23:15:06: Skeleton: Loading models/field_maps/0632/16.skeleton
+23:15:06: MeshSerializer writing mesh data to stream ...
+23:15:06: File header written.
+23:15:06: Writing mesh data...
+23:15:06: Writing submesh...
+23:15:06: Exporting submesh texture aliases...
+23:15:06: Submesh texture aliases exported.
+23:15:06: Exporting dedicated geometry bone assignments...
+23:15:06: Dedicated geometry bone assignments exported.
+23:15:06: Submesh exported.
+23:15:06: Writing submesh...
+23:15:06: Exporting submesh texture aliases...
+23:15:06: Submesh texture aliases exported.
+23:15:06: Exporting dedicated geometry bone assignments...
+23:15:06: Dedicated geometry bone assignments exported.
+23:15:06: Submesh exported.
+23:15:06: Exporting skeleton link...
+23:15:06: Skeleton link exported.
+23:15:06: Exporting bounds information....
+23:15:06: Bounds information exported.
+23:15:06: Exporting submesh name table...
+23:15:06: Submesh name table exported.
+23:15:06: Mesh data exported.
+23:15:06: MeshSerializer export successful.
+23:15:06: Exporting bones..
+23:15:06: Bones exported.
+23:15:06: Exporting animations, count=1
+23:15:06: Exporting animation: Idle
+23:15:06: Animation exported.
+23:15:06: Skeleton: Loading models/field_maps/0632/17.skeleton
+23:15:06: MeshSerializer writing mesh data to stream ...
+23:15:06: File header written.
+23:15:06: Writing mesh data...
+23:15:06: Writing submesh...
+23:15:06: Exporting submesh texture aliases...
+23:15:06: Submesh texture aliases exported.
+23:15:06: Exporting dedicated geometry bone assignments...
+23:15:06: Dedicated geometry bone assignments exported.
+23:15:06: Submesh exported.
+23:15:06: Writing submesh...
+23:15:06: Exporting submesh texture aliases...
+23:15:06: Submesh texture aliases exported.
+23:15:06: Exporting dedicated geometry bone assignments...
+23:15:06: Dedicated geometry bone assignments exported.
+23:15:06: Submesh exported.
+23:15:06: Exporting skeleton link...
+23:15:06: Skeleton link exported.
+23:15:06: Exporting bounds information....
+23:15:06: Bounds information exported.
+23:15:06: Exporting submesh name table...
+23:15:06: Submesh name table exported.
+23:15:06: Mesh data exported.
+23:15:06: MeshSerializer export successful.
+23:15:06: Exporting bones..
+23:15:06: Bones exported.
+23:15:06: Exporting animations, count=1
+23:15:06: Exporting animation: Idle
+23:15:06: Animation exported.
+23:15:06: Skeleton: Loading models/field_maps/0632/18.skeleton
+23:15:06: MeshSerializer writing mesh data to stream ...
+23:15:06: File header written.
+23:15:06: Writing mesh data...
+23:15:06: Writing submesh...
+23:15:06: Exporting submesh texture aliases...
+23:15:06: Submesh texture aliases exported.
+23:15:06: Exporting dedicated geometry bone assignments...
+23:15:06: Dedicated geometry bone assignments exported.
+23:15:06: Submesh exported.
+23:15:06: Exporting skeleton link...
+23:15:06: Skeleton link exported.
+23:15:06: Exporting bounds information....
+23:15:06: Bounds information exported.
+23:15:06: Exporting submesh name table...
+23:15:06: Submesh name table exported.
+23:15:06: Mesh data exported.
+23:15:06: MeshSerializer export successful.
+23:15:07: MaterialSerializer : writing material xeno/model/0632 to queue.
+23:15:07: MaterialSerializer : parsing texture layer.
+23:15:07: MaterialSerializer : done.
+23:15:07: MaterialSerializer : writing material(s) to material script : exported/models/field_maps/0632/0632.material
+23:15:07: MaterialSerializer : done.
+23:15:07: Mesh: Loading models/field_maps/0632/0.mesh.
+23:15:07: Texture: models/field_maps/0632/0632.png: Loading 1 faces(PF_A8R8G8B8,4096x512x1) Internal format is PF_A8R8G8B8,4096x512x1.
+23:15:07: Mesh: Loading models/field_maps/0632/1.mesh.
+23:15:07: Mesh: Loading models/field_maps/0632/2.mesh.
+23:15:07: Mesh: Loading models/field_maps/0632/3.mesh.
+23:15:07: Mesh: Loading models/field_maps/0632/4.mesh.
+23:15:07: Mesh: Loading models/field_maps/0632/5.mesh.
+23:15:07: Mesh: Loading models/field_maps/0632/6.mesh.
+23:15:07: Mesh: Loading models/field_maps/0632/7.mesh.
+23:15:07: Mesh: Loading models/field_maps/0632/8.mesh.
+23:15:07: Mesh: Loading models/field_maps/0632/9.mesh.
+23:15:07: Mesh: Loading models/field_maps/0632/10.mesh.
+23:15:08: Mesh: Loading models/field_maps/0632/11.mesh.
+23:15:08: Mesh: Loading models/field_maps/0632/12.mesh.
+23:15:08: Mesh: Loading models/field_maps/0632/13.mesh.
+23:15:08: Mesh: Loading models/field_maps/0632/14.mesh.
+23:15:08: Mesh: Loading models/field_maps/0632/15.mesh.
+23:15:08: Mesh: Loading models/field_maps/0632/16.mesh.
+23:15:08: Mesh: Loading models/field_maps/0632/17.mesh.
+23:15:08: Mesh: Loading models/field_maps/0632/18.mesh.
+23:15:09: MaterialSerializer : writing material xeno/sprite to queue.
+23:15:09: MaterialSerializer : parsing texture layer.
+23:15:09: MaterialSerializer : done.
+23:15:09: MaterialSerializer : writing material(s) to material script : exported/debug/0632_3_2dsprite.material
+23:15:09: MaterialSerializer : done.
+23:15:09: MaterialSerializer : writing material xeno/sprite to queue.
+23:15:09: MaterialSerializer : parsing texture layer.
+23:15:09: MaterialSerializer : done.
+23:15:09: MaterialSerializer : writing material(s) to material script : exported/debug/0632_3_2dsprite.material
+23:15:09: MaterialSerializer : done.
+23:15:10: MaterialSerializer : writing material xeno/sprite to queue.
+23:15:10: MaterialSerializer : parsing texture layer.
+23:15:10: MaterialSerializer : done.
+23:15:10: MaterialSerializer : writing material(s) to material script : exported/debug/0632_3_2dsprite.material
+23:15:10: MaterialSerializer : done.
+23:15:10: MaterialSerializer : writing material xeno/sprite to queue.
+23:15:10: MaterialSerializer : parsing texture layer.
+23:15:10: MaterialSerializer : done.
+23:15:10: MaterialSerializer : writing material(s) to material script : exported/debug/0632_3_2dsprite.material
+23:15:10: MaterialSerializer : done.
+23:15:10: MaterialSerializer : writing material xeno/sprite to queue.
+23:15:10: MaterialSerializer : parsing texture layer.
+23:15:10: MaterialSerializer : done.
+23:15:10: MaterialSerializer : writing material(s) to material script : exported/debug/0632_3_2dsprite.material
+23:15:10: MaterialSerializer : done.
+23:15:11: MaterialSerializer : writing material xeno/sprite to queue.
+23:15:11: MaterialSerializer : parsing texture layer.
+23:15:11: MaterialSerializer : done.
+23:15:11: MaterialSerializer : writing material(s) to material script : exported/debug/0632_3_2dsprite.material
+23:15:11: MaterialSerializer : done.
+23:15:11: MaterialSerializer : writing material xeno/sprite to queue.
+23:15:11: MaterialSerializer : parsing texture layer.
+23:15:11: MaterialSerializer : done.
+23:15:11: MaterialSerializer : writing material(s) to material script : exported/debug/0632_3_2dsprite.material
+23:15:11: MaterialSerializer : done.
+23:15:12: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:12: Font BlueHighway using texture size 512x512
+23:15:12: Info: Freetype returned null for character 127 in font BlueHighway
+23:15:12: Info: Freetype returned null for character 128 in font BlueHighway
+23:15:12: Info: Freetype returned null for character 129 in font BlueHighway
+23:15:12: Info: Freetype returned null for character 130 in font BlueHighway
+23:15:12: Info: Freetype returned null for character 131 in font BlueHighway
+23:15:12: Info: Freetype returned null for character 132 in font BlueHighway
+23:15:12: Info: Freetype returned null for character 133 in font BlueHighway
+23:15:12: Info: Freetype returned null for character 134 in font BlueHighway
+23:15:12: Info: Freetype returned null for character 135 in font BlueHighway
+23:15:12: Info: Freetype returned null for character 136 in font BlueHighway
+23:15:12: Info: Freetype returned null for character 137 in font BlueHighway
+23:15:12: Info: Freetype returned null for character 138 in font BlueHighway
+23:15:12: Info: Freetype returned null for character 139 in font BlueHighway
+23:15:12: Info: Freetype returned null for character 140 in font BlueHighway
+23:15:12: Info: Freetype returned null for character 141 in font BlueHighway
+23:15:12: Info: Freetype returned null for character 142 in font BlueHighway
+23:15:12: Info: Freetype returned null for character 143 in font BlueHighway
+23:15:12: Info: Freetype returned null for character 144 in font BlueHighway
+23:15:12: Info: Freetype returned null for character 145 in font BlueHighway
+23:15:12: Info: Freetype returned null for character 146 in font BlueHighway
+23:15:12: Info: Freetype returned null for character 147 in font BlueHighway
+23:15:12: Info: Freetype returned null for character 148 in font BlueHighway
+23:15:12: Info: Freetype returned null for character 149 in font BlueHighway
+23:15:12: Info: Freetype returned null for character 150 in font BlueHighway
+23:15:12: Info: Freetype returned null for character 151 in font BlueHighway
+23:15:12: Info: Freetype returned null for character 152 in font BlueHighway
+23:15:12: Info: Freetype returned null for character 153 in font BlueHighway
+23:15:12: Info: Freetype returned null for character 154 in font BlueHighway
+23:15:12: Info: Freetype returned null for character 155 in font BlueHighway
+23:15:12: Info: Freetype returned null for character 156 in font BlueHighway
+23:15:12: Info: Freetype returned null for character 157 in font BlueHighway
+23:15:12: Info: Freetype returned null for character 158 in font BlueHighway
+23:15:12: Info: Freetype returned null for character 159 in font BlueHighway
+23:15:12: Info: Freetype returned null for character 160 in font BlueHighway
+23:15:12: Texture: BlueHighwayTexture: Loading 1 faces(PF_BYTE_LA,512x512x1) with 0 generated mipmaps from Image. Internal format is PF_BYTE_LA,512x512x1.
+23:15:12: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:12: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:12: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:12: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:12: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:12: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:12: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:12: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:12: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:12: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:12: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:12: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:12: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:12: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:12: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:12: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:12: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:12: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:12: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:12: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:12: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:12: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:12: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:12: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:12: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:12: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:12: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:12: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:12: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:12: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:12: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:12: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:12: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:12: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:12: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:12: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:12: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:12: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:12: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:12: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:12: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:12: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:12: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:12: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:12: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:12: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:12: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:12: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:12: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:12: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:12: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:12: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:12: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:12: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:12: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:12: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:12: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:12: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:12: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:12: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:12: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:12: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:12: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:12: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:12: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:12: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:12: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:12: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:12: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:12: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:12: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:12: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:12: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:12: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:12: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:12: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:12: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:12: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:13: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:14: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:14: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:14: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:14: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:14: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:14: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:14: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:14: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:14: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:14: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:14: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:14: [ERROR] src\SpriteFile.cpp 301: Max number of tiles reached. Max number of tiles is 64.
+23:15:14: DefaultWorkQueue('Root') shutting down on thread 1a64.
+23:15:14: DefaultWorkQueue('Root')::WorkerFunc - thread be4 stopped.
+23:15:14: DefaultWorkQueue('Root')::WorkerFunc - thread 13f8 stopped.
+23:15:14: *-*-* OGRE Shutdown
+23:15:14: Unregistering ResourceManager for type Compositor
+23:15:14: Unregistering ResourceManager for type Skeleton
+23:15:14: Unregistering ResourceManager for type Mesh
+23:15:14: Unregistering ResourceManager for type HighLevelGpuProgram
+23:15:14: Uninstalling plugin: D3D9 RenderSystem
+23:15:14: D3D9 device: 0x[03AFF820] destroy. Releasing D3D9 texture: BlueHighwayTexture
+23:15:14: Released D3D9 texture: BlueHighwayTexture
+23:15:14: D3D9 device: 0x[03AFF820] destroy. Releasing D3D9 texture: New_Ogre_Border_Center.png
+23:15:14: Released D3D9 texture: New_Ogre_Border_Center.png
+23:15:14: D3D9 device: 0x[03AFF820] destroy. Releasing D3D9 texture: New_Ogre_Border.png
+23:15:14: Released D3D9 texture: New_Ogre_Border.png
+23:15:14: D3D9 device: 0x[03AFF820] destroy. Releasing D3D9 texture: New_Ogre_Border_Break.png
+23:15:14: Released D3D9 texture: New_Ogre_Border_Break.png
+23:15:14: D3D9 device: 0x[03AFF820] destroy. Releasing D3D9 texture: ogretext.png
+23:15:14: Released D3D9 texture: ogretext.png
+23:15:14: D3D9 : Shutting down cleanly.
+23:15:14: Unregistering ResourceManager for type Texture
+23:15:14: Unregistering ResourceManager for type GpuProgram
+23:15:14: D3D9 : Direct3D9 Rendering Subsystem destroyed.
+23:15:14: Plugin successfully uninstalled
+23:15:14: Unloading library RenderSystem_Direct3D9.dll
+23:15:14: Unregistering ResourceManager for type Material

@@ -85,6 +85,9 @@
     <ClInclude Include="src\Utilites.h">
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
+    <ClInclude Include="src\DialogFile.h">
+      <Filter>Заголовочные файлы</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\common\BinGZipFile.cpp">
@@ -160,6 +163,9 @@
       <Filter>Заголовочные файлы</Filter>
     </ClCompile>
     <ClCompile Include="src\Utilites.cpp">
+      <Filter>Заголовочные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="src\DialogFile.cpp">
       <Filter>Заголовочные файлы</Filter>
     </ClCompile>
   </ItemGroup>

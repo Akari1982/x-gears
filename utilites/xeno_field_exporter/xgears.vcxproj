@@ -98,6 +98,7 @@
     <ClInclude Include="src\AnimatedModel.h" />
     <ClInclude Include="src\AnimationExtractor.h" />
     <ClInclude Include="src\ArchiveFile.h" />
+    <ClInclude Include="src\DialogFile.h" />
     <ClInclude Include="src\FieldModel.h" />
     <ClInclude Include="src\FieldModule.h" />
     <ClInclude Include="src\FieldPackFile.h" />
@@ -124,6 +125,7 @@
     <ClCompile Include="src\AnimatedModel.cpp" />
     <ClCompile Include="src\AnimationExtractor.cpp" />
     <ClCompile Include="src\ArchiveFile.cpp" />
+    <ClCompile Include="src\DialogFile.cpp" />
     <ClCompile Include="src\FieldModel.cpp" />
     <ClCompile Include="src\FieldModule.cpp" />
     <ClCompile Include="src\FieldPackFile.cpp" />

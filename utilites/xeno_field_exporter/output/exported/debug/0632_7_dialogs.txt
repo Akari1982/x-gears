@@ -1,0 +1,108 @@
+Dialog 00
+width = 18, height = 7
+0f
+Dialog 01
+width = 48, height = 3
+0f
+Dialog 02
+width = 51, height = 4
+0f
+Dialog 03
+width = 51, height = 4
+0f
+Dialog 04
+width = 51, height = 4
+0f
+Dialog 05
+width = 30, height = 2
+0f
+Dialog 06
+width = 45, height = 4
+0f
+Dialog 07
+width = 33, height = 3
+0f
+Dialog 08
+width = 36, height = 3
+0f
+Dialog 09
+width = 42, height = 3
+0f
+Dialog 0a
+width = 57, height = 4
+ba
+Dialog 0b
+width = 48, height = 4
+ba
+Dialog 0c
+width = 45, height = 3
+ba
+Dialog 0d
+width = 51, height = 3
+ba
+Dialog 0e
+width = 54, height = 3
+ba
+Dialog 0f
+width = 30, height = 3
+ba
+Dialog 10
+width = 48, height = 4
+ba
+Dialog 11
+width = 45, height = 4
+ba
+Dialog 12
+width = 33, height = 4
+ba
+Dialog 13
+width = 45, height = 3
+5c
+Dialog 14
+width = 27, height = 3
+b6
+Dialog 15
+width = 48, height = 4
+b6
+Dialog 16
+width = 45, height = 4
+b6
+Dialog 17
+width = 54, height = 3
+b6
+Dialog 18
+width = 45, height = 4
+b6
+Dialog 19
+width = 33, height = 4
+b6
+Dialog 1a
+width = 42, height = 3
+fb
+Dialog 1b
+width = 54, height = 4
+fb
+Dialog 1c
+width = 18, height = 2
+77
+Dialog 1d
+width = 48, height = 3
+fb
+Dialog 1e
+width = 45, height = 4
+fb
+Dialog 1f
+width = 60, height = 4
+ba
+Dialog 20
+width = 51, height = 4
+a6
+Dialog 21
+width = 15, height = 1
+8e
+Dialog 22
+width = 48, height = 4
+8c
+Dialog 23
+width = 45, height = 4
+6d
