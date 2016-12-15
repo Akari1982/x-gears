@@ -1,7 +1,17 @@
 <map>
     <walkmesh file_name="maps/field/lahan_civilian_house1_wm.xml" />
 
+    <square_trigger name="Gateway0" point1="1.875 -1.875 0" point2="2.48438 -2.48438 0" point3="3.0625 -1.90625 0" point4="2.45313 -1.29688 0" />
+
+    <entity name="Script_0" position="0 0 0" flags="01e0" />
+    <entity name="Script_1" position="0 0 0" flags="01e0" />
+    <entity name="Script_2" position="0 0 0" flags="01e0" />
+    <entity name="Script_3" position="0 0 0" flags="01e0" />
+    <entity name="Script_4" position="0 0 0" flags="01e0" />
     <entity_model name="Background_5" file_name="models/field_maps/0620/15.mesh" position="-2.60938 -0.90625 4.03125" rotation="0 1536 0" direction="135" flags="0290" />
+    <entity name="Script_6" position="0 0 0" flags="01e0" />
+    <entity name="Script_7" position="0 0 0" flags="01e0" />
+    <entity name="Script_8" position="0 0 0" flags="01e0" />
     <entity_model name="Background_9" file_name="models/field_maps/0620/0.mesh" position="0 0 0" rotation="0 1536 0" direction="135" flags="8010" />
     <entity_model name="Background_10" file_name="models/field_maps/0620/1.mesh" position="0 0 0" rotation="0 1536 0" direction="135" flags="0000" />
     <entity_model name="Background_11" file_name="models/field_maps/0620/2.mesh" position="0 0 0" rotation="0 1536 0" direction="135" flags="0010" />

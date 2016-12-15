@@ -1,8 +1,30 @@
 <map>
     <walkmesh file_name="maps/field/lahan_bar1_wm.xml" />
 
+    <square_trigger name="Gateway0" point1="-2.92188 4.35938 0" point2="-2.3125 3.75 0" point3="-1.71875 4.34375 0" point4="-2.32813 4.95313 0" />
+
+    <entity name="Script_0" position="0 0 0" flags="01e0" />
+    <entity name="Script_1" position="0 0 0" flags="01e0" />
+    <entity name="Script_2" position="0 0 0" flags="01e0" />
+    <entity name="Script_3" position="0 0 0" flags="01e0" />
+    <entity name="Script_4" position="0 0 0" flags="01e0" />
+    <entity name="Script_5" position="0 0 0" flags="01e0" />
+    <entity name="Script_6" position="0 0 0" flags="01e0" />
+    <entity name="Script_7" position="0 0 0" flags="01e0" />
+    <entity name="Script_8" position="0 0 0" flags="01e0" />
+    <entity name="Script_9" position="0 0 0" flags="01e0" />
+    <entity name="Script_10" position="0 0 0" flags="01e0" />
+    <entity name="Script_11" position="0 0 0" flags="01e0" />
+    <entity name="Script_12" position="0 0 0" flags="01e0" />
+    <entity name="Script_13" position="0 0 0" flags="01e0" />
+    <entity name="Script_14" position="0 0 0" flags="01e0" />
+    <entity name="Script_15" position="0 0 0" flags="01e0" />
+    <entity name="Script_16" position="0 0 0" flags="01e0" />
+    <entity name="Script_17" position="0 0 0" flags="01e0" />
+    <entity name="Script_18" position="0 0 0" flags="01e0" />
     <entity_model name="Background_19" file_name="models/field_maps/0624/11.mesh" position="-1.28125 -0.90625 -3.23438" rotation="0 512 0" direction="45" flags="0290" />
     <entity_model name="Background_20" file_name="models/field_maps/0624/11.mesh" position="4.90625 -0.90625 -0.921875" rotation="0 2560 0" direction="225" flags="0290" />
+    <entity name="Script_21" position="0 0 0" flags="01e0" />
     <entity_model name="Background_22" file_name="models/field_maps/0624/0.mesh" position="0 0 0" rotation="0 512 0" direction="45" flags="8010" />
     <entity_model name="Background_23" file_name="models/field_maps/0624/1.mesh" position="0 0 0" rotation="0 512 0" direction="45" flags="0010" />
     <entity_model name="Background_24" file_name="models/field_maps/0624/2.mesh" position="0 0 0" rotation="0 512 0" direction="45" flags="0000" />
