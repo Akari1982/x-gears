@@ -1,4 +1,17 @@
 ////////////////////////////////
+// system_gte_vector_perspective_transform()
+VXY0 = w[A0 + 0];
+VZ0 = w[A0 + 4];
+gte_RTPS(); // Perspective transform
+[A1] = w(SXY2);
+[A2] = w(IR0);
+[A3] = w(FLAG);
+return SZ3 / 4;
+////////////////////////////////
+
+
+
+////////////////////////////////
 // system_gte_square_of_vector()
 IR1 = w[A0 + 0];
 IR2 = w[A0 + 4];

@@ -18,6 +18,10 @@ v80  variable from memory which can be immediate value if 0x8000 bit is set.
         Size: 6 (waitable)
         Set ???
 
+0x9C ()
+        Size: 1 (waitable)
+        Keep waiting if current entity has opened windows.
+
 0xA7 Encounter()
         Size: 1
         Encounter routine.

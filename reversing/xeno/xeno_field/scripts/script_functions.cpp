@@ -118,24 +118,23 @@ V0 = A2 << 1;
 
 
 ////////////////////////////////
-// convert_magic_to_pc_id
-if (A0 == ff)
+// convert_magic_to_pc_id()
+if( A0 == ff )
 {
     return w[80061c28];
 }
-else if (A0 == fe)
+else if( A0 == fe )
 {
     return w[80061c24];
 }
-else if (A0 == fd)
+else if( A0 == fd )
 {
     return w[80061c20];
 }
-else if (A0 == fc)
+else if( A0 == fc )
 {
     return ff;
 }
-
 return A0;
 ////////////////////////////////
 

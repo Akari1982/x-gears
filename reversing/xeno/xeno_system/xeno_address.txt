@@ -73,6 +73,7 @@
 800589b4 [][][][] we get here default clut Y setting and store it to 800589ac if 8004f7ac == 0.
 
 800589e8 [][][][] store start of extended text characters here. 0xf8 in japanese.
+800589fc [][][][] pointer to pack of some texts.
 
 80058a10 [][]     previously pressed button mask for controller 1 (details in 80058c0c).
 80058a14 [][]     previously pressed button mask for controller 2 (details in 80058c0c).

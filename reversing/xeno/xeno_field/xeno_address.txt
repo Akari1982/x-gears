@@ -272,6 +272,7 @@ spawn table
             + 16 [][]     tex page.
             + 1c [][]     uv 2.
             + 24 [][]     uv 3.
+    +   c some matrix
     +  1e          solid range.
     +  20 [][][][] some X data.
     +  24 [][][][] some Y data.
@@ -352,11 +353,11 @@ spawn table
         +  76 [][]     init with 0x0100.
         +  80 []       store character id here when we set avatar. Init with 0xff.
         +  81 []       store something from here to memory block + 14. Dialog related. Maybe cursor position.
-        +  82 []       something dialog related. Init with 0.
-        +  83 []       something dialog related. Init with 0.
+        +  82 []       dialog width. Init with 0.
+        +  83 []       dialog height. Init with 0.
         +  84 [][][][] something dialog related. Init with 0.
-        +  88 [][]     something dialog related. Init with 0.
-        +  8a [][]     something dialog related. Init with 0.
+        +  88 [][]     dialog pixel width. Init with 0.
+        +  8a [][]     dialog pixel height. Init with 0.
         +  8c start of slots (0x8 size 0x8 items)
             +0 [][]     pointer to requested script this slot. Init with 0xffff.
             +2 []       wait byte in this slot. Init with 0.
@@ -411,7 +412,7 @@ spawn table
         + 128 [][][][] init with 0x0000ffff.
         + 12c [][][][] flags.
                         0x00000003 - remove during entity init.
-                        0x0000001c - remove during entity init.
+                        0x0000001c - remove during entity init. clut Y. used for avatar render.
                         0x00000020 - if set - door opening or closing. Remove during init.
                         0x000001c0 - remove during entity init.
                         0x00000e00 - remove during entity init. Rotation dir.
@@ -459,7 +460,7 @@ spawn table
 
 800af1e4 [][][][] number of materials.
 
-800af1f0 [][][][] current entity id.
+800af1f0 [][][][] current entity id in script call.
 800af1f4 [][]     store 0xff40 here if we init player entity.
 
 800af370 [][]     current button mask for controller 1. (1 = pressed, 0 = released)
@@ -483,7 +484,7 @@ spawn table
 
 800af4c0 [][][][] if this is 0 then we execute script till the end (or until wait type opcode). If 1 together with 800af594 then we end script cycle.
 
-800af54c [][][][] offset to struct 0x138 for current entity.
+800af54c [][][][] offset to struct 0x138 for current entity in script call.
 
 800af594 [][][][] seems like return result from function (wait opcode returns 1). Set to 0 at start of run_script function.
 
@@ -491,7 +492,7 @@ spawn table
 
 800b144c copy first 0x100 byte of field file here.
 
-800b1648 [][][][] if 1 then we lock all dialog script call.
+800b1648 [][][][] activated windows mask. If 1 then we lock all dialog script call.
 
 800b1654 [][][][] increment during each entity initialization.
 
@@ -521,39 +522,89 @@ spawn table
 800c1b6c dialogs struct (0x498 size)(4 items)
 + 18 [][]     store 0x64 here in case of new row. Maybe how much symbols in new row we can put.
 + 1a [][]     
-+ 22 [][]     total number of symbols???
-+ 28 [][]     some flags
-                0x0008: add this flag if we met 0x00_Close text opcode and there is no 0x0080 flag here or if we met 0x03_Wait text opcode. Maybe wait for player input? If this flag is set we read +83.
++ 1c [][]     position x.
++ 1e [][]     position y.
++ 20 [][]     width in pixels.
++ 22 [][]     width in something (multiply by 4 to get width in pixels).
++ 24 [][]     height in number of rows.
++ 26 [][]     texture V (ty).
++ 28 [][]     some flags. Init with 0.
+                0x0008: wait for player input flag. Add this flag if we met 0x00_Return text opcode and there is no stored pointer or if we met 0x03_Wait text opcode.
                 0x0048: add this flags if we met 0x02_New text opcode.
+                0x0080: stored pointer for text. If set and met 0x00_Return() in text then we remove this flag, and jump to stored pointer +38.
                 0x0200: add this flag in 0x0F0D text opcode.
-+ 2a [][]
++ 2a [][]     width in something + 3.
++ 2c [][]     row height. Store 0xe here.
 + 34 [][][][] pointer to current position in text data
 + 38 [][][][] some pointer.
-+ 40 [][][][] some pointer.
-+ 44 [][][][] some pointer.
-+ 80 []       default text speed.
-+ 81 []       current text speed. How much text read in one function call. 2 symbols opcodes counted as one.
-+ 82 []       stored text speed (to restore if we want).
-+ 83 []       state? Set to 1 if we met 0x00_Close text opcode. Set to 2 if we met 0x02_New text opcode. Set to 3 if we met 0x03_Wait text opcode.
-+ 84 []       store 1 here if we met 0x00_Close text opcode or if we met 0x0F02 text opcode.
++ 40 [][][][] pointer to memory with size number of rows * 0x60.
+    + 00 buffer1 packet for sprite 0x65 (0x14 size).
+    + 14 buffer1 packet for sprite 0x65 (0x14 size).
+    + 28 buffer2 packet for sprite 0x65 (0x14 size).
+    + 3c buffer2 packet for sprite 0x65 (0x14 size).
+    + 50 [][]     texture u.
+    + 52 [][]     texture v.
+    + 54 [][]     dialog_width + 3 in something.
+    + 56 [][]     init with 0xd. texture height.
+    + 58 [][]     init with 0x0.
+    + 5a []       current row & 1.
+    + 5b []       current row.
+    + 5c []       texture v.
+    + 5e [][]     hu[80058c70] or hu[80058ab0].
++ 44 [][][][] pointer to memory with size (width in something + 3) * 0x1c.
++ 48 buffer1 packet for render settings 0xe1 and 0xe2 (0xc size).
++ 54 buffer2 packet for render settings 0xe1 and 0xe2 (0xc size).
++ 60 buffer1 packet transparent black rectangle (0x10 size).
++ 70 buffer2 packet transparent black rectangle (0x10 size).
++ 80 []       default number of letters to read.
++ 81 []       letters to read at once. How much text read in one function call. 2 symbols opcodes counted as one.
++ 82 []       stored number of letters to read (to restore if we want).
++ 83 []       state. Init with 0. Set to 1 if we met 0x00 text opcode. Set to 2 if we met 0x02 opcode. Set to 3 if we met 0x03 text opcode.
++ 84 []       if 1 then window needs to be closed. Init with 0.
++ 85 []       init with 0.
++ 86 []       init with 0xff.
 + 88 [][][][] +0016 from memory block.
-+ 8c [][][][] +0018 from memory block.
++ 8c [][][][] +0018 from memory block. Pointer to list of allocated memory for dialog text data.
+    +00 [][][][] pointer to next allocated memory element.
+    +08 [][][][] offset to dialog text data.
 + 90 [][][][] +001a from memory block.
 + 94 [][][][] +001c from memory block.
 + 98 [][]     +001c from memory block.
-+ 9a [][]
-+ 9c [][]     store time to delay output here if we met 0x0F00_Delay text opcode or if we met 0x0F02 text opcode.
++ 9a [][]     init with 0. Number of +8c element in list.
++ 9c [][]     wait timer. Init with 0.
 + 9e [][]     store value for 0x0F0E text opcode here.
 + a0 [][]     store value for 0x0F0E text opcode here.
++ a4 [][][][] init with 0.
 + a8 [][][][] offset to dialog text data.
-+37c [][]     ???
++ ac [][]     dialog x.
++ ae [][]     dialog y.
++ b0 [][]     dialog width.
++ b2 [][]     dialog height.
++37c [][]     store -1 during dialog init.
++37e []       sum this and 382 and store to scruct 138 + 81 in entity when circle is pressed. Maybe start pos of cursor in select dialog.
++382 []       related with +37e. Maybe offset pos of cursor in select dialog.
 +3c4 [][]     we store 0 here if 37c != 0 and 83 != 0 and 28 flag 0x0008 is set
-+40c [][]     
-+40e [][]     
++40c [][]     some flags.
++40e [][]     checked if this == 0 when search for dialog.
 +410 [][]     looks like order of dialogs. 0-top. 0xffff if window not inited.
-+414 [][]     we set this to 0 if we tried to open new window but all window slots are filled. Maybe say this window to close. Usually 0xffff (not used in usual window render)
++412 [][]     ???
++414 [][]     Set to 0 to close window. Usually 0xffff (not used in usual window render)
 +416 [][]     some entity id??? maybe owner.
 +418 [][]     some entity id???
++450 buffer1 for avatar.
++478 buffer2 for avatar.
+    +00 []       u0.
+    +01 []       v0.
+    +02 [][]     CLUT.
+    +08 []       u1.
+    +09 []       v1.
+    +10 []       u2.
+    +11 []       v2.
+    +18 []       u3.
+    +19 []       u4.
++47a [][]     buf2 CLUT for avatar.
++494 []       1 if we render avatar, 0 otherwise.
++495 []       store here avatar id from +80 from entity 138 struct.
 
 800c2dcc [][]     pressed button mask for controller 2 (details in 800af370).
 800c2dd4 [][]     repeated button mask for controller 1 (details in 800af370).

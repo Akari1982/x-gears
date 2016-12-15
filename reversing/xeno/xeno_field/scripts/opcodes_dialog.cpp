@@ -1,33 +1,38 @@
 ////////////////////////////////
-// 0x9c
+// 0x03 DialogShow2
+A0 = w[800af1f0]; // current entity id
+A1 = 2;
+func9bb7c();
+////////////////////////////////
+
+
+
+////////////////////////////////
+// 0x9C
+struct_138 = w[800af54c];
+
 A0 = SP + 10;
-func9c2a8;
-if (V1 == -1) // if this entity don't have opened dialogs
+func9c2a8(); // search dialog for current entity
+if( V0 == -1 ) // if this entity don't have opened dialogs
 {
     [800af150] = w(w[800af150] + 8); // increase number of executed opcodes
 
     A0 = 14;
-    V1 = w[800af54c];
-    A1 = bu[V1 + 81];
-    put_bytes_to_800C2F3C;
+    A1 = bu[struct_138 + 81];
+    put_bytes_to_800C2F3C();
 
-    V1 = w[800af54c];
-    [V1 + cc] = h(hu[V1 + cc] + 1);
+    [struct_138 + cc] = h(hu[struct_138 + cc] + 1);
 }
 else
 {
-    V1 = w[SP + 10];
-    V1 = h[800c1b6c + V1 * 498 + 418];
-
+    dialog_id = w[SP + 10];
+    V1 = h[800c1b6c + dialog_id * 498 + 418];
     V0 = w[800aefe4] + V1 * 5c;
     V0 = w[V0 + 4c];
-    V0 = w[V0 + 4];
-    if (V0 & 00000200)
+    if( w[V0 + 4] & 00000200 )
     {
-        V0 = w[800af54c];
-        V1 = w[V0 + 84];
-        V0 = V1 >> 10;
-        if (V0 == 0)
+        V1 = w[struct_138 + 84];
+        if( ( V1 >> 10 ) == 0 )
         {
             V0 = V1 & ffff;
         }
@@ -36,33 +41,213 @@ else
             V0 = V0 & ffff;
         }
 
-        if ((V0 & 0001) == 0)
+        if( ( V0 & 0001 ) == 0 )
         {
-            V0 = bu[V1 + ce];
-            V1 = w[800af54c];
-            V0 = w[V1 + 8c + V0 * 8 + 4];
-            script_priority = (V0 >> 12) & f;
-            if (script_priority != 7)
+            slot_id = bu[struct_138 + ce];
+            script_priority = (w[struct_138 + 8c + slot_id * 8 + 4] >> 12) & f;
+            if( script_priority != 7 )
             {
-                funca1100; // this is return opcode
+                // end script execution
+                funca1100(); // this is return opcode
             }
 
-            V1 = w[SP + 10];
-            [800c1b6c + V1 * 498 + 414] = h(0);
+            [800c1b6c + dialog_id * 498 + 414] = h(0);
         }
     }
 
-    [800af594] = w(1);
+    [800af594] = w(1); // wait
 }
 ////////////////////////////////
 
 
 
 ////////////////////////////////
-// 0xD2_DialogShow
+// 0xA9
+
+A0 = SP + 10;
+func9c2a8(); // search dialog for current entity
+
+8009B280	bne    v0, zero, L9b3f0 [$8009b3f0]
+8009B284	nop
+8009B288	lw     v0, $0010(sp)
+8009B28C	lui    s0, $800c
+8009B290	addiu  s0, s0, $1b84
+8009B294	sll    a0, v0, $03
+8009B298	addu   a0, a0, v0
+8009B29C	sll    a0, a0, $02
+8009B2A0	addu   a0, a0, v0
+8009B2A4	sll    a0, a0, $02
+8009B2A8	subu   a0, a0, v0
+8009B2AC	sll    a0, a0, $03
+8009B2B0	lui    v0, $800b
+8009B2B4	lw     v0, $f150(v0)
+8009B2B8	nop
+8009B2BC	addiu  v0, v0, $0008
+8009B2C0	lui    at, $800b
+8009B2C4	sw     v0, $f150(at)
+8009B2C8	jal    func33af4 [$80033af4]
+8009B2CC	addu   a0, a0, s0
+8009B2D0	ori    v1, zero, $0001
+8009B2D4	beq    v0, v1, L9b324 [$8009b324]
+8009B2D8	nop
+8009B2DC	lw     v0, $0010(sp)
+8009B2E0	nop
+8009B2E4	sll    v1, v0, $03
+8009B2E8	addu   v1, v1, v0
+8009B2EC	sll    v1, v1, $02
+8009B2F0	addu   v1, v1, v0
+8009B2F4	sll    v1, v1, $02
+8009B2F8	subu   v1, v1, v0
+8009B2FC	sll    v1, v1, $03
+8009B300	addu   v1, v1, s0
+8009B304	lh     v0, $0084(v1)
+8009B308	nop
+8009B30C	beq    v0, zero, L9b410 [$8009b410]
+8009B310	ori    v0, zero, $0001
+8009B314	lbu    v0, $006c(v1)
+8009B318	nop
+8009B31C	beq    v0, zero, L9b410 [$8009b410]
+8009B320	ori    v0, zero, $0001
+
+L9b324:	; 8009B324
+8009B324	lw     v1, $0010(sp)
+8009B328	ori    a3, zero, $00f0
+8009B32C	sll    v0, v1, $03
+8009B330	addu   v0, v0, v1
+8009B334	sll    v0, v0, $02
+8009B338	addu   v0, v0, v1
+8009B33C	sll    v0, v0, $02
+8009B340	subu   v0, v0, v1
+8009B344	lui    v1, $800b
+8009B348	lw     v1, $f54c(v1)
+8009B34C	sll    v0, v0, $03
+8009B350	lui    at, $800c
+8009B354	addu   at, at, v0
+8009B358	sh     zero, $1ee8(at)
+8009B35C	ori    v0, zero, $00ff
+8009B360	sb     v0, $0081(v1)
+8009B364	lui    a2, $800b
+8009B368	lw     a2, $f54c(a2)
+8009B36C	lui    a0, $800b
+8009B370	lw     a0, $d0d8(a0)
+8009B374	lhu    v0, $00cc(a2)
+8009B378	lw     v1, $0010(sp)
+8009B37C	addu   v0, v0, a0
+8009B380	lbu    a1, $0001(v0)
+8009B384	sll    v0, v1, $03
+8009B388	addu   v0, v0, v1
+8009B38C	sll    v0, v0, $02
+8009B390	addu   v0, v0, v1
+8009B394	sll    v0, v0, $02
+8009B398	subu   v0, v0, v1
+8009B39C	sll    v0, v0, $03
+8009B3A0	srl    a1, a1, $04
+8009B3A4	lui    at, $800c
+8009B3A8	addu   at, at, v0
+8009B3AC	sh     a1, $1eea(at)
+8009B3B0	lhu    v1, $00cc(a2)
+8009B3B4	ori    a2, zero, $001e
+8009B3B8	addu   v1, v1, a0
+8009B3BC	lbu    v1, $0001(v1)
+8009B3C0	addu   a0, v0, s0
+8009B3C4	lui    at, $800c
+8009B3C8	addu   at, at, v0
+8009B3CC	sh     zero, $1eee(at)
+8009B3D0	andi   v1, v1, $000f
+8009B3D4	subu   v1, v1, a1
+8009B3D8	addiu  v1, v1, $0001
+8009B3DC	lui    at, $800c
+8009B3E0	addu   at, at, v0
+8009B3E4	sh     v1, $1eec(at)
+8009B3E8	jal    func34624 [$80034624]
+8009B3EC	ori    a1, zero, $00ef
+
+L9b3f0:	; 8009B3F0
+8009B3F0	lui    v1, $800b
+8009B3F4	lw     v1, $f54c(v1)
+8009B3F8	nop
+8009B3FC	lhu    v0, $00cc(v1)
+8009B400	nop
+8009B404	addiu  v0, v0, $0002
+8009B408	sh     v0, $00cc(v1)
+8009B40C	ori    v0, zero, $0001
+
+L9b410:	; 8009B410
+8009B410	lui    at, $800b
+8009B414	sw     v0, $f594(at)
+8009B418	lw     ra, $001c(sp)
+8009B41C	lw     s0, $0018(sp)
+8009B420	addiu  sp, sp, $0020
+8009B424	jr     ra 
+8009B428	nop
+////////////////////////////////
+
+
+
+////////////////////////////////
+// 0xD2 DialogShow0
 A0 = w[800af1f0]; // current entity id
 A1 = 0;
-func9bb7c;
+func9bb7c();
+////////////////////////////////
+
+
+
+////////////////////////////////
+// 0xD3 DialogShow1
+A0 = w[800af1f0]; // current entity id
+A1 = 1;
+func9bb7c();
+////////////////////////////////
+
+
+
+////////////////////////////////
+// 0xD4 func9b5f0
+8009B5F0	addiu  sp, sp, $ffe8 (=-$18)
+8009B5F4	sw     ra, $0010(sp)
+8009B5F8	jal    get_entity_id_from_opcode [$8009c344]
+8009B5FC	ori    a0, zero, $0001
+8009B600	ori    v1, zero, $00ff
+8009B604	beq    v0, v1, L9b65c [$8009b65c]
+8009B608	nop
+8009B60C	jal    get_entity_id_from_opcode [$8009c344]
+8009B610	ori    a0, zero, $0001
+8009B614	lui    v1, $800b
+8009B618	lw     v1, $f54c(v1)
+8009B61C	nop
+8009B620	lhu    a1, $00cc(v1)
+8009B624	addu   a0, v0, zero
+8009B628	addiu  a1, a1, $0001
+8009B62C	sh     a1, $00cc(v1)
+8009B630	jal    func9bb7c [$8009bb7c]
+8009B634	addu   a1, zero, zero
+8009B638	addiu  v1, zero, $ffff (=-$1)
+8009B63C	bne    v0, v1, L9b678 [$8009b678]
+8009B640	nop
+8009B644	lui    v1, $800b
+8009B648	lw     v1, $f54c(v1)
+8009B64C	nop
+8009B650	lhu    v0, $00cc(v1)
+8009B654	j      L9b674 [$8009b674]
+8009B658	addiu  v0, v0, $ffff (=-$1)
+
+L9b65c:	; 8009B65C
+8009B65C	lui    v1, $800b
+8009B660	lw     v1, $f54c(v1)
+8009B664	nop
+8009B668	lhu    v0, $00cc(v1)
+8009B66C	nop
+8009B670	addiu  v0, v0, $0006
+
+L9b674:	; 8009B674
+8009B674	sh     v0, $00cc(v1)
+
+L9b678:	; 8009B678
+8009B678	lw     ra, $0010(sp)
+8009B67C	addiu  sp, sp, $0018
+8009B680	jr     ra 
+8009B684	nop
 ////////////////////////////////
 
 
@@ -75,7 +260,7 @@ V0 = hu[A0 + cc];
 if (bu[V1 + V0 + 1] == 0)
 {
     A0 = SP + 10;
-    func9c2a8; // if this entity has opened dialogs
+    func9c2a8(); // search dialog for current entity
 
     if (V0 == 0) // if it is
     {
@@ -100,10 +285,56 @@ else
 
 
 ////////////////////////////////
-// 0xF5
+// 0xF5 DialogShow3
 A0 = w[8009f1f0];
 A1 = 3;
-func9bb7c;
+func9bb7c();
+////////////////////////////////
+
+
+
+////////////////////////////////
+// 0xFC
+8009B560	addiu  sp, sp, $ffe8 (=-$18)
+8009B564	sw     ra, $0010(sp)
+8009B568	jal    get_entity_id_from_opcode [$8009c344]
+8009B56C	ori    a0, zero, $0001
+8009B570	ori    v1, zero, $00ff
+8009B574	beq    v0, v1, L9b5c4 [$8009b5c4]
+8009B578	nop
+8009B57C	jal    get_entity_id_from_opcode [$8009c344]
+8009B580	ori    a0, zero, $0001
+8009B584	sll    v1, v0, $01
+8009B588	addu   v1, v1, v0
+8009B58C	sll    v1, v1, $03
+8009B590	subu   v1, v1, v0
+8009B594	lui    v0, $800b
+8009B598	lw     v0, $efe4(v0)
+8009B59C	sll    v1, v1, $02
+8009B5A0	addu   v1, v1, v0
+8009B5A4	lw     v0, $004c(v1)
+8009B5A8	lui    v1, $800b
+8009B5AC	lw     v1, $f54c(v1)
+8009B5B0	lbu    v0, $0080(v0)
+8009B5B4	jal    func9b5f0 [$8009b5f0]
+8009B5B8	sb     v0, $0080(v1)
+8009B5BC	j      L9b5e0 [$8009b5e0]
+8009B5C0	nop
+
+L9b5c4:	; 8009B5C4
+8009B5C4	lui    v1, $800b
+8009B5C8	lw     v1, $f54c(v1)
+8009B5CC	nop
+8009B5D0	lhu    v0, $00cc(v1)
+8009B5D4	nop
+8009B5D8	addiu  v0, v0, $0006
+8009B5DC	sh     v0, $00cc(v1)
+
+L9b5e0:	; 8009B5E0
+8009B5E0	lw     ra, $0010(sp)
+8009B5E4	addiu  sp, sp, $0018
+8009B5E8	jr     ra 
+8009B5EC	nop
 ////////////////////////////////
 
 
@@ -111,23 +342,24 @@ func9bb7c;
 ////////////////////////////////
 // 0xFE0D_SetAvatar
 A0 = 1;
-read_two_bytes_with_80;
+read_two_bytes_with_80();
 
 A0 = V0;
-convert_magic_to_pc_id;
+convert_magic_to_pc_id();
 
 V1 = w[800af54c];
 [V1 + 80] = b(V0);
-
 [V1 + cc] = h(hu[V1 + cc] + 3);
 ////////////////////////////////
 
 
 
 ////////////////////////////////
-// func9bb7c
-current_entity_id = A0;
+// func9bb7c()
+entity_id = A0;
 type = A1;
+
+struct_138 = w[800af54c];
 
 [800af150] = w(w[800af150] + 20); // increase number of opcodes in current script
 
@@ -137,16 +369,17 @@ if( w[800ad004] != 0 || w[800af1f8] != 0 || w[800c373c] != 0 || w[800ad03c] != f
     return -1;
 }
 
-if( w[800ad048] == 0 && func89b2c != 0 )
+func89b2c();
+if( w[800ad048] == 0 && V0 != 0 )
 {
     [800af594] = w(1);
     return -1;
 }
 
 // if we cant find avatar
-V0 = w[800af54c];
-A0 = bu[V0 + 80];
-if( A0 != ff && func9b728 == -1 )
+A0 = bu[struct_138 + 80];
+func9b728();
+if( A0 != ff && V0 == -1 )
 {
     [800af594] = w(1);
     return -1;
@@ -156,14 +389,13 @@ if( A0 != ff && func9b728 == -1 )
 
 
 
-//if this entity already has dialog
 A0 = SP + 30;
-func9c2a8;
-if (V0 != -1)
+func9c2a8(); // search dialog for current entity
+if( V0 != -1 )
 {
-    A0 = w[SP + 30];
-    [800c1b6c + A0 * 4a8 + 414] = h(0);
-
+    // close and wait
+    dialog_id = w[SP + 30];
+    [800c1b6c + dialog_id * 4a8 + 414] = h(0);
     [800af594] = w(1);
     return -1;
 }
@@ -173,15 +405,15 @@ if (V0 != -1)
 
 
 A0 = 1;
-read_two_bytes_unsigned;
+read_two_bytes_unsigned();
 dialog_id = V0;
 
 
 
-func7fd34; // search for not opened window slot
+func7fd34(); // search for not opened window slot
 if( V0 != 0 ) // if not found
 {
-    func7fd74; // search lowest opened window
+    func7fd74(); // search lowest opened window
     [800c1b6c + V0 * 498 + 414] = h(0); // say it to close
     [800af594] = w(1);
     return -1;
@@ -189,49 +421,46 @@ if( V0 != 0 ) // if not found
 
 
 
-func7fdc8; // get free window slot
-S1 = V0;
+func7fdc8(); // get free window slot
+window_id = V0;
 
-A0 = 0;
+
+
 S3 = 0;
 S2 = 0;
-V1 = 0;
-
+A0 = 0;
 loop9bd3c:	; 8009BD3C
-    if (h[800c1f7a + V1] == 0)
+    if( h[800c1b6c + A0 * 498 + 40e] == 0 )
     {
         S3 = S3 + 1;
-        S2 = S2 | h[800c1f78 + V1];
+        S2 = S2 | h[800c1b6c + A0 * 498 + 40c];
     }
-
     A0 = A0 + 1;
-    V1 = V1 + 498;
     V0 = A0 < 4;
 8009BD70	bne    v0, zero, loop9bd3c [$8009bd3c]
 
 
 
-A0 = w[800ad0c8]; // offset to dialogs
+A0 = w[800ad0c8]; // offset to dialogs part of field file
 A1 = dialog_id;
-func33560; // get dialog width
-S4 = V0;
+func33560();
+dialog_width = V0;
 
 A0 = w[800ad0c8];
 A1 = dialog_id;
-func33584; // get dialog height
-S5 = V0;
+func33584();
+dialog_rows = V0;
+
+y_pos = 10;
 
 
 
-A1 = w[800af54c];
-A2 = w[A1 + 84];
-A0 = A2 & ffff;
-[A1 + 84] = w(A0);
-
-
+A2 = w[struct_138 + 84];
+A0 = A2 & 0000ffff;
+[struct_138 + 84] = w(A0);
 
 // read last byte in opcode
-V0 = w[800ad0d8] + hu[A1 + cc];
+V0 = w[800ad0d8] + hu[struct_138 + cc];
 V1 = bu[V0 + 3];
 
 S6 = A0;
@@ -240,262 +469,296 @@ if( V1 != 0 )
     V0 = A2 & ff00;
     S6 = V0 | V1;
     V0 = S6 << 10;
-    [A1 + 84] = w(A0 | V0);
+    [struct_138 + 84] = w(A0 | V0);
 }
 
 V0 = S6 >> 4;
-S0 = 10;
 V1 = V0 & 3;
-if (V1 == 0)
+if( V1 == 0 )
 {
-    func99ae8;
-    V0 = V0 & ffff;
-    V1 = w[800af54c];
-    V1 = w[V1 + 12c];
-    V1 = V1 >> 9;
+    V0 = (7 - ((h[800aee60] - 100) >> 9)) & 7;
+    V1 = ((w[struct_138 + 12c] >> 9) & 7) - V0;
     V1 = V1 & 7;
-
-    V1 = V1 - V0;
-    V1 = V1 & 7;
-    if ((V1 < 5 && V0 == 0) || (S2 & 80 || S3 != 0))
+    if( ( ( V1 != 0 ) && ( S2 & 0080 ) ) || ( ( V1 == 0 ) && ( ( S2 & 0080 ) == 0 ) && ( S3 == 0 ) ) )
     {
-        8009BE60	j      L9bf40 [$8009bf40]
+        [800c1f78 + window_id * 498 + 40c] = h(0001);
+
+        if( ( type == 0 ) || ( type == 3 ) )
+        {
+            A0 = entity_id;
+            A1 = SP + 34; // x
+            A2 = SP + 38; // y
+            A3 = -40; // offset
+            func7ee28();
+
+            if( type == 0 )
+            {
+                y_pos = w[SP + 38] - dialog_rows * e - 24;
+            }
+            else
+            {
+                [SP + 34] = w(a0);
+                y_pos = 14;
+            }
+
+            if( bu[struct_138 + 80] != ff ) // if avatar exist
+            {
+                if( ( S6 & 0002 ) == 0 )
+                {
+                    dialog_rows = 4;
+                    if( dialog_width < 18 )
+                    {
+                        dialog_width = 18;
+                    }
+                    dialog_width = dialog_width + 11;
+                    y_pos = 10;
+                }
+            }
+        }
+        else
+        {
+            dialog_width = 48;
+            dialog_rows = 4;
+            y_pos = 10;
+            [SP + 34] = w(a0);
+        }
+    }
+    else
+    {
+        [800c1f78 + window_id * 498 + 40c] = h(0081);
+
+        if( ( type == 0 ) || ( type == 3 ) )
+        {
+            A0 = entity_id;
+            A1 = SP + 34;
+            A2 = SP + 38;
+            A3 = -40; // (ffc0)
+            func7ee28();
+
+            if( type == 0 )
+            {
+                y_pos = w[SP + 38] + 30;
+            }
+            else
+            {
+                y_pos = 94;
+                [SP + 34] = w(a0);
+            }
+
+            if( bu[struct_138 + 80] != ff )
+            {
+                if( ( S6 & 2 ) == 0 )
+                {
+                    if( dialog_width < 18 )
+                    {
+                        dialog_width = 18;
+                    }
+                    dialog_width = dialog_width + 11;
+                    dialog_rows = 5;
+                    y_pos = 94;
+                }
+            }
+        }
+        else
+        {
+            dialog_width = 48;
+            dialog_rows = 4;
+            y_pos = 10;
+            [SP + 34] = w(a0);
+        }
     }
 }
-else if (V1 != 1)
+else if( V1 == 1 )
 {
-    8009BE04	ori    v0, zero, $0002
-    8009BE08	beq    v1, v0, L9bf40 [$8009bf3c]
+    [800c1f78 + window_id * 498 + 40c] = h(0001);
 
-    8009BE10	j      L9bff4 [$8009bff4]
-}
-
-[800c1f78 + S1 * 498 + 40c] = h(1);
-
-if (type != 0 && type != 3)
-{
-    S4 = 48;
-    S5 = 4;
-    S0 = 10;
-    8009BF30	j      L9bfec [$8009bfec]
-}
-
-A0 = current_entity_id;
-A1 = SP + 34;
-A2 = SP + 38;
-A3 = -40; // (ffc0)
-func7ee28;
-
-
-if (type == 0)
-{
-    V1 = w[SP + 38];
-    S0 = V1 - S5 * e - 24;
-}
-else
-{
-    [SP + 34] = w(a0);
-    S0 = 14;
-}
-
-V0 = w[800af54c];
-if (bu[V0 + 80] != ff) // if avatar exist
-{
-    if ((S6 & 2) == 0)
+    if( ( type == 0 ) || ( type == 3 ) )
     {
-        S5 = 4;
-        if (S4 < 18)
+        A0 = entity_id;
+        A1 = SP + 34;
+        A2 = SP + 38;
+        A3 = -40; // (ffc0)
+        func7ee28();
+
+        if( type == 0 )
         {
-            S4 = 18;
+            V1 = w[SP + 38];
+            y_pos = V1 - dialog_rows * e - 24;
+        }
+        else
+        {
+            [SP + 34] = w(a0);
+            y_pos = 14;
         }
 
-        S4 = S4 + 11;
-        S0 = 10;
+        if( bu[struct_138 + 80] != ff ) // if avatar exist
+        {
+            if( ( S6 & 0002 ) == 0 )
+            {
+                dialog_rows = 4;
+                if( dialog_width < 18 )
+                {
+                    dialog_width = 18;
+                }
+                dialog_width = dialog_width + 11;
+                y_pos = 10;
+            }
+        }
+    }
+    else
+    {
+        dialog_width = 48;
+        dialog_rows = 4;
+        y_pos = 10;
+        [SP + 34] = w(a0);
     }
 }
-8009BF20	j      L9bff4 [$8009bff4]
-
-L9bf40:	; 8009BF40
-[800c1b6c + S1 * 498 + 40c] = h(81);
-8009BF64	beq    type, zero, L9bf74 [$8009bf74]
-8009BF68	ori    v0, zero, $0003
-8009BF6C	bne    type, v0, L9bfe4 [$8009bfe4]
-8009BF70	ori    s0, zero, $0094
-
-L9bf74:	; 8009BF74
-8009BF74	addu   a0, current_entity_id, zero
-8009BF78	addiu  a1, sp, $0034
-8009BF7C	addiu  a2, sp, $0038
-8009BF80	jal    func7ee28 [$8007ee28]
-8009BF84	addiu  a3, zero, $ffc0 (=-$40)
-S0 = 94;
-if (type == 0)
+else if( V1 == 2 )
 {
-    V0 = w[SP + 38];
-    S0 = V0 + 30;
-}
-else
-{
-    [SP + 34] = w(a0);
-}
+    [800c1f78 + window_id * 498 + 40c] = h(0081);
 
-8009BFA4	lui    v0, $800b
-8009BFA8	lw     v0, $f54c(v0)
-8009BFAC	nop
-8009BFB0	lbu    v1, $0080(v0)
-8009BFB4	ori    v0, zero, $00ff
-8009BFB8	beq    v1, v0, L9bff4 [$8009bff4]
-8009BFBC	andi   v0, s6, $0002
-8009BFC0	bne    v0, zero, L9bff4 [$8009bff4]
-8009BFC4	slti   v0, s4, $0018
-8009BFC8	beq    v0, zero, L9bfd8 [$8009bfd8]
-8009BFCC	addiu  s4, s4, $0011
-8009BFD0	ori    s4, zero, $0018
-8009BFD4	addiu  s4, s4, $0011
+    if( ( type == 0 ) || ( type == 3 ) )
+    {
+        A0 = entity_id;
+        A1 = SP + 34;
+        A2 = SP + 38;
+        A3 = -40;
+        func7ee28();
 
-L9bfd8:	; 8009BFD8
-8009BFD8	ori    s5, zero, $0004
-8009BFDC	j      L9bff4 [$8009bff4]
-8009BFE0	ori    s0, zero, $0094
+        if( type == 0 )
+        {
+            y_pos = w[SP + 38] + 30;
+        }
+        else
+        {
+            y_pos = 94;
+            [SP + 34] = w(a0);
+        }
 
-L9bfe4:	; 8009BFE4
-8009BFE4	ori    s4, zero, $0048
-8009BFE8	ori    s5, zero, $0004
-
-L9bfec:	; 8009BFEC
-8009BFEC	ori    v0, zero, $00a0
-8009BFF0	sw     v0, $0034(sp)
-
-L9bff4:	; 8009BFF4
-V0 = w[SP + 34];
-V1 = S4 * 2;
-V0 = V0 - 8;
-S2 = V0 - V1;
-
-if (S2 < c)
-{
-    S2 = c;
-}
-if (S2 + 10 + S4 * 4 >= 135)
-{
-    S2 = 124 - S4 * 4;
+        if( bu[struct_138 + 80] != ff )
+        {
+            if( ( S6 & 2 ) == 0 )
+            {
+                if( dialog_width < 18 )
+                {
+                    dialog_width = 18;
+                }
+                dialog_width = dialog_width + 11;
+                dialog_rows = 5;
+                y_pos = 94;
+            }
+        }
+    }
+    else
+    {
+        dialog_width = 48;
+        dialog_rows = 4;
+        y_pos = 94;
+        [SP + 34] = w(a0);
+    }
 }
 
-if (S0 < 10)
+
+
+x_pos = w[SP + 34] - 8 - dialog_width * 2;
+
+
+
+if( x_pos < c )
 {
-    S0 = 10;
+    x_pos = c;
+}
+if( ( x_pos + dialog_width * 4 + 10 ) >= 135 )
+{
+    x_pos = 124 - dialog_width * 4;
+}
+if( y_pos < 10 )
+{
+    y_pos = 10;
+}
+if( ( y_pos + dialog_rows * e + 8 ) >= d5 )
+{
+    y_pos = cc - dialog_rows * e;
 }
 
-8009C044	addiu  v1, s0, $0008
-8009C048	sll    v0, s5, $03
-8009C04C	subu   v0, v0, s5
-8009C050	sll    a0, v0, $01
-8009C054	addu   v1, v1, a0
-8009C058	slti   v1, v1, $00d5
-8009C05C	bne    v1, zero, L9c068 [$8009c068]
-8009C060	ori    v0, zero, $00cc
-8009C064	subu   s0, v0, a0
 
-L9c068:	; 8009C068
-8009C068	beq    type, zero, L9c078 [$8009c078]
-8009C06C	ori    v0, zero, $0003
-8009C070	bne    type, v0, L9c0f4 [$8009c0f4]
-8009C074	andi   v0, s6, $0040
 
-L9c078:	; 8009C078
-8009C078	lui    v1, $800b
-8009C07C	lw     v1, $f54c(v1)
-8009C080	nop
-8009C084	lh     v0, $0088(v1)
-8009C088	nop
-8009C08C	beq    v0, zero, L9c098 [$8009c098]
-8009C090	nop
-8009C094	addu   s2, v0, zero
-
-L9c098:	; 8009C098
-8009C098	lh     v0, $008a(v1)
-8009C09C	nop
-8009C0A0	beq    v0, zero, L9c0ac [$8009c0ac]
-8009C0A4	nop
-8009C0A8	addu   s0, v0, zero
-
-L9c0ac:	; 8009C0AC
-8009C0AC	lbu    v0, $0082(v1)
-8009C0B0	nop
-8009C0B4	beq    v0, zero, L9c0c0 [$8009c0c0]
-8009C0B8	nop
-8009C0BC	addu   s4, v0, zero
-
-L9c0c0:	; 8009C0C0
-8009C0C0	lbu    v0, $0083(v1)
-8009C0C4	nop
-8009C0C8	beq    v0, zero, L9c0d4 [$8009c0d4]
-8009C0CC	nop
-8009C0D0	addu   s5, v0, zero
-
-L9c0d4:	; 8009C0D4
-8009C0D4	lbu    v1, $0080(v1)
-8009C0D8	ori    v0, zero, $00ff
-8009C0DC	beq    v1, v0, L9c0f0 [$8009c0f0]
-8009C0E0	andi   v0, s6, $0002
-8009C0E4	bne    v0, zero, L9c0f4 [$8009c0f4]
-8009C0E8	andi   v0, s6, $0040
-8009C0EC	ori    s5, zero, $0004
-
-L9c0f0:	; 8009C0F0
-8009C0F0	andi   v0, s6, $0040
-
-L9c0f4:	; 8009C0F4
-if (V0 != 0)
+if( ( type == 0 ) || ( type == 3 ) )
 {
-    [800c1b6c + S1 * 498 + 40c] = h(hu[800c1b6c + S1 * 498 + 40c] + 40);
+    if( h[struct_138 + 88] != 0 )
+    {
+        x_pos = h[struct_138 + 88];
+    }
+    if( h[struct_138 + 8a] != 0 )
+    {
+        y_pos = h[struct_138 + 8a];
+    }
+    if( bu[struct_138 + 82] != 0 )
+    {
+        dialog_width = bu[struct_138 + 82];
+    }
+    if( bu[struct_138 + 83] != 0 )
+    {
+        dialog_rows = bu[struct_138 + 83];
+    }
+    if( bu[struct_138 + 80] != ff )
+    {
+        if( ( S6 & 0002 ) == 0 )
+        {
+            dialog_rows = 4;
+        }
+    }
+
 }
 
-V1 = 0;
-if ((S6 & 000c) == 0)
-{
-    func99ae8;
-    V0 = V0 & ffff;
 
+
+if( S6 & 0040 )
+{
+    [800c1b6c + window_id * 498 + 40c] = h(hu[800c1b6c + window_id * 498 + 40c] + 40);
+}
+
+
+
+rotation = 0;
+if( ( S6 & 000c ) == 0 )
+{
     A0 = w[800aefe4];
-    V1 = A0 + current_entity_id * 5c;
-    V1 = w[V1 + 4c];
-    V1 = hu[V1 + 106];
-    V1 = V1 << 10;
-    V1 = V1 >> 19;
-    V1 = V1 - V0;
-    V1 = V1 + 1;
-    V1 = V1 & 7;
-    V1 = V1 < 4;
-    V1 = V1 XOR 1;
-    V1 = V1 << a;
+    V1 = w[A0 + entity_id * 5c + 4c];
+    V1 = (h[V1 + 106] >> 9) - ((7 - ((h[800aee60] - 100) >> 9)) & 7);
+    V1 = (((V1 + 1) & 7) < 4) XOR 1;
+    rotation = V1 << a;
 }
-else if (S6 & 0004)
+else if( S6 & 0004 )
 {
-    V1 = 0400;
+    rotation = 0400;
 }
 
-A0 = S2; // width in pixels
-A1 = S0; // height in pixels
+
+
+A0 = x_pos;
+A1 = y_pos;
 A2 = dialog_id;
-A3 = S1; // window id
-[SP + 10] = w(S4); // width
-[SP + 14] = w(S5); // height
-[SP + 18] = w(w[800af1f0]);
-[SP + 1c] = w(current_entity_id);
-[SP + 20] = w(type);
-[SP + 24] = w(V1); // entity rotation
-[SP + 28] = w(S6); // flags
-func7eef0;
+A3 = window_id;
+A4 = dialog_width;
+A5 = dialog_rows;
+A6 = w[800af1f0]; // current entity id
+A7 = entity_id;
+A8 = type;
+A9 = rotation;
+A10 = S6; // flags
+func7eef0();
 
-A0 = S1;
-func9c288;
 
-A1 = w[800Af54c];
 
-[A1 + 104] = h(hu[A1 + 104] | 8000);
-[A1 + cc] = h(hu[A1 + cc] + 4)
+// add window to activated windows mask
+A0 = window_id;
+func9c288();
 
+
+
+[struct_138 + 104] = h(hu[struct_138 + 104] | 8000);
+[struct_138 + cc] = h(hu[struct_138 + cc] + 4)
 return 0;
 ////////////////////////////////
 
@@ -537,7 +800,7 @@ return bu[A0 + V0 * 2 + A1 * 2 + 6 + 1];
 
 
 ////////////////////////////////
-// func7fdc8
+// func7fdc8()
 A0 = 0;
 
 loop7fddc:	; 8007FDDC
@@ -545,7 +808,6 @@ loop7fddc:	; 8007FDDC
     {
         [800c1b6c + A0 * 498 + 410] = h(hu[800c1b6c + A0 * 498 + 410] + 1); // increase order of existed window
     }
-
     A0 = A0 + 1;
     V0 = A0 < 4;
 8007FE04	bne    v0, zero, loop7fddc [$8007fddc]
@@ -557,7 +819,6 @@ loop7fe1c:	; 8007FE1C
         [800c1b6c + A0 * 498 + 410] = h(0); // add new window on top
         return A0;
     }
-
     A0 = A0 + 1;
     V0 = A0 < 4;
 8007FE3C	bne    v0, zero, loop7fe1c [$8007fe1c]
@@ -568,7 +829,7 @@ return ffff;
 
 
 ////////////////////////////////
-// func7fd74
+// func7fd74()
 order = 0;
 A3 = ffff;
 
@@ -580,7 +841,6 @@ loop7fd88:	; 8007FD88
         order = V1;
         A3 = A0;
     }
-
     A0 = A0 + 1;
     V0 = A0 < 4;
 8007FDB8	bne    v0, zero, loop7fd88 [$8007fd88]
@@ -591,7 +851,7 @@ return A3;
 
 
 ////////////////////////////////
-// func7fd34
+// func7fd34()
 // is there are not opened windows
 A0 = 0;
 loop7fd40:	; 8007FD40
@@ -599,7 +859,6 @@ loop7fd40:	; 8007FD40
     {
         return 0;
     }
-
     A0 = A0 + 1;
     V0 = A0 < 4;
 8007FD60	bne    v0, zero, loop7fd40 [$8007fd40]
@@ -610,323 +869,195 @@ return ffff;
 
 
 ////////////////////////////////
-// func7eef0
-8007EEF0	addiu  sp, sp, $ff90 (=-$70)
-8007EEF8	lw     s4, $0088(sp)
-8007EF00	lw     fp, $0080(sp)
-8007EF04	lui    v1, $800b
-8007EF08	lw     v1, $efe4(v1)
-S2 = w[SP + 84]; // height in rows
-A1 = A1 - 8;
-[SP + 38] = w(A2); // dialog id
-[SP + 30] = h(A1); // height in pixels
+// func7eef0()
+x_pos = [SP + 28] = A0;
+y_pos = [SP + 30] = A1 - 8;
+dialog_id = [SP + 38] = A2;
+window_id = S1 = A3;
+dialog_width = FP = A4;
+dialog_rows = S2 = A5;
+current_entity_id = S4 = A6;
+entity_id = A7;
+type = A8;
+rotation = A0 = A9;
+flags = A10;
 
-S6 = w[SP + 90]; // type
+struct_5c_p = w[800aefe4];
+struct_138_cur = w[struct_5c_p + current_entity_id * 5c + 4c];
 
-V0 = w[V1 + S4 * 5c + 4c];
-V1 = w[V0 + 84];
 
-[SP + 28] = h(A0); // width in pixels
-A0 = w[SP + 94]; // entity rotation
-S1 = A3;
-V0 = V1 >> 10;
-if (V0 == 0)
+
+if( ( w[struct_138_cur + 84] >> 10 ) == 0 )
 {
-    S3 = V1 & ffff;
+    S3 = w[struct_138_cur + 84] & ffff;
 }
 else
 {
-    S3 = V0 & ffff;
+    S3 = (w[struct_138_cur + 84] >> 10) & ffff;
 }
-S3 = S3 | A0;
+S3 = S3 | rotation;
+
+
 
 A1 = 0;
 loop7ef9c:	; 8007EF9C
-    V0 = w[800ad368];
-    S5 = V0 & 3;
-    V1 = w[800afb60 + S5 * 4];
-    [800ad368] = w(V0 + 1);
+    S5 = w[800ad368] & 3;
+    [800ad368] = w(w[800ad368] + 1);
 
-    if (V1 == -1)
+    V1 = w[800afb60 + S5 * 4];
+    if( V1 == -1 )
     {
         [800afb60 + S5 * 4] = w(0);
         break;
     }
-
     A1 = A1 + 1;
     V0 = A1 < 4;
 8007EFD0	bne    v0, zero, loop7ef9c [$8007ef9c]
 
-S5 = S1;
+
 
 A0 = 16;
-get_bytes_from_800C2F3C;
-[800c1b6c + S1 * 498 + 88] = w(V0);
+get_bytes_from_800C2F3C();
+[800c1b6c + window_id * 498 + 88] = w(V0);
 
 A0 = 18;
-get_bytes_from_800C2F3C;
-[800c1b6c + S1 * 498 + 8c] = w(V0);
+get_bytes_from_800C2F3C();
+[800c1b6c + window_id * 498 + 8c] = w(V0);
 
 A0 = 1a;
-get_bytes_from_800C2F3C;
-[800c1b6c + S1 * 498 + 90] = w(V0);
+get_bytes_from_800C2F3C();
+[800c1b6c + window_id * 498 + 90] = w(V0);
 
 A0 = 1c;
-get_bytes_from_800C2F3C;
-[800c1b6c + S1 * 498 + 94] = w(V0);
+get_bytes_from_800C2F3C();
+[800c1b6c + window_id * 498 + 94] = w(V0);
+[800c1b6c + window_id * 498 + 98] = h(V0);
 
-[800c1b6c + S1 * 498 + 98] = h(V0);
 
-if (S6 == 2)
+
+if( type == 2 )
 {
-    [SP + 20] = w(a0); // width
-    [SP + 24] = w(h[SP + 30] + 20); // height
+    [SP + 20] = w(a0); // x
+    [SP + 24] = w(y_pos + 20); // y
 }
-if (S6 == 3)
+else if( type == 3 )
 {
-    [SP + 20] = w(h[SP + 28] + 8 + FP * 2); // width
-    [SP + 24] = w(h[SP + 30] + 8 + S2 * 7); // height
+    [SP + 20] = w(x_pos + 8 + dialog_width * 2); // x
+    [SP + 24] = w(y_pos + 8 + dialog_rows * 7); // y
 }
 else
 {
-    8007F06C	addiu  a1, sp, $0020
-    8007F0D0	lw     a0, $008c(sp)
-    8007F0D4	addiu  a2, sp, $0024
-    8007F0D8	jal    func7ee28 [$8007ee28]
-    8007F0DC	addiu  a3, zero, $ffc0 (=-$40)
+    A0 = entity_id;
+    A1 = SP + 20; // x
+    A2 = SP + 24; // y
+    A3 = -40;
+    func7ee28();
 }
 
-8007F0E0	sll    v0, s4, $01
-8007F0E4	addu   v0, v0, s4
-8007F0E8	sll    v0, v0, $03
-8007F0EC	subu   v0, v0, s4
-8007F0F0	lui    v1, $800b
-8007F0F4	lw     v1, $efe4(v1)
-8007F0F8	sll    v0, v0, $02
-8007F0FC	addu   v0, v0, v1
-8007F100	lw     a0, $004c(v0)
-8007F104	nop
-8007F108	lbu    v1, $0080(a0)
-8007F10C	ori    v0, zero, $00ff
-8007F110	beq    v1, v0, L7f1c4 [$8007f1c4]
-8007F114	andi   v0, s3, $0002
-8007F118	bne    v0, zero, L7f1c8 [$8007f1c8]
-8007F11C	sll    v0, s1, $03
-8007F120	andi   v0, s3, $0402
-8007F124	bne    v0, zero, L7f144 [$8007f144]
-8007F128	nop
-8007F12C	lw     a1, $012c(a0)
 
-L7f130:	; 8007F130
-8007F130	addu   a0, s1, zero
-8007F134	srl    a1, a1, $01
-8007F138	andi   a1, a1, $000e
-8007F13C	j      L7f154 [$8007f154]
-8007F140	ori    a1, a1, $0001
 
-L7f144:	; 8007F144
-8007F144	lw     a1, $012c(a0)
-8007F148	addu   a0, s1, zero
-8007F14C	srl    a1, a1, $01
-8007F150	andi   a1, a1, $000e
+// avatar exist
+if( ( bu[struct_138_cur + 80] != ff ) && ( ( S3 & 0002 ) == 0 ) )
+{
+    A0 = window_id;
+    A1 = (w[struct_138_cur + 12c] >> 1) & e;
+    if( ( S3 & 0402 ) == 0 )
+    {
+        A1 = A1 | 1; // increase clut Y
+    }
+    func7ebc0(); // set up clut and uv for avatar
 
-L7f154:	; 8007F154
-8007F154	jal    func7ebc0 [$8007ebc0]
-8007F158	nop
-8007F15C	sll    v1, s1, $03
-8007F160	addu   v1, v1, s1
-8007F164	sll    v1, v1, $02
-8007F168	addu   v1, v1, s1
-8007F16C	sll    v1, v1, $02
-8007F170	subu   v1, v1, s1
-8007F174	sll    v0, s4, $01
-8007F178	addu   v0, v0, s4
-8007F17C	sll    v0, v0, $03
-8007F180	subu   v0, v0, s4
-8007F184	lui    a0, $800b
-8007F188	lw     a0, $efe4(a0)
-8007F18C	sll    v0, v0, $02
-8007F190	addu   v0, v0, a0
-8007F194	lw     v0, $004c(v0)
-8007F198	sll    v1, v1, $03
-8007F19C	lbu    a0, $0080(v0)
-8007F1A0	ori    v0, zero, $0001
-8007F1A4	lui    at, $800c
-8007F1A8	addu   at, at, v1
-8007F1AC	sb     v0, $2000(at)
-8007F1B0	lui    at, $800c
-8007F1B4	addu   at, at, v1
-8007F1B8	sb     a0, $2001(at)
-8007F1BC	j      L7f200 [$8007f200]
-8007F1C0	addu   a0, s1, zero
+    [800c1b6c + window_id * 498 + 494] = b(1);
+    [800c1b6c + window_id * 498 + 495] = b(bu[struct_138_cur + 80]);
+}
+else
+{
+    [800c1b6c + window_id * 498 + 494] = b(0);
+    [800c1b6c + window_id * 498 + 495] = b(80);
+}
 
-L7f1c4:	; 8007F1C4
-8007F1C4	sll    v0, s1, $03
 
-L7f1c8:	; 8007F1C8
-8007F1C8	addu   v0, v0, s1
-8007F1CC	sll    v0, v0, $02
-8007F1D0	addu   v0, v0, s1
-8007F1D4	sll    v0, v0, $02
-8007F1D8	subu   v0, v0, s1
-8007F1DC	sll    v0, v0, $03
-8007F1E0	ori    v1, zero, $0080
-8007F1E4	lui    at, $800c
-8007F1E8	addu   at, at, v0
-8007F1EC	sb     v1, $2001(at)
-8007F1F0	lui    at, $800c
-8007F1F4	addu   at, at, v0
-8007F1F8	sb     zero, $2000(at)
-8007F1FC	addu   a0, s1, zero
 
-L7f200:	; 8007F200
-8007F200	sll    a3, fp, $02
-8007F204	lhu    t0, $0028(sp)
-8007F208	addiu  a3, a3, $0010
-8007F20C	sll    v0, t0, $10
-8007F210	sra    s6, v0, $10
-8007F214	lhu    t0, $0030(sp)
-8007F218	addu   a1, s6, zero
-8007F21C	sll    v0, t0, $10
-8007F220	sra    s7, v0, $10
-8007F224	addu   a2, s7, zero
-8007F228	sll    v0, s1, $03
-8007F22C	addu   v0, v0, s1
-8007F230	sll    v0, v0, $02
-8007F234	addu   v0, v0, s1
-8007F238	sll    v0, v0, $02
-8007F23C	subu   v0, v0, s1
+[800c1b6c + window_id * 498 + 37c] = h(-1);
 
-L7f240:	; 8007F240
-8007F240	sll    s0, v0, $03
-8007F244	addiu  v0, zero, $ffff (=-$1)
-8007F248	lui    at, $800c
-8007F24C	addu   at, at, s0
-8007F250	sh     v0, $1ee8(at)
-8007F254	sll    v0, s2, $03
-8007F258	subu   v0, v0, s2
-8007F25C	sll    v0, v0, $01
-8007F260	addiu  v0, v0, $0010
-8007F264	jal    func7d728 [$8007d728]
-8007F268	sw     v0, $0010(sp)
-8007F26C	sll    v0, s4, $01
-8007F270	addu   v0, v0, s4
-8007F274	sll    v0, v0, $03
-8007F278	subu   v0, v0, s4
-8007F27C	lui    v1, $800b
-8007F280	lw     v1, $efe4(v1)
-8007F284	sll    v0, v0, $02
-8007F288	addu   v0, v0, v1
-8007F28C	lw     v0, $004c(v0)
-8007F290	nop
-8007F294	lbu    v1, $0080(v0)
-8007F298	ori    v0, zero, $00ff
-8007F29C	beq    v1, v0, L7f2b4 [$8007f2b4]
-8007F2A0	addu   a3, zero, zero
-8007F2A4	andi   v0, s3, $0402
-8007F2A8	sltiu  v0, v0, $0001
-8007F2AC	subu   v0, zero, v0
-8007F2B0	andi   a3, v0, $0044
 
-L7f2b4:	; 8007F2B4
-8007F2B4	lui    a0, $800c
-8007F2B8	addiu  a0, a0, $1b84
-8007F2BC	addu   a0, s0, a0
-8007F2C0	addiu  a3, a3, $0008
-8007F2C4	addu   a3, s6, a3
-8007F2C8	sll    v0, s5, $02
-8007F2CC	lui    at, $800b
-8007F2D0	addu   at, at, v0
-8007F2D4	lhu    a1, $d42c(at)
-8007F2D8	lui    at, $800b
-8007F2DC	addu   at, at, v0
-8007F2E0	lhu    a2, $d42e(at)
-8007F2E4	addiu  v0, s7, $0008
 
-L7f2e8:	; 8007F2E8
-8007F2E8	sw     v0, $0010(sp)
-8007F2EC	sw     fp, $0014(sp)
-8007F2F0	jal    func32d78 [$80032d78] // init window struct here
-8007F2F4	sw     s2, $0018(sp)
-8007F2F8	andi   v0, s3, $0400
-8007F2FC	beq    v0, zero, L7f324 [$8007f324]
-8007F300	nop
-8007F304	lui    at, $800c
-8007F308	addu   at, at, s0
-8007F30C	lhu    v0, $1f78(at)
-8007F310	nop
-8007F314	ori    v0, v0, $0020
-8007F318	lui    at, $800c
-8007F31C	addu   at, at, s0
-8007F320	sh     v0, $1f78(at)
+A0 = window_id;
+A1 = x_pos;
+A2 = y_pos;
+A3 = dialog_width * 4 + 10;
+A4 = dialog_rows * e + 10;
+func7d728(); // store window position and size
 
-L7f324:	; 8007F324
-V1 = h[800b16aa];
+
+
+A3 = 0;
+if( bu[struct_138_cur + 80] != ff ) // avatar exist
+{
+    if( ( S3 & 0402 ) == 0 )
+    {
+        A3 = 44;
+    }
+}
+
+
+
+A0 = 800c1b6c + window_id * 498 + 18;
+A1 = hu[800ad42c + window_id * 4]; // texture u
+A2 = hu[800ad42e + window_id * 4]; // texture v
+A3 = x_pos + A3 + 8;
+A4 = y_pos + 8;
+A5 = dialog_width;
+A6 = dialog_rows;
+func32d78(); // init window struct and packet here
+
+
+
+if( S3 & 0400 )
+{
+    [800c1b6c + window_id * 498 + 40c] = h(hu[800c1b6c + window_id * 498 + 40c] | 0020);
+}
+
+
+
 // set default text speed
-if (V1 == 8)
+if( h[800b16aa] == 8 )
 {
-    [800c1b6c + S0 + 80] = b(1);
+    [800c1b6c + window_id * 498 + 80] = b(1);
 }
 else
 {
-    [800c1b6c + S0 + 80] = b(2);
+    [800c1b6c + window_id * 498 + 80] = b(2);
 }
 
 
 
-A0 = w[800ad0c8];
-A1 = w[SP + 38]; // dialog_id
-func3354c; // get offset to dialog data
+// get offset to dialog data
+A0 = w[800ad0c8]; // dialog file
+A1 = dialog_id;
+func3354c();
+[800c1b6c + window_id * 498 + a8] = w(V0);
 
-8007F35C	sll    v1, s1, $03
-8007F360	addu   v1, v1, s1
-8007F364	sll    v1, v1, $02
-8007F368	addu   v1, v1, s1
-8007F36C	sll    v1, v1, $02
-8007F370	subu   v1, v1, s1
-8007F374	sll    a0, v1, $03
-8007F378	lui    at, $800c
-8007F37C	addu   at, at, a0
-8007F380	lhu    v1, $1b94(at)
-[800c1b6c + A0 + a8] = w(V0);
 
-8007F390	lui    at, $800c
-8007F394	addu   at, at, a0
-8007F398	sh     zero, $1f7a(at)
-8007F39C	ori    v1, v1, $0002
-8007F3A0	lui    at, $800c
-8007F3A4	addu   at, at, a0
-8007F3A8	sh     v1, $1b94(at)
-8007F3AC	lui    v0, $800b
-8007F3B0	lhu    v0, $16aa(v0)
-8007F3B4	lui    at, $800c
-8007F3B8	addu   at, at, a0
-8007F3BC	sh     s4, $1f82(at)
-8007F3C0	lhu    t0, $008c(sp)
-8007F3C4	lui    at, $800c
-8007F3C8	addu   at, at, a0
-8007F3CC	sh     t0, $1f84(at)
-8007F3D0	lui    at, $800c
-8007F3D4	addu   at, at, a0
-8007F3D8	sh     v0, $1f74(at)
-8007F3DC	lw     t0, $0098(sp)
-8007F3E0	nop
-8007F3E4	andi   v0, t0, $0800
-8007F3E8	bne    v0, zero, L7f404 [$8007f404]
-8007F3EC	ori    v0, zero, $0001
-8007F3F0	lui    at, $800c
-8007F3F4	addu   at, at, a0
-8007F3F8	sh     zero, $1f7e(at)
-8007F3FC	j      L7f414 [$8007f414]
-8007F400	sll    v0, fp, $01
 
-L7f404:	; 8007F404
-8007F404	lui    at, $800c
-8007F408	addu   at, at, a0
-8007F40C	sh     v0, $1f7e(at)
+[800c1f7a + window_id * 498 + 0] = h(0);
+[800c1b94 + window_id * 498 + 0] = h(hu[800c1b94 + window_id * 498 + 0] | 0002);
+[800c1f82 + window_id * 498 + 0] = h(current_entity_id);
+[800c1f84 + window_id * 498 + 0] = h(entity_id);
+[800c1f74 + window_id * 498 + 0] = h(hu[800b16aa]);
+
+if( ( flags & 0800 ) == 0 )
+{
+    [800c1f7e + window_id * 498 + 0] = h(0);
+}
+else
+{
+    [800c1f7e + window_id * 498 + 0] = h(1);
+}
+
+
+
 8007F410	sll    v0, fp, $01
-
-L7f414:	; 8007F414
 8007F414	addiu  fp, v0, $0008
 8007F418	sll    v0, s2, $03
 8007F41C	subu   v0, v0, s2
@@ -1010,7 +1141,7 @@ L7f50c:	; 8007F50C
 8007F54C	sw     v1, $1f94(at)
 
 L7f550:	; 8007F550
-8007F550	lw     t0, $008c(sp)
+T0 = entity_id;
 8007F554	lui    v1, $800b
 8007F558	lw     v1, $efe4(v1)
 8007F55C	sll    v0, t0, $01
@@ -1049,19 +1180,113 @@ L7f5c8:	; 8007F5C8
 
 
 ////////////////////////////////
-// func9c2a8
-A2 = 0;
+// func9c2a8()
+dialog_id = 0;
 loop9c2b0:	; 8009C2B0
-    if (h[800c1b6c + A2 * 498 + 416] == w[800af1f0] &&
-        h[800c1b6c + A2 * 498 + 40e] == 0)
+    // if this dialog owned by current entity and 
+    if( ( h[800c1b6c + dialog_id * 498 + 416] == w[800af1f0] ) && ( h[800c1b6c + dialog_id * 498 + 40e] == 0 ) )
     {
-        [A0] = w(A2);
+        [A0] = w(dialog_id);
         return 0;
     }
-
-    A2 = A2 + 1;
-    V0 = A2 < 4;
+    dialog_id = dialog_id + 1;
+    V0 = dialog_id < 4;
 8009C2F8	bne    v0, zero, loop9c2b0 [$8009c2b0]
 
 return -1;
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func99ae8()
+return (7 - ((h[800aee60] - 100) >> 9)) & 7;
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func7ee28()
+entity_id = A0;
+x_ptr = A1;
+y_ptr = A2;
+offset = A3;
+
+A0 = 800aef38; // rot matrix
+A1 = w[800aefe4] + entity_id * 5c + c; // rotation matrix
+A2 = SP + 18; // result
+system_gte_matrix_mult_and_trans();
+
+A0 = SP + 18;
+system_gte_set_rotation_matrix();
+
+A0 = SP + 18;
+system_gte_set_translation_vector();
+
+[SP + 10] = h(0);
+[SP + 12] = h(offset);
+[SP + 14] = h(0);
+
+A0 = SP + 10; // vector
+A1 = SP + 38; // xy
+A2 = SP + 3c;
+A3 = SP + 40;
+system_gte_vector_perspective_transform();
+[x_ptr] = w(h[SP + 38]);
+[y_ptr] = w(h[SP + 3a]);
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func7ebc0()
+window_id = A0;
+V0 = bu[800ad40c + A1 * 4 + 0];
+[800c1b6c + window_id * 498 + 450 + 0] = b(V0);
+[800c1b6c + window_id * 498 + 478 + 0] = b(V0);
+V0 = bu[800ad40c + A1 * 4 + 2];
+[800c1b6c + window_id * 498 + 450 + 1] = b(V0);
+[800c1b6c + window_id * 498 + 478 + 1] = b(V0);
+V0 = bu[800ad40c + A1 * 4 + 0] + 40;
+[800c1b6c + window_id * 498 + 450 + 8] = b(V0);
+[800c1b6c + window_id * 498 + 478 + 8] = b(V0);
+V0 = bu[800ad40c + A1 * 4 + 2];
+[800c1b6c + window_id * 498 + 450 + 9] = b(V0);
+[800c1b6c + window_id * 498 + 478 + 9] = b(V0);
+V0 = bu[800ad40c + A1 * 4 + 0];
+[800c1b6c + window_id * 498 + 450 + 10] = b(V0);
+[800c1b6c + window_id * 498 + 478 + 10] = b(V0);
+V0 = bu[800ad40c + A1 * 4 + 2] + 40;
+[800c1b6c + window_id * 498 + 450 + 11] = b(V0);
+[800c1b6c + window_id * 498 + 478 + 11] = b(V0);
+V0 = bu[800ad40c + A1 * 4 + 0] + 40;
+[800c1b6c + window_id * 498 + 450 + 18] = b(V0);
+[800c1b6c + window_id * 498 + 478 + 18] = b(V0);
+V0 = bu[800ad40c + A1 * 4 + 2] + 40;
+[800c1b6c + window_id * 498 + 450 + 19] = b(V0);
+[800c1b6c + window_id * 498 + 478 + 19] = b(V0);
+
+A0 = 0; // clut X
+A1 = A1 + 00e0; // clut Y
+func438d0(); // ((A1 << 6) | ((A0 >> 4) & 3f)) & ffff
+[800c1b6c + window_id * 498 + 450 + 2] = h(V0);
+[800c1b6c + window_id * 498 + 478 + 2] = h(V0);
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func7d728()
+window_id = A0;
+[800c1b6c + window_id * 498 + ac] = h(A1);
+[800c1b6c + window_id * 498 + ae] = h(A2);
+[800c1b6c + window_id * 498 + b0] = h(A3);
+[800c1b6c + window_id * 498 + b2] = h(A4);
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func9c288()
+[800b1648] = h(hu[800b1648] | (1 << A0));
 ////////////////////////////////

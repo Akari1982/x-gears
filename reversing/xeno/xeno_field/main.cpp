@@ -813,12 +813,9 @@ if( w[800c1b60] == 0 )
 80074D34	jal    func44448 [$80044448]
 80074D38	addu   a0, zero, zero
 80074D3C	jal    func7fc08 [$8007fc08]
-80074D40	nop
-80074D44	lui    a0, $800c
-80074D48	lw     a0, $3740(a0)
-80074D4C	lui    a1, $800b
-80074D50	lw     a1, $cfe0(a1)
-80074D58	addu   a0, a0, s0
+
+A0 = w[800c3740] + S0;
+A1 = w[800acfe0];
 func7f660(); // dialog function
 
 80074D5C	jal    func4b3f4 [$8004b3f4]

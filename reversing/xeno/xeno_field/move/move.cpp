@@ -1338,6 +1338,7 @@ if( number_of_entity > 0 )
                 }
                 else if( ( w[data_138 + 0] & 00220000 ) == 0 )
                 {
+                    // dialogs not opened
                     if( h[800b1648] == 0 )
                     {
                         already_talk = 1;
@@ -1397,6 +1398,7 @@ if( number_of_entity > 0 )
                             }
                             else if( ( w[data_138 + 0] & 00220000 ) == 0 )
                             {
+                                // dialogs not opened
                                 if( h[800b1648] == 0 )
                                 {
                                     // direction to entity
@@ -1455,7 +1457,7 @@ if( number_of_entity > 0 )
                                     // if direction is to this entity
                                     if( ( ( ( leader_rot - ( A0 & fff ) ) & fff ) - 2bc ) >= a89 )
                                     {
-                                        // talking not disabled
+                                        // dialogs not opened
                                         if( h[800b1648] == 0 )
                                         {
                                             already_talk = 1;

@@ -77248,7 +77248,7 @@ Lb53a4:	; 800B53A4
 800B53B8	addiu  a1, s2, $0008
 800B53BC	addiu  s0, sp, $0018
 800B53C0	addu   a2, s0, zero
-800B53C4	jal    func4a4f4 [$8004a4f4]
+800B53C4	jal    system_gte_vector_perspective_transform [$8004a4f4]
 800B53C8	addu   a3, s0, zero
 800B53CC	addiu  a0, sp, $0010
 800B53D0	addiu  a1, s2, $000c
@@ -77274,7 +77274,7 @@ Lb53a4:	; 800B53A4
 800B5420	lhu    v1, $0014(sp)
 800B5424	srav   v0, t0, v0
 800B5428	subu   v1, v1, v0
-800B542C	jal    func4a4f4 [$8004a4f4]
+800B542C	jal    system_gte_vector_perspective_transform [$8004a4f4]
 800B5430	sh     v1, $0014(sp)
 800B5434	ori    v0, zero, $0003
 800B5438	sb     v0, $0003(s2)
@@ -77386,7 +77386,7 @@ funcb54e8:	; 800B54E8
 800B55C8	addiu  a1, s3, $0008
 800B55CC	addiu  s0, sp, $0018
 800B55D0	addu   a2, s0, zero
-800B55D4	jal    func4a4f4 [$8004a4f4]
+800B55D4	jal    system_gte_vector_perspective_transform [$8004a4f4]
 800B55D8	addu   a3, s0, zero
 800B55DC	lui    v1, $8005
 800B55E0	lw     v1, $f7a4(v1)
@@ -77408,7 +77408,7 @@ funcb54e8:	; 800B54E8
 800B5620	sh     v0, $0012(sp)
 800B5624	lh     v0, $000a(s4)
 800B5628	addiu  a0, sp, $0010
-800B562C	jal    func4a4f4 [$8004a4f4]
+800B562C	jal    system_gte_vector_perspective_transform [$8004a4f4]
 800B5630	sh     v0, $0014(sp)
 800B5634	ori    v0, zero, $0003
 800B5638	sb     v0, $0003(s3)
@@ -82746,7 +82746,7 @@ funcb9f40:	; 800B9F40
 800BA134	addiu  a0, sp, $0010
 800BA138	addiu  a1, sp, $0018
 800BA13C	addu   a2, a1, zero
-800BA140	jal    func4a4f4 [$8004a4f4]
+800BA140	jal    system_gte_vector_perspective_transform [$8004a4f4]
 800BA144	addiu  a3, sp, $001c
 800BA148	lui    v1, $8005
 800BA14C	lw     v1, $f7a4(v1)
@@ -82874,7 +82874,7 @@ Lba274:	; 800BA274
 800BA308	addiu  a0, sp, $0010
 800BA30C	addiu  a2, sp, $0020
 800BA310	addiu  a1, sp, $0018
-800BA314	jal    func4a4f4 [$8004a4f4]
+800BA314	jal    system_gte_vector_perspective_transform [$8004a4f4]
 800BA318	addu   a3, a2, zero
 800BA31C	sra    v0, v0, $04
 800BA320	sh     v0, $0000(s1)
@@ -83250,7 +83250,7 @@ Lba7b8:	; 800BA7B8
 800BA834	addiu  a0, sp, $0010
 800BA838	addiu  a1, sp, $0018
 800BA83C	addu   a2, a1, zero
-800BA840	jal    func4a4f4 [$8004a4f4]
+800BA840	jal    system_gte_vector_perspective_transform [$8004a4f4]
 800BA844	addiu  a3, sp, $001c
 800BA848	lui    v1, $8005
 800BA84C	lw     v1, $f7a4(v1)
@@ -84845,7 +84845,7 @@ loopbbe64:	; 800BBE64
 800BBEB4	sh     v0, $0062(sp)
 800BBEB8	lh     v0, $000a(s0)
 800BBEBC	addu   a3, s5, zero
-800BBEC0	jal    func4a4f4 [$8004a4f4]
+800BBEC0	jal    system_gte_vector_perspective_transform [$8004a4f4]
 800BBEC4	sh     v0, $0064(sp)
 800BBEC8	lhu    a0, $0068(sp)
 800BBECC	nop
@@ -84890,7 +84890,7 @@ Lbbf28:	; 800BBF28
 800BBF60	lhu    v1, $0036(s0)
 800BBF64	addu   a3, s5, zero
 800BBF68	subu   v0, v0, v1
-800BBF6C	jal    func4a4f4 [$8004a4f4]
+800BBF6C	jal    system_gte_vector_perspective_transform [$8004a4f4]
 800BBF70	sh     v0, $0062(sp)
 800BBF74	lhu    a0, $0068(sp)
 800BBF78	nop
@@ -86133,7 +86133,7 @@ funcbd084:	; 800BD084
 800BD0B8	addu   a0, s2, zero
 800BD0BC	addiu  a1, sp, $0018
 800BD0C0	addiu  a2, sp, $0020
-800BD0C4	jal    func4a4f4 [$8004a4f4]
+800BD0C4	jal    system_gte_vector_perspective_transform [$8004a4f4]
 800BD0C8	addiu  a3, sp, $0024
 800BD0CC	addiu  a0, sp, $0028
 800BD0D0	jal    func49f64 [$80049f64]
