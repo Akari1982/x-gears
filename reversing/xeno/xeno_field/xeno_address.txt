@@ -521,7 +521,7 @@ spawn table
 
 800c1b6c dialogs struct (0x498 size)(4 items)
 + 18 [][]     store 0x64 here in case of new row. Maybe how much symbols in new row we can put.
-+ 1a [][]     
++ 1a [][]     index into +40 array.
 + 1c [][]     position x.
 + 1e [][]     position y.
 + 20 [][]     width in pixels.
@@ -546,7 +546,7 @@ spawn table
     + 52 [][]     texture v.
     + 54 [][]     dialog_width + 3 in something.
     + 56 [][]     init with 0xd. texture height.
-    + 58 [][]     init with 0x0.
+    + 58 [][]     init with 0x0. Store here rendered width in something (same as +18 in window)
     + 5a []       current row & 1.
     + 5b []       current row.
     + 5c []       texture v.
@@ -564,9 +564,7 @@ spawn table
 + 85 []       init with 0.
 + 86 []       init with 0xff.
 + 88 [][][][] +0016 from memory block.
-+ 8c [][][][] +0018 from memory block. Pointer to list of allocated memory for dialog text data.
-    +00 [][][][] pointer to next allocated memory element.
-    +08 [][][][] offset to dialog text data.
++ 8c [][][][] +0018 from memory block.
 + 90 [][][][] +001a from memory block.
 + 94 [][][][] +001c from memory block.
 + 98 [][]     +001c from memory block.
@@ -574,7 +572,9 @@ spawn table
 + 9c [][]     wait timer. Init with 0.
 + 9e [][]     store value for 0x0F0E text opcode here.
 + a0 [][]     store value for 0x0F0E text opcode here.
-+ a4 [][][][] init with 0.
++ a4 [][][][] init with 0. Pointer to list of allocated memory for dialog text data.
+    +00 [][][][] pointer to next allocated memory element.
+    +08 [][][][] offset to dialog text data.
 + a8 [][][][] offset to dialog text data.
 + ac [][]     dialog x.
 + ae [][]     dialog y.

@@ -1,7 +1,5 @@
 #include "Utilites.h"
 
-#include <OgreStringConverter.h>
-
 
 
 const Ogre::String

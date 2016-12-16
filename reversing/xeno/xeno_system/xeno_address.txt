@@ -45,10 +45,10 @@
 8004f7ac [][][][] some tex page global setting. If 1 or 2 we use some default values.
 8004f7b0 [][][][] some clut global setting. If 0 then we use some default values.
 
-8004ff84 [][][][] address of SPU registers 0x1f801c00.
-
 8004f8d0 [][][][] timer for repeated buttons for controller 1 (80058b40).
 8004f8d4 [][][][] timer for repeated buttons for controller 2 (80058b44).
+
+8004ff84 [][][][] address of SPU registers 0x1f801c00.
 
 800560a0 square root data (0x2 each). 12bit fixed point.
 
@@ -164,6 +164,11 @@
 
 80059674 struct with data for text.
     +1c [][][][] pointer to next character.
+
+80059764 [][]     store addition here (0x10) when translate number to letters for text.
+80059766 temp array with decimal numbers generated from number to render as text (0x2 size 0xa items).
+8005977a [][]     store -1 here when translate number to letters for text.
+80059780 temp array with letters generated from numbers to insert number in text (in usual text format).
 
 80061c8c controller input buffers (size 0x22 2 items).
     +02 [][]     button mask. (0=Pressed, 1=Released)

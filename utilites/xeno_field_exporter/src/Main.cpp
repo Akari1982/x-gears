@@ -3,6 +3,7 @@
 #include "../../common/Logger.h"
 
 #include "FieldModule.h"
+#include "TextFile.h"
 
 
 
@@ -87,6 +88,15 @@ main( int argc, char *argv[] )
 */
     }
 
+
+
+    {
+        TextFile* file;
+
+        file = new TextFile( "data/text/16" );
+        file->GetTexts( 0x16 );
+        delete file;
+    }
 
 
 
