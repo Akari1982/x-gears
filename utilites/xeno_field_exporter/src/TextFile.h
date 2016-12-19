@@ -8,7 +8,7 @@
 class TextFile : public File
 {
 public:
-    TextFile( File* pFile );
+    TextFile( const Ogre::String& file );
     virtual ~TextFile();
 
     void GetTexts( const int file_id );

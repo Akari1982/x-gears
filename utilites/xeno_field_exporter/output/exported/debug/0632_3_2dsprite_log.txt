@@ -1,0 +1,2867 @@
+number_of_tile = 0x04
+double_size_tile = 0x00
+tile_00
+    pos_flag = 0x00
+    x = 0xfffffffa
+    y = 0xffffffdf
+    flags = 0x00
+    tex_x = 0x87
+    tex_y = 0xe4
+    width = 0x11
+    height = 0x05
+tile_01
+    pos_flag = 0x00
+    x = 0xfffffffa
+    y = 0xffffffcf
+    flags = 0x00
+    tex_x = 0x4c
+    tex_y = 0x84
+    width = 0x0d
+    height = 0x10
+tile_02
+    pos_flag = 0x00
+    x = 0xfffffff5
+    y = 0xffffffde
+    flags = 0x00
+    tex_x = 0xfa
+    tex_y = 0xda
+    width = 0x05
+    height = 0x06
+tile_03
+    pos_flag = 0x00
+    x = 0xfffffff4
+    y = 0xffffffe4
+    flags = 0x00
+    tex_x = 0x4c
+    tex_y = 0x01
+    width = 0x19
+    height = 0x1e
+number_of_tile = 0x04
+double_size_tile = 0x00
+tile_00
+    pos_flag = 0x00
+    x = 0xfffffff9
+    y = 0xffffffd1
+    flags = 0x00
+    tex_x = 0xf2
+    tex_y = 0xa3
+    width = 0x0d
+    height = 0x0e
+tile_01
+    pos_flag = 0x00
+    x = 0xfffffff7
+    y = 0xfffffffc
+    flags = 0x00
+    tex_x = 0x01
+    tex_y = 0xcd
+    width = 0x0a
+    height = 0x09
+tile_02
+    pos_flag = 0x00
+    x = 0xfffffff9
+    y = 0xffffffed
+    flags = 0x00
+    tex_x = 0xc5
+    tex_y = 0x93
+    width = 0x14
+    height = 0x0f
+tile_03
+    pos_flag = 0x00
+    x = 0xfffffff4
+    y = 0xffffffdf
+    flags = 0x00
+    tex_x = 0x76
+    tex_y = 0x95
+    width = 0x19
+    height = 0x0e
+number_of_tile = 0x04
+double_size_tile = 0x00
+tile_00
+    pos_flag = 0x00
+    x = 0xfffffff9
+    y = 0xffffffd0
+    flags = 0x00
+    tex_x = 0xf2
+    tex_y = 0xa3
+    width = 0x0d
+    height = 0x0e
+tile_01
+    pos_flag = 0x00
+    x = 0x0009
+    y = 0xffffffed
+    flags = 0x00
+    tex_x = 0x2d
+    tex_y = 0xde
+    width = 0x05
+    height = 0x06
+tile_02
+    pos_flag = 0x00
+    x = 0xfffffff7
+    y = 0xffffffed
+    flags = 0x00
+    tex_x = 0x63
+    tex_y = 0x20
+    width = 0x12
+    height = 0x16
+tile_03
+    pos_flag = 0x00
+    x = 0xfffffff3
+    y = 0xffffffde
+    flags = 0x00
+    tex_x = 0x01
+    tex_y = 0x85
+    width = 0x1b
+    height = 0x0f
+number_of_tile = 0x04
+double_size_tile = 0x00
+tile_00
+    pos_flag = 0x00
+    x = 0xfffffff9
+    y = 0xffffffcf
+    flags = 0x00
+    tex_x = 0xf2
+    tex_y = 0xa3
+    width = 0x0d
+    height = 0x0e
+tile_01
+    pos_flag = 0x00
+    x = 0xfffffff6
+    y = 0xfffffffb
+    flags = 0x00
+    tex_x = 0xe4
+    tex_y = 0xd6
+    width = 0x14
+    height = 0x06
+tile_02
+    pos_flag = 0x00
+    x = 0xfffffff8
+    y = 0xffffffef
+    flags = 0x00
+    tex_x = 0x7a
+    tex_y = 0xc0
+    width = 0x10
+    height = 0x0c
+tile_03
+    pos_flag = 0x00
+    x = 0xfffffff3
+    y = 0xffffffdd
+    flags = 0x00
+    tex_x = 0x01
+    tex_y = 0x4e
+    width = 0x1b
+    height = 0x12
+number_of_tile = 0x04
+double_size_tile = 0x00
+tile_00
+    pos_flag = 0x00
+    x = 0xfffffff9
+    y = 0xffffffd0
+    flags = 0x00
+    tex_x = 0xf2
+    tex_y = 0xa3
+    width = 0x0d
+    height = 0x0e
+tile_01
+    pos_flag = 0x00
+    x = 0x0000
+    y = 0xfffffffe
+    flags = 0x00
+    tex_x = 0x1b
+    tex_y = 0xde
+    width = 0x0a
+    height = 0x06
+tile_02
+    pos_flag = 0x00
+    x = 0xfffffff3
+    y = 0xffffffed
+    flags = 0x00
+    tex_x = 0x2d
+    tex_y = 0x61
+    width = 0x15
+    height = 0x11
+tile_03
+    pos_flag = 0x00
+    x = 0xfffffff3
+    y = 0xffffffde
+    flags = 0x00
+    tex_x = 0xaa
+    tex_y = 0x93
+    width = 0x1a
+    height = 0x0f
+number_of_tile = 0x04
+double_size_tile = 0x00
+tile_00
+    pos_flag = 0x00
+    x = 0xfffffff9
+    y = 0xffffffd1
+    flags = 0x00
+    tex_x = 0xf2
+    tex_y = 0xa3
+    width = 0x0d
+    height = 0x0e
+tile_01
+    pos_flag = 0x00
+    x = 0xffffffff
+    y = 0xfffffffc
+    flags = 0x00
+    tex_x = 0xec
+    tex_y = 0xcc
+    width = 0x0a
+    height = 0x09
+tile_02
+    pos_flag = 0x00
+    x = 0xfffffff3
+    y = 0xffffffec
+    flags = 0x00
+    tex_x = 0xcf
+    tex_y = 0x82
+    width = 0x15
+    height = 0x10
+tile_03
+    pos_flag = 0x00
+    x = 0xfffffff4
+    y = 0xffffffdf
+    flags = 0x00
+    tex_x = 0xad
+    tex_y = 0xb2
+    width = 0x18
+    height = 0x0d
+number_of_tile = 0x04
+double_size_tile = 0x00
+tile_00
+    pos_flag = 0x00
+    x = 0xfffffff9
+    y = 0xffffffd0
+    flags = 0x00
+    tex_x = 0xf2
+    tex_y = 0xa3
+    width = 0x0d
+    height = 0x0e
+tile_01
+    pos_flag = 0x00
+    x = 0xfffffff7
+    y = 0xffffffee
+    flags = 0x00
+    tex_x = 0x96
+    tex_y = 0x36
+    width = 0x12
+    height = 0x15
+tile_02
+    pos_flag = 0x00
+    x = 0xfffffff2
+    y = 0xffffffee
+    flags = 0x00
+    tex_x = 0xa1
+    tex_y = 0xac
+    width = 0x05
+    height = 0x05
+tile_03
+    pos_flag = 0x00
+    x = 0xfffffff3
+    y = 0xffffffde
+    flags = 0x00
+    tex_x = 0x5a
+    tex_y = 0x73
+    width = 0x1a
+    height = 0x10
+number_of_tile = 0x04
+double_size_tile = 0x00
+tile_00
+    pos_flag = 0x00
+    x = 0xfffffff9
+    y = 0xffffffcf
+    flags = 0x00
+    tex_x = 0xf2
+    tex_y = 0xa3
+    width = 0x0d
+    height = 0x0e
+tile_01
+    pos_flag = 0x00
+    x = 0xfffffff9
+    y = 0xffffffef
+    flags = 0x00
+    tex_x = 0xc5
+    tex_y = 0x4a
+    width = 0x11
+    height = 0x12
+tile_02
+    pos_flag = 0x00
+    x = 0xfffffff6
+    y = 0xfffffffa
+    flags = 0x00
+    tex_x = 0x96
+    tex_y = 0x20
+    width = 0x03
+    height = 0x05
+tile_03
+    pos_flag = 0x00
+    x = 0xfffffff2
+    y = 0xffffffdd
+    flags = 0x00
+    tex_x = 0x60
+    tex_y = 0x4d
+    width = 0x1b
+    height = 0x12
+number_of_tile = 0x04
+double_size_tile = 0x00
+tile_00
+    pos_flag = 0x00
+    x = 0xfffffff9
+    y = 0xffffffd0
+    flags = 0x00
+    tex_x = 0xf2
+    tex_y = 0xa3
+    width = 0x0d
+    height = 0x0e
+tile_01
+    pos_flag = 0x00
+    x = 0xfffffff6
+    y = 0xfffffffe
+    flags = 0x00
+    tex_x = 0x10
+    tex_y = 0xde
+    width = 0x0a
+    height = 0x06
+tile_02
+    pos_flag = 0x00
+    x = 0xfffffff9
+    y = 0xffffffed
+    flags = 0x00
+    tex_x = 0xdb
+    tex_y = 0x70
+    width = 0x14
+    height = 0x11
+tile_03
+    pos_flag = 0x00
+    x = 0xfffffff3
+    y = 0xffffffde
+    flags = 0x00
+    tex_x = 0x1d
+    tex_y = 0x85
+    width = 0x1a
+    height = 0x0f
+number_of_tile = 0x04
+double_size_tile = 0x00
+tile_00
+    pos_flag = 0x00
+    x = 0xfffffff8
+    y = 0xffffffcf
+    flags = 0x00
+    tex_x = 0x6a
+    tex_y = 0x37
+    width = 0x0e
+    height = 0x15
+tile_01
+    pos_flag = 0x00
+    x = 0x0005
+    y = 0xfffffffe
+    flags = 0x00
+    tex_x = 0xa4
+    tex_y = 0x4c
+    width = 0x04
+    height = 0x05
+tile_02
+    pos_flag = 0x00
+    x = 0xfffffff9
+    y = 0xfffffff6
+    flags = 0x00
+    tex_x = 0x4f
+    tex_y = 0xb3
+    width = 0x0c
+    height = 0x0d
+tile_03
+    pos_flag = 0x00
+    x = 0xfffffff9
+    y = 0xffffffe4
+    flags = 0x00
+    tex_x = 0x73
+    tex_y = 0x60
+    width = 0x10
+    height = 0x12
+number_of_tile = 0x04
+double_size_tile = 0x00
+tile_00
+    pos_flag = 0x00
+    x = 0xfffffffa
+    y = 0xffffffd0
+    flags = 0x00
+    tex_x = 0x01
+    tex_y = 0x95
+    width = 0x0c
+    height = 0x0f
+tile_01
+    pos_flag = 0x00
+    x = 0xfffffff7
+    y = 0xfffffff6
+    flags = 0x00
+    tex_x = 0x17
+    tex_y = 0xcd
+    width = 0x1b
+    height = 0x08
+tile_02
+    pos_flag = 0x00
+    x = 0xfffffff0
+    y = 0xfffffff6
+    flags = 0x00
+    tex_x = 0xa9
+    tex_y = 0x36
+    width = 0x07
+    height = 0x0c
+tile_03
+    pos_flag = 0x00
+    x = 0xfffffff6
+    y = 0xffffffdf
+    flags = 0x00
+    tex_x = 0xc6
+    tex_y = 0x1c
+    width = 0x13
+    height = 0x17
+number_of_tile = 0x04
+double_size_tile = 0x00
+tile_00
+    pos_flag = 0x00
+    x = 0xfffffffa
+    y = 0xffffffcf
+    flags = 0x00
+    tex_x = 0x01
+    tex_y = 0x95
+    width = 0x0c
+    height = 0x0f
+tile_01
+    pos_flag = 0x00
+    x = 0xfffffff4
+    y = 0xfffffffb
+    flags = 0x00
+    tex_x = 0x74
+    tex_y = 0xd6
+    width = 0x1b
+    height = 0x06
+tile_02
+    pos_flag = 0x00
+    x = 0xfffffff6
+    y = 0xffffffe7
+    flags = 0x00
+    tex_x = 0x2d
+    tex_y = 0x38
+    width = 0x13
+    height = 0x14
+tile_03
+    pos_flag = 0x00
+    x = 0xfffffff7
+    y = 0xffffffde
+    flags = 0x00
+    tex_x = 0xda
+    tex_y = 0xcc
+    width = 0x11
+    height = 0x09
+number_of_tile = 0x04
+double_size_tile = 0x00
+tile_00
+    pos_flag = 0x00
+    x = 0xfffffffa
+    y = 0xffffffce
+    flags = 0x00
+    tex_x = 0x01
+    tex_y = 0x95
+    width = 0x0c
+    height = 0x0f
+tile_01
+    pos_flag = 0x00
+    x = 0xfffffffe
+    y = 0xfffffffd
+    flags = 0x00
+    tex_x = 0xf2
+    tex_y = 0xe4
+    width = 0x0d
+    height = 0x05
+tile_02
+    pos_flag = 0x00
+    x = 0xfffffff6
+    y = 0xfffffff3
+    flags = 0x00
+    tex_x = 0x42
+    tex_y = 0xc1
+    width = 0x11
+    height = 0x0a
+tile_03
+    pos_flag = 0x00
+    x = 0xfffffff6
+    y = 0xffffffdd
+    flags = 0x00
+    tex_x = 0x9a
+    tex_y = 0x1f
+    width = 0x16
+    height = 0x16
+number_of_tile = 0x04
+double_size_tile = 0x00
+tile_00
+    pos_flag = 0x00
+    x = 0xfffffffa
+    y = 0xffffffcf
+    flags = 0x00
+    tex_x = 0x01
+    tex_y = 0x95
+    width = 0x0c
+    height = 0x0f
+tile_01
+    pos_flag = 0x00
+    x = 0xfffffff8
+    y = 0xfffffff0
+    flags = 0x00
+    tex_x = 0x5b
+    tex_y = 0x37
+    width = 0x0e
+    height = 0x15
+tile_02
+    pos_flag = 0x00
+    x = 0x000a
+    y = 0xffffffe9
+    flags = 0x00
+    tex_x = 0xa1
+    tex_y = 0xa4
+    width = 0x05
+    height = 0x07
+tile_03
+    pos_flag = 0x00
+    x = 0xfffffff3
+    y = 0xffffffde
+    flags = 0x00
+    tex_x = 0x43
+    tex_y = 0x60
+    width = 0x17
+    height = 0x12
+number_of_tile = 0x04
+double_size_tile = 0x00
+tile_00
+    pos_flag = 0x00
+    x = 0xfffffffa
+    y = 0xffffffd0
+    flags = 0x00
+    tex_x = 0x01
+    tex_y = 0x95
+    width = 0x0c
+    height = 0x0f
+tile_01
+    pos_flag = 0x00
+    x = 0xfffffff3
+    y = 0xfffffffd
+    flags = 0x00
+    tex_x = 0x9c
+    tex_y = 0xcb
+    width = 0x0b
+    height = 0x09
+tile_02
+    pos_flag = 0x00
+    x = 0xfffffff2
+    y = 0xffffffef
+    flags = 0x00
+    tex_x = 0x90
+    tex_y = 0x95
+    width = 0x18
+    height = 0x0e
+tile_03
+    pos_flag = 0x00
+    x = 0xfffffff2
+    y = 0xffffffdf
+    flags = 0x00
+    tex_x = 0x3c
+    tex_y = 0x73
+    width = 0x1d
+    height = 0x10
+number_of_tile = 0x04
+double_size_tile = 0x00
+tile_00
+    pos_flag = 0x00
+    x = 0xfffffffa
+    y = 0xffffffcf
+    flags = 0x00
+    tex_x = 0x01
+    tex_y = 0x95
+    width = 0x0c
+    height = 0x0f
+tile_01
+    pos_flag = 0x00
+    x = 0xfffffff7
+    y = 0xfffffff8
+    flags = 0x00
+    tex_x = 0x8b
+    tex_y = 0xc0
+    width = 0x10
+    height = 0x0c
+tile_02
+    pos_flag = 0x00
+    x = 0xfffffffd
+    y = 0xfffffff0
+    flags = 0x00
+    tex_x = 0x33
+    tex_y = 0xcd
+    width = 0x0a
+    height = 0x08
+tile_03
+    pos_flag = 0x00
+    x = 0xfffffff3
+    y = 0xffffffde
+    flags = 0x00
+    tex_x = 0xc5
+    tex_y = 0x5d
+    width = 0x1b
+    height = 0x12
+number_of_tile = 0x04
+double_size_tile = 0x00
+tile_00
+    pos_flag = 0x00
+    x = 0xfffffffa
+    y = 0xffffffce
+    flags = 0x00
+    tex_x = 0x01
+    tex_y = 0x95
+    width = 0x0c
+    height = 0x0f
+tile_01
+    pos_flag = 0x00
+    x = 0xfffffffa
+    y = 0xfffffff6
+    flags = 0x00
+    tex_x = 0xbb
+    tex_y = 0xc0
+    width = 0x0b
+    height = 0x0c
+tile_02
+    pos_flag = 0x00
+    x = 0xfffffffa
+    y = 0xffffffed
+    flags = 0x00
+    tex_x = 0xc7
+    tex_y = 0xcc
+    width = 0x12
+    height = 0x09
+tile_03
+    pos_flag = 0x00
+    x = 0xfffffff6
+    y = 0xffffffdd
+    flags = 0x00
+    tex_x = 0xe5
+    tex_y = 0x82
+    width = 0x15
+    height = 0x10
+number_of_tile = 0x04
+double_size_tile = 0x00
+tile_00
+    pos_flag = 0x00
+    x = 0xfffffffa
+    y = 0xffffffcf
+    flags = 0x00
+    tex_x = 0x01
+    tex_y = 0x95
+    width = 0x0c
+    height = 0x0f
+tile_01
+    pos_flag = 0x00
+    x = 0x0001
+    y = 0xfffffff8
+    flags = 0x00
+    tex_x = 0x9c
+    tex_y = 0xc1
+    width = 0x0c
+    height = 0x09
+tile_02
+    pos_flag = 0x00
+    x = 0xfffffff3
+    y = 0xfffffff8
+    flags = 0x00
+    tex_x = 0x54
+    tex_y = 0xc1
+    width = 0x0a
+    height = 0x0a
+tile_03
+    pos_flag = 0x00
+    x = 0xfffffff7
+    y = 0xffffffde
+    flags = 0x00
+    tex_x = 0xc6
+    tex_y = 0x01
+    width = 0x13
+    height = 0x1a
+number_of_tile = 0x04
+double_size_tile = 0x00
+tile_00
+    pos_flag = 0x00
+    x = 0xfffffff9
+    y = 0xffffffcf
+    flags = 0x00
+    tex_x = 0x79
+    tex_y = 0x37
+    width = 0x0e
+    height = 0x15
+tile_01
+    pos_flag = 0x00
+    x = 0x0005
+    y = 0xfffffffa
+    flags = 0x00
+    tex_x = 0x62
+    tex_y = 0xea
+    width = 0x05
+    height = 0x04
+tile_02
+    pos_flag = 0x00
+    x = 0xfffffff9
+    y = 0xfffffffa
+    flags = 0x00
+    tex_x = 0x1c
+    tex_y = 0xc1
+    width = 0x0c
+    height = 0x0b
+tile_03
+    pos_flag = 0x00
+    x = 0xfffffff9
+    y = 0xffffffe4
+    flags = 0x00
+    tex_x = 0xf0
+    tex_y = 0x01
+    width = 0x0e
+    height = 0x16
+number_of_tile = 0x04
+double_size_tile = 0x00
+tile_00
+    pos_flag = 0x00
+    x = 0xfffffff9
+    y = 0xffffffd0
+    flags = 0x00
+    tex_x = 0x5a
+    tex_y = 0x84
+    width = 0x0d
+    height = 0x10
+tile_01
+    pos_flag = 0x00
+    x = 0x000b
+    y = 0xfffffffc
+    flags = 0x00
+    tex_x = 0x45
+    tex_y = 0xbb
+    width = 0x08
+    height = 0x05
+tile_02
+    pos_flag = 0x00
+    x = 0xffffffef
+    y = 0xfffffff3
+    flags = 0x00
+    tex_x = 0x59
+    tex_y = 0x95
+    width = 0x1c
+    height = 0x0e
+tile_03
+    pos_flag = 0x00
+    x = 0xfffffff6
+    y = 0xffffffe0
+    flags = 0x00
+    tex_x = 0x2d
+    tex_y = 0x4d
+    width = 0x15
+    height = 0x13
+number_of_tile = 0x04
+double_size_tile = 0x00
+tile_00
+    pos_flag = 0x00
+    x = 0xfffffff9
+    y = 0xffffffcf
+    flags = 0x00
+    tex_x = 0x5a
+    tex_y = 0x84
+    width = 0x0d
+    height = 0x10
+tile_01
+    pos_flag = 0x00
+    x = 0x0002
+    y = 0xfffffffe
+    flags = 0x00
+    tex_x = 0x21
+    tex_y = 0xe5
+    width = 0x0d
+    height = 0x05
+tile_02
+    pos_flag = 0x00
+    x = 0xfffffff3
+    y = 0xfffffff5
+    flags = 0x00
+    tex_x = 0x42
+    tex_y = 0xcc
+    width = 0x16
+    height = 0x09
+tile_03
+    pos_flag = 0x00
+    x = 0xfffffff9
+    y = 0xffffffdf
+    flags = 0x00
+    tex_x = 0x76
+    tex_y = 0x20
+    width = 0x10
+    height = 0x16
+number_of_tile = 0x04
+double_size_tile = 0x00
+tile_00
+    pos_flag = 0x00
+    x = 0xfffffff9
+    y = 0xffffffce
+    flags = 0x00
+    tex_x = 0x5a
+    tex_y = 0x84
+    width = 0x0d
+    height = 0x10
+tile_01
+    pos_flag = 0x00
+    x = 0xfffffffc
+    y = 0xffffffff
+    flags = 0x00
+    tex_x = 0x67
+    tex_y = 0xde
+    width = 0x0c
+    height = 0x05
+tile_02
+    pos_flag = 0x00
+    x = 0xfffffff8
+    y = 0xfffffff4
+    flags = 0x00
+    tex_x = 0x01
+    tex_y = 0xc1
+    width = 0x0d
+    height = 0x0b
+tile_03
+    pos_flag = 0x00
+    x = 0xfffffffb
+    y = 0xffffffde
+    flags = 0x00
+    tex_x = 0x10
+    tex_y = 0x22
+    width = 0x0d
+    height = 0x16
+number_of_tile = 0x04
+double_size_tile = 0x00
+tile_00
+    pos_flag = 0x00
+    x = 0xfffffff9
+    y = 0xffffffcf
+    flags = 0x00
+    tex_x = 0x5a
+    tex_y = 0x84
+    width = 0x0d
+    height = 0x10
+tile_01
+    pos_flag = 0x00
+    x = 0xfffffffe
+    y = 0xfffffff6
+    flags = 0x00
+    tex_x = 0x68
+    tex_y = 0xd6
+    width = 0x0b
+    height = 0x07
+tile_02
+    pos_flag = 0x00
+    x = 0xfffffff3
+    y = 0xfffffff6
+    flags = 0x00
+    tex_x = 0x35
+    tex_y = 0x95
+    width = 0x0b
+    height = 0x0f
+tile_03
+    pos_flag = 0x00
+    x = 0xfffffff9
+    y = 0xffffffdf
+    flags = 0x00
+    tex_x = 0xb1
+    tex_y = 0x1d
+    width = 0x11
+    height = 0x17
+number_of_tile = 0x04
+double_size_tile = 0x00
+tile_00
+    pos_flag = 0x00
+    x = 0xfffffff9
+    y = 0xffffffd0
+    flags = 0x00
+    tex_x = 0x5a
+    tex_y = 0x84
+    width = 0x0d
+    height = 0x10
+tile_01
+    pos_flag = 0x00
+    x = 0xfffffff7
+    y = 0xfffffff8
+    flags = 0x00
+    tex_x = 0x17
+    tex_y = 0xd6
+    width = 0x1b
+    height = 0x07
+tile_02
+    pos_flag = 0x00
+    x = 0xfffffff7
+    y = 0xffffffe0
+    flags = 0x00
+    tex_x = 0xda
+    tex_y = 0x01
+    width = 0x15
+    height = 0x18
+tile_03
+    pos_flag = 0x00
+    x = 0xffffffee
+    y = 0xfffffff5
+    flags = 0x00
+    tex_x = 0xaa
+    tex_y = 0x84
+    width = 0x09
+    height = 0x0e
+number_of_tile = 0x04
+double_size_tile = 0x00
+tile_00
+    pos_flag = 0x00
+    x = 0xfffffff9
+    y = 0xffffffcf
+    flags = 0x00
+    tex_x = 0x5a
+    tex_y = 0x84
+    width = 0x0d
+    height = 0x10
+tile_01
+    pos_flag = 0x00
+    x = 0xfffffffb
+    y = 0xfffffff7
+    flags = 0x00
+    tex_x = 0x7f
+    tex_y = 0xcd
+    width = 0x13
+    height = 0x08
+tile_02
+    pos_flag = 0x00
+    x = 0xfffffff3
+    y = 0xfffffff7
+    flags = 0x00
+    tex_x = 0xf6
+    tex_y = 0x93
+    width = 0x08
+    height = 0x0d
+tile_03
+    pos_flag = 0x00
+    x = 0xfffffff9
+    y = 0xffffffdf
+    flags = 0x00
+    tex_x = 0xee
+    tex_y = 0x1a
+    width = 0x11
+    height = 0x18
+number_of_tile = 0x04
+double_size_tile = 0x00
+tile_00
+    pos_flag = 0x00
+    x = 0xfffffff9
+    y = 0xffffffce
+    flags = 0x00
+    tex_x = 0x5a
+    tex_y = 0x84
+    width = 0x0d
+    height = 0x10
+tile_01
+    pos_flag = 0x00
+    x = 0xfffffff7
+    y = 0xfffffff6
+    flags = 0x00
+    tex_x = 0x68
+    tex_y = 0xc0
+    width = 0x11
+    height = 0x0c
+tile_02
+    pos_flag = 0x00
+    x = 0xfffffffc
+    y = 0xffffffeb
+    flags = 0x00
+    tex_x = 0xef
+    tex_y = 0xc0
+    width = 0x0d
+    height = 0x0b
+tile_03
+    pos_flag = 0x00
+    x = 0xfffffffb
+    y = 0xffffffde
+    flags = 0x00
+    tex_x = 0x5c
+    tex_y = 0xb3
+    width = 0x0b
+    height = 0x0d
+number_of_tile = 0x04
+double_size_tile = 0x00
+tile_00
+    pos_flag = 0x00
+    x = 0xfffffff9
+    y = 0xffffffcf
+    flags = 0x00
+    tex_x = 0x5a
+    tex_y = 0x84
+    width = 0x0d
+    height = 0x10
+tile_01
+    pos_flag = 0x00
+    x = 0xffffffff
+    y = 0xfffffff4
+    flags = 0x00
+    tex_x = 0x9e
+    tex_y = 0x84
+    width = 0x0b
+    height = 0x10
+tile_02
+    pos_flag = 0x00
+    x = 0xfffffff3
+    y = 0xfffffff4
+    flags = 0x00
+    tex_x = 0x0f
+    tex_y = 0xc1
+    width = 0x0c
+    height = 0x0b
+tile_03
+    pos_flag = 0x00
+    x = 0xfffffff9
+    y = 0xffffffdf
+    flags = 0x00
+    tex_x = 0xb1
+    tex_y = 0x35
+    width = 0x10
+    height = 0x15
+number_of_tile = 0x04
+double_size_tile = 0x00
+tile_00
+    pos_flag = 0x00
+    x = 0xfffffff6
+    y = 0xffffffcf
+    flags = 0x00
+    tex_x = 0xc3
+    tex_y = 0x34
+    width = 0x13
+    height = 0x15
+tile_01
+    pos_flag = 0x00
+    x = 0xfffffffe
+    y = 0xfffffff0
+    flags = 0x00
+    tex_x = 0xf0
+    tex_y = 0x70
+    width = 0x0e
+    height = 0x11
+tile_02
+    pos_flag = 0x00
+    x = 0xfffffff5
+    y = 0xfffffff0
+    flags = 0x00
+    tex_x = 0xf2
+    tex_y = 0x33
+    width = 0x09
+    height = 0x15
+tile_03
+    pos_flag = 0x00
+    x = 0xfffffff4
+    y = 0xffffffe4
+    flags = 0x00
+    tex_x = 0x68
+    tex_y = 0xb3
+    width = 0x19
+    height = 0x0c
+number_of_tile = 0x04
+double_size_tile = 0x00
+tile_00
+    pos_flag = 0x00
+    x = 0xfffffff9
+    y = 0xffffffd1
+    flags = 0x00
+    tex_x = 0xe3
+    tex_y = 0xa3
+    width = 0x0e
+    height = 0x0e
+tile_01
+    pos_flag = 0x00
+    x = 0x0000
+    y = 0xfffffffc
+    flags = 0x00
+    tex_x = 0x59
+    tex_y = 0xcc
+    width = 0x0b
+    height = 0x09
+tile_02
+    pos_flag = 0x00
+    x = 0x0007
+    y = 0xffffffe0
+    flags = 0x00
+    tex_x = 0xb5
+    tex_y = 0x72
+    width = 0x08
+    height = 0x0f
+tile_03
+    pos_flag = 0x00
+    x = 0xfffffff1
+    y = 0xffffffdf
+    flags = 0x00
+    tex_x = 0x9a
+    tex_y = 0x01
+    width = 0x16
+    height = 0x1d
+number_of_tile = 0x04
+double_size_tile = 0x00
+tile_00
+    pos_flag = 0x00
+    x = 0xfffffff9
+    y = 0xffffffd0
+    flags = 0x00
+    tex_x = 0xe3
+    tex_y = 0xa3
+    width = 0x0e
+    height = 0x0e
+tile_01
+    pos_flag = 0x00
+    x = 0xfffffffd
+    y = 0xfffffffb
+    flags = 0x00
+    tex_x = 0x36
+    tex_y = 0xc1
+    width = 0x0b
+    height = 0x0b
+tile_02
+    pos_flag = 0x00
+    x = 0xfffffff2
+    y = 0xfffffff0
+    flags = 0x00
+    tex_x = 0xc7
+    tex_y = 0xc0
+    width = 0x15
+    height = 0x0b
+tile_03
+    pos_flag = 0x00
+    x = 0xfffffff2
+    y = 0xffffffde
+    flags = 0x00
+    tex_x = 0x43
+    tex_y = 0x4d
+    width = 0x1c
+    height = 0x12
+number_of_tile = 0x04
+double_size_tile = 0x00
+tile_00
+    pos_flag = 0x00
+    x = 0xfffffff9
+    y = 0xffffffcf
+    flags = 0x00
+    tex_x = 0xe3
+    tex_y = 0xa3
+    width = 0x0e
+    height = 0x0e
+tile_01
+    pos_flag = 0x00
+    x = 0xfffffffa
+    y = 0xfffffff6
+    flags = 0x00
+    tex_x = 0x41
+    tex_y = 0x95
+    width = 0x0b
+    height = 0x0f
+tile_02
+    pos_flag = 0x00
+    x = 0xfffffffa
+    y = 0xfffffff3
+    flags = 0x00
+    tex_x = 0x85
+    tex_y = 0xea
+    width = 0x10
+    height = 0x03
+tile_03
+    pos_flag = 0x00
+    x = 0xfffffff5
+    y = 0xffffffdd
+    flags = 0x00
+    tex_x = 0x4c
+    tex_y = 0x20
+    width = 0x16
+    height = 0x16
+number_of_tile = 0x04
+double_size_tile = 0x00
+tile_00
+    pos_flag = 0x00
+    x = 0xfffffff9
+    y = 0xffffffd0
+    flags = 0x00
+    tex_x = 0xe3
+    tex_y = 0xa3
+    width = 0x0e
+    height = 0x0e
+tile_01
+    pos_flag = 0x00
+    x = 0xfffffff4
+    y = 0xfffffffc
+    flags = 0x00
+    tex_x = 0xca
+    tex_y = 0xd6
+    width = 0x19
+    height = 0x06
+tile_02
+    pos_flag = 0x00
+    x = 0xfffffff4
+    y = 0xfffffff9
+    flags = 0x00
+    tex_x = 0x6e
+    tex_y = 0xea
+    width = 0x16
+    height = 0x03
+tile_03
+    pos_flag = 0x00
+    x = 0xfffffff6
+    y = 0xffffffde
+    flags = 0x00
+    tex_x = 0xb1
+    tex_y = 0x01
+    width = 0x14
+    height = 0x1b
+number_of_tile = 0x04
+double_size_tile = 0x00
+tile_00
+    pos_flag = 0x00
+    x = 0xfffffff9
+    y = 0xffffffd1
+    flags = 0x00
+    tex_x = 0xe3
+    tex_y = 0xa3
+    width = 0x0e
+    height = 0x0e
+tile_01
+    pos_flag = 0x00
+    x = 0xfffffff1
+    y = 0xfffffffc
+    flags = 0x00
+    tex_x = 0xa7
+    tex_y = 0xd6
+    width = 0x22
+    height = 0x06
+tile_02
+    pos_flag = 0x00
+    x = 0xfffffff1
+    y = 0xfffffff4
+    flags = 0x00
+    tex_x = 0x65
+    tex_y = 0xcd
+    width = 0x19
+    height = 0x08
+tile_03
+    pos_flag = 0x00
+    x = 0xfffffff6
+    y = 0xffffffdf
+    flags = 0x00
+    tex_x = 0x36
+    tex_y = 0x22
+    width = 0x14
+    height = 0x15
+number_of_tile = 0x04
+double_size_tile = 0x00
+tile_00
+    pos_flag = 0x00
+    x = 0xfffffff9
+    y = 0xffffffd0
+    flags = 0x00
+    tex_x = 0xe3
+    tex_y = 0xa3
+    width = 0x0e
+    height = 0x0e
+tile_01
+    pos_flag = 0x00
+    x = 0xfffffff4
+    y = 0xfffffffd
+    flags = 0x00
+    tex_x = 0x4b
+    tex_y = 0xde
+    width = 0x1b
+    height = 0x05
+tile_02
+    pos_flag = 0x00
+    x = 0xfffffff4
+    y = 0xfffffff6
+    flags = 0x00
+    tex_x = 0x33
+    tex_y = 0xd6
+    width = 0x15
+    height = 0x07
+tile_03
+    pos_flag = 0x00
+    x = 0xfffffff6
+    y = 0xffffffde
+    flags = 0x00
+    tex_x = 0xda
+    tex_y = 0x1a
+    width = 0x13
+    height = 0x18
+number_of_tile = 0x04
+double_size_tile = 0x00
+tile_00
+    pos_flag = 0x00
+    x = 0xfffffff9
+    y = 0xffffffcf
+    flags = 0x00
+    tex_x = 0xe3
+    tex_y = 0xa3
+    width = 0x0e
+    height = 0x0e
+tile_01
+    pos_flag = 0x00
+    x = 0x0007
+    y = 0xfffffffc
+    flags = 0x00
+    tex_x = 0xa4
+    tex_y = 0x52
+    width = 0x04
+    height = 0x04
+tile_02
+    pos_flag = 0x00
+    x = 0xfffffff6
+    y = 0xffffffef
+    flags = 0x00
+    tex_x = 0xa3
+    tex_y = 0x72
+    width = 0x11
+    height = 0x11
+tile_03
+    pos_flag = 0x00
+    x = 0xfffffff5
+    y = 0xffffffdd
+    flags = 0x00
+    tex_x = 0x5b
+    tex_y = 0x60
+    width = 0x17
+    height = 0x12
+number_of_tile = 0x04
+double_size_tile = 0x00
+tile_00
+    pos_flag = 0x00
+    x = 0xfffffff9
+    y = 0xffffffd0
+    flags = 0x00
+    tex_x = 0xe3
+    tex_y = 0xa3
+    width = 0x0e
+    height = 0x0e
+tile_01
+    pos_flag = 0x00
+    x = 0xfffffff8
+    y = 0xfffffff3
+    flags = 0x00
+    tex_x = 0x88
+    tex_y = 0x37
+    width = 0x0d
+    height = 0x13
+tile_02
+    pos_flag = 0x00
+    x = 0xfffffff3
+    y = 0xfffffff1
+    flags = 0x00
+    tex_x = 0x96
+    tex_y = 0xea
+    width = 0x12
+    height = 0x02
+tile_03
+    pos_flag = 0x00
+    x = 0xfffffff3
+    y = 0xffffffde
+    flags = 0x00
+    tex_x = 0xd7
+    tex_y = 0x49
+    width = 0x1b
+    height = 0x13
+number_of_tile = 0x04
+double_size_tile = 0x00
+tile_00
+    pos_flag = 0x00
+    x = 0x0005
+    y = 0xffffffde
+    flags = 0x00
+    tex_x = 0xf6
+    tex_y = 0xb2
+    width = 0x07
+    height = 0x06
+tile_01
+    pos_flag = 0x00
+    x = 0xfffffff5
+    y = 0xffffffde
+    flags = 0x00
+    tex_x = 0x74
+    tex_y = 0xdd
+    width = 0x10
+    height = 0x06
+tile_02
+    pos_flag = 0x00
+    x = 0xfffffff8
+    y = 0xffffffd0
+    flags = 0x00
+    tex_x = 0x77
+    tex_y = 0xa4
+    width = 0x0d
+    height = 0x0e
+tile_03
+    pos_flag = 0x00
+    x = 0xfffffff4
+    y = 0xffffffe4
+    flags = 0x00
+    tex_x = 0x01
+    tex_y = 0x01
+    width = 0x18
+    height = 0x20
+number_of_tile = 0x04
+double_size_tile = 0x00
+tile_00
+    pos_flag = 0x00
+    x = 0xfffffff8
+    y = 0xffffffd2
+    flags = 0x00
+    tex_x = 0x59
+    tex_y = 0xa4
+    width = 0x0e
+    height = 0x0e
+tile_01
+    pos_flag = 0x00
+    x = 0xfffffff6
+    y = 0xfffffffc
+    flags = 0x00
+    tex_x = 0x0c
+    tex_y = 0xcd
+    width = 0x0a
+    height = 0x09
+tile_02
+    pos_flag = 0x00
+    x = 0xfffffff8
+    y = 0xfffffff0
+    flags = 0x00
+    tex_x = 0x1b
+    tex_y = 0xb4
+    width = 0x14
+    height = 0x0c
+tile_03
+    pos_flag = 0x00
+    x = 0xfffffff4
+    y = 0xffffffe0
+    flags = 0x00
+    tex_x = 0x75
+    tex_y = 0x73
+    width = 0x19
+    height = 0x10
+number_of_tile = 0x04
+double_size_tile = 0x00
+tile_00
+    pos_flag = 0x00
+    x = 0xfffffff8
+    y = 0xffffffd1
+    flags = 0x00
+    tex_x = 0x59
+    tex_y = 0xa4
+    width = 0x0e
+    height = 0x0e
+tile_01
+    pos_flag = 0x00
+    x = 0xfffffff6
+    y = 0xfffffffe
+    flags = 0x00
+    tex_x = 0xa8
+    tex_y = 0xcd
+    width = 0x0a
+    height = 0x08
+tile_02
+    pos_flag = 0x00
+    x = 0xfffffff8
+    y = 0xfffffff0
+    flags = 0x00
+    tex_x = 0xa9
+    tex_y = 0xa3
+    width = 0x14
+    height = 0x0e
+tile_03
+    pos_flag = 0x00
+    x = 0xfffffff3
+    y = 0xffffffdf
+    flags = 0x00
+    tex_x = 0x12
+    tex_y = 0x61
+    width = 0x1a
+    height = 0x11
+number_of_tile = 0x04
+double_size_tile = 0x00
+tile_00
+    pos_flag = 0x00
+    x = 0xfffffff8
+    y = 0xffffffd0
+    flags = 0x00
+    tex_x = 0x59
+    tex_y = 0xa4
+    width = 0x0e
+    height = 0x0e
+tile_01
+    pos_flag = 0x00
+    x = 0xffffffff
+    y = 0xfffffff0
+    flags = 0x00
+    tex_x = 0x37
+    tex_y = 0xa5
+    width = 0x0b
+    height = 0x0e
+tile_02
+    pos_flag = 0x00
+    x = 0xfffffff6
+    y = 0xfffffff0
+    flags = 0x00
+    tex_x = 0x41
+    tex_y = 0x38
+    width = 0x09
+    height = 0x13
+tile_03
+    pos_flag = 0x00
+    x = 0xfffffff2
+    y = 0xffffffde
+    flags = 0x00
+    tex_x = 0xe1
+    tex_y = 0x5d
+    width = 0x1b
+    height = 0x12
+number_of_tile = 0x04
+double_size_tile = 0x00
+tile_00
+    pos_flag = 0x00
+    x = 0xfffffff8
+    y = 0xffffffd1
+    flags = 0x00
+    tex_x = 0x59
+    tex_y = 0xa4
+    width = 0x0e
+    height = 0x0e
+tile_01
+    pos_flag = 0x00
+    x = 0x0002
+    y = 0xfffffff2
+    flags = 0x00
+    tex_x = 0xf3
+    tex_y = 0x49
+    width = 0x09
+    height = 0x12
+tile_02
+    pos_flag = 0x00
+    x = 0xfffffff7
+    y = 0xfffffff2
+    flags = 0x00
+    tex_x = 0x43
+    tex_y = 0xa5
+    width = 0x0b
+    height = 0x0e
+tile_03
+    pos_flag = 0x00
+    x = 0xfffffff2
+    y = 0xffffffdf
+    flags = 0x00
+    tex_x = 0x88
+    tex_y = 0x4c
+    width = 0x1b
+    height = 0x13
+number_of_tile = 0x04
+double_size_tile = 0x00
+tile_00
+    pos_flag = 0x00
+    x = 0xfffffff8
+    y = 0xffffffd2
+    flags = 0x00
+    tex_x = 0x59
+    tex_y = 0xa4
+    width = 0x0e
+    height = 0x0e
+tile_01
+    pos_flag = 0x00
+    x = 0x0000
+    y = 0xfffffffc
+    flags = 0x00
+    tex_x = 0x4f
+    tex_y = 0xa5
+    width = 0x09
+    height = 0x09
+tile_02
+    pos_flag = 0x00
+    x = 0xfffffff4
+    y = 0xfffffff0
+    flags = 0x00
+    tex_x = 0x30
+    tex_y = 0xb4
+    width = 0x14
+    height = 0x0c
+tile_03
+    pos_flag = 0x00
+    x = 0xfffffff3
+    y = 0xffffffe0
+    flags = 0x00
+    tex_x = 0xb5
+    tex_y = 0x82
+    width = 0x19
+    height = 0x10
+number_of_tile = 0x04
+double_size_tile = 0x00
+tile_00
+    pos_flag = 0x00
+    x = 0xfffffff8
+    y = 0xffffffd1
+    flags = 0x00
+    tex_x = 0x59
+    tex_y = 0xa4
+    width = 0x0e
+    height = 0x0e
+tile_01
+    pos_flag = 0x00
+    x = 0x0000
+    y = 0xfffffffe
+    flags = 0x00
+    tex_x = 0xb3
+    tex_y = 0xcd
+    width = 0x0a
+    height = 0x08
+tile_02
+    pos_flag = 0x00
+    x = 0xfffffff4
+    y = 0xfffffff0
+    flags = 0x00
+    tex_x = 0xbe
+    tex_y = 0xa3
+    width = 0x14
+    height = 0x0e
+tile_03
+    pos_flag = 0x00
+    x = 0xfffffff3
+    y = 0xffffffdf
+    flags = 0x00
+    tex_x = 0xc0
+    tex_y = 0x70
+    width = 0x1a
+    height = 0x11
+number_of_tile = 0x04
+double_size_tile = 0x00
+tile_00
+    pos_flag = 0x00
+    x = 0xfffffff8
+    y = 0xffffffd0
+    flags = 0x00
+    tex_x = 0x59
+    tex_y = 0xa4
+    width = 0x0e
+    height = 0x0e
+tile_01
+    pos_flag = 0x00
+    x = 0x0001
+    y = 0xfffffff0
+    flags = 0x00
+    tex_x = 0x12
+    tex_y = 0x39
+    width = 0x09
+    height = 0x13
+tile_02
+    pos_flag = 0x00
+    x = 0xfffffff6
+    y = 0xfffffff0
+    flags = 0x00
+    tex_x = 0xa1
+    tex_y = 0xb2
+    width = 0x0b
+    height = 0x0e
+tile_03
+    pos_flag = 0x00
+    x = 0xfffffff3
+    y = 0xffffffde
+    flags = 0x00
+    tex_x = 0xa4
+    tex_y = 0x5f
+    width = 0x1b
+    height = 0x12
+number_of_tile = 0x04
+double_size_tile = 0x00
+tile_00
+    pos_flag = 0x00
+    x = 0xfffffff8
+    y = 0xffffffd1
+    flags = 0x00
+    tex_x = 0x59
+    tex_y = 0xa4
+    width = 0x0e
+    height = 0x0e
+tile_01
+    pos_flag = 0x00
+    x = 0xfffffffd
+    y = 0xfffffff2
+    flags = 0x00
+    tex_x = 0x1d
+    tex_y = 0xa5
+    width = 0x0c
+    height = 0x0e
+tile_02
+    pos_flag = 0x00
+    x = 0xfffffff5
+    y = 0xfffffff2
+    flags = 0x00
+    tex_x = 0x7c
+    tex_y = 0x4d
+    width = 0x08
+    height = 0x12
+tile_03
+    pos_flag = 0x00
+    x = 0xfffffff3
+    y = 0xffffffdf
+    flags = 0x00
+    tex_x = 0xa9
+    tex_y = 0x4b
+    width = 0x1b
+    height = 0x13
+number_of_tile = 0x04
+double_size_tile = 0x00
+tile_00
+    pos_flag = 0x00
+    x = 0xfffffffa
+    y = 0xffffffdf
+    flags = 0x00
+    tex_x = 0x99
+    tex_y = 0xe4
+    width = 0x11
+    height = 0x05
+tile_01
+    pos_flag = 0x00
+    x = 0xfffffffa
+    y = 0xffffffcf
+    flags = 0x00
+    tex_x = 0x68
+    tex_y = 0x84
+    width = 0x0d
+    height = 0x10
+tile_02
+    pos_flag = 0x00
+    x = 0xfffffff5
+    y = 0xffffffde
+    flags = 0x00
+    tex_x = 0x33
+    tex_y = 0xde
+    width = 0x05
+    height = 0x06
+tile_03
+    pos_flag = 0x00
+    x = 0xfffffff4
+    y = 0xffffffe4
+    flags = 0x00
+    tex_x = 0x66
+    tex_y = 0x01
+    width = 0x19
+    height = 0x1e
+number_of_tile = 0x04
+double_size_tile = 0x00
+tile_00
+    pos_flag = 0x00
+    x = 0xfffffff4
+    y = 0xffffffe4
+    flags = 0x00
+    tex_x = 0x66
+    tex_y = 0x01
+    width = 0x19
+    height = 0x1e
+tile_01
+    pos_flag = 0x00
+    x = 0xfffffffb
+    y = 0xffffffdf
+    flags = 0x00
+    tex_x = 0x01
+    tex_y = 0xe5
+    width = 0x10
+    height = 0x05
+tile_02
+    pos_flag = 0x00
+    x = 0xfffffffb
+    y = 0xffffffcf
+    flags = 0x00
+    tex_x = 0x84
+    tex_y = 0x84
+    width = 0x0c
+    height = 0x10
+tile_03
+    pos_flag = 0x00
+    x = 0xfffffff5
+    y = 0xffffffde
+    flags = 0x00
+    tex_x = 0x26
+    tex_y = 0xde
+    width = 0x06
+    height = 0x06
+number_of_tile = 0x04
+double_size_tile = 0x00
+tile_00
+    pos_flag = 0x00
+    x = 0xfffffff4
+    y = 0xffffffe4
+    flags = 0x00
+    tex_x = 0x66
+    tex_y = 0x01
+    width = 0x19
+    height = 0x1e
+tile_01
+    pos_flag = 0x00
+    x = 0xfffffffb
+    y = 0xffffffdf
+    flags = 0x00
+    tex_x = 0xe1
+    tex_y = 0xe4
+    width = 0x10
+    height = 0x05
+tile_02
+    pos_flag = 0x00
+    x = 0xfffffffb
+    y = 0xffffffd0
+    flags = 0x00
+    tex_x = 0x0e
+    tex_y = 0x95
+    width = 0x0c
+    height = 0x0f
+tile_03
+    pos_flag = 0x00
+    x = 0xfffffff5
+    y = 0xffffffde
+    flags = 0x00
+    tex_x = 0xf9
+    tex_y = 0xd3
+    width = 0x06
+    height = 0x06
+number_of_tile = 0x04
+double_size_tile = 0x00
+tile_00
+    pos_flag = 0x00
+    x = 0xfffffff8
+    y = 0xffffffde
+    flags = 0x00
+    tex_x = 0xeb
+    tex_y = 0xdd
+    width = 0x0e
+    height = 0x06
+tile_01
+    pos_flag = 0x00
+    x = 0xfffffffa
+    y = 0xffffffcf
+    flags = 0x00
+    tex_x = 0x1b
+    tex_y = 0x95
+    width = 0x0c
+    height = 0x0f
+tile_02
+    pos_flag = 0x00
+    x = 0xfffffff9
+    y = 0xfffffff6
+    flags = 0x00
+    tex_x = 0xc6
+    tex_y = 0xb2
+    width = 0x10
+    height = 0x0d
+tile_03
+    pos_flag = 0x00
+    x = 0xfffffff9
+    y = 0xffffffe4
+    flags = 0x00
+    tex_x = 0x84
+    tex_y = 0x60
+    width = 0x10
+    height = 0x12
+number_of_tile = 0x04
+double_size_tile = 0x00
+tile_00
+    pos_flag = 0x00
+    x = 0xfffffff9
+    y = 0xfffffff6
+    flags = 0x00
+    tex_x = 0xc6
+    tex_y = 0xb2
+    width = 0x10
+    height = 0x0d
+tile_01
+    pos_flag = 0x00
+    x = 0xfffffff9
+    y = 0xffffffe4
+    flags = 0x00
+    tex_x = 0x84
+    tex_y = 0x60
+    width = 0x10
+    height = 0x12
+tile_02
+    pos_flag = 0x00
+    x = 0xfffffff8
+    y = 0xffffffe0
+    flags = 0x00
+    tex_x = 0x4b
+    tex_y = 0xea
+    width = 0x0e
+    height = 0x04
+tile_03
+    pos_flag = 0x00
+    x = 0xfffffff8
+    y = 0xffffffcf
+    flags = 0x00
+    tex_x = 0x2f
+    tex_y = 0x73
+    width = 0x0c
+    height = 0x11
+number_of_tile = 0x04
+double_size_tile = 0x00
+tile_00
+    pos_flag = 0x00
+    x = 0xfffffff9
+    y = 0xfffffff6
+    flags = 0x00
+    tex_x = 0xc6
+    tex_y = 0xb2
+    width = 0x10
+    height = 0x0d
+tile_01
+    pos_flag = 0x00
+    x = 0xfffffff9
+    y = 0xffffffe4
+    flags = 0x00
+    tex_x = 0x84
+    tex_y = 0x60
+    width = 0x10
+    height = 0x12
+tile_02
+    pos_flag = 0x00
+    x = 0xfffffff8
+    y = 0xffffffdf
+    flags = 0x00
+    tex_x = 0x12
+    tex_y = 0xe5
+    width = 0x0e
+    height = 0x05
+tile_03
+    pos_flag = 0x00
+    x = 0xfffffff7
+    y = 0xffffffcf
+    flags = 0x00
+    tex_x = 0x91
+    tex_y = 0x84
+    width = 0x0c
+    height = 0x10
+number_of_tile = 0x04
+double_size_tile = 0x00
+tile_00
+    pos_flag = 0x00
+    x = 0xfffffff9
+    y = 0xffffffd3
+    flags = 0x00
+    tex_x = 0x12
+    tex_y = 0x73
+    width = 0x0e
+    height = 0x11
+tile_01
+    pos_flag = 0x00
+    x = 0xffffffff
+    y = 0xffffffcf
+    flags = 0x00
+    tex_x = 0x5a
+    tex_y = 0xea
+    width = 0x07
+    height = 0x04
+tile_02
+    pos_flag = 0x00
+    x = 0xfffffff9
+    y = 0xfffffffa
+    flags = 0x00
+    tex_x = 0xdd
+    tex_y = 0xc0
+    width = 0x11
+    height = 0x0b
+tile_03
+    pos_flag = 0x00
+    x = 0xfffffff9
+    y = 0xffffffe4
+    flags = 0x00
+    tex_x = 0x87
+    tex_y = 0x20
+    width = 0x0e
+    height = 0x16
+number_of_tile = 0x04
+double_size_tile = 0x00
+tile_00
+    pos_flag = 0x00
+    x = 0xfffffff9
+    y = 0xfffffffa
+    flags = 0x00
+    tex_x = 0xdd
+    tex_y = 0xc0
+    width = 0x11
+    height = 0x0b
+tile_01
+    pos_flag = 0x00
+    x = 0xfffffff9
+    y = 0xffffffe4
+    flags = 0x00
+    tex_x = 0x87
+    tex_y = 0x20
+    width = 0x0e
+    height = 0x16
+tile_02
+    pos_flag = 0x00
+    x = 0xfffffffa
+    y = 0xffffffdf
+    flags = 0x00
+    tex_x = 0x3d
+    tex_y = 0xe5
+    width = 0x0d
+    height = 0x05
+tile_03
+    pos_flag = 0x00
+    x = 0xfffffff7
+    y = 0xffffffce
+    flags = 0x00
+    tex_x = 0x21
+    tex_y = 0x73
+    width = 0x0d
+    height = 0x11
+number_of_tile = 0x04
+double_size_tile = 0x00
+tile_00
+    pos_flag = 0x00
+    x = 0xfffffff9
+    y = 0xfffffffa
+    flags = 0x00
+    tex_x = 0xdd
+    tex_y = 0xc0
+    width = 0x11
+    height = 0x0b
+tile_01
+    pos_flag = 0x00
+    x = 0xfffffff9
+    y = 0xffffffe4
+    flags = 0x00
+    tex_x = 0x87
+    tex_y = 0x20
+    width = 0x0e
+    height = 0x16
+tile_02
+    pos_flag = 0x00
+    x = 0xfffffffa
+    y = 0xffffffdf
+    flags = 0x00
+    tex_x = 0x2f
+    tex_y = 0xe5
+    width = 0x0d
+    height = 0x05
+tile_03
+    pos_flag = 0x00
+    x = 0xfffffff7
+    y = 0xffffffcd
+    flags = 0x00
+    tex_x = 0x95
+    tex_y = 0x60
+    width = 0x0d
+    height = 0x12
+number_of_tile = 0x04
+double_size_tile = 0x00
+tile_00
+    pos_flag = 0x00
+    x = 0xfffffff6
+    y = 0xffffffdf
+    flags = 0x00
+    tex_x = 0x5f
+    tex_y = 0xe4
+    width = 0x13
+    height = 0x05
+tile_01
+    pos_flag = 0x00
+    x = 0xfffffff9
+    y = 0xffffffcf
+    flags = 0x00
+    tex_x = 0x01
+    tex_y = 0x74
+    width = 0x0f
+    height = 0x10
+tile_02
+    pos_flag = 0x00
+    x = 0xfffffff5
+    y = 0xfffffff0
+    flags = 0x00
+    tex_x = 0x1e
+    tex_y = 0x22
+    width = 0x17
+    height = 0x15
+tile_03
+    pos_flag = 0x00
+    x = 0xfffffff4
+    y = 0xffffffe4
+    flags = 0x00
+    tex_x = 0x82
+    tex_y = 0xb3
+    width = 0x19
+    height = 0x0c
+number_of_tile = 0x04
+double_size_tile = 0x00
+tile_00
+    pos_flag = 0x00
+    x = 0xfffffff5
+    y = 0xfffffff0
+    flags = 0x00
+    tex_x = 0x1e
+    tex_y = 0x22
+    width = 0x17
+    height = 0x15
+tile_01
+    pos_flag = 0x00
+    x = 0xfffffff4
+    y = 0xffffffe4
+    flags = 0x00
+    tex_x = 0x82
+    tex_y = 0xb3
+    width = 0x19
+    height = 0x0c
+tile_02
+    pos_flag = 0x00
+    x = 0xfffffff6
+    y = 0xffffffdf
+    flags = 0x00
+    tex_x = 0x4b
+    tex_y = 0xe4
+    width = 0x13
+    height = 0x05
+tile_03
+    pos_flag = 0x00
+    x = 0xfffffff9
+    y = 0xffffffcf
+    flags = 0x00
+    tex_x = 0x8f
+    tex_y = 0x73
+    width = 0x0f
+    height = 0x10
+number_of_tile = 0x04
+double_size_tile = 0x00
+tile_00
+    pos_flag = 0x00
+    x = 0xfffffff5
+    y = 0xfffffff0
+    flags = 0x00
+    tex_x = 0x1e
+    tex_y = 0x22
+    width = 0x17
+    height = 0x15
+tile_01
+    pos_flag = 0x00
+    x = 0xfffffff4
+    y = 0xffffffe4
+    flags = 0x00
+    tex_x = 0x82
+    tex_y = 0xb3
+    width = 0x19
+    height = 0x0c
+tile_02
+    pos_flag = 0x00
+    x = 0xfffffff6
+    y = 0xffffffdd
+    flags = 0x00
+    tex_x = 0x93
+    tex_y = 0xd5
+    width = 0x13
+    height = 0x07
+tile_03
+    pos_flag = 0x00
+    x = 0xfffffff8
+    y = 0xffffffce
+    flags = 0x00
+    tex_x = 0xda
+    tex_y = 0x93
+    width = 0x0d
+    height = 0x0f
+number_of_tile = 0x04
+double_size_tile = 0x00
+tile_00
+    pos_flag = 0x00
+    x = 0x0005
+    y = 0xffffffde
+    flags = 0x00
+    tex_x = 0x5f
+    tex_y = 0xc1
+    width = 0x07
+    height = 0x06
+tile_01
+    pos_flag = 0x00
+    x = 0xfffffff5
+    y = 0xffffffde
+    flags = 0x00
+    tex_x = 0xa7
+    tex_y = 0xdd
+    width = 0x10
+    height = 0x06
+tile_02
+    pos_flag = 0x00
+    x = 0xfffffff8
+    y = 0xffffffd0
+    flags = 0x00
+    tex_x = 0x85
+    tex_y = 0xa4
+    width = 0x0d
+    height = 0x0e
+tile_03
+    pos_flag = 0x00
+    x = 0xfffffff4
+    y = 0xffffffe4
+    flags = 0x00
+    tex_x = 0x1a
+    tex_y = 0x01
+    width = 0x18
+    height = 0x20
+number_of_tile = 0x04
+double_size_tile = 0x00
+tile_00
+    pos_flag = 0x00
+    x = 0xfffffff4
+    y = 0xffffffe4
+    flags = 0x00
+    tex_x = 0x1a
+    tex_y = 0x01
+    width = 0x18
+    height = 0x20
+tile_01
+    pos_flag = 0x00
+    x = 0x0005
+    y = 0xffffffde
+    flags = 0x00
+    tex_x = 0xf6
+    tex_y = 0xb9
+    width = 0x07
+    height = 0x06
+tile_02
+    pos_flag = 0x00
+    x = 0xfffffff5
+    y = 0xffffffde
+    flags = 0x00
+    tex_x = 0x96
+    tex_y = 0xdd
+    width = 0x10
+    height = 0x06
+tile_03
+    pos_flag = 0x00
+    x = 0xfffffff9
+    y = 0xffffffd0
+    flags = 0x00
+    tex_x = 0x2a
+    tex_y = 0xa5
+    width = 0x0c
+    height = 0x0e
+number_of_tile = 0x04
+double_size_tile = 0x00
+tile_00
+    pos_flag = 0x00
+    x = 0xfffffff4
+    y = 0xffffffe4
+    flags = 0x00
+    tex_x = 0x1a
+    tex_y = 0x01
+    width = 0x18
+    height = 0x20
+tile_01
+    pos_flag = 0x00
+    x = 0x0005
+    y = 0xffffffde
+    flags = 0x00
+    tex_x = 0x45
+    tex_y = 0xb4
+    width = 0x07
+    height = 0x06
+tile_02
+    pos_flag = 0x00
+    x = 0xfffffff5
+    y = 0xffffffde
+    flags = 0x00
+    tex_x = 0x85
+    tex_y = 0xdd
+    width = 0x10
+    height = 0x06
+tile_03
+    pos_flag = 0x00
+    x = 0xfffffffa
+    y = 0xffffffcf
+    flags = 0x00
+    tex_x = 0x4d
+    tex_y = 0x95
+    width = 0x0b
+    height = 0x0f
+number_of_tile = 0x04
+double_size_tile = 0x00
+tile_00
+    pos_flag = 0x00
+    x = 0xfffffffa
+    y = 0xffffffdf
+    flags = 0x00
+    tex_x = 0xcf
+    tex_y = 0xe4
+    width = 0x11
+    height = 0x05
+tile_01
+    pos_flag = 0x00
+    x = 0xfffffffa
+    y = 0xffffffcf
+    flags = 0x00
+    tex_x = 0x76
+    tex_y = 0x84
+    width = 0x0d
+    height = 0x10
+tile_02
+    pos_flag = 0x00
+    x = 0xfffffff5
+    y = 0xffffffde
+    flags = 0x00
+    tex_x = 0x45
+    tex_y = 0xde
+    width = 0x05
+    height = 0x06
+tile_03
+    pos_flag = 0x00
+    x = 0xfffffff4
+    y = 0xffffffe4
+    flags = 0x00
+    tex_x = 0x80
+    tex_y = 0x01
+    width = 0x19
+    height = 0x1e
+number_of_tile = 0x04
+double_size_tile = 0x00
+tile_00
+    pos_flag = 0x00
+    x = 0xfffffff4
+    y = 0xffffffe4
+    flags = 0x00
+    tex_x = 0x80
+    tex_y = 0x01
+    width = 0x19
+    height = 0x1e
+tile_01
+    pos_flag = 0x00
+    x = 0xfffffffa
+    y = 0xffffffdf
+    flags = 0x00
+    tex_x = 0xab
+    tex_y = 0xe4
+    width = 0x11
+    height = 0x05
+tile_02
+    pos_flag = 0x00
+    x = 0xfffffffa
+    y = 0xffffffd0
+    flags = 0x00
+    tex_x = 0xe8
+    tex_y = 0x93
+    width = 0x0d
+    height = 0x0f
+tile_03
+    pos_flag = 0x00
+    x = 0xfffffff5
+    y = 0xffffffde
+    flags = 0x00
+    tex_x = 0x39
+    tex_y = 0xde
+    width = 0x05
+    height = 0x06
+number_of_tile = 0x04
+double_size_tile = 0x00
+tile_00
+    pos_flag = 0x00
+    x = 0xfffffff4
+    y = 0xffffffe4
+    flags = 0x00
+    tex_x = 0x80
+    tex_y = 0x01
+    width = 0x19
+    height = 0x1e
+tile_01
+    pos_flag = 0x00
+    x = 0xfffffffa
+    y = 0xffffffdf
+    flags = 0x00
+    tex_x = 0xbd
+    tex_y = 0xe4
+    width = 0x11
+    height = 0x05
+tile_02
+    pos_flag = 0x00
+    x = 0xfffffffa
+    y = 0xffffffd1
+    flags = 0x00
+    tex_x = 0x93
+    tex_y = 0xa4
+    width = 0x0d
+    height = 0x0e
+tile_03
+    pos_flag = 0x00
+    x = 0xfffffff5
+    y = 0xffffffde
+    flags = 0x00
+    tex_x = 0x3f
+    tex_y = 0xde
+    width = 0x05
+    height = 0x06
+number_of_tile = 0x04
+double_size_tile = 0x00
+tile_00
+    pos_flag = 0x00
+    x = 0xfffffff8
+    y = 0xffffffde
+    flags = 0x00
+    tex_x = 0x01
+    tex_y = 0xde
+    width = 0x0e
+    height = 0x06
+tile_01
+    pos_flag = 0x00
+    x = 0xfffffffa
+    y = 0xffffffcf
+    flags = 0x00
+    tex_x = 0x28
+    tex_y = 0x95
+    width = 0x0c
+    height = 0x0f
+tile_02
+    pos_flag = 0x00
+    x = 0xfffffff9
+    y = 0xfffffff6
+    flags = 0x00
+    tex_x = 0xd7
+    tex_y = 0xb2
+    width = 0x10
+    height = 0x0d
+tile_03
+    pos_flag = 0x00
+    x = 0xfffffff9
+    y = 0xffffffe4
+    flags = 0x00
+    tex_x = 0x01
+    tex_y = 0x61
+    width = 0x10
+    height = 0x12
+number_of_tile = 0x04
+double_size_tile = 0x00
+tile_00
+    pos_flag = 0x00
+    x = 0xfffffff9
+    y = 0xfffffff6
+    flags = 0x00
+    tex_x = 0xd7
+    tex_y = 0xb2
+    width = 0x10
+    height = 0x0d
+tile_01
+    pos_flag = 0x00
+    x = 0xfffffff9
+    y = 0xffffffe4
+    flags = 0x00
+    tex_x = 0x01
+    tex_y = 0x61
+    width = 0x10
+    height = 0x12
+tile_02
+    pos_flag = 0x00
+    x = 0xfffffff8
+    y = 0xffffffdd
+    flags = 0x00
+    tex_x = 0x59
+    tex_y = 0xd6
+    width = 0x0e
+    height = 0x07
+tile_03
+    pos_flag = 0x00
+    x = 0xfffffffc
+    y = 0xffffffcf
+    flags = 0x00
+    tex_x = 0x01
+    tex_y = 0xa5
+    width = 0x0d
+    height = 0x0e
+number_of_tile = 0x04
+double_size_tile = 0x00
+tile_00
+    pos_flag = 0x00
+    x = 0xfffffff9
+    y = 0xfffffff6
+    flags = 0x00
+    tex_x = 0xd7
+    tex_y = 0xb2
+    width = 0x10
+    height = 0x0d
+tile_01
+    pos_flag = 0x00
+    x = 0xfffffff9
+    y = 0xffffffe4
+    flags = 0x00
+    tex_x = 0x01
+    tex_y = 0x61
+    width = 0x10
+    height = 0x12
+tile_02
+    pos_flag = 0x00
+    x = 0xfffffff8
+    y = 0xffffffdd
+    flags = 0x00
+    tex_x = 0x49
+    tex_y = 0xd6
+    width = 0x0f
+    height = 0x07
+tile_03
+    pos_flag = 0x00
+    x = 0xfffffffd
+    y = 0xffffffcf
+    flags = 0x00
+    tex_x = 0x68
+    tex_y = 0xa4
+    width = 0x0e
+    height = 0x0e
+number_of_tile = 0x04
+double_size_tile = 0x00
+tile_00
+    pos_flag = 0x00
+    x = 0xfffffff9
+    y = 0xffffffcf
+    flags = 0x00
+    tex_x = 0x1e
+    tex_y = 0x38
+    width = 0x0e
+    height = 0x15
+tile_01
+    pos_flag = 0x00
+    x = 0x0005
+    y = 0xfffffffa
+    flags = 0x00
+    tex_x = 0x68
+    tex_y = 0xea
+    width = 0x05
+    height = 0x04
+tile_02
+    pos_flag = 0x00
+    x = 0xfffffff9
+    y = 0xfffffffa
+    flags = 0x00
+    tex_x = 0x29
+    tex_y = 0xc1
+    width = 0x0c
+    height = 0x0b
+tile_03
+    pos_flag = 0x00
+    x = 0xfffffff9
+    y = 0xffffffe4
+    flags = 0x00
+    tex_x = 0x01
+    tex_y = 0x22
+    width = 0x0e
+    height = 0x16
+number_of_tile = 0x04
+double_size_tile = 0x00
+tile_00
+    pos_flag = 0x00
+    x = 0x0005
+    y = 0xfffffffa
+    flags = 0x00
+    tex_x = 0x68
+    tex_y = 0xea
+    width = 0x05
+    height = 0x04
+tile_01
+    pos_flag = 0x00
+    x = 0xfffffff9
+    y = 0xfffffffa
+    flags = 0x00
+    tex_x = 0x29
+    tex_y = 0xc1
+    width = 0x0c
+    height = 0x0b
+tile_02
+    pos_flag = 0x00
+    x = 0xfffffff9
+    y = 0xffffffe4
+    flags = 0x00
+    tex_x = 0x01
+    tex_y = 0x22
+    width = 0x0e
+    height = 0x16
+tile_03
+    pos_flag = 0x00
+    x = 0xfffffffa
+    y = 0xffffffcf
+    flags = 0x00
+    tex_x = 0x4b
+    tex_y = 0x37
+    width = 0x0f
+    height = 0x15
+number_of_tile = 0x04
+double_size_tile = 0x00
+tile_00
+    pos_flag = 0x00
+    x = 0x0005
+    y = 0xfffffffa
+    flags = 0x00
+    tex_x = 0x68
+    tex_y = 0xea
+    width = 0x05
+    height = 0x04
+tile_01
+    pos_flag = 0x00
+    x = 0xfffffff9
+    y = 0xfffffffa
+    flags = 0x00
+    tex_x = 0x29
+    tex_y = 0xc1
+    width = 0x0c
+    height = 0x0b
+tile_02
+    pos_flag = 0x00
+    x = 0xfffffff9
+    y = 0xffffffe4
+    flags = 0x00
+    tex_x = 0x01
+    tex_y = 0x22
+    width = 0x0e
+    height = 0x16
+tile_03
+    pos_flag = 0x00
+    x = 0xfffffffa
+    y = 0xffffffd0
+    flags = 0x00
+    tex_x = 0x01
+    tex_y = 0x39
+    width = 0x10
+    height = 0x14
+number_of_tile = 0x04
+double_size_tile = 0x00
+tile_00
+    pos_flag = 0x00
+    x = 0xfffffff6
+    y = 0xffffffdf
+    flags = 0x00
+    tex_x = 0x73
+    tex_y = 0xe4
+    width = 0x13
+    height = 0x05
+tile_01
+    pos_flag = 0x00
+    x = 0xfffffff9
+    y = 0xffffffcf
+    flags = 0x00
+    tex_x = 0x3c
+    tex_y = 0x84
+    width = 0x0f
+    height = 0x10
+tile_02
+    pos_flag = 0x00
+    x = 0xfffffff5
+    y = 0xfffffff0
+    flags = 0x00
+    tex_x = 0xda
+    tex_y = 0x33
+    width = 0x17
+    height = 0x15
+tile_03
+    pos_flag = 0x00
+    x = 0xfffffff4
+    y = 0xffffffe4
+    flags = 0x00
+    tex_x = 0x01
+    tex_y = 0xb4
+    width = 0x19
+    height = 0x0c
+number_of_tile = 0x04
+double_size_tile = 0x00
+tile_00
+    pos_flag = 0x00
+    x = 0xfffffff5
+    y = 0xfffffff0
+    flags = 0x00
+    tex_x = 0xda
+    tex_y = 0x33
+    width = 0x17
+    height = 0x15
+tile_01
+    pos_flag = 0x00
+    x = 0xfffffff4
+    y = 0xffffffe4
+    flags = 0x00
+    tex_x = 0x01
+    tex_y = 0xb4
+    width = 0x19
+    height = 0x0c
+tile_02
+    pos_flag = 0x00
+    x = 0xfffffff6
+    y = 0xffffffde
+    flags = 0x00
+    tex_x = 0x01
+    tex_y = 0xd7
+    width = 0x13
+    height = 0x06
+tile_03
+    pos_flag = 0x00
+    x = 0xfffffffb
+    y = 0xffffffd0
+    flags = 0x00
+    tex_x = 0xd3
+    tex_y = 0xa3
+    width = 0x0f
+    height = 0x0e
+number_of_tile = 0x04
+double_size_tile = 0x00
+tile_00
+    pos_flag = 0x00
+    x = 0xfffffff5
+    y = 0xfffffff0
+    flags = 0x00
+    tex_x = 0xda
+    tex_y = 0x33
+    width = 0x17
+    height = 0x15
+tile_01
+    pos_flag = 0x00
+    x = 0xfffffff4
+    y = 0xffffffe4
+    flags = 0x00
+    tex_x = 0x01
+    tex_y = 0xb4
+    width = 0x19
+    height = 0x0c
+tile_02
+    pos_flag = 0x00
+    x = 0xfffffffd
+    y = 0xffffffd2
+    flags = 0x00
+    tex_x = 0x1d
+    tex_y = 0x4e
+    width = 0x0f
+    height = 0x12
+tile_03
+    pos_flag = 0x00
+    x = 0xfffffff6
+    y = 0xffffffdd
+    flags = 0x00
+    tex_x = 0xa9
+    tex_y = 0x43
+    width = 0x07
+    height = 0x07
+number_of_tile = 0x04
+double_size_tile = 0x00
+tile_00
+    pos_flag = 0x00
+    x = 0x0005
+    y = 0xffffffde
+    flags = 0x00
+    tex_x = 0xbe
+    tex_y = 0xcd
+    width = 0x07
+    height = 0x06
+tile_01
+    pos_flag = 0x00
+    x = 0xfffffff5
+    y = 0xffffffde
+    flags = 0x00
+    tex_x = 0xda
+    tex_y = 0xdd
+    width = 0x10
+    height = 0x06
+tile_02
+    pos_flag = 0x00
+    x = 0xfffffff8
+    y = 0xffffffd0
+    flags = 0x00
+    tex_x = 0x0f
+    tex_y = 0xa5
+    width = 0x0d
+    height = 0x0e
+tile_03
+    pos_flag = 0x00
+    x = 0xfffffff4
+    y = 0xffffffe4
+    flags = 0x00
+    tex_x = 0x33
+    tex_y = 0x01
+    width = 0x18
+    height = 0x20
+number_of_tile = 0x04
+double_size_tile = 0x00
+tile_00
+    pos_flag = 0x00
+    x = 0xfffffff4
+    y = 0xffffffe4
+    flags = 0x00
+    tex_x = 0x33
+    tex_y = 0x01
+    width = 0x18
+    height = 0x20
+tile_01
+    pos_flag = 0x00
+    x = 0x0005
+    y = 0xffffffde
+    flags = 0x00
+    tex_x = 0x93
+    tex_y = 0xcd
+    width = 0x07
+    height = 0x06
+tile_02
+    pos_flag = 0x00
+    x = 0xfffffff5
+    y = 0xffffffde
+    flags = 0x00
+    tex_x = 0xc9
+    tex_y = 0xdd
+    width = 0x10
+    height = 0x06
+tile_03
+    pos_flag = 0x00
+    x = 0xfffffff8
+    y = 0xffffffd1
+    flags = 0x00
+    tex_x = 0xe8
+    tex_y = 0xb2
+    width = 0x0d
+    height = 0x0d
+number_of_tile = 0x04
+double_size_tile = 0x00
+tile_00
+    pos_flag = 0x00
+    x = 0xfffffff4
+    y = 0xffffffe4
+    flags = 0x00
+    tex_x = 0x33
+    tex_y = 0x01
+    width = 0x18
+    height = 0x20
+tile_01
+    pos_flag = 0x00
+    x = 0x0005
+    y = 0xffffffde
+    flags = 0x00
+    tex_x = 0xf7
+    tex_y = 0xcc
+    width = 0x07
+    height = 0x06
+tile_02
+    pos_flag = 0x00
+    x = 0xfffffff5
+    y = 0xffffffde
+    flags = 0x00
+    tex_x = 0xb8
+    tex_y = 0xdd
+    width = 0x10
+    height = 0x06
+tile_03
+    pos_flag = 0x00
+    x = 0xfffffff8
+    y = 0xffffffd2
+    flags = 0x00
+    tex_x = 0xad
+    tex_y = 0xc0
+    width = 0x0d
+    height = 0x0c
+Sprite palette:
+    0x0000
+    0x8886
+    0xdbbe
+    0x8885
+    0x8865
+    0xb6dd
+    0x90a8
+    0x8463
+    0x98a6
+    0x9ca1
+    0x8d73
+    0xb18c
+    0xc294
+    0x99d6
+    0xa8e2
+    0xebbd

@@ -106,6 +106,8 @@
     <ClInclude Include="src\PacketFile.h" />
     <ClInclude Include="src\ScriptFile.h" />
     <ClInclude Include="src\SpriteFile.h" />
+    <ClInclude Include="src\TextFile.h" />
+    <ClInclude Include="src\TextParse.h" />
     <ClInclude Include="src\Utilites.h" />
     <ClInclude Include="src\Walkmesh.h" />
     <ClInclude Include="src\WalkmeshFile.h" />
@@ -134,6 +136,8 @@
     <ClCompile Include="src\PacketFile.cpp" />
     <ClCompile Include="src\ScriptFile.cpp" />
     <ClCompile Include="src\SpriteFile.cpp" />
+    <ClCompile Include="src\TextFile.cpp" />
+    <ClCompile Include="src\TextParse.cpp" />
     <ClCompile Include="src\Utilites.cpp" />
     <ClCompile Include="src\Walkmesh.cpp" />
     <ClCompile Include="src\WalkmeshFile.cpp" />

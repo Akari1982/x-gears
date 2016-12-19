@@ -93,9 +93,15 @@ main( int argc, char *argv[] )
     {
         TextFile* file;
 
-        file = new TextFile( "data/text/16" );
-        file->GetTexts( 0x16 );
-        delete file;
+        file = new TextFile( "data/text/11" ); file->GetTexts( 0x11 ); delete file;
+        file = new TextFile( "data/text/16" ); file->GetTexts( 0x16 ); delete file;
+        file = new TextFile( "data/text/17" ); file->GetTexts( 0x17 ); delete file;
+        file = new TextFile( "data/text/18" ); file->GetTexts( 0x18 ); delete file;
+        file = new TextFile( "data/text/19" ); file->GetTexts( 0x19 ); delete file;
+        file = new TextFile( "data/text/1a" ); file->GetTexts( 0x1a ); delete file;
+        file = new TextFile( "data/text/31" ); file->GetTexts( 0x31 ); delete file;
+        file = new TextFile( "data/text/32" ); file->GetTexts( 0x32 ); delete file;
+        file = new TextFile( "data/text/33" ); file->GetTexts( 0x33 ); delete file;
     }
 
 

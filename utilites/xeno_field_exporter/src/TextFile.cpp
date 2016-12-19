@@ -5,8 +5,8 @@
 
 
 
-TextFile::TextFile( File *pFile ):
-    File( pFile )
+TextFile::TextFile( const Ogre::String& file ):
+    File( file )
 {
 }
 
