@@ -31,7 +31,7 @@ func35c84(); // clear system button masks
 
 A0 = 1;
 A1 = 80064ed8;
-func7a48c();
+func7a48c(); // add mouse
 
 if( w[800ad0f0] != 0 )
 {
@@ -54,56 +54,53 @@ if( w[800ad0b4] == 0 )
 
 ////////////////////////////////
 // func7a48c()
-8007A494	addu   s0, a0, zero
-8007A4A4	addu   s1, a1, zero
+controller = A0;
+S1 = A1;
 
-8007A4A0	jal    func7a588 [$8007a588]
-8007A4A8	sll    s0, s0, $02
+A0 = controller;
+func7a588();
 
-V1 = hu[800af530];
-V0 = w[800af53c + S0];
-V0 = V0 / V1;
+[S1 + 0] = w(w[800af53c + controller * 4] / hu[800af530]);
+[S1 + 4] = w(w[800af544 + controller * 4] / hu[800af534]);
+[S1 + 8] = w(ffffff00);
 
-8007A4D0	sw     v0, $0000(s1)
-8007A4D4	lui    v1, $800b
-8007A4D8	lhu    v1, $f534(v1)
-8007A4DC	lui    at, $800b
-8007A4E0	addu   at, at, s0
-8007A4E4	lw     v0, $f544(at)
-8007A4E8	nop
-8007A4EC	div    v0, v1
-8007A4F0	mflo   v0
-8007A4F4	addiu  v1, zero, $ff00 (=-$100)
-8007A4F8	sw     v1, $0008(s1)
-8007A4FC	sw     v0, $0004(s1)
-8007A500	lui    v0, $800b
-8007A504	addiu  v0, v0, $f528 (=-$ad8)
-8007A508	addu   s0, s0, v0
-8007A50C	lw     v0, $0000(s0)
-8007A510	nop
-8007A514	lb     v0, $0004(v0)
-8007A518	nop
-8007A51C	sw     v0, $000c(s1)
-8007A520	lw     v0, $0000(s0)
-8007A524	nop
-8007A528	lb     v0, $0005(v0)
-8007A52C	nop
-8007A530	sw     v0, $0010(s1)
-8007A534	lw     s0, $0000(s0)
-8007A538	nop
-8007A53C	lb     v0, $0000(s0)
-8007A540	nop
-8007A544	bne    v0, zero, L7a570 [$8007a570]
-8007A548	nop
-8007A54C	lb     v1, $0001(s0)
-8007A550	ori    v0, zero, $0012
-8007A554	bne    v1, v0, L7a570 [$8007a570]
-8007A558	nop
-8007A55C	lb     v0, $0003(s0)
-8007A560	nop
-8007A564	nor    v0, zero, v0
-8007A568	andi   v0, v0, $000c
-8007A56C	sw     v0, $0008(s1)
+V0 = w[800af528 + controller * 4];
+[S1 + c] = w(b[V0 + 4]);
+[S1 + 10] = w(b[V0 + 5]);
 
-L7a570:	; 8007A570
+if( ( b[V0 + 0] == 0 ) && ( b[V0 + 1] == 12 ) )
+{
+    [S1 + 8] = w((0 NOR b[V0 + 3]) & c); // add mouse button
+}
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func7a588()
+controller = A0;
+A0 = w[800af528 + controller * 4]; // buffer for controller
+if( ( b[A0 + 0] == 0 ) && ( b[A0 + 1] == 12 ) )
+{
+    [800af53c + controller * 4] = w(w[800af53c + controller * 4] + b[A0 + 4]);
+    [800af544 + controller * 4] = w(w[800af544 + controller * 4] + b[A0 + 5]);
+
+    if( w[800af53c + controller * 4] > w[800c2f24] )
+    {
+        [800af53c + controller * 4] = w(w[800c2f24]);
+    }
+    else if( w[800af53c + controller * 4] < w[800c2f18] )
+    {
+        [800af53c + controller * 4] = w(w[800c2f18]);
+    }
+
+    if( w[800af544 + controller * 4] > w[800c2f28] )
+    {
+        [800af544 + controller * 4] = w(w[800c2f24]);
+    }
+    else if( w[800af544 + controller * 4] < w[800c2f20] )
+    {
+        [800af544 + controller * 4] = w(w[800c2f18]);
+    }
+}
 ////////////////////////////////

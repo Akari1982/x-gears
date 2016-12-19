@@ -8,6 +8,13 @@
 80061c24 [][][][] party member 2.
 80061c28 [][][][] party member 3.
 
+80064ed8 store mouse input from second controller here.
+    +00 [][][][] movement X
+    +04 [][][][] movement Y.
+    +08 [][][][] mouse buttons mask.
+    +0c [][][][] relative movement X from last update.
+    +10 [][][][] relative movement Y from last update.
+
 80064f6c extract part 6 of fieldfile here (encounter).
 80064f6c array of encounters (0x20 size 0x10 items).
 // tutorial field 0x616
@@ -483,6 +490,9 @@ spawn table
 800af374 [][]     current button mask for controller 2 (details in 800af370).
 
 800af4c0 [][][][] if this is 0 then we execute script till the end (or until wait type opcode). If 1 together with 800af594 then we end script cycle.
+
+800af528 [][][][] address to controller 1 system button buffer.
+800af52c [][][][] address to controller 2 system button buffer.
 
 800af54c [][][][] offset to struct 0x138 for current entity in script call.
 

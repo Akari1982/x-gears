@@ -277,7 +277,7 @@ if( ( w[struct_138 + 0] & 00041800 ) == 0 )
         slide_z = (w[SP + 38] * V1) << 4;
 
         V1 = c;
-        if( material & 00400000 ) // 00400000 - we can go down on this material but can't go up.
+        if( material & 00400000 ) // 00400000 - auto slide down
         {
             V1 = 18;
         }
@@ -293,7 +293,7 @@ if( ( w[struct_138 + 0] & 00041800 ) == 0 )
         [S5 + 10] = w(w[struct_138 + f0] >> 1);
     }
 
-    if( material & 00400000 )
+    if( material & 00400000 ) // 00400000 - auto slide down
     {
         [struct_138 + 40] = w(w[struct_138 + 40] + slide_x);
         [struct_138 + 48] = w(w[struct_138 + 48] + slide_z);
@@ -387,7 +387,7 @@ if( follow_entity_id != ff )
     }
 }
 
-if( (w[struct_138 + 4] & 00022000) == 00022000 )
+if( ( w[struct_138 + 4] & 00022000 ) == 00022000 )
 {
     A1 = w[800aed2c];
     V0 = w[801e8670 + A1 * 4];

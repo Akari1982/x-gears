@@ -17,10 +17,10 @@ if( V1 != 0 )
         func356f8();// fix rearranged buttons
         [80058c0c] = h(V0);
 
-        [80058ae0] = b(bu[80061c90]);
-        [80058ae8] = b(bu[80061c91]);
-        [80058acc] = b(bu[80061c92]);
-        [80058ad4] = b(bu[80061c93]);
+        [80058ae0] = b(bu[80061c90]); // RightJoyX
+        [80058ae8] = b(bu[80061c91]); // RightJoyY
+        [80058acc] = b(bu[80061c92]); // LeftJoyX
+        [80058ad4] = b(bu[80061c93]); // LeftJoyY
     }
     else if( V1 != 70 ) // 40
     {
@@ -32,7 +32,7 @@ if( V1 != 0 )
     }
     else // 70
     {
-        [80058ae0] = b(bu[80061c90]);
+        [80058ae0] = b(bu[80061c90]); // analogue 
         [80058ae8] = b(bu[80061c91]);
         [80058acc] = b(bu[80061c92]);
         [80058ad4] = b(bu[80061c93]);

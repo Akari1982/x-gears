@@ -91,6 +91,15 @@
 80058ac0 [][][][] store here pointer to place for packets.
 80058ac4 [][][][] store here data from sprite opcode 0xa7 & 0x7f if 0x80 is set.
 
+80058ae0 []       state of RightJoyX for controller 1 (0x00=Left, 0x80=Center, 0xFF=Right).
+80058ae8 []       state of RightJoyY for controller 1 (0x00=Up, 0x80=Center, 0xFF=Down).
+80058acc []       state of LeftJoyX for controller 1 (0x00=Left, 0x80=Center, 0xFF=Right).
+80058ad4 []       state of LeftJoyY for controller 1 (0x00=Up, 0x80=Center, 0xFF=Down).
+80058ae4 []       state of RightJoyX for controller 2 (0x00=Left, 0x80=Center, 0xFF=Right).
+80058aec []       state of RightJoyY for controller 2 (0x00=Up, 0x80=Center, 0xFF=Down).
+80058ad0 []       state of LeftJoyX for controller 2 (0x00=Left, 0x80=Center, 0xFF=Right).
+80058ad8 []       state of LeftJoyY for controller 2 (0x00=Up, 0x80=Center, 0xFF=Down).
+
 80058b24 [][][][] if this &3 then we always return pressed buttons in 80058b40.
 80058b28 [][]     mask of buttons that was pressed in last update for controller 1 (details in 80058c0c).
 80058b28 [][]     mask of buttons that was pressed in last update for controller 2 (details in 80058c0c).
