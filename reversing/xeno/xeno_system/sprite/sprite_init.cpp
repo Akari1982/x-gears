@@ -197,7 +197,7 @@ else
     A0 = SP + 40;
     A1 = SP + 60;
     A2 = w[struct_164 + 20] + c;
-    system_gte_matrix_multiplication();
+    system_gte_matrix_multiplication_to_A2();
 }
 
 if( hu[struct_164 + 3a] != 0 )

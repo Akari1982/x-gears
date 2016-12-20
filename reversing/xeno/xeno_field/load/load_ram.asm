@@ -84,7 +84,7 @@ loop1dc6a4:	; 801DC6A4
 
 L1dc6a8:	; 801DC6A8
 801DC6A8	sra    v0, v0, $0c
-801DC6AC	jal    system_gte_matrix_multiplication [$800490b4]
+801DC6AC	jal    system_gte_matrix_multiplication_to_A2 [$800490b4]
 801DC6B0	sh     v0, $0010(a1)
 801DC6B4	lw     v0, $0040(s2)
 801DC6B8	lw     v1, $0044(s2)
@@ -288,7 +288,7 @@ L1dc934:	; 801DC934
 801DC934	sra    v0, v0, $0c
 
 L1dc938:	; 801DC938
-801DC938	jal    system_gte_matrix_multiplication [$800490b4]
+801DC938	jal    system_gte_matrix_multiplication_to_A2 [$800490b4]
 801DC93C	sh     v0, $0010(a1)
 801DC940	lw     v0, $0040(s3)
 801DC944	lw     v1, $0044(s3)
@@ -369,7 +369,7 @@ L1dca30:	; 801DCA30
 801DCA30	sh     v0, $0008(s1)
 801DCA34	lhu    v0, $0024(s0)
 801DCA38	addu   a2, s2, zero
-801DCA3C	jal    system_gte_matrix_multiplication [$800490b4]
+801DCA3C	jal    system_gte_matrix_multiplication_to_A2 [$800490b4]
 801DCA40	sh     v0, $0010(s1)
 801DCA44	lw     v0, $0000(s3)
 801DCA48	nop
@@ -442,7 +442,7 @@ L1dcb1c:	; 801DCB1C
 801DCB1C	mflo   v0
 801DCB20	addu   a1, s2, zero
 801DCB24	addu   a2, s2, zero
-801DCB28	jal    system_gte_matrix_multiplication [$800490b4]
+801DCB28	jal    system_gte_matrix_multiplication_to_A2 [$800490b4]
 801DCB2C	sh     v0, $0010(a0)
 
 L1dcb30:	; 801DCB30
@@ -558,7 +558,7 @@ L1dcc84:	; 801DCC84
 801DCC84	sw     s5, $0024(sp)
 801DCC88	sw     s4, $0020(sp)
 801DCC8C	sw     s3, $001c(sp)
-801DCC90	jal    system_gte_matrix_multiplication [$800490b4]
+801DCC90	jal    system_gte_matrix_multiplication_to_A2 [$800490b4]
 801DCC94	sw     s2, $0018(sp)
 801DCC98	addu   a0, s0, zero
 801DCC9C	addiu  a1, s1, $000c
@@ -581,7 +581,7 @@ loop1dccc8:	; 801DCCC8
 801DCCD8	addu   a0, fp, zero
 801DCCDC	addiu  s0, s1, $002c
 801DCCE0	addu   a1, s0, zero
-801DCCE4	jal    system_gte_matrix_multiplication [$800490b4]
+801DCCE4	jal    system_gte_matrix_multiplication_to_A2 [$800490b4]
 801DCCE8	addu   a2, s4, zero
 801DCCEC	jal    func49dd4 [$80049dd4]
 801DCCF0	addu   a0, s4, zero
@@ -1052,7 +1052,7 @@ L1dd308:	; 801DD308
 L1dd314:	; 801DD314
 801DD314	addu   a0, s1, zero
 801DD318	addiu  a1, s2, $002c
-801DD31C	jal    system_gte_matrix_multiplication [$800490b4]
+801DD31C	jal    system_gte_matrix_multiplication_to_A2 [$800490b4]
 801DD320	addu   a2, s6, zero
 801DD324	ori    s4, zero, $0001
 801DD328	sltu   v0, s4, s3
@@ -1071,7 +1071,7 @@ loop1dd338:	; 801DD338
 801DD354	addu   a0, s6, zero
 801DD358	addiu  s0, s2, $002c
 801DD35C	addu   a1, s0, zero
-801DD360	jal    system_gte_matrix_multiplication [$800490b4]
+801DD360	jal    system_gte_matrix_multiplication_to_A2 [$800490b4]
 801DD364	addu   a2, s7, zero
 801DD368	jal    func49dd4 [$80049dd4]
 801DD36C	addu   a0, s7, zero
@@ -6154,7 +6154,7 @@ L1e382c:	; 801E382C
 801E3878	sll    a1, a1, $02
 801E387C	addiu  a0, v0, $002c
 801E3880	addu   a1, a1, v0
-801E3884	jal    system_gte_matrix_multiplication [$800490b4]
+801E3884	jal    system_gte_matrix_multiplication_to_A2 [$800490b4]
 801E3888	addiu  a1, a1, $002c
 801E388C	j      L1e38b8 [$801e38b8]
 801E3890	nop
@@ -6173,11 +6173,11 @@ L1e3894:	; 801E3894
 L1e38b8:	; 801E38B8
 801E38B8	lw     a1, $0004(s0)
 801E38BC	addu   a0, s1, zero
-801E38C0	jal    func49a84 [$80049a84]
+801E38C0	jal    system_gte_matrix_multiplication_to_A1 [$80049a84]
 801E38C4	addiu  a1, a1, $000c
 801E38C8	lw     a1, $0004(s0)
 801E38CC	addu   a0, s1, zero
-801E38D0	jal    func49a84 [$80049a84]
+801E38D0	jal    system_gte_matrix_multiplication_to_A1 [$80049a84]
 801E38D4	addiu  a1, a1, $002c
 
 L1e38d8:	; 801E38D8

@@ -15768,7 +15768,7 @@ L7e9b4:	; 8007E9B4
 8007EA6C	ori    a0, s4, $00f0
 8007EA70	addu   a1, s0, zero
 8007EA74	addiu  s0, s5, $0020
-8007EA78	jal    system_gte_matrix_multiplication [$800490b4]
+8007EA78	jal    system_gte_matrix_multiplication_to_A2 [$800490b4]
 8007EA7C	addu   a2, s0, zero
 8007EA80	addu   a0, s0, zero
 8007EA84	addu   a1, s4, zero
@@ -15867,7 +15867,7 @@ L7e9b4:	; 8007E9B4
 8007EBF8	addu   a0, s1, zero
 8007EBFC	addu   a1, s0, zero
 8007EC00	addiu  s0, s5, $0020
-8007EC04	jal    system_gte_matrix_multiplication [$800490b4]
+8007EC04	jal    system_gte_matrix_multiplication_to_A2 [$800490b4]
 8007EC08	addu   a2, s0, zero
 8007EC0C	addu   a0, s0, zero
 8007EC10	addu   a1, s4, zero
@@ -16135,7 +16135,7 @@ L7ef84:	; 8007EF84
 8007EFD4	ori    a0, s4, $00f0
 8007EFD8	addu   a1, s0, zero
 8007EFDC	addiu  s0, s3, $0020
-8007EFE0	jal    system_gte_matrix_multiplication [$800490b4]
+8007EFE0	jal    system_gte_matrix_multiplication_to_A2 [$800490b4]
 8007EFE4	addu   a2, s0, zero
 8007EFE8	lw     v0, $0028(s2)
 8007EFEC	nop
@@ -23771,11 +23771,11 @@ L85dac:	; 80085DAC
 80085DDC	addu   a0, s2, zero
 80085DE0	addu   a1, s5, zero
 80085DE4	addiu  s0, s1, $02b0
-80085DE8	jal    system_gte_matrix_multiplication [$800490b4]
+80085DE8	jal    system_gte_matrix_multiplication_to_A2 [$800490b4]
 80085DEC	addu   a2, s0, zero
 80085DF0	addu   a0, s3, zero
 80085DF4	addu   a1, s0, zero
-80085DF8	jal    system_gte_matrix_multiplication [$800490b4]
+80085DF8	jal    system_gte_matrix_multiplication_to_A2 [$800490b4]
 80085DFC	addu   a2, s2, zero
 80085E00	lui    a0, $800a
 80085E04	lh     a0, $b122(a0)
@@ -42673,7 +42673,7 @@ func96458:	; 80096458
 80096554	lui    a1, $1f80
 80096558	ori    a1, a1, $0110
 8009655C	lui    a2, $1f80
-80096560	jal    system_gte_matrix_multiplication [$800490b4]
+80096560	jal    system_gte_matrix_multiplication_to_A2 [$800490b4]
 80096564	ori    a2, a2, $0130
 
 L96568:	; 80096568
@@ -42711,7 +42711,7 @@ L965bc:	; 800965BC
 800965DC	lui    a1, $1f80
 800965E0	ori    a1, a1, $0110
 800965E4	lui    a2, $1f80
-800965E8	jal    system_gte_matrix_multiplication [$800490b4]
+800965E8	jal    system_gte_matrix_multiplication_to_A2 [$800490b4]
 800965EC	ori    a2, a2, $00f0
 800965F0	lui    a0, $1f80
 800965F4	lh     a0, $00f6(a0)
@@ -42960,7 +42960,7 @@ L96958:	; 80096958
 80096970	lui    a1, $1f80
 80096974	ori    a1, a1, $0110
 80096978	lui    a2, $1f80
-8009697C	jal    system_gte_matrix_multiplication [$800490b4]
+8009697C	jal    system_gte_matrix_multiplication_to_A2 [$800490b4]
 80096980	ori    a2, a2, $0150
 80096984	lui    a0, $1f80
 80096988	ori    a0, a0, $0130
@@ -42968,7 +42968,7 @@ L96958:	; 80096958
 80096990	ori    a1, a1, $0150
 80096994	lui    s0, $800a
 80096998	addiu  s0, s0, $bbf0 (=-$4410)
-8009699C	jal    system_gte_matrix_multiplication [$800490b4]
+8009699C	jal    system_gte_matrix_multiplication_to_A2 [$800490b4]
 800969A0	addu   a2, s0, zero
 800969A4	lui    a0, $1f80
 800969A8	ori    a0, a0, $00f0

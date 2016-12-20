@@ -297,7 +297,7 @@ if( ( w[struct_138 + 0] & 00041800 ) == 0 )
     {
         [struct_138 + 40] = w(w[struct_138 + 40] + slide_x);
         [struct_138 + 48] = w(w[struct_138 + 48] + slide_z);
-        [struct_138 + 104] = h(hu[struct_138 + 104] | 8000); // change rotation
+        [struct_138 + 104] = h(hu[struct_138 + 104] | 8000); // stop direction movement
     }
 
 
@@ -358,7 +358,7 @@ if( follow_entity_id != ff )
         S4 = w[struct_138 + 20];
         S6 = w[struct_138 + 28];
 
-        if( ( h[struct_138 + 104] & 00008000 ) == 0 )
+        if( ( h[struct_138 + 104] & 8000 ) == 0 )
         {
             A0 = entity_id;
             A1 = follow_entity_id;
@@ -1539,433 +1539,275 @@ if( number_of_entity > 0 )
 
 
 ////////////////////////////////
-// func80c04
-V1 = 800b1822;
-80080C38	lh     v0, $0000(v1)
-80080C3C	nop
-80080C40	beq    v0, zero, L80d0c [$80080d0c]
-80080C44	nop
-80080C48	lui    v0, $800b
-80080C4C	lw     v0, $d0d4(v0)
-80080C50	nop
-80080C54	blez   v0, L81234 [$80081234]
-80080C58	addu   s5, zero, zero
-80080C5C	addu   s1, zero, zero
+// func80c04()
 
-loop80c60:	; 80080C60
-80080C60	lui    v0, $800b
-80080C64	lw     v0, $efe4(v0)
-80080C68	nop
-80080C6C	addu   a2, s1, v0
-80080C70	lw     a0, $004c(a2)
-80080C74	nop
-80080C78	lw     v0, $0000(a0)
-80080C7C	lui    v1, $0100
-80080C80	and    v0, v0, v1
-80080C84	beq    v0, zero, L80cec [$80080cec]
-80080C88	nop
-80080C8C	lui    v0, $800b
-80080C90	lw     v0, $1740(v0)
-80080C94	nop
-80080C98	beq    s5, v0, L80cec [$80080cec]
-80080C9C	nop
-80080CA0	lhu    v0, $0058(a2)
-80080CA4	nop
-80080CA8	andi   v0, v0, $0020
-80080CAC	bne    v0, zero, L80cec [$80080cec]
-80080CB0	addu   s0, a0, zero
-80080CB4	addu   s4, a2, zero
-80080CB8	lw     s3, $0004(s4)
-80080CBC	lh     a0, $00e6(s0)
-80080CC0	lh     v0, $00e8(s0)
-80080CC4	nop
-80080CC8	beq    v0, a0, L80cec [$80080cec]
-80080CCC	addu   v1, a0, zero
-80080CD0	bgez   a0, L80cdc [$80080cdc]
-80080CD4	sh     v1, $00e8(s0)
-80080CD8	sh     zero, $00e8(s0)
+struct_5c_p = w[800aefe4];
+number_of_entity = w[800ad0d4];
 
-L80cdc:	; 80080CDC
-80080CDC	addu   a0, s3, zero
-80080CE0	lh     a1, $00e8(s0)
-80080CE4	jal    func81808 [$80081808]
-80080CE8	addu   a2, s4, zero
+if( h[800b1822] != 0 )
+{
+    if( number_of_entity > 0 )
+    {
+        S5 = 0;
+        loop80c60:	; 80080C60
+            struct_138 = w[struct_5c_p + S5 * 5c + 4c];
+            // skip movement
+            if( w[struct_138 + 0] & 01000000 )
+            {
+                // not party leader
+                if( S5 != w[800b1740] )
+                {
+                    if( ( hu[struct_5c_p + S5 * 5c + 58] & 0020 ) == 0 )
+                    {
+                        // if not default animation now
+                        if( h[struct_138 + e8] != h[struct_138 + e6] )
+                        {
+                            if( h[struct_138 + e6] < 0 )
+                            {
+                                [struct_138 + e8] = h(0); // playing animation id
+                            }
+                            else
+                            {
+                                [struct_138 + e8] = h(h[struct_138 + e6]);
+                            }
+                            A0 = w[struct_5c_p + S5 * 5c + 4];
+                            A1 = h[struct_138 + e8];
+                            A2 = struct_5c_p + S5 * 5c;
+                            func81808(); // play new animation
+                        }
+                    }
+                }
+            }
+            S5 = S5 + 1;
+            V0 = S5 < number_of_entity;
+        80080CFC	bne    v0, zero, loop80c60 [$80080c60]
+    }
+}
+else
+{
+    if( number_of_entity > 0 )
+    {
+        S5 = 0;
+        L80d34:	; 80080D34
+            struct_138 = w[struct_5c_p + S5 * 5c + 4c];
 
-L80cec:	; 80080CEC
-80080CEC	lui    v0, $800b
-80080CF0	lw     v0, $d0d4(v0)
-80080CF4	addiu  s5, s5, $0001
-80080CF8	slt    v0, s5, v0
-80080CFC	bne    v0, zero, loop80c60 [$80080c60]
-80080D00	addiu  s1, s1, $005c
-80080D04	j      L81234 [$80081234]
-80080D08	nop
+            if( w[struct_138 + 0] & 01000000 )
+            {
+                // not party leader
+                if( S5 != w[800b1740] )
+                {
+                    if( ( hu[struct_5c_p + S5 * 5c + 58] & 0020 ) == 0 )
+                    {
+                        S4 = struct_5c_p + S5 * 5c;
+                        S0 = struct_138;
+                        S3 = w[S4 + 4];
 
-L80d0c:	; 80080D0C
-80080D0C	lui    v0, $800b
-80080D10	lw     v0, $d0d4(v0)
-80080D14	nop
-80080D18	blez   v0, L81234 [$80081234]
-80080D1C	addu   s5, zero, zero
-80080D20	lui    s6, $800b
-80080D24	addiu  s6, s6, $1834
-80080D28	lui    fp, $800b
-80080D2C	addiu  fp, fp, $09f4
-80080D30	addu   s7, zero, zero
+                        A0 = h[struct_138 + e4];
+                        get_party_slot_id();
+                        S2 = V0;
 
-L80d34:	; 80080D34
-80080D34	lui    v0, $800b
-80080D38	lw     v0, $efe4(v0)
-80080D3C	nop
-80080D40	addu   a2, s7, v0
-80080D44	lw     a0, $004c(a2)
-80080D48	nop
-80080D4C	lw     v0, $0000(a0)
-80080D50	lui    v1, $0100
-80080D54	and    v0, v0, v1
-80080D58	beq    v0, zero, L8121c [$8008121c]
-80080D5C	nop
-80080D60	lui    v0, $800b
-80080D64	lw     v0, $1740(v0)
-80080D68	nop
-80080D6C	beq    s5, v0, L8121c [$8008121c]
-80080D70	nop
-80080D74	lhu    v0, $0058(a2)
-80080D78	nop
-80080D7C	andi   v0, v0, $0020
-80080D80	bne    v0, zero, L8121c [$8008121c]
-80080D84	addu   s4, a2, zero
-80080D88	addu   s0, a0, zero
-80080D8C	lh     a0, $00e4(s0)
-80080D90	lw     s3, $0004(s4)
-80080D94	jal    get_party_slot_id [$8009ef90]
-80080D98	nop
-80080D9C	addu   s2, v0, zero
-80080DA0	addiu  t1, zero, $ffff (=-$1)
-80080DA4	beq    s2, t1, L8121c [$8008121c]
-80080DA8	sll    v0, s2, $02
-80080DAC	addu   s1, v0, s6
-80080DB0	lw     v1, $0000(s1)
-80080DB4	addu   a0, s3, zero
-80080DB8	sll    v0, v1, $03
-80080DBC	addu   v0, v0, v1
-80080DC0	sll    v0, v0, $03
-80080DC4	lui    at, $800b
-80080DC8	addu   at, at, v0
-80080DCC	lh     a1, $09d8(at)
-80080DD0	jal    func81594 [$80081594]
-80080DD4	addu   a2, s4, zero
-80080DD8	lw     v1, $0000(s1)
-80080DDC	ori    t1, zero, $0001
-80080DE0	sll    v0, v1, $03
-80080DE4	addu   v0, v0, v1
-80080DE8	sll    v0, v0, $03
-80080DEC	lui    at, $800b
-80080DF0	addu   at, at, v0
-80080DF4	lw     a2, $09c4(at)
-80080DF8	lui    v0, $800b
-80080DFC	lbu    v0, $16a3(v0)
-80080E00	lw     a0, $0014(s0)
-80080E04	bne    v0, t1, L80e24 [$80080e24]
-80080E08	andi   v0, a2, $0800
-80080E0C	lw     v0, $0000(s6)
-80080E10	nop
-80080E14	addiu  v0, v0, $0001
-80080E18	andi   v0, v0, $001f
-80080E1C	j      L80f30 [$80080f30]
-80080E20	sw     v0, $0000(s1)
+                        if( S2 != -1 )
+                        {
+                            V1 = w[800b1834 + S2 * 4];
+                            A0 = S3; // struct_164
+                            A1 = h[800b09d8 + V1 * 48]; // rotation
+                            A2 = S4; // struct_5c
+                            func81594(); // calculate struct_164 + c, struct_164 + 14 (and struct_164 + 18 in one case)
 
-L80e24:	; 80080E24
-80080E24	bne    v0, zero, L80edc [$80080edc]
-80080E28	sll    v0, s2, $02
-80080E2C	lw     v1, $0004(s0)
-80080E30	addiu  v0, zero, $efff (=-$1001)
-80080E34	and    a1, v1, v0
-80080E38	lui    v0, $0042
-80080E3C	and    v0, a0, v0
-80080E40	bne    v0, zero, L80ed8 [$80080ed8]
-80080E44	sw     a1, $0004(s0)
-80080E48	lui    v0, $800c
-80080E4C	lw     v0, $2de4(v0)
-80080E50	addiu  t1, zero, $ffff (=-$1)
-80080E54	bne    v0, t1, L80eac [$80080eac]
-80080E58	nop
-80080E5C	lh     v1, $0084(s3)
-80080E60	lh     v0, $0026(s0)
-80080E64	nop
-80080E68	bne    v1, v0, L80edc [$80080edc]
-80080E6C	sll    v0, s2, $02
-80080E70	lh     a0, $00e8(s0)
-80080E74	ori    v0, zero, $0006
-80080E78	beq    a0, v0, L80ea0 [$80080ea0]
-80080E7C	nop
-80080E80	lh     v1, $00e6(s0)
-80080E84	nop
-80080E88	beq    a0, v1, L8121c [$8008121c]
-80080E8C	addu   v0, v1, zero
-80080E90	bgez   v1, L80f18 [$80080f18]
+                            S1 = 800b1834 + S2 * 4;
 
-L80e94:	; 80080E94
-80080E94	sh     v0, $00e8(s0)
-80080E98	j      L80f18 [$80080f18]
-80080E9C	sh     zero, $00e8(s0)
+                            V1 = w[800b1834 + S2 * 4];
 
-L80ea0:	; 80080EA0
-80080EA0	ori    v0, a1, $1000
-80080EA4	j      L8121c [$8008121c]
-80080EA8	sw     v0, $0004(s0)
+                            80080DDC	ori    t1, zero, $0001
 
-L80eac:	; 80080EAC
-80080EAC	ori    t1, zero, $0001
-80080EB0	bne    s2, t1, L80ebc [$80080ebc]
-80080EB4	ori    v1, zero, $0014
-80080EB8	ori    v1, zero, $000a
+                            A2 = h[800b09c4 + V1 * 48];
+                            V0 = bu[800b16a3];
+                            A0 = w[S0 + 14];
 
-L80ebc:	; 80080EBC
-80080EBC	lw     v0, $0000(s6)
-80080EC0	nop
-80080EC4	addu   v0, v0, v1
-80080EC8	lw     v1, $0000(s1)
-80080ECC	andi   v0, v0, $001f
-80080ED0	bne    v0, v1, L8121c [$8008121c]
-80080ED4	nop
+                            80080E04	bne    v0, t1, L80e24 [$80080e24]
+                            80080E08	andi   v0, a2, $0800
+                            V0 = (w[800b1834] + 1) & 1f;
+                            [S1] = w(V0);
+                            80080E1C	j      L80f30 [$80080f30]
 
-L80ed8:	; 80080ED8
-80080ED8	sll    v0, s2, $02
+                            L80e24:	; 80080E24
+                            80080E24	bne    v0, zero, L80edc [$80080edc]
 
-L80edc:	; 80080EDC
-80080EDC	addu   v0, v0, s6
-80080EE0	lw     v1, $0000(v0)
-80080EE4	lw     v0, $0000(s6)
-80080EE8	nop
-80080EEC	bne    v1, v0, L80f34 [$80080f34]
-80080EF0	andi   v0, a2, $0800
-80080EF4	addiu  v0, zero, $f7ff (=-$801)
-80080EF8	lw     v1, $0000(s0)
-80080EFC	lhu    a0, $00e6(s0)
-80080F00	and    v1, v1, v0
-80080F04	sh     a0, $00e8(s0)
-80080F08	sll    a0, a0, $10
-80080F0C	bgez   a0, L80f18 [$80080f18]
-80080F10	sw     v1, $0000(s0)
-80080F14	sh     zero, $00e8(s0)
+                            80080E2C	lw     v1, $0004(s0)
+                            80080E30	addiu  v0, zero, $efff (=-$1001)
+                            80080E34	and    a1, v1, v0
+                            80080E38	lui    v0, $0042
+                            80080E3C	and    v0, a0, v0
+                            80080E40	bne    v0, zero, L80ed8 [$80080ed8]
+                            80080E44	sw     a1, $0004(s0)
+                            80080E48	lui    v0, $800c
+                            80080E4C	lw     v0, $2de4(v0)
+                            80080E50	addiu  t1, zero, $ffff (=-$1)
+                            80080E54	bne    v0, t1, L80eac [$80080eac]
+                            80080E58	nop
+                            80080E5C	lh     v1, $0084(s3)
+                            80080E60	lh     v0, $0026(s0)
+                            80080E64	nop
+                            80080E68	bne    v1, v0, L80edc [$80080edc]
 
-L80f18:	; 80080F18
-80080F18	addu   a0, s3, zero
-80080F1C	lh     a1, $00e8(s0)
-80080F20	jal    func81808 [$80081808]
-80080F24	addu   a2, s4, zero
-80080F28	j      L8121c [$8008121c]
-80080F2C	nop
+                            if( h[S0 + e8] == 6 )
+                            {
+                                [S0 + 4] = w(A1 | 00001000);
+                            }
+                            else
+                            {
+                                if( h[S0 + e8] != h[S0 + e6] )
+                                {
+                                    if( h[S0 + e6] >= 0 )
+                                    {
+                                        [S0 + e8] = h(h[S0 + e6]);
+                                    }
+                                    else
+                                    {
+                                        [S0 + e8] = h(0);
+                                    }
+                                    A0 = S3;
+                                    A1 = h[S0 + e8];
+                                    A2 = S4;
+                                    func81808(); // new animation
+                                }
+                            }
+                            80080F28	j      L8121c [$8008121c]
 
-L80f30:	; 80080F30
-80080F30	andi   v0, a2, $0800
 
-L80f34:	; 80080F34
-80080F34	beq    v0, zero, L80f48 [$80080f48]
-80080F38	nop
-80080F3C	lw     v0, $0000(s0)
-80080F40	j      L80f54 [$80080f54]
-80080F44	ori    v0, v0, $0800
+                            L80eac:	; 80080EAC
+                            V1 = 14;
+                            if( S2 == 1 )
+                            {
+                                V1 = a;
+                            }
 
-L80f48:	; 80080F48
-80080F48	lw     v0, $0000(s0)
-80080F4C	addiu  v1, zero, $f7ff (=-$801)
-80080F50	and    v0, v0, v1
+                            V0 = w[800b1834] + V1;
+                            80080EC8	lw     v1, $0000(s1)
+                            80080ECC	andi   v0, v0, $001f
+                            80080ED0	bne    v0, v1, L8121c [$8008121c]
+                            80080ED4	nop
 
-L80f54:	; 80080F54
-80080F54	sw     v0, $0000(s0)
-80080F58	sll    v0, s2, $02
-80080F5C	addu   v0, v0, s6
-80080F60	lw     v1, $0000(v0)
-80080F64	nop
-80080F68	sll    v0, v1, $03
-80080F6C	addu   v0, v0, v1
-80080F70	sll    v0, v0, $03
-80080F74	lui    at, $800b
-80080F78	addu   at, at, v0
-80080F7C	lh     a0, $09d6(at)
-80080F80	lh     v0, $00e8(s0)
-80080F84	nop
-80080F88	beq    v0, a0, L80fac [$80080fac]
-80080F8C	addu   v1, a0, zero
-80080F90	bgez   a0, L80f9c [$80080f9c]
-80080F94	sh     v1, $00e8(s0)
-80080F98	sh     zero, $00e8(s0)
+                            L80ed8:	; 80080ED8
+                            L80edc:	; 80080EDC
+                            V0 = 800b1834 + S2 * 4;
+                            80080EE0	lw     v1, $0000(v0)
+                            V0 = w[800b1834];
+                            80080EEC	bne    v1, v0, L80f34 [$80080f34]
 
-L80f9c:	; 80080F9C
-80080F9C	addu   a0, s3, zero
-80080FA0	lh     a1, $00e8(s0)
-80080FA4	jal    func81808 [$80081808]
-80080FA8	addu   a2, s4, zero
+                            80080EF4	addiu  v0, zero, $f7ff (=-$801)
+                            80080EF8	lw     v1, $0000(s0)
+                            80080EFC	lhu    a0, $00e6(s0)
+                            80080F00	and    v1, v1, v0
+                            80080F04	sh     a0, $00e8(s0)
+                            80080F08	sll    a0, a0, $10
+                            80080F10	sw     v1, $0000(s0)
+                            if( A0 < 0 )
+                            {
+                                [S0 + e8] = h(0);
+                            }
 
-L80fac:	; 80080FAC
-80080FAC	addu   a2, zero, zero
-80080FB0	sll    v0, s2, $02
-80080FB4	addu   a3, v0, s6
-80080FB8	lui    t0, $800b
-80080FBC	addiu  t0, t0, $09da
-80080FC0	addu   a1, s0, zero
+                            L80f18:	; 80080F18
+                            A0 = S3;
+                            A1 = h[S0 + e8];
+                            A2 = S4;
+                            func81808(); // new animation
 
-loop80fc4:	; 80080FC4
-80080FC4	lw     v1, $0000(a3)
-80080FC8	sll    a0, a2, $01
-80080FCC	sll    v0, v1, $03
-80080FD0	addu   v0, v0, v1
-80080FD4	sll    v0, v0, $03
-80080FD8	addu   v0, v0, t0
-80080FDC	addu   a0, a0, v0
-80080FE0	lhu    v0, $0000(a0)
-80080FE4	addiu  a2, a2, $0001
-80080FE8	sh     v0, $0008(a1)
-80080FEC	slti   v0, a2, $0004
-80080FF0	bne    v0, zero, loop80fc4 [$80080fc4]
-80080FF4	addiu  a1, a1, $0002
-80080FF8	sll    a0, s2, $02
-80080FFC	addu   a0, a0, s6
-80081000	lw     v1, $0000(a0)
-80081004	nop
-80081008	sll    v0, v1, $03
-8008100C	addu   v0, v0, v1
-80081010	sll    v0, v0, $03
-80081014	lui    at, $800b
-80081018	addu   at, at, v0
-8008101C	lbu    v0, $0a08(at)
-80081020	nop
-80081024	sh     v0, $0010(s0)
-80081028	lw     v1, $0000(a0)
-8008102C	nop
-80081030	sll    v0, v1, $03
-80081034	addu   v0, v0, v1
-80081038	sll    v0, v0, $03
-8008103C	addu   v0, v0, fp
-80081040	lw     v0, $0000(v0)
-80081044	nop
-80081048	sw     v0, $0050(s0)
-8008104C	lw     v1, $0000(a0)
-80081050	nop
-80081054	sll    v0, v1, $03
-80081058	addu   v0, v0, v1
-8008105C	sll    v0, v0, $03
-80081060	addu   v0, v0, fp
-80081064	lw     v0, $0004(v0)
-80081068	nop
-8008106C	sw     v0, $0054(s0)
-80081070	lw     v1, $0000(a0)
-80081074	nop
-80081078	sll    v0, v1, $03
-8008107C	addu   v0, v0, v1
-80081080	sll    v0, v0, $03
-80081084	addu   v0, v0, fp
-80081088	lw     v0, $0008(v0)
-8008108C	nop
-80081090	sw     v0, $0058(s0)
-80081094	lw     v1, $0000(a0)
-80081098	lui    t1, $800b
-8008109C	addiu  t1, t1, $09e4
-800810A0	sll    v0, v1, $03
-800810A4	addu   v0, v0, v1
-800810A8	sll    v0, v0, $03
-800810AC	addu   v0, v0, t1
-800810B0	lw     v0, $0000(v0)
-800810B4	nop
-800810B8	sw     v0, $000c(s3)
-800810BC	lw     v1, $0000(a0)
-800810C0	nop
-800810C4	sll    v0, v1, $03
-800810C8	addu   v0, v0, v1
-800810CC	sll    v0, v0, $03
-800810D0	addu   v0, v0, t1
-800810D4	lw     v0, $0004(v0)
-800810D8	nop
-800810DC	sw     v0, $0010(s3)
-800810E0	lw     v1, $0000(a0)
-800810E4	nop
-800810E8	sll    v0, v1, $03
-800810EC	addu   v0, v0, v1
-800810F0	sll    v0, v0, $03
-800810F4	addu   v0, v0, t1
-800810F8	lw     v0, $0008(v0)
-800810FC	nop
-80081100	sw     v0, $0014(s3)
-80081104	lw     v1, $0000(a0)
-80081108	nop
-8008110C	sll    v0, v1, $03
-80081110	addu   v0, v0, v1
-80081114	sll    v0, v0, $03
-80081118	lui    at, $800b
-8008111C	addu   at, at, v0
-80081120	lh     v0, $09cc(at)
-80081124	nop
-80081128	sw     v0, $0020(s4)
-8008112C	lw     v1, $0000(a0)
-80081130	nop
-80081134	sll    v0, v1, $03
-80081138	addu   v0, v0, v1
-8008113C	sll    v0, v0, $03
-80081140	lui    at, $800b
-80081144	addu   at, at, v0
-80081148	lh     v0, $09ce(at)
-8008114C	nop
-80081150	sw     v0, $0024(s4)
-80081154	lw     v1, $0000(a0)
-80081158	nop
-8008115C	sll    v0, v1, $03
-80081160	addu   v0, v0, v1
-80081164	sll    v0, v0, $03
-80081168	lui    at, $800b
-8008116C	addu   at, at, v0
-80081170	lh     v1, $09d0(at)
-80081174	lw     v0, $0020(s4)
-80081178	nop
-8008117C	sll    v0, v0, $10
-80081180	sw     v1, $0028(s4)
-80081184	sw     v0, $0000(s3)
-80081188	sw     v0, $0020(s0)
-8008118C	lw     v0, $0024(s4)
-80081190	nop
-80081194	sll    v0, v0, $10
-80081198	sw     v0, $0004(s3)
-8008119C	sw     v0, $0024(s0)
-800811A0	lw     v0, $0028(s4)
-800811A4	nop
-800811A8	sll    v0, v0, $10
-800811AC	sw     v0, $0008(s3)
-800811B0	sw     v0, $0028(s0)
-800811B4	lw     v1, $0000(a0)
-800811B8	nop
-800811BC	sll    v0, v1, $03
-800811C0	addu   v0, v0, v1
-800811C4	sll    v0, v0, $03
-800811C8	lui    at, $800b
-800811CC	addu   at, at, v0
-800811D0	lhu    v0, $09d4(at)
-800811D4	nop
-800811D8	sh     v0, $0084(s3)
-800811DC	lw     v1, $0000(a0)
-800811E0	nop
-800811E4	sll    v0, v1, $03
-800811E8	addu   v0, v0, v1
-800811EC	sll    v0, v0, $03
-800811F0	lui    at, $800b
-800811F4	addu   at, at, v0
-800811F8	lhu    v0, $09d8(at)
-800811FC	nop
-80081200	sh     v0, $0106(s0)
-80081204	sh     v0, $0104(s0)
-80081208	lw     v0, $0000(a0)
-8008120C	nop
-80081210	addiu  v0, v0, $ffff (=-$1)
-80081214	andi   v0, v0, $001f
-80081218	sw     v0, $0000(a0)
+                            80080F28	j      L8121c [$8008121c]
 
-L8121c:	; 8008121C
-8008121C	lui    v0, $800b
-80081220	lw     v0, $d0d4(v0)
-80081224	addiu  s5, s5, $0001
-80081228	slt    v0, s5, v0
-8008122C	bne    v0, zero, L80d34 [$80080d34]
-80081230	addiu  s7, s7, $005c
 
-L81234:	; 80081234
+                            L80f30:	; 80080F30
+                            L80f34:	; 80080F34
+
+                            if( A2 & 0800 )
+                            {
+                                V0 = w[S0] | 00000800;
+                            }
+                            else
+                            {
+                                V0 = w[S0] & fffff7ff;
+                            }
+
+                            80080F54	sw     v0, $0000(s0)
+                            V0 = 800b1834 + S2 * 4;
+
+                            V1 = w[V0];
+                            A0 = h[800b09d6 + V1 * 48];
+
+                            80080F80	lh     v0, $00e8(s0)
+                            80080F84	nop
+                            80080F88	beq    v0, a0, L80fac [$80080fac]
+                            80080F8C	addu   v1, a0, zero
+                            80080F90	bgez   a0, L80f9c [$80080f9c]
+                            80080F94	sh     v1, $00e8(s0)
+                            80080F98	sh     zero, $00e8(s0)
+
+                            L80f9c:	; 80080F9C
+                            A0 = S3;
+                            A1 = h[S0 + e8];
+                            A2 = S4;
+                            func81808(); // new animation
+
+                            L80fac:	; 80080FAC
+                            80080FAC	addu   a2, zero, zero
+                            A3 = 800b1834 + S2 * 4;
+                            80080FB8	lui    t0, $800b
+                            80080FBC	addiu  t0, t0, $09da
+                            80080FC0	addu   a1, s0, zero
+
+                            loop80fc4:	; 80080FC4
+                                80080FC4	lw     v1, $0000(a3)
+                                80080FC8	sll    a0, a2, $01
+                                80080FCC	sll    v0, v1, $03
+                                80080FD0	addu   v0, v0, v1
+                                80080FD4	sll    v0, v0, $03
+                                80080FD8	addu   v0, v0, t0
+                                80080FDC	addu   a0, a0, v0
+                                80080FE0	lhu    v0, $0000(a0)
+                                80080FE4	addiu  a2, a2, $0001
+                                80080FE8	sh     v0, $0008(a1)
+                                80080FF4	addiu  a1, a1, $0002
+                                80080FEC	slti   v0, a2, $0004
+                            80080FF0	bne    v0, zero, loop80fc4 [$80080fc4]
+
+                            A0 = 800b1834 + S2 * 4;
+                            V1 = w[A0];
+
+                            [S0 + 10] = h(bu[800b0a08 + V1 * 48]);
+
+                            [S0 + 50] = w(w[800b09f4 + V1 * 48 + 0]);
+                            [S0 + 54] = w(w[800b09f4 + V1 * 48 + 4]);
+                            [S0 + 58] = w(w[800b09f4 + V1 * 48 + 8]);
+
+                            [S3 + c] = w(w[800b09e4 + V1 * 48 + 0]);
+                            [S3 + 10] = w(w[800b09e4 + V1 * 48 + 4]);
+                            [S3 + 14] = w(w[800b09e4 + V1 * 48 + 8]);
+
+                            [S4 + 20] = w(h[800b09cc + V1 * 48]);
+                            [S4 + 24] = w(h[800b09ce + V1 * 48]);
+                            [S4 + 28] = w(h[800b09d0 + V1 * 48]);
+
+                            [S3 + 0] = w(w[S4 + 20] << 10);
+                            [S0 + 20] = w(w[S4 + 20] << 10);
+                            [S3 + 4] = w(w[S4 + 24] << 10);
+                            [S0 + 24] = w(w[S4 + 24] << 10);
+                            [S3 + 8] = w(w[S4 + 28] << 10);
+                            [S0 + 28] = w(w[S4 + 28] << 10);
+
+                            [S3 + 84] = h(h[800b09d4 + V1 * 48]);
+                            [S0 + 106] = h(hu[800b09d8 + V1 * 48]);
+                            [S0 + 104] = h(hu[800b09d8 + V1 * 48]);
+
+                            [A0] = w((w[A0] - 1) & 1f);
+                        }
+                    }
+                }
+            }
+
+            L8121c:	; 8008121C
+            S5 = S5 + 1;
+            V0 = S5 < number_of_entity;
+        8008122C	bne    v0, zero, L80d34 [$80080d34]
+    }
+}
 ////////////////////////////////

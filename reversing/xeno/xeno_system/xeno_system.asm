@@ -15520,13 +15520,13 @@ L255d0:	; 800255D0
 8002567C	addu   a0, s0, zero
 80025680	lw     a1, $0020(s2)
 80025684	addu   a2, s0, zero
-80025688	jal    system_gte_matrix_multiplication [$800490b4]
+80025688	jal    system_gte_matrix_multiplication_to_A2 [$800490b4]
 8002568C	addiu  a1, a1, $000c
 80025690	lui    a0, $8005
 80025694	addiu  a0, a0, $f444 (=-$bbc)
 80025698	addu   a1, s0, zero
 8002569C	addiu  s0, sp, $0068
-800256A0	jal    system_gte_matrix_multiplication [$800490b4]
+800256A0	jal    system_gte_matrix_multiplication_to_A2 [$800490b4]
 800256A4	addu   a2, s0, zero
 800256A8	ori    a0, zero, $0020
 800256AC	ori    a1, zero, $0020
@@ -48538,7 +48538,7 @@ L48f80:	; 80048F80
 
 
 ////////////////////////////////
-// system_gte_matrix_multiplication
+// system_gte_matrix_multiplication_to_A2
 800490B4-800491BC
 ////////////////////////////////
 
@@ -48974,74 +48974,14 @@ L49940:	; 80049940
 
 80049A80	nop
 
-func49a84:	; 80049A84
-80049A84	lw     t0, $0000(a0)
-80049A88	lw     t1, $0004(a0)
-80049A8C	lw     t2, $0008(a0)
-80049A90	lw     t3, $000c(a0)
-80049A94	lw     t4, $0010(a0)
-80049A98	ctc2   t0,vxy0
-80049A9C	ctc2   t1,vz0
-80049AA0	ctc2   t2,vxy1
-80049AA4	ctc2   t3,vz1
-80049AA8	ctc2   t4,vxy2
-80049AAC	lhu    t0, $0000(a1)
-80049AB0	lw     t1, $0004(a1)
-80049AB4	lw     t2, $000c(a1)
-80049AB8	lui    at, $ffff
-80049ABC	and    t1, t1, at
-80049AC0	or     t0, t0, t1
-80049AC4	mtc2   t0,r11r12
-80049AC8	mtc2   t2,r13r21
-80049ACC	nop
-80049AD0	gte_func18t0,l33
-80049AD4	lhu    t0, $0002(a1)
-80049AD8	lw     t1, $0008(a1)
-80049ADC	lh     t2, $000e(a1)
-80049AE0	sll    t1, t1, $10
-80049AE4	or     t0, t0, t1
-80049AE8	mfc2   t3,l13l21
-80049AEC	mfc2   t4,l22l23
-80049AF0	mfc2   t5,l31l32
-80049AF4	mtc2   t0,r11r12
-80049AF8	mtc2   t2,r13r21
-80049AFC	nop
-80049B00	gte_func18t0,l33
-80049B04	lhu    t0, $0004(a1)
-80049B08	lw     t1, $0008(a1)
-80049B0C	lw     t2, $0010(a1)
-80049B10	lui    at, $ffff
-80049B14	and    t1, t1, at
-80049B18	or     t0, t0, t1
-80049B1C	mfc2   t6,l13l21
-80049B20	mfc2   t7,l22l23
-80049B24	mfc2   t8,l31l32
-80049B28	mtc2   t0,r11r12
-80049B2C	mtc2   t2,r13r21
-80049B30	nop
-80049B34	gte_func18t0,l33
-80049B38	andi   t3, t3, $ffff
-80049B3C	sll    t6, t6, $10
-80049B40	or     t6, t6, t3
-80049B44	sw     t6, $0000(a1)
-80049B48	andi   t5, t5, $ffff
-80049B4C	sll    t8, t8, $10
-80049B50	or     t8, t8, t5
-80049B54	sw     t8, $000c(a1)
-80049B58	mfc2   t0,l13l21
-80049B5C	mfc2   t1,l22l23
-80049B60	andi   t0, t0, $ffff
-80049B64	sll    t4, t4, $10
-80049B68	or     t0, t0, t4
-80049B6C	sw     t0, $0004(a1)
-80049B70	andi   t7, t7, $ffff
-80049B74	sll    t1, t1, $10
-80049B78	or     t1, t1, t7
-80049B7C	sw     t1, $0008(a1)
-80049B80	swc2   t3, $0010(a1)
-80049B84	addu   v0, a1, zero
-80049B88	jr     ra 
-80049B8C	nop
+
+
+////////////////////////////////
+// system_gte_matrix_multiplication_to_A1
+80049A84-80049B8C
+////////////////////////////////
+
+
 
 80049B90	nop
 

@@ -1963,7 +1963,7 @@ system_calculate_rotation_matrix();
 
 A0 = S1;
 A1 = S1 + d4;
-8006F4C4	jal    func49a84 [$80049a84]
+8006F4C4	jal    system_gte_matrix_multiplication_to_A1 [$80049a84]
 
 V0 = h[S0];
 S0 = S0 + 2;

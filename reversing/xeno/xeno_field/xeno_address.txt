@@ -72,7 +72,23 @@ spawn table
 800ad43c [][][][] store here 0, 1 during entity script2 3 call checking.
 
 800ad440 array of rotations. Used if 800b1828 == 0. (size 0x02. items 0x10).
-800ad460 array of rotations 2. Used if 800b1828 != 0. (size 0x02. items 0x10).
+            0xf000 - 0x8000 stop (all buttons)
+            0xe000 - 0x0400 down (left down right)
+            0xd000 - 0x0800 left (left down up)
+            0xc000 - 0x0600 down left
+            0xb000 - 0x0c00 up (left right up)
+            0xa000 - 0x8000 stop (left right)
+            0x9000 - 0x0a00 up left
+            0x8000 - 0x0800 left
+            0x7000 - 0x0000 right (up right down)
+            0x6000 - 0x0200 down right
+            0x5000 - 0x8000 stop (up down)
+            0x4000 - 0x0400 down
+            0x3000 - 0x0e00 up right
+            0x2000 - 0x0000 right
+            0x1000 - 0x0c00 up
+            0x0000 - 0x8000 stop (none)
+800ad460 array of inverted rotations (press up - go down). Used if 800b1828 != 0. (size 0x02. items 0x10).
 800ad480 default material walking rotation (size 0x02. items 0x08)
     000C 000E 0000 0002 0004 0006 0008 000A
 800ad49c default material walking speed. (size 0x02. items 0x4)
@@ -85,7 +101,7 @@ spawn table
 
 800aec3c some data during texture set (func910b0).
 
-800aee60 [][]     some rotation.
+800aee60 [][]     some rotation (maybe camera rotation).
 
 800aeeba [][]     store some direction here. maybe for camera. func9efe4.
 800aeec4 [][][][] store some direction here. maybe for camera. func9efe4.
@@ -400,7 +416,9 @@ spawn table
         + 100 []       init with 0x80.
         + 101 []       init with 0x80.
         + 102 [][]     Init with two random bytes.
-        + 104 [][]     we store rotation data here, also set during DialogShow (flags). Seems like current rotation. Init with 0x8000. Add 0x8000 flag when start script.
+        + 104 [][]     we store rotation data here, also set during DialogShow (flags). Seems like current rotation. Init with 0x8000.
+                        0x0fff - rotation.
+                        0x8000 - if not set then perform move in this direction.
         + 106 [][]     we store rotation data here. Init with 0x8000. Add 0x8000 flag when start script.
         + 108 [][]     we store rotation data here (if 800acff4 == 0). Init with 0x8000.
         + 10d []       init with 0xff.
@@ -526,6 +544,8 @@ spawn table
 
 800b1818 [][]     do something animation related during movement if this is 0.
 800b181a [][]     maybe default animation id. Init with 3.
+
+800b1834 array of stored index to party character data (somewhere in 800b09d8) (0x4 size)
 
 800c1b68 [][]     pressed button mask for controller 1 (details in 800af370).
 

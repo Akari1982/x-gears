@@ -1,3 +1,4 @@
+
 ////////////////////////////////
 // system_gte_vector_perspective_transform()
 VXY0 = w[A0 + 0];
@@ -72,7 +73,7 @@ return A2;
 
 
 ////////////////////////////////
-// system_gte_matrix_multiplication()
+// system_gte_matrix_multiplication_to_A2()
 R11R12 = w[A0 + 0];
 R13R21 = w[A0 + 4];
 R22R23 = w[A0 + 8];
@@ -99,8 +100,46 @@ gte_rtv0(); // v0 * rotmatrix.
 [A2 + 4] = h(IR1);
 [A2 + a] = h(IR2);
 [A2 + 10] = h(IR3);
-
 return A2;
+////////////////////////////////
+
+
+
+////////////////////////////////
+// system_gte_matrix_multiplication_to_A1()
+R11R12 = w[A0 + 0];
+R13R21 = w[A0 + 4];
+R22R23 = w[A0 + 8];
+R31R32 = w[A0 + c];
+R33 = w[A0 + 10];
+
+VXY0 = (w[A1 + 4] & ffff0000) | hu[A1 + 0];
+VZ0 = w[A1 + c];
+gte_rtv0(); // v0 * rotmatrix.
+mul01 = IR1;
+mul02 = IR2;
+mul03 = IR3;
+
+VXY0 = (w[A1 + 8] << 10) | hu[A1 + 2];
+VZ0 = h[A1 + e];
+gte_rtv0(); // v0 * rotmatrix.
+mul04 = IR1;
+mul05 = IR2;
+mul06 = IR3;
+
+VXY0 = (w[A1 + 8] & ffff0000) | hu[A1 + 4];
+VZ0 = w[A1 + 10];
+gte_rtv0(); // v0 * rotmatrix.
+mul07 = IR1;
+mul08 = IR2;
+mul09 = IR3;
+
+[A1 + 0] = w((mul04 << 10) | (mul01 & ffff));
+[A1 + 4] = w((mul02 << 10) | (mul07 & ffff));
+[A1 + 8] = w((mul08 << 10) | (mul05 & ffff));
+[A1 + c] = w((mul06 << 10) | (mul03 & ffff));
+[A1 + 10] = w(mul09);
+return A1;
 ////////////////////////////////
 
 
