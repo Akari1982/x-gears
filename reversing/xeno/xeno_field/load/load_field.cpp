@@ -161,7 +161,7 @@ La5360:	; 800A5360
 800A5384	lw     s0, $f51c(s0)
 800A5388	lui    s1, $800b
 800A538C	lw     s1, $f1e8(s1)
-func70358;
+func70358();
 
 800A5398	jal    func6fb18 [$8006fb18]
 800A539C	nop
@@ -530,7 +530,7 @@ La5898:	; 800A5898
 
 
 ////////////////////////////////
-// func70358
+// func70358()
 A1 = 8006f184;
 [SP + 38] = w(w[A1 + 0]);
 [SP + 3c] = w(w[A1 + 4]);
@@ -1513,7 +1513,7 @@ loop7a12c:	; 8007A12C
 // func6fc6c
 if( w[800c1b60] == 0 )
 {
-    func281274; // maybe exception
+    func281274; // debug
 }
 
 8006FC90	addu   a0, zero, zero

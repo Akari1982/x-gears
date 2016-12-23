@@ -1,4 +1,65 @@
 ////////////////////////////////
+// func22f24()
+struct_164 = A0;
+
+if( w[struct_164 + a8] & 00000001 )
+{
+    V0 = w[struct_164 + 7c];
+    A0 = w[V0 + 18];
+
+    if( A0 != 0 )
+    {
+        func31f0c();
+    }
+}
+
+A0 = struct_164;
+func1d270()
+
+V0 = w[struct_164 + 20];
+A0 = w[V0 + 2c];
+func31f0c();
+
+A0 = struct_164;
+func31f0c();
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func1d270()
+struct_164 = A0;
+
+sprite_list = w[GP + 20];
+if( sprite_list != 0 )
+{
+    A2 = 0;
+    loop1d280:	; 8001D280
+        if( sprite_list != struct_164 )
+        {
+            A2 = sprite_list;
+        }
+        else if( A2 != 0 )
+        {
+            V0 = w[sprite_list + 20];
+            V1 = w[A2 + 20];
+            [V1 + 38] = w(w[V0 + 38]);
+        }
+        else
+        {
+            V0 = w[sprite_list + 20];
+            V0 = w[V0 + 38];
+            [GP + 20] = w(V0);
+        }
+        V0 = w[sprite_list + 20];
+        sprite_list = w[V0 + 38];
+    8001D2D4	bne    sprite_list, zero, loop1d280 [$8001d280]
+}
+////////////////////////////////
+
+
+
+////////////////////////////////
 // func1cd00
 8001CD08	lw     s0, $0420(gp)
 8001CD10	addu   s2, a0, zero

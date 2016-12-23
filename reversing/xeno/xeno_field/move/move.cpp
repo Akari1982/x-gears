@@ -1598,207 +1598,160 @@ else
                 {
                     if( ( hu[struct_5c_p + S5 * 5c + 58] & 0020 ) == 0 )
                     {
-                        S4 = struct_5c_p + S5 * 5c;
-                        S0 = struct_138;
-                        S3 = w[S4 + 4];
+                        struct_164 = w[struct_5c_p + S5 * 5c + 4];
 
-                        A0 = h[struct_138 + e4];
+                        A0 = h[struct_138 + e4]; // character id
                         get_party_slot_id();
-                        S2 = V0;
+                        party_slot_id = V0;
 
-                        if( S2 != -1 )
+                        if( party_slot_id != -1 )
                         {
-                            V1 = w[800b1834 + S2 * 4];
-                            A0 = S3; // struct_164
+                            V1 = w[800b1834 + party_slot_id * 4];
+
+                            A0 = struct_164;
                             A1 = h[800b09d8 + V1 * 48]; // rotation
-                            A2 = S4; // struct_5c
+                            A2 = struct_5c_p + S5 * 5c;
                             func81594(); // calculate struct_164 + c, struct_164 + 14 (and struct_164 + 18 in one case)
 
-                            S1 = 800b1834 + S2 * 4;
-
-                            V1 = w[800b1834 + S2 * 4];
-
-                            80080DDC	ori    t1, zero, $0001
-
-                            A2 = h[800b09c4 + V1 * 48];
-                            V0 = bu[800b16a3];
-                            A0 = w[S0 + 14];
-
-                            80080E04	bne    v0, t1, L80e24 [$80080e24]
-                            80080E08	andi   v0, a2, $0800
-                            V0 = (w[800b1834] + 1) & 1f;
-                            [S1] = w(V0);
-                            80080E1C	j      L80f30 [$80080f30]
-
-                            L80e24:	; 80080E24
-                            80080E24	bne    v0, zero, L80edc [$80080edc]
-
-                            80080E2C	lw     v1, $0004(s0)
-                            80080E30	addiu  v0, zero, $efff (=-$1001)
-                            80080E34	and    a1, v1, v0
-                            80080E38	lui    v0, $0042
-                            80080E3C	and    v0, a0, v0
-                            80080E40	bne    v0, zero, L80ed8 [$80080ed8]
-                            80080E44	sw     a1, $0004(s0)
-                            80080E48	lui    v0, $800c
-                            80080E4C	lw     v0, $2de4(v0)
-                            80080E50	addiu  t1, zero, $ffff (=-$1)
-                            80080E54	bne    v0, t1, L80eac [$80080eac]
-                            80080E58	nop
-                            80080E5C	lh     v1, $0084(s3)
-                            80080E60	lh     v0, $0026(s0)
-                            80080E64	nop
-                            80080E68	bne    v1, v0, L80edc [$80080edc]
-
-                            if( h[S0 + e8] == 6 )
+                            if( bu[800b16a3] == 1 )
                             {
-                                [S0 + 4] = w(A1 | 00001000);
+                                [800b1834 + party_slot_id * 4] = w((w[800b1834] + 1) & 1f);
                             }
                             else
                             {
-                                if( h[S0 + e8] != h[S0 + e6] )
+                                if( ( h[800b09c4 + V1 * 48] & 0800 ) == 0 )
                                 {
-                                    if( h[S0 + e6] >= 0 )
+                                    [struct_138 + 4] = w(w[struct_138 + 4] & ffffefff); // move done
+
+                                    if( ( w[struct_138 + 14] & 00420000 ) == 0 )
                                     {
-                                        [S0 + e8] = h(h[S0 + e6]);
+                                        if( w[800c2de4] != -1 )
+                                        {
+                                            V1 = 14;
+                                            if( party_slot_id == 1 )
+                                            {
+                                                V1 = a;
+                                            }
+
+                                            if( ( ( w[800b1834] + V1 ) & 1f ) != w[800b1834 + party_slot_id * 4] )
+                                            {
+                                                80080F28	j      L8121c [$8008121c]
+                                            }
+                                        }
+                                        else
+                                        {
+                                            if( h[struct_164 + 84] == h[struct_138 + 26] )
+                                            {
+                                                if( h[struct_138 + e8] == 6 )
+                                                {
+                                                    [struct_138 + 4] = w(w[struct_138 + 4] | 00001000);
+                                                }
+                                                else
+                                                {
+                                                    if( h[struct_138 + e8] != h[struct_138 + e6] )
+                                                    {
+                                                        if( h[struct_138 + e6] >= 0 )
+                                                        {
+                                                            [struct_138 + e8] = h(h[struct_138 + e6]);
+                                                        }
+                                                        else
+                                                        {
+                                                            [struct_138 + e8] = h(0);
+                                                        }
+                                                        A0 = struct_164;
+                                                        A1 = h[struct_138 + e8];
+                                                        A2 = struct_5c_p + S5 * 5c;
+                                                        func81808(); // new animation
+                                                    }
+                                                }
+                                                80080F28	j      L8121c [$8008121c]
+                                            }
+                                        }
+                                    }
+                                }
+
+                                if( w[800b1834 + party_slot_id * 4] == w[800b1834] )
+                                {
+                                    [struct_138 + 0] = w(w[struct_138 + 0] & fffff7ff);
+
+                                    if( h[struct_138 + e6] < 0 )
+                                    {
+                                        [struct_138 + e8] = h(0);
                                     }
                                     else
                                     {
-                                        [S0 + e8] = h(0);
+                                        [struct_138 + e8] = h(h[struct_138 + e6]);
                                     }
-                                    A0 = S3;
-                                    A1 = h[S0 + e8];
-                                    A2 = S4;
+
+                                    A0 = struct_164;
+                                    A1 = h[struct_138 + e8];
+                                    A2 = struct_5c_p + S5 * 5c;
                                     func81808(); // new animation
+
+                                    80080F28	j      L8121c [$8008121c]
                                 }
                             }
-                            80080F28	j      L8121c [$8008121c]
 
-
-                            L80eac:	; 80080EAC
-                            V1 = 14;
-                            if( S2 == 1 )
+                            if( h[800b09c4 + V1 * 48] & 0800 )
                             {
-                                V1 = a;
-                            }
-
-                            V0 = w[800b1834] + V1;
-                            80080EC8	lw     v1, $0000(s1)
-                            80080ECC	andi   v0, v0, $001f
-                            80080ED0	bne    v0, v1, L8121c [$8008121c]
-                            80080ED4	nop
-
-                            L80ed8:	; 80080ED8
-                            L80edc:	; 80080EDC
-                            V0 = 800b1834 + S2 * 4;
-                            80080EE0	lw     v1, $0000(v0)
-                            V0 = w[800b1834];
-                            80080EEC	bne    v1, v0, L80f34 [$80080f34]
-
-                            80080EF4	addiu  v0, zero, $f7ff (=-$801)
-                            80080EF8	lw     v1, $0000(s0)
-                            80080EFC	lhu    a0, $00e6(s0)
-                            80080F00	and    v1, v1, v0
-                            80080F04	sh     a0, $00e8(s0)
-                            80080F08	sll    a0, a0, $10
-                            80080F10	sw     v1, $0000(s0)
-                            if( A0 < 0 )
-                            {
-                                [S0 + e8] = h(0);
-                            }
-
-                            L80f18:	; 80080F18
-                            A0 = S3;
-                            A1 = h[S0 + e8];
-                            A2 = S4;
-                            func81808(); // new animation
-
-                            80080F28	j      L8121c [$8008121c]
-
-
-                            L80f30:	; 80080F30
-                            L80f34:	; 80080F34
-
-                            if( A2 & 0800 )
-                            {
-                                V0 = w[S0] | 00000800;
+                                [struct_138 + 0] = w(w[struct_138 + 0] | 00000800);
                             }
                             else
                             {
-                                V0 = w[S0] & fffff7ff;
+                                [struct_138 + 0] = w(w[struct_138 + 0] & fffff7ff);
                             }
 
-                            80080F54	sw     v0, $0000(s0)
-                            V0 = 800b1834 + S2 * 4;
+                            V1 = w[800b1834 + party_slot_id * 4];
+                            if( h[struct_138 + e8] != h[800b09d6 + V1 * 48] )
+                            {
+                                if( h[800b09d6 + V1 * 48] < 0 )
+                                {
+                                    [struct_138 + e8] = h(0);
+                                }
+                                else
+                                {
+                                    [struct_138 + e8] = h(h[800b09d6 + V1 * 48]);
+                                }
 
-                            V1 = w[V0];
-                            A0 = h[800b09d6 + V1 * 48];
+                                A0 = struct_164;
+                                A1 = h[struct_138 + e8];
+                                A2 = struct_5c_p + S5 * 5c;
+                                func81808(); // new animation
+                            }
 
-                            80080F80	lh     v0, $00e8(s0)
-                            80080F84	nop
-                            80080F88	beq    v0, a0, L80fac [$80080fac]
-                            80080F8C	addu   v1, a0, zero
-                            80080F90	bgez   a0, L80f9c [$80080f9c]
-                            80080F94	sh     v1, $00e8(s0)
-                            80080F98	sh     zero, $00e8(s0)
-
-                            L80f9c:	; 80080F9C
-                            A0 = S3;
-                            A1 = h[S0 + e8];
-                            A2 = S4;
-                            func81808(); // new animation
-
-                            L80fac:	; 80080FAC
-                            80080FAC	addu   a2, zero, zero
-                            A3 = 800b1834 + S2 * 4;
-                            80080FB8	lui    t0, $800b
-                            80080FBC	addiu  t0, t0, $09da
-                            80080FC0	addu   a1, s0, zero
-
+                            A2 = 0;
                             loop80fc4:	; 80080FC4
-                                80080FC4	lw     v1, $0000(a3)
-                                80080FC8	sll    a0, a2, $01
-                                80080FCC	sll    v0, v1, $03
-                                80080FD0	addu   v0, v0, v1
-                                80080FD4	sll    v0, v0, $03
-                                80080FD8	addu   v0, v0, t0
-                                80080FDC	addu   a0, a0, v0
-                                80080FE0	lhu    v0, $0000(a0)
-                                80080FE4	addiu  a2, a2, $0001
-                                80080FE8	sh     v0, $0008(a1)
-                                80080FF4	addiu  a1, a1, $0002
-                                80080FEC	slti   v0, a2, $0004
+                                [struct_138 + 8 + A2 * 2] = h(hu[800b09da + V1 * 48 + A2 * 2]);
+                                A2 = A2 + 1;
+                                V0 = A2 < 4;
                             80080FF0	bne    v0, zero, loop80fc4 [$80080fc4]
 
-                            A0 = 800b1834 + S2 * 4;
-                            V1 = w[A0];
+                            [struct_138 + 10] = h(bu[800b0a08 + V1 * 48]);
 
-                            [S0 + 10] = h(bu[800b0a08 + V1 * 48]);
+                            [struct_138 + 50] = w(w[800b09f4 + V1 * 48 + 0]);
+                            [struct_138 + 54] = w(w[800b09f4 + V1 * 48 + 4]);
+                            [struct_138 + 58] = w(w[800b09f4 + V1 * 48 + 8]);
 
-                            [S0 + 50] = w(w[800b09f4 + V1 * 48 + 0]);
-                            [S0 + 54] = w(w[800b09f4 + V1 * 48 + 4]);
-                            [S0 + 58] = w(w[800b09f4 + V1 * 48 + 8]);
+                            [struct_164 + c] = w(w[800b09e4 + V1 * 48 + 0]);
+                            [struct_164 + 10] = w(w[800b09e4 + V1 * 48 + 4]);
+                            [struct_164 + 14] = w(w[800b09e4 + V1 * 48 + 8]);
 
-                            [S3 + c] = w(w[800b09e4 + V1 * 48 + 0]);
-                            [S3 + 10] = w(w[800b09e4 + V1 * 48 + 4]);
-                            [S3 + 14] = w(w[800b09e4 + V1 * 48 + 8]);
+                            [struct_5c_p + S5 * 5c + 20] = w(h[800b09cc + V1 * 48]);
+                            [struct_5c_p + S5 * 5c + 24] = w(h[800b09ce + V1 * 48]);
+                            [struct_5c_p + S5 * 5c + 28] = w(h[800b09d0 + V1 * 48]);
 
-                            [S4 + 20] = w(h[800b09cc + V1 * 48]);
-                            [S4 + 24] = w(h[800b09ce + V1 * 48]);
-                            [S4 + 28] = w(h[800b09d0 + V1 * 48]);
+                            [struct_164 + 0] = w(w[struct_5c_p + S5 * 5c + 20] << 10);
+                            [struct_138 + 20] = w(w[struct_5c_p + S5 * 5c + 20] << 10);
+                            [struct_164 + 4] = w(w[struct_5c_p + S5 * 5c + 24] << 10);
+                            [struct_138 + 24] = w(w[struct_5c_p + S5 * 5c + 24] << 10);
+                            [struct_164 + 8] = w(w[struct_5c_p + S5 * 5c + 28] << 10);
+                            [struct_138 + 28] = w(w[struct_5c_p + S5 * 5c + 28] << 10);
 
-                            [S3 + 0] = w(w[S4 + 20] << 10);
-                            [S0 + 20] = w(w[S4 + 20] << 10);
-                            [S3 + 4] = w(w[S4 + 24] << 10);
-                            [S0 + 24] = w(w[S4 + 24] << 10);
-                            [S3 + 8] = w(w[S4 + 28] << 10);
-                            [S0 + 28] = w(w[S4 + 28] << 10);
+                            [struct_164 + 84] = h(h[800b09d4 + V1 * 48]);
+                            [struct_138 + 106] = h(hu[800b09d8 + V1 * 48]);
+                            [struct_138 + 104] = h(hu[800b09d8 + V1 * 48]);
 
-                            [S3 + 84] = h(h[800b09d4 + V1 * 48]);
-                            [S0 + 106] = h(hu[800b09d8 + V1 * 48]);
-                            [S0 + 104] = h(hu[800b09d8 + V1 * 48]);
-
-                            [A0] = w((w[A0] - 1) & 1f);
+                            [800b1834 + party_slot_id * 4] = w((w[800b1834 + party_slot_id * 4] - 1) & 1f);
                         }
                     }
                 }
