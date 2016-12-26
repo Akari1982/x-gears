@@ -99,7 +99,7 @@ FieldModule::LoadMap( const int file_id )
             }
 
             // move pointer to start of next texture
-            i += ceil( ( float )( texture_header_width * 2 * height) / 0x0800 ) * 0x0800;
+            i += ( u32 )ceil( ( float )( texture_header_width * 2 * height) / 0x0800 ) * 0x0800;
             vram_y += height;
         }
     }
@@ -178,6 +178,7 @@ FieldModule::LoadMap( const int file_id )
     delete temp;
     script_file->GetScripts( file_id );
     delete script_file;
+    export_script->Log( "\n    <script file_name=\"maps/field/" + GetFieldName( file_id ) + ".lua\" />" );
 
 
 
@@ -201,13 +202,13 @@ FieldModule::LoadMap( const int file_id )
     // part 8
     temp = field_pack->Extract( 8 );
     temp->WriteFile( "exported/debug/0" + IntToString( file_id ) + "_8.trigger" );
-    u8 number_of_triggers = temp->GetFileSize() / 0x18;
-    for( u8 i = 0; i < number_of_triggers; ++i )
+    u32 number_of_triggers = temp->GetFileSize() / 0x18;
+    for( u32 i = 0; i < number_of_triggers; ++i )
     {
-        Ogre::Vector3 point1 = Ogre::Vector3( ( s16 )temp->GetU16LE( i * 0x18 + 0x00 ), ( s16 )temp->GetU16LE( i * 0x18 + 0x04 ), 0 ) / 64;
-        Ogre::Vector3 point2 = Ogre::Vector3( ( s16 )temp->GetU16LE( i * 0x18 + 0x06 ), ( s16 )temp->GetU16LE( i * 0x18 + 0x0a ), 0 ) / 64;
-        Ogre::Vector3 point3 = Ogre::Vector3( ( s16 )temp->GetU16LE( i * 0x18 + 0x0c ), ( s16 )temp->GetU16LE( i * 0x18 + 0x10 ), 0 ) / 64;
-        Ogre::Vector3 point4 = Ogre::Vector3( ( s16 )temp->GetU16LE( i * 0x18 + 0x12 ), ( s16 )temp->GetU16LE( i * 0x18 + 0x16 ), 0 ) / 64;
+        Ogre::Vector3 point1 = Ogre::Vector3( ( s16 )temp->GetU16LE( i * 0x18 + 0x00 ), 0, ( s16 )temp->GetU16LE( i * 0x18 + 0x04 ) ) / 64;
+        Ogre::Vector3 point2 = Ogre::Vector3( ( s16 )temp->GetU16LE( i * 0x18 + 0x06 ), 0, ( s16 )temp->GetU16LE( i * 0x18 + 0x0a ) ) / 64;
+        Ogre::Vector3 point3 = Ogre::Vector3( ( s16 )temp->GetU16LE( i * 0x18 + 0x0c ), 0, ( s16 )temp->GetU16LE( i * 0x18 + 0x10 ) ) / 64;
+        Ogre::Vector3 point4 = Ogre::Vector3( ( s16 )temp->GetU16LE( i * 0x18 + 0x12 ), 0, ( s16 )temp->GetU16LE( i * 0x18 + 0x16 ) ) / 64;
 
         export_script->Log( "\n    <square_trigger name=\"Gateway" + IntToString( i ) + "\" point1=\"" + Ogre::StringConverter::toString( point1 ) + "\" point2=\"" + Ogre::StringConverter::toString( point2 ) + "\" point3=\"" + Ogre::StringConverter::toString( point3 ) + "\" point4=\"" + Ogre::StringConverter::toString( point4 ) + "\" />" );
     }
@@ -222,9 +223,9 @@ FieldModule::LoadMap( const int file_id )
     {
         u16 flags = field_pack->GetU16LE( 0x190 + i * 0x10 + 0x0 );
 
-        s16 x_rot = (s16)field_pack->GetU16LE( 0x190 + i * 0x10 + 0x2 );
-        s16 y_rot = (s16)field_pack->GetU16LE( 0x190 + i * 0x10 + 0x4 );
-        s16 z_rot = (s16)field_pack->GetU16LE( 0x190 + i * 0x10 + 0x6);
+        s16 x_rot = ( flags & 0x0040 ) ? 0 : ( s16 )field_pack->GetU16LE( 0x190 + i * 0x10 + 0x2 );
+        s16 y_rot = ( flags & 0x0040 ) ? 0 : ( s16 )field_pack->GetU16LE( 0x190 + i * 0x10 + 0x4 );
+        s16 z_rot = ( flags & 0x0040 ) ? 0 : ( s16 )field_pack->GetU16LE( 0x190 + i * 0x10 + 0x6 );
 
         float x = (s16)field_pack->GetU16LE( 0x190 + i * 0x10 + 0x8 );
         float y = (s16)field_pack->GetU16LE( 0x190 + i * 0x10 + 0xa );
@@ -232,23 +233,20 @@ FieldModule::LoadMap( const int file_id )
         Ogre::Vector3 pos = Ogre::Vector3( x, y, z ) / 64;
         u16 model_id = field_pack->GetU16LE( 0x190 + i * 0x10 + 0xe );
 
+        export_script->Log( "\n    <entity " );
+        export_script->Log( "name=\"" + IntToString( i ) + "\" " );
+        export_script->Log( "position=\"" + Ogre::StringConverter::toString( pos ) + "\" " );
+        export_script->Log( "direction=\"" + Ogre::StringConverter::toString( ( y_rot / 4096.0f ) * 360.0f ) + "\" " );
+        if( flags & 0x0f00 )
+        {
+            export_script->Log( "script=\"true\" " );
+        }
         if( ( flags & 0x0040 ) == 0 )
         {
-            export_script->Log( "\n    <entity_model " );
-            export_script->Log( "name=\"Background_" + IntToString( i ) + "\" " );
             export_script->Log( "file_name=\"models/field_maps/0" + Ogre::StringConverter::toString( file_id ) + "/" + IntToString( model_id ) + ".mesh\" " );
-            export_script->Log( "position=\"" + Ogre::StringConverter::toString( pos ) + "\" " );
-            export_script->Log( "rotation=\"" + Ogre::StringConverter::toString( x_rot ) + " " + Ogre::StringConverter::toString( y_rot ) + " " + Ogre::StringConverter::toString( z_rot ) + "\" " );
-            export_script->Log( "direction=\"" + Ogre::StringConverter::toString( ( y_rot / 4096.0f ) * 360.0f ) + "\" " );
         }
-        else
-        {
-            export_script->Log( "\n    <entity " );
-            export_script->Log( "name=\"Script_" + IntToString( i ) + "\" " );
-            export_script->Log( "position=\"" + Ogre::StringConverter::toString( pos ) + "\" " );
-        }
-
         export_script->Log( "flags=\"" + HexToString( flags, 4, '0' ) + "\" " );
+        export_script->Log( "rotation=\"" + Ogre::StringConverter::toString( x_rot ) + " " + Ogre::StringConverter::toString( y_rot ) + " " + Ogre::StringConverter::toString( z_rot ) + "\" " );
         export_script->Log( "/>" );
     }
 

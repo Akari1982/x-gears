@@ -51,6 +51,14 @@ ScriptManager::InitBinds()
         luabind::def( "console", ( void( * )( const char* ) ) &ScriptConsole )
     ];
 
+    // entity access
+    luabind::module( m_LuaState )
+    [
+        luabind::class_< Entity >( "Entity" )
+            .def( "init_pc", ( void( Entity::* )( const int ) ) &Entity::ScriptInitPC )
+            .def( "input", ( void( Entity::* )() ) &Entity::ScriptInput )
+    ];
+
     // ui widget access
     luabind::module( m_LuaState )
     [

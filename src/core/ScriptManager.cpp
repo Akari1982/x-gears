@@ -37,7 +37,7 @@ template<>ScriptManager *Ogre::Singleton< ScriptManager >::msSingleton = NULL;
 
 ScriptManager::ScriptManager():
     m_SystemTableName( "System" ),
-    m_EntityTableName( "EntityContainer" ),
+    m_EntityTableName( "Entity" ),
     m_UiTableName( "UiContainer" )
 {
     LOG_TRIVIAL( "ScriptManager started." );
@@ -129,15 +129,15 @@ ScriptManager::Update( const ScriptManager::Type type )
     {
         DEBUG_DRAW.SetTextAlignment( DEBUG_DRAW.LEFT );
         DEBUG_DRAW.SetScreenSpace( true );
-        int y = 34;
+        float y = 34.0f;
 
         for( unsigned int i = 0; i < 3; ++i )
         {
             if( ( debug & ( 1 << i ) ) != 0 )
             {
-                DEBUG_DRAW.SetColour( Ogre::ColourValue( 0.8, 0.8, 0, 1 ) );
-                DEBUG_DRAW.Text( 10, y, "Script \"" + script_entity_type[ i ] + "\" entity:" );
-                y += 16;
+                DEBUG_DRAW.SetColour( Ogre::ColourValue( 0.0f, 0.8f, 0.0f, 1.0f ) );
+                DEBUG_DRAW.Text( 10.0f, y, "Script \"" + script_entity_type[ i ] + "\" entity:" );
+                y += 16.0f;
 
                 for( unsigned int j = 0; j < m_ScriptEntity.size(); ++j )
                 {
@@ -149,11 +149,11 @@ ScriptManager::Update( const ScriptManager::Type type )
                         if( queue_size > 0 )
                         {
                             text += ": ";
-                            DEBUG_DRAW.SetColour( Ogre::ColourValue( 0.8, 0.8, 0, 1 ) );
+                            DEBUG_DRAW.SetColour( Ogre::ColourValue( 0.8f, 0.8f, 0.0f, 1.0f ) );
                         }
                         else
                         {
-                            DEBUG_DRAW.SetColour( Ogre::ColourValue( 0.5, 0.5, 0.5, 1 ) );
+                            DEBUG_DRAW.SetColour( Ogre::ColourValue( 0.5f, 0.5f, 0.5f, 1.0f ) );
                         }
                         for( unsigned int k = 0; k < queue_size; ++k )
                         {
@@ -172,8 +172,8 @@ ScriptManager::Update( const ScriptManager::Type type )
                             }
                         }
 
-                        DEBUG_DRAW.Text( 20, y, text );
-                        y += 16;
+                        DEBUG_DRAW.Text( 20.0f, y, text );
+                        y += 16.0f;
                     }
                 }
             }

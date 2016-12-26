@@ -49,12 +49,6 @@
     <ClCompile Include="core\EntityManager.cpp">
       <Filter>X-Gears files</Filter>
     </ClCompile>
-    <ClCompile Include="core\EntityModel.cpp">
-      <Filter>X-Gears files</Filter>
-    </ClCompile>
-    <ClCompile Include="core\EntityTrigger.cpp">
-      <Filter>X-Gears files</Filter>
-    </ClCompile>
     <ClCompile Include="core\GameFrameListner.cpp">
       <Filter>X-Gears files</Filter>
     </ClCompile>
@@ -286,6 +280,15 @@
     <ClCompile Include="core\library\tinyxml\tinyxmlparser.cpp">
       <Filter>X-Gears files\TinyXml</Filter>
     </ClCompile>
+    <ClCompile Include="core\Trigger.cpp">
+      <Filter>X-Gears files</Filter>
+    </ClCompile>
+    <ClCompile Include="core\EntityCollision.cpp">
+      <Filter>X-Gears files</Filter>
+    </ClCompile>
+    <ClCompile Include="core\EntityDirection.cpp">
+      <Filter>X-Gears files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Main.h">
@@ -328,12 +331,6 @@
       <Filter>X-Gears files</Filter>
     </ClInclude>
     <ClInclude Include="core\EntityManager.h">
-      <Filter>X-Gears files</Filter>
-    </ClInclude>
-    <ClInclude Include="core\EntityModel.h">
-      <Filter>X-Gears files</Filter>
-    </ClInclude>
-    <ClInclude Include="core\EntityTrigger.h">
       <Filter>X-Gears files</Filter>
     </ClInclude>
     <ClInclude Include="core\Event.h">
@@ -749,6 +746,15 @@
     </ClInclude>
     <ClInclude Include="core\library\tinyxml\tinyxml.h">
       <Filter>X-Gears files\TinyXml</Filter>
+    </ClInclude>
+    <ClInclude Include="core\Trigger.h">
+      <Filter>X-Gears files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\EntityCollision.h">
+      <Filter>X-Gears files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\EntityDirection.h">
+      <Filter>X-Gears files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

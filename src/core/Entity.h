@@ -3,36 +3,65 @@
 
 #include <OgreString.h>
 
+#include "EntityCollision.h"
+#include "EntityDirection.h"
 
 
 class Entity
 {
 public:
-                         Entity( const Ogre::String& name, Ogre::SceneNode* node );
-    virtual              ~Entity();
+    Entity( const Ogre::String& name, Ogre::SceneNode* node );
+    virtual ~Entity();
 
-    virtual void         Update();
-    virtual void         UpdateDebug();
+    virtual void UpdateDebug();
 
-    const Ogre::String&  GetName() const;
+    const Ogre::String& GetName() const;
 
-    void                 SetPosition( const Ogre::Vector3& position );
-    const Ogre::Vector3  GetPosition() const;
+    void SetModel( const Ogre::String file_name );
 
-    void                 SetRotation( const Ogre::Degree& rotation );
-    Ogre::Degree         GetRotation() const;
+    void ScriptInitPC( const int character_id );
+    void ScriptInput();
 
-    virtual void         SetVisible( const bool visible ) = 0;
-    virtual bool         IsVisible() const = 0;
+    void SetPosition( const Ogre::Vector3& position );
+    const Ogre::Vector3 GetPosition() const;
+
+    void SetRotation( const Ogre::Degree& rotation );
+    Ogre::Degree GetRotation() const;
+
+    virtual void SetVisible( const bool visible );
+    virtual bool IsVisible() const;
+
+    void SetSolidRadius( const float radius );
+    float GetSolidRadius() const;
+    void SetSolid( const bool solid );
+    bool IsSolid() const;
+
+    bool IsPlayer() const;
+    bool IsMove() const;
 
 private:
     Entity();
 
 protected:
-    Ogre::String            m_Name;
+    Ogre::String m_Name;
 
-    Ogre::SceneNode*        m_SceneNode;
-    Ogre::SceneNode*        m_ModelNode;
+    Ogre::SceneNode* m_SceneNode;
+
+    Ogre::Entity* m_Model;
+
+    Ogre::SceneNode* m_SolidCollisionNode;
+    EntityCollision* m_SolidCollision;
+    Ogre::SceneNode* m_DirectionNode;
+    EntityDirection* m_Direction;
+
+    float m_SolidRadius;
+    bool m_Solid;
+
+    bool m_Player;
+    bool m_Move;
+
+    Ogre::Degree m_RotationY;
+    float m_SizeY;
 };
 
 

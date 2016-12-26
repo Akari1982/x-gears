@@ -20,9 +20,9 @@
     <ClCompile Include="core\Console.cpp" />
     <ClCompile Include="core\DebugDraw.cpp" />
     <ClCompile Include="core\Entity.cpp" />
+    <ClCompile Include="core\EntityCollision.cpp" />
+    <ClCompile Include="core\EntityDirection.cpp" />
     <ClCompile Include="core\EntityManager.cpp" />
-    <ClCompile Include="core\EntityModel.cpp" />
-    <ClCompile Include="core\EntityTrigger.cpp" />
     <ClCompile Include="core\GameFrameListner.cpp" />
     <ClCompile Include="core\InputManager.cpp" />
     <ClCompile Include="core\library\luabind\class.cpp" />
@@ -80,6 +80,7 @@
     <ClCompile Include="core\ScriptManager.cpp" />
     <ClCompile Include="core\TextManager.cpp" />
     <ClCompile Include="core\Timer.cpp" />
+    <ClCompile Include="core\Trigger.cpp" />
     <ClCompile Include="core\UiAnimation.cpp" />
     <ClCompile Include="core\UiFont.cpp" />
     <ClCompile Include="core\UiManager.cpp" />
@@ -115,9 +116,9 @@
     <ClInclude Include="core\Console.h" />
     <ClInclude Include="core\DebugDraw.h" />
     <ClInclude Include="core\Entity.h" />
+    <ClInclude Include="core\EntityCollision.h" />
+    <ClInclude Include="core\EntityDirection.h" />
     <ClInclude Include="core\EntityManager.h" />
-    <ClInclude Include="core\EntityModel.h" />
-    <ClInclude Include="core\EntityTrigger.h" />
     <ClInclude Include="core\Event.h" />
     <ClInclude Include="core\GameFrameListner.h" />
     <ClInclude Include="core\InputManager.h" />
@@ -236,6 +237,7 @@
     <ClInclude Include="core\TextManager.h" />
     <ClInclude Include="core\TextManagerCommands.h" />
     <ClInclude Include="core\Timer.h" />
+    <ClInclude Include="core\Trigger.h" />
     <ClInclude Include="core\UiAnimation.h" />
     <ClInclude Include="core\UiFont.h" />
     <ClInclude Include="core\UiManager.h" />
