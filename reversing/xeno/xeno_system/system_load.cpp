@@ -32,7 +32,7 @@ else
 
 
 ////////////////////////////////
-// func19b50
+// func19b50()
 if( A0 != 0 )
 {
     V0 = SP + 10;
@@ -63,44 +63,44 @@ if( A0 != 0 )
 80019BC0	jal    func31920 [$80031920]
 80019BC4	addiu  a0, a0, $0800
 80019BC8	jal    func19d00 [$80019d00]
-80019BCC	nop
-80019BD0	lw     v0, $000c(s1)
-80019BD4	nop
-80019BD8	beq    v0, zero, L19c54 [$80019c54]
-80019BDC	nop
-80019BE0	lw     a0, $0004(s1)
-80019BE4	lw     a1, $0008(s1)
-80019BE8	jal    func195f4 [$800195f4]
-80019BEC	nop
 
-A0 = w[80018088];
-func19a50();
-S0 = V0;
+if( w[S1 + c] != 0 )
+{
+    80019BE0	lw     a0, $0004(s1)
+    80019BE4	lw     a1, $0008(s1)
+    80019BE8	jal    func195f4 [$800195f4]
+    80019BEC	nop
 
-A0 = 0;
-80019C04	jal    func28870 [$80028870]
+    A0 = w[80018088];
+    func19a50();
+    S0 = V0;
 
-A0 = S0; // from
-A1 = w[80018084]; // where
-system_extract_archive();
+    A0 = 0;
+    80019C04	jal    func28870 [$80028870]
 
-A0 = 0;
-80019C1C	jal    func44448 [$80044448]
+    A0 = S0; // from
+    A1 = w[80018084]; // where
+    system_extract_archive();
 
-80019C24	jal    func4b3f4 [$8004b3f4]
-80019C28	addu   a0, zero, zero
-80019C2C	jal    func4034c [$8004034c]
-80019C30	nop
-80019C34	jal    func44448 [$80044448]
-80019C38	addu   a0, zero, zero
-80019C3C	jal    func4b3f4 [$8004b3f4]
-80019C40	addu   a0, zero, zero
-80019C44	jal    func402cc [$800402cc]
-80019C48	nop
-80019C4C	jal    func4035c [$8004035c]
-80019C50	nop
+    A0 = 0;
+    80019C1C	jal    func44448 [$80044448]
 
-L19c54:	; 80019C54
+    80019C28	addu   a0, zero, zero
+    80019C24	jal    func4b3f4 [$8004b3f4]
+
+    80019C2C	jal    func4034c [$8004034c]
+
+    80019C38	addu   a0, zero, zero
+    80019C34	jal    func44448 [$80044448]
+
+    80019C40	addu   a0, zero, zero
+    80019C3C	jal    func4b3f4 [$8004b3f4]
+
+    80019C44	jal    func402cc [$800402cc]
+
+    80019C4C	jal    func4035c [$8004035c]
+}
+
 80019C54	jal    func195dc [$800195dc]
 80019C58	nop
 80019C5C	lw     a0, $0008(s1)
@@ -113,31 +113,25 @@ L19c54:	; 80019C54
 80019C78	jal    func199f0 [$800199f0]
 80019C7C	addu   a0, zero, zero
 80019C80	lw     v0, $0000(s1)
-80019C84	nop
+
 80019C88	jalr   v0 ra
-80019C8C	nop
+
+A0 = 0;
 80019C90	jal    func19b50 [$80019b50]
-80019C94	addu   a0, zero, zero
-80019C98	lw     ra, $0020(sp)
-80019C9C	lw     s1, $001c(sp)
-80019CA0	lw     s0, $0018(sp)
-80019CA4	addiu  sp, sp, $0028
-80019CA8	jr     ra 
-80019CAC	nop
 ////////////////////////////////
 
 
 
 ////////////////////////////////
 // func19dcc()
-S2 = A0;
+S2 = A0; // file?
 S3 = A1;
 S1 = 0;
 
 if( ( w[80010000] + 1 ) >= 2 )
 {
-    A0 = 80018198;
-    80019E0C	jal    func32c28 [$80032c28]
+    A0 = 80018198; // filename "c:\lserrmem.txt"
+    func32c28(); // write debug file
 
     80019E14	j      L19e50 [$80019e50]
 }
@@ -373,22 +367,20 @@ if( w[8004f4ec] != 0 )
     A0 = S2;
     func287a8();
 
-    A0 = V0;
-    A1 = 0;
+    A0 = V0; // filename
+    A1 = 0; // accessmode
     A2 = 0;
-    8002857C	jal    func4c1c0 [$8004c1c0]
+    system_devkit_pc_open();
+    S0 = V0;
 
-    80028584	addu   s0, v0, zero
+    A0 = S0; // filehandle
+    A1 = 0; // file_offset
+    A2 = 2; // seekmode  2 = end of file.
+    system_devkit_pc_seek();
+    S1 = V0; // file pointer
 
-    A0 = S0;
-    A1 = 0;
-    A2 = 2;
-    80028590	jal    func4c1f0 [$8004c1f0]
-
-    80028598	addu   s1, v0, zero
-
-    A0 = S0;
-    8002859C	jal    func4c1e0 [$8004c1e0]
+    A0 = S0; // filehandle
+    system_devkit_pc_close();
 
     if( S1 > 0 )
     {
@@ -427,4 +419,125 @@ if( w[8004f4ec] != 0 )
     return w[8004f4ec] + V0 * 40;
 }
 return 0;
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func445dc()
+800445E4	addu   s3, a0, zero
+800445E8	lui    a0, $8002
+800445EC	addiu  a0, a0, $9214 (=-$6dec)
+800445F4	addu   s2, a1, zero
+800445F8	addu   a1, s3, zero
+80044600	addu   s1, a2, zero
+8004460C	jal    func444b4 [$800444b4]
+80044610	addu   s0, a3, zero
+
+80044614	addu   a1, s3, zero
+80044618	andi   s0, s0, $00ff
+8004461C	sll    s0, s0, $10
+80044620	andi   s1, s1, $00ff
+80044624	sll    s1, s1, $08
+80044628	or     s0, s0, s1
+8004462C	andi   s2, s2, $00ff
+80044630	lui    v0, $8005
+80044634	lw     v0, $5f68(v0)
+80044638	addiu  a2, zero, $0008
+8004463C	lw     a0, $000c(v0)
+80044640	lw     v0, $0008(v0)
+80044644	nop
+80044648	jalr   v0 ra
+8004464C	or     a3, s0, s2
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func444b4()
+T0 = A0;
+S0 = A1;
+
+V1 = [80055f72] = 0;
+V0 = 1;
+
+if (V1 != V0)
+{
+    V0 = 2
+
+    800444DC	beq    v1, v0, L44584 [$80044584]
+    800444F8	nop
+}
+else
+{
+    A1 = [S0 + 4]
+
+    800444F0	lui    v1, $8005
+    800444F4	lh     v1, $5f74(v1)
+    800444F8	nop
+    800444FC	slt    v0, v1, a1
+
+    if (V0 == 0)
+    {
+        80044508	lh     a3, $0000(s0)
+        8004450C	nop
+        80044510	addu   v0, a1, a3
+        80044514	slt    v0, v1, v0
+
+        if (V0 == 0)
+        {
+            80044520	lh     v1, $0002(s0)
+            80044524	lui    a0, $8005
+            80044528	lh     a0, $5f76(a0)
+            8004452C	nop
+            80044530	slt    v0, a0, v1
+
+            if (V0 == 0)
+            {
+                8004453C	lh     a2, $0006(s0)
+                80044540	nop
+                80044544	addu   v0, v1, a2
+                80044548	slt    v0, a0, v0
+
+                if (V0 == 0)
+                {
+                    80044554	blez   a1, L44574 [$80044574]
+                    80044558	nop
+                    8004455C	bltz   a3, L44574 [$80044574]
+                    80044560	nop
+                    80044564	bltz   v1, L44574 [$80044574]
+                    80044568	nop
+                    8004456C	bgtz   a2, L445c8 [$800445c8]
+                    80044570	nop
+                }
+            }
+        }
+    }
+
+    80044574	lui    a0, $8002
+    80044578	addiu  a0, a0, $91f0 (=-$6e10)
+    8004457C	j      L4458c [$8004458c]
+    80044580	nop
+
+    L44584:	; 80044584
+    80044584	lui    a0, $8002
+    80044588	addiu  a0, a0, $9210 (=-$6df0)
+
+    L4458c:	; 8004458C
+    8004458C	lui    v0, $8005
+    80044590	lw     v0, $5f6c(v0)
+    80044594	nop
+    80044598	jalr   v0 ra
+    8004459C	addu   a1, t0, zero
+    800445A0	lh     a1, $0000(s0)
+    800445A4	lh     a2, $0002(s0)
+    800445A8	lh     a3, $0004(s0)
+    800445AC	lh     v0, $0006(s0)
+    800445B0	lui    v1, $8005
+    800445B4	lw     v1, $5f6c(v1)
+    800445B8	lui    a0, $8002
+    800445BC	addiu  a0, a0, $91fc (=-$6e04)
+    800445C0	jalr   v1 ra
+    800445C4	sw     v0, $0010(sp)
+}
 ////////////////////////////////

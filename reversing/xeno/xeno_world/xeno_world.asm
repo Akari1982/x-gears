@@ -41908,7 +41908,7 @@ loop95b04:	; 80095B04
 loop95b08:	; 80095B08
 80095B08	lw     a0, $0000(s3)
 80095B0C	addu   a1, zero, zero
-80095B10	jal    func4c1c0 [$8004c1c0]
+80095B10	jal    system_devkit_pc_open [$8004c1c0]
 80095B14	addu   a2, zero, zero
 80095B18	addu   s1, v0, zero
 80095B1C	bne    s1, s4, L95b38 [$80095b38]
@@ -41925,7 +41925,7 @@ L95b38:	; 80095B38
 L95b3c:	; 80095B3C
 80095B3C	lw     a1, $fffc(s2)
 80095B40	addu   a2, zero, zero
-80095B44	jal    func4c1f0 [$8004c1f0]
+80095B44	jal    system_devkit_pc_seek [$8004c1f0]
 80095B48	addu   s0, zero, zero
 
 loop95b4c:	; 80095B4C
@@ -41943,7 +41943,7 @@ L95b70:	; 80095B70
 80095B70	addu   s0, zero, zero
 
 loop95b74:	; 80095B74
-80095B74	jal    func4c1e0 [$8004c1e0]
+80095B74	jal    system_devkit_pc_close [$8004c1e0]
 80095B78	addu   a0, s1, zero
 80095B7C	beq    v0, zero, L95b94 [$80095b94]
 80095B80	nop

@@ -51,7 +51,7 @@
 800ad0b4 [][][][] battle not started ( 0 - started ).
 800ad0b8 [][][][] if this is 0 - we dont perform something in call_run_script_8 (move related).
 800ad0bc [][][][] if this is 0 - we dont perform something in call_run_script_8 (move related).
-800ad0c4 [][][][] if this is 0 - we dont perform something in call_run_script_8 (move related).
+800ad0c4 [][][][] field load not started ( 0 - started ).
 
 800ad0c8 [][][][] pointer to field dialogs block (file 7).
 800ad0cc [][][][] pointer to field triggers (file 8).
