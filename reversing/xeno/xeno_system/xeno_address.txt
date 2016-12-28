@@ -50,6 +50,29 @@
 
 8004ff84 [][][][] address of SPU registers 0x1f801c00.
 
+80055b54 [][][][] cd debug level. If greater than 2 than we log everything.
+
+80055b64 array of stored params of CdlSetloc command (size 0x01 items 0x04).
+80055b68 []       stored param of CdlSetmode command.
+
+80055b70 array of pointers to Cdl commands strings (size 0x04 items 0x20).
+         00 CdlSync      01 CdlNop       02 CdlSetloc    03 CdlPlay      04 CdlForward   05 CdlBackward  06 CdlReadN     07 CdlStandby
+         08 CdlStop      09 CdlPause     0a CdlReset     0b CdlMute      0c CdlDemute    0d CdlSetfilter 0e CdlSetmode   0f ?
+         10 CdlGetlocL   11 CdlGetlocP   12 ?            13 CdlGetTN     14 CdlGetTD     15 CdlSeekL     16 CdlSeekP     17 ?
+         18 ?            19 ?            1a ?            1b CdlReadS     1c ?            1d ?            1e ?            1f ?
+80055bf0 array of pointers to CD interupts result strings (size 0x04 items 0x8).
+         00 NoIntr       01 DataReady    02 Complete     03 Acknowledge  04 DataEnd      05 DiskError    06 ?            07 ?
+80055c90 array of something related with Cdl commands (size 0x04 items 0x20).
+        00000000        00000000        00000000        01000000        01000000        01000000        01000000        00000000
+        00000000        00000000        00000000        00000000        00000000        00000000        00000000        00000000
+        00000000        00000000        00000000        00000000        00000000        01000000        01000000        00000000
+        00000000        00000000        00000000        01000000        00000000        00000000        00000000        00000000
+80055d90 array of number of arguments in Cdl commands (size 0x04 items 0x20).
+
+80055e28 []       cd sync interrupt result.
+80055e29 []       cd ready interrupt result.
+
+
 800560a0 square root data (0x2 each). 12bit fixed point.
 
 80056234
