@@ -374,12 +374,10 @@ if( ( w[800ad0c4] == 0 ) && ( w[8004e9ac] == 0 ) && ( w[800ad09c] == S3 ) && ( w
     // field to load
     A0 = (w[8004e9f0] & 00000fff) << 1;
     A1 = 0;
-    func1b318();
-
+    func1b318(); // prepare cdrom for field load
     if( V0 == 0 )
     {
-        func284dc();
-
+        func284dc(); // wait for command to finish
         if( V0 == 0 )
         {
             if( h[800b15ec] == 0 )
@@ -389,7 +387,7 @@ if( ( w[800ad0c4] == 0 ) && ( w[8004e9ac] == 0 ) && ( w[800ad09c] == S3 ) && ( w
                 80077B40	jal    funca268c [$800a268c]
 
                 A0 = 0;
-                80077B48	jal    func28870 [$80028870]
+                func28870(); // execute until command finished
 
                 funca5118(); // load field here
 

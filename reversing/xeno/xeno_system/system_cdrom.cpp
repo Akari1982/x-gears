@@ -1,4 +1,67 @@
 ////////////////////////////////
+// func40f94()
+cdl_command = A0;
+param_str = A1;
+
+// save callback
+S4 = w[80055b48];
+
+S0 = 3;
+loop40fe4:	; 80040FE4
+    // remove callback
+    [80055b48] = w(0);
+
+    if( cdl_command != 1 )
+    {
+        if( bu[80055b58] & 10 )
+        {
+            A0 = 1; // CdlNop
+            A1 = 0
+            A2 = 0;
+            A3 = 0;
+            func41f00();
+        }
+    }
+
+    if( ( param_str != 0 ) && ( w[80055ac0 + cdl_command * 4] != 0 ) )
+    {
+        A0 = 2; // CdlSetloc
+        A1 = param_str; // param ptr
+        A2 = 0;
+        A3 = 0;
+        func41f00();
+        if( V0 != 0 )
+        {
+            80041048	j      L41074 [$80041074]
+        }
+    }
+
+    // restore callback
+    [80055b48] = w(S4);
+
+    A0 = cdl_command;
+    A1 = param_str;
+    A2 = 0;
+    A3 = 1;
+    func41f00();
+    if( V0 == 0 )
+    {
+        return 1;
+    }
+
+    L41074:	; 80041074
+    S0 = S0 - 1;
+8004107C	bne    s0, -1, loop40fe4 [$80040fe4]
+
+// restore callback
+[80055b48] = w(S4);
+
+return 0;
+////////////////////////////////
+
+
+
+////////////////////////////////
 // system_psyq_CdDataSync()
 // Wait for or check a data transfer initiated by CdGetSector2()
 mode = A0;
@@ -1040,5 +1103,95 @@ return V0;
 // func40e44()
 V0 = w[80055b4c];
 [80055b4c] = w(A0);
+return V0;
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func41264()
+A0 = 3;
+A1 = A0;
+func4b648();
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func4b648()
+V0 = w[80057fcc]; // 80057fac
+V0 = w[V0 + 4]; // 8004c0c4
+8004B660	jalr   v0 ra
+////////////////////////////////
+
+
+
+////////////////////////////////
+// system_psyq_CdIntToPos()
+// Calculate value for minute/second/sector from absolute sector number.
+A0 = A0 + 96;
+800412A8	lui    v1, $1b4e
+800412AC	ori    v1, v1, $81b5
+800412B4	mult   a0, v1
+V0 = A1;
+800412BC	lui    a1, $8888
+800412C0	ori    a1, a1, $8889
+800412C4	mfhi   v1
+800412C8	sra    a3, v1, $03
+800412CC	sra    v1, a0, $1f
+800412D0	subu   a3, a3, v1
+800412D4	mult   a3, a1
+800412D8	lui    t1, $6666
+800412DC	ori    t1, t1, $6667
+800412E0	sll    a1, a3, $02
+800412E4	addu   a1, a1, a3
+800412E8	sll    v1, a1, $04
+800412EC	mfhi   a2
+800412F0	subu   v1, v1, a1
+800412F4	subu   a0, a0, v1
+800412F8	mult   a0, t1
+800412FC	sra    v1, a3, $1f
+80041300	addu   t0, a2, a3
+80041304	sra    t0, t0, $05
+80041308	subu   t0, t0, v1
+8004130C	sll    v1, t0, $04
+80041310	subu   v1, v1, t0
+80041314	mfhi   a1
+80041318	sll    v1, v1, $02
+8004131C	subu   a3, a3, v1
+80041320	mult   a3, t1
+80041324	sra    v1, a0, $1f
+80041328	sra    a1, a1, $02
+8004132C	subu   a1, a1, v1
+80041330	sll    a2, a1, $04
+80041334	sll    v1, a1, $02
+80041338	addu   v1, v1, a1
+8004133C	sll    v1, v1, $01
+80041340	subu   a0, a0, v1
+80041344	mfhi   t3
+80041348	addu   a2, a2, a0
+8004134C	sra    v1, a3, $1f
+80041350	mult   t0, t1
+[V0 + 2] = b(A2); // asect
+80041358	sra    a0, t3, $02
+8004135C	subu   a0, a0, v1
+80041360	sll    a1, a0, $04
+80041364	sll    v1, a0, $02
+80041368	addu   v1, v1, a0
+8004136C	sll    v1, v1, $01
+80041370	subu   a3, a3, v1
+80041374	addu   a1, a1, a3
+80041378	sra    v1, t0, $1f
+[V0 + 1] = b(A1); // ass
+80041380	mfhi   t1
+80041384	sra    a0, t1, $02
+80041388	subu   a0, a0, v1
+8004138C	sll    a1, a0, $04
+80041390	sll    v1, a0, $02
+80041394	addu   v1, v1, a0
+80041398	sll    v1, v1, $01
+8004139C	subu   t0, t0, v1
+800413A0	addu   a1, a1, t0
+[V0 + 0] = b(A1); // amm
 return V0;
 ////////////////////////////////

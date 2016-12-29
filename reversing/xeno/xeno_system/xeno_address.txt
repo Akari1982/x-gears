@@ -22,8 +22,16 @@
 
 
 8004f49c [][][][] file size to load.
+8004f4a0 [][][][] store 1 here before load.
 8004f4a8 [][][][] file sector to load.
+8004f4ac [][][][] pointer to allocated memory for file load.
+8004f4b0 [][][][] 0
+8004f4b4 [][][][] 0
+8004f4c0 [][][][] 
 8004f4d4 [][][][] pointer to allocated memory for file load.
+8004f4d8 [][][][] 0
+8004f4dc [][][][] some func param (0).
+
 
 
 8004f4f4 data for load 3d data.
@@ -195,6 +203,13 @@
 
 80058c80 [][][][] last address in spu struct data (0x8006b490).
 
+80059594 [][][][] 0
+80059598 [][][][] 0
+8005959c [][][][] 0
+800595a8 [][][][] global file id to load.
+800595ac cd command param array.
+80059b6c [][][][] 0.
+
 80059600 light matrix
     +00 [][][][] R11R12 for light matrix calculation.
     +04 [][][][] R13R21 for light matrix calculation.
@@ -214,6 +229,8 @@
 80059766 temp array with decimal numbers generated from number to render as text (0x2 size 0xa items).
 8005977a [][]     store -1 here when translate number to letters for text.
 80059780 temp array with letters generated from numbers to insert number in text (in usual text format).
+
+80059b70 [][][][] pointer to allocated memory for loading file.
 
 80061c8c controller input buffers (size 0x22 2 items).
     +02 [][]     button mask. (0=Pressed, 1=Released)
