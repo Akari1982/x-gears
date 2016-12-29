@@ -1,4 +1,63 @@
 ////////////////////////////////
+// system_psyq_CdDataSync()
+// Wait for or check a data transfer initiated by CdGetSector2()
+mode = A0;
+
+A0 = -1;
+func4b3f4();
+[800598c4] = w(V0 + 3c0);
+[800598c8] = w(0);
+
+
+
+[800598cc] = w(80018fc4); // "CD_datasync"
+
+
+
+loop42814:	; 80042814
+    A0 = -1;
+    func4b3f4();
+
+    V1 = w[800598c4] < V0;
+    80041A38	bne    v1, zero, L41a68 [$80041a68]
+
+    V1 = w[800598c8];
+    [800598c8] = w(V1 + 1);
+
+    if( V1 > 003c0000 )
+    {
+        L4285c:	; 8004285C
+        A0 = 80018ebc; // "CD timeout: "
+        80041A70	jal    func42c04 [$80042c04]
+
+        A0 = 80018ecc; // "%s:(%s) Sync=%s, Ready=%s"
+        A1 = w[800598cc]; // "CD_datasync"
+        V0 = bu[80055b69];
+        A2 = w[80055b70 + V0 * 4];
+        V0 = bu[80055e28];
+        A3 = w[80055bf0 + V0 * 4];
+        V0 = bu[80055e29];
+        A4 = w[80055bf0 + V0 * 4];
+        80041AC4	jal    func199e8 [$800199e8]
+
+        func423a4();
+
+        return -1; // error
+    }
+
+    V0 = w[80055e54]; // 1f8010b8 DMA CDROM to RAM
+    if( ( w[V0] & 01000000 ) == 0 ) // complete
+    {
+        return 0; // transfer complete
+    }
+800428F8	beq    mode, zero, loop42814 [$80042814]
+
+return 1; // transfer still being performed
+////////////////////////////////
+
+
+
+////////////////////////////////
 // func42b20()
 
 cd_1800 = w[80055e10]; // 1f801800
@@ -33,9 +92,9 @@ loop42b54:	; 80042B54
 
 ////////////////////////////////
 // func41f00()
-cdl_command = S0 = A0; // cdl command
-param_ptr = S1 = A1; // pointer to params
-S5 = A2;
+cdl_command = A0;
+param_ptr = S1 = A1;
+return_ptr = A2;
 S2 = A3;
 
 
@@ -96,68 +155,61 @@ if( w[80055c90 + cdl_command * 4] != 0 )
 
 
 
-80042054	lui    v0, $8005
-80042058	lw     v0, $5e10(v0)
-80042060	sb     zero, $0000(v0)
+// set index 0
+cd_1800 = w[80055e10];
+[cd_1800] = b(0)
 
+
+
+// write all params to fifo
 if( w[80055d90 + cdl_command * 4] > 0 )
 {
     A0 = 0;
     loop42084:	; 80042084
         cd_1802 = w[80055e18];
-        [cd_1802] = b(bu[S1 + A0]);
+        [cd_1802] = b(bu[param_ptr + A0]);
         A0 = A0 + 1;
         V0 = A0 < w[80055d90 + cdl_command * 4];
     800420A4	bne    v0, zero, loop42084 [$80042084]
 }
 
-800420AC	lui    v0, $8005
-800420B0	lw     v0, $5e14(v0)
-800420B4	lui    at, $8005
-800420B8	sb     s0, $5b69(at)
-800420BC	sb     s0, $0000(v0)
+
+
+cd_1801 = w[80055e14];
+[cd_1801] = b(cdl_command);
+[80055b69] = b(cdl_command);
+
+
 
 if( S2 != 0 )
 {
     return 0;
 }
 
+
+
 A0 = -1;
 func4b3f4();
+[800598c4] = w(V0 + 3c0);
+[800598c8] = w(0);
 
 
-800420D0	addiu  v0, v0, $03c0
-800420D4	lui    a0, $8005
-800420D8	addiu  a0, a0, $5e28
-800420DC	lui    at, $8006
-800420E0	sw     v0, $98c4(at)
-800420E4	lui    at, $8006
-800420E8	sw     zero, $98c8(at)
-800420EC	lbu    v1, $0000(a0)
 
-V0 = 80018f70; // "CD_cw"
-[800598cc] = w(V0);
-if( V1 == 0 )
+[800598cc] = w(80018f70); // "CD_cw"
+
+
+
+if( bu[80055e28] == 0 )
 {
-    80042108	lui    s3, $8005
-    8004210C	addiu  s3, s3, $5bf0
-    80042110	addu   s2, a0, zero
-    80042114	addiu  s4, s2, $0001
-
     loop42118:	; 80042118
         A0 = -1;
         func4b3f4();
 
-        V1 = w[800598c4];
-
-        8004212C	slt    v1, v1, v0
+        V1 = w[800598c4] < V0;
         80042130	bne    v1, zero, L42160 [$80042160]
-        80042134	nop
-        80042138	lui    v1, $8006
-        8004213C	lw     v1, $98c8(v1)
-        80042144	addiu  v0, v1, $0001
-        80042148	lui    at, $8006
-        8004214C	sw     v0, $98c8(at)
+
+        V1 = w[800598c8];
+        [800598c8] = w(V1 + 1);
 
         if( V1 > 003c0000 )
         {
@@ -165,108 +217,78 @@ if( V1 == 0 )
             A0 = 80018ebc; // "CD timeout: "
             80042168	jal    func42c04 [$80042c04]
 
-            80042170	lbu    a0, $0000(s2)
-            80042174	lbu    v0, $0001(s2)
-            80042178	lui    a1, $8006
-            8004217C	lw     a1, $98cc(a1)
-            80042180	sll    v0, v0, $02
-            80042184	addu   v0, v0, s3
-            80042188	sll    a0, a0, $02
-            8004218C	lw     v1, $0000(v0)
-            80042190	lui    v0, $8005
-            80042194	lbu    v0, $5b69(v0)
-            80042198	addu   a0, a0, s3
-            8004219C	sll    v0, v0, $02
-            800421A0	sw     v1, $0010(sp)
-            800421A4	lui    at, $8005
-            800421A8	addu   at, at, v0
-            800421AC	lw     a2, $5b70(at)
-            800421B0	lw     a3, $0000(a0)
-
             A0 = 80018ecc; // "%s:(%s) Sync=%s, Ready=%s"
+            A1 = w[800598cc]; // "CD_cw"
+            V0 = bu[80055b69];
+            A2 = w[80055b70 + V0 * 4];
+            V0 = bu[80055e28];
+            A3 = w[80055bf0 + V0 * 4];
+            V0 = bu[80055e29];
+            A4 = w[80055bf0 + V0 * 4];
             800421BC	jal    func199e8 [$800199e8]
-            800421C0	nop
-            800421C4	jal    func423a4 [$800423a4]
-            800421C8	nop
-            800421CC	j      L421d8 [$800421d8]
-            800421D0	addiu  v0, zero, $ffff (=-$1)
-        }
 
-        800421D4	addu   v0, zero, zero
+            func423a4();
 
-        L421d8:	; 800421D8
-        if( V0 != 0 )
-        {
             return -1;
         }
 
-        800421E0	jal    func4b73c [$8004b73c]
-        800421E4	nop
-        800421E8	beq    v0, zero, L42298 [$80042298]
-        800421EC	nop
-        800421F0	lui    v0, $8005
-        800421F4	lw     v0, $5e10(v0)
-        800421F8	nop
-        800421FC	lbu    v0, $0000(v0)
-        80042200	nop
-        80042204	andi   s1, v0, $0003
 
-        loop42208:	; 80042208
-            func4142c();
-            S0 = V0;
 
-            if( S0 == 0 )
-            {
-                break;
-            }
-            if( ( S0 & 4 ) && ( w[80055b4c] != 0 ) )
-            {
-                A0 = bu[S4];
-                A1 = 800598b4;
-                80042244	jalr   w[80055b4c] ra
-            }
-            if( ( S0 & 2 ) && ( w[80055b48] != 0 ) )
-            {
-                A0 = bu[S2];
-                A1 = 800598ac;
-                80042278	jalr   w[80055b48] ra
-            }
-        80042280	j      loop42208 [$80042208]
+        if( hu[80056f46] != 0 )
+        {
+            V0 = w[80055e10];
+            S1 = bu[V0] & 03;
 
-        80042288	lui    v0, $8005
-        8004228C	lw     v0, $5e10(v0)
-        80042290	nop
-        80042294	sb     s1, $0000(v0)
+            loop42208:	; 80042208
+                func4142c();
+                S0 = V0;
 
-        L42298:	; 80042298
-        80042298	lbu    v0, $0000(s2)
+                if( S0 == 0 )
+                {
+                    break;
+                }
+                if( ( S0 & 4 ) && ( w[80055b4c] != 0 ) )
+                {
+                    A0 = bu[80055e29];
+                    A1 = 800598b4;
+                    80042244	jalr   w[80055b4c] ra
+                }
+                if( ( S0 & 2 ) && ( w[80055b48] != 0 ) )
+                {
+                    A0 = bu[80055e28];
+                    A1 = 800598ac;
+                    80042278	jalr   w[80055b48] ra
+                }
+            80042280	j      loop42208 [$80042208]
+
+            V0 = w[80055e10];
+            [V0] = b(S1);
+        }
+
+        V0 = bu[80055e28];
     800422A0	beq    v0, zero, loop42118 [$80042118]
 }
 
-80042104	addu   a2, s5, zero
-800422A8	lui    a0, $8006
-800422AC	addiu  a0, a0, $98ac (=-$6754)
-800422B0	beq    a2, zero, L422d8 [$800422d8]
-800422B4	nop
-800422B8	addiu  v1, zero, $0007
-800422BC	addiu  a1, zero, $ffff (=-$1)
 
-loop422c0:	; 800422C0
-800422C0	lbu    v0, $0000(a0)
-800422C4	addiu  a0, a0, $0001
-800422C8	addiu  v1, v1, $ffff (=-$1)
-800422CC	sb     v0, $0000(a2)
-800422D0	bne    v1, a1, loop422c0 [$800422c0]
-800422D4	addiu  a2, a2, $0001
 
-L422d8:	; 800422D8
-800422D8	lui    v0, $8005
-800422DC	addiu  v0, v0, $5e28
-800422E0	lbu    v0, $0000(v0)
-800422E4	nop
-800422E8	xori   v0, v0, $0005
-800422EC	sltiu  v0, v0, $0001
-return 0 - V0;
+if( return_ptr != 0 )
+{
+    A0 = 0;
+    V1 = 7;
+    loop422c0:	; 800422C0
+        [return_ptr + A0] = b(bu[800598ac + A0]);
+        A0 = A0 + 1;
+        V1 = V1 - 1;
+    800422D0	bne    v1, -1, loop422c0 [$800422c0]
+}
+
+
+
+if( bu[80055e28] == 5 )
+{
+    return -1;
+}
+return 0;
 ////////////////////////////////
 
 
@@ -449,15 +471,21 @@ L41ed0:	; 80041ED0
 
 ////////////////////////////////
 // func419b4()
-S5 = A0;
-S6 = A1;
+// system_psyq_CdSync()
+
+mode = A0; // If mode is 0, the wait for a data transfer to be completed. If mode is 1, the function polls once
+result_ptr = A1;
 
 A0 = -1;
 func4b3f4();
-
 [800598c4] = w(V0 + 3c0);
 [800598c8] = w(0);
+
+
+
 [800598cc] = w(80018f44); // "CD_sync"
+
+
 
 L41a20:	; 80041A20
     A0 = -1;
@@ -476,7 +504,7 @@ L41a20:	; 80041A20
         80041A70	jal    func42c04 [$80042c04]
 
         A0 = 80018ecc; // "%s:(%s) Sync=%s, Ready=%s"
-        A1 = w[800598cc];
+        A1 = w[800598cc]; // "CD_sync"
         V0 = bu[80055b69];
         A2 = w[80055b70 + V0 * 4];
         V0 = bu[80055e28];
@@ -527,22 +555,20 @@ L41a20:	; 80041A20
     {
         [80055e28] = b(2);
 
-        if( S6 != 0 )
+        if( result_ptr != 0 )
         {
             V1 = 7;
             A0 = 0;
             loop41be0:	; 80041BE0
-                V0 = bu[800598ac + A0];
+                [result_ptr + A0] = b(bu[800598ac + A0]);
                 A0 = A0 + 1;
                 V1 = V1 - 1;
-                [S6 + A0] = b(V0);
             80041BF0	bne    v1, -1, loop41be0 [$80041be0]
         }
 
         return bu[80055e28];
     }
-
-80041C00	beq    s5, zero, L41a20 [$80041a20]
+80041C00	beq    mode, zero, L41a20 [$80041a20]
 
 return 0;
 ////////////////////////////////

@@ -374,11 +374,11 @@ if( ( w[800ad0c4] == 0 ) && ( w[8004e9ac] == 0 ) && ( w[800ad09c] == S3 ) && ( w
     // field to load
     A0 = (w[8004e9f0] & 00000fff) << 1;
     A1 = 0;
-    80077B04	jal    func1b318 [$8001b318]
+    func1b318();
 
     if( V0 == 0 )
     {
-        80077B14	jal    func284dc [$800284dc]
+        func284dc();
 
         if( V0 == 0 )
         {

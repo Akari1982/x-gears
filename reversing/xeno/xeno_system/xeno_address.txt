@@ -1,3 +1,6 @@
+8004e9d4 [][][][] looks like current field.
+8004e9f0 [][][][] field id to load.
+
 8004f23c store 4 points xyz for sprite tile during calculation in func1e264
 +00 [][] x0
 +02 [][] y0
@@ -16,6 +19,11 @@
 +1c [][] z2
 +1e [][]
 
+
+
+8004f49c [][][][] file size to load.
+8004f4a8 [][][][] file sector to load.
+8004f4d4 [][][][] pointer to allocated memory for file load.
 
 
 8004f4f4 data for load 3d data.
@@ -50,10 +58,15 @@
 
 8004ff84 [][][][] address of SPU registers 0x1f801c00.
 
-80055b54 [][][][] cd debug level. If greater than 2 than we log everything.
+80055b54 [][][][] cd debug level.
+                  0: no checks performed
+                  1: check primitive commands
+                  2: print execution status of primitive commands
+                  3: print issued command error
 
 80055b64 array of stored params of CdlSetloc command (size 0x01 items 0x04).
 80055b68 []       stored param of CdlSetmode command.
+80055b69 []       stored cdl command.
 
 80055b70 array of pointers to Cdl commands strings (size 0x04 items 0x20).
          00 CdlSync      01 CdlNop       02 CdlSetloc    03 CdlPlay      04 CdlForward   05 CdlBackward  06 CdlReadN     07 CdlStandby

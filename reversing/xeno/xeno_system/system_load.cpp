@@ -1,4 +1,560 @@
 ////////////////////////////////
+// func1b318()
+S0 = A0;
+S1 = A1;
+
+if( ( w[8004e9d8] == S1 ) && ( w[8004e9d4] == S0 ) )
+{
+    return 0;
+}
+
+func284dc();
+
+if( V0 != 0 )
+{
+    return -1;
+}
+
+A0 = 0;
+func28870(); // system_psyq_CdDataSync
+
+if( w[8004e9d8] != -1 )
+{
+    A0 = w[80059b70];
+    [A0 - 4] = w(w[A0 - 4] & fdffffff);
+
+    A0 = w[80059b70];
+    func31f0c();
+}
+
+A0 = S0;
+func1b3d0();
+
+[8004e9d8] = w(S1);
+[8004e9d4] = w(S0);
+return -1;
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func1b3d0()
+S0 = A0 + b8; // global file index for files in directory 11 (field)
+
+
+A0 = S0;
+func286fc(); // get filesize by global field id
+[80059b50] = w(V0);
+
+A0 = V0;
+A1 = 1;
+system_memory_allocate();
+[80059b70] = w(V0);
+
+A0 = V0;
+[A0 - 4] = w(w[A0 - 4] | 02000000);
+
+A0 = S0;
+A1 = w[80059b70];
+A2 = 0;
+A3 = 80;
+func293e8();
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func293e8()
+S0 = A0;
+S1 = A1;
+S2 = A2;
+S3 = A3;
+if( S0 > 0 )
+{
+    A0 = A0;
+    func28548(); // get filesize by global file id
+    if( V0 > 0 )
+    {
+        if( S1 != 0 )
+        {
+            A0 = 0;
+            func28870(); // system_psyq_CdDataSync
+
+            [8004f4bc] = w(w[8004f4b8]);
+
+            A0 = S0;
+            func287e0(); // get file sector by global file id
+            [8004f4a8] = w(V0);
+
+            A0 = S0;
+            func286fc(); // get filesize by global field id
+            [8004f49c] = w(V0);
+
+            A0 = S0;
+            A1 = S1;
+            A2 = S2;
+            A3 = S3;
+            func294a0();
+
+            return V0;
+        }
+    }
+}
+return -3;
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func294a0()
+800294A8	addu   s3, a0, zero
+S2 = A1;
+
+800294B8	addu   s1, a3, zero
+800294C0	ori    s0, zero, $0002
+800294C4	lui    v1, $8006
+800294C8	addiu  v1, v1, $959c (=-$6a64)
+800294D4	lui    at, $8006
+800294D8	sw     s3, $95a8(at)
+
+loop294dc:	; 800294DC
+    800294DC	sw     zero, $0000(v1)
+    800294E0	addiu  s0, s0, $ffff (=-$1)
+    800294E8	addiu  v1, v1, $fffc (=-$4)
+800294E4	bgez   s0, loop294dc [$800294dc]
+
+800294EC	lui    s4, $8006
+800294F0	addiu  s4, s4, $95ac (=-$6a54)
+800294F4	ori    s0, zero, $0001
+800294F8	lui    a0, $8005
+800294FC	lw     a0, $f4a8(a0)
+80029500	andi   v0, a2, $ffff
+80029504	lui    at, $8005
+80029508	sw     s0, $f4a0(at)
+8002950C	lui    at, $8005
+80029510	sw     s2, $f4ac(at)
+80029514	lui    at, $8005
+80029518	sw     v0, $f4dc(at)
+8002951C	lui    at, $8005
+80029520	sw     zero, $f4b4(at)
+80029524	lui    at, $8005
+80029528	sw     zero, $f4b0(at)
+8002952C	lui    at, $8005
+80029530	sw     zero, $f4d8(at)
+80029534	lui    at, $8006
+80029538	sw     zero, $9b6c(at)
+A1 = S4;
+8002953C	jal    func412a8 [$800412a8]
+
+80029544	andi   v0, s1, $0100
+80029548	beq    v0, zero, L29660 [$80029660]
+8002954C	andi   v0, s1, $0200
+
+[8004f4d4] = w(S2);
+
+80029558	lui    v1, $8005
+8002955C	lw     v1, $f4d4(v1)
+80029560	nop
+80029564	lw     a0, $0000(v1)
+80029568	nop
+8002956C	beq    a0, zero, L297f0 [$800297f0]
+80029570	sll    v0, a0, $03
+80029574	addu   v0, v1, v0
+80029578	addiu  v0, v0, $0024
+8002957C	lui    at, $8005
+80029580	sw     v0, $f4ac(at)
+80029584	addiu  v0, v1, $0004
+80029588	lui    at, $8005
+8002958C	sw     v0, $f4d0(at)
+80029590	lui    at, $8005
+80029594	sw     a0, $f4e4(at)
+80029598	lui    at, $8005
+8002959C	sh     zero, $f4ca(at)
+800295A0	lui    at, $8005
+800295A4	sh     zero, $f4cc(at)
+800295A8	lui    at, $8005
+800295AC	sh     zero, $f4c8(at)
+800295B0	jal    func288bc [$800288bc]
+800295B4	nop
+800295B8	lui    v0, $8005
+800295BC	lw     v0, $f4ec(v0)
+800295C0	nop
+800295C4	beq    v0, zero, L29628 [$80029628]
+800295C8	nop
+800295CC	jal    func287a8 [$800287a8]
+800295D0	addu   a0, s3, zero
+800295D4	addu   s1, v0, zero
+800295D8	addu   s0, zero, zero
+800295DC	addiu  s2, zero, $ffff (=-$1)
+
+
+loop295e4:	; 800295E4
+    A0 = S1;
+    A1 = 0;
+    A2 = 0;
+    system_devkit_pc_open();
+
+    800295F0	lui    at, $8005
+    800295F4	sw     v0, $f4f0(at)
+    800295F8	bne    v0, s2, L29760 [$80029760]
+    800295FC	addu   a0, s0, zero
+    80029600	ori    a1, zero, $00ff
+    80029604	addu   a2, zero, zero
+    80029608	jal    func27e5c [$80027e5c]
+    8002960C	addu   a3, zero, zero
+    80029610	addiu  s0, s0, $0001
+    80029614	slti   v0, s0, $0004
+80029618	bne    v0, zero, loop295e4 [$800295e4]
+
+80029620	j      L29760 [$80029760]
+80029624	nop
+
+L29628:	; 80029628
+80029628	lui    a0, $8003
+8002962C	addiu  a0, a0, $b868 (=-$4798)
+80029630	lui    at, $8005
+80029634	sw     s0, $f4c0(at)
+80029638	jal    func41264 [$80041264]
+
+A0 = 8002a49c;
+func40e2c(); // set cd load callback for 80055b48
+
+80029650	lui    a0, $8003
+80029654	addiu  a0, a0, $b100 (=-$4f00)
+80029658	j      L298b8 [$800298b8]
+8002965C	nop
+
+L29660:	; 80029660
+80029660	beq    v0, zero, L29780 [$80029780]
+80029664	nop
+80029668	jal    func288a4 [$800288a4]
+8002966C	addu   a0, s2, zero
+80029670	lui    v1, $8005
+80029674	lw     v1, $f4d4(v1)
+80029678	nop
+8002967C	lw     a0, $0000(v1)
+80029680	nop
+80029684	beq    a0, zero, L297f0 [$800297f0]
+80029688	sll    v0, a0, $03
+8002968C	addu   v0, v1, v0
+80029690	addiu  v0, v0, $0024
+80029694	lui    at, $8005
+80029698	sw     v0, $f4ac(at)
+8002969C	addiu  v0, v1, $0004
+800296A0	lui    at, $8005
+800296A4	sw     v0, $f4d0(at)
+800296A8	lui    at, $8005
+800296AC	sw     a0, $f4e4(at)
+800296B0	lui    at, $8006
+800296B4	sh     zero, $95fc(at)
+800296B8	lui    at, $8005
+800296BC	sh     zero, $f4ca(at)
+800296C0	lui    at, $8005
+800296C4	sh     zero, $f4cc(at)
+800296C8	lui    at, $8005
+800296CC	sh     zero, $f4c8(at)
+800296D0	jal    func288bc [$800288bc]
+800296D4	ori    s0, zero, $0003
+800296D8	lui    v0, $8006
+800296DC	addiu  v0, v0, $95b7 (=-$6a49)
+
+loop296e0:	; 800296E0
+800296E0	sb     zero, $0000(v0)
+800296E4	addiu  s0, s0, $ffff (=-$1)
+800296E8	bgez   s0, loop296e0 [$800296e0]
+800296EC	addiu  v0, v0, $ffff (=-$1)
+800296F0	lui    v1, $8005
+800296F4	lw     v1, $f4ec(v1)
+800296F8	ori    v0, s1, $00a0
+800296FC	lui    at, $8006
+80029700	sb     v0, $95b4(at)
+if( V1 == 0 )
+{
+    return 0;
+}
+
+8002970C	jal    func287a8 [$800287a8]
+80029710	addu   a0, s3, zero
+80029714	addu   s1, v0, zero
+80029718	addu   s0, zero, zero
+8002971C	addiu  s2, zero, $ffff (=-$1)
+80029720	addu   a0, s1, zero
+
+loop29724:	; 80029724
+A1 = 0;
+A2 = 0;
+system_devkit_pc_open();
+
+80029730	lui    at, $8005
+80029734	sw     v0, $f4f0(at)
+80029738	bne    v0, s2, L29760 [$80029760]
+8002973C	addu   a0, s0, zero
+80029740	ori    a1, zero, $00ff
+80029744	addu   a2, zero, zero
+80029748	jal    func27e5c [$80027e5c]
+8002974C	addu   a3, zero, zero
+80029750	addiu  s0, s0, $0001
+80029754	slti   v0, s0, $0004
+80029758	bne    v0, zero, loop29724 [$80029724]
+8002975C	addu   a0, s1, zero
+
+L29760:	; 80029760
+80029760	lui    v0, $8005
+80029764	lw     v0, $f4f0(v0)
+80029768	addiu  v1, zero, $fffd (=-$3)
+8002976C	nor    v0, zero, v0
+80029770	sltiu  v0, v0, $0001
+80029774	subu   v0, zero, v0
+return V0 & V1;
+
+L29780:	; 80029780
+80029780	lui    v0, $8005
+80029784	lw     v0, $f4ec(v0)
+80029788	nop
+8002978C	beq    v0, zero, L29890 [$80029890]
+80029790	nop
+80029794	jal    func287a8 [$800287a8]
+80029798	addu   a0, s3, zero
+8002979C	addu   s3, v0, zero
+800297A0	addu   s0, zero, zero
+800297A4	addiu  s4, zero, $ffff (=-$1)
+800297A8	addu   a0, s3, zero
+
+loop297ac:	; 800297AC
+A1 = 0;
+A2 = 0;
+system_devkit_pc_open();
+
+800297B8	addu   s1, v0, zero
+800297BC	bne    s1, s4, L297f8 [$800297f8]
+800297C0	addu   a0, s0, zero
+800297C4	ori    a1, zero, $00ff
+800297C8	addu   a2, zero, zero
+800297CC	jal    func27e5c [$80027e5c]
+800297D0	addu   a3, zero, zero
+800297D4	addiu  s0, s0, $0001
+800297D8	slti   v0, s0, $0004
+800297DC	bne    v0, zero, loop297ac [$800297ac]
+800297E0	addu   a0, s3, zero
+800297E4	addiu  v0, zero, $ffff (=-$1)
+800297E8	bne    s1, v0, L297f8 [$800297f8]
+800297EC	nop
+
+L297f0:	; 800297F0
+return -4;
+
+L297f8:	; 800297F8
+800297F8	beq    s2, zero, L2983c [$8002983c]
+800297FC	addu   s0, zero, zero
+80029800	addu   a0, s1, zero
+
+loop29804:	; 80029804
+80029804	lui    a2, $8005
+80029808	lw     a2, $f49c(a2)
+8002980C	jal    func4c240 [$8004c240]
+80029810	addu   a1, s2, zero
+80029814	bne    v0, zero, L2983c [$8002983c]
+80029818	addu   a0, s0, zero
+8002981C	addu   a1, zero, zero
+80029820	ori    a2, zero, $00ff
+80029824	jal    func27e5c [$80027e5c]
+80029828	addu   a3, zero, zero
+8002982C	addiu  s0, s0, $0001
+80029830	slti   v0, s0, $0004
+80029834	bne    v0, zero, loop29804 [$80029804]
+80029838	addu   a0, s1, zero
+
+L2983c:	; 8002983C
+8002983C	addu   s0, zero, zero
+
+loop29840:	; 80029840
+    A0 = S1;
+    system_devkit_pc_close();
+
+    80029848	beq    v0, zero, L29878 [$80029878]
+    8002984C	addu   a0, s0, zero
+    80029850	addu   a1, zero, zero
+    80029854	addu   a2, zero, zero
+    80029858	jal    func27e5c [$80027e5c]
+    8002985C	ori    a3, zero, $00ff
+    80029860	addiu  s0, s0, $0001
+    80029864	slti   v0, s0, $0004
+80029868	bne    v0, zero, loop29840 [$80029840]
+
+return -6;
+
+L29878:	; 80029878
+80029878	lui    at, $8005
+8002987C	sw     zero, $f49c(at)
+80029880	lui    at, $8005
+80029884	sw     zero, $f4a0(at)
+return 0;
+
+L29890:	; 80029890
+80029890	lui    at, $8005
+80029894	sw     s0, $f4c0(at)
+80029898	jal    func41264 [$80041264]
+8002989C	addu   a0, zero, zero
+
+A0 = 8002a49c;
+func40e2c(); // set cd load callback for 80055b48
+
+800298B0	lui    a0, $8003
+800298B4	addiu  a0, a0, $ae94 (=-$516c)
+
+L298b8:	; 800298B8
+func40e44(); // set cd load callback 80055b4c
+
+
+
+[80059b18] = w(w[80059b18] + 1);
+
+
+
+A0 = 2; // CdlSetloc
+A1 = S4; // param ptr
+func40f94();
+
+
+
+return 0;
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func40f94()
+80040F9C	addu   s1, a1, zero
+80040FA4	addu   s3, a0, zero
+80040FAC	addiu  s0, zero, $0003
+80040FB4	andi   s2, s3, $00ff
+80040FB8	lui    v1, $8005
+80040FBC	addiu  v1, v1, $5ac0
+80040FC4	lui    s4, $8005
+80040FC8	lw     s4, $5b48(s4)
+80040FCC	sll    v0, s2, $02
+80040FD4	addu   s5, v0, v1
+80040FDC	addu   s6, zero, zero
+
+loop40fe4:	; 80040FE4
+    80040FE4	lui    at, $8005
+    80040FE8	sw     zero, $5b48(at)
+    80040FEC	addiu  v0, zero, $0001
+    80040FF0	beq    s2, v0, L41020 [$80041020]
+    80040FF4	nop
+    80040FF8	lui    v0, $8005
+    80040FFC	lbu    v0, $5b58(v0)
+    80041000	nop
+    80041004	andi   v0, v0, $0010
+    80041008	beq    v0, zero, L41020 [$80041020]
+
+    A0 = 1; // CdlNop
+    A1 = 0
+    A2 = 0;
+    A3 = 0;
+    func41f00();
+
+
+    L41020:	; 80041020
+    80041020	beq    s1, zero, L41050 [$80041050]
+    80041024	nop
+    80041028	lw     v0, $0000(s5)
+    8004102C	nop
+    80041030	beq    v0, zero, L41050 [$80041050]
+
+    A0 = 2; // CdlSetloc
+    A1 = S1; // param ptr
+    A2 = 0;
+    A3 = 0;
+
+
+
+    80041048	bne    v0, zero, L41074 [$80041074]
+    8004104C	nop
+
+    L41050:	; 80041050
+    80041050	lui    at, $8005
+    80041054	sw     s4, $5b48(at)
+
+    A0 = S3;
+    A1 = S1;
+    A2 = 0;
+    A3 = 1;
+    func41f00();
+
+    8004106C	beq    v0, zero, L41094 [$80041094]
+    80041070	addiu  v0, s6, $0001
+
+    L41074:	; 80041074
+    80041074	addiu  s0, s0, $ffff (=-$1)
+    80041078	addiu  v0, zero, $ffff (=-$1)
+8004107C	bne    s0, v0, loop40fe4 [$80040fe4]
+
+80041084	lui    at, $8005
+80041088	sw     s4, $5b48(at)
+8004108C	addiu  s6, zero, $ffff (=-$1)
+80041090	addiu  v0, s6, $0001
+
+L41094:	; 80041094
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func31ec8()
+[A0 - 4] = w(w[A0 - 4] | 02000000);
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func286fc()
+A0 = A0;
+func28548(); // get filesize by global file id
+
+return (V1 / 4) * 4; // make it aligned
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func284dc()
+S0 = w[8004f4a0];
+if( S0 == 0 )
+{
+    if( w[8004f4ec] == 0 )
+    {
+        A0 = 1;
+        system_psyq_CdDataSync();
+        if( V0 != 0 )
+        {
+            return 1; // error or transfer still being performed
+        }
+    }
+    if( w[8004f4c0] != 0 )
+    {
+        return 1;
+    }
+}
+return S0;
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func28870()
+if( A0 == 0 )
+{
+    loop2887c:	; 8002887C
+        func284dc();
+    80028884	bgtz   v0, loop2887c [$8002887c]
+}
+func284dc();
+////////////////////////////////
+
+
+
+////////////////////////////////
 // func31f0c()
 A1 = A0;
 if( A1 == 0 )
@@ -406,7 +962,17 @@ V0 = w[8004f4b8] + S2 - 1; // 0x01a7 + S2 - 1
 // AFD30138DD0000 STRIPCD1\8\0442 S2 = 12
 // and so on up to
 // 42D5019CAA0000 STRIPCD1\8\0459
+
 return w[A0 + V0 * 7 + 3];
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func287e0()
+V0 = w[8004f494]; // pointer to 0x80010004
+A0 = w[8004f4b8] + A0 - 1; // 0x01a7 + A0 - 1
+return (bu[V0 + A0 * 7 + 2] << 10) | (bu[V0 + A0 * 7 + 1] << 8) | bu[V0 + A0 * 7 + 0];
 ////////////////////////////////
 
 
