@@ -1195,3 +1195,41 @@ V0 = A1;
 [V0 + 0] = b(A1); // amm
 return V0;
 ////////////////////////////////
+
+
+
+////////////////////////////////
+// system_psyq_CdPosToInt()
+// Translate time code to an absolute sector number.
+800413AC	lbu    v1, $0000(a0)
+800413B0	lbu    a2, $0001(a0)
+800413B4	srl    a1, v1, $04
+800413B8	sll    v0, a1, $02
+800413BC	addu   v0, v0, a1
+800413C0	sll    v0, v0, $01
+800413C4	andi   v1, v1, $000f
+800413C8	addu   v0, v0, v1
+800413CC	sll    a1, v0, $04
+800413D0	subu   a1, a1, v0
+800413D4	sll    a1, a1, $02
+800413D8	srl    v1, a2, $04
+800413DC	sll    v0, v1, $02
+800413E0	addu   v0, v0, v1
+800413E4	sll    v0, v0, $01
+800413E8	andi   a2, a2, $000f
+800413EC	addu   v0, v0, a2
+800413F0	addu   a1, a1, v0
+800413F4	sll    v1, a1, $02
+800413F8	addu   v1, v1, a1
+800413FC	sll    v0, v1, $04
+80041400	lbu    a1, $0002(a0)
+80041404	subu   v0, v0, v1
+80041408	srl    a0, a1, $04
+8004140C	sll    v1, a0, $02
+80041410	addu   v1, v1, a0
+80041414	sll    v1, v1, $01
+80041418	andi   a1, a1, $000f
+8004141C	addu   v1, v1, a1
+80041420	addu   v0, v0, v1
+return V0 - 96;
+////////////////////////////////

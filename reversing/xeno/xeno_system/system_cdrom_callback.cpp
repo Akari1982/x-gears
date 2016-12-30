@@ -5,125 +5,117 @@
 interupt = A0; // 80055e2c interupt
 result_ptr = A1; // 800598b4
 
-8002B108	ori    v0, zero, $0001
-8002B118	bne    a0, v0, L2b2e8 [$8002b2e8]
-
-if( w[8004f4d8] > 0 )
+if( interupt == 1 )
 {
-    A0 = 0;
-    func40e44(); // remove 80055b4c callback
+    if( w[8004f4d8] > 0 )
+    {
+        A0 = 0;
+        func40e44(); // remove 80055b4c callback
 
-    A0 = 0;
-    func41264();
+        A0 = 0;
+        func41264();
 
-    A0 = w[8004f4dc];
+        A0 = w[8004f4dc];
 
-    [8004f49c] = w(0);
+        [8004f49c] = w(0);
 
-    8002B154	jal    func2a1a4 [$8002a1a4]
+        8002B154	jal    func2a1a4 [$8002a1a4]
 
-    [8004f4a0] = w(0);
+        [8004f4a0] = w(0);
 
-    return;
+        return;
+    }
+
+    if( w[8004f49c] <= 0 )
+    {
+        A0 = 0;
+        func40e44(); // remove 80055b4c callback
+
+        [8004f49c] = w(0);
+
+        return;
+    }
+
+    V0 = w[8004f4e4];
+    8002B18C	blez   v0, L2b1f4 [$8002b1f4]
+
+    8002B190	addu   a0, zero, zero
+    8002B194	lui    a2, $8005
+    8002B198	lw     a2, $f4d0(a2)
+    8002B19C	addu   a1, v0, zero
+
+    loop2b1a0:	; 8002B1A0
+        8002B1A0	lui    v0, $8005
+        8002B1A4	lw     v0, $f4b4(v0)
+        8002B1A8	nop
+        8002B1AC	addu   s2, v0, zero
+        8002B1B0	addiu  v1, s2, $0001
+        8002B1B4	sll    v0, s2, $03
+        8002B1B8	lui    at, $8005
+        8002B1BC	sw     v1, $f4b4(at)
+        8002B1C0	slt    v1, v1, a1
+        8002B1C4	bne    v1, zero, L2b1d4 [$8002b1d4]
+        8002B1C8	addu   s1, v0, a2
+        8002B1CC	lui    at, $8005
+        8002B1D0	sw     zero, $f4b4(at)
+
+        L2b1d4:	; 8002B1D4
+        8002B1D4	lhu    v0, $0000(s1)
+        8002B1D8	nop
+        8002B1DC	beq    v0, zero, L2b204 [$8002b204]
+        8002B1E0	nop
+        8002B1E4	addiu  a0, a0, $0001
+        8002B1E8	slt    v0, a0, a1
+    8002B1EC	bne    v0, zero, loop2b1a0 [$8002b1a0]
+
+
+    L2b1f4:	; 8002B1F4
+    V0 = hu[S1];
+    8002B1FC	bne    v0, zero, L2b300 [$8002b300]
+
+    L2b204:	; 8002B204
+    S0 = 80059594;
+
+    A0 = S0;
+    A1 = 3;
+    func42920(); // init dma transfer
+
+    A0 = S0;
+    system_psyq_CdPosToInt()
+
+    if( V0 != w[8004f4a8] )
+    {
+        [8004f490] = w(w[8004f490] + 1);
+
+        A0 = 80058d94;
+        A1 = 200;
+        func42920(); // init dma transfer
+    }
+    else
+    {
+        [8004f4ca] = h(hu[8004f4ca] + 1);
+
+        [S1 + 0] = h(1);
+        [S1 + 2] = h(hu[8004f4ca]);
+
+        A0 = w[8004f4ac] + S2 * 800; // allocated memory
+        A1 = 200;
+        func42920(); // init dma transfer
+
+        [8004f49c] = w(w[8004f49c] - 800);
+        [8004f4a8] = w(w[8004f4a8] + 1);
+
+        if( w[8004f49c] <= 0 )
+        {
+            A0 = 0;
+            func40e44(); // remove 80055b4c callback
+
+            [8004f49c] = w(0);
+        }
+        return;
+    }
 }
 
-8002B16C	lui    v0, $8005
-8002B170	lw     v0, $f49c(v0)
-8002B174	nop
-8002B178	blez   v0, L2b2d0 [$8002b2d0]
-8002B17C	nop
-8002B180	lui    v0, $8005
-8002B184	lw     v0, $f4e4(v0)
-8002B188	nop
-8002B18C	blez   v0, L2b1f4 [$8002b1f4]
-8002B190	addu   a0, zero, zero
-8002B194	lui    a2, $8005
-8002B198	lw     a2, $f4d0(a2)
-8002B19C	addu   a1, v0, zero
-
-loop2b1a0:	; 8002B1A0
-    8002B1A0	lui    v0, $8005
-    8002B1A4	lw     v0, $f4b4(v0)
-    8002B1A8	nop
-    8002B1AC	addu   s2, v0, zero
-    8002B1B0	addiu  v1, s2, $0001
-    8002B1B4	sll    v0, s2, $03
-    8002B1B8	lui    at, $8005
-    8002B1BC	sw     v1, $f4b4(at)
-    8002B1C0	slt    v1, v1, a1
-    8002B1C4	bne    v1, zero, L2b1d4 [$8002b1d4]
-    8002B1C8	addu   s1, v0, a2
-    8002B1CC	lui    at, $8005
-    8002B1D0	sw     zero, $f4b4(at)
-
-    L2b1d4:	; 8002B1D4
-    8002B1D4	lhu    v0, $0000(s1)
-    8002B1D8	nop
-    8002B1DC	beq    v0, zero, L2b204 [$8002b204]
-    8002B1E0	nop
-    8002B1E4	addiu  a0, a0, $0001
-    8002B1E8	slt    v0, a0, a1
-8002B1EC	bne    v0, zero, loop2b1a0 [$8002b1a0]
-
-
-L2b1f4:	; 8002B1F4
-8002B1F4	lhu    v0, $0000(s1)
-8002B1F8	nop
-8002B1FC	bne    v0, zero, L2b300 [$8002b300]
-8002B200	nop
-
-L2b204:	; 8002B204
-S0 = 80059594;
-
-A0 = S0;
-A1 = 3;
-func42920();
-
-// we load music here
-A0 = S0;
-8002B218	jal    func413ac [$800413ac]
-
-V1 = w[8004f4a8];
-if( V0 != V1 )
-{
-    8002B234	lui    a0, $8006
-    8002B238	addiu  a0, a0, $8d94 (=-$726c)
-    8002B23C	lui    v0, $8005
-    8002B240	lw     v0, $f490(v0)
-    8002B244	nop
-    8002B248	addiu  v0, v0, $0001
-    8002B24C	lui    at, $8005
-    8002B250	sw     v0, $f490(at)
-    8002B258	ori    a1, zero, $0200
-    func42920();
-    8002B25C	j      L2b2e8 [$8002b2e8]
-}
-
-[8004f4ca] = h(hu[8004f4ca] + 1);
-
-[S1 + 0] = h(1);
-[S1 + 2] = h(hu[8004f4ca]);
-
-A0 = w[8004f4ac] + S2 * 800; // allocated memory
-A1 = 200;
-func42920();
-
-[8004f49c] = w(w[8004f49c] - 800);
-[8004f4a8] = w(w[8004f4a8] + 1);
-if( w[8004f49c] > 0 )
-{
-    return;
-}
-
-L2b2d0:	; 8002B2D0
-A0 = 0;
-func40e44(); // remove 80055b4c callback
-
-[8004f49c] = w(0);
-
-return;
-
-L2b2e8:	; 8002B2E8
 [80059b6c] = w(w[80059b6c] + 1);
 
 L2b300:	; 8002B300
@@ -583,72 +575,40 @@ return V0 < 1;
 
 ////////////////////////////////
 // func42920()
+allocated_memory = A0;
+size = A1;
 
-V0 = w[80055e10];
+cd_1800 = w[80055e10];
+cd_1803 = w[80055e1c];
+cd_1020 = w[80055e20]; // COMMON_DELAY
+cd_1018 = w[80055e44]; // CDROM_DELAY
+cd_10f0 = w[80055e48]; // DPCR - DMA Control register
+cd_10b0 = w[80055e4c]; // 1f8010b0
+cd_10b4 = w[80055e50]; // 1f8010b4
+cd_10b8 = w[80055e54]; // 1f8010b8
 
-80042928	lui    a2, $0002
-8004292C	sb     zero, $0000(v0)
-80042930	lui    v1, $8005
-80042934	lw     v1, $5e1c(v1)
-80042938	addiu  v0, zero, $0080
-8004293C	sb     v0, $0000(v1)
-80042940	lui    v0, $8005
-80042944	lw     v0, $5e44(v0)
-80042948	ori    a2, a2, $0943
-8004294C	sw     a2, $0000(v0)
-80042950	lui    v1, $8005
-80042954	lw     v1, $5e20(v1)
-80042958	addiu  v0, zero, $1323
-8004295C	sw     v0, $0000(v1)
-80042960	lui    v1, $8005
-80042964	lw     v1, $5e48(v1)
-80042968	nop
-8004296C	lw     v0, $0000(v1)
-80042970	nop
-80042974	ori    v0, v0, $8000
-80042978	sw     v0, $0000(v1)
-
-V0 = w[80055e4c];
-[V0] = w(A0);
-
-V1 = w[80055e50];
-[V1] = w(A1 | 00010000);
-
-V1 = w[80055e10];
+[cd_1800] = b(0);
+[cd_1803] = b(80);
+[cd_1018] = w(00020943);
+[cd_1020] = w(00001323);
+[cd_10f0] = w(w[cd_10f0] | 00008000);
+[cd_10b0] = w(allocated_memory);
+[cd_10b4] = w(size | 00010000);
 
 loop429a8:	; 800429A8
-800429A8	nop
-800429AC	lbu    v0, $0000(v1)
-800429B0	nop
-800429B4	andi   v0, v0, $0040
+    V0 = bu[cd_1800] & 40;
 800429B8	beq    v0, zero, loop429a8 [$800429a8]
-800429BC	lui    v0, $1100
-800429C0	lui    v1, $8005
-800429C4	lw     v1, $5e54(v1)
-800429C8	nop
-800429CC	sw     v0, $0000(v1)
-800429D0	lui    a0, $8005
-800429D4	lw     a0, $5e54(a0)
-800429D8	nop
-800429DC	lw     v0, $0000(a0)
-800429E0	lui    v1, $0100
-800429E4	and    v0, v0, v1
-800429E8	beq    v0, zero, L42a08 [$80042a08]
-800429EC	addu   v1, a0, zero
-800429F0	lui    a0, $0100
 
-loop429f4:	; 800429F4
-800429F4	lw     v0, $0000(v1)
-800429F8	nop
-800429FC	and    v0, v0, a0
-80042A00	bne    v0, zero, loop429f4 [$800429f4]
-80042A04	nop
+[cd_10b8] = w(11000000);
 
-L42a08:	; 80042A08
-80042A08	lui    v1, $8005
-80042A0C	lw     v1, $5e20(v1)
-80042A10	addiu  v0, zero, $1325
-80042A14	sw     v0, $0000(v1)
-80042A18	jr     ra 
-80042A1C	addu   v0, zero, zero
+if( w[cd_10b8] & 01000000 )
+{
+    loop429f4:	; 800429F4
+        V0 = w[cd_10b8] & 01000000;
+    80042A00	bne    v0, zero, loop429f4 [$800429f4]
+}
+
+[cd_1020] = w(00001325);
+
+return 0;
 ////////////////////////////////

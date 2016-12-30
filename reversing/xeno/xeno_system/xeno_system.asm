@@ -20373,7 +20373,7 @@ L2ab54:	; 8002AB54
 L2ab5c:	; 8002AB5C
 8002AB5C	lui    a0, $8006
 8002AB60	addiu  a0, a0, $9594 (=-$6a6c)
-8002AB64	jal    func413ac [$800413ac]
+8002AB64	jal    system_psyq_CdPosToInt [$800413ac]
 8002AB68	nop
 8002AB6C	lui    v1, $8005
 8002AB70	lw     v1, $f4a8(v1)
@@ -20671,7 +20671,7 @@ L2af60:	; 8002AF60
 L2af68:	; 8002AF68
 8002AF68	lui    a0, $8006
 8002AF6C	addiu  a0, a0, $9594 (=-$6a6c)
-8002AF70	jal    func413ac [$800413ac]
+8002AF70	jal    system_psyq_CdPosToInt [$800413ac]
 8002AF74	nop
 8002AF78	lui    v1, $8005
 8002AF7C	lw     v1, $f4a8(v1)
@@ -20877,7 +20877,7 @@ L2b4e4:	; 8002B4E4
 8002B4EC	addu   a0, s0, zero
 8002B4F0	jal    func41224 [$80041224]
 8002B4F4	ori    a1, zero, $0003
-8002B4F8	jal    func413ac [$800413ac]
+8002B4F8	jal    system_psyq_CdPosToInt [$800413ac]
 8002B4FC	addu   a0, s0, zero
 8002B500	lui    v1, $8005
 8002B504	lw     v1, $f4a8(v1)
@@ -37344,39 +37344,10 @@ func41244:	; 80041244
 
 
 
-func413ac:	; 800413AC
-800413AC	lbu    v1, $0000(a0)
-800413B0	lbu    a2, $0001(a0)
-800413B4	srl    a1, v1, $04
-800413B8	sll    v0, a1, $02
-800413BC	addu   v0, v0, a1
-800413C0	sll    v0, v0, $01
-800413C4	andi   v1, v1, $000f
-800413C8	addu   v0, v0, v1
-800413CC	sll    a1, v0, $04
-800413D0	subu   a1, a1, v0
-800413D4	sll    a1, a1, $02
-800413D8	srl    v1, a2, $04
-800413DC	sll    v0, v1, $02
-800413E0	addu   v0, v0, v1
-800413E4	sll    v0, v0, $01
-800413E8	andi   a2, a2, $000f
-800413EC	addu   v0, v0, a2
-800413F0	addu   a1, a1, v0
-800413F4	sll    v1, a1, $02
-800413F8	addu   v1, v1, a1
-800413FC	sll    v0, v1, $04
-80041400	lbu    a1, $0002(a0)
-80041404	subu   v0, v0, v1
-80041408	srl    a0, a1, $04
-8004140C	sll    v1, a0, $02
-80041410	addu   v1, v1, a0
-80041414	sll    v1, v1, $01
-80041418	andi   a1, a1, $000f
-8004141C	addu   v1, v1, a1
-80041420	addu   v0, v0, v1
-80041424	jr     ra 
-80041428	addiu  v0, v0, $ff6a (=-$96)
+////////////////////////////////
+// system_psyq_CdPosToInt
+800413AC-80041428
+////////////////////////////////
 
 
 
@@ -37931,7 +37902,7 @@ L42e04:	; 80042E04
 80042E08	addiu  a1, zero, $0003
 
 L42e0c:	; 80042E0C
-80042E0C	jal    func413ac [$800413ac]
+80042E0C	jal    system_psyq_CdPosToInt [$800413ac]
 80042E10	addiu  a0, sp, $0010
 80042E14	lui    v1, $8005
 80042E18	addiu  v1, v1, $5f08
@@ -38265,7 +38236,7 @@ func43270:	; 80043270
 L43294:	; 80043294
 80043294	jal    func40cd0 [$80040cd0]
 80043298	nop
-8004329C	jal    func413ac [$800413ac]
+8004329C	jal    system_psyq_CdPosToInt [$800413ac]
 800432A0	addu   a0, v0, zero
 800432A4	lui    a0, $8004
 800432A8	addiu  a0, a0, $2d68

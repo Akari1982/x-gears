@@ -42288,7 +42288,7 @@ L95fe0:	; 80095FE0
 80096018	addu   a0, s0, zero
 8009601C	jal    func41224 [$80041224]
 80096020	addiu  a1, zero, $0003
-80096024	jal    func413ac [$800413ac]
+80096024	jal    system_psyq_CdPosToInt [$800413ac]
 
 L96028:	; 80096028
 80096028	addu   a0, s0, zero

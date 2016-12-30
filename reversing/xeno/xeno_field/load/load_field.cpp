@@ -282,8 +282,8 @@ La54e0:	; 800A54E0
 800A5544	nop
 
 loopa5548:	; 800A5548
-800A5548	jal    func284dc [$800284dc]
-800A554C	nop
+func284dc(); // wait for command to finish
+
 800A5550	beq    v0, zero, La5598 [$800a5598]
 800A5554	nop
 800A5558	jal    func73670 [$80073670]
