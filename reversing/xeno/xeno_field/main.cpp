@@ -542,6 +542,7 @@ if( w[800c1b60] == 0 )
                         [8004e9f0] = w(0);
                         [800ad0c4] = w(0);
 
+                        // set spawn spot to 0
                         A0 = 2;
                         A1 = 0;
                         put_bytes_to_800C2F3C();

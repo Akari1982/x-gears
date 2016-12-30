@@ -17,14 +17,13 @@ ScriptFile::~ScriptFile()
 
 
 
-
 void
 ScriptFile::GetScripts( const int file_id )
 {
     Logger* export_script = new Logger( "exported/maps/field/" + GetFieldName( file_id ) + ".lua" );
     export_script->Log( "Entity = {}\n\n\n\n" );
 
-    u32 number_of_entity = GetU8( 0x80 );
+    u32 number_of_entity = GetU32LE( 0x80 );
     u32 offset_to_script = 0x84 + number_of_entity * 0x40;
 
     for( u32 i = 0; i < number_of_entity; ++i )

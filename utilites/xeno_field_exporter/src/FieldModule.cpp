@@ -177,8 +177,25 @@ FieldModule::LoadMap( const int file_id )
     temp->WriteFile( "exported/debug/0" + IntToString( file_id ) + "_5_script" );
     delete temp;
     script_file->GetScripts( file_id );
-    delete script_file;
     export_script->Log( "\n    <script file_name=\"maps/field/" + GetFieldName( file_id ) + ".lua\" />" );
+    u32 number_of_scripts = temp->GetU32LE( 0x80 );
+    u32 offset_to_script = 0x84 + number_of_scripts * 0x40;
+    u32 first_script = temp->GetU16LE( 0x84 );
+    u8 number_of_spawn = ( first_script - 1 ) / 7;
+    u8 use_spawn = GetU8( offset_to_script );
+    if( use_spawn == 0xff )
+    {
+        for( u32 i = 0; i < number_of_spawn; ++i )
+        {
+            u32 spawn_offset = offset_to_script + 1 + i * 7;
+            Ogre::Vector2 point = Ogre::Vector3( ( s16 )temp->GetU16LE( spawn_offset + 0 ), ( s16 )temp->GetU16LE( spawn_offset + 2 ) ) / 64;
+            s8 walkmesh_id = ( s8 )temp->GetU8( spawn_offset + 4 );
+            s8 camera_rotation = ( s8 )temp->GetU8( spawn_offset + 5 );
+            s8 entity_rotation = ( s8 )temp->GetU8( spawn_offset + 6 );
+            export_script->Log( "\n    <spawn_point name=\"" + IntToString( i ) + "\" point=\"" + Ogre::StringConverter::toString( point ) + "\" walkmesh_id=\"" + IntToString( walkmesh_id ) + "\" camera_rotation=\"" + IntToString( camera_rotation ) + "\" entity_rotation=\"" + IntToString( entity_rotation ) + "\" />" );
+        }
+    }
+    delete script_file;
 
 
 

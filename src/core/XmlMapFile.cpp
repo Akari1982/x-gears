@@ -60,6 +60,17 @@ XmlMapFile::LoadMap()
 
             EntityManager::getSingleton().AddEntity( name, file_name, position, direction, script );
         }
+        else if( node->Type() == TiXmlNode::TINYXML_ELEMENT && node->ValueStr() == "spawn_point" )
+        {
+            Ogre::String name = GetString( node, "name" );
+            if( name == "" )
+            {
+                LOG_ERROR( "There is no name specified for <spawn_point> tag." );
+                continue;
+            }
+            Ogre::Vector2 position = GetVector2( node, "position", Ogre::Vector2::ZERO );
+            EntityManager::getSingleton().AddSpawnPoint( new SpawnPoint( name, position ) );
+        }
         else if( node->Type() == TiXmlNode::TINYXML_ELEMENT && node->ValueStr() == "square_trigger" )
         {
             Ogre::String name = GetString( node, "name" );

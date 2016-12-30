@@ -5,6 +5,7 @@
 
 #include "Event.h"
 #include "Entity.h"
+#include "SpawnPoint.h"
 #include "Trigger.h"
 #include "Walkmesh.h"
 
@@ -25,6 +26,7 @@ public:
     void Clear();
 
     void AddWalkmesh( Walkmesh* walkmesh );
+    void AddSpawnPoint( SpawnPoint* spawn_point );
     void AddEntity( const Ogre::String& name, const Ogre::String& file_name, const Ogre::Vector3& position, const Ogre::Degree& direction, const bool script );
     void AddSquareTrigger( const Ogre::String& name, const Ogre::Vector3& point1, const Ogre::Vector3& point2, const Ogre::Vector3& point3, const Ogre::Vector3& point4, const bool enabled );
 
@@ -32,6 +34,7 @@ private:
     bool m_Paused;
 
     std::vector< Walkmesh* > m_Walkmesh;
+    std::vector< SpawnPoint* > m_SpawnPoint;
 
     std::vector< Entity* > m_Entity;
     std::vector< Trigger* > m_Triggers;

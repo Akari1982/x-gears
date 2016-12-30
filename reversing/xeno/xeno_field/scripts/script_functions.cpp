@@ -67,11 +67,11 @@ return (((bu[script_offset + V0 + A0 + 1] << 8) + bu[script_offset + V0 + A0 + 0
 
 
 ////////////////////////////////
-// get_bytes_sign
+// get_bytes_sign()
 // [00000000][00xxxxx0] => x     (sign_mask)
 // [xxxxxxxx][xx000000] => x * 4 (sign_data id)
-entity_file = w[800ad0d0];
-sign_data = w[entity_file + (A0 >> 6) * 4];
+script_file = w[800ad0d0];
+sign_data = w[script_file + (A0 >> 6) * 4];
 sign_mask = 1 << ((A0 >> 1) & 1f);
 
 return 0 - (0 < (sign_data & sign_mask)); // 0 - signed, -1 unsigned
@@ -83,18 +83,19 @@ return 0 - (0 < (sign_data & sign_mask)); // 0 - signed, -1 unsigned
 // get_bytes_from_800C2F3C()
 // [xxxxxxxx][xxxxxxx0] => x (offset to read)
 // [xxxxxxxx][xx000000] => x * 4 (offset to sign)
-entity_file = w[800ad0d0];
-sign_data = w[entity_file + (A0 >> 6) * 4]; // sign block
-sign_mask = 1 << ((A0 >> 1) & 1f);
-read_slot = A0 >> 1;
+slot = A0 / 2;
 
-if( sign_data & sign_mask ) // if bit in sign block is set
+script_file = w[800ad0d0];
+sign_data = w[script_file + (slot >> 5) * 4]; // sign block
+sign_bit = 1 << (slot & 1f);
+
+if( sign_data & sign_bit ) // if bit in sign block is set
 {
-    return hu[800c2f3c + read_slot * 2];
+    return hu[800c2f3c + slot * 2];
 }
 else
 {
-    return h[800c2f3c + read_slot * 2];
+    return h[800c2f3c + slot * 2];
 }
 ////////////////////////////////
 
@@ -109,10 +110,8 @@ return hu[V0 + 84 + A0 * 40 + A1 * 2];
 
 
 ////////////////////////////////
-// put_bytes_to_800C2F3C
-A2 = A0 >> 1;
-V0 = A2 << 1;
-[800c2f3c + V0];
+// put_bytes_to_800C2F3C()
+[800c2f3c + ((A0 >> 1) << 1)] = h(A1);
 ////////////////////////////////
 
 

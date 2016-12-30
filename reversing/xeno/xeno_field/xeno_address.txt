@@ -58,13 +58,6 @@
 800ad0d0 [][][][] pointer to field entity file (file 5).
 800ad0d4 [][][][] number of entity.
 800ad0d8 [][][][] offset to field scripts in file 5.
-+0 []       use spawn table? (0xff - not use). Which table to use defined in 2nd slot in memory block. Used in function func9efe4.
-spawn table
-+0 [][]     x
-+2 [][]     z
-+4 []       walkmesh id.
-+5 []       if 0xff - use value from slot 8 in memory block.
-+6 []       rotation. If 0xff - use rotation from slot 6 in memory block. (8 directions)
 
 800ad0e4 [][][][] checked if equal to 1 in func83f40.
 800ad0e8 [][][][] some index in 0x1f800000. Maybe move stack?
@@ -128,8 +121,9 @@ spawn table
             +  8 [][][][] init with 0.
             +  c [][][][] init with 0.
     +   4 [][][][] offset to sprite data (0x164 size).
-        +  0 [][][][] some flags.
-        +  6 [][]     ??? checked with +84.
+        +  0 [][][][] store x here from struct_138 + 20.
+        +  4 [][][][] store y here from struct_138 + 24.
+        +  8 [][][][] store z here from struct_138 + 28.
         +  c [][][][] animation move x. init with 0 in some cases.
         + 10 [][][][] animation move y. init with 0 in some cases. When move set as [struct_138 + f0] >> 1.
         + 14 [][][][] animation move z. init with 0 in some cases.
@@ -162,6 +156,7 @@ spawn table
                         0x00001f00 - scale
                         0x0001e000 - removed during init.
                         0x00020000 - this struct was added to sprite struct list.
+                        0x00040000 - set when init sprite if h[800b1662] != 0 (move length).
                         0x00080000 - if set we init frame.
                         0x00100000 - add when we starting animation. If 0 and +3c 0x00000003 == 1 and b4+34 != 0 then reset all data in +124 (add rot and trans).
         + 44 [][][][] pointer to loaded sprite pack.
@@ -178,7 +173,7 @@ spawn table
         + 70 [][][][] init with 0.
         + 7c [][][][] pointer to +f4.
         + 80 [][]     init with 0. Maybe direction.
-        + 82 [][]     not inited but used co calculate +1c. Set to +18 as * 30 or * 60.
+        + 82 [][]     init as 0x2000 when init PC entity. Used co calculate +1c. Set to +18 as * 30 or * 60.
         + 84 [][]     init with 0. Checked with +6. Store triangle Y here during move.
         + 86 [][]     size of allocated data (0x164).
         + 8c []       pointer to item in stack +8e. Init with 0x10.
@@ -642,12 +637,13 @@ spawn table
 
 
 
-800c2f3c          memory block. used in get_bytes_from_800C2F3C.
-+ 0000 [][]     progress
-+ 0002 [][]     spawn slot id (used when spawn pc)
-+ 0004
+800c2f3c memory block. used in get_bytes_from_800C2F3C.
++ 0000 [][]     progress.
++ 0002 [][]     spawn slot id (used when spawn pc).
++ 0004 [][]     current field id.
 + 0006 [][]     direction of pc entity during spawn.
-+ 0008 [][]     direction of camera?
++ 0008 [][]     direction of camera.
++ 0012 [][]     increment by 1 when we change field.
 + 0014 [][]     related to displayed window. Store something here during 0x9c opcode. Maybe cursor position.
 + 0016 [][]     slot1 for dialog temp variable.
 + 0018 [][]     slot2 for dialog temp variable.
@@ -655,22 +651,6 @@ spawn table
 + 001c [][]     slot4 for dialog temp variable.
 800c373c [][][][] maybe number of inited windows.
 800c3740          end of memory block.
-
-8010b6a0        [800AD0D0]  entity file.
-
-8010bc24        [800AD0D8]  scripts block.
-
-
-
-8012c138 some entity data. 80114f2c+4 pointer.
-+  00 [][][][] some X.
-+  04 [][][][] some Y.
-+  08 [][][][] some Z.
-+  0c [][][][] some X. Init with 0 when set position by x z
-+  10 [][][][] some Y. Init with 0 when set position by x z
-+  14 [][][][] some Z. Init with 0 when set position by x z
-+  18 [][][][] we store 08000000 / hu[current_entity_data + 76] here if 00002000 flag in 80115cdc+4 set. Set to 04000000 / hu[current_entity_data + 76] if 00002000 flag in 80115cdc+4 not set but this (+  18) == 0. In movement set function.
-+  84 [][]     store some Y here.
 
 
 

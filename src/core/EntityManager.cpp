@@ -161,6 +161,11 @@ EntityManager::UpdateDebug()
             m_Walkmesh[ i ]->UpdateDebug();
         }
     }
+
+    for( size_t i = 0; i < m_SpawnPoint.size(); ++i )
+    {
+        m_SpawnPoint[ i ]->UpdateDebug();
+    }
 }
 
 
@@ -180,6 +185,12 @@ EntityManager::Clear()
         delete m_Walkmesh[ i ];
     }
     m_Walkmesh.clear();
+
+    for( size_t i = 0; i < m_SpawnPoint.size(); ++i )
+    {
+        delete m_SpawnPoint[ i ];
+    }
+    m_SpawnPoint.clear();
 
     for( unsigned int i = 0; i < m_Entity.size(); ++i )
     {
@@ -205,6 +216,13 @@ EntityManager::AddWalkmesh( Walkmesh* walkmesh )
     m_Walkmesh.push_back( walkmesh );
 }
 
+
+
+void
+EntityManager::AddSpawnPoint( SpawnPoint* spawn_point )
+{
+    m_SpawnPoint.push_back( spawn_point );
+}
 
 
 
