@@ -184,27 +184,27 @@ ReturnFromException();
 
 
 ////////////////////////////////
-// func24e3c
+// func24e3c()
+// load defined set of images to vram
 V0 = w[GP + 188];
 S0 = w[80058b60 + V0 * 4];
 if( S0 != 0 )
 {
     loop24e68:	; 80024E68
-        A1 = w[S0 + 8]; // start address
+        A1 = w[S0 + 8]; // image ptr
         if( A1 != 0 )
         {
-            A0 = S0; // struct with size
-            func4470c;
+            A0 = S0; // rect
+            system_load_image(); // load to vram
         }
         else
         {
             A0 = S0;
-            A1 = 0;
-            A2 = 0;
-            A3 = 0;
-            80024E90	jal    func445dc [$800445dc]
+            A1 = 0; // r
+            A2 = 0; // g
+            A3 = 0; // b
+            system_clear_image(); // fill rect in vram with color
         }
-
         S0 = w[S0 + c];
     80024EA0	bne    s0, zero, loop24e68 [$80024e68]
 }
@@ -441,7 +441,7 @@ else
 
     A0 = SP + 10; // struct with size (0 x, 2 y, 4 width, 6 height)
     A1 = A2; // start address
-    func4470c;
+    system_load_image();
 
     A0 = w[800595e8];
     V1 = hu[800595e0];
@@ -508,22 +508,154 @@ else
 
 
 ////////////////////////////////
-// func4470c
-S0 = A0; // struct with size
-S1 = A1; // start address
+// system_load_image()
 
-A0 = 80019220;
-A1 = S0;
-8004472C	jal    func444b4 [$800444b4]
+// Transfer data from pointer to a frame buffer to given rect.
+rect = A0; // struct with size
+ptr = A1; // start address
+
+A0 = 80019220; // "LoadImage"
+A1 = rect;
+func444b4();
 
 V0 = w[80055f68];
 A0 = w[V0 + 20]; // func
-A1 = S0; // struct with size (0 x, 2 y, 4 width, 6 height)
+A1 = rect; // struct with size (0 x, 2 y, 4 width, 6 height)
 A2 = 8;
-A3 = S1; // start address
+A3 = ptr;
 // called here func46504
 V0 = w[V0 + 8];
 80044750	jalr   v0 ra
+////////////////////////////////
+
+
+
+////////////////////////////////
+// system_store_image()
+// Transfer image data from the frame buffer to main memory by rect.
+rect = A0;
+ptr = A1;
+
+A0 = 8001922c; // "StoreImage"
+A1 = rect;
+func444b4();
+
+V0 = w[80055f68];
+A0 = w[V0 + 1c];
+A1 = rect;
+A2 = 8;
+A3 = ptr;
+V0 = w[V0 + 8];
+800447B4	jalr   v0 ra
+////////////////////////////////
+
+
+
+////////////////////////////////
+// system_move_image()
+// Transfer data between two locations within the frame buffer.
+rect = A0;
+x = A1;
+y = A2;
+
+A0 = 80019238; // "MoveImage"
+A1 = rect;
+func444b4();
+
+if( ( hu[rect + 4] != 0 ) && ( hu[rect + 6] != 0 ) )
+{
+    [80056020] = h(hu[rect + 0]);
+    [80056024] = w((y << 10) | (x & ffff));
+    [80056028] = h(hu[rect + 4]);
+
+    V1 = [80055f68];
+    A0 = w[V1 + 18];
+    A1 = 80056020 - 8;
+    A2 = 14;
+    A3 = 0;
+    V0 = w[V1 + 8];
+    80044874	jalr   v0 ra
+}
+return -1;
+////////////////////////////////
+
+
+
+////////////////////////////////
+// system_clear_otagr()
+// Initialize an array to a linked list for use as an ordering table.
+ot_ptr = A0;
+number = A1;
+
+if( bu[80055f72] >= 2 )
+{
+    A0 = 8001925c; // "ClearOTagR(%08x,%d)..."
+    A1 = ot_ptr;
+    A2 = number;
+    V0 = w[80055f6c];
+    80044990	jalr   v0 ra
+}
+
+V0 = w[80055f68];
+A0 = ot_ptr;
+A1 = number;
+V0 = w[V0 + 2c];
+800449AC	jalr   v0 ra
+
+[V0] = w(8005602c & 00ffffff);
+
+return ot_ptr;
+////////////////////////////////
+
+
+
+////////////////////////////////
+// system_clear_image()
+rect = S3 = A0;
+r = S2 = A1;
+g = S1 = A2;
+b = S0 = A3;
+
+A0 = 80019214; // "ClearImage"
+A1 = S3;
+8004460C	jal    func444b4 [$800444b4]
+
+
+80044614	addu   a1, s3, zero
+80044618	andi   s0, s0, $00ff
+8004461C	sll    s0, s0, $10
+80044620	andi   s1, s1, $00ff
+80044624	sll    s1, s1, $08
+80044628	or     s0, s0, s1
+8004462C	andi   s2, s2, $00ff
+80044630	lui    v0, $8005
+80044634	lw     v0, $5f68(v0)
+80044638	addiu  a2, zero, $0008
+8004463C	lw     a0, $000c(v0)
+80044640	lw     v0, $0008(v0)
+80044644	nop
+80044648	jalr   v0 ra
+8004464C	or     a3, s0, s2
+////////////////////////////////
+
+
+
+////////////////////////////////
+// system_draw_sync()
+mode = A0;
+
+if( bu[80055f72] >= 2 )
+{
+    V0 = w[80055f6c];
+    A0 = 800191dc; // "DrawSync(%d)..."
+    A1 = mode;
+    8004447C	jalr   v0 ra
+}
+
+V0 = w[80055f68];
+V0 = w[V0 + 3c];
+A0 = mode;
+80044498	jalr   v0 ra
 ////////////////////////////////
 
 

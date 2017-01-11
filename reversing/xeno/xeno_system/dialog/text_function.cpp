@@ -358,7 +358,7 @@ func33c14();
 80034B8C	addu   v1, v1, v0
 80034B90	sll    v1, v1, $05
 80034B94	addu   a0, a0, v1
-80034B98	jal    func4470c [$8004470c]
+80034B98	jal    system_load_image [$8004470c]
 80034B9C	addiu  a0, a0, $0050
 
 L34ba0:	; 80034BA0

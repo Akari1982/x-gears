@@ -11,9 +11,8 @@ if( A1 < 18 && w[80061bbc + A1 * 4] == A0 )
 
 
 ////////////////////////////////
-// func3a0b4
-A0 = A0 & fe;
-A0 = A0 XOR 8;
+// func3a0b4()
+A0 = (A0 & fe) XOR 8;
 
 S3 = w[80058c74];
 
@@ -24,13 +23,11 @@ loop3a110:	; 8003A110
     if (hu[S0 + 94] & 0001)
     {
         [S0 + 94] = h(0);
-
-        V0 = 1 << bu[S0 + 9a];
-        [S3 + 48] = w(w[S3 + 48] & (0 NOR V0)); // remove bit
+        [S3 + 48] = w(w[S3 + 48] & (0 NOR (1 << bu[S0 + 9a]))); // remove bit
 
         A0 = S0 + c4; // stored channel address
         A1 = bu[S0 + 27]; // channel id
-        func3e6e4;
+        func3e6e4();
     }
 
     S2 = S2 - 1;

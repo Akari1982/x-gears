@@ -475,6 +475,7 @@
 
 800af104 some matrix and translation.
 
+800af144 [][][][] store here some image from vram (3c0 100 40 100).
 800af148 [][][][] every time we init entity model with func76150 we increment this by 1.
 
 800af150 [][][][] store here how much opcodes to execute in run_script().
@@ -536,6 +537,7 @@
 800b1770 [][][][] number of used 800b1774 values.
 800b1774 array of 0x20 encounter random values (0x2 bytes each).
 
+800b1810 [][]     mask of 4 music channel to stop during next field load.
 800b1812 [][]     store entity id which controls party leader here.
 
 800b1818 [][]     do something animation related during movement if this is 0.
@@ -597,7 +599,7 @@
 + 90 [][][][] +001a from memory block.
 + 94 [][][][] +001c from memory block.
 + 98 [][]     +001c from memory block.
-+ 9a [][]     init with 0. Number of +8c element in list.
++ 9a [][]     init with 0. Number of +a4 element in list.
 + 9c [][]     wait timer. Init with 0.
 + 9e [][]     store value for 0x0F0E text opcode here.
 + a0 [][]     store value for 0x0F0E text opcode here.

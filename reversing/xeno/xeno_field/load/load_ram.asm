@@ -3506,9 +3506,9 @@ L1e0ca4:	; 801E0CA4
 801E0CB8	sh     s2, $0016(sp)
 801E0CBC	sh     t6, $0012(sp)
 801E0CC0	lw     a1, $0004(s0)
-801E0CC4	jal    func44770 [$80044770]
+801E0CC4	jal    system_store_image [$80044770]
 801E0CC8	addiu  a0, sp, $0010
-801E0CCC	jal    func44448 [$80044448]
+801E0CCC	jal    system_draw_sync [$80044448]
 801E0CD0	addu   a0, zero, zero
 801E0CD4	j      L1e0d4c [$801e0d4c]
 801E0CD8	srl    v0, s5, $04
@@ -3572,9 +3572,9 @@ L1e0d7c:	; 801E0D7C
 801E0D80	sh     s2, $0016(sp)
 801E0D84	sh     t6, $0012(sp)
 801E0D88	lw     a1, $0008(s0)
-801E0D8C	jal    func44770 [$80044770]
+801E0D8C	jal    system_store_image [$80044770]
 801E0D90	addiu  a0, sp, $0010
-801E0D94	jal    func44448 [$80044448]
+801E0D94	jal    system_draw_sync [$80044448]
 801E0D98	addu   a0, zero, zero
 801E0D9C	j      L1e1224 [$801e1224]
 801E0DA0	addu   v0, s0, zero
@@ -4066,7 +4066,7 @@ L1e1374:	; 801E1374
 801E137C	bne    v0, zero, L1e13b4 [$801e13b4]
 801E1380	nop
 801E1384	lw     a1, $000c(s0)
-801E1388	jal    func4470c [$8004470c]
+801E1388	jal    system_load_image [$8004470c]
 801E138C	addiu  a0, s0, $0028
 801E1390	j      L1e13b4 [$801e13b4]
 801E1394	nop
@@ -4315,7 +4315,7 @@ func1e165c:	; 801E165C
 801E1694	sltiu  v0, v0, $0004
 801E1698	beq    v0, zero, L1e16a8 [$801e16a8]
 801E169C	nop
-801E16A0	jal    func4470c [$8004470c]
+801E16A0	jal    system_load_image [$8004470c]
 801E16A4	addiu  a0, s0, $0028
 
 L1e16a8:	; 801E16A8

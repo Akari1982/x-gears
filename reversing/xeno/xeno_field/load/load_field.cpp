@@ -67,35 +67,32 @@ put_bytes_to_800C2F3C();
 
 func37334();
 
-funca8938();
+funca8938(); // clear something and sync
 
-800A5138	jal    func85b04 [$80085b04]
-800A513C	nop
-800A5140	jal    func7f5fc [$8007f5fc]
-800A5144	nop
-800A5148	lui    v1, $800b
-800A514C	lw     v1, $f51c(v1)
-800A5150	ori    v0, zero, $0006
-800A5154	beq    v1, v0, La5180 [$800a5180]
-800A5158	nop
-800A515C	jal    funca8634 [$800a8634]
-800A5160	nop
-800A5164	lui    v1, $800b
-800A5168	lw     v1, $f51c(v1)
-800A516C	ori    v0, zero, $0004
-800A5170	beq    v1, v0, La5180 [$800a5180]
-800A5174	nop
-800A5178	jal    funca3c20 [$800a3c20]
-800A517C	nop
+func85b04(); // stops first 8 chanels (4 left, 4 right) if requested
 
-La5180:	; 800A5180
-800A5180	jal    func44448 [$80044448]
-800A5184	addu   a0, zero, zero
-800A5188	jal    func73670 [$80073670]
+func7f5fc(); // close and clean dialogs
 
-func76c88();
+if( w[800af51c] != 6 )
+{
+    funca8634(); // store some image from vram
 
-800A5198	jal    func6f740 [$8006f740]
+    if( w[800af51c] != 4 )
+    {
+        funca3c20(); // copy some image within vram
+    }
+}
+
+A0 = 0; // wait for termination
+system_draw_sync();
+
+func73670(); // clear otagr.
+
+func76c88(); // sync
+
+func6f740();
+
+
 
 // allocate new place for field
 A0 = w[80059b50];
@@ -109,10 +106,10 @@ A2 = w[80059b50]; // this much
 system_copy_memory();
 
 A0 = w[80059b70];
-func31edc(); // mark memory for release
+func31edc(); // mark memory for free
 
 A0 = w[80059b70];
-func31f0c(); // release memory
+func31f0c(); // free field file memory
 
 
 
@@ -165,8 +162,9 @@ func31f0c(); // release memory
 800A529C	ori    s1, zero, $80d4
 
 La52a0:	; 800A52A0
-800A52A0	jal    func73670 [$80073670]
 800A52A4	addiu  s0, s0, $0001
+func73670(); // clear otagr
+
 800A52A8	lui    a0, $800c
 800A52AC	lw     a0, $3740(a0)
 800A52B0	lui    a1, $800b
@@ -197,8 +195,9 @@ La52a0:	; 800A52A0
 800A5314	ori    s1, zero, $80d4
 
 loopa5318:	; 800A5318
-800A5318	jal    func73670 [$80073670]
 800A531C	addiu  s0, s0, $0001
+func73670(); // clear otagr
+
 800A5320	lui    a0, $800c
 800A5324	lw     a0, $3740(a0)
 800A5328	lui    a1, $800b
@@ -217,8 +216,8 @@ loopa5318:	; 800A5318
 800A535C	nop
 
 La5360:	; 800A5360
-800A5360	jal    func73670 [$80073670]
-800A5364	nop
+func73670(); // clear otagr
+
 800A5368	jal    funca5dfc [$800a5dfc]
 800A536C	nop
 800A5370	jal    func1aed8 [$8001aed8]
@@ -270,8 +269,9 @@ La53dc:	; 800A53DC
 800A5420	ori    s1, zero, $80d4
 
 loopa5424:	; 800A5424
-800A5424	jal    func73670 [$80073670]
 800A5428	addiu  s0, s0, $0001
+func73670(); // clear otagr
+
 800A542C	lui    a0, $800c
 800A5430	lw     a0, $3740(a0)
 800A5434	lui    a1, $800b
@@ -290,7 +290,7 @@ loopa5424:	; 800A5424
 800A5468	nop
 
 La546c:	; 800A546C
-func76c88();
+func76c88(); // sync
 
 800A5474	jal    func1aed8 [$8001aed8]
 800A5478	nop
@@ -352,9 +352,9 @@ loopa5548:	; 800A5548
 func284dc(); // wait for command to finish
 
 800A5550	beq    v0, zero, La5598 [$800a5598]
-800A5554	nop
-800A5558	jal    func73670 [$80073670]
-800A555C	nop
+
+func73670(); // clear otagr
+
 800A5560	jal    funca58e0 [$800a58e0]
 800A5564	nop
 800A5568	jal    funca5dfc [$800a5dfc]
@@ -452,9 +452,9 @@ La5690:	; 800A5690
 800A56AC	jal    funca5b14 [$800a5b14]
 800A56B0	addu   a1, zero, zero
 800A56B4	jal    func6fb18 [$8006fb18]
-800A56B8	nop
-800A56BC	jal    func73670 [$80073670]
-800A56C0	nop
+
+func73670(); // clear otagr
+
 800A56C4	jal    funca58e0 [$800a58e0]
 800A56C8	nop
 800A56CC	jal    funca5dfc [$800a5dfc]
@@ -507,9 +507,9 @@ La5748:	; 800A5748
 800A5780	jal    funca5b14 [$800a5b14]
 800A5784	addu   a1, zero, zero
 800A5788	jal    func6fb18 [$8006fb18]
-800A578C	nop
-800A5790	jal    func73670 [$80073670]
-800A5794	nop
+
+func73670(); // clear otagr
+
 800A5798	jal    funca58e0 [$800a58e0]
 800A579C	nop
 800A57A0	jal    funca5dfc [$800a5dfc]
@@ -528,9 +528,7 @@ La5748:	; 800A5748
 800A57D4	jal    func70358 [$80070358]
 800A57D8	nop
 800A57DC	jal    func6fb98 [$8006fb98]
-800A57E0	nop
-800A57E4	addiu  a0, sp, $0010
-800A57E8	ori    a1, zero, $0140
+
 800A57EC	ori    v0, zero, $02c0
 800A57F0	sh     v0, $0010(sp)
 800A57F4	ori    v0, zero, $0100
@@ -543,8 +541,12 @@ La5748:	; 800A5748
 800A5810	sw     s0, $f51c(at)
 800A5814	lui    at, $800b
 800A5818	sw     s1, $f1e8(at)
-800A581C	jal    func447d4 [$800447d4]
-800A5820	ori    a2, zero, $00ff
+
+A0 = SP + 10;
+A1 = 140; // dest x
+A2 = ff; // dest y
+system_move_image();
+
 800A5824	lui    v1, $8005
 800A5828	lw     v1, $e9ac(v1)
 800A582C	addiu  v0, zero, $ffff (=-$1)
@@ -737,8 +739,8 @@ if( number_of_textures > 0 )
 
 
 
-A0 = 0;
-80070628	jal    func44448 [$80044448]
+A0 = 0; // wait for termination
+system_draw_sync();
 
 A0 = S2;
 func31f0c(); // release memory
@@ -968,18 +970,18 @@ if( number_of_entities > 0 )
 
             if( hu[struct_5c + entity_id * 5c + 58] & 2000 )
             {
-                [GP + 1ac] = h(3);
-                [80059640 + 3 * 4] = w(0);
-                [GP + 1c0] = w(0);
+                A0 = 3;
+                A1 = 0;
+                func322bc(); // set group for memory allocation
 
                 A0 = w[S0 + 4];
                 A1 = 0;
                 func301d8(); // init +1c in model data
                 [S0 + 14] = w(V0);
 
-                [GP + 1ac] = h(8);
-                [80059640 + 8 * 4] = w(0);
-                [GP + 1c0] = w(0);
+                A0 = 8;
+                A1 = 0;
+                func322bc(); // set group for memory allocation
             }
 
             A0 = w[S0 + 4];
@@ -1025,7 +1027,7 @@ func31f0c(); // release memory
 
 A0 = 5;
 A1 = 0;
-80070C80	jal    func322bc [$800322bc]
+func322bc(); // set group for memory allocation
 
 A0 = 3c00;
 A1 = 0;
@@ -1035,7 +1037,7 @@ A1 = 0;
 
 A0 = 8;
 A1 = 0;
-80070CA0	jal    func322bc [$800322bc]
+func322bc(); // set group for memory allocation
 
 S0 = 800b1710;
 
@@ -1140,7 +1142,7 @@ if( h[800af586] != 0 )
 
 A0 = 8;
 A1 = 0;
-func322bc();
+func322bc(); // set group for memory allocation
 
 V1 = hu[800b1812];
 
@@ -1946,7 +1948,7 @@ loop70224:	; 80070224
 8007023C	slti   v0, a1, $0200
 80070240	bne    v0, zero, loop70224 [$80070224]
 80070244	addiu  v1, v1, $0002
-80070248	jal    func49ff4 [$80049ff4]
+80070248	jal    system_gte_set_projection_plane_distance [$80049ff4]
 8007024C	ori    a0, zero, $0200
 80070250	lui    s0, $800b
 80070254	addiu  s0, s0, $ee64 (=-$119c)
@@ -2185,23 +2187,6 @@ system_gte_set_translation_vector();
 
 
 ////////////////////////////////
-// func37334()
-A0 = w[80058a30];
-if( A0 != 0 )
-{
-    [80058954] = w(80036eb4);
-    if( w[80058a3c] == 0 )
-    {
-        func31f0c();
-    }
-    [80058a30] = w(0);
-}
-[80058a3c] = w(0);
-////////////////////////////////
-
-
-
-////////////////////////////////
 // funca8938()
 S0 = 0;
 loopa8948:	; 800A8948
@@ -2212,7 +2197,7 @@ loopa8948:	; 800A8948
     V0 = S0 < 40;
 800A8958	bne    v0, zero, loopa8948 [$800a8948]
 
-func76c88();
+func76c88(); // sync
 ////////////////////////////////
 
 
@@ -2229,14 +2214,14 @@ if( V1 == 1 )
         if( h[S0 + S1 * 78 + 6] != 0 )
         {
             A0 = w[S0 + S1 * 78 + 2c];
-            func31f0c();
+            func31f0c(); // release memory
         }
         S1 = S1 + 1;
         V0 = S1 < 8;
     800A87F0	bne    v0, zero, loopa87cc [$800a87cc]
 
     A0 = w[800c2dec + S2 * 4];
-    func31f0c();
+    func31f0c(); // release memory
 }
 
 [800b0984 + S2] = b(0);
@@ -2247,11 +2232,11 @@ if( V1 == 1 )
 
 ////////////////////////////////
 // func76c88()
-A0 = 0;
-80076C90	jal    func44448 [$80044448]
+A0 = 0; // wait for termination
+system_draw_sync();
 
 A0 = 0;
-80076C98	jal    func4b3f4 [$8004b3f4]
+func4b3f4(); // get time and sync
 ////////////////////////////////
 
 
@@ -2601,18 +2586,18 @@ loop76898:	; 80076898
         return;
     }
 
-    A1 = w[SP + 18];
+    A1 = w[SP + 18]; // data pointer
     if( A1 != 0 )
     {
-        A0 = w[SP + 14];
-        func4470c();
+        A0 = w[SP + 14]; // rect with size
+        system_load_image(); // load to vram
     }
 
-    A1 = w[SP + 20];
+    A1 = w[SP + 20]; // data pointer
     if( A1 != 0 )
     {
-        A0 = w[SP + 1c];
-        func4470c();
+        A0 = w[SP + 1c]; // rect with size
+        system_load_image(); // load to vram
     }
 800768E0	j      loop76898 [$80076898]
 ////////////////////////////////
@@ -2753,4 +2738,317 @@ func43894(); // pack texpage settings
 8007D6EC	slti   v0, s1, $0004
 8007D6F0	bne    v0, zero, loop7d60c [$8007d60c]
 8007D6F4	addiu  s0, s0, $0498
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func85b04()
+S0 = 0;
+loop85b20:	; 80085B20
+    [800af35e + S0 * 6] = h(ffff);
+    [800af35c + S0 * 6] = h(ffff);
+    S0 = S0 + 1;
+    V0 = S0 < 3;
+80085B40	bne    v0, zero, loop85b20 [$80085b20]
+
+// stops first 8 chanels (4 left, 4 right) if requested
+S0 = 0;
+loop85b54:	; 80085B54
+    if( ( hu[800b1810] & 1 ) == 0 )
+    {
+        A0 = S0 * 2;
+        func3a0b4(); // stop channel
+    }
+    [800b1810] = h(hu[800b1810] >> 1);
+    S0 = S0 + 1;
+    V0 = S0 < 4;
+80085B84	bne    v0, zero, loop85b54 [$80085b54]
+////////////////////////////////
+
+
+
+////////////////////////////////
+// funca8634()
+if( w[800ad00c] != 1 )
+{
+    [800ad00c] = w(1);
+
+    A0 = 8;
+    A1 = 0;
+    func322bc(); // set group for memory allocation
+
+    A0 = 8000;
+    A1 = 1;
+    system_memory_allocate();
+    [800af144] = w(V0);
+
+    [800af0fc] = h(3c0); // x
+    [800af0fe] = h(100); // y
+    [800af100] = h(40); // width
+    [800af102] = h(100); // height
+
+    A0 = 800af0fc; // rect
+    A1 = V0; // where to store
+    system_store_image(); // from vram to memory
+
+    A0 = 0; // wait for termination
+    system_draw_sync();
+}
+////////////////////////////////
+
+
+
+////////////////////////////////
+// funca3c20()
+A0 = 2c0; // dest x
+A1 = 100; // dest y
+funca3c44();
+////////////////////////////////
+
+
+
+////////////////////////////////
+// funca3c44()
+dest_x = A0;
+dest_y = A1;
+
+A0 = 200;
+system_gte_set_projection_plane_distance();
+
+[SP + 10] = h(0);
+[SP + 12] = h(0);
+[SP + 14] = h(140);
+[SP + 16] = h(e0);
+
+A0 = SP + 10; // src rect
+A1 = dest_x;
+A2 = dest_y;
+system_move_image()
+
+func76c88(); // sync
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func73670()
+func735e0();
+
+A0 = w[800c3740] + cc;
+A1 = 1000;
+system_clear_otagr();
+
+if( w[800ad024] != 0 )
+{
+    A0 = w[800c3740] + 40d0;
+    A1 = 1000;
+    system_clear_otagr();
+}
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func735e0()
+if( w[800c1b60] == 0 )
+{
+    800735F4	break   $00400
+}
+
+V1 = w[800acfe0];
+80073604	addiu  v1, v1, $0001
+80073608	srl    v0, v1, $1f
+8007360C	addu   v0, v1, v0
+80073610	sra    v0, v0, $01
+80073614	sll    v0, v0, $01
+80073618	subu   v1, v1, v0
+
+A0 = 800b1970 + V1 * 80f4;
+[800c3740] = w(A0);
+[800acfe0] = w(V1);
+
+A0 = A0 + 80d4;
+A1 = 8;
+system_clear_otagr();
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func6f740()
+
+A0 = 1;
+8006F758	jal    func43f88 [$80043f88]
+
+8006F760	jal    func1c768 [$8001c768]
+8006F764	addu   s1, zero, zero
+
+loop6f768:	; 8006F768
+    func24e3c(); // load defined set of images to vram
+
+    A0 = 0; // wait for termination
+    system_draw_sync();
+
+    8006F778	addiu  v0, s1, $0001
+    8006F77C	lui    a0, $800b
+    8006F780	lw     a0, $cfe0(a0)
+    8006F784	addu   s1, v0, zero
+    8006F788	addu   a0, a0, s1
+    8006F78C	jal    func24ed4 [$80024ed4]
+    8006F790	andi   a0, a0, $0001
+
+    func24e3c(); // load defined set of images to vram
+
+    A0 = 0; // wait for termination
+    system_draw_sync();
+
+    8006F7A4	jal    func24db0 [$80024db0]
+    8006F7A8	nop
+    8006F7AC	slti   v0, s1, $0002
+8006F7B0	bne    v0, zero, loop6f768 [$8006f768]
+8006F7B4	nop
+8006F7B8	lui    v0, $800b
+8006F7BC	lw     v0, $efe0(v0)
+8006F7C0	nop
+8006F7C4	blez   v0, L6f860 [$8006f860]
+8006F7C8	addu   s1, zero, zero
+8006F7CC	addu   s2, zero, zero
+
+loop6f7d0:	; 8006F7D0
+8006F7D0	jal    func7fe50 [$8007fe50]
+8006F7D4	addu   a0, s1, zero
+8006F7D8	lui    v0, $800b
+8006F7DC	lw     v0, $efe4(v0)
+8006F7E0	nop
+8006F7E4	addu   v1, s2, v0
+8006F7E8	lhu    a0, $0058(v1)
+8006F7EC	nop
+8006F7F0	andi   v0, a0, $0040
+8006F7F4	bne    v0, zero, L6f848 [$8006f848]
+8006F7F8	andi   v0, a0, $2000
+8006F7FC	lw     s0, $0000(v1)
+8006F800	beq    v0, zero, L6f814 [$8006f814]
+8006F804	nop
+
+L6f808:	; 8006F808
+8006F808	lw     a0, $0014(s0)
+8006F80C	jal    func304e0 [$800304e0]
+8006F810	nop
+
+L6f814:	; 8006F814
+8006F814	lw     a0, $0004(s0)
+8006F818	jal    func2c9cc [$8002c9cc]
+8006F81C	nop
+8006F820	lw     a0, $0008(s0)
+8006F824	jal    func31f0c [$80031f0c]
+8006F828	nop
+8006F82C	lui    v0, $800b
+8006F830	lw     v0, $efe4(v0)
+8006F834	nop
+8006F838	addu   v0, s2, v0
+8006F83C	lw     a0, $0000(v0)
+8006F840	jal    func31f0c [$80031f0c]
+8006F844	nop
+
+L6f848:	; 8006F848
+8006F848	lui    v0, $800b
+8006F84C	lw     v0, $efe0(v0)
+8006F850	addiu  s1, s1, $0001
+8006F854	slt    v0, s1, v0
+8006F858	bne    v0, zero, loop6f7d0 [$8006f7d0]
+8006F85C	addiu  s2, s2, $005c
+
+L6f860:	; 8006F860
+8006F860	jal    funca3cac [$800a3cac]
+8006F864	nop
+8006F868	lui    a0, $800b
+8006F86C	lw     a0, $efe4(a0)
+8006F870	jal    func31f0c [$80031f0c]
+8006F874	nop
+8006F878	lui    a0, $800b
+8006F87C	lw     a0, $d0cc(a0)
+8006F880	jal    func31f0c [$80031f0c]
+8006F884	nop
+8006F888	lui    a0, $800b
+8006F88C	lw     a0, $d0c8(a0)
+8006F890	jal    func31f0c [$80031f0c]
+8006F894	nop
+8006F898	lui    a0, $800b
+8006F89C	lw     a0, $d0d0(a0)
+8006F8A0	jal    func31f0c [$80031f0c]
+8006F8A4	nop
+8006F8A8	lui    a0, $800b
+8006F8AC	lw     a0, $efec(a0)
+8006F8B0	jal    func31f0c [$80031f0c]
+8006F8B4	nop
+8006F8B8	lui    a0, $800b
+8006F8BC	lw     a0, $efe8(a0)
+8006F8C0	jal    func31f0c [$80031f0c]
+8006F8C4	nop
+8006F8C8	lui    a0, $800b
+8006F8CC	lw     a0, $eff0(a0)
+8006F8D0	jal    func31f0c [$80031f0c]
+8006F8D4	nop
+8006F8D8	lui    v0, $800b
+8006F8DC	lh     v0, $f586(v0)
+8006F8E0	nop
+8006F8E4	beq    v0, zero, L6f8fc [$8006f8fc]
+8006F8E8	nop
+8006F8EC	lui    a0, $800b
+8006F8F0	lw     a0, $f550(a0)
+8006F8F4	jal    func27b50 [$80027b50]
+8006F8F8	nop
+
+L6f8fc:	; 8006F8FC
+8006F8FC	lui    a0, $800b
+8006F900	addiu  a0, a0, $f37c (=-$c84)
+8006F904	lh     v0, $0000(a0)
+8006F908	nop
+8006F90C	blez   v0, L6f958 [$8006f958]
+8006F910	addu   s1, zero, zero
+8006F914	addiu  s3, a0, $0004
+8006F918	addu   s0, s3, zero
+8006F91C	addiu  s2, a0, $0084
+
+loop6f920:	; 8006F920
+8006F920	lw     a0, $0000(s0)
+8006F924	jal    func27e1c [$80027e1c]
+8006F928	addiu  s1, s1, $0001
+8006F92C	lw     a0, $0000(s2)
+8006F930	jal    func31f0c [$80031f0c]
+8006F934	addiu  s2, s2, $0004
+8006F938	lw     a0, $0000(s0)
+8006F93C	jal    func31f0c [$80031f0c]
+8006F940	addiu  s0, s0, $0004
+8006F944	lh     v0, $fffc(s3)
+8006F948	nop
+8006F94C	slt    v0, s1, v0
+8006F950	bne    v0, zero, loop6f920 [$8006f920]
+8006F954	nop
+
+L6f958:	; 8006F958
+8006F958	jal    func37334 [$80037334]
+8006F95C	nop
+8006F960	lui    s0, $800b
+8006F964	addiu  s0, s0, $1738
+8006F968	lw     v0, $0000(s0)
+8006F96C	lui    at, $800b
+8006F970	sh     zero, $f37c(at)
+8006F974	beq    v0, zero, L6f99c [$8006f99c]
+8006F978	nop
+8006F97C	jal    func1e7fd4 [$801e7fd4]
+8006F980	nop
+8006F984	lui    a0, $800b
+8006F988	lw     a0, $cff8(a0)
+8006F98C	jal    func31f0c [$80031f0c]
+8006F990	nop
+8006F994	jal    func78fb0 [$80078fb0]
+8006F998	nop
+
+L6f99c:	; 8006F99C
+8006F99C	sw     zero, $0000(s0)
+8006F9A0	jal    func31fb0 [$80031fb0]
+8006F9A4	ori    a0, zero, $0003
+8006F9A8	jal    funca788c [$800a788c]
 ////////////////////////////////

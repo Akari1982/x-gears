@@ -255,9 +255,9 @@ return A0 + hu[A0 + A1 * 2 + 4];
 // func34404()
 offset_18 = A0;
 
-V0 = hu[offset_18 + 10];
-[offset_18 + 10] = h(V0 & fff7);
-if( V0 & 0200 )
+[offset_18 + 10] = h(hu[offset_18 + 10] & fff7);
+
+if( hu[offset_18 + 10] & 0200 )
 {
     [offset_18 + 84] = h(0); // delay time
     [offset_18 + 6c] = b(0);
@@ -302,4 +302,68 @@ else
     [S1 + 0] = w(V1);
 }
 return h[offset_18 + 82];
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func34438()
+offset_18 = A0;
+if( h[offset_18 + 84] == 0 ) // wait timer
+{
+    [offset_18 + 10] = h(hu[offset_18 + 10] & 0002); // reset flags
+    [offset_18 + 6c] = b(0);
+}
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func344f8()
+offset_18 = A0;
+
+A0 = offset_18;
+func344c8();
+
+A0 = w[offset_18 + 28];
+func31f0c(); // free memory
+
+A0 = w[offset_18 + 2c];
+func31f0c(); // free memory
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func344c8()
+offset_18 = A0;
+
+[offset_18 + 10] = h(hu[offset_18 + 10] & 0002);
+[offset_18 + 6c] = b(0);
+[offset_18 + 84] = h(0);
+
+A0 = offset_18;
+func34460();
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func34460()
+offset_18 = A0;
+if( h[offset_18 + 84] == 0 )
+{
+    S0 = w[offset_18 + 8c];
+    if( S0 != 0 )
+    {
+        loop34494:	; 80034494
+            A0 = S0;
+            S0 = w[S0];
+            func31f0c(); // free memory
+
+        800344A0	bne    s0, zero, loop34494 [$80034494]
+    }
+    [offset_18 + 8c] = w(0);
+    [offset_18 + 82] = h(0);
+}
 ////////////////////////////////

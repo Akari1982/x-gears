@@ -3,7 +3,7 @@
 80070394	sw     s1, $001c(sp)
 80070398	jal    func75924 [$80075924]
 8007039C	sw     s0, $0018(sp)
-800703A0	jal    func44448 [$80044448]
+800703A0	jal    system_draw_sync [$80044448]
 800703A4	addu   a0, zero, zero
 800703A8	jal    func4b3f4 [$8004b3f4]
 800703AC	addu   a0, zero, zero
@@ -228,7 +228,7 @@ loop706c4:	; 800706C4
 800706F0	nop
 800706F4	jal    func96be8 [$80096be8]
 800706F8	nop
-800706FC	jal    func44448 [$80044448]
+800706FC	jal    system_draw_sync [$80044448]
 80070700	addu   a0, zero, zero
 80070704	jal    func4b3f4 [$8004b3f4]
 80070708	addu   a0, zero, zero
@@ -381,9 +381,9 @@ L708f4:	; 800708F4
 80070914	addiu  a3, zero, $0040
 80070918	sh     zero, $0010(sp)
 8007091C	sh     zero, $0012(sp)
-80070920	jal    func445dc [$800445dc]
+80070920	jal    system_clear_image [$800445dc]
 80070924	sh     v0, $0016(sp)
-80070928	jal    func44448 [$80044448]
+80070928	jal    system_draw_sync [$80044448]
 8007092C	addu   a0, zero, zero
 
 L70930:	; 80070930
@@ -514,7 +514,7 @@ L70ad8:	; 80070AD8
 80070AEC	sltiu  v0, v0, $0001
 80070AF0	lui    at, $800a
 80070AF4	sw     v0, $cbd8(at)
-80070AF8	jal    func44950 [$80044950]
+80070AF8	jal    system_clear_otagr [$80044950]
 80070AFC	addiu  a1, zero, $0400
 80070B00	lui    a0, $800a
 80070B04	lw     a0, $cbd8(a0)
@@ -524,7 +524,7 @@ L70ad8:	; 80070AD8
 80070B14	nop
 80070B18	jal    func96be8 [$80096be8]
 80070B1C	nop
-80070B20	jal    func44448 [$80044448]
+80070B20	jal    system_draw_sync [$80044448]
 80070B24	addu   a0, zero, zero
 80070B28	jal    func4b3f4 [$8004b3f4]
 80070B2C	addiu  a0, zero, $0002
@@ -876,13 +876,13 @@ L70fac:	; 80070FAC
 80071024	sh     zero, $0010(sp)
 80071028	sh     v1, $0012(sp)
 8007102C	sh     v0, $0014(sp)
-80071030	jal    func447d4 [$800447d4]
+80071030	jal    system_move_image [$800447d4]
 80071034	sh     v1, $0016(sp)
 
 L71038:	; 80071038
 80071038	jal    func95a7c [$80095a7c]
 8007103C	nop
-80071040	jal    func44448 [$80044448]
+80071040	jal    system_draw_sync [$80044448]
 80071044	addu   a0, zero, zero
 80071048	jal    func4b3f4 [$8004b3f4]
 8007104C	addu   a0, zero, zero
@@ -1464,9 +1464,9 @@ func7180c:	; 8007180C
 80071888	addiu  v0, zero, $00d8
 8007188C	sh     zero, $0010(sp)
 80071890	sh     zero, $0012(sp)
-80071894	jal    func447d4 [$800447d4]
+80071894	jal    system_move_image [$800447d4]
 80071898	sh     v0, $0016(sp)
-8007189C	jal    func44448 [$80044448]
+8007189C	jal    system_draw_sync [$80044448]
 800718A0	addu   a0, zero, zero
 800718A4	addiu  a0, zero, $0040
 800718A8	addu   a1, zero, zero
@@ -2141,7 +2141,7 @@ func721d8:	; 800721D8
 800721F0	addiu  v0, zero, $0100
 800721F4	lui    at, $800a
 800721F8	sw     v0, $b0c4(at)
-800721FC	jal    func49ff4 [$80049ff4]
+800721FC	jal    system_gte_set_projection_plane_distance [$80049ff4]
 80072200	addiu  a0, zero, $0100
 80072204	lui    s1, $800a
 80072208	addiu  s1, s1, $afb0 (=-$5050)
@@ -2449,7 +2449,7 @@ loop72660:	; 80072660
 8007268C	lw     v0, $0000(a2)
 80072690	nop
 80072694	sw     v0, $0000(a3)
-80072698	jal    func44448 [$80044448]
+80072698	jal    system_draw_sync [$80044448]
 8007269C	addu   a0, zero, zero
 800726A0	jal    func4b3f4 [$8004b3f4]
 800726A4	addu   a0, zero, zero
@@ -2487,7 +2487,7 @@ L72704:	; 80072704
 L72718:	; 80072718
 80072718	addu   s0, v0, zero
 8007271C	lw     a0, $0070(v0)
-80072720	jal    func44950 [$80044950]
+80072720	jal    system_clear_otagr [$80044950]
 80072724	addiu  a1, zero, $0400
 80072728	lw     v0, $0070(s0)
 8007272C	lw     v1, $0000(s1)
@@ -2576,7 +2576,7 @@ L72814:	; 80072814
 80072870	lw     t1, $0028(sp)
 80072874	and    v0, v0, s5
 80072878	or     v0, v0, t1
-8007287C	jal    func44448 [$80044448]
+8007287C	jal    system_draw_sync [$80044448]
 80072880	sw     v0, $0000(v1)
 
 L72884:	; 80072884
@@ -2596,7 +2596,7 @@ L72884:	; 80072884
 800728B8	nop
 
 L728bc:	; 800728BC
-800728BC	jal    func44448 [$80044448]
+800728BC	jal    system_draw_sync [$80044448]
 800728C0	addu   a0, zero, zero
 800728C4	jal    func4b3f4 [$8004b3f4]
 800728C8	addu   a0, zero, zero
@@ -4654,7 +4654,7 @@ L745f4:	; 800745F4
 80074608	lh     a1, $0000(v0)
 8007460C	lw     v0, $0000(s1)
 80074610	sll    a1, a1, $04
-80074614	jal    func4470c [$8004470c]
+80074614	jal    system_load_image [$8004470c]
 80074618	addu   a1, v0, a1
 
 L7461c:	; 8007461C
@@ -4811,7 +4811,7 @@ L747cc:	; 800747CC
 80074800	mult   v1, v0
 80074804	lw     a1, $0000(s1)
 80074808	mflo   a2
-8007480C	jal    func4470c [$8004470c]
+8007480C	jal    system_load_image [$8004470c]
 80074810	addu   a1, a1, a2
 
 L74814:	; 80074814
@@ -5412,7 +5412,7 @@ L74f80:	; 80074F80
 80075048	addiu  v0, zero, $0080
 8007504C	sh     v1, $0012(sp)
 80075050	sh     v0, $0014(sp)
-80075054	jal    func44770 [$80044770]
+80075054	jal    system_store_image [$80044770]
 80075058	sh     v1, $0016(sp)
 8007505C	addiu  a0, sp, $0010
 80075060	addiu  v0, zero, $01b0
@@ -5422,7 +5422,7 @@ L74f80:	; 80074F80
 80075070	addiu  v0, zero, $0050
 80075074	sh     zero, $0010(sp)
 80075078	sh     s0, $0014(sp)
-8007507C	jal    func44770 [$80044770]
+8007507C	jal    system_store_image [$80044770]
 80075080	sh     v0, $0016(sp)
 80075084	lui    v0, $800a
 80075088	lw     v0, $cbd8(v0)
@@ -5435,7 +5435,7 @@ L74f80:	; 80074F80
 800750A4	sh     zero, $0010(sp)
 800750A8	sh     v0, $0012(sp)
 800750AC	sh     s0, $0014(sp)
-800750B0	jal    func447d4 [$800447d4]
+800750B0	jal    system_move_image [$800447d4]
 800750B4	sh     v0, $0016(sp)
 
 L750b8:	; 800750B8
@@ -5446,9 +5446,9 @@ L750b8:	; 800750B8
 800750C8	sh     zero, $0010(sp)
 800750CC	sh     zero, $0012(sp)
 800750D0	sh     s0, $0014(sp)
-800750D4	jal    func447d4 [$800447d4]
+800750D4	jal    system_move_image [$800447d4]
 800750D8	sh     v0, $0016(sp)
-800750DC	jal    func44448 [$80044448]
+800750DC	jal    system_draw_sync [$80044448]
 800750E0	addu   a0, zero, zero
 800750E4	addiu  a0, zero, $0010
 800750E8	addu   a1, zero, zero
@@ -5482,9 +5482,9 @@ loop750f8:	; 800750F8
 80075148	addiu  v0, zero, $00d8
 8007514C	sh     zero, $0010(sp)
 80075150	sh     zero, $0012(sp)
-80075154	jal    func447d4 [$800447d4]
+80075154	jal    system_move_image [$800447d4]
 80075158	sh     v0, $0016(sp)
-8007515C	jal    func44448 [$80044448]
+8007515C	jal    system_draw_sync [$80044448]
 80075160	addu   a0, zero, zero
 80075164	jal    func28870 [$80028870]
 80075168	addu   a0, zero, zero
@@ -5544,17 +5544,17 @@ func75180:	; 80075180
 80075234	addiu  v0, zero, $00d8
 80075238	sh     s0, $0012(sp)
 8007523C	sh     s1, $0014(sp)
-80075240	jal    func447d4 [$800447d4]
+80075240	jal    system_move_image [$800447d4]
 80075244	sh     v0, $0016(sp)
 80075248	addiu  a0, sp, $0010
 8007524C	addu   a1, zero, zero
-80075250	jal    func447d4 [$800447d4]
+80075250	jal    system_move_image [$800447d4]
 80075254	addiu  a2, zero, $00d8
 80075258	lui    v0, $800a
 8007525C	lw     v0, $b224(v0)
 80075260	nop
 80075264	lw     a0, $0070(v0)
-80075268	jal    func44950 [$80044950]
+80075268	jal    system_clear_otagr [$80044950]
 8007526C	addiu  a1, zero, $0400
 80075270	jal    func28870 [$80028870]
 80075274	addu   a0, zero, zero
@@ -5568,7 +5568,7 @@ func75180:	; 80075180
 80075294	addiu  v0, zero, $0080
 80075298	sh     s0, $0012(sp)
 8007529C	sh     v0, $0014(sp)
-800752A0	jal    func4470c [$8004470c]
+800752A0	jal    system_load_image [$8004470c]
 800752A4	sh     s0, $0016(sp)
 800752A8	addiu  a0, sp, $0010
 800752AC	lui    a1, $800a
@@ -5578,9 +5578,9 @@ func75180:	; 80075180
 800752BC	addiu  v0, zero, $0050
 800752C0	sh     zero, $0010(sp)
 800752C4	sh     s1, $0014(sp)
-800752C8	jal    func4470c [$8004470c]
+800752C8	jal    system_load_image [$8004470c]
 800752CC	sh     v0, $0016(sp)
-800752D0	jal    func44448 [$80044448]
+800752D0	jal    system_draw_sync [$80044448]
 800752D4	addu   a0, zero, zero
 800752D8	lui    a0, $800a
 800752DC	lw     a0, $bbe8(a0)
@@ -5884,13 +5884,13 @@ L7590c:	; 8007590C
 func75924:	; 80075924
 80075924	addiu  sp, sp, $ffe8 (=-$18)
 80075928	sw     ra, $0010(sp)
-8007592C	jal    func44448 [$80044448]
+8007592C	jal    system_draw_sync [$80044448]
 80075930	addu   a0, zero, zero
 80075934	jal    func4b3f4 [$8004b3f4]
 80075938	addu   a0, zero, zero
 8007593C	jal    func4034c [$8004034c]
 80075940	nop
-80075944	jal    func44448 [$80044448]
+80075944	jal    system_draw_sync [$80044448]
 80075948	addu   a0, zero, zero
 8007594C	jal    func4b3f4 [$8004b3f4]
 80075950	addu   a0, zero, zero
@@ -5911,7 +5911,7 @@ func75974:	; 80075974
 80075980	lw     s1, $8b24(s1)
 80075984	addu   a0, zero, zero
 80075988	sw     ra, $0020(sp)
-8007598C	jal    func44448 [$80044448]
+8007598C	jal    system_draw_sync [$80044448]
 80075990	sw     s0, $0018(sp)
 80075994	jal    func4b3f4 [$8004b3f4]
 80075998	addu   a0, zero, zero
@@ -5927,7 +5927,7 @@ func75974:	; 80075974
 800759C0	sh     zero, $0010(sp)
 800759C4	sh     v1, $0012(sp)
 800759C8	sh     v0, $0014(sp)
-800759CC	jal    func447d4 [$800447d4]
+800759CC	jal    system_move_image [$800447d4]
 800759D0	sh     v1, $0016(sp)
 
 L759d4:	; 800759D4
@@ -5941,7 +5941,7 @@ L759d4:	; 800759D4
 800759F0	nop
 
 loop759f4:	; 800759F4
-800759F4	jal    func44448 [$80044448]
+800759F4	jal    system_draw_sync [$80044448]
 800759F8	addu   a0, zero, zero
 800759FC	jal    func4b3f4 [$8004b3f4]
 80075A00	addu   a0, zero, zero
@@ -6020,7 +6020,7 @@ L75b00:	; 80075B00
 80075B14	nop
 80075B18	jal    func37d34 [$80037d34]
 80075B1C	nop
-80075B20	jal    func44448 [$80044448]
+80075B20	jal    system_draw_sync [$80044448]
 80075B24	addu   a0, zero, zero
 80075B28	jal    func4b3f4 [$8004b3f4]
 80075B2C	addu   a0, zero, zero
@@ -6032,7 +6032,7 @@ L75b00:	; 80075B00
 80075B44	addiu  v0, zero, $00d8
 80075B48	sh     zero, $0010(sp)
 80075B4C	sh     zero, $0012(sp)
-80075B50	jal    func447d4 [$800447d4]
+80075B50	jal    system_move_image [$800447d4]
 80075B54	sh     v0, $0016(sp)
 80075B58	lui    v0, $800a
 80075B5C	lw     v0, $cbd8(v0)
@@ -6840,9 +6840,9 @@ L765f4:	; 800765F4
 80076620	addiu  v0, zero, $00d8
 80076624	sh     zero, $0010(sp)
 80076628	sh     zero, $0012(sp)
-8007662C	jal    func447d4 [$800447d4]
+8007662C	jal    system_move_image [$800447d4]
 80076630	sh     v0, $0016(sp)
-80076634	jal    func44448 [$80044448]
+80076634	jal    system_draw_sync [$80044448]
 80076638	addu   a0, zero, zero
 8007663C	addiu  a0, zero, $0040
 80076640	addu   a1, zero, zero
@@ -7308,7 +7308,7 @@ L76c44:	; 80076C44
 80076D0C	andi   v0, v0, $0fff
 80076D10	lui    at, $800a
 80076D14	sh     v0, $b122(at)
-80076D18	jal    func49ff4 [$80049ff4]
+80076D18	jal    system_gte_set_projection_plane_distance [$80049ff4]
 80076D1C	nop
 80076D20	addiu  v0, zero, $0001
 80076D24	lw     ra, $0018(sp)
@@ -7406,11 +7406,11 @@ L76dd8:	; 80076DD8
 80076E70	addiu  v0, zero, $00d8
 80076E74	sh     zero, $0010(sp)
 80076E78	sh     zero, $0012(sp)
-80076E7C	jal    func447d4 [$800447d4]
+80076E7C	jal    system_move_image [$800447d4]
 
 L76e80:	; 80076E80
 80076E80	sh     v0, $0016(sp)
-80076E84	jal    func44448 [$80044448]
+80076E84	jal    system_draw_sync [$80044448]
 80076E88	addu   a0, zero, zero
 80076E8C	addiu  a0, zero, $0040
 80076E90	addu   a1, zero, zero
@@ -8494,9 +8494,9 @@ L77dd4:	; 80077DD4
 80077E6C	addiu  v0, zero, $00d8
 80077E70	sh     zero, $0010(sp)
 80077E74	sh     zero, $0012(sp)
-80077E78	jal    func447d4 [$800447d4]
+80077E78	jal    system_move_image [$800447d4]
 80077E7C	sh     v0, $0016(sp)
-80077E80	jal    func44448 [$80044448]
+80077E80	jal    system_draw_sync [$80044448]
 80077E84	addu   a0, zero, zero
 80077E88	addiu  a0, zero, $0040
 80077E8C	addu   a1, zero, zero
@@ -10326,9 +10326,9 @@ L79954:	; 80079954
 800799E8	addiu  v0, zero, $00d8
 800799EC	sh     zero, $0010(sp)
 800799F0	sh     zero, $0012(sp)
-800799F4	jal    func447d4 [$800447d4]
+800799F4	jal    system_move_image [$800447d4]
 800799F8	sh     v0, $0016(sp)
-800799FC	jal    func44448 [$80044448]
+800799FC	jal    system_draw_sync [$80044448]
 80079A00	addu   a0, zero, zero
 80079A04	addiu  a0, zero, $0040
 80079A08	addu   a1, zero, zero
@@ -12049,9 +12049,9 @@ L7b308:	; 8007B308
 8007B35C	addiu  v0, zero, $00d8
 8007B360	sh     zero, $0010(sp)
 8007B364	sh     zero, $0012(sp)
-8007B368	jal    func447d4 [$800447d4]
+8007B368	jal    system_move_image [$800447d4]
 8007B36C	sh     v0, $0016(sp)
-8007B370	jal    func44448 [$80044448]
+8007B370	jal    system_draw_sync [$80044448]
 8007B374	addu   a0, zero, zero
 8007B378	addiu  a0, zero, $0040
 8007B37C	addu   a1, zero, zero
@@ -13807,9 +13807,9 @@ L7cce8:	; 8007CCE8
 8007CD28	addiu  v0, zero, $00d8
 8007CD2C	sh     zero, $0010(sp)
 8007CD30	sh     zero, $0012(sp)
-8007CD34	jal    func447d4 [$800447d4]
+8007CD34	jal    system_move_image [$800447d4]
 8007CD38	sh     v0, $0016(sp)
-8007CD3C	jal    func44448 [$80044448]
+8007CD3C	jal    system_draw_sync [$80044448]
 8007CD40	addu   a0, zero, zero
 8007CD44	addiu  a0, zero, $0040
 8007CD48	addu   a1, zero, zero
@@ -16390,9 +16390,9 @@ L7f338:	; 8007F338
 8007F37C	addiu  v0, zero, $00d8
 8007F380	sh     zero, $0010(sp)
 8007F384	sh     zero, $0012(sp)
-8007F388	jal    func447d4 [$800447d4]
+8007F388	jal    system_move_image [$800447d4]
 8007F38C	sh     v0, $0016(sp)
-8007F390	jal    func44448 [$80044448]
+8007F390	jal    system_draw_sync [$80044448]
 8007F394	addu   a0, zero, zero
 8007F398	addiu  a0, zero, $0040
 8007F39C	addu   a1, zero, zero
@@ -17339,9 +17339,9 @@ L800cc:	; 800800CC
 80080110	addiu  v0, zero, $00d8
 80080114	sh     zero, $0010(sp)
 80080118	sh     zero, $0012(sp)
-8008011C	jal    func447d4 [$800447d4]
+8008011C	jal    system_move_image [$800447d4]
 80080120	sh     v0, $0016(sp)
-80080124	jal    func44448 [$80044448]
+80080124	jal    system_draw_sync [$80044448]
 80080128	addu   a0, zero, zero
 8008012C	addiu  a0, zero, $0040
 80080130	addu   a1, zero, zero
@@ -18902,9 +18902,9 @@ L816f0:	; 800816F0
 80081734	addiu  v0, zero, $00d8
 80081738	sh     zero, $0010(sp)
 8008173C	sh     zero, $0012(sp)
-80081740	jal    func447d4 [$800447d4]
+80081740	jal    system_move_image [$800447d4]
 80081744	sh     v0, $0016(sp)
-80081748	jal    func44448 [$80044448]
+80081748	jal    system_draw_sync [$80044448]
 8008174C	addu   a0, zero, zero
 80081750	addiu  a0, zero, $0040
 80081754	addu   a1, zero, zero
@@ -20127,7 +20127,7 @@ L8285c:	; 8008285C
 800828E0	bne    v1, v0, L82934 [$80082934]
 800828E4	nop
 800828E8	sh     zero, $0004(a0)
-800828EC	jal    func44448 [$80044448]
+800828EC	jal    system_draw_sync [$80044448]
 800828F0	addu   a0, zero, zero
 800828F4	jal    func4b3f4 [$8004b3f4]
 800828F8	addu   a0, zero, zero
@@ -20166,9 +20166,9 @@ L82934:	; 80082934
 80082968	addiu  v0, zero, $00d8
 8008296C	sh     zero, $0010(sp)
 80082970	sh     zero, $0012(sp)
-80082974	jal    func447d4 [$800447d4]
+80082974	jal    system_move_image [$800447d4]
 80082978	sh     v0, $0016(sp)
-8008297C	jal    func44448 [$80044448]
+8008297C	jal    system_draw_sync [$80044448]
 80082980	addu   a0, zero, zero
 80082984	addiu  a0, zero, $0040
 80082988	addu   a1, zero, zero
@@ -21169,7 +21169,7 @@ func837f4:	; 800837F4
 80083844	addu   s3, v0, zero
 80083848	jal    func2db30 [$8002db30]
 8008384C	addu   a0, s3, zero
-80083850	jal    func44448 [$80044448]
+80083850	jal    system_draw_sync [$80044448]
 80083854	addu   a0, zero, zero
 80083858	jal    func31f0c [$80031f0c]
 8008385C	addu   a0, s3, zero
@@ -21194,9 +21194,9 @@ func837f4:	; 800837F4
 800838A8	sh     zero, $0010(sp)
 800838AC	sh     s1, $0012(sp)
 800838B0	sh     s0, $0014(sp)
-800838B4	jal    func44770 [$80044770]
+800838B4	jal    system_store_image [$80044770]
 800838B8	sh     v1, $0016(sp)
-800838BC	jal    func44448 [$80044448]
+800838BC	jal    system_draw_sync [$80044448]
 800838C0	addu   a0, zero, zero
 800838C4	addu   a0, s3, zero
 800838C8	addu   a1, s4, zero
@@ -21211,9 +21211,9 @@ func837f4:	; 800837F4
 L838e8:	; 800838E8
 800838E8	sh     s1, $0012(sp)
 800838EC	sh     s0, $0014(sp)
-800838F0	jal    func4470c [$8004470c]
+800838F0	jal    system_load_image [$8004470c]
 800838F4	sh     v0, $0016(sp)
-800838F8	jal    func44448 [$80044448]
+800838F8	jal    system_draw_sync [$80044448]
 800838FC	addu   a0, zero, zero
 
 loop83900:	; 80083900
@@ -43308,7 +43308,7 @@ func96db0:	; 80096DB0
 80096DEC	addu   a0, s4, zero
 
 L96df0:	; 80096DF0
-80096DF0	jal    func44448 [$80044448]
+80096DF0	jal    system_draw_sync [$80044448]
 80096DF4	addu   a0, zero, zero
 80096DF8	jal    func31f0c [$80031f0c]
 80096DFC	addu   a0, s4, zero
@@ -43335,9 +43335,9 @@ L96e44:	; 80096E44
 80096E48	addu   s5, v0, zero
 80096E4C	sh     zero, $0010(sp)
 80096E50	sh     s1, $0014(sp)
-80096E54	jal    func44770 [$80044770]
+80096E54	jal    system_store_image [$80044770]
 80096E58	sh     v1, $0016(sp)
-80096E5C	jal    func44448 [$80044448]
+80096E5C	jal    system_draw_sync [$80044448]
 80096E60	addu   a0, zero, zero
 80096E64	addu   a0, s4, zero
 80096E68	addu   a1, s5, zero
@@ -43360,9 +43360,9 @@ L96e98:	; 80096E98
 80096EA4	addiu  v0, zero, $0040
 80096EA8	sh     zero, $0010(sp)
 80096EAC	sh     s1, $0014(sp)
-80096EB0	jal    func4470c [$8004470c]
+80096EB0	jal    system_load_image [$8004470c]
 80096EB4	sh     v0, $0016(sp)
-80096EB8	jal    func44448 [$80044448]
+80096EB8	jal    system_draw_sync [$80044448]
 80096EBC	addu   a0, zero, zero
 
 loop96ec0:	; 80096EC0

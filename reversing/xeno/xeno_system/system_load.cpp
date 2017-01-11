@@ -376,7 +376,7 @@ if( A0 != 0 )
 80019BA0	addu   a0, zero, zero
 80019BA4	jal    func36298 [$80036298]
 80019BA8	addu   a0, zero, zero
-80019BAC	jal    func44448 [$80044448]
+80019BAC	jal    system_draw_sync [$80044448]
 80019BB0	addu   a0, zero, zero
 80019BB4	jal    func4b3f4 [$8004b3f4]
 80019BB8	ori    a0, zero, $0002
@@ -404,7 +404,7 @@ if( w[S1 + c] != 0 )
     system_extract_archive();
 
     A0 = 0;
-    80019C1C	jal    func44448 [$80044448]
+    80019C1C	jal    system_draw_sync [$80044448]
 
     80019C28	addu   a0, zero, zero
     80019C24	jal    func4b3f4 [$8004b3f4]
@@ -412,7 +412,7 @@ if( w[S1 + c] != 0 )
     80019C2C	jal    func4034c [$8004034c]
 
     80019C38	addu   a0, zero, zero
-    80019C34	jal    func44448 [$80044448]
+    80019C34	jal    system_draw_sync [$80044448]
 
     80019C40	addu   a0, zero, zero
     80019C3C	jal    func4b3f4 [$8004b3f4]
@@ -466,7 +466,7 @@ if( ( w[80010000] + 1 ) >= 2 )
 80019E34	ori    v0, zero, $01e0
 80019E38	sh     zero, $0110(sp)
 80019E3C	sh     zero, $0112(sp)
-80019E40	jal    func445dc [$800445dc]
+80019E40	jal    system_clear_image [$800445dc]
 80019E44	sh     v0, $0116(sp)
 
 L19e48:	; 80019E48
@@ -750,36 +750,6 @@ if( w[8004f4ec] != 0 )
     return w[8004f4ec] + V0 * 40;
 }
 return 0;
-////////////////////////////////
-
-
-
-////////////////////////////////
-// func445dc()
-800445E4	addu   s3, a0, zero
-800445E8	lui    a0, $8002
-800445EC	addiu  a0, a0, $9214 (=-$6dec)
-800445F4	addu   s2, a1, zero
-800445F8	addu   a1, s3, zero
-80044600	addu   s1, a2, zero
-8004460C	jal    func444b4 [$800444b4]
-80044610	addu   s0, a3, zero
-
-80044614	addu   a1, s3, zero
-80044618	andi   s0, s0, $00ff
-8004461C	sll    s0, s0, $10
-80044620	andi   s1, s1, $00ff
-80044624	sll    s1, s1, $08
-80044628	or     s0, s0, s1
-8004462C	andi   s2, s2, $00ff
-80044630	lui    v0, $8005
-80044634	lw     v0, $5f68(v0)
-80044638	addiu  a2, zero, $0008
-8004463C	lw     a0, $000c(v0)
-80044640	lw     v0, $0008(v0)
-80044644	nop
-80044648	jalr   v0 ra
-8004464C	or     a3, s0, s2
 ////////////////////////////////
 
 

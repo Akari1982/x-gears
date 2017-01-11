@@ -22,9 +22,9 @@ A1 = V0 + A1;
 
 if (A0 == 0)
 {
-    A0 = 800AEABC + T0;
+    A0 = 800aeabc + T0;
     A1 = [A1];
-    func447d4 [$800447d4]
+    system_move_image()
 }
 else
 {
@@ -32,7 +32,7 @@ else
     A1 = 0;
     A2 = 0;
     A3 = 0;
-    func445dc [$800445dc]
+    system_clear_image [$800445dc]
 }
 
 80091168	lui    v0, $800b

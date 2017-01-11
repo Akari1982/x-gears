@@ -1200,7 +1200,7 @@ read_two_bytes_with_80;
 A0 = V0;
 [800aeecc] = w(A0);
 
-func49ff4;
+system_gte_set_projection_plane_distance();
 
 // move script pointer by 7
 V1 = w[800af54c];

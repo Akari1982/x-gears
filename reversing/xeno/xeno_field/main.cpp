@@ -209,7 +209,7 @@ if( hu[800c2dd4] & 0800 ) // start repeated
 
             loop77884:	; 80077884
                 80077888	addu   a0, zero, zero
-                80077884	jal    func44448 [$80044448]
+                80077884	jal    system_draw_sync [$80044448]
 
                 80077890	ori    a0, zero, $0002
                 8007788C	jal    func4b3f4 [$8004b3f4]
@@ -705,7 +705,7 @@ L780cc:	; 800780CC
 800780F0	nop
 800780F4	jal    func7f5fc [$8007f5fc]
 800780F8	nop
-800780FC	jal    func44448 [$80044448]
+800780FC	jal    system_draw_sync [$80044448]
 80078100	addu   a0, zero, zero
 80078104	jal    func4b3f4 [$8004b3f4]
 80078108	addu   a0, zero, zero
@@ -808,7 +808,7 @@ if( w[800c1b60] == 0 )
 80074D28	ori    a0, zero, $0001
 80074D2C	lui    at, $800b
 80074D30	sw     v0, $d078(at)
-80074D34	jal    func44448 [$80044448]
+80074D34	jal    system_draw_sync [$80044448]
 80074D38	addu   a0, zero, zero
 80074D3C	jal    func7fc08 [$8007fc08]
 
@@ -853,7 +853,7 @@ L74da8:	; 80074DA8
 80074DDC	sh     v0, $0014(sp)
 80074DE0	ori    v0, zero, $00e0
 80074DE4	sh     v0, $0016(sp)
-80074DE8	jal    func447d4 [$800447d4]
+80074DE8	jal    system_move_image [$800447d4]
 80074DEC	sll    a2, a2, $08
 80074DF0	j      L74e10 [$80074e10]
 80074DF4	nop
@@ -865,7 +865,7 @@ L74df8:	; 80074DF8
 80074E04	addu   a3, zero, zero
 
 L74e08:	; 80074E08
-80074E08	jal    func445dc [$800445dc]
+80074E08	jal    system_clear_image [$800445dc]
 80074E0C	addiu  a0, a0, $005c
 
 L74e10:	; 80074E10
@@ -907,7 +907,7 @@ if( w[800c1b60] == 0 )
 80074EA0	lw     a1, $ed50(a1)
 80074EA4	lui    a0, $800b
 80074EA8	addiu  a0, a0, $f12c (=-$ed4)
-80074EAC	jal    func4470c [$8004470c]
+80074EAC	jal    system_load_image [$8004470c]
 80074EB0	nop
 80074EB4	lui    at, $800b
 80074EB8	sw     zero, $d08c(at)

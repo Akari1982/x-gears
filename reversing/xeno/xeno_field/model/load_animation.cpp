@@ -883,7 +883,7 @@ FC511E80 49
         801E458C	sll    a1, a1, $10
         801E4590	sra    a1, a1, $10
         801E4594	sll    a2, a2, $10
-        801E4598	jal    func447d4 [$800447d4]
+        801E4598	jal    system_move_image [$800447d4]
         801E459C	sra    a2, a2, $10
         801E45A0	j      L1e5974 [$801e5974]
         801E45A4	nop
