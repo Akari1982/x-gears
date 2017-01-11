@@ -108,7 +108,10 @@
     + 38 [][][][] rotation dta for some sprite animation if flag 0x2000 in sprite animation data not set.
     + 3d []       if this != 0 then we use +38 to calculate rotation matrix for sprite animation (if flag 0x2000 not set).
     +1ac [][]     store 4 here when we start parse model and animation.
+    +1b0 [][][][] pointer to start of allocated memory.
     +1c0 [][][][] store 0 here when we start parse model and animation.
+    +1cc [][][][] store size of allocated data here.
+    +1d0 [][][][] place in code from where we call current function.
 
 
 800589a8 [][]     store tex page setting here during initialization.

@@ -1,5 +1,5 @@
 ////////////////////////////////
-// func301d8
+// func301d8()
 part_header = A0;
 offset_1c = w[part_header + 1c];
 S4 = A1; // 0
@@ -10,10 +10,9 @@ if( offset_1c == 0 )
 }
 
 [GP + 1a8] = h(2b);
-
 A0 = w[offset_1c] * 20 + 14;
 A1 = S4;
-system_memory_allocate;
+system_memory_allocate();
 S1 = V0;
 
 [S1 + 0] = w(part_header);
@@ -22,12 +21,11 @@ S1 = V0;
 [S1 + c] = w(w[offset_1c]);
 [S1 + 10] = w(S1 + 14);
 
-[GP + 1a8] = h(2c);
-
 // allocate new vertex block
+[GP + 1a8] = h(2c);
 A0 = hu[part_header + 2] * 8;
 A1 = S4;
-system_memory_allocate;
+system_memory_allocate();
 [part_header + 8] = w(V0);
 
 // copy vertexes to new position
@@ -49,7 +47,7 @@ if( hu[part_header + 0] & 0010 )
     [GP + 1a8] = h(2d);
     A0 = hu[part_header + 2] * 8;
     A1 = S4;
-    system_memory_allocate;
+    system_memory_allocate();
     [part_header + c] = w(V0);
 
     // copy vertexes to new position
@@ -139,7 +137,7 @@ return T2;
 
 
 ////////////////////////////////
-// func2c454
+// func2c454()
 part_header = A0;
 if( ( w[part_header + 4] & 00000002 ) == 0 )
 {
@@ -147,31 +145,11 @@ if( ( w[part_header + 4] & 00000002 ) == 0 )
 
     A0 = part_header;
     A1 = w[part_header + 24] - part_header;
-    func31d94;
+    func31d94();
 
     return 0;
 }
 return 1;
-////////////////////////////////
-
-
-
-////////////////////////////////
-// func31d94
-part_header = A0;
-offset24 = A1;
-
-T2 = w[part_header - 8];
-if( offset24 + 10 < T2 - part_header - 8 )
-{
-    [GP + 1bc] = w(1);
-    [part_header + offset24 + 0] = w(T2);
-    [part_header + offset24 + 4] = w(w[part_header + offset24 + 4] & fe1fffff & 03ffffff | 84000000 & ffe00000 & fdffffff);
-    [part_header - 8] = w(part_header + offset24 + 8);
-    return part_header - 8;
-}
-
-return 0;
 ////////////////////////////////
 
 
@@ -197,10 +175,9 @@ if( ( hu[part_data + 0] & 1 ) == 0 ) // if buffer not allocated
         if( light_flags != 0 ) // if we calculate lighting
         {
             [GP + 1a8] = h(26);
-
             A0 = w[part_data + 30];
             A1 = 0;
-            system_memory_allocate;
+            system_memory_allocate();
             [part_data + 18] = w(V0);
 
             [part_data + 0] = h(hu[part_data + 0] | 1);
@@ -327,10 +304,9 @@ S1 = A1;
 S2 = A2;
 
 [GP + 1a8] = h(25);
-
 A0 = w[S0 + 34] * 2;
 A1 = 0;
-system_memory_allocate;
+system_memory_allocate();
 
 [S1] = w(V0);
 [S2] = w(V0 + w[S0 + 34]);

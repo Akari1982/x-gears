@@ -23,10 +23,10 @@ func28870(); // ececute till cd sync
 if( w[8004e9d8] != -1 )
 {
     A0 = w[80059b70];
-    [A0 - 4] = w(w[A0 - 4] & fdffffff);
+    func31edc(); // mark memory for release
 
     A0 = w[80059b70];
-    func31f0c();
+    func31f0c(); // release memory
 }
 
 
@@ -94,7 +94,7 @@ system_memory_allocate();
 [80059b70] = w(V0);
 
 A0 = V0;
-[A0 - 4] = w(w[A0 - 4] | 02000000);
+func31ec8(); // mark keep memory
 
 A0 = S0;
 A1 = w[80059b70];

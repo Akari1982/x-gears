@@ -26049,60 +26049,10 @@ func319d4:	; 800319D4
 
 
 
-func31e1c:	; 80031E1C
-80031E1C	lw     v0, $01b0(gp)
-80031E20	nop
-80031E24	addiu  a1, v0, $fff8 (=-$8)
-80031E28	lw     v0, $fffc(v0)
-80031E2C	lui    v1, $01e0
-80031E30	and    v0, v0, v1
-80031E34	lui    v1, $0020
-80031E38	beq    v0, v1, L31ebc [$80031ebc]
-80031E3C	nop
-80031E40	lui    a3, $01e0
-80031E44	lui    t0, $0020
-
-loop31e48:	; 80031E48
-80031E48	lw     a0, $0004(a1)
-80031E4C	nop
-80031E50	and    v0, a0, a3
-80031E54	bne    v0, zero, L31ea0 [$80031ea0]
-80031E58	nop
-80031E5C	lw     v1, $0000(a1)
-80031E60	nop
-80031E64	lw     v0, $fffc(v1)
-80031E68	nop
-80031E6C	and    v0, v0, a3
-80031E70	bne    v0, zero, L31ea4 [$80031ea4]
-80031E74	nop
-80031E78	lui    a2, $01e0
-80031E7C	and    a0, a0, a2
-
-loop31e80:	; 80031E80
-80031E80	lw     v1, $fff8(v1)
-80031E84	bne    a0, zero, L31ea0 [$80031ea0]
-80031E88	sw     v1, $0000(a1)
-80031E8C	lw     v0, $fffc(v1)
-80031E90	nop
-80031E94	and    v0, v0, a2
-80031E98	beq    v0, zero, loop31e80 [$80031e80]
-80031E9C	nop
-
-L31ea0:	; 80031EA0
-80031EA0	lw     v1, $0000(a1)
-
-L31ea4:	; 80031EA4
-80031EA4	nop
-80031EA8	lw     v0, $fffc(v1)
-80031EAC	nop
-80031EB0	and    v0, v0, a3
-80031EB4	bne    v0, t0, loop31e48 [$80031e48]
-80031EB8	addiu  a1, v1, $fff8 (=-$8)
-
-L31ebc:	; 80031EBC
-80031EBC	sw     zero, $01bc(gp)
-80031EC0	jr     ra 
-80031EC4	nop
+////////////////////////////////
+// func31e1c
+80031E1C-80031EC4
+////////////////////////////////
 
 
 

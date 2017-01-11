@@ -97,21 +97,24 @@ func76c88();
 
 800A5198	jal    func6f740 [$8006f740]
 
+// allocate new place for field
 A0 = w[80059b50];
 A1 = 0;
-system_memory_allocate;
+system_memory_allocate();
 S0 = V0;
 
 A0 = S0; // to here
 A1 = w[80059b70]; // from here
 A2 = w[80059b50]; // this much
-system_copy_memory;
+system_copy_memory();
 
 A0 = w[80059b70];
-[A0 - 4] = w(w[A0 - 4] & fdffffff);
+func31edc(); // mark memory for release
 
 A0 = w[80059b70];
-800A51E4	jal    func31f0c [$80031f0c]
+func31f0c(); // release memory
+
+
 
 800A51EC	lui    v1, $800b
 800A51F0	lw     v1, $f51c(v1)
@@ -133,10 +136,10 @@ A2 = w[80059b50]; // this much
 system_copy_memory; // copy clut/texture data
 
 A0 = w[80059b70];
-[A0 - 4] = w(w[A0 - 4] | 02000000);
+func31ec8(); // mark keep memory
 
-800A5248	addu   a0, s0, zero
-800A5244	jal    func31f0c [$80031f0c]
+A0 = S0;
+func31f0c(); // release memory
 
 800A524C	lui    v1, $800b
 800A5250	lw     v1, $f51c(v1)
@@ -368,10 +371,9 @@ func284dc(); // wait for command to finish
 800A5594	nop
 
 La5598:	; 800A5598
-800A5598	lui    a0, $800b
-800A559C	lw     a0, $d0ec(a0)
-800A55A0	jal    func31f0c [$80031f0c]
-800A55A4	nop
+A0 = w[800ad0ec];
+func31f0c(); // release memory
+
 800A55A8	lui    at, $800b
 800A55AC	sw     zero, $d038(at)
 800A55B0	jal    func78270 [$80078270]
@@ -739,10 +741,10 @@ A0 = 0;
 80070628	jal    func44448 [$80044448]
 
 A0 = S2;
-func31f0c();
+func31f0c(); // release memory
 
 A0 = S4;
-func31f0c();
+func31f0c(); // release memory
 
 
 
@@ -1016,10 +1018,10 @@ func7d4e0();
 80070C54	jal    func710f4 [$800710f4]
 
 A0 = w[80059b70];
-[A0 - 4] = w(w[A0 - 4] & fdffffff);
+func31edc(); // mark memory to release
 
 A0 = w[80059b70];
-80070C74	jal    func31f0c [$80031f0c]
+func31f0c(); // release memory
 
 A0 = 5;
 A1 = 0;
