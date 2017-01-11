@@ -168,7 +168,7 @@
         + 5c [][][][] pointer to animation data in sprite data file 0 + 6, set when sprite has only two directions (one animation sequence).
         + 60 [][][][] pointer to 1st animation data in sprite data file 0.
         + 64 [][][][] current pointer to sprite sequence data from file 0. Init with 0.
-        + 68 [][][][] init with 0.
+        + 68 [][][][] init with 0. Pointer to callback func func76104. This callback adds flag 0x00010000 to +4 in struct_138.
         + 6c [][][][] init with 0. Pointer to itself (allocated struct start).
         + 70 [][][][] init with 0.
         + 7c [][][][] pointer to +f4.
@@ -221,7 +221,7 @@
             + 24 [][][][] translation y.
             + 28 [][][][] translation z.
             + 2c [][][][] pointer to allocated data for tiles data.
-            + 30 [][][][] pointer to allocated current render tile data
+            + 30 [][][][] pointer to allocated current render tile data.
                 + 0 [][]     x tile pos
                 + 2 [][]     y tile pos
                 + 4 []       texture x
@@ -246,8 +246,9 @@
             +  0 [][][][] init with 0.
             +  4 [][][][] init with 0.
             +  8 [][][][] init with 0.
-            +  c [][]     init with 0.
+            +  c [][]     init with 0. If this is 0xff then do something during initialization.
             +  e [][][][] some tx.
+            + 14 [][]     this entity id (used to get access to whole struct from 0x164 struct).
             + 18 [][][][] init with 0. Some pointer.
             + 38 [][][][] init with 0.
         +110 start of texture data for sprite
@@ -368,7 +369,7 @@
         +  72 [][]     store current Y pos here.
         +  74 []       follow entity id. Init with 0xff. We dont calculate interaction with this entity.
         +  75 []       init with 0xff.
-        +  76 [][]     init with 0x0100.
+        +  76 [][]     move speed. Init with 0x0100.
         +  80 []       store character id here when we set avatar. Init with 0xff.
         +  81 []       store something from here to memory block + 14. Dialog related. Maybe cursor position.
         +  82 []       dialog width. Init with 0.
@@ -401,9 +402,9 @@
         +  ea [][]     init with 0xff. We store animation id to play here in SpritePlayAnimation.
         +  ec [][][][] init with 0 when set position by x z. Init with 0.
         +  f0 [][][][] init with 0 when set position by x z.
-        +  f4 [][]     init with 0x1000. X related.
-        +  f6 [][]     init with 0x1000. Y related.
-        +  f8 [][]     init with 0x1000. Z related.
+        +  f4 [][]     init with 0x1000. speed X.
+        +  f6 [][]     init with 0x1000. speed Y.
+        +  f8 [][]     init with 0x1000. speed Z.
         +  fc []       init with 0x80.
         +  fd []       init with 0x80.
         +  fe []       init with 0x80.
@@ -539,6 +540,9 @@
 
 800b1818 [][]     do something animation related during movement if this is 0.
 800b181a [][]     maybe default animation id. Init with 3.
+800b181e [][]     init with 0x40.
+800b1820 [][]     init with 0xff.
+800b182a []       init with 0x5.
 
 800b1834 array of stored index to party character data (somewhere in 800b09d8) (0x4 size)
 
@@ -649,6 +653,7 @@
 + 0018 [][]     slot2 for dialog temp variable.
 + 001a [][]     slot3 for dialog temp variable.
 + 001c [][]     slot4 for dialog temp variable.
++ 003c [][]     store loaded field id to load here.
 800c373c [][][][] maybe number of inited windows.
 800c3740          end of memory block.
 

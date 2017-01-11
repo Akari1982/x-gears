@@ -56,6 +56,7 @@ ScriptManager::InitBinds()
     [
         luabind::class_< Entity >( "Entity" )
             .def( "init_pc", ( void( Entity::* )( const int ) ) &Entity::ScriptInitPC )
+            .def( "init_npc", ( void( Entity::* )( const int ) ) &Entity::ScriptInitNPC )
             .def( "input", ( void( Entity::* )() ) &Entity::ScriptInput )
     ];
 

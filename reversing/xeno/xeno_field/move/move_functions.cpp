@@ -1371,13 +1371,11 @@ if( ( hu[struct_5c + 58] & 0040 ) == 0 ) // this is model
 
     A0 = rotation & 0fff;
     system_cos();
-    [struct_164 + c] = w(((V0 * S1) >> c) * h[struct_138 + f4]);
-    [struct_164 + c] = w(w[struct_164 + c] & fffff000);
+    [struct_164 + c] = w((((V0 * S1) >> c) * h[struct_138 + f4]) & fffff000);
 
     A0 = rotation & 0fff;
     system_sin();
-    [struct_164 + 14] = w(((0 - (V0 * S1)) >> c) * h[struct_138 + f8]);
-    [struct_164 + 14] = w(w[struct_164 + 14] & fffff000);
+    [struct_164 + 14] = w((((0 - (V0 * S1)) >> c) * h[struct_138 + f8]) & fffff000);
 }
 else if( ( w[struct_138 + 4] & 00002000 ) == 0 )
 {

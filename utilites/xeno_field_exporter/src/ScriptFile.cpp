@@ -112,7 +112,7 @@ ScriptFile::GetScripts( const int file_id )
 
                 if( opcode == 0x00 )
                 {
-                    export_script->Log( "return;" );
+                    export_script->Log( "return 0" );
                 }
                 else if( opcode == 0x01 )
                 {
@@ -170,7 +170,7 @@ ScriptFile::GetScripts( const int file_id )
                 }
                 else if( opcode == 0x0b )
                 {
-                    export_script->Log("-- 0x0B_EntityNPCSpriteInit( sprite_id=" + GetV80Variable( script_pointer ) + " );");
+                    export_script->Log( "self.entity:init_npc( " + GetV80Variable( script_pointer ) + " )" );
                     script_pointer += 2;
                 }
                 else if( opcode == 0x0c )
@@ -179,7 +179,7 @@ ScriptFile::GetScripts( const int file_id )
                 }
                 else if (opcode == 0x16)
                 {
-                    export_script->Log( "entity:init_pc( " + GetV80Variable( script_pointer ) + " );" );
+                    export_script->Log( "self.entity:init_pc( " + GetV80Variable( script_pointer ) + " )" );
                     script_pointer += 2;
                 }
                 else if( opcode == 0x19 )
@@ -407,7 +407,7 @@ ScriptFile::GetV80Variable( const u32 script_pointer )
     u16 data = GetU16LE( script_pointer );
     if( data & 0x8000 )
     {
-        return "0x" + HexToString( GetU16LE( script_pointer ) & 0x7fff, 4, '0' );
+        return IntToString( GetU16LE( script_pointer ) & 0x7fff );
     }
     else
     {

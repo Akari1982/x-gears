@@ -181,18 +181,19 @@ FieldModule::LoadMap( const int file_id )
     u32 number_of_scripts = temp->GetU32LE( 0x80 );
     u32 offset_to_script = 0x84 + number_of_scripts * 0x40;
     u32 first_script = temp->GetU16LE( 0x84 );
-    u8 number_of_spawn = ( first_script - 1 ) / 7;
-    u8 use_spawn = GetU8( offset_to_script );
+    u32 number_of_spawn = ( first_script - 1 ) / 7;
+    u8 use_spawn = temp->GetU8( offset_to_script );
     if( use_spawn == 0xff )
     {
+        export_script->Log( "\n" );
         for( u32 i = 0; i < number_of_spawn; ++i )
         {
             u32 spawn_offset = offset_to_script + 1 + i * 7;
-            Ogre::Vector2 point = Ogre::Vector3( ( s16 )temp->GetU16LE( spawn_offset + 0 ), ( s16 )temp->GetU16LE( spawn_offset + 2 ) ) / 64;
+            Ogre::Vector2 point = Ogre::Vector2( ( s16 )temp->GetU16LE( spawn_offset + 0 ), ( s16 )temp->GetU16LE( spawn_offset + 2 ) ) / 64;
             s8 walkmesh_id = ( s8 )temp->GetU8( spawn_offset + 4 );
             s8 camera_rotation = ( s8 )temp->GetU8( spawn_offset + 5 );
             s8 entity_rotation = ( s8 )temp->GetU8( spawn_offset + 6 );
-            export_script->Log( "\n    <spawn_point name=\"" + IntToString( i ) + "\" point=\"" + Ogre::StringConverter::toString( point ) + "\" walkmesh_id=\"" + IntToString( walkmesh_id ) + "\" camera_rotation=\"" + IntToString( camera_rotation ) + "\" entity_rotation=\"" + IntToString( entity_rotation ) + "\" />" );
+            export_script->Log( "\n    <spawn_point name=\"" + IntToString( i ) + "\" position=\"" + Ogre::StringConverter::toString( point ) + "\" walkmesh_id=\"" + IntToString( walkmesh_id ) + "\" camera_rotation=\"" + IntToString( camera_rotation ) + "\" entity_rotation=\"" + IntToString( entity_rotation ) + "\" />" );
         }
     }
     delete script_file;
@@ -220,14 +221,17 @@ FieldModule::LoadMap( const int file_id )
     temp = field_pack->Extract( 8 );
     temp->WriteFile( "exported/debug/0" + IntToString( file_id ) + "_8.trigger" );
     u32 number_of_triggers = temp->GetFileSize() / 0x18;
-    for( u32 i = 0; i < number_of_triggers; ++i )
+    if( number_of_triggers > 0 )
     {
-        Ogre::Vector3 point1 = Ogre::Vector3( ( s16 )temp->GetU16LE( i * 0x18 + 0x00 ), 0, ( s16 )temp->GetU16LE( i * 0x18 + 0x04 ) ) / 64;
-        Ogre::Vector3 point2 = Ogre::Vector3( ( s16 )temp->GetU16LE( i * 0x18 + 0x06 ), 0, ( s16 )temp->GetU16LE( i * 0x18 + 0x0a ) ) / 64;
-        Ogre::Vector3 point3 = Ogre::Vector3( ( s16 )temp->GetU16LE( i * 0x18 + 0x0c ), 0, ( s16 )temp->GetU16LE( i * 0x18 + 0x10 ) ) / 64;
-        Ogre::Vector3 point4 = Ogre::Vector3( ( s16 )temp->GetU16LE( i * 0x18 + 0x12 ), 0, ( s16 )temp->GetU16LE( i * 0x18 + 0x16 ) ) / 64;
-
-        export_script->Log( "\n    <square_trigger name=\"Gateway" + IntToString( i ) + "\" point1=\"" + Ogre::StringConverter::toString( point1 ) + "\" point2=\"" + Ogre::StringConverter::toString( point2 ) + "\" point3=\"" + Ogre::StringConverter::toString( point3 ) + "\" point4=\"" + Ogre::StringConverter::toString( point4 ) + "\" />" );
+        export_script->Log( "\n" );
+        for( u32 i = 0; i < number_of_triggers; ++i )
+        {
+            Ogre::Vector3 point1 = Ogre::Vector3( ( s16 )temp->GetU16LE( i * 0x18 + 0x00 ), 0, ( s16 )temp->GetU16LE( i * 0x18 + 0x04 ) ) / 64;
+            Ogre::Vector3 point2 = Ogre::Vector3( ( s16 )temp->GetU16LE( i * 0x18 + 0x06 ), 0, ( s16 )temp->GetU16LE( i * 0x18 + 0x0a ) ) / 64;
+            Ogre::Vector3 point3 = Ogre::Vector3( ( s16 )temp->GetU16LE( i * 0x18 + 0x0c ), 0, ( s16 )temp->GetU16LE( i * 0x18 + 0x10 ) ) / 64;
+            Ogre::Vector3 point4 = Ogre::Vector3( ( s16 )temp->GetU16LE( i * 0x18 + 0x12 ), 0, ( s16 )temp->GetU16LE( i * 0x18 + 0x16 ) ) / 64;
+            export_script->Log( "\n    <square_trigger name=\"Gateway" + IntToString( i ) + "\" point1=\"" + Ogre::StringConverter::toString( point1 ) + "\" point2=\"" + Ogre::StringConverter::toString( point2 ) + "\" point3=\"" + Ogre::StringConverter::toString( point3 ) + "\" point4=\"" + Ogre::StringConverter::toString( point4 ) + "\" />" );
+        }
     }
     delete temp;
 

@@ -18,12 +18,14 @@ Entity::Entity( const Ogre::String& name, Ogre::SceneNode* node ):
     m_Name( name ),
     m_SceneNode( node ),
     m_Model( NULL ),
-    m_SolidRadius( 0.24f ),
+    m_SolidRadius( 0.25f ),
     m_Solid( false ),
+    m_WalkmeshId( -1 ),
+    m_TriangleId( -1 ),
     m_Player( false ),
     m_Move( false ),
     m_RotationY( Ogre::Degree( 0.0f ) ),
-    m_SizeY( 10.0f )
+    m_SizeY( 1.5f )
 {
     m_SceneNode->setPosition( Ogre::Vector3::ZERO );
 
@@ -78,7 +80,7 @@ Entity::UpdateDebug()
         Ogre::Vector3 entity_pos = GetPosition();
 
         DEBUG_DRAW.Text( entity_pos, 0, 0, m_Name );
-        DEBUG_DRAW.Text( entity_pos, 0, 24, Ogre::StringConverter::toString( entity_pos ) );
+        DEBUG_DRAW.Text( entity_pos, 0, 24, Ogre::StringConverter::toString( entity_pos ) + " (" + Ogre::StringConverter::toString( m_TriangleId ) + ")" );
     }
 }
 
@@ -110,6 +112,15 @@ Entity::ScriptInitPC( const int character_id )
 {
     m_Solid = true;
     m_Player = true;
+    EntityManager::getSingleton().EntityToSpawnPoint( this, "0" );
+}
+
+
+
+void
+Entity::ScriptInitNPC( const int character_id )
+{
+    m_Solid = true;
 }
 
 
@@ -222,6 +233,38 @@ bool
 Entity::IsSolid() const
 {
     return m_Solid;
+}
+
+
+
+void
+Entity::SetWalkmeshId( const int walkmesh_id )
+{
+    m_WalkmeshId = walkmesh_id;
+}
+
+
+
+int
+Entity::GetWalkmeshId() const
+{
+    return m_WalkmeshId;
+}
+
+
+
+void
+Entity::SetTriangleId( const int triangle_id )
+{
+    m_TriangleId = triangle_id;
+}
+
+
+
+int
+Entity::GetTriangleId() const
+{
+    return m_TriangleId;
 }
 
 

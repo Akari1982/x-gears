@@ -133,7 +133,7 @@
 
 80058adc [][][][] pointer to some SED file (0391.sed).
 80058ac0 [][][][] store here pointer to place for packets.
-80058ac4 [][][][] store here data from sprite opcode 0xa7 & 0x7f if 0x80 is set.
+80058ac4 [][][][] store here data from sprite opcode 0xa7 & 0x7f if 0x80 is set. Some wait.
 
 80058ae0 []       state of RightJoyX for controller 1 (0x00=Left, 0x80=Center, 0xFF=Right).
 80058ae8 []       state of RightJoyY for controller 1 (0x00=Up, 0x80=Center, 0xFF=Down).
@@ -218,9 +218,9 @@
     +10 [][][][] R33 for light matrix calculation.
 
 80059640 array of four bytes values. Store 0 in slot GP + 0x1ac when we start parse model and animation.
-            during model initialization if flaf 0x2000 i  +58 in model struct exist we store [80059640 + 3 * 4] = w(0) before +1c initialization
-            after +1c init we store [80059640 + 8 * 4] = w(0)
-            looks like we store in GP + 0x1ac index of this struct. GP + 1c0 set to 0 in both cases.
+         during model initialization if flaf 0x2000 i  +58 in model struct exist we store [80059640 + 3 * 4] = w(0) before +1c initialization
+         after +1c init we store [80059640 + 8 * 4] = w(0)
+         looks like we store in GP + 0x1ac index of this struct. GP + 1c0 set to 0 in both cases.
 
 80059674 struct with data for text.
     +1c [][][][] pointer to next character.

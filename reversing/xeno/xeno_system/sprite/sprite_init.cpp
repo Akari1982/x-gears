@@ -1,7 +1,24 @@
 ////////////////////////////////
+// func240a0()
+[GP + 48] = w(A6);
+
+A0 = A0;
+A1 = A1;
+A2 = A2;
+A3 = A3;
+A4 = A4;
+A5 = A5;
+func24330();
+
+[GP + 48] = w(0);
+////////////////////////////////
+
+
+
+////////////////////////////////
 // func24330()
 // called from script during initing
-S5 = A0;
+sprite_data = A0;
 S3 = A1; // clut x
 S4 = A2; // clut y
 S0 = A3; // tx
@@ -14,7 +31,7 @@ system_memory_allocate();
 [V0 + 86] = h(164);
 
 A0 = V0;
-A1 = S5; // offset 2dsprite_1 block in field data
+A1 = sprite_data; // offset 2dsprite_1 block in field data
 A2 = S3; // clut x
 A3 = S4; // clut y
 A4 = S0; // tx

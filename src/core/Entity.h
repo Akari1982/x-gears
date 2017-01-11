@@ -20,6 +20,7 @@ public:
     void SetModel( const Ogre::String file_name );
 
     void ScriptInitPC( const int character_id );
+    void ScriptInitNPC( const int character_id );
     void ScriptInput();
 
     void SetPosition( const Ogre::Vector3& position );
@@ -28,13 +29,18 @@ public:
     void SetRotation( const Ogre::Degree& rotation );
     Ogre::Degree GetRotation() const;
 
-    virtual void SetVisible( const bool visible );
-    virtual bool IsVisible() const;
+    void SetVisible( const bool visible );
+    bool IsVisible() const;
 
     void SetSolidRadius( const float radius );
     float GetSolidRadius() const;
     void SetSolid( const bool solid );
     bool IsSolid() const;
+
+    void SetWalkmeshId( const int walkmesh_id );
+    int GetWalkmeshId() const;
+    void SetTriangleId( const int triangle_id );
+    int GetTriangleId() const;
 
     bool IsPlayer() const;
     bool IsMove() const;
@@ -56,6 +62,9 @@ protected:
 
     float m_SolidRadius;
     bool m_Solid;
+
+    int m_WalkmeshId;
+    int m_TriangleId;
 
     bool m_Player;
     bool m_Move;

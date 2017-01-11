@@ -55,9 +55,6 @@
     <ClCompile Include="core\InputManager.cpp">
       <Filter>X-Gears files</Filter>
     </ClCompile>
-    <ClCompile Include="core\Math.cpp">
-      <Filter>X-Gears files</Filter>
-    </ClCompile>
     <ClCompile Include="core\ScriptManager.cpp">
       <Filter>X-Gears files</Filter>
     </ClCompile>
@@ -289,6 +286,9 @@
     <ClCompile Include="core\EntityDirection.cpp">
       <Filter>X-Gears files</Filter>
     </ClCompile>
+    <ClCompile Include="core\SpawnPoint.cpp">
+      <Filter>X-Gears files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Main.h">
@@ -346,9 +346,6 @@
       <Filter>X-Gears files</Filter>
     </ClInclude>
     <ClInclude Include="core\Logger.h">
-      <Filter>X-Gears files</Filter>
-    </ClInclude>
-    <ClInclude Include="core\Math.h">
       <Filter>X-Gears files</Filter>
     </ClInclude>
     <ClInclude Include="core\ScriptManager.h">
@@ -754,6 +751,9 @@
       <Filter>X-Gears files</Filter>
     </ClInclude>
     <ClInclude Include="core\EntityDirection.h">
+      <Filter>X-Gears files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\SpawnPoint.h">
       <Filter>X-Gears files</Filter>
     </ClInclude>
   </ItemGroup>

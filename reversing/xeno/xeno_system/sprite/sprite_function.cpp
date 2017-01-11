@@ -1,4 +1,55 @@
 ////////////////////////////////
+// func231cc()
+struct_164 = A0;
+struct_b4 = w[struct_164 + 20];
+S0 = A1;
+
+A0 = w[struct_b4 + 2c];
+func31f0c();
+
+A0 = S0 * 18;
+A1 = 0;
+system_memory_allocate();
+[struct_b4 + 2c] = w(V0);
+[struct_b4 + 30] = w(V0);
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func1f434()
+struct_164 = A0;
+struct_110 = w[struct_164 + 24];
+sprite_data_0 = w[struct_110 + 10];
+anim_data = sprite_data_0 + hu[sprite_data_0 + 2]; // pointer to first animation
+direction_data = anim_data + hu[anim_data + 4];
+sprite_dir = bu[direction_data + 4];
+if( sprite_dir != 0 )
+{
+    sprite_dir = sprite_dir - 1;
+}
+sprite_data_1 = w[struct_110 + 0];
+if( hu[sprite_data_1 + sprite_dir * 2] < sprite_dir )
+{
+    sprite_dir = 0;
+}
+frame_data = sprite_data_1 + hu[sprite_data_1 + sprite_dir * 2 + 2];
+
+[A3] = w((bu[frame_data + 3] * h[struct_164 + 2c]) >> c);
+[A4] = w((bu[frame_data + 1] * h[struct_164 + 2c]) >> c);
+[A2] = w((bu[frame_data + 2] * h[struct_164 + 2c]) >> c);
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func21a48()
+[A0 + 40] = w((w[A0 + 40] & ffffe0ff) | ((A1 & 1f) << 8));
+////////////////////////////////
+
+
+
+////////////////////////////////
 // func22f24()
 struct_164 = A0;
 

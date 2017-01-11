@@ -76,8 +76,8 @@
     <ClCompile Include="core\library\tinyxml\tinyxml.cpp" />
     <ClCompile Include="core\library\tinyxml\tinyxmlerror.cpp" />
     <ClCompile Include="core\library\tinyxml\tinyxmlparser.cpp" />
-    <ClCompile Include="core\Math.cpp" />
     <ClCompile Include="core\ScriptManager.cpp" />
+    <ClCompile Include="core\SpawnPoint.cpp" />
     <ClCompile Include="core\TextManager.cpp" />
     <ClCompile Include="core\Timer.cpp" />
     <ClCompile Include="core\Trigger.cpp" />
@@ -230,10 +230,10 @@
     <ClInclude Include="core\library\tinyxml\tinystr.h" />
     <ClInclude Include="core\library\tinyxml\tinyxml.h" />
     <ClInclude Include="core\Logger.h" />
-    <ClInclude Include="core\Math.h" />
     <ClInclude Include="core\ScriptManager.h" />
     <ClInclude Include="core\ScriptManagerBinds.h" />
     <ClInclude Include="core\ScriptManagerCommands.h" />
+    <ClInclude Include="core\SpawnPoint.h" />
     <ClInclude Include="core\TextManager.h" />
     <ClInclude Include="core\TextManagerCommands.h" />
     <ClInclude Include="core\Timer.h" />

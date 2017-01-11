@@ -52,8 +52,6 @@ ScriptManager::ScriptManager():
     InitBinds();
     InitCmd();
 
-    RunFile( "system/system.lua" );
-
     XmlScriptsFile scripts( "./data/scripts.xml" );
     scripts.LoadScripts();
 }
@@ -329,7 +327,7 @@ ScriptManager::AddEntity( const ScriptManager::Type type, const Ogre::String& en
 {
     for( unsigned int i = 0; i < m_ScriptEntity.size(); ++i )
     {
-        if( m_ScriptEntity[ i ].type == type && m_ScriptEntity[ i ].name == entity_name )
+        if( ( m_ScriptEntity[ i ].type == type ) && ( m_ScriptEntity[ i ].name == entity_name ) )
         {
             LOG_ERROR( "Script \"" + script_entity_type[ type ] + "\" entity \"" + entity_name + "\" already exist in script manager." );
             return;

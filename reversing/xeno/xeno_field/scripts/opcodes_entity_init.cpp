@@ -148,8 +148,8 @@ else
 
 
 ////////////////////////////////
-// 0xBC_EntityNoModelInit
-// funca02cc
+// 0xBC EntityNoModelInit
+// funca02cc()
 entity_id = w[800af1f0];
 sprite_data = w[800aeff0];
 struct_138 = w[800af54c];
@@ -239,7 +239,7 @@ if( S7 == 0 )
         A4 = S0;
         A5 = 40;
         A6 = S6;
-        80076384	jal    func240a0 [$800240a0]
+        func240a0();
 
         struct_164 = V0;
         [struct_5c_p + entity_id * 5c + 4] = w(struct_164);
@@ -279,7 +279,7 @@ else
 
     A0 = struct_164;
     A1 = 20;
-    8007644C	jal    func231cc [$800231cc]
+    func231cc(); // allocate place for 0x20 tiles.
 }
 
 
@@ -293,17 +293,12 @@ A1 = 0;
 A2 = SP + 20;
 A3 = SP + 24;
 A4 = SP + 28;
-80076494	jal    func1f434 [$8001f434]
-
-
-
-A0 = struct_164;
-A1 = 3;
-800764A0	jal    func21a48 [$80021a48]
+func1f434(); // get data +1+2+3 from frame data in sprite file 1
 
 
 
 [struct_164 + 2c] = h(0c00); // sprite scale
+[struct_164 + 40] = w((w[struct_164 + 40] & ffffe0ff) | 00000300); // sprite scale
 [struct_164 + 82] = h(2000);
 
 
@@ -339,35 +334,38 @@ if( h[800b1662] != 0 )
 
 
 A0 = struct_164;
-A1 = 0;
-800765C8	jal    func243e4 [$800243e4]
+A1 = 0; // anim id
+func243e4(); // play sprite animation
 
 A0 = struct_164;
-A1 = 0;
-800765D4	jal    func21e40 [$80021e40]
+A1 = 0; // rot
+func21e40(); // sprite rotation
 
-A0 = 0;
-A1 = 0;
-800765E0	jal    func322bc [$800322bc]
 
-A0 = struct_164;
+
+[GP + 1ac] = h(0);
+[80059640 + 0 * 4] = w(0);
+[GP + 1c0] = w(0);
+
+
+
 V0 = w[struct_164 + 7c];
 [V0 + 14] = h(entity_id);
+[struct_164 + 68] = w(80076104); // set callback func76104()
 
-A1 = 80076104;
-800765F8	jal    func21a40 [$80021a40]
+
 
 if( FP == 0 )
 {
     A0 = struct_164;
-    80076608	jal    func23090 [$80023090]
+    func23090(); // run sprite animation
 
-    80076610	jal    func1c7f0 [$8001c7f0]
+    func1c7f0();
 
     V0 = w[struct_164 + 7c];
     if( hu[V0 + c] == ff )
     {
-        [struct_138 + ea] = h(00ff);
+        [struct_138 + ea] = h(00ff); // animation id
         [struct_138 + 4] = w(w[struct_138 + 4] | 01000000);
         [struct_164 + 0] = w(w[struct_138 + 20]);
         [struct_164 + 4] = w(w[struct_138 + 24]);
@@ -396,25 +394,38 @@ if( FP == 0 )
 
 
 ////////////////////////////////
+// func76104()
+struct_164 = A0;
+V0 = w[struct_164 + 7c];
+V1 = h[V0 + 14];
+V0 = w[800aefe4];
+A0 = w[V0 + V1 * 5c + 4c];
+[A0 + 4] = w(w[A0 + 4] | 00010000);
+////////////////////////////////
+
+
+
+////////////////////////////////
 // funca0224()
 entity_id = w[800af1f0];
-struct_big = w[800af54c];
+struct_138 = w[800af54c];
 struct_5c_p = w[800aefe4];
-A2 = w[struct_5c_p + entity_id * 5c + 4];
+struct_164 = w[struct_5c_p + entity_id * 5c + 4];
 
-[struct_5c_p + entity_id * 5c + 20] = w(h[struct_big + 22]);
-[struct_5c_p + entity_id * 5c + 24] = w(h[struct_big + 26]);
-[struct_5c_p + entity_id * 5c + 28] = w(h[struct_big + 2a]);
-[struct_5c_p + entity_id * 5c + 40] = w(h[struct_big + 22]);
-[struct_5c_p + entity_id * 5c + 44] = w(h[struct_big + 26]);
-[struct_5c_p + entity_id * 5c + 48] = w(h[struct_big + 2a]);
+[struct_5c_p + entity_id * 5c + 20] = w(h[struct_138 + 22]);
+[struct_5c_p + entity_id * 5c + 24] = w(h[struct_138 + 26]);
+[struct_5c_p + entity_id * 5c + 28] = w(h[struct_138 + 2a]);
+[struct_5c_p + entity_id * 5c + 40] = w(h[struct_138 + 22]);
+[struct_5c_p + entity_id * 5c + 44] = w(h[struct_138 + 26]);
+[struct_5c_p + entity_id * 5c + 48] = w(h[struct_138 + 2a]);
 
-[A2 + 0] = w(w[struct_big + 20]);
-[A2 + 4] = w(w[struct_big + 24]);
-[A2 + 8] = w(w[struct_big + 28]);
-[A2 + 10] = w(0);
-[A2 + 84] = h(hu[struct_big + 26]);
-[struct_big + 72] = h(hu[struct_big + 26])
+[struct_164 + 0] = w(w[struct_138 + 20]);
+[struct_164 + 4] = w(w[struct_138 + 24]);
+[struct_164 + 8] = w(w[struct_138 + 28]);
+[struct_164 + 10] = w(0);
+[struct_164 + 84] = h(hu[struct_138 + 26]);
+
+[struct_138 + 72] = h(hu[struct_138 + 26])
 ////////////////////////////////
 
 

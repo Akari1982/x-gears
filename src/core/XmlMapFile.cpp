@@ -69,7 +69,8 @@ XmlMapFile::LoadMap()
                 continue;
             }
             Ogre::Vector2 position = GetVector2( node, "position", Ogre::Vector2::ZERO );
-            EntityManager::getSingleton().AddSpawnPoint( new SpawnPoint( name, position ) );
+            int walkmesh_id = GetInt( node, "walkmesh_id", -1 );
+            EntityManager::getSingleton().AddSpawnPoint( new SpawnPoint( name, position, walkmesh_id ) );
         }
         else if( node->Type() == TiXmlNode::TINYXML_ELEMENT && node->ValueStr() == "square_trigger" )
         {

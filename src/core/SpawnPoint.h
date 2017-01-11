@@ -9,10 +9,14 @@
 class SpawnPoint
 {
 public:
-    SpawnPoint( const Ogre::String& name, const Ogre::Vector2& position );
+    SpawnPoint( const Ogre::String& name, const Ogre::Vector2& position, const int walkmesh_id );
     virtual ~SpawnPoint();
 
     void UpdateDebug();
+
+    const Ogre::String& GetName() const;
+    const Ogre::Vector2& GetPosition() const;
+    int GetWalkmeshId() const;
 
 protected:
     Ogre::String m_Name;
