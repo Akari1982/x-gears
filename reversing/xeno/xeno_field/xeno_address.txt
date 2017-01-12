@@ -42,6 +42,8 @@
 
 800acff4          we read something from here during rotation set. We will not set 80115cdc + 108 if this is not 0.
 
+800acffc [][][][] something related to pointers in 800b1588 800b15bc 800b1590 800b1594.
+
 800ad040 [][][][] init with 0. checked in move function (func821cc) as well as some other condition to make entity play run animation if equal to 1.
 
 800ad04c [][][][] if this is 1 then we set number of entities to 1 in script call call_run_script_8().
@@ -428,7 +430,9 @@
             +  0 [][][][] init with 0.
         + 11c [][]     rotation stored to +106 sometimes.
         + 11e [][]     init with 0x0200.
-        + 120 [][][][] init with 0.
+        + 120 [][][][] init with 0. Pointer to some data.
+        + 124 [][]     init with -1. If this not -1 then we allocate +120 struct.
+        + 126 [][]     init with 0.
         + 124 [][][][] init with 0x0000ffff.
         + 128 [][][][] init with 0x0000ffff.
         + 12c [][][][] flags.
@@ -437,7 +441,7 @@
                         0x00000020 - if set - door opening or closing. Remove during init.
                         0x000001c0 - remove during entity init.
                         0x00000e00 - remove during entity init. Rotation dir.
-                        0x00001000 - remove during entity init. Checked in func81aa8().
+                        0x00001000 - remove during entity init. Checked in func81aa8(). If set then struct_138 + 114 allocated.
                         0x0000e000 - index in model pointers 801e8670.
                         0x00030000 - remove during entity init.
                         0x0ffc0000 - remove during entity init.
@@ -463,6 +467,7 @@
                    0x0f00: if at least one of this bits exist - we perform move.
                    0x2000: init +1c in model data if this is set.
     +  5a [][]     init with 0.
+                   0x0001 - sprite inited.
 
 800aefe8 [][][][] pointer to field model pack (field file 2).
 800aefec [][][][] pointer to waklmesh data (field file 1).

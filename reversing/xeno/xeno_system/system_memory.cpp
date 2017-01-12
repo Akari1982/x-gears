@@ -264,8 +264,7 @@ return 0;
 
 
 ////////////////////////////////
-// func31f0c()
-// looks like free memory
+// system_memory_free()
 data = A0;
 if( data == 0 )
 {

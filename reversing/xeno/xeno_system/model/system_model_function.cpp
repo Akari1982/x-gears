@@ -1,4 +1,45 @@
 ////////////////////////////////
+// func2c9cc()
+S0 = A0;
+V0 = hu[S0 + 0] & 0001;
+if( V0 != 0 )
+{
+    A0 = w[S0 + 18];
+    system_memory_free();
+
+    [S0 + 0] = h(hu[S0 + 0] & fffe);
+}
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func304e0()
+S0 = A0;
+if( S0 != 0 )
+{
+    part_data = w[S0 + 0];
+
+    A0 = w[part_data + 8];
+    system_memory_free();
+
+    if( hu[part_data + 0] & 0010 )
+    {
+        A0 = w[part_data + c];
+        system_memory_free();
+    }
+
+    [part_data + 8] = w(w[S0 + 4]);
+    [part_data + c] = w(w[S0 + 8]);
+
+    A0 = S0;
+    system_memory_free();
+}
+////////////////////////////////
+
+
+
+////////////////////////////////
 // system_set_draw_packet_transparency()
 if( A1 != 0 )
 {

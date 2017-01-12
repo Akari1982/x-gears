@@ -211,7 +211,7 @@ if( S7 == 0 )
         if( hu[struct_5c_p + entity_id * 5c + 5a] & 0001 )
         {
             A0 = w[struct_5c_p + entity_id * 5c + 4];
-            func22f24();
+            system_field_sprite_memory_free();
         }
 
         A0 = sprite_data;
@@ -229,7 +229,7 @@ if( S7 == 0 )
         if( hu[struct_5c_p + entity_id * 5c + 5a] & 0001 )
         {
             A0 = w[struct_5c_p + entity_id * 5c + 4];
-            func22f24();
+            system_field_sprite_memory_free();
         }
 
         A0 = sprite_data;
@@ -250,7 +250,7 @@ else
     if( hu[struct_5c_p + entity_id * 5c + 5a] & 0001 )
     {
         A0 = w[struct_5c_p + entity_id * 5c + 4];
-        func22f24();
+        system_field_sprite_memory_free();
     }
 
     if( S7 == 1 )

@@ -172,79 +172,6 @@ func45354();
 
 
 ////////////////////////////////
-// func45354()
-S0 = A0;
-S1 = A4;
-
-[S0 + 3] = b(02);
-
-A0 = A1;
-A1 = A2;
-A2 = A3 & ffff; // tex page
-func45854(); // set md me dtd dfe
-[S0 + 4] = w(V0); // draw mode settings commend to GPU (e1)
-
-A0 = S1;
-func45a88();
-[S0 + 8] = w(V0); // texture window setting (e2)
-////////////////////////////////
-
-
-
-////////////////////////////////
-// func45854()
-V1 = e1000000; // draw mode settings
-if( ( bu[80055f70] - 1 ) < 2 )
-{
-    if( A1 != 0 )
-    {
-        V1 = V1 | 0800; // add md (Apply mask bit to drawn pixels)
-    }
-    V0 = A2 & 27ff; // remove md and me (Do not apply mask bit to drawn pixels and Draw over pixel with mask set)
-    if( A0 != 0 )
-    {
-        V0 = V0 | 1000; // add me (No drawing to pixels with set mask bit.)
-    }
-}
-else
-{
-    if( A1 != 0 )
-    {
-        V1 = V1 | 0200; // add dtd (Dither on)
-    }
-    V0 = A2 & 09ff; // remove dtd and dfe (Draw to display area prohibited and Dither off)
-    if( A0 != 0 )
-    {
-        V0 = V0 | 0400; // add dfe (Draw to display area allowed)
-    }
-}
-return V1 | V0;
-////////////////////////////////
-
-
-
-////////////////////////////////
-// func45a88()
-if( A0 == 0 )
-{
-    return 0;
-}
-
-twy = bu[A0 + 0] >> 3;
-[SP + 0] = w(twy);
-twx = bu[A0 + 2] >> 3;
-[SP + 4] = w(twx);
-twh = ((0 - h[A0 + 4]) & ff) >> 3;
-[SP + 8] = w(twh);
-tww = ((0 - h[A0 + 6]) & ff) >> 3;
-[SP + c] = w(tww);
-
-return e2000000 | (twx << f) | (twy << a) | (tww << 5) | twh; // texture window setting
-////////////////////////////////
-
-
-
-////////////////////////////////
 // func3354c()
 return A0 + hu[A0 + A1 * 2 + 4];
 ////////////////////////////////
@@ -326,10 +253,10 @@ A0 = offset_18;
 func344c8();
 
 A0 = w[offset_18 + 28];
-func31f0c(); // free memory
+system_memory_free();
 
 A0 = w[offset_18 + 2c];
-func31f0c(); // free memory
+system_memory_free();
 ////////////////////////////////
 
 
@@ -359,7 +286,7 @@ if( h[offset_18 + 84] == 0 )
         loop34494:	; 80034494
             A0 = S0;
             S0 = w[S0];
-            func31f0c(); // free memory
+            system_memory_free();
 
         800344A0	bne    s0, zero, loop34494 [$80034494]
     }

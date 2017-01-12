@@ -273,10 +273,8 @@ L778e8:	; 800778E8
 80077968	lw     a0, $9b70(a0)
 8007796C	jal    func31edc [$80031edc]
 80077970	nop
-80077974	lui    a0, $8006
-80077978	lw     a0, $9b70(a0)
-8007797C	jal    func31f0c [$80031f0c]
-80077980	nop
+A0 = w[80059b70];
+system_memory_free();
 
 L77984:	; 80077984
 80077984	bne    s5, zero, L779a0 [$800779a0]
@@ -421,12 +419,11 @@ if( ( w[800ad0c4] == 0 ) && ( w[8004e9ac] == 0 ) && ( w[800ad09c] == S3 ) && ( w
 80077BC0	lw     a0, $9b70(a0)
 80077BC4	jal    func31edc [$80031edc]
 80077BC8	nop
-80077BCC	lui    a0, $8006
-80077BD0	lw     a0, $9b70(a0)
-80077BD4	jal    func31f0c [$80031f0c]
-80077BD8	nop
+A0 = w[80059b70];
+system_memory_free();
+
 80077BDC	j      L780cc [$800780cc]
-80077BE0	nop
+
 
 L77be4:	; 80077BE4
 80077BE4	lui    v0, $800b
@@ -454,10 +451,8 @@ L77be4:	; 80077BE4
 80077C3C	lw     a0, $9b70(a0)
 80077C40	jal    func31edc [$80031edc]
 80077C44	nop
-80077C48	lui    a0, $8006
-80077C4C	lw     a0, $9b70(a0)
-80077C50	jal    func31f0c [$80031f0c]
-80077C54	nop
+A0 = w[80059b70];
+system_memory_free();
 
 L77c58:	; 80077C58
 80077C58	lui    v0, $8005
@@ -497,10 +492,8 @@ L77c80:	; 80077C80
 80077CD8	lw     a0, $9b70(a0)
 80077CDC	jal    func31edc [$80031edc]
 80077CE0	nop
-80077CE4	lui    a0, $8006
-80077CE8	lw     a0, $9b70(a0)
-80077CEC	jal    func31f0c [$80031f0c]
-80077CF0	nop
+A0 = w[80059b70];
+system_memory_free();
 
 L77cf4:	; 80077CF4
 80077CF4	jal    func1b500 [$8001b500]
@@ -714,13 +707,13 @@ L780cc:	; 800780CC
 80078114	jal    func773bc [$800773bc]
 80078118	nop
 8007811C	jal    func84f9c [$80084f9c]
-80078120	nop
-80078124	lui    a0, $800b
-80078128	lw     a0, $d008(a0)
+
 8007812C	lui    at, $8005
 80078130	sw     zero, $e9c0(at)
-80078134	jal    func31f0c [$80031f0c]
-80078138	nop
+
+A0 = w[800ad008];
+system_memory_free();
+
 8007813C	jal    func78b60 [$80078b60]
 80078140	addu   a0, s0, zero
 ////////////////////////////////

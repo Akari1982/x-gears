@@ -711,8 +711,9 @@ D8FC0180 // fc
     8001FD38	nop
     8001FD3C	addiu  sp, sp, $0004
     8001FD40	lw     sp, $0000(sp)
-    8001FD44	jal    func31f0c [$80031f0c]
-    8001FD48	addu   a0, s0, zero
+    A0 = S0;
+    system_memory_free();
+
     8001FD4C	j      L21900 [$80021900]
     8001FD50	nop
     8001FD54	lbu    v0, $0000(s1)
@@ -2015,12 +2016,11 @@ D8FC0180 // fc
     80020FD0	nop
     80020FD4	lw     a0, $002c(v0)
     80020FD8	nop
-    80020FDC	beq    a0, zero, L20fec [$80020fec]
-    80020FE0	nop
-    80020FE4	jal    func31f0c [$80031f0c]
-    80020FE8	nop
+    if( A0 != 0 )
+    {
+        system_memory_free();
+    }
 
-    L20fec:	; 80020FEC
     80020FEC	lw     a2, $0020(s3)
     80020FF0	addu   a0, s0, zero
     80020FF4	addiu  a1, a2, $002c
@@ -2057,12 +2057,12 @@ D8FC0180 // fc
     80021070	nop
     80021074	lw     a0, $002c(v0)
     80021078	nop
-    8002107C	beq    a0, zero, L2108c [$8002108c]
     80021080	addiu  s1, s0, $0010
-    80021084	jal    func31f0c [$80031f0c]
-    80021088	nop
+    if( A0 != 0 )
+    {
+        system_memory_free();
+    }
 
-    L2108c:	; 8002108C
     8002108C	lw     a2, $0020(s3)
     80021090	addu   a0, s1, zero
     80021094	addiu  a1, a2, $002c
@@ -2095,12 +2095,12 @@ D8FC0180 // fc
     80021100	nop
     80021104	lw     a0, $002c(v0)
     80021108	nop
-    8002110C	beq    a0, zero, L2111c [$8002111c]
     80021110	addiu  s1, s0, $0010
-    80021114	jal    func31f0c [$80031f0c]
-    80021118	nop
+    if( A0 != 0 )
+    {
+        system_memory_free();
+    }
 
-    L2111c:	; 8002111C
     8002111C	lw     a2, $0020(s3)
     80021120	addu   a0, s1, zero
     80021124	addiu  a1, a2, $002c

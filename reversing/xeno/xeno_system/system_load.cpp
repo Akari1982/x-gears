@@ -364,20 +364,19 @@ if( A0 != 0 )
     func19dcc();
 }
 
-80019B7C	ori    a0, zero, $0001
-80019B80	lui    v0, $8002
-80019B84	lw     v0, $8088(v0)
-80019B88	lui    v1, $8002
-80019B8C	addiu  v1, v1, $808c (=-$7f74)
-80019B90	sll    v0, v0, $04
-80019B94	jal    func43f88 [$80043f88]
-80019B98	addu   s1, v0, v1
+S1 = 8001808c + w[80018088] * 10;
+
+A0 = 1; // cancels the current drawing and flushes the command buffer.
+system_reset_graph();
+
 80019B9C	jal    func44350 [$80044350]
 80019BA0	addu   a0, zero, zero
 80019BA4	jal    func36298 [$80036298]
 80019BA8	addu   a0, zero, zero
-80019BAC	jal    system_draw_sync [$80044448]
-80019BB0	addu   a0, zero, zero
+
+A0 = 0;
+system_draw_sync();
+
 80019BB4	jal    func4b3f4 [$8004b3f4]
 80019BB8	ori    a0, zero, $0002
 80019BBC	lw     a0, $0008(s1)
@@ -404,15 +403,15 @@ if( w[S1 + c] != 0 )
     system_extract_archive();
 
     A0 = 0;
-    80019C1C	jal    system_draw_sync [$80044448]
+    system_draw_sync();
 
     80019C28	addu   a0, zero, zero
     80019C24	jal    func4b3f4 [$8004b3f4]
 
     80019C2C	jal    func4034c [$8004034c]
 
-    80019C38	addu   a0, zero, zero
-    80019C34	jal    system_draw_sync [$80044448]
+    A0 = 0;
+    system_draw_sync();
 
     80019C40	addu   a0, zero, zero
     80019C3C	jal    func4b3f4 [$8004b3f4]
@@ -438,7 +437,7 @@ if( w[S1 + c] != 0 )
 80019C88	jalr   v0 ra
 
 A0 = 0;
-80019C90	jal    func19b50 [$80019b50]
+func19b50();
 ////////////////////////////////
 
 

@@ -53,10 +53,10 @@ L781cc:	; 800781CC
 800852D8	addiu  v0, zero, $ffff (=-$1)
 800852DC	jal    func3bca4 [$8003bca4]
 800852E0	ori    a0, zero, $0010
-800852E4	lui    a0, $800c
-800852E8	lw     a0, $2ef0(a0)
-800852EC	jal    func31f0c [$80031f0c]
-800852F0	nop
+
+A0 = w[800c2ef0];
+system_memory_free();
+
 800852F4	sll    v0, s1, $01
 800852F8	lui    at, $8005
 800852FC	sw     zero, $e9f8(at)
@@ -274,10 +274,9 @@ L84b24:	; 80084B24
 80084B3C	nop
 80084B40	bne    v0, zero, L84b64 [$80084b64]
 80084B44	addu   v0, zero, zero
-80084B48	lui    a0, $800b
-80084B4C	lw     a0, $d090(a0)
-80084B50	jal    func31f0c [$80031f0c]
-80084B54	nop
+A0 = w[800ad090];
+system_memory_free();
+
 80084B58	lui    at, $800b
 80084B5C	sw     zero, $d004(at)
 80084B60	addiu  v0, zero, $ffff (=-$1)

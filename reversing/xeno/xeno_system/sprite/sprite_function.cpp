@@ -5,7 +5,7 @@ struct_b4 = w[struct_164 + 20];
 S0 = A1;
 
 A0 = w[struct_b4 + 2c];
-func31f0c();
+system_memory_free();
 
 A0 = S0 * 18;
 A1 = 0;
@@ -50,17 +50,16 @@ frame_data = sprite_data_1 + hu[sprite_data_1 + sprite_dir * 2 + 2];
 
 
 ////////////////////////////////
-// func22f24()
+// system_field_sprite_memory_free()
 struct_164 = A0;
 
 if( w[struct_164 + a8] & 00000001 )
 {
     V0 = w[struct_164 + 7c];
     A0 = w[V0 + 18];
-
     if( A0 != 0 )
     {
-        func31f0c();
+        system_memory_free();
     }
 }
 
@@ -69,10 +68,10 @@ func1d270()
 
 V0 = w[struct_164 + 20];
 A0 = w[V0 + 2c];
-func31f0c();
+system_memory_free();
 
 A0 = struct_164;
-func31f0c();
+system_memory_free();
 ////////////////////////////////
 
 

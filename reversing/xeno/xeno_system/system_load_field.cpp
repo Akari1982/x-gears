@@ -26,7 +26,7 @@ if( w[8004e9d8] != -1 )
     func31edc(); // mark memory for release
 
     A0 = w[80059b70];
-    func31f0c(); // release memory
+    system_memory_free();
 }
 
 
@@ -113,7 +113,7 @@ if( A0 != 0 )
     [80058954] = w(80036eb4);
     if( w[80058a3c] == 0 )
     {
-        func31f0c(); // release memory
+        system_memory_free();
     }
     [80058a30] = w(0);
 }

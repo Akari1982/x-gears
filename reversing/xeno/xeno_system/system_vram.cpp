@@ -199,7 +199,7 @@ if( S0 != 0 )
         }
         else
         {
-            A0 = S0;
+            A0 = S0; // rect
             A1 = 0; // r
             A2 = 0; // g
             A3 = 0; // b
@@ -210,6 +210,75 @@ if( S0 != 0 )
 }
 V0 = w[GP + 188];
 [80058b60 + V0 * 4] = w(0);
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func24ed4()
+// clear some set of images
+S1 = A0;
+S0 = w[800589a0 + S1 * 4];
+
+[GP + 188] = w(S1);
+[GP + 3b0] = w(w[80058b50 + S1 * 4]);
+[GP + 3c0] = w(w[80058b50 + S1 * 4] + w[GP + 18c]);
+[GP + 40c] = w(w[80058b50 + S1 * 4]);
+
+if( S0 != 0 )
+{
+    loop24f24:	; 80024F24
+        A0 = w[S0];
+        system_memory_free();
+
+        S0 = w[S0 + 4];
+    80024F38	bne    s0, zero, loop24f24 [$80024f24]
+}
+[800589a0 + S1 * 4] = w(0);
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func1c768()
+A0 = w[GP + 418];
+if( A0 != 0 )
+{
+    L1c778:	; 8001C778
+        V0 = w[A0 + c];
+        8001C780	jalr   v0 ra
+
+        A0 = w[GP + 418];
+    8001C7B8	bne    a0, zero, L1c778 [$8001c778]
+}
+
+A0 = w[GP + 420];
+if( A0 != 0 )
+{
+    loop1c7a0:	; 8001C7A0
+        V0 = w[A0 + c];
+        8001C7A8	jalr   v0 ra
+
+        A0 = w[GP + 420];
+    8001C7B8	bne    a0, zero, loop1c7a0 [$8001c7a0]
+}
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func24db0()
+A0 = w[GP + 340];
+system_memory_free();
+
+func1d128(); // reset render sprites list
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func1d128()
+[GP + 20] = w(0);
 ////////////////////////////////
 
 
@@ -620,8 +689,8 @@ A0 = 80019214; // "ClearImage"
 A1 = S3;
 8004460C	jal    func444b4 [$800444b4]
 
+A1 = S3;
 
-80044614	addu   a1, s3, zero
 80044618	andi   s0, s0, $00ff
 8004461C	sll    s0, s0, $10
 80044620	andi   s1, s1, $00ff
@@ -632,8 +701,7 @@ A1 = S3;
 80044634	lw     v0, $5f68(v0)
 80044638	addiu  a2, zero, $0008
 8004463C	lw     a0, $000c(v0)
-80044640	lw     v0, $0008(v0)
-80044644	nop
+V0 = w[V0 + 8];
 80044648	jalr   v0 ra
 8004464C	or     a3, s0, s2
 ////////////////////////////////
@@ -656,6 +724,109 @@ V0 = w[80055f68];
 V0 = w[V0 + 3c];
 A0 = mode;
 80044498	jalr   v0 ra
+////////////////////////////////
+
+
+
+////////////////////////////////
+// system_reset_graph()
+// Initialize drawing engine.
+S1 = A0;
+
+80043F94	andi   v1, s1, $0007
+80043F98	addiu  v0, zero, $0003
+80043FA0	beq    v1, v0, L43fd8 [$80043fd8]
+
+80043FA8	slti   v0, v1, $0004
+80043FAC	beq    v0, zero, L43fc4 [$80043fc4]
+80043FB0	nop
+80043FB4	beq    v1, zero, L43fd8 [$80043fd8]
+80043FB8	nop
+80043FBC	j      L440a4 [$800440a4]
+80043FC0	nop
+
+L43fc4:	; 80043FC4
+80043FC4	addiu  v0, zero, $0005
+80043FC8	beq    v1, v0, L43ff8 [$80043ff8]
+80043FCC	nop
+80043FD0	j      L440a4 [$800440a4]
+80043FD4	nop
+
+L43fd8:	; 80043FD8
+A0 = 80019120; // "ResetGraph:jtb=%08x,env=%08x"
+A1 = 80055f28;
+A2 = 80055f70;
+80043FF0	jal    func199e8 [$800199e8]
+
+L43ff8:	; 80043FF8
+80043FF8	lui    s0, $8005
+80043FFC	addiu  s0, s0, $5f70
+80044000	addu   a0, s0, zero
+80044004	addu   a1, zero, zero
+80044008	jal    func46ff0 [$80046ff0]
+8004400C	addiu  a2, zero, $0080
+80044010	jal    func4b5e8 [$8004b5e8]
+80044014	nop
+80044018	lui    v0, $00ff
+8004401C	lui    a0, $8005
+80044020	lw     a0, $5f68(a0)
+80044024	ori    v0, v0, $ffff
+80044028	jal    func4701c [$8004701c]
+8004402C	and    a0, a0, v0
+80044030	jal    func46ad0 [$80046ad0]
+80044034	addu   a0, s1, zero
+80044038	addiu  a0, s0, $0010
+8004403C	addiu  v1, zero, $0001
+80044040	sb     v0, $0000(s0)
+80044044	andi   v0, v0, $00ff
+80044048	sll    v0, v0, $02
+8004404C	lui    at, $8005
+80044050	sb     v1, $5f71(at)
+80044054	lui    at, $8005
+80044058	addu   at, at, v0
+8004405C	lw     v1, $5ff0(at)
+80044060	addiu  a1, zero, $ffff (=-$1)
+80044064	lui    at, $8005
+80044068	sh     v1, $5f74(at)
+8004406C	lui    at, $8005
+80044070	addu   at, at, v0
+80044074	lw     v0, $6004(at)
+80044078	lui    at, $8005
+8004407C	sh     v0, $5f76(at)
+80044080	jal    func46ff0 [$80046ff0]
+80044084	addiu  a2, zero, $005c
+80044088	addiu  a0, s0, $006c
+8004408C	addiu  a1, zero, $ffff (=-$1)
+80044090	jal    func46ff0 [$80046ff0]
+80044094	addiu  a2, zero, $0014
+80044098	lbu    v0, $0000(s0)
+8004409C	j      L440f4 [$800440f4]
+800440A0	nop
+
+L440a4:	; 800440A4
+800440A4	lui    v0, $8005
+800440A8	lbu    v0, $5f72(v0)
+800440AC	nop
+800440B0	sltiu  v0, v0, $0002
+800440B4	bne    v0, zero, L440d8 [$800440d8]
+
+A0 = 80019140; // "ResetGraph(%d)..."
+800440C4	lui    v0, $8005
+800440C8	lw     v0, $5f6c(v0)
+800440CC	nop
+800440D0	jalr   v0 ra
+800440D4	addu   a1, s1, zero
+
+L440d8:	; 800440D8
+800440D8	lui    v0, $8005
+800440DC	lw     v0, $5f68(v0)
+800440E0	nop
+800440E4	lw     v0, $0034(v0)
+800440E8	nop
+800440EC	jalr   v0 ra
+800440F0	addiu  a0, zero, $0001
+
+L440f4:	; 800440F4
 ////////////////////////////////
 
 
@@ -962,4 +1133,77 @@ if( S4 != 0 )
 }
 
 return 0;
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func45354()
+S0 = A0;
+S1 = A4;
+
+[S0 + 3] = b(02);
+
+A0 = A1;
+A1 = A2;
+A2 = A3 & ffff; // tex page
+func45854(); // set md me dtd dfe
+[S0 + 4] = w(V0); // draw mode settings commend to GPU (e1)
+
+A0 = S1;
+func45a88();
+[S0 + 8] = w(V0); // texture window setting (e2)
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func45854()
+V1 = e1000000; // draw mode settings
+if( ( bu[80055f70] - 1 ) < 2 )
+{
+    if( A1 != 0 )
+    {
+        V1 = V1 | 0800; // add md (Apply mask bit to drawn pixels)
+    }
+    V0 = A2 & 27ff; // remove md and me (Do not apply mask bit to drawn pixels and Draw over pixel with mask set)
+    if( A0 != 0 )
+    {
+        V0 = V0 | 1000; // add me (No drawing to pixels with set mask bit.)
+    }
+}
+else
+{
+    if( A1 != 0 )
+    {
+        V1 = V1 | 0200; // add dtd (Dither on)
+    }
+    V0 = A2 & 09ff; // remove dtd and dfe (Draw to display area prohibited and Dither off)
+    if( A0 != 0 )
+    {
+        V0 = V0 | 0400; // add dfe (Draw to display area allowed)
+    }
+}
+return V1 | V0;
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func45a88()
+if( A0 == 0 )
+{
+    return 0;
+}
+
+twy = bu[A0 + 0] >> 3;
+[SP + 0] = w(twy);
+twx = bu[A0 + 2] >> 3;
+[SP + 4] = w(twx);
+twh = ((0 - h[A0 + 4]) & ff) >> 3;
+[SP + 8] = w(twh);
+tww = ((0 - h[A0 + 6]) & ff) >> 3;
+[SP + c] = w(tww);
+
+return e2000000 | (twx << f) | (twy << a) | (tww << 5) | twh; // texture window setting
 ////////////////////////////////
