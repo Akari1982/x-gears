@@ -1,4 +1,57 @@
 ////////////////////////////////
+// func228fc()
+tex_pack = A0;
+S5 = A1;
+S0 = w[tex_pack + 0];
+
+if( S0 > 0 )
+{
+    S2 = 0;
+    S0 = S0 - 1;
+    loop22948:	; 80022948
+        V0 = w[tex_pack + 4 + S2 * 4];
+        [SP + 10] = h(S5 + S2 * 40); // x
+        [SP + 12] = h(A2); // y
+        [SP + 14] = h(hu[tex_pack + V0 + 0]); // width
+        [SP + 16] = h(hu[tex_pack + V0 + 2]); // height
+
+        [GP + 180] = w(SP + 10); // rect
+        [GP + 184] = w(tex_pack + V0 + 4); // data ptr
+
+        func22898();
+
+        S2 = S2 + 1;
+        S0 = S0 - 1;
+    80022988	bgtz   S0, loop22948 [$80022948]
+}
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func22898()
+A0 = 2000;
+A1 = 1;
+system_memory_allocate();
+S0 = V0;
+
+T0 = S0 + 1f00;
+[T0] = w(SP);
+SP = T0 - 4;
+
+A0 = w[GP + 180];
+A1 = w[GP + 184];
+system_load_image();
+
+SP = w[T0];
+
+A0 = S0;
+system_memory_free();
+////////////////////////////////
+
+
+
+////////////////////////////////
 // func231cc()
 struct_164 = A0;
 struct_b4 = w[struct_164 + 20];

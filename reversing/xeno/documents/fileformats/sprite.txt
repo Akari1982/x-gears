@@ -30,6 +30,7 @@ animation data
                 0x0800 - if flag not set we set +c +10 +14 +18 in struct_164 to 0.
                 0x1000 - if flag not set we set rotation x y z to 0 and calculate rotation matrix.
                 0x2000 - if flag not set we use w[80058810 + 38] as rotation for sprite.
+                0x8000 - if flag set then we set up tile data to render by frame_id during sprite update.
 +02 [][]     offset to sprite sequence data.
 +04 [][]     offset to something related to sprite direction. If there is more directions then there is more offsets to differend data up to 5 for 8 directions.
 
@@ -108,4 +109,6 @@ tile description
 
 
 SPRITE_2
-palette
+header
++00 [][]     palette width (must b multiplied by 10 to get real value)
++04 start of palette

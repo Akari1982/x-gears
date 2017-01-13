@@ -208,8 +208,8 @@ if( hu[800c2dd4] & 0800 ) // start repeated
 
 
             loop77884:	; 80077884
-                80077888	addu   a0, zero, zero
-                80077884	jal    system_draw_sync [$80044448]
+                A0 = 0;
+                system_draw_sync();
 
                 80077890	ori    a0, zero, $0002
                 8007788C	jal    func4b3f4 [$8004b3f4]
@@ -229,21 +229,25 @@ if( hu[800c2dd4] & 0800 ) // start repeated
     }
 }
 
-800778CC	lui    v0, $800c
-800778D0	lw     v0, $1b60(v0)
-800778D4	nop
-800778D8	bne    v0, s1, L778e8 [$800778e8]
-800778DC	ori    a0, zero, $0050
-800778E0	jal    put_bytes_to_800C2F3C [$800a2604]
-800778E4	ori    a1, zero, $0001
 
-L778e8:	; 800778E8
+
+if( w[800c1b60] == S1 )
+{
+    A0 = 50;
+    A1 = 1;
+    put_bytes_to_800C2F3C();
+}
+
+
+
 800778E8	jal    func19d24 [$80019d24]
 800778EC	nop
 800778F0	jal    func7743c [$8007743c]
 800778F4	nop
-800778F8	jal    func74bdc [$80074bdc]
-800778FC	nop
+
+// move and update sprite and model here
+func74bdc();
+
 80077900	jal    funca4dfc [$800a4dfc]
 80077904	nop
 80077908	lui    v0, $800b
@@ -363,6 +367,9 @@ L77a94:	; 80077A94
 80077AA0	nop
 
 L77aa4:	; 80077AA4
+
+
+
 // field load started
 if( ( w[800ad0c4] == 0 ) && ( w[8004e9ac] == 0 ) && ( w[800ad09c] == S3 ) && ( w[800ad068] == 0 ) )
 {
@@ -393,6 +400,8 @@ if( ( w[800ad0c4] == 0 ) && ( w[8004e9ac] == 0 ) && ( w[800ad09c] == S3 ) && ( w
         }
     }
 }
+
+
 
 80077B68	lui    v0, $800b
 80077B6C	lw     v0, $cfe0(v0)
@@ -502,6 +511,9 @@ L77cf4:	; 80077CF4
 80077D00	nop
 
 L77d04:	; 80077D04
+
+
+
 if( w[800c1b60] == 0 )
 {
     if( hu[800c2ddc] & 0040 ) // cross on second controller repeated
@@ -543,6 +555,8 @@ if( w[800c1b60] == 0 )
     }
 }
 
+
+
 80077E20	lui    v0, $800b
 80077E24	lw     v0, $d0b0(v0)
 80077E28	nop
@@ -567,6 +581,8 @@ if( w[800c1b60] == 0 )
 80077E74	nop
 80077E78	bne    v0, s2, L780bc [$800780bc]
 80077E7C	nop
+
+
 
 if( ( hu[800af370] & 0003 ) == 0 ) // R2 L2 currently pressed
 {
@@ -598,6 +614,8 @@ if( ( hu[800af370] & 0001 ) && ( hu[800af370] & 0002 ) ) // R2 L2 currently pres
     }
 }
 
+
+
 if( hu[800c2dd4] & 0100 ) // select repeated
 {
     if( w[800ad0c4] == S2 )
@@ -608,6 +626,8 @@ if( hu[800c2dd4] & 0100 ) // select repeated
         }
     }
 }
+
+
 
 80077F90	lui    v0, $800b
 80077F94	lw     v0, $d048(v0)
@@ -698,8 +718,10 @@ L780cc:	; 800780CC
 800780F0	nop
 800780F4	jal    func7f5fc [$8007f5fc]
 800780F8	nop
-800780FC	jal    system_draw_sync [$80044448]
-80078100	addu   a0, zero, zero
+
+A0 = 0;
+system_draw_sync();
+
 80078104	jal    func4b3f4 [$8004b3f4]
 80078108	addu   a0, zero, zero
 8007810C	jal    func6f740 [$8006f740]
@@ -721,7 +743,7 @@ system_memory_free();
 
 
 ////////////////////////////////
-// func74bdc
+// func74bdc()
 A0 = 1;
 80074BEC	jal    func4b3f4 [$8004b3f4]
 
@@ -767,7 +789,8 @@ if( w[800c1b60] == 0 )
 80074C90	addu   sp, t0, zero
 80074C94	jal    func73f78 [$80073f78]
 80074C98	nop
-80074C9C	jal    func74958 [$80074958]
+
+func74958(); // update sprite
 
 funca8b60(); // model anim read
 
@@ -801,8 +824,10 @@ if( w[800c1b60] == 0 )
 80074D28	ori    a0, zero, $0001
 80074D2C	lui    at, $800b
 80074D30	sw     v0, $d078(at)
-80074D34	jal    system_draw_sync [$80044448]
-80074D38	addu   a0, zero, zero
+
+A0 = 0;
+system_draw_sync();
+
 80074D3C	jal    func7fc08 [$8007fc08]
 
 A0 = w[800c3740] + S0;
@@ -846,8 +871,9 @@ L74da8:	; 80074DA8
 80074DDC	sh     v0, $0014(sp)
 80074DE0	ori    v0, zero, $00e0
 80074DE4	sh     v0, $0016(sp)
-80074DE8	jal    system_move_image [$800447d4]
 80074DEC	sll    a2, a2, $08
+system_move_image();
+
 80074DF0	j      L74e10 [$80074e10]
 80074DF4	nop
 
@@ -858,8 +884,8 @@ L74df8:	; 80074DF8
 80074E04	addu   a3, zero, zero
 
 L74e08:	; 80074E08
-80074E08	jal    system_clear_image [$800445dc]
 80074E0C	addiu  a0, a0, $005c
+system_clear_image();
 
 L74e10:	; 80074E10
 80074E10	lui    a0, $800c
@@ -900,8 +926,8 @@ if( w[800c1b60] == 0 )
 80074EA0	lw     a1, $ed50(a1)
 80074EA4	lui    a0, $800b
 80074EA8	addiu  a0, a0, $f12c (=-$ed4)
-80074EAC	jal    system_load_image [$8004470c]
-80074EB0	nop
+system_load_image();
+
 80074EB4	lui    at, $800b
 80074EB8	sw     zero, $d08c(at)
 
@@ -1009,8 +1035,9 @@ system_get_rotation_based_on_vector_x_y();
 800730E8	lui    a1, $800b
 800730EC	lw     a1, $ed84(a1)
 800730F0	subu   a0, v1, a0
-800730F4	jal    system_get_rotation_based_on_vector_x_y [$8004b1d4]
 800730F8	subu   a1, v0, a1
+system_get_rotation_based_on_vector_x_y();
+
 800730FC	lui    a0, $800b
 80073100	lw     a0, $ed64(a0)
 80073104	lw     v1, $ffe8(s0)
@@ -1023,16 +1050,18 @@ system_get_rotation_based_on_vector_x_y();
 80073120	subu   a0, a0, v1
 80073124	sra    a0, a0, $10
 80073128	subu   a1, a1, v0
-8007312C	jal    length_of_vector_by_x_y [$80099020]
 80073130	sra    a1, a1, $10
+length_of_vector_by_x_y();
+
 80073134	lui    a1, $800b
 80073138	lw     a1, $ed68(a1)
 8007313C	lui    v1, $800b
 80073140	lw     v1, $ed58(v1)
 80073144	addu   a0, v0, zero
 80073148	subu   a1, a1, v1
-8007314C	jal    system_get_rotation_based_on_vector_x_y [$8004b1d4]
 80073150	sra    a1, a1, $10
+system_get_rotation_based_on_vector_x_y();
+
 80073154	lui    t1, $1f80
 80073158	ori    t1, t1, $03fc
 8007315C	lui    at, $800b
@@ -1266,5 +1295,107 @@ if( w[800c1b60] == 0 )
 {
     A0 = 8006f194; // MATRIX
     800734A4	0C0A06C6	Ж...
+}
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func74958()
+if( bu[800acfdd] == 1 )
+{
+    return;
+}
+
+S0 = 0;
+
+A0 = w[800acfe0];
+func24ed4(); // clear some set of images
+
+[80058c08] = w(w[800c3740] + cc);
+
+A0 = 800aef38;
+func24dec(); // copy 0x20 bytes of data from gere to 8004f25c (matrix copy?)
+
+func1d2e4(); // sprite update
+
+800749B0	jal    func1c884 [$8001c884]
+800749B4	nop
+800749B8	jal    func1c7f0 [$8001c7f0]
+800749BC	nop
+800749C0	lui    a0, $800c
+800749C4	lw     a0, $3740(a0)
+800749C8	lui    a1, $800b
+800749CC	lw     a1, $cfe0(a1)
+800749D0	jal    func751d4 [$800751d4]
+800749D4	addiu  a0, a0, $00cc
+800749D8	lui    v0, $800b
+800749DC	lw     v0, $d0d4(v0)
+800749E0	nop
+800749E4	blez   v0, L74a94 [$80074a94]
+800749E8	nop
+800749EC	addu   s1, zero, zero
+
+loop749f0:	; 800749F0
+800749F0	lui    v0, $800b
+800749F4	lw     v0, $efe4(v0)
+800749F8	nop
+800749FC	addu   a1, s1, v0
+80074A00	lw     v0, $0058(a1)
+80074A04	ori    v1, zero, $0040
+80074A08	andi   v0, v0, $0060
+80074A0C	bne    v0, v1, L74a54 [$80074a54]
+80074A10	lui    v1, $0100
+80074A14	lw     a2, $004c(a1)
+80074A18	nop
+80074A1C	lw     a0, $0004(a2)
+80074A20	ori    v0, zero, $0200
+80074A24	andi   v1, a0, $0600
+80074A28	beq    v1, v0, L74a7c [$80074a7c]
+80074A2C	andi   v0, a0, $1000
+80074A30	bne    v0, zero, L74a7c [$80074a7c]
+80074A34	nop
+80074A38	lw     v0, $0000(a2)
+80074A3C	nop
+80074A40	andi   v0, v0, $0001
+80074A44	beq    v0, zero, L74a70 [$80074a70]
+80074A48	nop
+80074A4C	j      L74a7c [$80074a7c]
+80074A50	nop
+
+L74a54:	; 80074A54
+80074A54	lw     v0, $004c(a1)
+80074A58	nop
+80074A5C	lw     v0, $0004(v0)
+80074A60	nop
+80074A64	and    v0, v0, v1
+80074A68	beq    v0, zero, L74a7c [$80074a7c]
+80074A6C	nop
+
+L74a70:	; 80074A70
+80074A70	lw     a0, $0004(a1)
+80074A74	jal    func23090 [$80023090]
+80074A78	nop
+
+L74a7c:	; 80074A7C
+80074A7C	lui    v0, $800b
+80074A80	lw     v0, $d0d4(v0)
+80074A84	addiu  s0, s0, $0001
+80074A88	slt    v0, s0, v0
+80074A8C	bne    v0, zero, loop749f0 [$800749f0]
+80074A90	addiu  s1, s1, $005c
+
+L74a94:	; 80074A94
+80074A94	lui    a0, $800c
+80074A98	lw     a0, $3740(a0)
+80074A9C	lui    a1, $800b
+80074AA0	lw     a1, $cfe0(a1)
+80074AA4	jal    func75b44 [$80075b44]
+80074AA8	addiu  a0, a0, $00cc
+
+if( w[800c1b60] == 0 )
+{
+    A0 = 8006f1b8; // CHAR
+    80074AC8	0C0A06C6	Ж...
 }
 ////////////////////////////////

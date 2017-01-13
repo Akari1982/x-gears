@@ -9559,7 +9559,7 @@ L78a24:	; 80078A24
 80078A38	sll    a0, a0, $05
 80078A3C	jal    func4702c [$8004702c]
 80078A40	addu   a0, t0, a0
-80078A44	jal    func4703c [$8004703c]
+80078A44	jal    system_read_tim [$8004703c]
 80078A48	addiu  a0, sp, $0020
 80078A4C	addu   v0, s1, s6
 80078A50	sw     v0, $0010(sp)

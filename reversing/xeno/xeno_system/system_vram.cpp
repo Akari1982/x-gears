@@ -215,6 +215,27 @@ V0 = w[GP + 188];
 
 
 ////////////////////////////////
+// func24fac()
+T0 = w[GP + 40c];
+if( ( T0 + 10 ) < w[GP + 3c0] )
+{
+    [T0 + 0] = h(A1); // x
+    [T0 + 2] = h(A2); // y
+    [T0 + 4] = h(A3); // width
+    [T0 + 6] = h(A4); // height
+    [T0 + 8] = w(A0); // address to load
+
+    V0 = w[GP + 188];
+    [T0 + c] = w(w[80058b60 + V0 * 4]);
+
+    [80058b60 + V0 * 4] = w(w[GP + 40c]);
+    [GP + 40c] = w(w[GP + 40c] + 10);
+}
+////////////////////////////////
+
+
+
+////////////////////////////////
 // func24ed4()
 // clear some set of images
 S1 = A0;
@@ -1206,4 +1227,72 @@ tww = ((0 - h[A0 + 6]) & ff) >> 3;
 [SP + c] = w(tww);
 
 return e2000000 | (twx << f) | (twy << a) | (tww << 5) | twh; // texture window setting
+////////////////////////////////
+
+
+
+////////////////////////////////
+// system_read_tim()
+S0 = A0;
+
+A0 = w[80059a18];
+A1 = S0;
+func47390();
+
+if( V0 != -1 )
+{
+    [80059a18] = w(w[80059a18] + V0 * 4);
+    return S0;
+}
+return 0;
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func47390()
+S0 = A0;
+S1 = A1;
+
+if( w[S0] != 10 )
+{
+    return -1;
+}
+
+S0 = S0 + 4;
+[S1 + 0] = w(w[S0]); // mode
+S0 = S0 + 4;
+
+if( bu[80055f72] == 2 )
+{
+    A0 = 80019320; // "id  =%08x"
+    A1 = 10;
+    800473E8	jal    func199e8 [$800199e8]
+
+    A0 = 8001932c; // "mode=%08x"
+    A1 = w[S1 + 0];
+    8004740C	jal    func199e8 [$800199e8]
+
+    A0 = 80019338; // "timaddr=%08x"
+    A1 = S0;
+    8004742C	jal    func199e8 [$800199e8]
+}
+
+if( w[S1 + 0] & 8 ) // paletted format
+{
+    [S1 + 4] = w(S0 + 4); // clut x y offset
+    [S1 + 8] = w(S0 + c); // clut data
+    image_offset = w[S0] >> 2;
+    S0 = S0 + (image_offset << 2);
+}
+else
+{
+    image_offset = 0;
+    [S1 + 4] = w(0);
+    [S1 + 8] = w(0);
+}
+
+[S1 + c] = w(S0 + 4); // image x y offset
+[S1 + 10] = w(S0 + c); // image data
+return image_offset + (w[S0] >> 2) + 2;
 ////////////////////////////////

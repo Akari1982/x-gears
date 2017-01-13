@@ -692,7 +692,7 @@ func79bd8();
 
 
 
-// extraction (part 0 of field file)
+// additional textures extraction (part 0 of field file)
 V0 = w[80059b70];
 A0 = w[V0 + 10c] + 10;
 A1 = 1;
@@ -710,7 +710,7 @@ if( S3 > 0 )
     S4 = 0;
     loop7056c:	; 8007056C
         A0 = S2 + w[S2 + 4 + S4 * 4];
-        func76888();
+        func76888(); // load tim by tim file pointer
 
         S4 = S4 + 1;
         V0 = S4 < S3;
@@ -736,12 +736,12 @@ if( number_of_textures > 0 )
 {
     S0 = 0;
     func705e0:	; 800705E0
-        if( h[800b1452 + S0 * 8] == 0 )
+        if( h[800b144c + S0 * 8 + 6] == 0 )
         {
-            A0 = S4 + w[S4 + 4 + S0 * 4];
-            A1 = hu[800b144c + S0 * 8];
-            A2 = hu[800b144e + S0 * 8];
-            80070610	jal    func228fc [$800228fc]
+            A0 = S4 + w[S4 + 4 + S0 * 4]; // texture pack pointer
+            A1 = hu[800b144c + S0 * 8 + 0]; // x offset in vram to load to
+            A2 = hu[800b144c + S0 * 8 + 2]; // y pos in vram to load to
+            func228fc();
         }
         S0 = S0 + 1;
         V0 = S0 < number_of_textures;
@@ -2588,25 +2588,26 @@ L79d98:	; 80079D98
 
 ////////////////////////////////
 // func76888()
-[80059a18] = w(A0);
+
+[80059a18] = w(A0); // store here pointer to tim file
 
 loop76898:	; 80076898
-    A0 = SP + 10;
-    80076898	jal    func4703c [$8004703c]
+    A0 = SP + 10; // TIM_IMAGE struct
+    system_read_tim();
 
     if( V0 == 0 )
     {
         return;
     }
 
-    A1 = w[SP + 18]; // data pointer
+    A1 = w[SP + 18]; // clut pointer
     if( A1 != 0 )
     {
         A0 = w[SP + 14]; // rect with size
         system_load_image(); // load to vram
     }
 
-    A1 = w[SP + 20]; // data pointer
+    A1 = w[SP + 20]; // image pointer
     if( A1 != 0 )
     {
         A0 = w[SP + 1c]; // rect with size

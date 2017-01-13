@@ -41,7 +41,7 @@ func6f9d0:	; 8006F9D0
 8006FA18	addiu  a0, sp, $0010
 8006FA1C	addu   s2, s0, zero
 8006FA20	addu   s4, s1, zero
-8006FA24	jal    func4703c [$8004703c]
+8006FA24	jal    system_read_tim [$8004703c]
 8006FA28	addu   s6, s3, zero
 8006FA2C	beq    v0, zero, L6fae4 [$8006fae4]
 8006FA30	nop
@@ -3769,115 +3769,12 @@ L74944:	; 80074944
 80074954	nop
 
 
-func74958:	; 80074958
-80074958	addiu  sp, sp, $ffd8 (=-$28)
-8007495C	lui    v1, $800b
-80074960	lbu    v1, $cfdd(v1)
-80074964	ori    v0, zero, $0001
-80074968	sw     ra, $0020(sp)
-8007496C	sw     s1, $001c(sp)
-80074970	beq    v1, v0, L74ad0 [$80074ad0]
-80074974	sw     s0, $0018(sp)
-80074978	lui    a0, $800b
-8007497C	lw     a0, $cfe0(a0)
-80074980	jal    func24ed4 [$80024ed4]
-80074984	addu   s0, zero, zero
-80074988	lui    a0, $800c
-8007498C	lw     a0, $3740(a0)
-80074990	jal    func24ddc [$80024ddc]
-80074994	addiu  a0, a0, $00cc
-80074998	lui    a0, $800b
-8007499C	addiu  a0, a0, $ef38 (=-$10c8)
-800749A0	jal    func24dec [$80024dec]
-800749A4	nop
-800749A8	jal    func1d2e4 [$8001d2e4]
-800749AC	nop
-800749B0	jal    func1c884 [$8001c884]
-800749B4	nop
-800749B8	jal    func1c7f0 [$8001c7f0]
-800749BC	nop
-800749C0	lui    a0, $800c
-800749C4	lw     a0, $3740(a0)
-800749C8	lui    a1, $800b
-800749CC	lw     a1, $cfe0(a1)
-800749D0	jal    func751d4 [$800751d4]
-800749D4	addiu  a0, a0, $00cc
-800749D8	lui    v0, $800b
-800749DC	lw     v0, $d0d4(v0)
-800749E0	nop
-800749E4	blez   v0, L74a94 [$80074a94]
-800749E8	nop
-800749EC	addu   s1, zero, zero
 
-loop749f0:	; 800749F0
-800749F0	lui    v0, $800b
-800749F4	lw     v0, $efe4(v0)
-800749F8	nop
-800749FC	addu   a1, s1, v0
-80074A00	lw     v0, $0058(a1)
-80074A04	ori    v1, zero, $0040
-80074A08	andi   v0, v0, $0060
-80074A0C	bne    v0, v1, L74a54 [$80074a54]
-80074A10	lui    v1, $0100
-80074A14	lw     a2, $004c(a1)
-80074A18	nop
-80074A1C	lw     a0, $0004(a2)
-80074A20	ori    v0, zero, $0200
-80074A24	andi   v1, a0, $0600
-80074A28	beq    v1, v0, L74a7c [$80074a7c]
-80074A2C	andi   v0, a0, $1000
-80074A30	bne    v0, zero, L74a7c [$80074a7c]
-80074A34	nop
-80074A38	lw     v0, $0000(a2)
-80074A3C	nop
-80074A40	andi   v0, v0, $0001
-80074A44	beq    v0, zero, L74a70 [$80074a70]
-80074A48	nop
-80074A4C	j      L74a7c [$80074a7c]
-80074A50	nop
+////////////////////////////////
+// func74958
+80074958-80074AE4
+////////////////////////////////
 
-L74a54:	; 80074A54
-80074A54	lw     v0, $004c(a1)
-80074A58	nop
-80074A5C	lw     v0, $0004(v0)
-80074A60	nop
-80074A64	and    v0, v0, v1
-80074A68	beq    v0, zero, L74a7c [$80074a7c]
-80074A6C	nop
-
-L74a70:	; 80074A70
-80074A70	lw     a0, $0004(a1)
-80074A74	jal    func23090 [$80023090]
-80074A78	nop
-
-L74a7c:	; 80074A7C
-80074A7C	lui    v0, $800b
-80074A80	lw     v0, $d0d4(v0)
-80074A84	addiu  s0, s0, $0001
-80074A88	slt    v0, s0, v0
-80074A8C	bne    v0, zero, loop749f0 [$800749f0]
-80074A90	addiu  s1, s1, $005c
-
-L74a94:	; 80074A94
-80074A94	lui    a0, $800c
-80074A98	lw     a0, $3740(a0)
-80074A9C	lui    a1, $800b
-80074AA0	lw     a1, $cfe0(a1)
-80074AA4	jal    func75b44 [$80075b44]
-80074AA8	addiu  a0, a0, $00cc
-
-if( w[800c1b60] == 0 )
-{
-    A0 = 8006f1b8; // CHAR
-    80074AC8	0C0A06C6	Æ...
-}
-L74ad0:	; 80074AD0
-80074AD0	lw     ra, $0020(sp)
-80074AD4	lw     s1, $001c(sp)
-80074AD8	lw     s0, $0018(sp)
-80074ADC	addiu  sp, sp, $0028
-80074AE0	jr     ra 
-80074AE4	nop
 
 
 func74ae8:	; 80074AE8
@@ -44186,7 +44083,7 @@ funcaace0:	; 800AACE0
 800AAD4C	lw     a0, $0028(sp)
 800AAD50	jal    func4702c [$8004702c]
 800AAD54	sw     v0, $0030(sp)
-800AAD58	jal    func4703c [$8004703c]
+800AAD58	jal    system_read_tim [$8004703c]
 800AAD5C	addiu  a0, sp, $0010
 800AAD60	beq    v0, zero, Laaf24 [$800aaf24]
 800AAD64	nop

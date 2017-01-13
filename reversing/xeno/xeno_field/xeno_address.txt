@@ -151,6 +151,7 @@
                         0x0000ff00 - mask of add tiles.
                         0x00000800 - different queue inserting.
                         0x10000000 - add if we set scale.
+                        0x40000000 - if set then we ??? during sprite update and remove flag.
         + 3e [][]     hu[S3 + 3e] & 00f0 palette id to load.
         + 40 [][][][] init with 0. Some flags.
                         0x00000001 - if set we calculate rotation matrix and multiply it with matrix stored in 0x80018614 (maybe for debug or for some special effect).
