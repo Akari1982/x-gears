@@ -148,6 +148,7 @@
                         0x00000004 - call some other function after packet creation.
                         0x00000008 - invert tile x and width.
                         0x00000010 - invert tile y and height.
+                        0x000000e0 - ???
                         0x0000ff00 - mask of add tiles.
                         0x00000800 - different queue inserting.
                         0x10000000 - add if we set scale.

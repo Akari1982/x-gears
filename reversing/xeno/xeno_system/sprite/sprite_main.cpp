@@ -94,11 +94,11 @@ if( hu[sprite_file_1 + 0] & 8000 )
 
 
 
-if( (w[struct_164 + 40] & 0001e000) == 0001c000 )
+if( ( w[struct_164 + 40] & 0001e000 ) == 0001c000 )
 {
-    A1 = bu[frame_data + 4];
     A0 = SP + 18;
-    func1f3a8;
+    A1 = bu[frame_data + 4];
+    func1f3a8();
 }
 
 
@@ -109,27 +109,15 @@ if( (w[struct_164 + 40] & 0001e000) == 0001c000 )
 
 
 number_of_tiles = bu[frame_data + 0] & 3f;
-[SP + 60] = w(number_of_tiles);
-[SP + 68] = b(bu[frame_data + 0] & 80); // two_bytes
+two_bytes = bu[frame_data + 0] & 80;
 
 
-V1 = w[struct_164 + 3c];
-V0 = hu[SP + 18];
-8001DBA8	srl    v1, v1, $05
-8001DBAC	addu   t1, v1, zero
-8001DBB0	andi   t1, t1, $0007
-8001DBB4	andi   v0, v0, $003f
-8001DBB8	sw     v1, $0038(sp)
-8001DBBC	sw     t1, $0038(sp)
-8001DBC0	sll    t1, v0, $02
-8001DBC4	sw     t1, $0048(sp)
-8001DBC8	lbu    t1, $001a(sp)
-8001DBCC	sll    v0, v0, $01
-8001DBD0	sw     v0, $0050(sp)
-8001DBD4	sw     t1, $0058(sp)
-T1 = w[struct_164 + 28];
-8001DBE0	sw     t1, $0040(sp)
-8001DBE4	lw     t1, $0060(sp)
+
+[SP + 38] = w((w[struct_164 + 3c] >> 5) & 7);
+[SP + 48] = w((hu[SP + 18] & 3f) << 2);
+[SP + 50] = w((hu[SP + 18] & 3f) << 1);
+[SP + 58] = w(bu[SP + 1a]);
+[SP + 40] = w(w[struct_164 + 28]);
 
 
 
@@ -137,17 +125,14 @@ S5 = 4;
 S2 = frame_data + 6 + number_of_tiles * 4;
 S6 = frame_data + 6;
 
-if( T1 != 0 )
+if( number_of_tiles != 0 )
 {
-    8001DBF0	addu   fp, zero, zero
+    FP = 0;
 
     L1dbf4:	; 8001DBF4
-        V0 = w[struct_30 + 14];
-        8001DBF8	addiu  v1, zero, $ffdf (=-$21)
-        8001DBFC	sb     zero, $0009(s1)
-        8001DC00	sb     zero, $0008(s1)
-        8001DC04	and    v0, v0, v1
-        8001DC08	sw     v0, $0014(s1)
+        [S1 + 9] = b(0);
+        [S1 + 8] = b(0);
+        [S1 + 14] = w(w[struct_30 + 14] & ffffffdf);
 
         L1dc0c:	; 8001DC0C
         8001DC0C	lbu    s0, $0000(s2)
@@ -181,8 +166,6 @@ if( T1 != 0 )
         8001DC7C	sb     v1, $0000(v0)
         8001DC84	lbu    v1, $0000(s2)
         V0 = w[struct_b4 + 34];
-
-        L1dc8c:	; 8001DC8C
         8001DC8C	addiu  s2, s2, $0001
         8001DC90	addu   a0, a0, v0
         8001DC94	sb     v1, $0001(a0)
@@ -208,40 +191,30 @@ if( T1 != 0 )
         8001DCE0	sh     zero, $0006(v0)
 
         L1dce4:	; 8001DCE4
-        8001DCE4	andi   v0, s0, $0004
-        8001DCE8	beq    v0, zero, L1dd04 [$8001dd04]
-        8001DCEC	andi   v0, s0, $0001
-        8001DCF0	lw     v0, $0014(s1)
-        8001DCF4	nop
-        8001DCF8	ori    v0, v0, $0020
-        8001DCFC	sw     v0, $0014(s1)
-        8001DD00	andi   v0, s0, $0001
-
-        L1dd04:	; 8001DD04
-        8001DD04	beq    v0, zero, L1dd1c [$8001dd1c]
-        8001DD08	andi   v0, s0, $0002
-        8001DD0C	lbu    v0, $0000(s2)
-        8001DD10	addiu  s2, s2, $0001
-        8001DD14	sb     v0, $0008(s1)
-        8001DD18	andi   v0, s0, $0002
-
-        L1dd1c:	; 8001DD1C
-        8001DD1C	beq    v0, zero, L1dc0c [$8001dc0c]
-        8001DD20	nop
-        8001DD24	lbu    v0, $0000(s2)
-        8001DD28	addiu  s2, s2, $0001
+        if( S0 & 4 )
+        {
+            [S1 + 14] = w(w[S1 + 14] | 00000020);
+        }
+        if( S0 & 1 )
+        {
+            [S1 + 8] = b(bu[S2 + 0]);
+            S2 = S2 + 1;
+        }
+        if( S0 & 2 )
+        {
+            [S1 + 9] = b(bu[S2 + 0]);
+            S2 = S2 + 1;
+        }
         8001DD2C	j      L1dc0c [$8001dc0c]
-        8001DD30	sb     v0, $0009(s1)
 
         L1dd34:	; 8001DD34
         8001DD34	lhu    v0, $0002(s6)
         8001DD38	lhu    v1, $0000(s6)
-        T1 = sprite_file_1;
         8001DD40	andi   a0, v0, $001f
         8001DD44	sll    v1, v1, $02
         8001DD48	sh     a0, $0020(sp)
         8001DD4C	lhu    v0, $0002(s6)
-        S0 = T1 + V1;
+        S0 = sprite_file_1 + V1;
         8001DD54	srl    v0, v0, $05
         8001DD58	andi   v0, v0, $003f
         8001DD5C	sh     v0, $0022(sp)
@@ -294,28 +267,24 @@ if( T1 != 0 )
         8001DE08	andi   v0, v0, $0010
         8001DE0C	or     v1, v1, v0
         8001DE10	sw     v1, $0014(s1)
-        8001DE14	lbu    v1, $0000(s2)
         8001DE18	lbu    v0, $0000(s2)
         8001DE1C	lw     t1, $0040(sp)
         8001DE20	srl    v0, v0, $04
-        8001DE24	andi   a1, v0, $0003
-        8001DE28	andi   a2, v1, $000f
+        A1 = V0 & 3;
+        A2 = bu[S2 + 0] & f;
         8001DE30	sw     t1, $0010(s1)
+
+
         8001DE2C	bne    a1, zero, L1de48 [$8001de48]
 
-        8001DE34	lw     t1, $0038(sp)
-        8001DE38	lhu    a1, $0038(sp)
-        8001DE3C	sll    v0, t1, $10
-        8001DE40	beq    v0, zero, L1de58 [$8001de58]
-        8001DE44	nop
+        A1 = hu[SP + 38];
+        if( ( w[SP + 38] << 10 ) != 0 )
+        {
+            L1de48:	; 8001DE48
+            A1 = A1 - 1;
+            [S1 + 13] = b(bu[S1 + 13] | 02);
+        }
 
-        L1de48:	; 8001DE48
-        8001DE48	lbu    v0, $0013(s1)
-        8001DE4C	addiu  a1, a1, $ffff (=-$1)
-        8001DE50	ori    v0, v0, $0002
-        8001DE54	sb     v0, $0013(s1)
-
-        L1de58:	; 8001DE58
         8001DE58	andi   a0, a3, $0001
         8001DE5C	sll    a0, a0, $07
         8001DE60	andi   v0, a1, $0003
@@ -328,15 +297,11 @@ if( T1 != 0 )
         8001DE7C	or     a0, a0, v1
         8001DE80	andi   v0, v0, $03ff
         8001DE84	srl    v0, v0, $06
-        8001DE88	or     a0, a0, v0
-        8001DE8C	andi   a1, a1, $0200
-        8001DE90	sll    a1, a1, $02
-        8001DE94	or     a0, a0, a1
-        8001DE98	sh     a0, $000a(s1)
-        8001DE9C	sll    a0, a2, $04
-        V0 = h[struct_110 + 8]; // clut x
+        [S1 + a] = h(A0 | V0 | ((A1 & 200) << 2));
+
+        A0 = A2 << 4;
+        A0 = h[struct_110 + 8] + A0; // clut x
         A1 = h[struct_110 + a]; // clut y
-        8001DEAC	addu   a0, v0, a0
         8001DEA8	jal    func438d0 [$800438d0]
 
         // called many times on pc sprite change
@@ -350,8 +315,7 @@ if( T1 != 0 )
         A4 = bu[S0 + 1];
         func24fac();
 
-        8001DEF0	lbu    t1, $0068(sp)
-        if( T1 != 0 )
+        if( two_bytes != 0 )
         {
             8001DF00	lbu    v0, $0002(s2)
             8001DF04	lbu    v1, $0001(s2)
@@ -373,11 +337,10 @@ if( T1 != 0 )
             [S1 + 2] = h(b[S2 + 2]);
         }
 
-        8001DF60	addiu  s1, s1, $0018
-        8001DF64	addiu  fp, fp, $0001
-        8001DF68	lw     t1, $0060(sp)
-        8001DF74	addiu  s2, s2, $0003
-    8001DF70	bne    fp, t1, L1dbf4 [$8001dbf4]
+        S1 = S1 + 18;
+        S2 = S2 + 3;
+        FP = FP + 1;
+    8001DF70	bne    fp, number_of_tiles, L1dbf4 [$8001dbf4]
 }
 
 
@@ -404,39 +367,21 @@ func24fac();
 
 
 ////////////////////////////////
-// func1f3a8
-V0 = A1 + h[GP + 26];
-A2 = A0;
-V0 = V0 < 41;
-if( V0 == 0 )
+// func1f3a8()
+ret = A0;
+if( ( h[GP + 26] + A1 ) >= 41 )
 {
-    8001F3C4	lhu    v0, $0024(gp)
-    8001F3C8	sh     zero, $0026(gp)
-    8001F3CC	addiu  v0, v0, $0001
-    8001F3D0	sh     v0, $0024(gp)
-    8001F3D4	sll    v0, v0, $10
-    8001F3D8	sra    v0, v0, $10
-    8001F3DC	slti   v0, v0, $0003
-    if( V0 == 0 )
+    [GP + 26] = h(0);
+
+    [GP + 24] = h(hu[GP + 24] + 1);
+    if( hu[GP + 24] >= 3 )
     {
-        8001F3E8	sh     zero, $0024(gp)
+        [GP + 24] = h(0);
     }
 }
-
-8001F3EC	lhu    a0, $0026(gp)
-8001F3F0	lh     v0, $0024(gp)
-8001F3F4	addiu  v1, a0, $0300
-8001F3F8	sll    v0, v0, $06
-8001F3FC	addiu  v0, v0, $0140
-8001F400	addu   a0, a0, a1
-8001F404	sh     v1, $0000(sp)
-8001F408	sh     v0, $0002(sp)
-8001F40C	sh     a0, $0026(gp)
-8001F410	lwl    v0, $0003(sp)
-8001F414	lwr    v0, $0000(sp)
-8001F418	nop
-[A2 + 0] = w(V0);
-return A2;
+[ret + 0] = w((((h[GP + 24] << 6) + 140) << 10) | (hu[GP + 26] + 300));
+[GP + 26] = h(hu[GP + 26] + A1);
+return ret;
 ////////////////////////////////
 
 
