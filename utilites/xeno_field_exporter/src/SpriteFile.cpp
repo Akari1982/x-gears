@@ -1,5 +1,6 @@
 #include "PacketFile.h"
 #include "SpriteFile.h"
+#include "Utilites.h"
 #include "../../common/DebugDraw.h"
 #include "../../common/Logger.h"
 #include "../../common/OgreGenUtilites.h"
@@ -13,7 +14,8 @@ SpriteFile::SpriteFile( File* file, Vram* vram, const int file_id, const int spr
 {
     Initialise();
 
-    Logger* log = new Logger( "exported/debug/0" + IntToString( file_id ) + "_3_2dsprite_log.txt" );
+    Logger* log = new Logger( "exported/debug/0" + IntToString( file_id ) + "_3_2dsprite_" + IntToString( sprite_id ) + "_log.txt" );
+    Logger* export_script = new Logger( "exported/sprites/field/" + GetSpriteName( file_id, sprite_id ) + ".xml" );
 
     m_NumberOfFrames = 0;
     m_FrameId = 0;
@@ -42,8 +44,16 @@ SpriteFile::SpriteFile( File* file, Vram* vram, const int file_id, const int spr
 
     m_NumberOfFrames = ( sprite1->GetU16LE( 0 ) & 0x1ff );
 
+
+
+    export_script->Log( "<sprite>\n" );
+
+
+
     for( u16 frame_id = 0; frame_id < m_NumberOfFrames; ++frame_id )
     {
+        export_script->Log( "    <frame name=\"" + IntToString( frame_id ) + "\">\n" );
+
         Frame frame;
 
         u16 frame_offset = sprite1->GetU16LE( 0x02 + frame_id * 0x02 );
@@ -58,6 +68,8 @@ SpriteFile::SpriteFile( File* file, Vram* vram, const int file_id, const int spr
 
         for( u8 i = 0; i < number_of_tile; ++i )
         {
+            export_script->Log( "        <tile name=\"" + IntToString( i ) + "\"" );
+
             Tile tile;
             log->Log( "tile_" + HexToString( i, 2, '0' ) + "\n" );
             u16 offset_to_tile_desc = sprite1->GetU16LE( frame_offset + 0x04 + i * 0x02 );
@@ -119,18 +131,17 @@ SpriteFile::SpriteFile( File* file, Vram* vram, const int file_id, const int spr
             if( double_size_tile == true )
             {
                 tile.x = sprite1->GetU16LE( offset_to_tile_position + 1 );
-                log->Log( "    x = 0x" + HexToString( tile.x, 4, '0' ) + "\n" );
                 tile.y = sprite1->GetU16LE( offset_to_tile_position + 3 );
-                log->Log( "    y = 0x" + HexToString( tile.y, 4, '0' ) + "\n" );
                 offset_to_tile_position += 2;
             }
             else
             {
                 tile.x = (s8)sprite1->GetU8( offset_to_tile_position + 1 );
-                log->Log( "    x = 0x" + HexToString( tile.x, 4, '0' ) + "\n" );
                 tile.y = (s8)sprite1->GetU8( offset_to_tile_position + 2 );
-                log->Log( "    y = 0x" + HexToString( tile.y, 4, '0' ) + "\n" );
             }
+            log->Log( "    x = 0x" + HexToString( tile.x, 4, '0' ) + "\n" );
+            log->Log( "    y = 0x" + HexToString( tile.y, 4, '0' ) + "\n" );
+            export_script->Log( " x=\"" + IntToString( tile.x ) + "\" y=\"" + IntToString( tile.y ) + "\"" );
             offset_to_tile_position += 3;
 
 
@@ -157,11 +168,21 @@ SpriteFile::SpriteFile( File* file, Vram* vram, const int file_id, const int spr
             tile.height = sprite1->GetU8( offset_to_tile_desc + offset ); ++offset;
             log->Log( "    height = 0x" + HexToString( tile.height, 2, '0' ) + "\n" );
 
+            export_script->Log( " tex_x=\"" + IntToString( tile.tex_x ) + "\" tex_y=\"" + IntToString( tile.tex_y ) + "\"" );
+            export_script->Log( " width=\"" + IntToString( tile.width ) + "\" height=\"" + IntToString( tile.height ) + "\"" );
+
             frame.tile.push_back( tile );
+            export_script->Log( ">\n" );
         }
 
         m_Sprite.frame.push_back( frame );
+
+        export_script->Log( "    </frame>\n" );
     }
+
+
+
+    export_script->Log( "</sprite>\n" );
 
 
 
@@ -184,9 +205,9 @@ SpriteFile::SpriteFile( File* file, Vram* vram, const int file_id, const int spr
     // create and export textures for model
     if( textures.size() > 0 )
     {
-        CreateTexture( vram, data, "exported/debug/0" + IntToString( file_id ) + "_3_2dsprite.png", textures );
+        CreateTexture( vram, data, "exported/sprites/field/" + GetSpriteName( file_id, sprite_id ) + ".png", textures );
     }
-    CreateMaterial( "xeno/sprite", "exported/debug/0" + IntToString( file_id ) + "_3_2dsprite.material", ( textures.size() > 0 ) ? "exported/debug/0" + IntToString( file_id ) + "_3_2dsprite.png" : "", "", "" );
+    CreateMaterial( "xeno/sprite", "exported/sprites/field/" + GetSpriteName( file_id, sprite_id ) + ".material", ( textures.size() > 0 ) ? "exported/sprites/field/" + GetSpriteName( file_id, sprite_id ) + ".png" : "", "", "" );
 
 
 

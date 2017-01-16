@@ -22,3 +22,26 @@ GetFieldName( const int file_id )
 
     return "";
 }
+
+
+
+const Ogre::String
+GetSpriteName( const int file_id, const int sprite_id )
+{
+    switch( file_id )
+    {
+        case 632:
+        {
+            if( sprite_id == 0 )
+            {
+                return "chief_lee";
+            }
+            else if( sprite_id == 1 )
+            {
+                return "dan";
+            }
+        }
+    }
+
+    return "";
+}
