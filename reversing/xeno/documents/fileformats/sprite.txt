@@ -69,8 +69,11 @@ frame data
 +01 []
 +02 []
 +03 []
+// 0x8000 set
 +04 array of tile offsets to tile description 2 bytes each.
 +04 + number_of_tiles * 2 - tile position setting if flag 0x8000 set.
+// 0x8000 not set
++04 []       we move GP + 26 by this value each tex call.
 +06 + number_of_tiles * 4 - tile position setting if flag 0x8000 not set.
 
 tile position setting

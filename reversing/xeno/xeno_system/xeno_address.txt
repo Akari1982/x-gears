@@ -104,6 +104,8 @@
 
 80058810 GP
     + 20 [][][][] pointer to last struct_164 (used to create list of render sprites).
+    + 24 [][]     some y of texture (used as * 0x40 + 140). Increment by 1 when +26 >= 0x41 each func call limited by 3.
+    + 26 [][]     some x of texture (used as + 300). Increment by A1 each func call limited by 41.
     + 28 [][][][] ???
     + 38 [][][][] rotation dta for some sprite animation if flag 0x2000 in sprite animation data not set.
     + 3d []       if this != 0 then we use +38 to calculate rotation matrix for sprite animation (if flag 0x2000 not set).

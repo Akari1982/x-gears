@@ -90,7 +90,7 @@ if( hu[sprite_file_1 + 0] & 8000 )
 
 
 
-[SP + 18] = w(w[struct_110 + 4]);
+[SP + 18] = w(w[struct_110 + 4]); // texture x and y
 
 
 
@@ -122,7 +122,6 @@ two_bytes = bu[frame_data + 0] & 80;
 
 S5 = 4;
 S2 = frame_data + 6 + number_of_tiles * 4;
-S6 = frame_data + 6;
 
 if( number_of_tiles != 0 )
 {
@@ -150,7 +149,7 @@ if( number_of_tiles != 0 )
                     [struct_b4 + 34] = w(V0);
 
                     A0 = struct_164;
-                    8001DC54	jal    func2332c [$8002332c]
+                    func2332c(); // init 0x8 items with 0
                 }
 
                 if( S0 & 20 )
@@ -194,27 +193,23 @@ if( number_of_tiles != 0 )
             8001DD2C	j      L1dc0c [$8001dc0c]
         }
 
-        [SP + 20] = h(hu[S6 + 2] & 1f);
-        S0 = sprite_file_1 + hu[S6 + 0] * 4;
-        [SP + 22] = h((hu[S6 + 2] >> 5) & 3f);
+        [SP + 20] = h(hu[frame_data + 6 + FP * 4 + 2] & 1f);
+        S0 = sprite_file_1 + hu[frame_data + 6 + FP * 4 + 0] * 4;
+        [SP + 22] = h((hu[frame_data + 6 + FP * 4 + 2] >> 5) & 3f);
 
         A3 = hu[S0 + 2];
 
 
         if( A3 & 0001 )
         {
-            V0 = hu[SP + 20] << 1;
-            V1 = bu[S0];
-            A0 = w[SP + 50] + V0;
-            S4 = V1 >> 1;
+            A0 = w[SP + 50] + (hu[SP + 20] << 1);
+            S4 = bu[S0 + 0] >> 1;
             [struct_30 + FP * 18 + 14] = w(w[struct_30 + FP * 18 + 14] | 00000008);
         }
         else
         {
-            V0 = hu[SP + 20] << 2;
-            V1 = bu[S0];
-            A0 = w[SP + 48] + V0;
-            S4 = V1 >> 2;
+            A0 = w[SP + 48] + (hu[SP + 20] << 2);
+            S4 = bu[S0 + 0] >> 2;
             [struct_30 + FP * 18 + 14] = w(w[struct_30 + FP * 18 + 14] & fffffff7);
         }
 
@@ -272,7 +267,6 @@ if( number_of_tiles != 0 )
             [struct_30 + FP * 18 + 2] = h(b[S2 + 2]); // y tile pos
         }
 
-        S6 = S6 + 4;
         S2 = S2 + 3;
         FP = FP + 1;
     8001DF70	bne    fp, number_of_tiles, L1dbf4 [$8001dbf4]
@@ -307,7 +301,7 @@ if( ( h[GP + 26] + A1 ) >= 41 )
         [GP + 24] = h(0);
     }
 }
-[ret + 0] = w((((h[GP + 24] << 6) + 140) << 10) | (hu[GP + 26] + 300));
+[ret + 0] = w((((h[GP + 24] * 40) + 140) << 10) | (hu[GP + 26] + 300));
 [GP + 26] = h(hu[GP + 26] + A1);
 return ret;
 ////////////////////////////////

@@ -10530,37 +10530,11 @@ func1c7d0:	; 8001C7D0
 
 
 
-func1c884:	; 8001C884
-8001C884	lw     v0, $0420(gp)
-8001C888	addiu  sp, sp, $ffe8 (=-$18)
-8001C88C	sw     ra, $0010(sp)
-8001C890	sw     v0, $041c(gp)
-8001C894	beq    v0, zero, L1c8d4 [$8001c8d4]
-8001C898	nop
+////////////////////////////////
+// func1c884
+8001C884-8001C8E0
+////////////////////////////////
 
-loop1c89c:	; 8001C89C
-8001C89C	lw     a0, $041c(gp)
-8001C8A0	nop
-8001C8A4	lw     v0, $0018(a0)
-8001C8A8	lw     v1, $0008(a0)
-8001C8AC	sw     a0, $034c(gp)
-8001C8B0	sw     v0, $041c(gp)
-8001C8B4	beq    v1, zero, L1c8c4 [$8001c8c4]
-8001C8B8	nop
-8001C8BC	jalr   v1 ra
-8001C8C0	nop
-
-L1c8c4:	; 8001C8C4
-8001C8C4	lw     v0, $041c(gp)
-8001C8C8	nop
-8001C8CC	bne    v0, zero, loop1c89c [$8001c89c]
-8001C8D0	nop
-
-L1c8d4:	; 8001C8D4
-8001C8D4	lw     ra, $0010(sp)
-8001C8D8	addiu  sp, sp, $0018
-8001C8DC	jr     ra 
-8001C8E0	nop
 
 
 func1c8e4:	; 8001C8E4

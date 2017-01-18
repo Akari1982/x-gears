@@ -102,6 +102,7 @@
 800aeec4 [][][][] store some direction here. maybe for camera. func9efe4.
 800aeee0 [][][][] store some direction here. maybe for camera. func9efe4.
 
+800aef38 some matrix and translation.
 800aef78 some matrix and translation.
 
 800aefe0 [][][][] number of entity.
@@ -333,6 +334,7 @@
                        0x00000002:
                        0x00000078: ignore walkmeshes material flags. Set - ignore.
                        0x00000180: ???
+                       0x00000200: set if entity not on screen.
                        0x00000800: remove this flag during initialization in 0x0B opcode (with model). Add it in 0xBC opcode. Looks like if this entity has model or not.
                        0x00001000: remove this flag after move is done.
                        0x00002000:
