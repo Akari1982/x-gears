@@ -207,7 +207,7 @@ SpriteFile::SpriteFile( File* file, Vram* vram, const int file_id, const int spr
     {
         CreateTexture( vram, data, "exported/sprites/field/" + GetSpriteName( file_id, sprite_id ) + ".png", textures );
     }
-    CreateMaterial( "xeno/sprite", "exported/sprites/field/" + GetSpriteName( file_id, sprite_id ) + ".material", ( textures.size() > 0 ) ? "exported/sprites/field/" + GetSpriteName( file_id, sprite_id ) + ".png" : "", "", "" );
+    CreateMaterial( "xeno/sprite", "exported/sprites/field/" + GetSpriteName( file_id, sprite_id ) + ".material", ( textures.size() > 0 ) ? "sprites/field/" + GetSpriteName( file_id, sprite_id ) + ".png" : "", "", "" );
 
 
 
@@ -233,7 +233,7 @@ SpriteFile::Initialise()
     m_SceneManager = Ogre::Root::getSingleton().getSceneManager( "Scene" );
     m_RenderSystem = Ogre::Root::getSingletonPtr()->getRenderSystem();
 
-    m_MaxVertexCount = 64 * 6;
+    m_MaxVertexCount = 128 * 6;
     m_RenderOp.vertexData = new Ogre::VertexData;
     m_RenderOp.vertexData->vertexStart = 0;
 
@@ -264,7 +264,7 @@ SpriteFile::Initialise()
     //pass->setAlphaRejectFunction( Ogre::CMPF_GREATER );
     //pass->setAlphaRejectValue( 0 );
     Ogre::TextureUnitState* tex = pass->createTextureUnitState();
-    tex->setTextureName( "models/xeno/sprite.png" );
+    tex->setTextureName( "sprites/field/chief_lee.png" );
     tex->setNumMipmaps( -1 );
     tex->setTextureFiltering( Ogre::TFO_NONE );
 
