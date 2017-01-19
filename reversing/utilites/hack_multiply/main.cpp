@@ -7,26 +7,16 @@ using namespace std;
 
 int main()
 {
-    for( float input = -16; input < 16; ++input )
-    {
-        float output = ceil( input / 2.0f );
-        output = ( output < -8 ) ? -8 : output;
-        output = ( output > 7 ) ? 7 : output;
-        printf( "%d %d\n", (int)input, (int)output );
-    }
-
-
-/*
     for( __int64 A0 = 0; A0 <= 100; ++A0 )
     {
         printf( "%d:", (int)A0 );
 
         __int64 A2 = A0 * 0x55555556;
         A2 = A2 >> 0x20;
-        int x = A2 - (A0 >> 0x1f);
+        int x = (A2 - (A0 >> 0x1f)) << 1;
         printf("%d\n", x);
     }
-*/
+
 /*
     for( __int64 A0 = 0; A0 <= 1000; A0 += 10 )
     {
