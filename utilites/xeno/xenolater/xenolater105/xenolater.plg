@@ -1,0 +1,37 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: xenolater - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\WINDOWS\TEMP\RSP90B4.TMP" with contents
+[
+/nologo /MD /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Release/xenolater.pch" /Yu"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"C:\Programmi\Microsoft Visual Studio\MyProjects\xenolater\xenolaterView.cpp"
+]
+Creating command line "cl.exe @C:\WINDOWS\TEMP\RSP90B4.TMP" 
+Creating temporary file "C:\WINDOWS\TEMP\RSP90B5.TMP" with contents
+[
+/nologo /subsystem:windows /incremental:no /pdb:"Release/xenolater.pdb" /machine:I386 /out:"Release/xenolater.exe" 
+".\Release\MainFrm.obj"
+".\Release\StdAfx.obj"
+".\Release\xenolater.obj"
+".\Release\xenolaterDoc.obj"
+".\Release\xenolaterView.obj"
+".\Release\xenolater.res"
+]
+Creating command line "link.exe @C:\WINDOWS\TEMP\RSP90B5.TMP"
+<h3>Output Window</h3>
+Compiling...
+xenolaterView.cpp
+Linking...
+
+
+
+<h3>Results</h3>
+xenolater.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

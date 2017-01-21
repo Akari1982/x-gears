@@ -1,0 +1,41 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: sdlhelloworld - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\bakari\LOCALS~1\Temp\RSP1D0.tmp" with contents
+[
+/nologo /Zp1 /MD /W3 /GR /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /Fo"compile/" /Fd"compile/" /FD /c 
+"C:\project\xg\16\resource\battle\enemy2d.cpp"
+"C:\project\xg\16\game.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\bakari\LOCALS~1\Temp\RSP1D0.tmp" 
+Creating temporary file "C:\DOCUME~1\bakari\LOCALS~1\Temp\RSP1D1.tmp" with contents
+[
+sdl.lib sdlmain.lib sdl_image.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib physfs.lib zlib.lib opengl32.lib glu32.lib glaux.lib /nologo /subsystem:console /incremental:no /pdb:"Release/sdlhelloworld.pdb" /machine:I386 /out:"Release/game.exe" 
+.\compile\image.obj
+.\compile\tim.obj
+.\compile\enemy2d.obj
+.\compile\file.obj
+.\compile\game.obj
+.\compile\log.obj
+.\compile\main.obj
+]
+Creating command line "link.exe @C:\DOCUME~1\bakari\LOCALS~1\Temp\RSP1D1.tmp"
+<h3>Output Window</h3>
+Compiling...
+enemy2d.cpp
+game.cpp
+Generating Code...
+Linking...
+
+
+
+<h3>Results</h3>
+game.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>
