@@ -5,8 +5,8 @@ tile_00
     x = 0x0000
     y = 0xffffffec
     flags = 0x00
-    tex_x = 0x0c
-    tex_y = 0x01
+    u = 0x0c
+    v = 0x01
     width = 0x07
     height = 0x15
 tile_01
@@ -14,8 +14,8 @@ tile_01
     x = 0xfffffff6
     y = 0xffffffec
     flags = 0x00
-    tex_x = 0x01
-    tex_y = 0x01
+    u = 0x01
+    v = 0x01
     width = 0x0a
     height = 0x15
 tile_02
@@ -23,8 +23,8 @@ tile_02
     x = 0xfffffffd
     y = 0xffffffe1
     flags = 0x00
-    tex_x = 0x19
-    tex_y = 0xa9
+    u = 0x19
+    v = 0xa9
     width = 0x0a
     height = 0x08
 tile_03
@@ -32,8 +32,8 @@ tile_03
     x = 0xfffffffd
     y = 0xffffffd4
     flags = 0x00
-    tex_x = 0x5e
-    tex_y = 0x44
+    u = 0x5e
+    v = 0x44
     width = 0x08
     height = 0x0d
 tile_04
@@ -41,8 +41,8 @@ tile_04
     x = 0xfffffff8
     y = 0xffffffe9
     flags = 0x00
-    tex_x = 0xc3
-    tex_y = 0xf2
+    u = 0xc3
+    v = 0xf2
     width = 0x0f
     height = 0x03
 tile_05
@@ -50,8 +50,8 @@ tile_05
     x = 0x0007
     y = 0xfffffff0
     flags = 0x00
-    tex_x = 0xfc
-    tex_y = 0x23
+    u = 0xfc
+    v = 0x23
     width = 0x03
     height = 0x0f
 tile_06
@@ -59,8 +59,8 @@ tile_06
     x = 0x0007
     y = 0xffffffe2
     flags = 0x00
-    tex_x = 0x52
-    tex_y = 0x25
+    u = 0x52
+    v = 0x25
     width = 0x06
     height = 0x0e
 tile_07
@@ -68,8 +68,8 @@ tile_07
     x = 0xfffffff3
     y = 0xffffffe2
     flags = 0x00
-    tex_x = 0x3f
-    tex_y = 0x35
+    u = 0x3f
+    v = 0x35
     width = 0x05
     height = 0x0e
 tile_08
@@ -77,8 +77,8 @@ tile_08
     x = 0xfffffff8
     y = 0xffffffe1
     flags = 0x00
-    tex_x = 0xfa
-    tex_y = 0xa8
+    u = 0xfa
+    v = 0xa8
     width = 0x05
     height = 0x08
 tile_09
@@ -86,8 +86,8 @@ tile_09
     x = 0xfffffffa
     y = 0xffffffd5
     flags = 0x00
-    tex_x = 0x90
-    tex_y = 0x6b
+    u = 0x90
+    v = 0x6b
     width = 0x03
     height = 0x0b
 number_of_tile = 0x0a
@@ -97,8 +97,8 @@ tile_00
     x = 0xfffffffd
     y = 0xffffffe1
     flags = 0x00
-    tex_x = 0x19
-    tex_y = 0xa9
+    u = 0x19
+    v = 0xa9
     width = 0x0a
     height = 0x08
 tile_01
@@ -106,8 +106,8 @@ tile_01
     x = 0xfffffffd
     y = 0xffffffd4
     flags = 0x00
-    tex_x = 0x5e
-    tex_y = 0x44
+    u = 0x5e
+    v = 0x44
     width = 0x08
     height = 0x0d
 tile_02
@@ -115,8 +115,8 @@ tile_02
     x = 0xfffffff8
     y = 0xffffffe9
     flags = 0x00
-    tex_x = 0xc3
-    tex_y = 0xf2
+    u = 0xc3
+    v = 0xf2
     width = 0x0f
     height = 0x03
 tile_03
@@ -124,8 +124,8 @@ tile_03
     x = 0xfffffff6
     y = 0xffffffec
     flags = 0x00
-    tex_x = 0x01
-    tex_y = 0x01
+    u = 0x01
+    v = 0x01
     width = 0x0a
     height = 0x15
 tile_04
@@ -133,8 +133,8 @@ tile_04
     x = 0x0000
     y = 0xffffffec
     flags = 0x00
-    tex_x = 0x0c
-    tex_y = 0x01
+    u = 0x0c
+    v = 0x01
     width = 0x07
     height = 0x15
 tile_05
@@ -142,8 +142,8 @@ tile_05
     x = 0x0007
     y = 0xfffffff0
     flags = 0x00
-    tex_x = 0xfc
-    tex_y = 0x23
+    u = 0xfc
+    v = 0x23
     width = 0x03
     height = 0x0f
 tile_06
@@ -151,8 +151,8 @@ tile_06
     x = 0x0007
     y = 0xffffffe2
     flags = 0x00
-    tex_x = 0x52
-    tex_y = 0x25
+    u = 0x52
+    v = 0x25
     width = 0x06
     height = 0x0e
 tile_07
@@ -160,8 +160,8 @@ tile_07
     x = 0xfffffff6
     y = 0xffffffde
     flags = 0x00
-    tex_x = 0x5a
-    tex_y = 0x6b
+    u = 0x5a
+    v = 0x6b
     width = 0x07
     height = 0x0b
 tile_08
@@ -169,8 +169,8 @@ tile_08
     x = 0xfffffffa
     y = 0xffffffdb
     flags = 0x00
-    tex_x = 0xb8
-    tex_y = 0xf6
+    u = 0xb8
+    v = 0xf6
     width = 0x03
     height = 0x03
 tile_09
@@ -178,8 +178,8 @@ tile_09
     x = 0xfffffffb
     y = 0xffffffd5
     flags = 0x00
-    tex_x = 0x6d
-    tex_y = 0xe1
+    u = 0x6d
+    v = 0xe1
     width = 0x02
     height = 0x06
 number_of_tile = 0x0a
@@ -189,8 +189,8 @@ tile_00
     x = 0x0000
     y = 0xffffffec
     flags = 0x00
-    tex_x = 0x0c
-    tex_y = 0x01
+    u = 0x0c
+    v = 0x01
     width = 0x07
     height = 0x15
 tile_01
@@ -198,8 +198,8 @@ tile_01
     x = 0xfffffff6
     y = 0xffffffec
     flags = 0x00
-    tex_x = 0x01
-    tex_y = 0x01
+    u = 0x01
+    v = 0x01
     width = 0x0a
     height = 0x15
 tile_02
@@ -207,8 +207,8 @@ tile_02
     x = 0x0007
     y = 0xfffffff0
     flags = 0x00
-    tex_x = 0xd1
-    tex_y = 0x24
+    u = 0xd1
+    v = 0x24
     width = 0x03
     height = 0x0f
 tile_03
@@ -216,8 +216,8 @@ tile_03
     x = 0x0007
     y = 0xffffffe7
     flags = 0x00
-    tex_x = 0x82
-    tex_y = 0x96
+    u = 0x82
+    v = 0x96
     width = 0x06
     height = 0x09
 tile_04
@@ -225,8 +225,8 @@ tile_04
     x = 0x0007
     y = 0xffffffe2
     flags = 0x00
-    tex_x = 0xfc
-    tex_y = 0xe7
+    u = 0xfc
+    v = 0xe7
     width = 0x03
     height = 0x05
 tile_05
@@ -234,8 +234,8 @@ tile_05
     x = 0xfffffff8
     y = 0xffffffe8
     flags = 0x00
-    tex_x = 0x7f
-    tex_y = 0xe8
+    u = 0x7f
+    v = 0xe8
     width = 0x05
     height = 0x04
 tile_06
@@ -243,8 +243,8 @@ tile_06
     x = 0xfffffff5
     y = 0xffffffdc
     flags = 0x00
-    tex_x = 0x01
-    tex_y = 0x55
+    u = 0x01
+    v = 0x55
     width = 0x08
     height = 0x0c
 tile_07
@@ -252,8 +252,8 @@ tile_07
     x = 0xfffffffb
     y = 0xffffffd6
     flags = 0x00
-    tex_x = 0x70
-    tex_y = 0xe1
+    u = 0x70
+    v = 0xe1
     width = 0x02
     height = 0x06
 tile_08
@@ -261,8 +261,8 @@ tile_08
     x = 0xfffffffd
     y = 0xffffffe2
     flags = 0x00
-    tex_x = 0xb5
-    tex_y = 0x81
+    u = 0xb5
+    v = 0x81
     width = 0x0a
     height = 0x0a
 tile_09
@@ -270,8 +270,8 @@ tile_09
     x = 0xfffffffd
     y = 0xffffffd5
     flags = 0x00
-    tex_x = 0x55
-    tex_y = 0x44
+    u = 0x55
+    v = 0x44
     width = 0x08
     height = 0x0d
 number_of_tile = 0x0a
@@ -281,8 +281,8 @@ tile_00
     x = 0xfffffff6
     y = 0xffffffec
     flags = 0x00
-    tex_x = 0x01
-    tex_y = 0x01
+    u = 0x01
+    v = 0x01
     width = 0x0a
     height = 0x15
 tile_01
@@ -290,8 +290,8 @@ tile_01
     x = 0x0000
     y = 0xffffffec
     flags = 0x00
-    tex_x = 0x0c
-    tex_y = 0x01
+    u = 0x0c
+    v = 0x01
     width = 0x07
     height = 0x15
 tile_02
@@ -299,8 +299,8 @@ tile_02
     x = 0xfffffffd
     y = 0xffffffe2
     flags = 0x00
-    tex_x = 0xb5
-    tex_y = 0x81
+    u = 0xb5
+    v = 0x81
     width = 0x0a
     height = 0x0a
 tile_03
@@ -308,8 +308,8 @@ tile_03
     x = 0xfffffffd
     y = 0xffffffd5
     flags = 0x00
-    tex_x = 0x55
-    tex_y = 0x44
+    u = 0x55
+    v = 0x44
     width = 0x08
     height = 0x0d
 tile_04
@@ -317,8 +317,8 @@ tile_04
     x = 0x0007
     y = 0xfffffff0
     flags = 0x00
-    tex_x = 0xd1
-    tex_y = 0x24
+    u = 0xd1
+    v = 0x24
     width = 0x03
     height = 0x0f
 tile_05
@@ -326,8 +326,8 @@ tile_05
     x = 0x0007
     y = 0xffffffe7
     flags = 0x00
-    tex_x = 0x82
-    tex_y = 0x96
+    u = 0x82
+    v = 0x96
     width = 0x06
     height = 0x09
 tile_06
@@ -335,8 +335,8 @@ tile_06
     x = 0x0007
     y = 0xffffffe2
     flags = 0x00
-    tex_x = 0xfc
-    tex_y = 0xe7
+    u = 0xfc
+    v = 0xe7
     width = 0x03
     height = 0x05
 tile_07
@@ -344,8 +344,8 @@ tile_07
     x = 0xfffffff8
     y = 0xffffffe7
     flags = 0x00
-    tex_x = 0xf6
-    tex_y = 0xe7
+    u = 0xf6
+    v = 0xe7
     width = 0x05
     height = 0x05
 tile_08
@@ -353,8 +353,8 @@ tile_08
     x = 0xfffffff5
     y = 0xffffffdb
     flags = 0x00
-    tex_x = 0x79
-    tex_y = 0x52
+    u = 0x79
+    v = 0x52
     width = 0x08
     height = 0x0c
 tile_09
@@ -362,8 +362,8 @@ tile_09
     x = 0xfffffffb
     y = 0xffffffd6
     flags = 0x00
-    tex_x = 0x11
-    tex_y = 0x22
+    u = 0x11
+    v = 0x22
     width = 0x02
     height = 0x05
 number_of_tile = 0x0a
@@ -373,8 +373,8 @@ tile_00
     x = 0x0007
     y = 0xfffffff9
     flags = 0x00
-    tex_x = 0x73
-    tex_y = 0xe1
+    u = 0x73
+    v = 0xe1
     width = 0x02
     height = 0x06
 tile_01
@@ -382,8 +382,8 @@ tile_01
     x = 0x0007
     y = 0xfffffff1
     flags = 0x00
-    tex_x = 0x6a
-    tex_y = 0x8d
+    u = 0x6a
+    v = 0x8d
     width = 0x03
     height = 0x08
 tile_02
@@ -391,8 +391,8 @@ tile_02
     x = 0x0007
     y = 0xffffffe8
     flags = 0x00
-    tex_x = 0xf8
-    tex_y = 0x8c
+    u = 0xf8
+    v = 0x8c
     width = 0x07
     height = 0x09
 tile_03
@@ -400,8 +400,8 @@ tile_03
     x = 0x0007
     y = 0xffffffe2
     flags = 0x00
-    tex_x = 0x3d
-    tex_y = 0xe1
+    u = 0x3d
+    v = 0xe1
     width = 0x04
     height = 0x06
 tile_04
@@ -409,8 +409,8 @@ tile_04
     x = 0x0000
     y = 0xffffffec
     flags = 0x00
-    tex_x = 0x0c
-    tex_y = 0x01
+    u = 0x0c
+    v = 0x01
     width = 0x07
     height = 0x15
 tile_05
@@ -418,8 +418,8 @@ tile_05
     x = 0xfffffff6
     y = 0xffffffec
     flags = 0x00
-    tex_x = 0x01
-    tex_y = 0x01
+    u = 0x01
+    v = 0x01
     width = 0x0a
     height = 0x15
 tile_06
@@ -427,8 +427,8 @@ tile_06
     x = 0xfffffff8
     y = 0xffffffe9
     flags = 0x00
-    tex_x = 0xc3
-    tex_y = 0xf2
+    u = 0xc3
+    v = 0xf2
     width = 0x0f
     height = 0x03
 tile_07
@@ -436,8 +436,8 @@ tile_07
     x = 0xfffffff4
     y = 0xffffffe1
     flags = 0x00
-    tex_x = 0x01
-    tex_y = 0xa0
+    u = 0x01
+    v = 0xa0
     width = 0x13
     height = 0x08
 tile_08
@@ -445,8 +445,8 @@ tile_08
     x = 0xfffffffc
     y = 0xffffffd5
     flags = 0x00
-    tex_x = 0x3e
-    tex_y = 0x52
+    u = 0x3e
+    v = 0x52
     width = 0x0b
     height = 0x0c
 tile_09
@@ -454,8 +454,8 @@ tile_09
     x = 0xfffffffa
     y = 0xffffffd7
     flags = 0x00
-    tex_x = 0xfd
-    tex_y = 0xc3
+    u = 0xfd
+    v = 0xc3
     width = 0x02
     height = 0x07
 number_of_tile = 0x0a
@@ -465,8 +465,8 @@ tile_00
     x = 0xfffffff9
     y = 0xffffffd4
     flags = 0x00
-    tex_x = 0xf2
-    tex_y = 0x81
+    u = 0xf2
+    v = 0x81
     width = 0x08
     height = 0x0a
 tile_01
@@ -474,8 +474,8 @@ tile_01
     x = 0x0001
     y = 0xffffffd4
     flags = 0x00
-    tex_x = 0x53
-    tex_y = 0x82
+    u = 0x53
+    v = 0x82
     width = 0x05
     height = 0x0a
 tile_02
@@ -483,8 +483,8 @@ tile_02
     x = 0xfffffff9
     y = 0xffffffde
     flags = 0x00
-    tex_x = 0x0a
-    tex_y = 0xdb
+    u = 0x0a
+    v = 0xdb
     width = 0x07
     height = 0x06
 tile_03
@@ -492,8 +492,8 @@ tile_03
     x = 0x0005
     y = 0xffffffe3
     flags = 0x00
-    tex_x = 0x50
-    tex_y = 0xfa
+    u = 0x50
+    v = 0xfa
     width = 0x02
     height = 0x01
 tile_04
@@ -501,8 +501,8 @@ tile_04
     x = 0x0000
     y = 0xffffffde
     flags = 0x00
-    tex_x = 0x31
-    tex_y = 0xe1
+    u = 0x31
+    v = 0xe1
     width = 0x05
     height = 0x06
 tile_05
@@ -510,8 +510,8 @@ tile_05
     x = 0x0000
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0xf4
-    tex_y = 0xe1
+    u = 0xf4
+    v = 0xe1
     width = 0x09
     height = 0x05
 tile_06
@@ -519,8 +519,8 @@ tile_06
     x = 0xfffffff8
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0xf7
-    tex_y = 0x33
+    u = 0xf7
+    v = 0x33
     width = 0x08
     height = 0x0e
 tile_07
@@ -528,8 +528,8 @@ tile_07
     x = 0x0000
     y = 0xfffffff2
     flags = 0x00
-    tex_x = 0xbb
-    tex_y = 0x01
+    u = 0xbb
+    v = 0x01
     width = 0x0b
     height = 0x11
 tile_08
@@ -537,8 +537,8 @@ tile_08
     x = 0xfffffff7
     y = 0xfffffff2
     flags = 0x00
-    tex_x = 0x35
-    tex_y = 0x35
+    u = 0x35
+    v = 0x35
     width = 0x09
     height = 0x0e
 tile_09
@@ -546,8 +546,8 @@ tile_09
     x = 0x0000
     y = 0xffffffe9
     flags = 0x00
-    tex_x = 0xbe
-    tex_y = 0x8c
+    u = 0xbe
+    v = 0x8c
     width = 0x0b
     height = 0x09
 number_of_tile = 0x0a
@@ -557,8 +557,8 @@ tile_00
     x = 0x0000
     y = 0xfffffff2
     flags = 0x00
-    tex_x = 0xbb
-    tex_y = 0x01
+    u = 0xbb
+    v = 0x01
     width = 0x0b
     height = 0x11
 tile_01
@@ -566,8 +566,8 @@ tile_01
     x = 0xfffffff7
     y = 0xfffffff2
     flags = 0x00
-    tex_x = 0x35
-    tex_y = 0x35
+    u = 0x35
+    v = 0x35
     width = 0x09
     height = 0x0e
 tile_02
@@ -575,8 +575,8 @@ tile_02
     x = 0xfffffff8
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0xf7
-    tex_y = 0x33
+    u = 0xf7
+    v = 0x33
     width = 0x08
     height = 0x0e
 tile_03
@@ -584,8 +584,8 @@ tile_03
     x = 0xfffffff9
     y = 0xffffffde
     flags = 0x00
-    tex_x = 0x12
-    tex_y = 0xdb
+    u = 0x12
+    v = 0xdb
     width = 0x07
     height = 0x06
 tile_04
@@ -593,8 +593,8 @@ tile_04
     x = 0xfffffff8
     y = 0xffffffd4
     flags = 0x00
-    tex_x = 0xf2
-    tex_y = 0x81
+    u = 0xf2
+    v = 0x81
     width = 0x08
     height = 0x0a
 tile_05
@@ -602,8 +602,8 @@ tile_05
     x = 0x0000
     y = 0xffffffe9
     flags = 0x00
-    tex_x = 0xbe
-    tex_y = 0x8c
+    u = 0xbe
+    v = 0x8c
     width = 0x0b
     height = 0x09
 tile_06
@@ -611,8 +611,8 @@ tile_06
     x = 0x0000
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0xf4
-    tex_y = 0xe1
+    u = 0xf4
+    v = 0xe1
     width = 0x09
     height = 0x05
 tile_07
@@ -620,8 +620,8 @@ tile_07
     x = 0x0000
     y = 0xffffffdc
     flags = 0x00
-    tex_x = 0x5d
-    tex_y = 0xf7
+    u = 0x5d
+    v = 0xf7
     width = 0x08
     height = 0x02
 tile_08
@@ -629,8 +629,8 @@ tile_08
     x = 0x0000
     y = 0xffffffd4
     flags = 0x00
-    tex_x = 0xcf
-    tex_y = 0xb2
+    u = 0xcf
+    v = 0xb2
     width = 0x05
     height = 0x08
 tile_09
@@ -638,8 +638,8 @@ tile_09
     x = 0x0000
     y = 0xffffffde
     flags = 0x00
-    tex_x = 0x93
-    tex_y = 0xda
+    u = 0x93
+    v = 0xda
     width = 0x0a
     height = 0x06
 number_of_tile = 0x0a
@@ -649,8 +649,8 @@ tile_00
     x = 0x0000
     y = 0xfffffff2
     flags = 0x00
-    tex_x = 0xbb
-    tex_y = 0x01
+    u = 0xbb
+    v = 0x01
     width = 0x0b
     height = 0x11
 tile_01
@@ -658,8 +658,8 @@ tile_01
     x = 0xfffffff7
     y = 0xfffffff2
     flags = 0x00
-    tex_x = 0x35
-    tex_y = 0x35
+    u = 0x35
+    v = 0x35
     width = 0x09
     height = 0x0e
 tile_02
@@ -667,8 +667,8 @@ tile_02
     x = 0x0006
     y = 0xffffffdb
     flags = 0x00
-    tex_x = 0x42
-    tex_y = 0xe1
+    u = 0x42
+    v = 0xe1
     width = 0x04
     height = 0x06
 tile_03
@@ -676,8 +676,8 @@ tile_03
     x = 0x0000
     y = 0xffffffdb
     flags = 0x00
-    tex_x = 0x89
-    tex_y = 0x96
+    u = 0x89
+    v = 0x96
     width = 0x06
     height = 0x09
 tile_04
@@ -685,8 +685,8 @@ tile_04
     x = 0x0000
     y = 0xffffffd5
     flags = 0x00
-    tex_x = 0x37
-    tex_y = 0xe1
+    u = 0x37
+    v = 0xe1
     width = 0x05
     height = 0x06
 tile_05
@@ -694,8 +694,8 @@ tile_05
     x = 0xfffffff8
     y = 0xffffffdc
     flags = 0x00
-    tex_x = 0x01
-    tex_y = 0x62
+    u = 0x01
+    v = 0x62
     width = 0x08
     height = 0x08
 tile_06
@@ -703,8 +703,8 @@ tile_06
     x = 0xfffffff8
     y = 0xffffffd5
     flags = 0x00
-    tex_x = 0x01
-    tex_y = 0xc4
+    u = 0x01
+    v = 0xc4
     width = 0x08
     height = 0x07
 tile_07
@@ -712,8 +712,8 @@ tile_07
     x = 0xfffffffa
     y = 0xffffffe8
     flags = 0x00
-    tex_x = 0x9c
-    tex_y = 0x6b
+    u = 0x9c
+    v = 0x6b
     width = 0x11
     height = 0x0a
 tile_08
@@ -721,8 +721,8 @@ tile_08
     x = 0xfffffff8
     y = 0xffffffef
     flags = 0x00
-    tex_x = 0x59
-    tex_y = 0xee
+    u = 0x59
+    v = 0xee
     width = 0x02
     height = 0x03
 tile_09
@@ -730,8 +730,8 @@ tile_09
     x = 0xfffffff8
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0x5c
-    tex_y = 0xe8
+    u = 0x5c
+    v = 0xe8
     width = 0x11
     height = 0x04
 number_of_tile = 0x0a
@@ -741,8 +741,8 @@ tile_00
     x = 0x0000
     y = 0xfffffff2
     flags = 0x00
-    tex_x = 0xbb
-    tex_y = 0x01
+    u = 0xbb
+    v = 0x01
     width = 0x0b
     height = 0x11
 tile_01
@@ -750,8 +750,8 @@ tile_01
     x = 0xfffffff7
     y = 0xfffffff2
     flags = 0x00
-    tex_x = 0x35
-    tex_y = 0x35
+    u = 0x35
+    v = 0x35
     width = 0x09
     height = 0x0e
 tile_02
@@ -759,8 +759,8 @@ tile_02
     x = 0xfffffffa
     y = 0xffffffe8
     flags = 0x00
-    tex_x = 0x9c
-    tex_y = 0x6b
+    u = 0x9c
+    v = 0x6b
     width = 0x11
     height = 0x0a
 tile_03
@@ -768,8 +768,8 @@ tile_03
     x = 0xfffffff8
     y = 0xffffffef
     flags = 0x00
-    tex_x = 0x59
-    tex_y = 0xee
+    u = 0x59
+    v = 0xee
     width = 0x02
     height = 0x03
 tile_04
@@ -777,8 +777,8 @@ tile_04
     x = 0xfffffff8
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0x5c
-    tex_y = 0xe8
+    u = 0x5c
+    v = 0xe8
     width = 0x11
     height = 0x04
 tile_05
@@ -786,8 +786,8 @@ tile_05
     x = 0xfffffff8
     y = 0xffffffdc
     flags = 0x00
-    tex_x = 0x01
-    tex_y = 0x62
+    u = 0x01
+    v = 0x62
     width = 0x08
     height = 0x08
 tile_06
@@ -795,8 +795,8 @@ tile_06
     x = 0xfffffff8
     y = 0xffffffd5
     flags = 0x00
-    tex_x = 0x01
-    tex_y = 0xc4
+    u = 0x01
+    v = 0xc4
     width = 0x08
     height = 0x07
 tile_07
@@ -804,8 +804,8 @@ tile_07
     x = 0x0000
     y = 0xffffffe0
     flags = 0x00
-    tex_x = 0x01
-    tex_y = 0xee
+    u = 0x01
+    v = 0xee
     width = 0x06
     height = 0x04
 tile_08
@@ -813,8 +813,8 @@ tile_08
     x = 0x0000
     y = 0xffffffda
     flags = 0x00
-    tex_x = 0x88
-    tex_y = 0xda
+    u = 0x88
+    v = 0xda
     width = 0x0a
     height = 0x06
 tile_09
@@ -822,8 +822,8 @@ tile_09
     x = 0x0000
     y = 0xffffffd5
     flags = 0x00
-    tex_x = 0x01
-    tex_y = 0xe8
+    u = 0x01
+    v = 0xe8
     width = 0x05
     height = 0x05
 number_of_tile = 0x0a
@@ -833,8 +833,8 @@ tile_00
     x = 0x0000
     y = 0xfffffff2
     flags = 0x00
-    tex_x = 0xbb
-    tex_y = 0x01
+    u = 0xbb
+    v = 0x01
     width = 0x0b
     height = 0x11
 tile_01
@@ -842,8 +842,8 @@ tile_01
     x = 0xfffffff7
     y = 0xfffffff2
     flags = 0x00
-    tex_x = 0x35
-    tex_y = 0x35
+    u = 0x35
+    v = 0x35
     width = 0x09
     height = 0x0e
 tile_02
@@ -851,8 +851,8 @@ tile_02
     x = 0xfffffff8
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0xf7
-    tex_y = 0x33
+    u = 0xf7
+    v = 0x33
     width = 0x08
     height = 0x0e
 tile_03
@@ -860,8 +860,8 @@ tile_03
     x = 0x0000
     y = 0xffffffe9
     flags = 0x00
-    tex_x = 0xbe
-    tex_y = 0x8c
+    u = 0xbe
+    v = 0x8c
     width = 0x0b
     height = 0x09
 tile_04
@@ -869,8 +869,8 @@ tile_04
     x = 0x0000
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0xf4
-    tex_y = 0xe1
+    u = 0xf4
+    v = 0xe1
     width = 0x09
     height = 0x05
 tile_05
@@ -878,8 +878,8 @@ tile_05
     x = 0x0008
     y = 0xffffffe6
     flags = 0x00
-    tex_x = 0xe7
-    tex_y = 0xb2
+    u = 0xe7
+    v = 0xb2
     width = 0x01
     height = 0x03
 tile_06
@@ -887,8 +887,8 @@ tile_06
     x = 0x0008
     y = 0xffffffde
     flags = 0x00
-    tex_x = 0x1c
-    tex_y = 0xb2
+    u = 0x1c
+    v = 0xb2
     width = 0x07
     height = 0x08
 tile_07
@@ -896,8 +896,8 @@ tile_07
     x = 0xfffffff9
     y = 0xffffffdf
     flags = 0x00
-    tex_x = 0xa8
-    tex_y = 0xe1
+    u = 0xa8
+    v = 0xe1
     width = 0x0f
     height = 0x05
 tile_08
@@ -905,8 +905,8 @@ tile_08
     x = 0xffffffff
     y = 0xffffffd5
     flags = 0x00
-    tex_x = 0xc0
-    tex_y = 0x81
+    u = 0xc0
+    v = 0x81
     width = 0x09
     height = 0x0a
 tile_09
@@ -914,8 +914,8 @@ tile_09
     x = 0xfffffffb
     y = 0xffffffd6
     flags = 0x00
-    tex_x = 0x8c
-    tex_y = 0x82
+    u = 0x8c
+    v = 0x82
     width = 0x04
     height = 0x09
 number_of_tile = 0x0a
@@ -925,8 +925,8 @@ tile_00
     x = 0xfffffff9
     y = 0xffffffd4
     flags = 0x00
-    tex_x = 0xeb
-    tex_y = 0x51
+    u = 0xeb
+    v = 0x51
     width = 0x0c
     height = 0x0c
 tile_01
@@ -934,8 +934,8 @@ tile_01
     x = 0x0007
     y = 0xffffffee
     flags = 0x00
-    tex_x = 0xbc
-    tex_y = 0xf6
+    u = 0xbc
+    v = 0xf6
     width = 0x03
     height = 0x03
 tile_02
@@ -943,8 +943,8 @@ tile_02
     x = 0x000c
     y = 0xffffffe6
     flags = 0x00
-    tex_x = 0xd5
-    tex_y = 0xb2
+    u = 0xd5
+    v = 0xb2
     width = 0x05
     height = 0x08
 tile_03
@@ -952,8 +952,8 @@ tile_03
     x = 0x0008
     y = 0xffffffe7
     flags = 0x00
-    tex_x = 0xe9
-    tex_y = 0xa9
+    u = 0xe9
+    v = 0xa9
     width = 0x04
     height = 0x07
 tile_04
@@ -961,8 +961,8 @@ tile_04
     x = 0x0007
     y = 0xffffffe5
     flags = 0x00
-    tex_x = 0x59
-    tex_y = 0x14
+    u = 0x59
+    v = 0x14
     width = 0x01
     height = 0x09
 tile_05
@@ -970,8 +970,8 @@ tile_05
     x = 0xfffffffb
     y = 0xffffffe0
     flags = 0x00
-    tex_x = 0x92
-    tex_y = 0xed
+    u = 0x92
+    v = 0xed
     width = 0x0b
     height = 0x04
 tile_06
@@ -979,8 +979,8 @@ tile_06
     x = 0xfffffffe
     y = 0x0002
     flags = 0x00
-    tex_x = 0x1c
-    tex_y = 0xf7
+    u = 0x1c
+    v = 0xf7
     width = 0x0a
     height = 0x02
 tile_07
@@ -988,8 +988,8 @@ tile_07
     x = 0xfffffffb
     y = 0xfffffff3
     flags = 0x00
-    tex_x = 0x2d
-    tex_y = 0x25
+    u = 0x2d
+    v = 0x25
     width = 0x0c
     height = 0x0f
 tile_08
@@ -997,8 +997,8 @@ tile_08
     x = 0xfffffffc
     y = 0xffffffed
     flags = 0x00
-    tex_x = 0x28
-    tex_y = 0xda
+    u = 0x28
+    v = 0xda
     width = 0x0b
     height = 0x06
 tile_09
@@ -1006,8 +1006,8 @@ tile_09
     x = 0xfffffffa
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0x6e
-    tex_y = 0x8c
+    u = 0x6e
+    v = 0x8c
     width = 0x0d
     height = 0x09
 number_of_tile = 0x0a
@@ -1017,8 +1017,8 @@ tile_00
     x = 0xfffffff9
     y = 0xffffffd4
     flags = 0x00
-    tex_x = 0xeb
-    tex_y = 0x51
+    u = 0xeb
+    v = 0x51
     width = 0x0c
     height = 0x0c
 tile_01
@@ -1026,8 +1026,8 @@ tile_01
     x = 0xfffffffe
     y = 0x0002
     flags = 0x00
-    tex_x = 0x1c
-    tex_y = 0xf7
+    u = 0x1c
+    v = 0xf7
     width = 0x0a
     height = 0x02
 tile_02
@@ -1035,8 +1035,8 @@ tile_02
     x = 0xfffffffb
     y = 0xfffffff3
     flags = 0x00
-    tex_x = 0x2d
-    tex_y = 0x25
+    u = 0x2d
+    v = 0x25
     width = 0x0c
     height = 0x0f
 tile_03
@@ -1044,8 +1044,8 @@ tile_03
     x = 0xfffffffc
     y = 0xffffffed
     flags = 0x00
-    tex_x = 0x28
-    tex_y = 0xda
+    u = 0x28
+    v = 0xda
     width = 0x0b
     height = 0x06
 tile_04
@@ -1053,8 +1053,8 @@ tile_04
     x = 0xfffffffa
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0x6e
-    tex_y = 0x8c
+    u = 0x6e
+    v = 0x8c
     width = 0x0d
     height = 0x09
 tile_05
@@ -1062,8 +1062,8 @@ tile_05
     x = 0x0007
     y = 0xffffffed
     flags = 0x00
-    tex_x = 0x51
-    tex_y = 0xee
+    u = 0x51
+    v = 0xee
     width = 0x03
     height = 0x04
 tile_06
@@ -1071,8 +1071,8 @@ tile_06
     x = 0x0007
     y = 0xffffffe5
     flags = 0x00
-    tex_x = 0x38
-    tex_y = 0xbb
+    u = 0x38
+    v = 0xbb
     width = 0x02
     height = 0x08
 tile_07
@@ -1080,8 +1080,8 @@ tile_07
     x = 0x0005
     y = 0xffffffe1
     flags = 0x00
-    tex_x = 0x51
-    tex_y = 0xf3
+    u = 0x51
+    v = 0xf3
     width = 0x06
     height = 0x03
 tile_08
@@ -1089,8 +1089,8 @@ tile_08
     x = 0x0005
     y = 0xffffffdb
     flags = 0x00
-    tex_x = 0xe7
-    tex_y = 0xda
+    u = 0xe7
+    v = 0xda
     width = 0x08
     height = 0x06
 tile_09
@@ -1098,8 +1098,8 @@ tile_09
     x = 0xfffffffb
     y = 0xffffffe0
     flags = 0x00
-    tex_x = 0xaa
-    tex_y = 0xed
+    u = 0xaa
+    v = 0xed
     width = 0x0a
     height = 0x04
 number_of_tile = 0x0a
@@ -1109,8 +1109,8 @@ tile_00
     x = 0xfffffffe
     y = 0x0002
     flags = 0x00
-    tex_x = 0x1c
-    tex_y = 0xf7
+    u = 0x1c
+    v = 0xf7
     width = 0x0a
     height = 0x02
 tile_01
@@ -1118,8 +1118,8 @@ tile_01
     x = 0xfffffffb
     y = 0xfffffff3
     flags = 0x00
-    tex_x = 0x2d
-    tex_y = 0x25
+    u = 0x2d
+    v = 0x25
     width = 0x0c
     height = 0x0f
 tile_02
@@ -1127,8 +1127,8 @@ tile_02
     x = 0xfffffff8
     y = 0xffffffd5
     flags = 0x00
-    tex_x = 0x0a
-    tex_y = 0x52
+    u = 0x0a
+    v = 0x52
     width = 0x0c
     height = 0x0c
 tile_03
@@ -1136,8 +1136,8 @@ tile_03
     x = 0x0004
     y = 0xffffffe1
     flags = 0x00
-    tex_x = 0x79
-    tex_y = 0xf6
+    u = 0x79
+    v = 0xf6
     width = 0x05
     height = 0x03
 tile_04
@@ -1145,8 +1145,8 @@ tile_04
     x = 0x0004
     y = 0xffffffda
     flags = 0x00
-    tex_x = 0x13
-    tex_y = 0xc4
+    u = 0x13
+    v = 0xc4
     width = 0x08
     height = 0x07
 tile_05
@@ -1154,8 +1154,8 @@ tile_05
     x = 0xfffffffa
     y = 0xffffffe1
     flags = 0x00
-    tex_x = 0x32
-    tex_y = 0xf3
+    u = 0x32
+    v = 0xf3
     width = 0x0a
     height = 0x03
 tile_06
@@ -1163,8 +1163,8 @@ tile_06
     x = 0x0008
     y = 0xffffffed
     flags = 0x00
-    tex_x = 0xc8
-    tex_y = 0xf6
+    u = 0xc8
+    v = 0xf6
     width = 0x02
     height = 0x03
 tile_07
@@ -1172,8 +1172,8 @@ tile_07
     x = 0xfffffffc
     y = 0xffffffed
     flags = 0x00
-    tex_x = 0xca
-    tex_y = 0xd3
+    u = 0xca
+    v = 0xd3
     width = 0x0c
     height = 0x06
 tile_08
@@ -1181,8 +1181,8 @@ tile_08
     x = 0xfffffffc
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0x7e
-    tex_y = 0x82
+    u = 0x7e
+    v = 0x82
     width = 0x0d
     height = 0x09
 tile_09
@@ -1190,8 +1190,8 @@ tile_09
     x = 0xfffffffa
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0x19
-    tex_y = 0x26
+    u = 0x19
+    v = 0x26
     width = 0x02
     height = 0x09
 number_of_tile = 0x0a
@@ -1201,8 +1201,8 @@ tile_00
     x = 0xfffffffe
     y = 0x0002
     flags = 0x00
-    tex_x = 0x1c
-    tex_y = 0xf7
+    u = 0x1c
+    v = 0xf7
     width = 0x0a
     height = 0x02
 tile_01
@@ -1210,8 +1210,8 @@ tile_01
     x = 0xfffffffb
     y = 0xfffffff3
     flags = 0x00
-    tex_x = 0x2d
-    tex_y = 0x25
+    u = 0x2d
+    v = 0x25
     width = 0x0c
     height = 0x0f
 tile_02
@@ -1219,8 +1219,8 @@ tile_02
     x = 0x0008
     y = 0xffffffed
     flags = 0x00
-    tex_x = 0xc8
-    tex_y = 0xf6
+    u = 0xc8
+    v = 0xf6
     width = 0x02
     height = 0x03
 tile_03
@@ -1228,8 +1228,8 @@ tile_03
     x = 0xfffffffc
     y = 0xffffffed
     flags = 0x00
-    tex_x = 0xca
-    tex_y = 0xd3
+    u = 0xca
+    v = 0xd3
     width = 0x0c
     height = 0x06
 tile_04
@@ -1237,8 +1237,8 @@ tile_04
     x = 0xfffffffc
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0x7e
-    tex_y = 0x82
+    u = 0x7e
+    v = 0x82
     width = 0x0d
     height = 0x09
 tile_05
@@ -1246,8 +1246,8 @@ tile_05
     x = 0xfffffffa
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0x19
-    tex_y = 0x26
+    u = 0x19
+    v = 0x26
     width = 0x02
     height = 0x09
 tile_06
@@ -1255,8 +1255,8 @@ tile_06
     x = 0xfffffff8
     y = 0xffffffd5
     flags = 0x00
-    tex_x = 0x0a
-    tex_y = 0x52
+    u = 0x0a
+    v = 0x52
     width = 0x0c
     height = 0x0c
 tile_07
@@ -1264,8 +1264,8 @@ tile_07
     x = 0x0004
     y = 0xffffffe0
     flags = 0x00
-    tex_x = 0x24
-    tex_y = 0xee
+    u = 0x24
+    v = 0xee
     width = 0x05
     height = 0x04
 tile_08
@@ -1273,8 +1273,8 @@ tile_08
     x = 0x0004
     y = 0xffffffd9
     flags = 0x00
-    tex_x = 0x0a
-    tex_y = 0xc4
+    u = 0x0a
+    v = 0xc4
     width = 0x08
     height = 0x07
 tile_09
@@ -1282,8 +1282,8 @@ tile_09
     x = 0xfffffffa
     y = 0xffffffe1
     flags = 0x00
-    tex_x = 0x27
-    tex_y = 0xf3
+    u = 0x27
+    v = 0xf3
     width = 0x0a
     height = 0x03
 number_of_tile = 0x0a
@@ -1293,8 +1293,8 @@ tile_00
     x = 0xfffffffe
     y = 0x0002
     flags = 0x00
-    tex_x = 0x1c
-    tex_y = 0xf7
+    u = 0x1c
+    v = 0xf7
     width = 0x0a
     height = 0x02
 tile_01
@@ -1302,8 +1302,8 @@ tile_01
     x = 0xfffffffb
     y = 0xfffffff3
     flags = 0x00
-    tex_x = 0x2d
-    tex_y = 0x25
+    u = 0x2d
+    v = 0x25
     width = 0x0c
     height = 0x0f
 tile_02
@@ -1311,8 +1311,8 @@ tile_02
     x = 0xfffffffc
     y = 0xffffffed
     flags = 0x00
-    tex_x = 0x28
-    tex_y = 0xda
+    u = 0x28
+    v = 0xda
     width = 0x0b
     height = 0x06
 tile_03
@@ -1320,8 +1320,8 @@ tile_03
     x = 0xfffffffa
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0x6e
-    tex_y = 0x8c
+    u = 0x6e
+    v = 0x8c
     width = 0x0d
     height = 0x09
 tile_04
@@ -1329,8 +1329,8 @@ tile_04
     x = 0x0009
     y = 0xffffffe2
     flags = 0x00
-    tex_x = 0x53
-    tex_y = 0xf7
+    u = 0x53
+    v = 0xf7
     width = 0x09
     height = 0x02
 tile_05
@@ -1338,8 +1338,8 @@ tile_05
     x = 0xfffffffb
     y = 0xffffffe1
     flags = 0x00
-    tex_x = 0xe3
-    tex_y = 0xf2
+    u = 0xe3
+    v = 0xf2
     width = 0x0e
     height = 0x03
 tile_06
@@ -1347,8 +1347,8 @@ tile_06
     x = 0xfffffffc
     y = 0xffffffd5
     flags = 0x00
-    tex_x = 0xc1
-    tex_y = 0x51
+    u = 0xc1
+    v = 0x51
     width = 0x0d
     height = 0x0c
 tile_07
@@ -1356,8 +1356,8 @@ tile_07
     x = 0x0007
     y = 0xffffffea
     flags = 0x00
-    tex_x = 0xee
-    tex_y = 0xa0
+    u = 0xee
+    v = 0xa0
     width = 0x03
     height = 0x07
 tile_08
@@ -1365,8 +1365,8 @@ tile_08
     x = 0x000d
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0x1a
-    tex_y = 0xe1
+    u = 0x1a
+    v = 0xe1
     width = 0x07
     height = 0x06
 tile_09
@@ -1374,8 +1374,8 @@ tile_09
     x = 0x0007
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0xf9
-    tex_y = 0xda
+    u = 0xf9
+    v = 0xda
     width = 0x06
     height = 0x06
 number_of_tile = 0x0a
@@ -1385,8 +1385,8 @@ tile_00
     x = 0x0000
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0x17
-    tex_y = 0x52
+    u = 0x17
+    v = 0x52
     width = 0x0c
     height = 0x0c
 tile_01
@@ -1394,8 +1394,8 @@ tile_01
     x = 0xfffffff7
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0xd2
-    tex_y = 0x01
+    u = 0xd2
+    v = 0x01
     width = 0x09
     height = 0x11
 tile_02
@@ -1403,8 +1403,8 @@ tile_02
     x = 0x0000
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0x1d
-    tex_y = 0x14
+    u = 0x1d
+    v = 0x14
     width = 0x09
     height = 0x10
 tile_03
@@ -1412,8 +1412,8 @@ tile_03
     x = 0xfffffff9
     y = 0xffffffdc
     flags = 0x00
-    tex_x = 0x24
-    tex_y = 0xb2
+    u = 0x24
+    v = 0xb2
     width = 0x07
     height = 0x08
 tile_04
@@ -1421,8 +1421,8 @@ tile_04
     x = 0x0000
     y = 0xffffffd4
     flags = 0x00
-    tex_x = 0xac
-    tex_y = 0xb2
+    u = 0xac
+    v = 0xb2
     width = 0x06
     height = 0x08
 tile_05
@@ -1430,8 +1430,8 @@ tile_05
     x = 0xfffffff9
     y = 0xffffffd4
     flags = 0x00
-    tex_x = 0x2c
-    tex_y = 0xb2
+    u = 0x2c
+    v = 0xb2
     width = 0x07
     height = 0x08
 tile_06
@@ -1439,8 +1439,8 @@ tile_06
     x = 0x0008
     y = 0xffffffe6
     flags = 0x00
-    tex_x = 0x8f
-    tex_y = 0xa9
+    u = 0x8f
+    v = 0xa9
     width = 0x08
     height = 0x08
 tile_07
@@ -1448,8 +1448,8 @@ tile_07
     x = 0x0008
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0x01
-    tex_y = 0xfa
+    u = 0x01
+    v = 0xfa
     width = 0x02
     height = 0x02
 tile_08
@@ -1457,8 +1457,8 @@ tile_08
     x = 0x0000
     y = 0xffffffdc
     flags = 0x00
-    tex_x = 0x86
-    tex_y = 0xa9
+    u = 0x86
+    v = 0xa9
     width = 0x08
     height = 0x08
 tile_09
@@ -1466,8 +1466,8 @@ tile_09
     x = 0xfffffff7
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0xcf
-    tex_y = 0x13
+    u = 0xcf
+    v = 0x13
     width = 0x09
     height = 0x10
 number_of_tile = 0x0a
@@ -1477,8 +1477,8 @@ tile_00
     x = 0x0000
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0x17
-    tex_y = 0x52
+    u = 0x17
+    v = 0x52
     width = 0x0c
     height = 0x0c
 tile_01
@@ -1486,8 +1486,8 @@ tile_01
     x = 0xfffffff7
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0xd2
-    tex_y = 0x01
+    u = 0xd2
+    v = 0x01
     width = 0x09
     height = 0x11
 tile_02
@@ -1495,8 +1495,8 @@ tile_02
     x = 0x0000
     y = 0xffffffd4
     flags = 0x00
-    tex_x = 0xac
-    tex_y = 0xb2
+    u = 0xac
+    v = 0xb2
     width = 0x06
     height = 0x08
 tile_03
@@ -1504,8 +1504,8 @@ tile_03
     x = 0xfffffff9
     y = 0xffffffd4
     flags = 0x00
-    tex_x = 0x2c
-    tex_y = 0xb2
+    u = 0x2c
+    v = 0xb2
     width = 0x07
     height = 0x08
 tile_04
@@ -1513,8 +1513,8 @@ tile_04
     x = 0xfffffff9
     y = 0xffffffdc
     flags = 0x00
-    tex_x = 0x24
-    tex_y = 0xb2
+    u = 0x24
+    v = 0xb2
     width = 0x07
     height = 0x08
 tile_05
@@ -1522,8 +1522,8 @@ tile_05
     x = 0x0000
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0x1d
-    tex_y = 0x14
+    u = 0x1d
+    v = 0x14
     width = 0x09
     height = 0x10
 tile_06
@@ -1531,8 +1531,8 @@ tile_06
     x = 0xfffffff7
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0xcf
-    tex_y = 0x13
+    u = 0xcf
+    v = 0x13
     width = 0x09
     height = 0x10
 tile_07
@@ -1540,8 +1540,8 @@ tile_07
     x = 0x0008
     y = 0xffffffe7
     flags = 0x00
-    tex_x = 0xe1
-    tex_y = 0x6b
+    u = 0xe1
+    v = 0x6b
     width = 0x01
     height = 0x04
 tile_08
@@ -1549,8 +1549,8 @@ tile_08
     x = 0x0008
     y = 0xffffffde
     flags = 0x00
-    tex_x = 0xd9
-    tex_y = 0xcb
+    u = 0xd9
+    v = 0xcb
     width = 0x04
     height = 0x07
 tile_09
@@ -1558,8 +1558,8 @@ tile_09
     x = 0x0000
     y = 0xffffffdc
     flags = 0x00
-    tex_x = 0x61
-    tex_y = 0x97
+    u = 0x61
+    v = 0x97
     width = 0x08
     height = 0x08
 number_of_tile = 0x0a
@@ -1569,8 +1569,8 @@ tile_00
     x = 0x0000
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0x17
-    tex_y = 0x52
+    u = 0x17
+    v = 0x52
     width = 0x0c
     height = 0x0c
 tile_01
@@ -1578,8 +1578,8 @@ tile_01
     x = 0xfffffff7
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0xd2
-    tex_y = 0x01
+    u = 0xd2
+    v = 0x01
     width = 0x09
     height = 0x11
 tile_02
@@ -1587,8 +1587,8 @@ tile_02
     x = 0x0000
     y = 0xffffffdc
     flags = 0x00
-    tex_x = 0x2f
-    tex_y = 0xa9
+    u = 0x2f
+    v = 0xa9
     width = 0x0a
     height = 0x08
 tile_03
@@ -1596,8 +1596,8 @@ tile_03
     x = 0x0000
     y = 0xffffffd7
     flags = 0x00
-    tex_x = 0x25
-    tex_y = 0xe8
+    u = 0x25
+    v = 0xe8
     width = 0x04
     height = 0x05
 tile_04
@@ -1605,8 +1605,8 @@ tile_04
     x = 0x0000
     y = 0xffffffd5
     flags = 0x00
-    tex_x = 0x04
-    tex_y = 0xfa
+    u = 0x04
+    v = 0xfa
     width = 0x02
     height = 0x02
 tile_05
@@ -1614,8 +1614,8 @@ tile_05
     x = 0xfffffff8
     y = 0xffffffdf
     flags = 0x00
-    tex_x = 0xbd
-    tex_y = 0xe7
+    u = 0xbd
+    v = 0xe7
     width = 0x08
     height = 0x05
 tile_06
@@ -1623,8 +1623,8 @@ tile_06
     x = 0xfffffff7
     y = 0xffffffd5
     flags = 0x00
-    tex_x = 0xca
-    tex_y = 0x81
+    u = 0xca
+    v = 0x81
     width = 0x09
     height = 0x0a
 tile_07
@@ -1632,8 +1632,8 @@ tile_07
     x = 0x0008
     y = 0xffffffee
     flags = 0x00
-    tex_x = 0x50
-    tex_y = 0x35
+    u = 0x50
+    v = 0x35
     width = 0x01
     height = 0x06
 tile_08
@@ -1641,8 +1641,8 @@ tile_08
     x = 0xfffffff8
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0xbe
-    tex_y = 0x13
+    u = 0xbe
+    v = 0x13
     width = 0x10
     height = 0x10
 tile_09
@@ -1650,8 +1650,8 @@ tile_09
     x = 0xfffffff6
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0xd9
-    tex_y = 0x13
+    u = 0xd9
+    v = 0x13
     width = 0x02
     height = 0x0a
 number_of_tile = 0x0a
@@ -1661,8 +1661,8 @@ tile_00
     x = 0x0000
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0x17
-    tex_y = 0x52
+    u = 0x17
+    v = 0x52
     width = 0x0c
     height = 0x0c
 tile_01
@@ -1670,8 +1670,8 @@ tile_01
     x = 0xfffffff7
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0xd2
-    tex_y = 0x01
+    u = 0xd2
+    v = 0x01
     width = 0x09
     height = 0x11
 tile_02
@@ -1679,8 +1679,8 @@ tile_02
     x = 0xfffffff8
     y = 0xffffffdf
     flags = 0x00
-    tex_x = 0xbd
-    tex_y = 0xe7
+    u = 0xbd
+    v = 0xe7
     width = 0x08
     height = 0x05
 tile_03
@@ -1688,8 +1688,8 @@ tile_03
     x = 0xfffffff7
     y = 0xffffffd5
     flags = 0x00
-    tex_x = 0xca
-    tex_y = 0x81
+    u = 0xca
+    v = 0x81
     width = 0x09
     height = 0x0a
 tile_04
@@ -1697,8 +1697,8 @@ tile_04
     x = 0x0008
     y = 0xffffffee
     flags = 0x00
-    tex_x = 0x50
-    tex_y = 0x35
+    u = 0x50
+    v = 0x35
     width = 0x01
     height = 0x06
 tile_05
@@ -1706,8 +1706,8 @@ tile_05
     x = 0xfffffff8
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0xbe
-    tex_y = 0x13
+    u = 0xbe
+    v = 0x13
     width = 0x10
     height = 0x10
 tile_06
@@ -1715,8 +1715,8 @@ tile_06
     x = 0xfffffff6
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0xd9
-    tex_y = 0x13
+    u = 0xd9
+    v = 0x13
     width = 0x02
     height = 0x0a
 tile_07
@@ -1724,8 +1724,8 @@ tile_07
     x = 0x0000
     y = 0xffffffdb
     flags = 0x00
-    tex_x = 0x91
-    tex_y = 0x77
+    u = 0x91
+    v = 0x77
     width = 0x0a
     height = 0x09
 tile_08
@@ -1733,8 +1733,8 @@ tile_08
     x = 0x0000
     y = 0xffffffd7
     flags = 0x00
-    tex_x = 0x42
-    tex_y = 0xee
+    u = 0x42
+    v = 0xee
     width = 0x04
     height = 0x04
 tile_09
@@ -1742,8 +1742,8 @@ tile_09
     x = 0x0000
     y = 0xffffffd5
     flags = 0x00
-    tex_x = 0x82
-    tex_y = 0x4e
+    u = 0x82
+    v = 0x4e
     width = 0x02
     height = 0x02
 number_of_tile = 0x0a
@@ -1753,8 +1753,8 @@ tile_00
     x = 0x0000
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0x17
-    tex_y = 0x52
+    u = 0x17
+    v = 0x52
     width = 0x0c
     height = 0x0c
 tile_01
@@ -1762,8 +1762,8 @@ tile_01
     x = 0xfffffff7
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0xd2
-    tex_y = 0x01
+    u = 0xd2
+    v = 0x01
     width = 0x09
     height = 0x11
 tile_02
@@ -1771,8 +1771,8 @@ tile_02
     x = 0xfffffff7
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0xcf
-    tex_y = 0x13
+    u = 0xcf
+    v = 0x13
     width = 0x09
     height = 0x10
 tile_03
@@ -1780,8 +1780,8 @@ tile_03
     x = 0x0000
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0x1d
-    tex_y = 0x14
+    u = 0x1d
+    v = 0x14
     width = 0x09
     height = 0x10
 tile_04
@@ -1789,8 +1789,8 @@ tile_04
     x = 0x000e
     y = 0xffffffe3
     flags = 0x00
-    tex_x = 0xbb
-    tex_y = 0xcb
+    u = 0xbb
+    v = 0xcb
     width = 0x05
     height = 0x07
 tile_05
@@ -1798,8 +1798,8 @@ tile_05
     x = 0x0008
     y = 0xffffffe8
     flags = 0x00
-    tex_x = 0xe7
-    tex_y = 0xb6
+    u = 0xe7
+    v = 0xb6
     width = 0x01
     height = 0x03
 tile_06
@@ -1807,8 +1807,8 @@ tile_06
     x = 0x0008
     y = 0xffffffe1
     flags = 0x00
-    tex_x = 0x83
-    tex_y = 0xcb
+    u = 0x83
+    v = 0xcb
     width = 0x06
     height = 0x07
 tile_07
@@ -1816,8 +1816,8 @@ tile_07
     x = 0x0005
     y = 0xffffffde
     flags = 0x00
-    tex_x = 0x40
-    tex_y = 0xc4
+    u = 0x40
+    v = 0xc4
     width = 0x03
     height = 0x06
 tile_08
@@ -1825,8 +1825,8 @@ tile_08
     x = 0xfffffff9
     y = 0xffffffde
     flags = 0x00
-    tex_x = 0xd7
-    tex_y = 0xd3
+    u = 0xd7
+    v = 0xd3
     width = 0x0c
     height = 0x06
 tile_09
@@ -1834,8 +1834,8 @@ tile_09
     x = 0xfffffffb
     y = 0xffffffd6
     flags = 0x00
-    tex_x = 0x24
-    tex_y = 0xa9
+    u = 0x24
+    v = 0xa9
     width = 0x0a
     height = 0x08
 number_of_tile = 0x0a
@@ -1845,8 +1845,8 @@ tile_00
     x = 0x0001
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0x5d
-    tex_y = 0x34
+    u = 0x5d
+    v = 0x34
     width = 0x09
     height = 0x0f
 tile_01
@@ -1854,8 +1854,8 @@ tile_01
     x = 0xfffffff6
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0x3a
-    tex_y = 0x25
+    u = 0x3a
+    v = 0x25
     width = 0x0b
     height = 0x0f
 tile_02
@@ -1863,8 +1863,8 @@ tile_02
     x = 0xfffffff7
     y = 0xfffffff1
     flags = 0x00
-    tex_x = 0x6b
-    tex_y = 0xf2
+    u = 0x6b
+    v = 0xf2
     width = 0x12
     height = 0x03
 tile_03
@@ -1872,8 +1872,8 @@ tile_03
     x = 0xfffffff8
     y = 0xffffffec
     flags = 0x00
-    tex_x = 0x97
-    tex_y = 0xe1
+    u = 0x97
+    v = 0xe1
     width = 0x10
     height = 0x05
 tile_04
@@ -1881,8 +1881,8 @@ tile_04
     x = 0x0008
     y = 0xffffffe7
     flags = 0x00
-    tex_x = 0x3e
-    tex_y = 0x82
+    u = 0x3e
+    v = 0x82
     width = 0x06
     height = 0x0a
 tile_05
@@ -1890,8 +1890,8 @@ tile_05
     x = 0x0008
     y = 0xffffffe2
     flags = 0x00
-    tex_x = 0x44
-    tex_y = 0xe8
+    u = 0x44
+    v = 0xe8
     width = 0x02
     height = 0x05
 tile_06
@@ -1899,8 +1899,8 @@ tile_06
     x = 0xfffffff3
     y = 0xffffffe1
     flags = 0x00
-    tex_x = 0x80
-    tex_y = 0x6b
+    u = 0x80
+    v = 0x6b
     width = 0x05
     height = 0x0b
 tile_07
@@ -1908,8 +1908,8 @@ tile_07
     x = 0xfffffff3
     y = 0xffffffec
     flags = 0x00
-    tex_x = 0x07
-    tex_y = 0xe8
+    u = 0x07
+    v = 0xe8
     width = 0x05
     height = 0x05
 tile_08
@@ -1917,8 +1917,8 @@ tile_08
     x = 0xfffffffa
     y = 0xffffffd4
     flags = 0x00
-    tex_x = 0xca
-    tex_y = 0x8c
+    u = 0xca
+    v = 0x8c
     width = 0x0b
     height = 0x09
 tile_09
@@ -1926,8 +1926,8 @@ tile_09
     x = 0xfffffff8
     y = 0xffffffdd
     flags = 0x00
-    tex_x = 0x1c
-    tex_y = 0x25
+    u = 0x1c
+    v = 0x25
     width = 0x10
     height = 0x0f
 number_of_tile = 0x0a
@@ -1937,8 +1937,8 @@ tile_00
     x = 0x0001
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0x5d
-    tex_y = 0x34
+    u = 0x5d
+    v = 0x34
     width = 0x09
     height = 0x0f
 tile_01
@@ -1946,8 +1946,8 @@ tile_01
     x = 0xfffffff6
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0x3a
-    tex_y = 0x25
+    u = 0x3a
+    v = 0x25
     width = 0x0b
     height = 0x0f
 tile_02
@@ -1955,8 +1955,8 @@ tile_02
     x = 0xfffffff7
     y = 0xfffffff1
     flags = 0x00
-    tex_x = 0x6b
-    tex_y = 0xf2
+    u = 0x6b
+    v = 0xf2
     width = 0x12
     height = 0x03
 tile_03
@@ -1964,8 +1964,8 @@ tile_03
     x = 0xfffffff8
     y = 0xffffffec
     flags = 0x00
-    tex_x = 0x97
-    tex_y = 0xe1
+    u = 0x97
+    v = 0xe1
     width = 0x10
     height = 0x05
 tile_04
@@ -1973,8 +1973,8 @@ tile_04
     x = 0xfffffffa
     y = 0xffffffd4
     flags = 0x00
-    tex_x = 0xca
-    tex_y = 0x8c
+    u = 0xca
+    v = 0x8c
     width = 0x0b
     height = 0x09
 tile_05
@@ -1982,8 +1982,8 @@ tile_05
     x = 0xfffffff3
     y = 0xffffffec
     flags = 0x00
-    tex_x = 0x07
-    tex_y = 0xe8
+    u = 0x07
+    v = 0xe8
     width = 0x05
     height = 0x05
 tile_06
@@ -1991,8 +1991,8 @@ tile_06
     x = 0xfffffff3
     y = 0xffffffe1
     flags = 0x00
-    tex_x = 0x80
-    tex_y = 0x6b
+    u = 0x80
+    v = 0x6b
     width = 0x05
     height = 0x0b
 tile_07
@@ -2000,8 +2000,8 @@ tile_07
     x = 0x0005
     y = 0xffffffe0
     flags = 0x00
-    tex_x = 0xdd
-    tex_y = 0x5e
+    u = 0xdd
+    v = 0x5e
     width = 0x05
     height = 0x0c
 tile_08
@@ -2009,8 +2009,8 @@ tile_08
     x = 0xfffffff8
     y = 0xffffffe1
     flags = 0x00
-    tex_x = 0xf2
-    tex_y = 0x6a
+    u = 0xf2
+    v = 0x6a
     width = 0x0d
     height = 0x0b
 tile_09
@@ -2018,8 +2018,8 @@ tile_09
     x = 0xfffffffa
     y = 0xffffffdd
     flags = 0x00
-    tex_x = 0x9e
-    tex_y = 0xed
+    u = 0x9e
+    v = 0xed
     width = 0x0b
     height = 0x04
 number_of_tile = 0x0a
@@ -2029,8 +2029,8 @@ tile_00
     x = 0xfffffff3
     y = 0xffffffec
     flags = 0x00
-    tex_x = 0x07
-    tex_y = 0xe8
+    u = 0x07
+    v = 0xe8
     width = 0x05
     height = 0x05
 tile_01
@@ -2038,8 +2038,8 @@ tile_01
     x = 0x0001
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0x5d
-    tex_y = 0x34
+    u = 0x5d
+    v = 0x34
     width = 0x09
     height = 0x0f
 tile_02
@@ -2047,8 +2047,8 @@ tile_02
     x = 0xfffffff6
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0x3a
-    tex_y = 0x25
+    u = 0x3a
+    v = 0x25
     width = 0x0b
     height = 0x0f
 tile_03
@@ -2056,8 +2056,8 @@ tile_03
     x = 0xfffffff7
     y = 0xfffffff1
     flags = 0x00
-    tex_x = 0x6b
-    tex_y = 0xf2
+    u = 0x6b
+    v = 0xf2
     width = 0x12
     height = 0x03
 tile_04
@@ -2065,8 +2065,8 @@ tile_04
     x = 0xfffffff8
     y = 0xffffffec
     flags = 0x00
-    tex_x = 0x97
-    tex_y = 0xe1
+    u = 0x97
+    v = 0xe1
     width = 0x10
     height = 0x05
 tile_05
@@ -2074,8 +2074,8 @@ tile_05
     x = 0x0004
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0xb3
-    tex_y = 0xb2
+    u = 0xb3
+    v = 0xb2
     width = 0x06
     height = 0x08
 tile_06
@@ -2083,8 +2083,8 @@ tile_06
     x = 0xfffffffb
     y = 0xffffffd5
     flags = 0x00
-    tex_x = 0xc0
-    tex_y = 0xed
+    u = 0xc0
+    v = 0xed
     width = 0x09
     height = 0x04
 tile_07
@@ -2092,8 +2092,8 @@ tile_07
     x = 0xfffffffa
     y = 0xffffffd9
     flags = 0x00
-    tex_x = 0x3f
-    tex_y = 0x5f
+    u = 0x3f
+    v = 0x5f
     width = 0x10
     height = 0x0b
 tile_08
@@ -2101,8 +2101,8 @@ tile_08
     x = 0xfffffff7
     y = 0xffffffe2
     flags = 0x00
-    tex_x = 0xee
-    tex_y = 0xf9
+    u = 0xee
+    v = 0xf9
     width = 0x03
     height = 0x02
 tile_09
@@ -2110,8 +2110,8 @@ tile_09
     x = 0xfffffff3
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0x62
-    tex_y = 0xa0
+    u = 0x62
+    v = 0xa0
     width = 0x11
     height = 0x08
 number_of_tile = 0x0a
@@ -2121,8 +2121,8 @@ tile_00
     x = 0xfffffff3
     y = 0xffffffec
     flags = 0x00
-    tex_x = 0x07
-    tex_y = 0xe8
+    u = 0x07
+    v = 0xe8
     width = 0x05
     height = 0x05
 tile_01
@@ -2130,8 +2130,8 @@ tile_01
     x = 0xfffffff8
     y = 0xffffffec
     flags = 0x00
-    tex_x = 0x97
-    tex_y = 0xe1
+    u = 0x97
+    v = 0xe1
     width = 0x10
     height = 0x05
 tile_02
@@ -2139,8 +2139,8 @@ tile_02
     x = 0x0001
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0x5d
-    tex_y = 0x34
+    u = 0x5d
+    v = 0x34
     width = 0x09
     height = 0x0f
 tile_03
@@ -2148,8 +2148,8 @@ tile_03
     x = 0xfffffff6
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0x3a
-    tex_y = 0x25
+    u = 0x3a
+    v = 0x25
     width = 0x0b
     height = 0x0f
 tile_04
@@ -2157,8 +2157,8 @@ tile_04
     x = 0xfffffff7
     y = 0xfffffff1
     flags = 0x00
-    tex_x = 0x6b
-    tex_y = 0xf2
+    u = 0x6b
+    v = 0xf2
     width = 0x12
     height = 0x03
 tile_05
@@ -2166,8 +2166,8 @@ tile_05
     x = 0xfffffff3
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0x62
-    tex_y = 0xa0
+    u = 0x62
+    v = 0xa0
     width = 0x11
     height = 0x08
 tile_06
@@ -2175,8 +2175,8 @@ tile_06
     x = 0x0004
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0xba
-    tex_y = 0xb2
+    u = 0xba
+    v = 0xb2
     width = 0x06
     height = 0x08
 tile_07
@@ -2184,8 +2184,8 @@ tile_07
     x = 0xfffffffb
     y = 0xffffffd5
     flags = 0x00
-    tex_x = 0xc0
-    tex_y = 0xed
+    u = 0xc0
+    v = 0xed
     width = 0x09
     height = 0x04
 tile_08
@@ -2193,8 +2193,8 @@ tile_08
     x = 0xfffffffa
     y = 0xffffffd9
     flags = 0x00
-    tex_x = 0x2e
-    tex_y = 0x5f
+    u = 0x2e
+    v = 0x5f
     width = 0x10
     height = 0x0b
 tile_09
@@ -2202,8 +2202,8 @@ tile_09
     x = 0xfffffff7
     y = 0xffffffe2
     flags = 0x00
-    tex_x = 0xea
-    tex_y = 0xf9
+    u = 0xea
+    v = 0xf9
     width = 0x03
     height = 0x02
 number_of_tile = 0x0a
@@ -2213,8 +2213,8 @@ tile_00
     x = 0x0008
     y = 0xffffffe5
     flags = 0x00
-    tex_x = 0x98
-    tex_y = 0xa9
+    u = 0x98
+    v = 0xa9
     width = 0x08
     height = 0x08
 tile_01
@@ -2222,8 +2222,8 @@ tile_01
     x = 0x0008
     y = 0xffffffe2
     flags = 0x00
-    tex_x = 0xcb
-    tex_y = 0xf6
+    u = 0xcb
+    v = 0xf6
     width = 0x02
     height = 0x03
 tile_02
@@ -2231,8 +2231,8 @@ tile_02
     x = 0x0001
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0x5d
-    tex_y = 0x34
+    u = 0x5d
+    v = 0x34
     width = 0x09
     height = 0x0f
 tile_03
@@ -2240,8 +2240,8 @@ tile_03
     x = 0xfffffff6
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0x3a
-    tex_y = 0x25
+    u = 0x3a
+    v = 0x25
     width = 0x0b
     height = 0x0f
 tile_04
@@ -2249,8 +2249,8 @@ tile_04
     x = 0xfffffff7
     y = 0xfffffff1
     flags = 0x00
-    tex_x = 0x6b
-    tex_y = 0xf2
+    u = 0x6b
+    v = 0xf2
     width = 0x12
     height = 0x03
 tile_05
@@ -2258,8 +2258,8 @@ tile_05
     x = 0xfffffff8
     y = 0xffffffec
     flags = 0x00
-    tex_x = 0x97
-    tex_y = 0xe1
+    u = 0x97
+    v = 0xe1
     width = 0x10
     height = 0x05
 tile_06
@@ -2267,8 +2267,8 @@ tile_06
     x = 0xfffffff3
     y = 0xffffffe1
     flags = 0x00
-    tex_x = 0x80
-    tex_y = 0x6b
+    u = 0x80
+    v = 0x6b
     width = 0x05
     height = 0x0b
 tile_07
@@ -2276,8 +2276,8 @@ tile_07
     x = 0xfffffff3
     y = 0xffffffec
     flags = 0x00
-    tex_x = 0x07
-    tex_y = 0xe8
+    u = 0x07
+    v = 0xe8
     width = 0x05
     height = 0x05
 tile_08
@@ -2285,8 +2285,8 @@ tile_08
     x = 0xfffffff8
     y = 0xffffffe1
     flags = 0x00
-    tex_x = 0x1d
-    tex_y = 0x5f
+    u = 0x1d
+    v = 0x5f
     width = 0x10
     height = 0x0b
 tile_09
@@ -2294,8 +2294,8 @@ tile_09
     x = 0xfffffff7
     y = 0xffffffd5
     flags = 0x00
-    tex_x = 0xcf
-    tex_y = 0x51
+    u = 0xcf
+    v = 0x51
     width = 0x0d
     height = 0x0c
 number_of_tile = 0x0a
@@ -2305,8 +2305,8 @@ tile_00
     x = 0xfffffff5
     y = 0xffffffdd
     flags = 0x00
-    tex_x = 0x94
-    tex_y = 0x6b
+    u = 0x94
+    v = 0x6b
     width = 0x03
     height = 0x0b
 tile_01
@@ -2314,8 +2314,8 @@ tile_01
     x = 0x0002
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0x67
-    tex_y = 0x44
+    u = 0x67
+    v = 0x44
     width = 0x08
     height = 0x0d
 tile_02
@@ -2323,8 +2323,8 @@ tile_02
     x = 0xfffffff7
     y = 0xfffffffc
     flags = 0x00
-    tex_x = 0xd8
-    tex_y = 0xe7
+    u = 0xd8
+    v = 0xe7
     width = 0x07
     height = 0x05
 tile_03
@@ -2332,8 +2332,8 @@ tile_03
     x = 0xfffffff6
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0xf2
-    tex_y = 0x96
+    u = 0xf2
+    v = 0x96
     width = 0x0c
     height = 0x08
 tile_04
@@ -2341,8 +2341,8 @@ tile_04
     x = 0x0008
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0xdb
-    tex_y = 0xb2
+    u = 0xdb
+    v = 0xb2
     width = 0x05
     height = 0x08
 tile_05
@@ -2350,8 +2350,8 @@ tile_05
     x = 0x0000
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0xa1
-    tex_y = 0xa9
+    u = 0xa1
+    v = 0xa9
     width = 0x08
     height = 0x08
 tile_06
@@ -2359,8 +2359,8 @@ tile_06
     x = 0xfffffff6
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0x3a
-    tex_y = 0xa9
+    u = 0x3a
+    v = 0xa9
     width = 0x0a
     height = 0x08
 tile_07
@@ -2368,8 +2368,8 @@ tile_07
     x = 0xfffffff6
     y = 0xffffffec
     flags = 0x00
-    tex_x = 0x01
-    tex_y = 0x97
+    u = 0x01
+    v = 0x97
     width = 0x18
     height = 0x08
 tile_08
@@ -2377,8 +2377,8 @@ tile_08
     x = 0xfffffff8
     y = 0xffffffe1
     flags = 0x00
-    tex_x = 0x90
-    tex_y = 0xf2
+    u = 0x90
+    v = 0xf2
     width = 0x10
     height = 0x03
 tile_09
@@ -2386,8 +2386,8 @@ tile_09
     x = 0xfffffff8
     y = 0xffffffd4
     flags = 0x00
-    tex_x = 0xe6
-    tex_y = 0x43
+    u = 0xe6
+    v = 0x43
     width = 0x0d
     height = 0x0d
 number_of_tile = 0x0a
@@ -2397,8 +2397,8 @@ tile_00
     x = 0x0002
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0x67
-    tex_y = 0x44
+    u = 0x67
+    v = 0x44
     width = 0x08
     height = 0x0d
 tile_01
@@ -2406,8 +2406,8 @@ tile_01
     x = 0xfffffff7
     y = 0xfffffffc
     flags = 0x00
-    tex_x = 0xd8
-    tex_y = 0xe7
+    u = 0xd8
+    v = 0xe7
     width = 0x07
     height = 0x05
 tile_02
@@ -2415,8 +2415,8 @@ tile_02
     x = 0xfffffff6
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0xf2
-    tex_y = 0x96
+    u = 0xf2
+    v = 0x96
     width = 0x0c
     height = 0x08
 tile_03
@@ -2424,8 +2424,8 @@ tile_03
     x = 0x000a
     y = 0xffffffe7
     flags = 0x00
-    tex_x = 0x9d
-    tex_y = 0x96
+    u = 0x9d
+    v = 0x96
     width = 0x04
     height = 0x09
 tile_04
@@ -2433,8 +2433,8 @@ tile_04
     x = 0xfffffff8
     y = 0xffffffe7
     flags = 0x00
-    tex_x = 0xb0
-    tex_y = 0x43
+    u = 0xb0
+    v = 0x43
     width = 0x12
     height = 0x0d
 tile_05
@@ -2442,8 +2442,8 @@ tile_05
     x = 0xfffffff6
     y = 0xfffffff0
     flags = 0x00
-    tex_x = 0xd9
-    tex_y = 0x1e
+    u = 0xd9
+    v = 0x1e
     width = 0x02
     height = 0x04
 tile_06
@@ -2451,8 +2451,8 @@ tile_06
     x = 0xfffffff5
     y = 0xffffffe0
     flags = 0x00
-    tex_x = 0x44
-    tex_y = 0xbb
+    u = 0x44
+    v = 0xbb
     width = 0x16
     height = 0x07
 tile_07
@@ -2460,8 +2460,8 @@ tile_07
     x = 0xfffffffa
     y = 0xffffffda
     flags = 0x00
-    tex_x = 0x34
-    tex_y = 0xda
+    u = 0x34
+    v = 0xda
     width = 0x0b
     height = 0x06
 tile_08
@@ -2469,8 +2469,8 @@ tile_08
     x = 0xfffffffb
     y = 0xffffffd4
     flags = 0x00
-    tex_x = 0x36
-    tex_y = 0xcc
+    u = 0x36
+    v = 0xcc
     width = 0x09
     height = 0x06
 tile_09
@@ -2478,8 +2478,8 @@ tile_09
     x = 0xfffffff5
     y = 0xffffffdc
     flags = 0x00
-    tex_x = 0x2a
-    tex_y = 0xee
+    u = 0x2a
+    v = 0xee
     width = 0x05
     height = 0x04
 number_of_tile = 0x0a
@@ -2489,8 +2489,8 @@ tile_00
     x = 0xfffffff9
     y = 0xffffffd4
     flags = 0x00
-    tex_x = 0x3c
-    tex_y = 0xb2
+    u = 0x3c
+    v = 0xb2
     width = 0x07
     height = 0x08
 tile_01
@@ -2498,8 +2498,8 @@ tile_01
     x = 0x0000
     y = 0xffffffe3
     flags = 0x00
-    tex_x = 0x40
-    tex_y = 0xfa
+    u = 0x40
+    v = 0xfa
     width = 0x07
     height = 0x01
 tile_02
@@ -2507,8 +2507,8 @@ tile_02
     x = 0x0000
     y = 0xffffffdb
     flags = 0x00
-    tex_x = 0xe1
-    tex_y = 0xb2
+    u = 0xe1
+    v = 0xb2
     width = 0x05
     height = 0x08
 tile_03
@@ -2516,8 +2516,8 @@ tile_03
     x = 0x0000
     y = 0xffffffd4
     flags = 0x00
-    tex_x = 0x8a
-    tex_y = 0xcb
+    u = 0x8a
+    v = 0xcb
     width = 0x06
     height = 0x07
 tile_04
@@ -2525,8 +2525,8 @@ tile_04
     x = 0x0000
     y = 0xffffffe9
     flags = 0x00
-    tex_x = 0x82
-    tex_y = 0x5f
+    u = 0x82
+    v = 0x5f
     width = 0x0e
     height = 0x0b
 tile_05
@@ -2534,8 +2534,8 @@ tile_05
     x = 0x0000
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0x9f
-    tex_y = 0xe7
+    u = 0x9f
+    v = 0xe7
     width = 0x09
     height = 0x05
 tile_06
@@ -2543,8 +2543,8 @@ tile_06
     x = 0xfffffff8
     y = 0xffffffec
     flags = 0x00
-    tex_x = 0xb3
-    tex_y = 0xa9
+    u = 0xb3
+    v = 0xa9
     width = 0x08
     height = 0x08
 tile_07
@@ -2552,8 +2552,8 @@ tile_07
     x = 0x0000
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0x46
-    tex_y = 0x25
+    u = 0x46
+    v = 0x25
     width = 0x0b
     height = 0x0f
 tile_08
@@ -2561,8 +2561,8 @@ tile_08
     x = 0xfffffff7
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0xac
-    tex_y = 0x5e
+    u = 0xac
+    v = 0x5e
     width = 0x09
     height = 0x0c
 tile_09
@@ -2570,8 +2570,8 @@ tile_09
     x = 0xfffffff9
     y = 0xffffffdc
     flags = 0x00
-    tex_x = 0x14
-    tex_y = 0x15
+    u = 0x14
+    v = 0x15
     width = 0x07
     height = 0x10
 number_of_tile = 0x0a
@@ -2581,8 +2581,8 @@ tile_00
     x = 0x0000
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0x46
-    tex_y = 0x25
+    u = 0x46
+    v = 0x25
     width = 0x0b
     height = 0x0f
 tile_01
@@ -2590,8 +2590,8 @@ tile_01
     x = 0xfffffff7
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0xac
-    tex_y = 0x5e
+    u = 0xac
+    v = 0x5e
     width = 0x09
     height = 0x0c
 tile_02
@@ -2599,8 +2599,8 @@ tile_02
     x = 0xfffffff8
     y = 0xffffffec
     flags = 0x00
-    tex_x = 0xaa
-    tex_y = 0xa9
+    u = 0xaa
+    v = 0xa9
     width = 0x08
     height = 0x08
 tile_03
@@ -2608,8 +2608,8 @@ tile_03
     x = 0xfffffff9
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0x34
-    tex_y = 0xb2
+    u = 0x34
+    v = 0xb2
     width = 0x07
     height = 0x08
 tile_04
@@ -2617,8 +2617,8 @@ tile_04
     x = 0x000a
     y = 0xffffffe8
     flags = 0x00
-    tex_x = 0xa2
-    tex_y = 0x96
+    u = 0xa2
+    v = 0x96
     width = 0x04
     height = 0x09
 tile_05
@@ -2626,8 +2626,8 @@ tile_05
     x = 0x0000
     y = 0xffffffe7
     flags = 0x00
-    tex_x = 0x36
-    tex_y = 0x44
+    u = 0x36
+    v = 0x44
     width = 0x0a
     height = 0x0d
 tile_06
@@ -2635,8 +2635,8 @@ tile_06
     x = 0x0000
     y = 0xffffffe2
     flags = 0x00
-    tex_x = 0x0e
-    tex_y = 0xe2
+    u = 0x0e
+    v = 0xe2
     width = 0x09
     height = 0x05
 tile_07
@@ -2644,8 +2644,8 @@ tile_07
     x = 0x0000
     y = 0xffffffd4
     flags = 0x00
-    tex_x = 0x45
-    tex_y = 0x35
+    u = 0x45
+    v = 0x35
     width = 0x05
     height = 0x0e
 tile_08
@@ -2653,8 +2653,8 @@ tile_08
     x = 0xfffffff9
     y = 0xffffffdb
     flags = 0x00
-    tex_x = 0x5a
-    tex_y = 0x8d
+    u = 0x5a
+    v = 0x8d
     width = 0x07
     height = 0x09
 tile_09
@@ -2662,8 +2662,8 @@ tile_09
     x = 0xfffffff8
     y = 0xffffffd4
     flags = 0x00
-    tex_x = 0x1c
-    tex_y = 0xc4
+    u = 0x1c
+    v = 0xc4
     width = 0x08
     height = 0x07
 number_of_tile = 0x0a
@@ -2673,8 +2673,8 @@ tile_00
     x = 0xfffffffe
     y = 0x0002
     flags = 0x00
-    tex_x = 0x27
-    tex_y = 0xf7
+    u = 0x27
+    v = 0xf7
     width = 0x0a
     height = 0x02
 tile_01
@@ -2682,8 +2682,8 @@ tile_01
     x = 0x0006
     y = 0x0001
     flags = 0x00
-    tex_x = 0x50
-    tex_y = 0x42
+    u = 0x50
+    v = 0x42
     width = 0x01
     height = 0x01
 tile_02
@@ -2691,8 +2691,8 @@ tile_02
     x = 0xfffffffb
     y = 0xfffffffa
     flags = 0x00
-    tex_x = 0xbe
-    tex_y = 0xa0
+    u = 0xbe
+    v = 0xa0
     width = 0x0b
     height = 0x08
 tile_03
@@ -2700,8 +2700,8 @@ tile_03
     x = 0xfffffffb
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0xe4
-    tex_y = 0xd3
+    u = 0xe4
+    v = 0xd3
     width = 0x0c
     height = 0x06
 tile_04
@@ -2709,8 +2709,8 @@ tile_04
     x = 0xfffffffc
     y = 0xffffffea
     flags = 0x00
-    tex_x = 0xd2
-    tex_y = 0x6b
+    u = 0xd2
+    v = 0x6b
     width = 0x0e
     height = 0x0a
 tile_05
@@ -2718,8 +2718,8 @@ tile_05
     x = 0xfffffffb
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0x56
-    tex_y = 0xd3
+    u = 0x56
+    v = 0xd3
     width = 0x0e
     height = 0x06
 tile_06
@@ -2727,8 +2727,8 @@ tile_06
     x = 0x0007
     y = 0xffffffdc
     flags = 0x00
-    tex_x = 0x44
-    tex_y = 0xb2
+    u = 0x44
+    v = 0xb2
     width = 0x07
     height = 0x08
 tile_07
@@ -2736,8 +2736,8 @@ tile_07
     x = 0x0005
     y = 0xffffffe1
     flags = 0x00
-    tex_x = 0xce
-    tex_y = 0xf6
+    u = 0xce
+    v = 0xf6
     width = 0x02
     height = 0x03
 tile_08
@@ -2745,8 +2745,8 @@ tile_08
     x = 0xfffffffb
     y = 0xffffffdd
     flags = 0x00
-    tex_x = 0xaa
-    tex_y = 0xc3
+    u = 0xaa
+    v = 0xc3
     width = 0x0a
     height = 0x07
 tile_09
@@ -2754,8 +2754,8 @@ tile_09
     x = 0xfffffff9
     y = 0xffffffd4
     flags = 0x00
-    tex_x = 0x8a
-    tex_y = 0x8c
+    u = 0x8a
+    v = 0x8c
     width = 0x0c
     height = 0x09
 number_of_tile = 0x0a
@@ -2765,8 +2765,8 @@ tile_00
     x = 0xfffffffe
     y = 0x0002
     flags = 0x00
-    tex_x = 0x27
-    tex_y = 0xf7
+    u = 0x27
+    v = 0xf7
     width = 0x0a
     height = 0x02
 tile_01
@@ -2774,8 +2774,8 @@ tile_01
     x = 0x0006
     y = 0x0001
     flags = 0x00
-    tex_x = 0x50
-    tex_y = 0x42
+    u = 0x50
+    v = 0x42
     width = 0x01
     height = 0x01
 tile_02
@@ -2783,8 +2783,8 @@ tile_02
     x = 0xfffffffb
     y = 0xfffffffa
     flags = 0x00
-    tex_x = 0xbe
-    tex_y = 0xa0
+    u = 0xbe
+    v = 0xa0
     width = 0x0b
     height = 0x08
 tile_03
@@ -2792,8 +2792,8 @@ tile_03
     x = 0xfffffffb
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0xe4
-    tex_y = 0xd3
+    u = 0xe4
+    v = 0xd3
     width = 0x0c
     height = 0x06
 tile_04
@@ -2801,8 +2801,8 @@ tile_04
     x = 0x0007
     y = 0xffffffea
     flags = 0x00
-    tex_x = 0xf2
-    tex_y = 0xcb
+    u = 0xf2
+    v = 0xcb
     width = 0x03
     height = 0x07
 tile_05
@@ -2810,8 +2810,8 @@ tile_05
     x = 0xfffffffc
     y = 0xffffffea
     flags = 0x00
-    tex_x = 0x6d
-    tex_y = 0x77
+    u = 0x6d
+    v = 0x77
     width = 0x0b
     height = 0x0a
 tile_06
@@ -2819,8 +2819,8 @@ tile_06
     x = 0xfffffffb
     y = 0xffffffe3
     flags = 0x00
-    tex_x = 0x93
-    tex_y = 0xbb
+    u = 0x93
+    v = 0xbb
     width = 0x0e
     height = 0x07
 tile_07
@@ -2828,8 +2828,8 @@ tile_07
     x = 0x0005
     y = 0xffffffdb
     flags = 0x00
-    tex_x = 0x7c
-    tex_y = 0xa9
+    u = 0x7c
+    v = 0xa9
     width = 0x09
     height = 0x08
 tile_08
@@ -2837,8 +2837,8 @@ tile_08
     x = 0xfffffffb
     y = 0xffffffde
     flags = 0x00
-    tex_x = 0x1b
-    tex_y = 0xd4
+    u = 0x1b
+    v = 0xd4
     width = 0x0a
     height = 0x05
 tile_09
@@ -2846,8 +2846,8 @@ tile_09
     x = 0xfffffff9
     y = 0xffffffd4
     flags = 0x00
-    tex_x = 0x39
-    tex_y = 0x77
+    u = 0x39
+    v = 0x77
     width = 0x0c
     height = 0x0a
 number_of_tile = 0x0a
@@ -2857,8 +2857,8 @@ tile_00
     x = 0x0008
     y = 0xffffffdd
     flags = 0x00
-    tex_x = 0x2e
-    tex_y = 0x82
+    u = 0x2e
+    v = 0x82
     width = 0x07
     height = 0x0a
 tile_01
@@ -2866,8 +2866,8 @@ tile_01
     x = 0x0000
     y = 0xfffffffc
     flags = 0x00
-    tex_x = 0x78
-    tex_y = 0xed
+    u = 0x78
+    v = 0xed
     width = 0x0c
     height = 0x04
 tile_02
@@ -2875,8 +2875,8 @@ tile_02
     x = 0x0000
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0x45
-    tex_y = 0xa9
+    u = 0x45
+    v = 0xa9
     width = 0x0a
     height = 0x08
 tile_03
@@ -2884,8 +2884,8 @@ tile_03
     x = 0xfffffff9
     y = 0xfffffffd
     flags = 0x00
-    tex_x = 0x4c
-    tex_y = 0xb2
+    u = 0x4c
+    v = 0xb2
     width = 0x07
     height = 0x08
 tile_04
@@ -2893,8 +2893,8 @@ tile_04
     x = 0xfffffff7
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0xee
-    tex_y = 0x8c
+    u = 0xee
+    v = 0x8c
     width = 0x09
     height = 0x09
 tile_05
@@ -2902,8 +2902,8 @@ tile_05
     x = 0x0000
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0x27
-    tex_y = 0x14
+    u = 0x27
+    v = 0x14
     width = 0x09
     height = 0x10
 tile_06
@@ -2911,8 +2911,8 @@ tile_06
     x = 0xfffffff8
     y = 0xffffffe8
     flags = 0x00
-    tex_x = 0xd4
-    tex_y = 0x5e
+    u = 0xd4
+    v = 0x5e
     width = 0x08
     height = 0x0c
 tile_07
@@ -2920,8 +2920,8 @@ tile_07
     x = 0xfffffff7
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0xca
-    tex_y = 0xed
+    u = 0xca
+    v = 0xed
     width = 0x09
     height = 0x04
 tile_08
@@ -2929,8 +2929,8 @@ tile_08
     x = 0xfffffff9
     y = 0xffffffde
     flags = 0x00
-    tex_x = 0x26
-    tex_y = 0xcc
+    u = 0x26
+    v = 0xcc
     width = 0x0f
     height = 0x06
 tile_09
@@ -2938,8 +2938,8 @@ tile_09
     x = 0xfffffff9
     y = 0xffffffd4
     flags = 0x00
-    tex_x = 0x01
-    tex_y = 0x77
+    u = 0x01
+    v = 0x77
     width = 0x0d
     height = 0x0a
 number_of_tile = 0x0a
@@ -2949,8 +2949,8 @@ tile_00
     x = 0x0008
     y = 0xffffffdc
     flags = 0x00
-    tex_x = 0x62
-    tex_y = 0x6b
+    u = 0x62
+    v = 0x6b
     width = 0x07
     height = 0x0b
 tile_01
@@ -2958,8 +2958,8 @@ tile_01
     x = 0x0000
     y = 0xfffffffc
     flags = 0x00
-    tex_x = 0x78
-    tex_y = 0xed
+    u = 0x78
+    v = 0xed
     width = 0x0c
     height = 0x04
 tile_02
@@ -2967,8 +2967,8 @@ tile_02
     x = 0x0000
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0x45
-    tex_y = 0xa9
+    u = 0x45
+    v = 0xa9
     width = 0x0a
     height = 0x08
 tile_03
@@ -2976,8 +2976,8 @@ tile_03
     x = 0xfffffff9
     y = 0xfffffffd
     flags = 0x00
-    tex_x = 0x4c
-    tex_y = 0xb2
+    u = 0x4c
+    v = 0xb2
     width = 0x07
     height = 0x08
 tile_04
@@ -2985,8 +2985,8 @@ tile_04
     x = 0xfffffff7
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0xee
-    tex_y = 0x8c
+    u = 0xee
+    v = 0x8c
     width = 0x09
     height = 0x09
 tile_05
@@ -2994,8 +2994,8 @@ tile_05
     x = 0x0000
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0x27
-    tex_y = 0x14
+    u = 0x27
+    v = 0x14
     width = 0x09
     height = 0x10
 tile_06
@@ -3003,8 +3003,8 @@ tile_06
     x = 0xfffffff8
     y = 0xffffffe7
     flags = 0x00
-    tex_x = 0x70
-    tex_y = 0x44
+    u = 0x70
+    v = 0x44
     width = 0x08
     height = 0x0d
 tile_07
@@ -3012,8 +3012,8 @@ tile_07
     x = 0xfffffff7
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0x3d
-    tex_y = 0xf3
+    u = 0x3d
+    v = 0xf3
     width = 0x09
     height = 0x03
 tile_08
@@ -3021,8 +3021,8 @@ tile_08
     x = 0xfffffff8
     y = 0xffffffdd
     flags = 0x00
-    tex_x = 0x71
-    tex_y = 0xbb
+    u = 0x71
+    v = 0xbb
     width = 0x10
     height = 0x07
 tile_09
@@ -3030,8 +3030,8 @@ tile_09
     x = 0xfffffff9
     y = 0xffffffd4
     flags = 0x00
-    tex_x = 0x97
-    tex_y = 0x8c
+    u = 0x97
+    v = 0x8c
     width = 0x0c
     height = 0x09
 number_of_tile = 0x0a
@@ -3041,8 +3041,8 @@ tile_00
     x = 0x0001
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0x67
-    tex_y = 0x34
+    u = 0x67
+    v = 0x34
     width = 0x09
     height = 0x0f
 tile_01
@@ -3050,8 +3050,8 @@ tile_01
     x = 0xfffffff6
     y = 0xfffffffa
     flags = 0x00
-    tex_x = 0x01
-    tex_y = 0x8d
+    u = 0x01
+    v = 0x8d
     width = 0x09
     height = 0x09
 tile_02
@@ -3059,8 +3059,8 @@ tile_02
     x = 0xfffffff6
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0x40
-    tex_y = 0xda
+    u = 0x40
+    v = 0xda
     width = 0x0b
     height = 0x06
 tile_03
@@ -3068,8 +3068,8 @@ tile_03
     x = 0xfffffff7
     y = 0xffffffec
     flags = 0x00
-    tex_x = 0x29
-    tex_y = 0xa0
+    u = 0x29
+    v = 0xa0
     width = 0x12
     height = 0x08
 tile_04
@@ -3077,8 +3077,8 @@ tile_04
     x = 0xfffffff2
     y = 0xffffffec
     flags = 0x00
-    tex_x = 0x0d
-    tex_y = 0xe8
+    u = 0x0d
+    v = 0xe8
     width = 0x05
     height = 0x05
 tile_05
@@ -3086,8 +3086,8 @@ tile_05
     x = 0x0007
     y = 0xffffffe1
     flags = 0x00
-    tex_x = 0x0c
-    tex_y = 0xbb
+    u = 0x0c
+    v = 0xbb
     width = 0x03
     height = 0x08
 tile_06
@@ -3095,8 +3095,8 @@ tile_06
     x = 0xfffffff5
     y = 0xffffffe1
     flags = 0x00
-    tex_x = 0xe3
-    tex_y = 0x5e
+    u = 0xe3
+    v = 0x5e
     width = 0x12
     height = 0x0b
 tile_07
@@ -3104,8 +3104,8 @@ tile_07
     x = 0xfffffff3
     y = 0xffffffe8
     flags = 0x00
-    tex_x = 0xfd
-    tex_y = 0x1e
+    u = 0xfd
+    v = 0x1e
     width = 0x02
     height = 0x04
 tile_08
@@ -3113,8 +3113,8 @@ tile_08
     x = 0x0005
     y = 0xffffffde
     flags = 0x00
-    tex_x = 0xae
-    tex_y = 0xf6
+    u = 0xae
+    v = 0xf6
     width = 0x04
     height = 0x03
 tile_09
@@ -3122,8 +3122,8 @@ tile_09
     x = 0xfffffffa
     y = 0xffffffd4
     flags = 0x00
-    tex_x = 0xf4
-    tex_y = 0x43
+    u = 0xf4
+    v = 0x43
     width = 0x0b
     height = 0x0d
 number_of_tile = 0x0a
@@ -3133,8 +3133,8 @@ tile_00
     x = 0x0001
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0x67
-    tex_y = 0x34
+    u = 0x67
+    v = 0x34
     width = 0x09
     height = 0x0f
 tile_01
@@ -3142,8 +3142,8 @@ tile_01
     x = 0xfffffff6
     y = 0xfffffffa
     flags = 0x00
-    tex_x = 0x01
-    tex_y = 0x8d
+    u = 0x01
+    v = 0x8d
     width = 0x09
     height = 0x09
 tile_02
@@ -3151,8 +3151,8 @@ tile_02
     x = 0xfffffff6
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0x40
-    tex_y = 0xda
+    u = 0x40
+    v = 0xda
     width = 0x0b
     height = 0x06
 tile_03
@@ -3160,8 +3160,8 @@ tile_03
     x = 0x0008
     y = 0xfffffff1
     flags = 0x00
-    tex_x = 0xfe
-    tex_y = 0xcb
+    u = 0xfe
+    v = 0xcb
     width = 0x01
     height = 0x03
 tile_04
@@ -3169,8 +3169,8 @@ tile_04
     x = 0xfffffff7
     y = 0xffffffe7
     flags = 0x00
-    tex_x = 0xc3
-    tex_y = 0x43
+    u = 0xc3
+    v = 0x43
     width = 0x11
     height = 0x0d
 tile_05
@@ -3178,8 +3178,8 @@ tile_05
     x = 0xfffffff5
     y = 0xffffffe7
     flags = 0x00
-    tex_x = 0x82
-    tex_y = 0x44
+    u = 0x82
+    v = 0x44
     width = 0x02
     height = 0x09
 tile_06
@@ -3187,8 +3187,8 @@ tile_06
     x = 0xfffffff5
     y = 0xffffffe0
     flags = 0x00
-    tex_x = 0x5b
-    tex_y = 0xbb
+    u = 0x5b
+    v = 0xbb
     width = 0x15
     height = 0x07
 tile_07
@@ -3196,8 +3196,8 @@ tile_07
     x = 0xfffffff2
     y = 0xffffffe7
     flags = 0x00
-    tex_x = 0xfc
-    tex_y = 0x76
+    u = 0xfc
+    v = 0x76
     width = 0x03
     height = 0x09
 tile_08
@@ -3205,8 +3205,8 @@ tile_08
     x = 0x0005
     y = 0xffffffdd
     flags = 0x00
-    tex_x = 0xa9
-    tex_y = 0xf6
+    u = 0xa9
+    v = 0xf6
     width = 0x04
     height = 0x03
 tile_09
@@ -3214,8 +3214,8 @@ tile_09
     x = 0xfffffffa
     y = 0xffffffd4
     flags = 0x00
-    tex_x = 0x4a
-    tex_y = 0x52
+    u = 0x4a
+    v = 0x52
     width = 0x0b
     height = 0x0c
 number_of_tile = 0x0a
@@ -3225,8 +3225,8 @@ tile_00
     x = 0x0008
     y = 0xffffffe2
     flags = 0x00
-    tex_x = 0x07
-    tex_y = 0xfa
+    u = 0x07
+    v = 0xfa
     width = 0x02
     height = 0x02
 tile_01
@@ -3234,8 +3234,8 @@ tile_01
     x = 0xfffffff5
     y = 0xffffffdd
     flags = 0x00
-    tex_x = 0x98
-    tex_y = 0x6b
+    u = 0x98
+    v = 0x6b
     width = 0x03
     height = 0x0b
 tile_02
@@ -3243,8 +3243,8 @@ tile_02
     x = 0xfffffff6
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0x50
-    tex_y = 0xa9
+    u = 0x50
+    v = 0xa9
     width = 0x0a
     height = 0x08
 tile_03
@@ -3252,8 +3252,8 @@ tile_03
     x = 0xfffffff6
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0x9b
-    tex_y = 0x43
+    u = 0x9b
+    v = 0x43
     width = 0x14
     height = 0x0d
 tile_04
@@ -3261,8 +3261,8 @@ tile_04
     x = 0xfffffff6
     y = 0xffffffec
     flags = 0x00
-    tex_x = 0x1a
-    tex_y = 0x97
+    u = 0x1a
+    v = 0x97
     width = 0x18
     height = 0x08
 tile_05
@@ -3270,8 +3270,8 @@ tile_05
     x = 0x0008
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0xe7
-    tex_y = 0xba
+    u = 0xe7
+    v = 0xba
     width = 0x05
     height = 0x08
 tile_06
@@ -3279,8 +3279,8 @@ tile_06
     x = 0xfffffffa
     y = 0xffffffd4
     flags = 0x00
-    tex_x = 0xca
-    tex_y = 0xa0
+    u = 0xca
+    v = 0xa0
     width = 0x0b
     height = 0x08
 tile_07
@@ -3288,8 +3288,8 @@ tile_07
     x = 0x0000
     y = 0xffffffdc
     flags = 0x00
-    tex_x = 0xc5
-    tex_y = 0xa9
+    u = 0xc5
+    v = 0xa9
     width = 0x08
     height = 0x08
 tile_08
@@ -3297,8 +3297,8 @@ tile_08
     x = 0x0000
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0xce
-    tex_y = 0xa9
+    u = 0xce
+    v = 0xa9
     width = 0x08
     height = 0x08
 tile_09
@@ -3306,8 +3306,8 @@ tile_09
     x = 0xfffffff8
     y = 0xffffffdc
     flags = 0x00
-    tex_x = 0xbc
-    tex_y = 0xa9
+    u = 0xbc
+    v = 0xa9
     width = 0x08
     height = 0x08
 number_of_tile = 0x0a
@@ -3317,8 +3317,8 @@ tile_00
     x = 0x0008
     y = 0xffffffe2
     flags = 0x00
-    tex_x = 0x07
-    tex_y = 0xfa
+    u = 0x07
+    v = 0xfa
     width = 0x02
     height = 0x02
 tile_01
@@ -3326,8 +3326,8 @@ tile_01
     x = 0xfffffff5
     y = 0xffffffdd
     flags = 0x00
-    tex_x = 0x98
-    tex_y = 0x6b
+    u = 0x98
+    v = 0x6b
     width = 0x03
     height = 0x0b
 tile_02
@@ -3335,8 +3335,8 @@ tile_02
     x = 0x0008
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0xe7
-    tex_y = 0xba
+    u = 0xe7
+    v = 0xba
     width = 0x05
     height = 0x08
 tile_03
@@ -3344,8 +3344,8 @@ tile_03
     x = 0x0000
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0xce
-    tex_y = 0xa9
+    u = 0xce
+    v = 0xa9
     width = 0x08
     height = 0x08
 tile_04
@@ -3353,8 +3353,8 @@ tile_04
     x = 0xfffffff6
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0x50
-    tex_y = 0xa9
+    u = 0x50
+    v = 0xa9
     width = 0x0a
     height = 0x08
 tile_05
@@ -3362,8 +3362,8 @@ tile_05
     x = 0xfffffff6
     y = 0xffffffec
     flags = 0x00
-    tex_x = 0x1a
-    tex_y = 0x97
+    u = 0x1a
+    v = 0x97
     width = 0x18
     height = 0x08
 tile_06
@@ -3371,8 +3371,8 @@ tile_06
     x = 0xfffffff6
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0x9b
-    tex_y = 0x43
+    u = 0x9b
+    v = 0x43
     width = 0x14
     height = 0x0d
 tile_07
@@ -3380,8 +3380,8 @@ tile_07
     x = 0xfffffff8
     y = 0xffffffe1
     flags = 0x00
-    tex_x = 0xa1
-    tex_y = 0xf2
+    u = 0xa1
+    v = 0xf2
     width = 0x10
     height = 0x03
 tile_08
@@ -3389,8 +3389,8 @@ tile_08
     x = 0xfffffff8
     y = 0xffffffda
     flags = 0x00
-    tex_x = 0xb1
-    tex_y = 0xbb
+    u = 0xb1
+    v = 0xbb
     width = 0x0d
     height = 0x07
 tile_09
@@ -3398,8 +3398,8 @@ tile_09
     x = 0xfffffffb
     y = 0xffffffd4
     flags = 0x00
-    tex_x = 0xbf
-    tex_y = 0xda
+    u = 0xbf
+    v = 0xda
     width = 0x09
     height = 0x06
 number_of_tile = 0x0a
@@ -3409,8 +3409,8 @@ tile_00
     x = 0x0008
     y = 0xffffffe2
     flags = 0x00
-    tex_x = 0x07
-    tex_y = 0xfa
+    u = 0x07
+    v = 0xfa
     width = 0x02
     height = 0x02
 tile_01
@@ -3418,8 +3418,8 @@ tile_01
     x = 0xfffffff5
     y = 0xffffffdd
     flags = 0x00
-    tex_x = 0x98
-    tex_y = 0x6b
+    u = 0x98
+    v = 0x6b
     width = 0x03
     height = 0x0b
 tile_02
@@ -3427,8 +3427,8 @@ tile_02
     x = 0x0008
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0xe7
-    tex_y = 0xba
+    u = 0xe7
+    v = 0xba
     width = 0x05
     height = 0x08
 tile_03
@@ -3436,8 +3436,8 @@ tile_03
     x = 0x0000
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0xce
-    tex_y = 0xa9
+    u = 0xce
+    v = 0xa9
     width = 0x08
     height = 0x08
 tile_04
@@ -3445,8 +3445,8 @@ tile_04
     x = 0xfffffff6
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0x50
-    tex_y = 0xa9
+    u = 0x50
+    v = 0xa9
     width = 0x0a
     height = 0x08
 tile_05
@@ -3454,8 +3454,8 @@ tile_05
     x = 0xfffffff6
     y = 0xffffffec
     flags = 0x00
-    tex_x = 0x1a
-    tex_y = 0x97
+    u = 0x1a
+    v = 0x97
     width = 0x18
     height = 0x08
 tile_06
@@ -3463,8 +3463,8 @@ tile_06
     x = 0xfffffff6
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0x9b
-    tex_y = 0x43
+    u = 0x9b
+    v = 0x43
     width = 0x14
     height = 0x0d
 tile_07
@@ -3472,8 +3472,8 @@ tile_07
     x = 0xfffffff8
     y = 0xffffffe1
     flags = 0x00
-    tex_x = 0xb2
-    tex_y = 0xf2
+    u = 0xb2
+    v = 0xf2
     width = 0x10
     height = 0x03
 tile_08
@@ -3481,8 +3481,8 @@ tile_08
     x = 0xfffffff8
     y = 0xffffffda
     flags = 0x00
-    tex_x = 0xbf
-    tex_y = 0xbb
+    u = 0xbf
+    v = 0xbb
     width = 0x0d
     height = 0x07
 tile_09
@@ -3490,8 +3490,8 @@ tile_09
     x = 0xfffffffb
     y = 0xffffffd4
     flags = 0x00
-    tex_x = 0xc9
-    tex_y = 0xda
+    u = 0xc9
+    v = 0xda
     width = 0x09
     height = 0x06
 number_of_tile = 0x0a
@@ -3501,8 +3501,8 @@ tile_00
     x = 0x0000
     y = 0xffffffdb
     flags = 0x00
-    tex_x = 0x62
-    tex_y = 0x8d
+    u = 0x62
+    v = 0x8d
     width = 0x07
     height = 0x09
 tile_01
@@ -3510,8 +3510,8 @@ tile_01
     x = 0x0000
     y = 0xffffffd4
     flags = 0x00
-    tex_x = 0x91
-    tex_y = 0xcb
+    u = 0x91
+    v = 0xcb
     width = 0x06
     height = 0x07
 tile_02
@@ -3519,8 +3519,8 @@ tile_02
     x = 0xfffffff9
     y = 0xffffffd4
     flags = 0x00
-    tex_x = 0x64
-    tex_y = 0xb2
+    u = 0x64
+    v = 0xb2
     width = 0x07
     height = 0x08
 tile_03
@@ -3528,8 +3528,8 @@ tile_03
     x = 0xfffffff9
     y = 0xffffffdc
     flags = 0x00
-    tex_x = 0x5c
-    tex_y = 0xb2
+    u = 0x5c
+    v = 0xb2
     width = 0x07
     height = 0x08
 tile_04
@@ -3537,8 +3537,8 @@ tile_04
     x = 0xfffffff9
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0x54
-    tex_y = 0xb2
+    u = 0x54
+    v = 0xb2
     width = 0x07
     height = 0x08
 tile_05
@@ -3546,8 +3546,8 @@ tile_05
     x = 0x0000
     y = 0xffffffe9
     flags = 0x00
-    tex_x = 0x91
-    tex_y = 0x5f
+    u = 0x91
+    v = 0x5f
     width = 0x0e
     height = 0x0b
 tile_06
@@ -3555,8 +3555,8 @@ tile_06
     x = 0x0000
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0xa9
-    tex_y = 0xe7
+    u = 0xa9
+    v = 0xe7
     width = 0x09
     height = 0x05
 tile_07
@@ -3564,8 +3564,8 @@ tile_07
     x = 0xfffffff8
     y = 0xffffffec
     flags = 0x00
-    tex_x = 0xd7
-    tex_y = 0xa9
+    u = 0xd7
+    v = 0xa9
     width = 0x08
     height = 0x08
 tile_08
@@ -3573,8 +3573,8 @@ tile_08
     x = 0x0000
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0x01
-    tex_y = 0x28
+    u = 0x01
+    v = 0x28
     width = 0x0b
     height = 0x0f
 tile_09
@@ -3582,8 +3582,8 @@ tile_09
     x = 0xfffffff7
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0xb6
-    tex_y = 0x5e
+    u = 0xb6
+    v = 0x5e
     width = 0x09
     height = 0x0c
 number_of_tile = 0x0a
@@ -3593,8 +3593,8 @@ tile_00
     x = 0xfffffff9
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0x54
-    tex_y = 0xb2
+    u = 0x54
+    v = 0xb2
     width = 0x07
     height = 0x08
 tile_01
@@ -3602,8 +3602,8 @@ tile_01
     x = 0x0000
     y = 0xffffffe9
     flags = 0x00
-    tex_x = 0x91
-    tex_y = 0x5f
+    u = 0x91
+    v = 0x5f
     width = 0x0e
     height = 0x0b
 tile_02
@@ -3611,8 +3611,8 @@ tile_02
     x = 0x0000
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0xa9
-    tex_y = 0xe7
+    u = 0xa9
+    v = 0xe7
     width = 0x09
     height = 0x05
 tile_03
@@ -3620,8 +3620,8 @@ tile_03
     x = 0xfffffff8
     y = 0xffffffec
     flags = 0x00
-    tex_x = 0xd7
-    tex_y = 0xa9
+    u = 0xd7
+    v = 0xa9
     width = 0x08
     height = 0x08
 tile_04
@@ -3629,8 +3629,8 @@ tile_04
     x = 0x0000
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0x01
-    tex_y = 0x28
+    u = 0x01
+    v = 0x28
     width = 0x0b
     height = 0x0f
 tile_05
@@ -3638,8 +3638,8 @@ tile_05
     x = 0xfffffff7
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0xb6
-    tex_y = 0x5e
+    u = 0xb6
+    v = 0x5e
     width = 0x09
     height = 0x0c
 tile_06
@@ -3647,8 +3647,8 @@ tile_06
     x = 0x0005
     y = 0xffffffe3
     flags = 0x00
-    tex_x = 0x53
-    tex_y = 0xfa
+    u = 0x53
+    v = 0xfa
     width = 0x02
     height = 0x01
 tile_07
@@ -3656,8 +3656,8 @@ tile_07
     x = 0xfffffff9
     y = 0xffffffdf
     flags = 0x00
-    tex_x = 0x01
-    tex_y = 0xe2
+    u = 0x01
+    v = 0xe2
     width = 0x0c
     height = 0x05
 tile_08
@@ -3665,8 +3665,8 @@ tile_08
     x = 0x0005
     y = 0xffffffd6
     flags = 0x00
-    tex_x = 0xcf
-    tex_y = 0x96
+    u = 0xcf
+    v = 0x96
     width = 0x03
     height = 0x09
 tile_09
@@ -3674,8 +3674,8 @@ tile_09
     x = 0xfffffffb
     y = 0xffffffd4
     flags = 0x00
-    tex_x = 0x0e
-    tex_y = 0x38
+    u = 0x0e
+    v = 0x38
     width = 0x0a
     height = 0x0b
 number_of_tile = 0x0a
@@ -3685,8 +3685,8 @@ tile_00
     x = 0xfffffff7
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0xb6
-    tex_y = 0x5e
+    u = 0xb6
+    v = 0x5e
     width = 0x09
     height = 0x0c
 tile_01
@@ -3694,8 +3694,8 @@ tile_01
     x = 0x0000
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0x01
-    tex_y = 0x28
+    u = 0x01
+    v = 0x28
     width = 0x0b
     height = 0x0f
 tile_02
@@ -3703,8 +3703,8 @@ tile_02
     x = 0x0000
     y = 0xffffffe9
     flags = 0x00
-    tex_x = 0x91
-    tex_y = 0x5f
+    u = 0x91
+    v = 0x5f
     width = 0x0e
     height = 0x0b
 tile_03
@@ -3712,8 +3712,8 @@ tile_03
     x = 0x0000
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0xa9
-    tex_y = 0xe7
+    u = 0xa9
+    v = 0xe7
     width = 0x09
     height = 0x05
 tile_04
@@ -3721,8 +3721,8 @@ tile_04
     x = 0xfffffff8
     y = 0xffffffec
     flags = 0x00
-    tex_x = 0xd7
-    tex_y = 0xa9
+    u = 0xd7
+    v = 0xa9
     width = 0x08
     height = 0x08
 tile_05
@@ -3730,8 +3730,8 @@ tile_05
     x = 0xfffffff9
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0x54
-    tex_y = 0xb2
+    u = 0x54
+    v = 0xb2
     width = 0x07
     height = 0x08
 tile_06
@@ -3739,8 +3739,8 @@ tile_06
     x = 0x0006
     y = 0xffffffe3
     flags = 0x00
-    tex_x = 0x5e
-    tex_y = 0xfa
+    u = 0x5e
+    v = 0xfa
     width = 0x01
     height = 0x01
 tile_07
@@ -3748,8 +3748,8 @@ tile_07
     x = 0xfffffffa
     y = 0xffffffde
     flags = 0x00
-    tex_x = 0xf1
-    tex_y = 0xd3
+    u = 0xf1
+    v = 0xd3
     width = 0x0c
     height = 0x06
 tile_08
@@ -3757,8 +3757,8 @@ tile_08
     x = 0xfffffff9
     y = 0xffffffe3
     flags = 0x00
-    tex_x = 0x5c
-    tex_y = 0xfa
+    u = 0x5c
+    v = 0xfa
     width = 0x01
     height = 0x01
 tile_09
@@ -3766,8 +3766,8 @@ tile_09
     x = 0xfffffffc
     y = 0xffffffd4
     flags = 0x00
-    tex_x = 0x46
-    tex_y = 0x77
+    u = 0x46
+    v = 0x77
     width = 0x0c
     height = 0x0a
 number_of_tile = 0x0a
@@ -3777,8 +3777,8 @@ tile_00
     x = 0xfffffffc
     y = 0xffffffea
     flags = 0x00
-    tex_x = 0xc0
-    tex_y = 0x76
+    u = 0xc0
+    v = 0x76
     width = 0x0e
     height = 0x0a
 tile_01
@@ -3786,8 +3786,8 @@ tile_01
     x = 0xfffffffb
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0x65
-    tex_y = 0xd3
+    u = 0x65
+    v = 0xd3
     width = 0x0e
     height = 0x06
 tile_02
@@ -3795,8 +3795,8 @@ tile_02
     x = 0xfffffffb
     y = 0xffffffdd
     flags = 0x00
-    tex_x = 0xc1
-    tex_y = 0xcb
+    u = 0xc1
+    v = 0xcb
     width = 0x05
     height = 0x07
 tile_03
@@ -3804,8 +3804,8 @@ tile_03
     x = 0xfffffff9
     y = 0xffffffd4
     flags = 0x00
-    tex_x = 0x6a
-    tex_y = 0x96
+    u = 0x6a
+    v = 0x96
     width = 0x07
     height = 0x09
 tile_04
@@ -3813,8 +3813,8 @@ tile_04
     x = 0x0008
     y = 0xffffffdc
     flags = 0x00
-    tex_x = 0xc1
-    tex_y = 0xb2
+    u = 0xc1
+    v = 0xb2
     width = 0x06
     height = 0x08
 tile_05
@@ -3822,8 +3822,8 @@ tile_05
     x = 0xfffffffe
     y = 0x0002
     flags = 0x00
-    tex_x = 0x32
-    tex_y = 0xf7
+    u = 0x32
+    v = 0xf7
     width = 0x0a
     height = 0x02
 tile_06
@@ -3831,8 +3831,8 @@ tile_06
     x = 0xfffffffb
     y = 0xfffffffa
     flags = 0x00
-    tex_x = 0xf2
-    tex_y = 0x9f
+    u = 0xf2
+    v = 0x9f
     width = 0x0c
     height = 0x08
 tile_07
@@ -3840,8 +3840,8 @@ tile_07
     x = 0xfffffffb
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0x01
-    tex_y = 0xd4
+    u = 0x01
+    v = 0xd4
     width = 0x0c
     height = 0x06
 tile_08
@@ -3849,8 +3849,8 @@ tile_08
     x = 0x0000
     y = 0xffffffde
     flags = 0x00
-    tex_x = 0xf0
-    tex_y = 0xda
+    u = 0xf0
+    v = 0xda
     width = 0x08
     height = 0x06
 tile_09
@@ -3858,8 +3858,8 @@ tile_09
     x = 0x0000
     y = 0xffffffd4
     flags = 0x00
-    tex_x = 0x59
-    tex_y = 0x82
+    u = 0x59
+    v = 0x82
     width = 0x05
     height = 0x0a
 number_of_tile = 0x0a
@@ -3869,8 +3869,8 @@ tile_00
     x = 0x0008
     y = 0xffffffdc
     flags = 0x00
-    tex_x = 0xc1
-    tex_y = 0xb2
+    u = 0xc1
+    v = 0xb2
     width = 0x06
     height = 0x08
 tile_01
@@ -3878,8 +3878,8 @@ tile_01
     x = 0xfffffffe
     y = 0x0002
     flags = 0x00
-    tex_x = 0x32
-    tex_y = 0xf7
+    u = 0x32
+    v = 0xf7
     width = 0x0a
     height = 0x02
 tile_02
@@ -3887,8 +3887,8 @@ tile_02
     x = 0xfffffffb
     y = 0xfffffffa
     flags = 0x00
-    tex_x = 0xf2
-    tex_y = 0x9f
+    u = 0xf2
+    v = 0x9f
     width = 0x0c
     height = 0x08
 tile_03
@@ -3896,8 +3896,8 @@ tile_03
     x = 0xfffffffb
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0x01
-    tex_y = 0xd4
+    u = 0x01
+    v = 0xd4
     width = 0x0c
     height = 0x06
 tile_04
@@ -3905,8 +3905,8 @@ tile_04
     x = 0xfffffffc
     y = 0xffffffea
     flags = 0x00
-    tex_x = 0xc0
-    tex_y = 0x76
+    u = 0xc0
+    v = 0x76
     width = 0x0e
     height = 0x0a
 tile_05
@@ -3914,8 +3914,8 @@ tile_05
     x = 0xfffffffb
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0x65
-    tex_y = 0xd3
+    u = 0x65
+    v = 0xd3
     width = 0x0e
     height = 0x06
 tile_06
@@ -3923,8 +3923,8 @@ tile_06
     x = 0xfffffffb
     y = 0xffffffe1
     flags = 0x00
-    tex_x = 0xf2
-    tex_y = 0xf2
+    u = 0xf2
+    v = 0xf2
     width = 0x0d
     height = 0x03
 tile_07
@@ -3932,8 +3932,8 @@ tile_07
     x = 0x0005
     y = 0xffffffde
     flags = 0x00
-    tex_x = 0x14
-    tex_y = 0x26
+    u = 0x14
+    v = 0x26
     width = 0x03
     height = 0x01
 tile_08
@@ -3941,8 +3941,8 @@ tile_08
     x = 0xfffffffc
     y = 0xffffffde
     flags = 0x00
-    tex_x = 0x47
-    tex_y = 0xf3
+    u = 0x47
+    v = 0xf3
     width = 0x09
     height = 0x03
 tile_09
@@ -3950,8 +3950,8 @@ tile_09
     x = 0xfffffffb
     y = 0xffffffd4
     flags = 0x00
-    tex_x = 0x53
-    tex_y = 0x77
+    u = 0x53
+    v = 0x77
     width = 0x0c
     height = 0x0a
 number_of_tile = 0x0a
@@ -3961,8 +3961,8 @@ tile_00
     x = 0xfffffffe
     y = 0x0002
     flags = 0x00
-    tex_x = 0x32
-    tex_y = 0xf7
+    u = 0x32
+    v = 0xf7
     width = 0x0a
     height = 0x02
 tile_01
@@ -3970,8 +3970,8 @@ tile_01
     x = 0xfffffffb
     y = 0xfffffffa
     flags = 0x00
-    tex_x = 0xf2
-    tex_y = 0x9f
+    u = 0xf2
+    v = 0x9f
     width = 0x0c
     height = 0x08
 tile_02
@@ -3979,8 +3979,8 @@ tile_02
     x = 0xfffffffb
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0x01
-    tex_y = 0xd4
+    u = 0x01
+    v = 0xd4
     width = 0x0c
     height = 0x06
 tile_03
@@ -3988,8 +3988,8 @@ tile_03
     x = 0xfffffffc
     y = 0xffffffea
     flags = 0x00
-    tex_x = 0xc0
-    tex_y = 0x76
+    u = 0xc0
+    v = 0x76
     width = 0x0e
     height = 0x0a
 tile_04
@@ -3997,8 +3997,8 @@ tile_04
     x = 0xfffffffb
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0x65
-    tex_y = 0xd3
+    u = 0x65
+    v = 0xd3
     width = 0x0e
     height = 0x06
 tile_05
@@ -4006,8 +4006,8 @@ tile_05
     x = 0x0008
     y = 0xffffffdc
     flags = 0x00
-    tex_x = 0xc1
-    tex_y = 0xb2
+    u = 0xc1
+    v = 0xb2
     width = 0x06
     height = 0x08
 tile_06
@@ -4015,8 +4015,8 @@ tile_06
     x = 0xfffffffc
     y = 0xffffffdb
     flags = 0x00
-    tex_x = 0xa4
-    tex_y = 0x8c
+    u = 0xa4
+    v = 0x8c
     width = 0x0c
     height = 0x09
 tile_07
@@ -4024,8 +4024,8 @@ tile_07
     x = 0xfffffffb
     y = 0xffffffe1
     flags = 0x00
-    tex_x = 0xfe
-    tex_y = 0xcf
+    u = 0xfe
+    v = 0xcf
     width = 0x01
     height = 0x03
 tile_08
@@ -4033,8 +4033,8 @@ tile_08
     x = 0xfffffffd
     y = 0xffffffd4
     flags = 0x00
-    tex_x = 0xdb
-    tex_y = 0xbb
+    u = 0xdb
+    v = 0xbb
     width = 0x0b
     height = 0x07
 tile_09
@@ -4042,8 +4042,8 @@ tile_09
     x = 0xfffffffb
     y = 0xffffffd6
     flags = 0x00
-    tex_x = 0x47
-    tex_y = 0xe8
+    u = 0x47
+    v = 0xe8
     width = 0x02
     height = 0x05
 number_of_tile = 0x0a
@@ -4053,8 +4053,8 @@ tile_00
     x = 0x0000
     y = 0xfffffffc
     flags = 0x00
-    tex_x = 0x85
-    tex_y = 0xed
+    u = 0x85
+    v = 0xed
     width = 0x0c
     height = 0x04
 tile_01
@@ -4062,8 +4062,8 @@ tile_01
     x = 0x0000
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0x5b
-    tex_y = 0xa9
+    u = 0x5b
+    v = 0xa9
     width = 0x0a
     height = 0x08
 tile_02
@@ -4071,8 +4071,8 @@ tile_02
     x = 0xfffffff9
     y = 0xfffffffd
     flags = 0x00
-    tex_x = 0x6c
-    tex_y = 0xb2
+    u = 0x6c
+    v = 0xb2
     width = 0x07
     height = 0x08
 tile_03
@@ -4080,8 +4080,8 @@ tile_03
     x = 0xfffffff7
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0x0b
-    tex_y = 0x8d
+    u = 0x0b
+    v = 0x8d
     width = 0x09
     height = 0x09
 tile_04
@@ -4089,8 +4089,8 @@ tile_04
     x = 0x0000
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0x31
-    tex_y = 0x14
+    u = 0x31
+    v = 0x14
     width = 0x09
     height = 0x10
 tile_05
@@ -4098,8 +4098,8 @@ tile_05
     x = 0xfffffff9
     y = 0xffffffd4
     flags = 0x00
-    tex_x = 0x01
-    tex_y = 0x17
+    u = 0x01
+    v = 0x17
     width = 0x07
     height = 0x10
 tile_06
@@ -4107,8 +4107,8 @@ tile_06
     x = 0xfffffff7
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0x3b
-    tex_y = 0x14
+    u = 0x3b
+    v = 0x14
     width = 0x09
     height = 0x10
 tile_07
@@ -4116,8 +4116,8 @@ tile_07
     x = 0x0008
     y = 0xffffffdd
     flags = 0x00
-    tex_x = 0x36
-    tex_y = 0x82
+    u = 0x36
+    v = 0x82
     width = 0x07
     height = 0x0a
 tile_08
@@ -4125,8 +4125,8 @@ tile_08
     x = 0x0000
     y = 0xffffffde
     flags = 0x00
-    tex_x = 0x01
-    tex_y = 0xdb
+    u = 0x01
+    v = 0xdb
     width = 0x08
     height = 0x06
 tile_09
@@ -4134,8 +4134,8 @@ tile_09
     x = 0x0000
     y = 0xffffffd4
     flags = 0x00
-    tex_x = 0x45
-    tex_y = 0x82
+    u = 0x45
+    v = 0x82
     width = 0x06
     height = 0x0a
 number_of_tile = 0x0a
@@ -4145,8 +4145,8 @@ tile_00
     x = 0x0000
     y = 0xfffffffc
     flags = 0x00
-    tex_x = 0x85
-    tex_y = 0xed
+    u = 0x85
+    v = 0xed
     width = 0x0c
     height = 0x04
 tile_01
@@ -4154,8 +4154,8 @@ tile_01
     x = 0x0000
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0x5b
-    tex_y = 0xa9
+    u = 0x5b
+    v = 0xa9
     width = 0x0a
     height = 0x08
 tile_02
@@ -4163,8 +4163,8 @@ tile_02
     x = 0xfffffff9
     y = 0xfffffffd
     flags = 0x00
-    tex_x = 0x6c
-    tex_y = 0xb2
+    u = 0x6c
+    v = 0xb2
     width = 0x07
     height = 0x08
 tile_03
@@ -4172,8 +4172,8 @@ tile_03
     x = 0xfffffff7
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0x0b
-    tex_y = 0x8d
+    u = 0x0b
+    v = 0x8d
     width = 0x09
     height = 0x09
 tile_04
@@ -4181,8 +4181,8 @@ tile_04
     x = 0x0000
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0x31
-    tex_y = 0x14
+    u = 0x31
+    v = 0x14
     width = 0x09
     height = 0x10
 tile_05
@@ -4190,8 +4190,8 @@ tile_05
     x = 0xfffffff7
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0x3b
-    tex_y = 0x14
+    u = 0x3b
+    v = 0x14
     width = 0x09
     height = 0x10
 tile_06
@@ -4199,8 +4199,8 @@ tile_06
     x = 0x0008
     y = 0xffffffdd
     flags = 0x00
-    tex_x = 0x36
-    tex_y = 0x82
+    u = 0x36
+    v = 0x82
     width = 0x07
     height = 0x0a
 tile_07
@@ -4208,8 +4208,8 @@ tile_07
     x = 0xfffffff9
     y = 0xffffffe3
     flags = 0x00
-    tex_x = 0x0f
-    tex_y = 0xfa
+    u = 0x0f
+    v = 0xfa
     width = 0x0f
     height = 0x01
 tile_08
@@ -4217,8 +4217,8 @@ tile_08
     x = 0xfffffffa
     y = 0xffffffde
     flags = 0x00
-    tex_x = 0xc8
-    tex_y = 0xe1
+    u = 0xc8
+    v = 0xe1
     width = 0x0e
     height = 0x05
 tile_09
@@ -4226,8 +4226,8 @@ tile_09
     x = 0xfffffffa
     y = 0xffffffd4
     flags = 0x00
-    tex_x = 0x0f
-    tex_y = 0x77
+    u = 0x0f
+    v = 0x77
     width = 0x0d
     height = 0x0a
 number_of_tile = 0x0a
@@ -4237,8 +4237,8 @@ tile_00
     x = 0x0000
     y = 0xfffffffc
     flags = 0x00
-    tex_x = 0x85
-    tex_y = 0xed
+    u = 0x85
+    v = 0xed
     width = 0x0c
     height = 0x04
 tile_01
@@ -4246,8 +4246,8 @@ tile_01
     x = 0x0000
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0x5b
-    tex_y = 0xa9
+    u = 0x5b
+    v = 0xa9
     width = 0x0a
     height = 0x08
 tile_02
@@ -4255,8 +4255,8 @@ tile_02
     x = 0xfffffff9
     y = 0xfffffffd
     flags = 0x00
-    tex_x = 0x6c
-    tex_y = 0xb2
+    u = 0x6c
+    v = 0xb2
     width = 0x07
     height = 0x08
 tile_03
@@ -4264,8 +4264,8 @@ tile_03
     x = 0xfffffff7
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0x0b
-    tex_y = 0x8d
+    u = 0x0b
+    v = 0x8d
     width = 0x09
     height = 0x09
 tile_04
@@ -4273,8 +4273,8 @@ tile_04
     x = 0x0008
     y = 0xffffffdd
     flags = 0x00
-    tex_x = 0x36
-    tex_y = 0x82
+    u = 0x36
+    v = 0x82
     width = 0x07
     height = 0x0a
 tile_05
@@ -4282,8 +4282,8 @@ tile_05
     x = 0x0000
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0x31
-    tex_y = 0x14
+    u = 0x31
+    v = 0x14
     width = 0x09
     height = 0x10
 tile_06
@@ -4291,8 +4291,8 @@ tile_06
     x = 0xfffffff7
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0x3b
-    tex_y = 0x14
+    u = 0x3b
+    v = 0x14
     width = 0x09
     height = 0x10
 tile_07
@@ -4300,8 +4300,8 @@ tile_07
     x = 0xfffffff9
     y = 0xffffffe2
     flags = 0x00
-    tex_x = 0xe0
-    tex_y = 0xf6
+    u = 0xe0
+    v = 0xf6
     width = 0x0f
     height = 0x02
 tile_08
@@ -4309,8 +4309,8 @@ tile_08
     x = 0xfffffffb
     y = 0xffffffdb
     flags = 0x00
-    tex_x = 0x44
-    tex_y = 0xc3
+    u = 0x44
+    v = 0xc3
     width = 0x0d
     height = 0x07
 tile_09
@@ -4318,8 +4318,8 @@ tile_09
     x = 0xfffffffb
     y = 0xffffffd4
     flags = 0x00
-    tex_x = 0xcd
-    tex_y = 0xbb
+    u = 0xcd
+    v = 0xbb
     width = 0x0d
     height = 0x07
 number_of_tile = 0x0a
@@ -4329,8 +4329,8 @@ tile_00
     x = 0x0001
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0x71
-    tex_y = 0x34
+    u = 0x71
+    v = 0x34
     width = 0x09
     height = 0x0f
 tile_01
@@ -4338,8 +4338,8 @@ tile_01
     x = 0xfffffff6
     y = 0xfffffffa
     flags = 0x00
-    tex_x = 0x15
-    tex_y = 0x8d
+    u = 0x15
+    v = 0x8d
     width = 0x09
     height = 0x09
 tile_02
@@ -4347,8 +4347,8 @@ tile_02
     x = 0xfffffff6
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0x4c
-    tex_y = 0xda
+    u = 0x4c
+    v = 0xda
     width = 0x0b
     height = 0x06
 tile_03
@@ -4356,8 +4356,8 @@ tile_03
     x = 0xfffffff7
     y = 0xffffffec
     flags = 0x00
-    tex_x = 0x3c
-    tex_y = 0xa0
+    u = 0x3c
+    v = 0xa0
     width = 0x12
     height = 0x08
 tile_04
@@ -4365,8 +4365,8 @@ tile_04
     x = 0xfffffff2
     y = 0xffffffec
     flags = 0x00
-    tex_x = 0x13
-    tex_y = 0xe8
+    u = 0x13
+    v = 0xe8
     width = 0x05
     height = 0x05
 tile_05
@@ -4374,8 +4374,8 @@ tile_05
     x = 0x0007
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0x34
-    tex_y = 0xe8
+    u = 0x34
+    v = 0xe8
     width = 0x03
     height = 0x05
 tile_06
@@ -4383,8 +4383,8 @@ tile_06
     x = 0xfffffff3
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0x4c
-    tex_y = 0x97
+    u = 0x4c
+    v = 0x97
     width = 0x14
     height = 0x08
 tile_07
@@ -4392,8 +4392,8 @@ tile_07
     x = 0xfffffffa
     y = 0xffffffde
     flags = 0x00
-    tex_x = 0x46
-    tex_y = 0xd3
+    u = 0x46
+    v = 0xd3
     width = 0x0f
     height = 0x06
 tile_08
@@ -4401,8 +4401,8 @@ tile_08
     x = 0xfffffffa
     y = 0xffffffd4
     flags = 0x00
-    tex_x = 0x91
-    tex_y = 0x81
+    u = 0x91
+    v = 0x81
     width = 0x0b
     height = 0x0a
 tile_09
@@ -4410,8 +4410,8 @@ tile_09
     x = 0xfffffff5
     y = 0xffffffe1
     flags = 0x00
-    tex_x = 0x8b
-    tex_y = 0xf6
+    u = 0x8b
+    v = 0xf6
     width = 0x05
     height = 0x03
 number_of_tile = 0x0a
@@ -4421,8 +4421,8 @@ tile_00
     x = 0x0001
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0x71
-    tex_y = 0x34
+    u = 0x71
+    v = 0x34
     width = 0x09
     height = 0x0f
 tile_01
@@ -4430,8 +4430,8 @@ tile_01
     x = 0xfffffff6
     y = 0xfffffffa
     flags = 0x00
-    tex_x = 0x15
-    tex_y = 0x8d
+    u = 0x15
+    v = 0x8d
     width = 0x09
     height = 0x09
 tile_02
@@ -4439,8 +4439,8 @@ tile_02
     x = 0xfffffff6
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0x4c
-    tex_y = 0xda
+    u = 0x4c
+    v = 0xda
     width = 0x0b
     height = 0x06
 tile_03
@@ -4448,8 +4448,8 @@ tile_03
     x = 0xfffffff7
     y = 0xffffffec
     flags = 0x00
-    tex_x = 0x3c
-    tex_y = 0xa0
+    u = 0x3c
+    v = 0xa0
     width = 0x12
     height = 0x08
 tile_04
@@ -4457,8 +4457,8 @@ tile_04
     x = 0xfffffff2
     y = 0xffffffec
     flags = 0x00
-    tex_x = 0x13
-    tex_y = 0xe8
+    u = 0x13
+    v = 0xe8
     width = 0x05
     height = 0x05
 tile_05
@@ -4466,8 +4466,8 @@ tile_05
     x = 0x0007
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0x34
-    tex_y = 0xe8
+    u = 0x34
+    v = 0xe8
     width = 0x03
     height = 0x05
 tile_06
@@ -4475,8 +4475,8 @@ tile_06
     x = 0xfffffff3
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0x4c
-    tex_y = 0x97
+    u = 0x4c
+    v = 0x97
     width = 0x14
     height = 0x08
 tile_07
@@ -4484,8 +4484,8 @@ tile_07
     x = 0xfffffffa
     y = 0xffffffde
     flags = 0x00
-    tex_x = 0x36
-    tex_y = 0xd3
+    u = 0x36
+    v = 0xd3
     width = 0x0f
     height = 0x06
 tile_08
@@ -4493,8 +4493,8 @@ tile_08
     x = 0xfffffffa
     y = 0xffffffd4
     flags = 0x00
-    tex_x = 0x85
-    tex_y = 0x77
+    u = 0x85
+    v = 0x77
     width = 0x0b
     height = 0x0a
 tile_09
@@ -4502,8 +4502,8 @@ tile_09
     x = 0xfffffff5
     y = 0xffffffe1
     flags = 0x00
-    tex_x = 0x85
-    tex_y = 0xf6
+    u = 0x85
+    v = 0xf6
     width = 0x05
     height = 0x03
 number_of_tile = 0x0a
@@ -4513,8 +4513,8 @@ tile_00
     x = 0x0001
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0x71
-    tex_y = 0x34
+    u = 0x71
+    v = 0x34
     width = 0x09
     height = 0x0f
 tile_01
@@ -4522,8 +4522,8 @@ tile_01
     x = 0xfffffff6
     y = 0xfffffffa
     flags = 0x00
-    tex_x = 0x15
-    tex_y = 0x8d
+    u = 0x15
+    v = 0x8d
     width = 0x09
     height = 0x09
 tile_02
@@ -4531,8 +4531,8 @@ tile_02
     x = 0xfffffff6
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0x4c
-    tex_y = 0xda
+    u = 0x4c
+    v = 0xda
     width = 0x0b
     height = 0x06
 tile_03
@@ -4540,8 +4540,8 @@ tile_03
     x = 0x0007
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0x34
-    tex_y = 0xe8
+    u = 0x34
+    v = 0xe8
     width = 0x03
     height = 0x05
 tile_04
@@ -4549,8 +4549,8 @@ tile_04
     x = 0xfffffff3
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0x4c
-    tex_y = 0x97
+    u = 0x4c
+    v = 0x97
     width = 0x14
     height = 0x08
 tile_05
@@ -4558,8 +4558,8 @@ tile_05
     x = 0xfffffff7
     y = 0xffffffec
     flags = 0x00
-    tex_x = 0x3c
-    tex_y = 0xa0
+    u = 0x3c
+    v = 0xa0
     width = 0x12
     height = 0x08
 tile_06
@@ -4567,8 +4567,8 @@ tile_06
     x = 0xfffffff2
     y = 0xffffffec
     flags = 0x00
-    tex_x = 0x13
-    tex_y = 0xe8
+    u = 0x13
+    v = 0xe8
     width = 0x05
     height = 0x05
 tile_07
@@ -4576,8 +4576,8 @@ tile_07
     x = 0xfffffffa
     y = 0xffffffde
     flags = 0x00
-    tex_x = 0x26
-    tex_y = 0xd3
+    u = 0x26
+    v = 0xd3
     width = 0x0f
     height = 0x06
 tile_08
@@ -4585,8 +4585,8 @@ tile_08
     x = 0xfffffffa
     y = 0xffffffd4
     flags = 0x00
-    tex_x = 0x79
-    tex_y = 0x77
+    u = 0x79
+    v = 0x77
     width = 0x0b
     height = 0x0a
 tile_09
@@ -4594,8 +4594,8 @@ tile_09
     x = 0xfffffff5
     y = 0xffffffe1
     flags = 0x00
-    tex_x = 0x7f
-    tex_y = 0xf6
+    u = 0x7f
+    v = 0xf6
     width = 0x05
     height = 0x03
 number_of_tile = 0x0a
@@ -4605,8 +4605,8 @@ tile_00
     x = 0xfffffff8
     y = 0xffffffdc
     flags = 0x00
-    tex_x = 0x92
-    tex_y = 0xd3
+    u = 0x92
+    v = 0xd3
     width = 0x0d
     height = 0x06
 tile_01
@@ -4614,8 +4614,8 @@ tile_01
     x = 0xfffffffb
     y = 0xffffffd5
     flags = 0x00
-    tex_x = 0xcb
-    tex_y = 0xc3
+    u = 0xcb
+    v = 0xc3
     width = 0x09
     height = 0x07
 tile_02
@@ -4623,8 +4623,8 @@ tile_02
     x = 0xfffffff8
     y = 0x0000
     flags = 0x00
-    tex_x = 0xc6
-    tex_y = 0xe7
+    u = 0xc6
+    v = 0xe7
     width = 0x08
     height = 0x05
 tile_03
@@ -4632,8 +4632,8 @@ tile_03
     x = 0x000a
     y = 0xffffffef
     flags = 0x00
-    tex_x = 0x59
-    tex_y = 0xf2
+    u = 0x59
+    v = 0xf2
     width = 0x03
     height = 0x04
 tile_04
@@ -4641,8 +4641,8 @@ tile_04
     x = 0x0008
     y = 0xffffffef
     flags = 0x00
-    tex_x = 0x11
-    tex_y = 0x17
+    u = 0x11
+    v = 0x17
     width = 0x02
     height = 0x0a
 tile_05
@@ -4650,8 +4650,8 @@ tile_05
     x = 0xfffffff7
     y = 0xfffffff6
     flags = 0x00
-    tex_x = 0xae
-    tex_y = 0x6b
+    u = 0xae
+    v = 0x6b
     width = 0x11
     height = 0x0a
 tile_06
@@ -4659,8 +4659,8 @@ tile_06
     x = 0xfffffff8
     y = 0xffffffef
     flags = 0x00
-    tex_x = 0x82
-    tex_y = 0xbb
+    u = 0x82
+    v = 0xbb
     width = 0x10
     height = 0x07
 tile_07
@@ -4668,8 +4668,8 @@ tile_07
     x = 0x000a
     y = 0xffffffea
     flags = 0x00
-    tex_x = 0x38
-    tex_y = 0xe8
+    u = 0x38
+    v = 0xe8
     width = 0x03
     height = 0x05
 tile_08
@@ -4677,8 +4677,8 @@ tile_08
     x = 0xfffffff5
     y = 0xffffffe2
     flags = 0x00
-    tex_x = 0x85
-    tex_y = 0x43
+    u = 0x85
+    v = 0x43
     width = 0x15
     height = 0x0d
 tile_09
@@ -4686,8 +4686,8 @@ tile_09
     x = 0xfffffff2
     y = 0xffffffe9
     flags = 0x00
-    tex_x = 0x55
-    tex_y = 0xe1
+    u = 0x55
+    v = 0xe1
     width = 0x03
     height = 0x06
 number_of_tile = 0x0a
@@ -4697,8 +4697,8 @@ tile_00
     x = 0xfffffff8
     y = 0xffffffdb
     flags = 0x00
-    tex_x = 0x92
-    tex_y = 0xd3
+    u = 0x92
+    v = 0xd3
     width = 0x0d
     height = 0x06
 tile_01
@@ -4706,8 +4706,8 @@ tile_01
     x = 0xfffffffb
     y = 0xffffffd4
     flags = 0x00
-    tex_x = 0xcb
-    tex_y = 0xc3
+    u = 0xcb
+    v = 0xc3
     width = 0x09
     height = 0x07
 tile_02
@@ -4715,8 +4715,8 @@ tile_02
     x = 0xfffffff9
     y = 0x0000
     flags = 0x00
-    tex_x = 0x98
-    tex_y = 0xcb
+    u = 0x98
+    v = 0xcb
     width = 0x06
     height = 0x07
 tile_03
@@ -4724,8 +4724,8 @@ tile_03
     x = 0x000a
     y = 0xffffffef
     flags = 0x00
-    tex_x = 0xf2
-    tex_y = 0xf9
+    u = 0xf2
+    v = 0xf9
     width = 0x03
     height = 0x02
 tile_04
@@ -4733,8 +4733,8 @@ tile_04
     x = 0x0002
     y = 0xfffffffb
     flags = 0x00
-    tex_x = 0xe0
-    tex_y = 0xe7
+    u = 0xe0
+    v = 0xe7
     width = 0x07
     height = 0x05
 tile_05
@@ -4742,8 +4742,8 @@ tile_05
     x = 0x0000
     y = 0xffffffef
     flags = 0x00
-    tex_x = 0x6e
-    tex_y = 0x52
+    u = 0x6e
+    v = 0x52
     width = 0x0a
     height = 0x0c
 tile_06
@@ -4751,8 +4751,8 @@ tile_06
     x = 0xfffffff6
     y = 0xffffffef
     flags = 0x00
-    tex_x = 0xc7
-    tex_y = 0x01
+    u = 0xc7
+    v = 0x01
     width = 0x0a
     height = 0x11
 tile_07
@@ -4760,8 +4760,8 @@ tile_07
     x = 0x000a
     y = 0xffffffe9
     flags = 0x00
-    tex_x = 0x51
-    tex_y = 0xe1
+    u = 0x51
+    v = 0xe1
     width = 0x03
     height = 0x06
 tile_08
@@ -4769,8 +4769,8 @@ tile_08
     x = 0xfffffff5
     y = 0xffffffe1
     flags = 0x00
-    tex_x = 0x85
-    tex_y = 0x34
+    u = 0x85
+    v = 0x34
     width = 0x15
     height = 0x0e
 tile_09
@@ -4778,8 +4778,8 @@ tile_09
     x = 0xfffffff2
     y = 0xffffffe8
     flags = 0x00
-    tex_x = 0x01
-    tex_y = 0xcc
+    u = 0x01
+    v = 0xcc
     width = 0x03
     height = 0x07
 number_of_tile = 0x0a
@@ -4789,8 +4789,8 @@ tile_00
     x = 0xfffffff8
     y = 0xffffffda
     flags = 0x00
-    tex_x = 0x92
-    tex_y = 0xd3
+    u = 0x92
+    v = 0xd3
     width = 0x0d
     height = 0x06
 tile_01
@@ -4798,8 +4798,8 @@ tile_01
     x = 0xfffffffb
     y = 0xffffffd3
     flags = 0x00
-    tex_x = 0xcb
-    tex_y = 0xc3
+    u = 0xcb
+    v = 0xc3
     width = 0x09
     height = 0x07
 tile_02
@@ -4807,8 +4807,8 @@ tile_02
     x = 0x000a
     y = 0xffffffef
     flags = 0x00
-    tex_x = 0x48
-    tex_y = 0xfa
+    u = 0x48
+    v = 0xfa
     width = 0x03
     height = 0x01
 tile_03
@@ -4816,8 +4816,8 @@ tile_03
     x = 0x0002
     y = 0xffffffef
     flags = 0x00
-    tex_x = 0x52
-    tex_y = 0x01
+    u = 0x52
+    v = 0x01
     width = 0x08
     height = 0x12
 tile_04
@@ -4825,8 +4825,8 @@ tile_04
     x = 0xfffffff8
     y = 0xfffffffb
     flags = 0x00
-    tex_x = 0x0f
-    tex_y = 0xee
+    u = 0x0f
+    v = 0xee
     width = 0x06
     height = 0x04
 tile_05
@@ -4834,8 +4834,8 @@ tile_05
     x = 0xfffffff6
     y = 0xffffffef
     flags = 0x00
-    tex_x = 0x24
-    tex_y = 0x52
+    u = 0x24
+    v = 0x52
     width = 0x0c
     height = 0x0c
 tile_06
@@ -4843,8 +4843,8 @@ tile_06
     x = 0x000a
     y = 0xffffffe6
     flags = 0x00
-    tex_x = 0xa7
-    tex_y = 0x96
+    u = 0xa7
+    v = 0x96
     width = 0x04
     height = 0x09
 tile_07
@@ -4852,8 +4852,8 @@ tile_07
     x = 0x0007
     y = 0xffffffe1
     flags = 0x00
-    tex_x = 0xd5
-    tex_y = 0x24
+    u = 0xd5
+    v = 0x24
     width = 0x03
     height = 0x0e
 tile_08
@@ -4861,8 +4861,8 @@ tile_08
     x = 0xfffffff5
     y = 0xffffffe0
     flags = 0x00
-    tex_x = 0x9a
-    tex_y = 0x24
+    u = 0x9a
+    v = 0x24
     width = 0x12
     height = 0x0f
 tile_09
@@ -4870,8 +4870,8 @@ tile_09
     x = 0xfffffff2
     y = 0xffffffe7
     flags = 0x00
-    tex_x = 0x20
-    tex_y = 0xbb
+    u = 0x20
+    v = 0xbb
     width = 0x03
     height = 0x08
 number_of_tile = 0x0a
@@ -4881,8 +4881,8 @@ tile_00
     x = 0xfffffff8
     y = 0xffffffdb
     flags = 0x00
-    tex_x = 0x92
-    tex_y = 0xd3
+    u = 0x92
+    v = 0xd3
     width = 0x0d
     height = 0x06
 tile_01
@@ -4890,8 +4890,8 @@ tile_01
     x = 0xfffffffb
     y = 0xffffffd4
     flags = 0x00
-    tex_x = 0xcb
-    tex_y = 0xc3
+    u = 0xcb
+    v = 0xc3
     width = 0x09
     height = 0x07
 tile_02
@@ -4899,8 +4899,8 @@ tile_02
     x = 0x0001
     y = 0xfffffffb
     flags = 0x00
-    tex_x = 0x51
-    tex_y = 0x8d
+    u = 0x51
+    v = 0x8d
     width = 0x08
     height = 0x09
 tile_03
@@ -4908,8 +4908,8 @@ tile_03
     x = 0x0001
     y = 0xfffffff2
     flags = 0x00
-    tex_x = 0x1f
-    tex_y = 0x8d
+    u = 0x1f
+    v = 0x8d
     width = 0x09
     height = 0x09
 tile_04
@@ -4917,8 +4917,8 @@ tile_04
     x = 0xfffffffe
     y = 0xfffffff9
     flags = 0x00
-    tex_x = 0x55
-    tex_y = 0xee
+    u = 0x55
+    v = 0xee
     width = 0x03
     height = 0x04
 tile_05
@@ -4926,8 +4926,8 @@ tile_05
     x = 0xfffffff8
     y = 0xfffffff9
     flags = 0x00
-    tex_x = 0xc8
-    tex_y = 0xb2
+    u = 0xc8
+    v = 0xb2
     width = 0x06
     height = 0x08
 tile_06
@@ -4935,8 +4935,8 @@ tile_06
     x = 0xfffffff6
     y = 0xfffffff2
     flags = 0x00
-    tex_x = 0x7a
-    tex_y = 0xc3
+    u = 0x7a
+    v = 0xc3
     width = 0x0b
     height = 0x07
 tile_07
@@ -4944,8 +4944,8 @@ tile_07
     x = 0x000a
     y = 0xffffffe8
     flags = 0x00
-    tex_x = 0x1c
-    tex_y = 0xbb
+    u = 0x1c
+    v = 0xbb
     width = 0x03
     height = 0x08
 tile_08
@@ -4953,8 +4953,8 @@ tile_08
     x = 0xfffffff5
     y = 0xffffffe1
     flags = 0x00
-    tex_x = 0x5b
-    tex_y = 0x01
+    u = 0x5b
+    v = 0x01
     width = 0x15
     height = 0x11
 tile_09
@@ -4962,8 +4962,8 @@ tile_09
     x = 0xfffffff2
     y = 0xffffffe9
     flags = 0x00
-    tex_x = 0xd7
-    tex_y = 0x96
+    u = 0xd7
+    v = 0x96
     width = 0x03
     height = 0x09
 number_of_tile = 0x0a
@@ -4973,8 +4973,8 @@ tile_00
     x = 0xfffffff8
     y = 0xffffffdc
     flags = 0x00
-    tex_x = 0x92
-    tex_y = 0xd3
+    u = 0x92
+    v = 0xd3
     width = 0x0d
     height = 0x06
 tile_01
@@ -4982,8 +4982,8 @@ tile_01
     x = 0xfffffffb
     y = 0xffffffd5
     flags = 0x00
-    tex_x = 0xcb
-    tex_y = 0xc3
+    u = 0xcb
+    v = 0xc3
     width = 0x09
     height = 0x07
 tile_02
@@ -4991,8 +4991,8 @@ tile_02
     x = 0x0000
     y = 0xfffffffd
     flags = 0x00
-    tex_x = 0xe9
-    tex_y = 0xb1
+    u = 0xe9
+    v = 0xb1
     width = 0x08
     height = 0x08
 tile_03
@@ -5000,8 +5000,8 @@ tile_03
     x = 0x0000
     y = 0xfffffff3
     flags = 0x00
-    tex_x = 0xd4
-    tex_y = 0x81
+    u = 0xd4
+    v = 0x81
     width = 0x09
     height = 0x0a
 tile_04
@@ -5009,8 +5009,8 @@ tile_04
     x = 0xfffffff8
     y = 0xfffffff9
     flags = 0x00
-    tex_x = 0x25
-    tex_y = 0xc4
+    u = 0x25
+    v = 0xc4
     width = 0x08
     height = 0x07
 tile_05
@@ -5018,8 +5018,8 @@ tile_05
     x = 0xfffffff6
     y = 0xfffffff3
     flags = 0x00
-    tex_x = 0x9e
-    tex_y = 0xda
+    u = 0x9e
+    v = 0xda
     width = 0x0a
     height = 0x06
 tile_06
@@ -5027,8 +5027,8 @@ tile_06
     x = 0x0008
     y = 0xffffffe9
     flags = 0x00
-    tex_x = 0x47
-    tex_y = 0xe1
+    u = 0x47
+    v = 0xe1
     width = 0x04
     height = 0x06
 tile_07
@@ -5036,8 +5036,8 @@ tile_07
     x = 0x0008
     y = 0xffffffe3
     flags = 0x00
-    tex_x = 0x76
-    tex_y = 0xe1
+    u = 0x76
+    v = 0xe1
     width = 0x02
     height = 0x06
 tile_08
@@ -5045,8 +5045,8 @@ tile_08
     x = 0xfffffff5
     y = 0xffffffe2
     flags = 0x00
-    tex_x = 0x71
-    tex_y = 0x01
+    u = 0x71
+    v = 0x01
     width = 0x13
     height = 0x11
 tile_09
@@ -5054,8 +5054,8 @@ tile_09
     x = 0xfffffff2
     y = 0xffffffea
     flags = 0x00
-    tex_x = 0xd3
-    tex_y = 0x96
+    u = 0xd3
+    v = 0x96
     width = 0x03
     height = 0x09
 number_of_tile = 0x0a
@@ -5065,8 +5065,8 @@ tile_00
     x = 0xfffffff8
     y = 0xffffffdb
     flags = 0x00
-    tex_x = 0x92
-    tex_y = 0xd3
+    u = 0x92
+    v = 0xd3
     width = 0x0d
     height = 0x06
 tile_01
@@ -5074,8 +5074,8 @@ tile_01
     x = 0xfffffffb
     y = 0xffffffd4
     flags = 0x00
-    tex_x = 0xcb
-    tex_y = 0xc3
+    u = 0xcb
+    v = 0xc3
     width = 0x09
     height = 0x07
 tile_02
@@ -5083,8 +5083,8 @@ tile_02
     x = 0x0001
     y = 0x0000
     flags = 0x00
-    tex_x = 0x5b
-    tex_y = 0xcb
+    u = 0x5b
+    v = 0xcb
     width = 0x07
     height = 0x07
 tile_03
@@ -5092,8 +5092,8 @@ tile_03
     x = 0x0000
     y = 0xfffffff1
     flags = 0x00
-    tex_x = 0xec
-    tex_y = 0x33
+    u = 0xec
+    v = 0x33
     width = 0x0a
     height = 0x0f
 tile_04
@@ -5101,8 +5101,8 @@ tile_04
     x = 0xfffffff8
     y = 0xfffffffb
     flags = 0x00
-    tex_x = 0xef
-    tex_y = 0xe7
+    u = 0xef
+    v = 0xe7
     width = 0x06
     height = 0x05
 tile_05
@@ -5110,8 +5110,8 @@ tile_05
     x = 0xfffffff8
     y = 0xfffffff1
     flags = 0x00
-    tex_x = 0x0a
-    tex_y = 0x82
+    u = 0x0a
+    v = 0x82
     width = 0x08
     height = 0x0a
 tile_06
@@ -5119,8 +5119,8 @@ tile_06
     x = 0xfffffff6
     y = 0xfffffff2
     flags = 0x00
-    tex_x = 0x1d
-    tex_y = 0xcc
+    u = 0x1d
+    v = 0xcc
     width = 0x02
     height = 0x07
 tile_07
@@ -5128,8 +5128,8 @@ tile_07
     x = 0x000a
     y = 0xffffffe8
     flags = 0x00
-    tex_x = 0xfa
-    tex_y = 0xcb
+    u = 0xfa
+    v = 0xcb
     width = 0x03
     height = 0x07
 tile_08
@@ -5137,8 +5137,8 @@ tile_08
     x = 0xfffffff5
     y = 0xffffffe1
     flags = 0x00
-    tex_x = 0xdc
-    tex_y = 0x01
+    u = 0xdc
+    v = 0x01
     width = 0x15
     height = 0x10
 tile_09
@@ -5146,8 +5146,8 @@ tile_09
     x = 0xfffffff2
     y = 0xffffffe9
     flags = 0x00
-    tex_x = 0x18
-    tex_y = 0xbb
+    u = 0x18
+    v = 0xbb
     width = 0x03
     height = 0x08
 number_of_tile = 0x0a
@@ -5157,8 +5157,8 @@ tile_00
     x = 0xfffffff8
     y = 0xffffffda
     flags = 0x00
-    tex_x = 0x92
-    tex_y = 0xd3
+    u = 0x92
+    v = 0xd3
     width = 0x0d
     height = 0x06
 tile_01
@@ -5166,8 +5166,8 @@ tile_01
     x = 0xfffffffb
     y = 0xffffffd3
     flags = 0x00
-    tex_x = 0xcb
-    tex_y = 0xc3
+    u = 0xcb
+    v = 0xc3
     width = 0x09
     height = 0x07
 tile_02
@@ -5175,8 +5175,8 @@ tile_02
     x = 0x0002
     y = 0xfffffffb
     flags = 0x00
-    tex_x = 0x08
-    tex_y = 0xee
+    u = 0x08
+    v = 0xee
     width = 0x06
     height = 0x04
 tile_03
@@ -5184,8 +5184,8 @@ tile_03
     x = 0xfffffffe
     y = 0xffffffef
     flags = 0x00
-    tex_x = 0x56
-    tex_y = 0x52
+    u = 0x56
+    v = 0x52
     width = 0x0b
     height = 0x0c
 tile_04
@@ -5193,8 +5193,8 @@ tile_04
     x = 0xfffffff7
     y = 0xfffffff9
     flags = 0x00
-    tex_x = 0x74
-    tex_y = 0xb2
+    u = 0x74
+    v = 0xb2
     width = 0x07
     height = 0x08
 tile_05
@@ -5202,8 +5202,8 @@ tile_05
     x = 0xfffffff6
     y = 0xffffffef
     flags = 0x00
-    tex_x = 0x01
-    tex_y = 0x82
+    u = 0x01
+    v = 0x82
     width = 0x08
     height = 0x0a
 tile_06
@@ -5211,8 +5211,8 @@ tile_06
     x = 0x000a
     y = 0xffffffe7
     flags = 0x00
-    tex_x = 0x14
-    tex_y = 0xbb
+    u = 0x14
+    v = 0xbb
     width = 0x03
     height = 0x08
 tile_07
@@ -5220,8 +5220,8 @@ tile_07
     x = 0xfffffff6
     y = 0xffffffe0
     flags = 0x00
-    tex_x = 0x85
-    tex_y = 0x24
+    u = 0x85
+    v = 0x24
     width = 0x14
     height = 0x0f
 tile_08
@@ -5229,8 +5229,8 @@ tile_08
     x = 0xfffffff2
     y = 0xffffffe8
     flags = 0x00
-    tex_x = 0xde
-    tex_y = 0xcb
+    u = 0xde
+    v = 0xcb
     width = 0x04
     height = 0x07
 tile_09
@@ -5238,8 +5238,8 @@ tile_09
     x = 0xfffffff4
     y = 0xffffffe5
     flags = 0x00
-    tex_x = 0xd1
-    tex_y = 0xf6
+    u = 0xd1
+    v = 0xf6
     width = 0x02
     height = 0x03
 number_of_tile = 0x0a
@@ -5249,8 +5249,8 @@ tile_00
     x = 0xfffffff8
     y = 0xffffffdb
     flags = 0x00
-    tex_x = 0x92
-    tex_y = 0xd3
+    u = 0x92
+    v = 0xd3
     width = 0x0d
     height = 0x06
 tile_01
@@ -5258,8 +5258,8 @@ tile_01
     x = 0xfffffffb
     y = 0xffffffd4
     flags = 0x00
-    tex_x = 0xcb
-    tex_y = 0xc3
+    u = 0xcb
+    v = 0xc3
     width = 0x09
     height = 0x07
 tile_02
@@ -5267,8 +5267,8 @@ tile_02
     x = 0x0009
     y = 0xfffffff0
     flags = 0x00
-    tex_x = 0x66
-    tex_y = 0xf7
+    u = 0x66
+    v = 0xf7
     width = 0x04
     height = 0x02
 tile_03
@@ -5276,8 +5276,8 @@ tile_03
     x = 0xfffffff7
     y = 0x0000
     flags = 0x00
-    tex_x = 0xe7
-    tex_y = 0xed
+    u = 0xe7
+    v = 0xed
     width = 0x07
     height = 0x04
 tile_04
@@ -5285,8 +5285,8 @@ tile_04
     x = 0x0002
     y = 0xfffffffb
     flags = 0x00
-    tex_x = 0xe8
-    tex_y = 0xe7
+    u = 0xe8
+    v = 0xe7
     width = 0x06
     height = 0x05
 tile_05
@@ -5294,8 +5294,8 @@ tile_05
     x = 0x0000
     y = 0xfffffff0
     flags = 0x00
-    tex_x = 0xf6
-    tex_y = 0x5e
+    u = 0xf6
+    v = 0x5e
     width = 0x09
     height = 0x0b
 tile_06
@@ -5303,8 +5303,8 @@ tile_06
     x = 0xfffffff6
     y = 0xfffffff0
     flags = 0x00
-    tex_x = 0xf2
-    tex_y = 0x12
+    u = 0xf2
+    v = 0x12
     width = 0x0a
     height = 0x10
 tile_07
@@ -5312,8 +5312,8 @@ tile_07
     x = 0x000a
     y = 0xffffffe9
     flags = 0x00
-    tex_x = 0xf6
-    tex_y = 0xcb
+    u = 0xf6
+    v = 0xcb
     width = 0x03
     height = 0x07
 tile_08
@@ -5321,8 +5321,8 @@ tile_08
     x = 0xfffffff5
     y = 0xffffffe1
     flags = 0x00
-    tex_x = 0x59
-    tex_y = 0x24
+    u = 0x59
+    v = 0x24
     width = 0x15
     height = 0x0f
 tile_09
@@ -5330,8 +5330,8 @@ tile_09
     x = 0xfffffff2
     y = 0xffffffe8
     flags = 0x00
-    tex_x = 0x10
-    tex_y = 0xbb
+    u = 0x10
+    v = 0xbb
     width = 0x03
     height = 0x08
 number_of_tile = 0x0a
@@ -5341,8 +5341,8 @@ tile_00
     x = 0xfffffffa
     y = 0xffffffd4
     flags = 0x00
-    tex_x = 0xd6
-    tex_y = 0xa0
+    u = 0xd6
+    v = 0xa0
     width = 0x0b
     height = 0x08
 tile_01
@@ -5350,8 +5350,8 @@ tile_01
     x = 0x0005
     y = 0xffffffe1
     flags = 0x00
-    tex_x = 0x91
-    tex_y = 0xf6
+    u = 0x91
+    v = 0xf6
     width = 0x05
     height = 0x03
 tile_02
@@ -5359,8 +5359,8 @@ tile_02
     x = 0x0000
     y = 0xffffffdc
     flags = 0x00
-    tex_x = 0xf3
-    tex_y = 0xba
+    u = 0xf3
+    v = 0xba
     width = 0x05
     height = 0x08
 tile_03
@@ -5368,8 +5368,8 @@ tile_03
     x = 0xfffffff6
     y = 0xffffffdc
     flags = 0x00
-    tex_x = 0x66
-    tex_y = 0xa9
+    u = 0x66
+    v = 0xa9
     width = 0x0a
     height = 0x08
 tile_04
@@ -5377,8 +5377,8 @@ tile_04
     x = 0x0008
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0xed
-    tex_y = 0xba
+    u = 0xed
+    v = 0xba
     width = 0x05
     height = 0x08
 tile_05
@@ -5386,8 +5386,8 @@ tile_05
     x = 0x0000
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0xe0
-    tex_y = 0xa9
+    u = 0xe0
+    v = 0xa9
     width = 0x08
     height = 0x08
 tile_06
@@ -5395,8 +5395,8 @@ tile_06
     x = 0xfffffff6
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0x71
-    tex_y = 0xa9
+    u = 0x71
+    v = 0xa9
     width = 0x0a
     height = 0x08
 tile_07
@@ -5404,8 +5404,8 @@ tile_07
     x = 0xfffffff6
     y = 0xffffffec
     flags = 0x00
-    tex_x = 0x33
-    tex_y = 0x97
+    u = 0x33
+    v = 0x97
     width = 0x18
     height = 0x08
 tile_08
@@ -5413,8 +5413,8 @@ tile_08
     x = 0x0002
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0x79
-    tex_y = 0x44
+    u = 0x79
+    v = 0x44
     width = 0x08
     height = 0x0d
 tile_09
@@ -5422,8 +5422,8 @@ tile_09
     x = 0xfffffff6
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0x1c
-    tex_y = 0x44
+    u = 0x1c
+    v = 0x44
     width = 0x0c
     height = 0x0d
 number_of_tile = 0x0a
@@ -5433,8 +5433,8 @@ tile_00
     x = 0xfffffffb
     y = 0xffffffd5
     flags = 0x00
-    tex_x = 0x0f
-    tex_y = 0x6b
+    u = 0x0f
+    v = 0x6b
     width = 0x0c
     height = 0x0b
 tile_01
@@ -5442,8 +5442,8 @@ tile_01
     x = 0x0004
     y = 0xfffffff7
     flags = 0x00
-    tex_x = 0x28
-    tex_y = 0x6b
+    u = 0x28
+    v = 0x6b
     width = 0x0a
     height = 0x0b
 tile_02
@@ -5451,8 +5451,8 @@ tile_02
     x = 0x0004
     y = 0xfffffff0
     flags = 0x00
-    tex_x = 0x2e
-    tex_y = 0xc4
+    u = 0x2e
+    v = 0xc4
     width = 0x08
     height = 0x07
 tile_03
@@ -5460,8 +5460,8 @@ tile_03
     x = 0xfffffff4
     y = 0xfffffffc
     flags = 0x00
-    tex_x = 0xb5
-    tex_y = 0xc3
+    u = 0xb5
+    v = 0xc3
     width = 0x0a
     height = 0x07
 tile_04
@@ -5469,8 +5469,8 @@ tile_04
     x = 0x0002
     y = 0xfffffff7
     flags = 0x00
-    tex_x = 0x4a
-    tex_y = 0xe8
+    u = 0x4a
+    v = 0xe8
     width = 0x02
     height = 0x05
 tile_05
@@ -5478,8 +5478,8 @@ tile_05
     x = 0xffffffff
     y = 0xfffffff0
     flags = 0x00
-    tex_x = 0xc7
-    tex_y = 0xcb
+    u = 0xc7
+    v = 0xcb
     width = 0x05
     height = 0x07
 tile_06
@@ -5487,8 +5487,8 @@ tile_06
     x = 0xfffffff4
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0xe2
-    tex_y = 0xa0
+    u = 0xe2
+    v = 0xa0
     width = 0x0b
     height = 0x08
 tile_07
@@ -5496,8 +5496,8 @@ tile_07
     x = 0xfffffff7
     y = 0xfffffff0
     flags = 0x00
-    tex_x = 0xde
-    tex_y = 0xed
+    u = 0xde
+    v = 0xed
     width = 0x08
     height = 0x04
 tile_08
@@ -5505,8 +5505,8 @@ tile_08
     x = 0x0006
     y = 0xffffffe5
     flags = 0x00
-    tex_x = 0x86
-    tex_y = 0x6b
+    u = 0x86
+    v = 0x6b
     width = 0x04
     height = 0x0b
 tile_09
@@ -5514,8 +5514,8 @@ tile_09
     x = 0xfffffff9
     y = 0xffffffe0
     flags = 0x00
-    tex_x = 0xf2
-    tex_y = 0x01
+    u = 0xf2
+    v = 0x01
     width = 0x0d
     height = 0x10
 number_of_tile = 0x0a
@@ -5525,8 +5525,8 @@ tile_00
     x = 0xfffffffb
     y = 0xffffffd4
     flags = 0x00
-    tex_x = 0x0f
-    tex_y = 0x6b
+    u = 0x0f
+    v = 0x6b
     width = 0x0c
     height = 0x0b
 tile_01
@@ -5534,8 +5534,8 @@ tile_01
     x = 0x0003
     y = 0xfffffffc
     flags = 0x00
-    tex_x = 0x64
-    tex_y = 0xda
+    u = 0x64
+    v = 0xda
     width = 0x0b
     height = 0x06
 tile_02
@@ -5543,8 +5543,8 @@ tile_02
     x = 0x0003
     y = 0xfffffff1
     flags = 0x00
-    tex_x = 0x3d
-    tex_y = 0x6b
+    u = 0x3d
+    v = 0x6b
     width = 0x09
     height = 0x0b
 tile_03
@@ -5552,8 +5552,8 @@ tile_03
     x = 0xfffffff3
     y = 0xfffffffd
     flags = 0x00
-    tex_x = 0x6b
-    tex_y = 0xcb
+    u = 0x6b
+    v = 0xcb
     width = 0x07
     height = 0x07
 tile_04
@@ -5561,8 +5561,8 @@ tile_04
     x = 0xffffffff
     y = 0xfffffff1
     flags = 0x00
-    tex_x = 0x8b
-    tex_y = 0x6b
+    u = 0x8b
+    v = 0x6b
     width = 0x04
     height = 0x0b
 tile_05
@@ -5570,8 +5570,8 @@ tile_05
     x = 0xfffffff6
     y = 0xfffffff1
     flags = 0x00
-    tex_x = 0xca
-    tex_y = 0x5e
+    u = 0xca
+    v = 0x5e
     width = 0x09
     height = 0x0c
 tile_06
@@ -5579,8 +5579,8 @@ tile_06
     x = 0xfffffff3
     y = 0xfffffffb
     flags = 0x00
-    tex_x = 0xf6
-    tex_y = 0xf9
+    u = 0xf6
+    v = 0xf9
     width = 0x03
     height = 0x02
 tile_07
@@ -5588,8 +5588,8 @@ tile_07
     x = 0x0009
     y = 0xfffffff0
     flags = 0x00
-    tex_x = 0x62
-    tex_y = 0xfa
+    u = 0x62
+    v = 0xfa
     width = 0x01
     height = 0x01
 tile_08
@@ -5597,8 +5597,8 @@ tile_08
     x = 0xfffffff9
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0xd5
-    tex_y = 0x43
+    u = 0xd5
+    v = 0x43
     width = 0x10
     height = 0x0d
 tile_09
@@ -5606,8 +5606,8 @@ tile_09
     x = 0xfffffff9
     y = 0xffffffdf
     flags = 0x00
-    tex_x = 0xe6
-    tex_y = 0xe1
+    u = 0xe6
+    v = 0xe1
     width = 0x0d
     height = 0x05
 number_of_tile = 0x0a
@@ -5617,8 +5617,8 @@ tile_00
     x = 0xfffffffb
     y = 0xffffffd3
     flags = 0x00
-    tex_x = 0x0f
-    tex_y = 0x6b
+    u = 0x0f
+    v = 0x6b
     width = 0x0c
     height = 0x0b
 tile_01
@@ -5626,8 +5626,8 @@ tile_01
     x = 0x0000
     y = 0xfffffff7
     flags = 0x00
-    tex_x = 0x62
-    tex_y = 0x52
+    u = 0x62
+    v = 0x52
     width = 0x0b
     height = 0x0c
 tile_02
@@ -5635,8 +5635,8 @@ tile_02
     x = 0xfffffffd
     y = 0xfffffff7
     flags = 0x00
-    tex_x = 0x3c
-    tex_y = 0xe8
+    u = 0x3c
+    v = 0xe8
     width = 0x03
     height = 0x05
 tile_03
@@ -5644,8 +5644,8 @@ tile_03
     x = 0xfffffff5
     y = 0xfffffff7
     flags = 0x00
-    tex_x = 0x40
-    tex_y = 0xcb
+    u = 0x40
+    v = 0xcb
     width = 0x08
     height = 0x07
 tile_04
@@ -5653,8 +5653,8 @@ tile_04
     x = 0x000a
     y = 0xffffffeb
     flags = 0x00
-    tex_x = 0x05
-    tex_y = 0xcc
+    u = 0x05
+    v = 0xcc
     width = 0x03
     height = 0x07
 tile_05
@@ -5662,8 +5662,8 @@ tile_05
     x = 0xfffffffa
     y = 0xffffffeb
     flags = 0x00
-    tex_x = 0xa1
-    tex_y = 0x51
+    u = 0xa1
+    v = 0x51
     width = 0x10
     height = 0x0c
 tile_06
@@ -5671,8 +5671,8 @@ tile_06
     x = 0xfffffff8
     y = 0xfffffff1
     flags = 0x00
-    tex_x = 0x7f
-    tex_y = 0xe1
+    u = 0x7f
+    v = 0xe1
     width = 0x02
     height = 0x06
 tile_07
@@ -5680,8 +5680,8 @@ tile_07
     x = 0x0006
     y = 0xffffffe2
     flags = 0x00
-    tex_x = 0xb1
-    tex_y = 0x96
+    u = 0xb1
+    v = 0x96
     width = 0x04
     height = 0x09
 tile_08
@@ -5689,8 +5689,8 @@ tile_08
     x = 0xfffffffa
     y = 0xffffffde
     flags = 0x00
-    tex_x = 0x29
-    tex_y = 0x44
+    u = 0x29
+    v = 0x44
     width = 0x0c
     height = 0x0d
 tile_09
@@ -5698,8 +5698,8 @@ tile_09
     x = 0xfffffff8
     y = 0xffffffe0
     flags = 0x00
-    tex_x = 0x7c
-    tex_y = 0xe1
+    u = 0x7c
+    v = 0xe1
     width = 0x02
     height = 0x06
 number_of_tile = 0x0a
@@ -5709,8 +5709,8 @@ tile_00
     x = 0xfffffffb
     y = 0xffffffd4
     flags = 0x00
-    tex_x = 0x0f
-    tex_y = 0x6b
+    u = 0x0f
+    v = 0x6b
     width = 0x0c
     height = 0x0b
 tile_01
@@ -5718,8 +5718,8 @@ tile_01
     x = 0x0004
     y = 0x0000
     flags = 0x00
-    tex_x = 0xc0
-    tex_y = 0xf6
+    u = 0xc0
+    v = 0xf6
     width = 0x03
     height = 0x03
 tile_02
@@ -5727,8 +5727,8 @@ tile_02
     x = 0xfffffffb
     y = 0xffffffff
     flags = 0x00
-    tex_x = 0xd3
-    tex_y = 0xda
+    u = 0xd3
+    v = 0xda
     width = 0x09
     height = 0x06
 tile_03
@@ -5736,8 +5736,8 @@ tile_03
     x = 0xfffffffa
     y = 0xfffffff6
     flags = 0x00
-    tex_x = 0x7c
-    tex_y = 0x8c
+    u = 0x7c
+    v = 0x8c
     width = 0x0d
     height = 0x09
 tile_04
@@ -5745,8 +5745,8 @@ tile_04
     x = 0xfffffff9
     y = 0xfffffffc
     flags = 0x00
-    tex_x = 0xfe
-    tex_y = 0xe4
+    u = 0xfe
+    v = 0xe4
     width = 0x01
     height = 0x02
 tile_05
@@ -5754,8 +5754,8 @@ tile_05
     x = 0xfffffffa
     y = 0xfffffff1
     flags = 0x00
-    tex_x = 0xd7
-    tex_y = 0xe1
+    u = 0xd7
+    v = 0xe1
     width = 0x0e
     height = 0x05
 tile_06
@@ -5763,8 +5763,8 @@ tile_06
     x = 0x000a
     y = 0xffffffeb
     flags = 0x00
-    tex_x = 0x4c
-    tex_y = 0xe1
+    u = 0x4c
+    v = 0xe1
     width = 0x04
     height = 0x06
 tile_07
@@ -5772,8 +5772,8 @@ tile_07
     x = 0x0006
     y = 0xffffffe3
     flags = 0x00
-    tex_x = 0x01
-    tex_y = 0x38
+    u = 0x01
+    v = 0x38
     width = 0x04
     height = 0x0e
 tile_08
@@ -5781,8 +5781,8 @@ tile_08
     x = 0xfffffff7
     y = 0xffffffe0
     flags = 0x00
-    tex_x = 0xab
-    tex_y = 0x01
+    u = 0xab
+    v = 0x01
     width = 0x0f
     height = 0x11
 tile_09
@@ -5790,8 +5790,8 @@ tile_09
     x = 0xfffffffe
     y = 0xffffffdf
     flags = 0x00
-    tex_x = 0x37
-    tex_y = 0xfa
+    u = 0x37
+    v = 0xfa
     width = 0x08
     height = 0x01
 number_of_tile = 0x0a
@@ -5801,8 +5801,8 @@ tile_00
     x = 0xfffffffb
     y = 0xffffffd5
     flags = 0x00
-    tex_x = 0x0f
-    tex_y = 0x6b
+    u = 0x0f
+    v = 0x6b
     width = 0x0c
     height = 0x0b
 tile_01
@@ -5810,8 +5810,8 @@ tile_01
     x = 0xfffffff7
     y = 0xffffffff
     flags = 0x00
-    tex_x = 0x58
-    tex_y = 0xda
+    u = 0x58
+    v = 0xda
     width = 0x0b
     height = 0x06
 tile_02
@@ -5819,8 +5819,8 @@ tile_02
     x = 0x0005
     y = 0xfffffff2
     flags = 0x00
-    tex_x = 0x3b
-    tex_y = 0xbb
+    u = 0x3b
+    v = 0xbb
     width = 0x02
     height = 0x08
 tile_03
@@ -5828,8 +5828,8 @@ tile_03
     x = 0xfffffff9
     y = 0xfffffff8
     flags = 0x00
-    tex_x = 0x60
-    tex_y = 0xc3
+    u = 0x60
+    v = 0xc3
     width = 0x0c
     height = 0x07
 tile_04
@@ -5837,8 +5837,8 @@ tile_04
     x = 0xfffffffb
     y = 0xfffffff2
     flags = 0x00
-    tex_x = 0xa9
-    tex_y = 0xda
+    u = 0xa9
+    v = 0xda
     width = 0x0a
     height = 0x06
 tile_05
@@ -5846,8 +5846,8 @@ tile_05
     x = 0xfffffff9
     y = 0xfffffff2
     flags = 0x00
-    tex_x = 0x0a
-    tex_y = 0xfa
+    u = 0x0a
+    v = 0xfa
     width = 0x02
     height = 0x02
 tile_06
@@ -5855,8 +5855,8 @@ tile_06
     x = 0x000a
     y = 0xffffffeb
     flags = 0x00
-    tex_x = 0xe8
-    tex_y = 0xcb
+    u = 0xe8
+    v = 0xcb
     width = 0x04
     height = 0x07
 tile_07
@@ -5864,8 +5864,8 @@ tile_07
     x = 0x0006
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0x4b
-    tex_y = 0x35
+    u = 0x4b
+    v = 0x35
     width = 0x04
     height = 0x0e
 tile_08
@@ -5873,8 +5873,8 @@ tile_08
     x = 0xfffffff7
     y = 0xffffffe0
     flags = 0x00
-    tex_x = 0x42
-    tex_y = 0x01
+    u = 0x42
+    v = 0x01
     width = 0x0f
     height = 0x12
 tile_09
@@ -5882,8 +5882,8 @@ tile_09
     x = 0xfffffff5
     y = 0xffffffea
     flags = 0x00
-    tex_x = 0x79
-    tex_y = 0xe1
+    u = 0x79
+    v = 0xe1
     width = 0x02
     height = 0x06
 number_of_tile = 0x0a
@@ -5893,8 +5893,8 @@ tile_00
     x = 0xfffffffb
     y = 0xffffffd4
     flags = 0x00
-    tex_x = 0x0f
-    tex_y = 0x6b
+    u = 0x0f
+    v = 0x6b
     width = 0x0c
     height = 0x0b
 tile_01
@@ -5902,8 +5902,8 @@ tile_01
     x = 0xfffffffa
     y = 0x0003
     flags = 0x00
-    tex_x = 0x30
-    tex_y = 0xee
+    u = 0x30
+    v = 0xee
     width = 0x05
     height = 0x04
 tile_02
@@ -5911,8 +5911,8 @@ tile_02
     x = 0xfffffff8
     y = 0xffffffff
     flags = 0x00
-    tex_x = 0xef
-    tex_y = 0xed
+    u = 0xef
+    v = 0xed
     width = 0x07
     height = 0x04
 tile_03
@@ -5920,8 +5920,8 @@ tile_03
     x = 0xfffffff8
     y = 0xfffffffd
     flags = 0x00
-    tex_x = 0x01
-    tex_y = 0xf7
+    u = 0x01
+    v = 0xf7
     width = 0x0d
     height = 0x02
 tile_04
@@ -5929,8 +5929,8 @@ tile_04
     x = 0xfffffffb
     y = 0xfffffff2
     flags = 0x00
-    tex_x = 0x01
-    tex_y = 0x6b
+    u = 0x01
+    v = 0x6b
     width = 0x0d
     height = 0x0b
 tile_05
@@ -5938,8 +5938,8 @@ tile_05
     x = 0xfffffffa
     y = 0xfffffff2
     flags = 0x00
-    tex_x = 0x60
-    tex_y = 0xfa
+    u = 0x60
+    v = 0xfa
     width = 0x01
     height = 0x01
 tile_06
@@ -5947,8 +5947,8 @@ tile_06
     x = 0x000a
     y = 0xffffffeb
     flags = 0x00
-    tex_x = 0xe3
-    tex_y = 0xcb
+    u = 0xe3
+    v = 0xcb
     width = 0x04
     height = 0x07
 tile_07
@@ -5956,8 +5956,8 @@ tile_07
     x = 0x0006
     y = 0xffffffe3
     flags = 0x00
-    tex_x = 0xf7
-    tex_y = 0x23
+    u = 0xf7
+    v = 0x23
     width = 0x04
     height = 0x0f
 tile_08
@@ -5965,8 +5965,8 @@ tile_08
     x = 0xfffffff6
     y = 0xffffffea
     flags = 0x00
-    tex_x = 0x74
-    tex_y = 0xa0
+    u = 0x74
+    v = 0xa0
     width = 0x10
     height = 0x08
 tile_09
@@ -5974,8 +5974,8 @@ tile_09
     x = 0xfffffff7
     y = 0xffffffdf
     flags = 0x00
-    tex_x = 0x72
-    tex_y = 0x5f
+    u = 0x72
+    v = 0x5f
     width = 0x0f
     height = 0x0b
 number_of_tile = 0x0a
@@ -5985,8 +5985,8 @@ tile_00
     x = 0xfffffffb
     y = 0xffffffd3
     flags = 0x00
-    tex_x = 0x0f
-    tex_y = 0x6b
+    u = 0x0f
+    v = 0x6b
     width = 0x0c
     height = 0x0b
 tile_01
@@ -5994,8 +5994,8 @@ tile_01
     x = 0x0005
     y = 0xfffffff3
     flags = 0x00
-    tex_x = 0xac
-    tex_y = 0x96
+    u = 0xac
+    v = 0x96
     width = 0x04
     height = 0x09
 tile_02
@@ -6003,8 +6003,8 @@ tile_02
     x = 0x0001
     y = 0xfffffff9
     flags = 0x00
-    tex_x = 0xfb
-    tex_y = 0xb1
+    u = 0xfb
+    v = 0xb1
     width = 0x04
     height = 0x08
 tile_03
@@ -6012,8 +6012,8 @@ tile_03
     x = 0xfffffffa
     y = 0xfffffff9
     flags = 0x00
-    tex_x = 0x63
-    tex_y = 0xcb
+    u = 0x63
+    v = 0xcb
     width = 0x07
     height = 0x07
 tile_04
@@ -6021,8 +6021,8 @@ tile_04
     x = 0xfffffff8
     y = 0xfffffff3
     flags = 0x00
-    tex_x = 0xa0
-    tex_y = 0xd3
+    u = 0xa0
+    v = 0xd3
     width = 0x0d
     height = 0x06
 tile_05
@@ -6030,8 +6030,8 @@ tile_05
     x = 0xfffffff9
     y = 0xffffffeb
     flags = 0x00
-    tex_x = 0x15
-    tex_y = 0xa0
+    u = 0x15
+    v = 0xa0
     width = 0x13
     height = 0x08
 tile_06
@@ -6039,8 +6039,8 @@ tile_06
     x = 0xfffffff8
     y = 0xffffffeb
     flags = 0x00
-    tex_x = 0x18
-    tex_y = 0xe2
+    u = 0x18
+    v = 0xe2
     width = 0x01
     height = 0x02
 tile_07
@@ -6048,8 +6048,8 @@ tile_07
     x = 0x0006
     y = 0xffffffe2
     flags = 0x00
-    tex_x = 0xdb
-    tex_y = 0x96
+    u = 0xdb
+    v = 0x96
     width = 0x03
     height = 0x09
 tile_08
@@ -6057,8 +6057,8 @@ tile_08
     x = 0xfffffffe
     y = 0xffffffde
     flags = 0x00
-    tex_x = 0x01
-    tex_y = 0x47
+    u = 0x01
+    v = 0x47
     width = 0x08
     height = 0x0d
 tile_09
@@ -6066,8 +6066,8 @@ tile_09
     x = 0xfffffff8
     y = 0xffffffdf
     flags = 0x00
-    tex_x = 0xf8
-    tex_y = 0x51
+    u = 0xf8
+    v = 0x51
     width = 0x06
     height = 0x0c
 number_of_tile = 0x0a
@@ -6077,8 +6077,8 @@ tile_00
     x = 0xfffffffb
     y = 0xffffffd4
     flags = 0x00
-    tex_x = 0x0f
-    tex_y = 0x6b
+    u = 0x0f
+    v = 0x6b
     width = 0x0c
     height = 0x0b
 tile_01
@@ -6086,8 +6086,8 @@ tile_01
     x = 0xffffffff
     y = 0xfffffffb
     flags = 0x00
-    tex_x = 0xc0
-    tex_y = 0xc3
+    u = 0xc0
+    v = 0xc3
     width = 0x0a
     height = 0x07
 tile_02
@@ -6095,8 +6095,8 @@ tile_02
     x = 0xffffffff
     y = 0xfffffff0
     flags = 0x00
-    tex_x = 0x1c
-    tex_y = 0x6b
+    u = 0x1c
+    v = 0x6b
     width = 0x0b
     height = 0x0b
 tile_03
@@ -6104,8 +6104,8 @@ tile_03
     x = 0xfffffff6
     y = 0xfffffffb
     flags = 0x00
-    tex_x = 0x37
-    tex_y = 0xc4
+    u = 0x37
+    v = 0xc4
     width = 0x08
     height = 0x07
 tile_04
@@ -6113,8 +6113,8 @@ tile_04
     x = 0xfffffff6
     y = 0xfffffff0
     flags = 0x00
-    tex_x = 0x33
-    tex_y = 0x6b
+    u = 0x33
+    v = 0x6b
     width = 0x09
     height = 0x0b
 tile_05
@@ -6122,8 +6122,8 @@ tile_05
     x = 0xfffffff5
     y = 0xfffffff7
     flags = 0x00
-    tex_x = 0xfe
-    tex_y = 0xe1
+    u = 0xfe
+    v = 0xe1
     width = 0x01
     height = 0x02
 tile_06
@@ -6131,8 +6131,8 @@ tile_06
     x = 0xfffffff9
     y = 0xffffffec
     flags = 0x00
-    tex_x = 0x6e
-    tex_y = 0xe8
+    u = 0x6e
+    v = 0xe8
     width = 0x10
     height = 0x04
 tile_07
@@ -6140,8 +6140,8 @@ tile_07
     x = 0xfffffffa
     y = 0xffffffe3
     flags = 0x00
-    tex_x = 0x6e
-    tex_y = 0x82
+    u = 0x6e
+    v = 0x82
     width = 0x0f
     height = 0x09
 tile_08
@@ -6149,8 +6149,8 @@ tile_08
     x = 0xfffffff9
     y = 0xffffffe3
     flags = 0x00
-    tex_x = 0xfe
-    tex_y = 0xd7
+    u = 0xfe
+    v = 0xd7
     width = 0x01
     height = 0x02
 tile_09
@@ -6158,8 +6158,8 @@ tile_09
     x = 0xfffffff9
     y = 0xffffffdf
     flags = 0x00
-    tex_x = 0x5c
-    tex_y = 0xed
+    u = 0x5c
+    v = 0xed
     width = 0x0d
     height = 0x04
 number_of_tile = 0x0a
@@ -6169,8 +6169,8 @@ tile_00
     x = 0x0000
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0x0d
-    tex_y = 0x28
+    u = 0x0d
+    v = 0x28
     width = 0x0b
     height = 0x0f
 tile_01
@@ -6178,8 +6178,8 @@ tile_01
     x = 0x0000
     y = 0xffffffdb
     flags = 0x00
-    tex_x = 0x72
-    tex_y = 0x96
+    u = 0x72
+    v = 0x96
     width = 0x07
     height = 0x09
 tile_02
@@ -6187,8 +6187,8 @@ tile_02
     x = 0x0000
     y = 0xffffffd4
     flags = 0x00
-    tex_x = 0x9f
-    tex_y = 0xcb
+    u = 0x9f
+    v = 0xcb
     width = 0x06
     height = 0x07
 tile_03
@@ -6196,8 +6196,8 @@ tile_03
     x = 0xfffffff9
     y = 0xffffffd4
     flags = 0x00
-    tex_x = 0x8c
-    tex_y = 0xb2
+    u = 0x8c
+    v = 0xb2
     width = 0x07
     height = 0x08
 tile_04
@@ -6205,8 +6205,8 @@ tile_04
     x = 0xfffffff9
     y = 0xffffffdc
     flags = 0x00
-    tex_x = 0x7c
-    tex_y = 0xb2
+    u = 0x7c
+    v = 0xb2
     width = 0x07
     height = 0x08
 tile_05
@@ -6214,8 +6214,8 @@ tile_05
     x = 0xfffffff9
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0x84
-    tex_y = 0xb2
+    u = 0x84
+    v = 0xb2
     width = 0x07
     height = 0x08
 tile_06
@@ -6223,8 +6223,8 @@ tile_06
     x = 0xfffffff8
     y = 0xffffffec
     flags = 0x00
-    tex_x = 0xf2
-    tex_y = 0xb1
+    u = 0xf2
+    v = 0xb1
     width = 0x08
     height = 0x08
 tile_07
@@ -6232,8 +6232,8 @@ tile_07
     x = 0x0000
     y = 0xffffffe9
     flags = 0x00
-    tex_x = 0xe3
-    tex_y = 0x6a
+    u = 0xe3
+    v = 0x6a
     width = 0x0e
     height = 0x0b
 tile_08
@@ -6241,8 +6241,8 @@ tile_08
     x = 0x0000
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0xb3
-    tex_y = 0xe7
+    u = 0xb3
+    v = 0xe7
     width = 0x09
     height = 0x05
 tile_09
@@ -6250,8 +6250,8 @@ tile_09
     x = 0xfffffff7
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0xc0
-    tex_y = 0x5e
+    u = 0xc0
+    v = 0x5e
     width = 0x09
     height = 0x0c
 number_of_tile = 0x0a
@@ -6261,8 +6261,8 @@ tile_00
     x = 0x0007
     y = 0xffffffde
     flags = 0x00
-    tex_x = 0x16
-    tex_y = 0xee
+    u = 0x16
+    v = 0xee
     width = 0x06
     height = 0x04
 tile_01
@@ -6270,8 +6270,8 @@ tile_01
     x = 0xfffffffb
     y = 0xffffffd6
     flags = 0x00
-    tex_x = 0x28
-    tex_y = 0x35
+    u = 0x28
+    v = 0x35
     width = 0x0c
     height = 0x0e
 tile_02
@@ -6279,8 +6279,8 @@ tile_02
     x = 0x0002
     y = 0x0001
     flags = 0x00
-    tex_x = 0x01
-    tex_y = 0xf3
+    u = 0x01
+    v = 0xf3
     width = 0x0c
     height = 0x03
 tile_03
@@ -6288,8 +6288,8 @@ tile_03
     x = 0x0002
     y = 0xfffffff3
     flags = 0x00
-    tex_x = 0xd5
-    tex_y = 0x34
+    u = 0xd5
+    v = 0x34
     width = 0x0a
     height = 0x0e
 tile_04
@@ -6297,8 +6297,8 @@ tile_04
     x = 0x0002
     y = 0xffffffec
     flags = 0x00
-    tex_x = 0x6d
-    tex_y = 0xc3
+    u = 0x6d
+    v = 0xc3
     width = 0x0c
     height = 0x07
 tile_05
@@ -6306,8 +6306,8 @@ tile_05
     x = 0xfffffffe
     y = 0xfffffffa
     flags = 0x00
-    tex_x = 0x47
-    tex_y = 0xee
+    u = 0x47
+    v = 0xee
     width = 0x04
     height = 0x04
 tile_06
@@ -6315,8 +6315,8 @@ tile_06
     x = 0xfffffff3
     y = 0xfffffffa
     flags = 0x00
-    tex_x = 0x70
-    tex_y = 0xda
+    u = 0x70
+    v = 0xda
     width = 0x0b
     height = 0x06
 tile_07
@@ -6324,8 +6324,8 @@ tile_07
     x = 0xfffffff5
     y = 0xfffffff0
     flags = 0x00
-    tex_x = 0x1d
-    tex_y = 0x77
+    u = 0x1d
+    v = 0x77
     width = 0x0d
     height = 0x0a
 tile_08
@@ -6333,8 +6333,8 @@ tile_08
     x = 0xfffffff8
     y = 0xffffffec
     flags = 0x00
-    tex_x = 0xb5
-    tex_y = 0xed
+    u = 0xb5
+    v = 0xed
     width = 0x0a
     height = 0x04
 tile_09
@@ -6342,8 +6342,8 @@ tile_09
     x = 0xfffffffb
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0x85
-    tex_y = 0xa0
+    u = 0x85
+    v = 0xa0
     width = 0x0f
     height = 0x08
 number_of_tile = 0x0a
@@ -6353,8 +6353,8 @@ tile_00
     x = 0x0007
     y = 0xffffffdd
     flags = 0x00
-    tex_x = 0x16
-    tex_y = 0xee
+    u = 0x16
+    v = 0xee
     width = 0x06
     height = 0x04
 tile_01
@@ -6362,8 +6362,8 @@ tile_01
     x = 0xfffffffb
     y = 0xffffffd5
     flags = 0x00
-    tex_x = 0x28
-    tex_y = 0x35
+    u = 0x28
+    v = 0x35
     width = 0x0c
     height = 0x0e
 tile_02
@@ -6371,8 +6371,8 @@ tile_02
     x = 0x0001
     y = 0x0001
     flags = 0x00
-    tex_x = 0x1b
-    tex_y = 0xf3
+    u = 0x1b
+    v = 0xf3
     width = 0x0b
     height = 0x03
 tile_03
@@ -6380,8 +6380,8 @@ tile_03
     x = 0x0000
     y = 0xfffffff2
     flags = 0x00
-    tex_x = 0xe0
-    tex_y = 0x33
+    u = 0xe0
+    v = 0x33
     width = 0x0b
     height = 0x0f
 tile_04
@@ -6389,8 +6389,8 @@ tile_04
     x = 0xfffffff5
     y = 0xfffffffc
     flags = 0x00
-    tex_x = 0x4c
-    tex_y = 0xee
+    u = 0x4c
+    v = 0xee
     width = 0x04
     height = 0x04
 tile_05
@@ -6398,8 +6398,8 @@ tile_05
     x = 0xfffffff8
     y = 0xfffffff2
     flags = 0x00
-    tex_x = 0x13
-    tex_y = 0x82
+    u = 0x13
+    v = 0x82
     width = 0x08
     height = 0x0a
 tile_06
@@ -6407,8 +6407,8 @@ tile_06
     x = 0xfffffff3
     y = 0xfffffff7
     flags = 0x00
-    tex_x = 0x19
-    tex_y = 0xe8
+    u = 0x19
+    v = 0xe8
     width = 0x05
     height = 0x05
 tile_07
@@ -6416,8 +6416,8 @@ tile_07
     x = 0x0009
     y = 0xffffffec
     flags = 0x00
-    tex_x = 0x59
-    tex_y = 0xe1
+    u = 0x59
+    v = 0xe1
     width = 0x03
     height = 0x06
 tile_08
@@ -6425,8 +6425,8 @@ tile_08
     x = 0xfffffffa
     y = 0xffffffed
     flags = 0x00
-    tex_x = 0xb8
-    tex_y = 0xe1
+    u = 0xb8
+    v = 0xe1
     width = 0x0f
     height = 0x05
 tile_09
@@ -6434,8 +6434,8 @@ tile_09
     x = 0xfffffffb
     y = 0xffffffe3
     flags = 0x00
-    tex_x = 0xcf
-    tex_y = 0x76
+    u = 0xcf
+    v = 0x76
     width = 0x0e
     height = 0x0a
 number_of_tile = 0x0a
@@ -6445,8 +6445,8 @@ tile_00
     x = 0x0007
     y = 0xffffffdc
     flags = 0x00
-    tex_x = 0x16
-    tex_y = 0xee
+    u = 0x16
+    v = 0xee
     width = 0x06
     height = 0x04
 tile_01
@@ -6454,8 +6454,8 @@ tile_01
     x = 0xfffffffb
     y = 0xffffffd4
     flags = 0x00
-    tex_x = 0x28
-    tex_y = 0x35
+    u = 0x28
+    v = 0x35
     width = 0x0c
     height = 0x0e
 tile_02
@@ -6463,8 +6463,8 @@ tile_02
     x = 0x0004
     y = 0x0000
     flags = 0x00
-    tex_x = 0x5d
-    tex_y = 0xf2
+    u = 0x5d
+    v = 0xf2
     width = 0x03
     height = 0x04
 tile_03
@@ -6472,8 +6472,8 @@ tile_03
     x = 0xfffffffb
     y = 0xfffffffd
     flags = 0x00
-    tex_x = 0xd5
-    tex_y = 0xc3
+    u = 0xd5
+    v = 0xc3
     width = 0x09
     height = 0x07
 tile_04
@@ -6481,8 +6481,8 @@ tile_04
     x = 0xfffffffb
     y = 0xfffffff5
     flags = 0x00
-    tex_x = 0xa4
-    tex_y = 0xa0
+    u = 0xa4
+    v = 0xa0
     width = 0x0c
     height = 0x08
 tile_05
@@ -6490,8 +6490,8 @@ tile_05
     x = 0xfffffffb
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0x1f
-    tex_y = 0xfa
+    u = 0x1f
+    v = 0xfa
     width = 0x0d
     height = 0x01
 tile_06
@@ -6499,8 +6499,8 @@ tile_06
     x = 0xfffffff6
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0xcd
-    tex_y = 0xcb
+    u = 0xcd
+    v = 0xcb
     width = 0x05
     height = 0x07
 tile_07
@@ -6508,8 +6508,8 @@ tile_07
     x = 0xfffffffc
     y = 0xffffffe8
     flags = 0x00
-    tex_x = 0xdd
-    tex_y = 0x51
+    u = 0xdd
+    v = 0x51
     width = 0x0d
     height = 0x0c
 tile_08
@@ -6517,8 +6517,8 @@ tile_08
     x = 0xfffffffb
     y = 0xfffffff2
     flags = 0x00
-    tex_x = 0x18
-    tex_y = 0xe5
+    u = 0x18
+    v = 0xe5
     width = 0x01
     height = 0x02
 tile_09
@@ -6526,8 +6526,8 @@ tile_09
     x = 0xfffffffb
     y = 0xffffffe2
     flags = 0x00
-    tex_x = 0x74
-    tex_y = 0xd3
+    u = 0x74
+    v = 0xd3
     width = 0x0e
     height = 0x06
 number_of_tile = 0x0a
@@ -6537,8 +6537,8 @@ tile_00
     x = 0x0007
     y = 0xffffffdd
     flags = 0x00
-    tex_x = 0x16
-    tex_y = 0xee
+    u = 0x16
+    v = 0xee
     width = 0x06
     height = 0x04
 tile_01
@@ -6546,8 +6546,8 @@ tile_01
     x = 0xfffffffb
     y = 0xffffffd5
     flags = 0x00
-    tex_x = 0x28
-    tex_y = 0x35
+    u = 0x28
+    v = 0x35
     width = 0x0c
     height = 0x0e
 tile_02
@@ -6555,8 +6555,8 @@ tile_02
     x = 0x0002
     y = 0xfffffffa
     flags = 0x00
-    tex_x = 0x2a
-    tex_y = 0xe8
+    u = 0x2a
+    v = 0xe8
     width = 0x04
     height = 0x05
 tile_03
@@ -6564,8 +6564,8 @@ tile_03
     x = 0x0002
     y = 0xfffffff3
     flags = 0x00
-    tex_x = 0x73
-    tex_y = 0xcb
+    u = 0x73
+    v = 0xcb
     width = 0x07
     height = 0x07
 tile_04
@@ -6573,8 +6573,8 @@ tile_04
     x = 0xfffffff6
     y = 0xffffffff
     flags = 0x00
-    tex_x = 0x85
-    tex_y = 0xe7
+    u = 0x85
+    v = 0xe7
     width = 0x0c
     height = 0x05
 tile_05
@@ -6582,8 +6582,8 @@ tile_05
     x = 0xfffffff7
     y = 0xfffffff7
     flags = 0x00
-    tex_x = 0xee
-    tex_y = 0xa8
+    u = 0xee
+    v = 0xa8
     width = 0x0b
     height = 0x08
 tile_06
@@ -6591,8 +6591,8 @@ tile_06
     x = 0xfffffff9
     y = 0xfffffff3
     flags = 0x00
-    tex_x = 0xd4
-    tex_y = 0xed
+    u = 0xd4
+    v = 0xed
     width = 0x09
     height = 0x04
 tile_07
@@ -6600,8 +6600,8 @@ tile_07
     x = 0xfffffffd
     y = 0xffffffea
     flags = 0x00
-    tex_x = 0xb1
-    tex_y = 0x8c
+    u = 0xb1
+    v = 0x8c
     width = 0x0c
     height = 0x09
 tile_08
@@ -6609,8 +6609,8 @@ tile_08
     x = 0xfffffffb
     y = 0xffffffee
     flags = 0x00
-    tex_x = 0x4d
-    tex_y = 0xe8
+    u = 0x4d
+    v = 0xe8
     width = 0x02
     height = 0x05
 tile_09
@@ -6618,8 +6618,8 @@ tile_09
     x = 0xfffffffb
     y = 0xffffffe3
     flags = 0x00
-    tex_x = 0xa2
-    tex_y = 0xbb
+    u = 0xa2
+    v = 0xbb
     width = 0x0e
     height = 0x07
 number_of_tile = 0x0a
@@ -6629,8 +6629,8 @@ tile_00
     x = 0x0007
     y = 0xffffffdd
     flags = 0x00
-    tex_x = 0x16
-    tex_y = 0xee
+    u = 0x16
+    v = 0xee
     width = 0x06
     height = 0x04
 tile_01
@@ -6638,8 +6638,8 @@ tile_01
     x = 0xfffffffb
     y = 0xffffffd5
     flags = 0x00
-    tex_x = 0x28
-    tex_y = 0x35
+    u = 0x28
+    v = 0x35
     width = 0x0c
     height = 0x0e
 tile_02
@@ -6647,8 +6647,8 @@ tile_02
     x = 0x000b
     y = 0xfffffffb
     flags = 0x00
-    tex_x = 0xd4
-    tex_y = 0xf6
+    u = 0xd4
+    v = 0xf6
     width = 0x02
     height = 0x03
 tile_03
@@ -6656,8 +6656,8 @@ tile_03
     x = 0xfffffffd
     y = 0xfffffff5
     flags = 0x00
-    tex_x = 0xde
-    tex_y = 0x76
+    u = 0xde
+    v = 0x76
     width = 0x0e
     height = 0x0a
 tile_04
@@ -6665,8 +6665,8 @@ tile_04
     x = 0xfffffff2
     y = 0xfffffffc
     flags = 0x00
-    tex_x = 0x86
-    tex_y = 0xc3
+    u = 0x86
+    v = 0xc3
     width = 0x0b
     height = 0x07
 tile_05
@@ -6674,8 +6674,8 @@ tile_05
     x = 0xfffffff5
     y = 0xfffffff5
     flags = 0x00
-    tex_x = 0x49
-    tex_y = 0xcb
+    u = 0x49
+    v = 0xcb
     width = 0x08
     height = 0x07
 tile_06
@@ -6683,8 +6683,8 @@ tile_06
     x = 0x0009
     y = 0xfffffff0
     flags = 0x00
-    tex_x = 0x50
-    tex_y = 0xe8
+    u = 0x50
+    v = 0xe8
     width = 0x02
     height = 0x05
 tile_07
@@ -6692,8 +6692,8 @@ tile_07
     x = 0xfffffff8
     y = 0xffffffeb
     flags = 0x00
-    tex_x = 0xc0
-    tex_y = 0x6b
+    u = 0xc0
+    v = 0x6b
     width = 0x11
     height = 0x0a
 tile_08
@@ -6701,8 +6701,8 @@ tile_08
     x = 0x0006
     y = 0xffffffe5
     flags = 0x00
-    tex_x = 0x5d
-    tex_y = 0xe1
+    u = 0x5d
+    v = 0xe1
     width = 0x03
     height = 0x06
 tile_09
@@ -6710,8 +6710,8 @@ tile_09
     x = 0xfffffffb
     y = 0xffffffe3
     flags = 0x00
-    tex_x = 0x01
-    tex_y = 0xa9
+    u = 0x01
+    v = 0xa9
     width = 0x0b
     height = 0x08
 number_of_tile = 0x0a
@@ -6721,8 +6721,8 @@ tile_00
     x = 0x0007
     y = 0xffffffdc
     flags = 0x00
-    tex_x = 0x16
-    tex_y = 0xee
+    u = 0x16
+    v = 0xee
     width = 0x06
     height = 0x04
 tile_01
@@ -6730,8 +6730,8 @@ tile_01
     x = 0xfffffffb
     y = 0xffffffd4
     flags = 0x00
-    tex_x = 0x28
-    tex_y = 0x35
+    u = 0x28
+    v = 0x35
     width = 0x0c
     height = 0x0e
 tile_02
@@ -6739,8 +6739,8 @@ tile_02
     x = 0x000a
     y = 0xfffffffb
     flags = 0x00
-    tex_x = 0xda
-    tex_y = 0xf6
+    u = 0xda
+    v = 0xf6
     width = 0x02
     height = 0x03
 tile_03
@@ -6748,8 +6748,8 @@ tile_03
     x = 0xfffffff9
     y = 0xfffffff5
     flags = 0x00
-    tex_x = 0x9c
-    tex_y = 0x76
+    u = 0x9c
+    v = 0x76
     width = 0x11
     height = 0x0a
 tile_04
@@ -6757,8 +6757,8 @@ tile_04
     x = 0xfffffff3
     y = 0xfffffffe
     flags = 0x00
-    tex_x = 0x2a
-    tex_y = 0xe1
+    u = 0x2a
+    v = 0xe1
     width = 0x06
     height = 0x06
 tile_05
@@ -6766,8 +6766,8 @@ tile_05
     x = 0xfffffff2
     y = 0xfffffffa
     flags = 0x00
-    tex_x = 0xf7
-    tex_y = 0xed
+    u = 0xf7
+    v = 0xed
     width = 0x07
     height = 0x04
 tile_06
@@ -6775,8 +6775,8 @@ tile_06
     x = 0xfffffff7
     y = 0xfffffff7
     flags = 0x00
-    tex_x = 0xd7
-    tex_y = 0xf6
+    u = 0xd7
+    v = 0xf6
     width = 0x02
     height = 0x03
 tile_07
@@ -6784,8 +6784,8 @@ tile_07
     x = 0xfffffffb
     y = 0xfffffff2
     flags = 0x00
-    tex_x = 0xd3
-    tex_y = 0xf2
+    u = 0xd3
+    v = 0xf2
     width = 0x0f
     height = 0x03
 tile_08
@@ -6793,8 +6793,8 @@ tile_08
     x = 0xfffffffb
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0x19
-    tex_y = 0x35
+    u = 0x19
+    v = 0x35
     width = 0x0e
     height = 0x0e
 tile_09
@@ -6802,8 +6802,8 @@ tile_09
     x = 0xfffffffc
     y = 0xffffffe2
     flags = 0x00
-    tex_x = 0x3d
-    tex_y = 0xf7
+    u = 0x3d
+    v = 0xf7
     width = 0x0a
     height = 0x02
 number_of_tile = 0x0a
@@ -6813,8 +6813,8 @@ tile_00
     x = 0x0007
     y = 0xffffffdb
     flags = 0x00
-    tex_x = 0x16
-    tex_y = 0xee
+    u = 0x16
+    v = 0xee
     width = 0x06
     height = 0x04
 tile_01
@@ -6822,8 +6822,8 @@ tile_01
     x = 0xfffffffb
     y = 0xffffffd3
     flags = 0x00
-    tex_x = 0x28
-    tex_y = 0x35
+    u = 0x28
+    v = 0x35
     width = 0x0c
     height = 0x0e
 tile_02
@@ -6831,8 +6831,8 @@ tile_02
     x = 0x0000
     y = 0xfffffff7
     flags = 0x00
-    tex_x = 0x01
-    tex_y = 0xb2
+    u = 0x01
+    v = 0xb2
     width = 0x08
     height = 0x08
 tile_03
@@ -6840,8 +6840,8 @@ tile_03
     x = 0xfffffff8
     y = 0xfffffff7
     flags = 0x00
-    tex_x = 0x1c
-    tex_y = 0x82
+    u = 0x1c
+    v = 0x82
     width = 0x08
     height = 0x0a
 tile_04
@@ -6849,8 +6849,8 @@ tile_04
     x = 0xfffffff5
     y = 0xfffffff9
     flags = 0x00
-    tex_x = 0x61
-    tex_y = 0xf2
+    u = 0x61
+    v = 0xf2
     width = 0x03
     height = 0x04
 tile_05
@@ -6858,8 +6858,8 @@ tile_05
     x = 0xfffffffb
     y = 0xfffffff5
     flags = 0x00
-    tex_x = 0x0f
-    tex_y = 0xf7
+    u = 0x0f
+    v = 0xf7
     width = 0x0c
     height = 0x02
 tile_06
@@ -6867,8 +6867,8 @@ tile_06
     x = 0xfffffffc
     y = 0xffffffef
     flags = 0x00
-    tex_x = 0x0e
-    tex_y = 0xd4
+    u = 0x0e
+    v = 0xd4
     width = 0x0c
     height = 0x06
 tile_07
@@ -6876,8 +6876,8 @@ tile_07
     x = 0xfffffffc
     y = 0xffffffe8
     flags = 0x00
-    tex_x = 0x52
-    tex_y = 0xc3
+    u = 0x52
+    v = 0xc3
     width = 0x0d
     height = 0x07
 tile_08
@@ -6885,8 +6885,8 @@ tile_08
     x = 0x0006
     y = 0xffffffe3
     flags = 0x00
-    tex_x = 0x40
-    tex_y = 0xe8
+    u = 0x40
+    v = 0xe8
     width = 0x03
     height = 0x05
 tile_09
@@ -6894,8 +6894,8 @@ tile_09
     x = 0xfffffffb
     y = 0xffffffe1
     flags = 0x00
-    tex_x = 0x92
-    tex_y = 0xc3
+    u = 0x92
+    v = 0xc3
     width = 0x0b
     height = 0x07
 number_of_tile = 0x0a
@@ -6905,8 +6905,8 @@ tile_00
     x = 0x0007
     y = 0xffffffdc
     flags = 0x00
-    tex_x = 0x16
-    tex_y = 0xee
+    u = 0x16
+    v = 0xee
     width = 0x06
     height = 0x04
 tile_01
@@ -6914,8 +6914,8 @@ tile_01
     x = 0xfffffffb
     y = 0xffffffd4
     flags = 0x00
-    tex_x = 0x28
-    tex_y = 0x35
+    u = 0x28
+    v = 0x35
     width = 0x0c
     height = 0x0e
 tile_02
@@ -6923,8 +6923,8 @@ tile_02
     x = 0xfffffffb
     y = 0xfffffffd
     flags = 0x00
-    tex_x = 0x9e
-    tex_y = 0xc3
+    u = 0x9e
+    v = 0xc3
     width = 0x0b
     height = 0x07
 tile_03
@@ -6932,8 +6932,8 @@ tile_03
     x = 0xfffffffb
     y = 0xfffffff5
     flags = 0x00
-    tex_x = 0x95
-    tex_y = 0xa0
+    u = 0x95
+    v = 0xa0
     width = 0x0e
     height = 0x08
 tile_04
@@ -6941,8 +6941,8 @@ tile_04
     x = 0xfffffff6
     y = 0xfffffffb
     flags = 0x00
-    tex_x = 0x36
-    tex_y = 0xee
+    u = 0x36
+    v = 0xee
     width = 0x05
     height = 0x04
 tile_05
@@ -6950,8 +6950,8 @@ tile_05
     x = 0xfffffff8
     y = 0xfffffff5
     flags = 0x00
-    tex_x = 0x61
-    tex_y = 0xe1
+    u = 0x61
+    v = 0xe1
     width = 0x03
     height = 0x06
 tile_06
@@ -6959,8 +6959,8 @@ tile_06
     x = 0x000a
     y = 0xffffffee
     flags = 0x00
-    tex_x = 0x53
-    tex_y = 0xe8
+    u = 0x53
+    v = 0xe8
     width = 0x02
     height = 0x05
 tile_07
@@ -6968,8 +6968,8 @@ tile_07
     x = 0xfffffff9
     y = 0xffffffeb
     flags = 0x00
-    tex_x = 0xae
-    tex_y = 0x76
+    u = 0xae
+    v = 0x76
     width = 0x11
     height = 0x0a
 tile_08
@@ -6977,8 +6977,8 @@ tile_08
     x = 0x0006
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0x09
-    tex_y = 0xcc
+    u = 0x09
+    v = 0xcc
     width = 0x03
     height = 0x07
 tile_09
@@ -6986,8 +6986,8 @@ tile_09
     x = 0xfffffffb
     y = 0xffffffe2
     flags = 0x00
-    tex_x = 0xd6
-    tex_y = 0x8c
+    u = 0xd6
+    v = 0x8c
     width = 0x0b
     height = 0x09
 number_of_tile = 0x0a
@@ -6997,8 +6997,8 @@ tile_00
     x = 0xfffffffc
     y = 0xffffffea
     flags = 0x00
-    tex_x = 0xed
-    tex_y = 0x76
+    u = 0xed
+    v = 0x76
     width = 0x0e
     height = 0x0a
 tile_01
@@ -7006,8 +7006,8 @@ tile_01
     x = 0xfffffffb
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0x83
-    tex_y = 0xd3
+    u = 0x83
+    v = 0xd3
     width = 0x0e
     height = 0x06
 tile_02
@@ -7015,8 +7015,8 @@ tile_02
     x = 0x0000
     y = 0xffffffdc
     flags = 0x00
-    tex_x = 0xb1
-    tex_y = 0xa0
+    u = 0xb1
+    v = 0xa0
     width = 0x0c
     height = 0x08
 tile_03
@@ -7024,8 +7024,8 @@ tile_03
     x = 0x0000
     y = 0xffffffd4
     flags = 0x00
-    tex_x = 0xf9
-    tex_y = 0xba
+    u = 0xf9
+    v = 0xba
     width = 0x05
     height = 0x08
 tile_04
@@ -7033,8 +7033,8 @@ tile_04
     x = 0xfffffffb
     y = 0xffffffdd
     flags = 0x00
-    tex_x = 0xd3
-    tex_y = 0xcb
+    u = 0xd3
+    v = 0xcb
     width = 0x05
     height = 0x07
 tile_05
@@ -7042,8 +7042,8 @@ tile_05
     x = 0xfffffff9
     y = 0xffffffd4
     flags = 0x00
-    tex_x = 0x7a
-    tex_y = 0x96
+    u = 0x7a
+    v = 0x96
     width = 0x07
     height = 0x09
 tile_06
@@ -7051,8 +7051,8 @@ tile_06
     x = 0xfffffffe
     y = 0x0002
     flags = 0x00
-    tex_x = 0x48
-    tex_y = 0xf7
+    u = 0x48
+    v = 0xf7
     width = 0x0a
     height = 0x02
 tile_07
@@ -7060,8 +7060,8 @@ tile_07
     x = 0x0006
     y = 0x0001
     flags = 0x00
-    tex_x = 0x64
-    tex_y = 0xfa
+    u = 0x64
+    v = 0xfa
     width = 0x01
     height = 0x01
 tile_08
@@ -7069,8 +7069,8 @@ tile_08
     x = 0xfffffffb
     y = 0xfffffffa
     flags = 0x00
-    tex_x = 0x0d
-    tex_y = 0xa9
+    u = 0x0d
+    v = 0xa9
     width = 0x0b
     height = 0x08
 tile_09
@@ -7078,8 +7078,8 @@ tile_09
     x = 0xfffffffb
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0x1b
-    tex_y = 0xda
+    u = 0x1b
+    v = 0xda
     width = 0x0c
     height = 0x06
 number_of_tile = 0x0a
@@ -7089,8 +7089,8 @@ tile_00
     x = 0x0007
     y = 0xffffffdf
     flags = 0x00
-    tex_x = 0x3c
-    tex_y = 0xee
+    u = 0x3c
+    v = 0xee
     width = 0x05
     height = 0x04
 tile_01
@@ -7098,8 +7098,8 @@ tile_01
     x = 0xfffffffa
     y = 0xffffffd6
     flags = 0x00
-    tex_x = 0x0e
-    tex_y = 0x44
+    u = 0x0e
+    v = 0x44
     width = 0x0d
     height = 0x0d
 tile_02
@@ -7107,8 +7107,8 @@ tile_02
     x = 0xfffffffc
     y = 0xfffffffe
     flags = 0x00
-    tex_x = 0xa9
-    tex_y = 0x81
+    u = 0xa9
+    v = 0x81
     width = 0x0b
     height = 0x0a
 tile_03
@@ -7116,8 +7116,8 @@ tile_03
     x = 0xfffffff9
     y = 0xfffffff2
     flags = 0x00
-    tex_x = 0xb2
-    tex_y = 0x51
+    u = 0xb2
+    v = 0x51
     width = 0x0e
     height = 0x0c
 tile_04
@@ -7125,8 +7125,8 @@ tile_04
     x = 0xfffffff7
     y = 0xfffffff8
     flags = 0x00
-    tex_x = 0x65
-    tex_y = 0xf2
+    u = 0x65
+    v = 0xf2
     width = 0x02
     height = 0x04
 tile_05
@@ -7134,8 +7134,8 @@ tile_05
     x = 0xfffffff3
     y = 0xfffffff2
     flags = 0x00
-    tex_x = 0x59
-    tex_y = 0xfa
+    u = 0x59
+    v = 0xfa
     width = 0x02
     height = 0x01
 tile_06
@@ -7143,8 +7143,8 @@ tile_06
     x = 0x000b
     y = 0xffffffe8
     flags = 0x00
-    tex_x = 0x4c
-    tex_y = 0x82
+    u = 0x4c
+    v = 0x82
     width = 0x06
     height = 0x0a
 tile_07
@@ -7152,8 +7152,8 @@ tile_07
     x = 0xfffffffa
     y = 0xffffffe3
     flags = 0x00
-    tex_x = 0xbf
-    tex_y = 0x24
+    u = 0xbf
+    v = 0x24
     width = 0x11
     height = 0x0f
 tile_08
@@ -7161,8 +7161,8 @@ tile_08
     x = 0xfffffff6
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0x9c
-    tex_y = 0x51
+    u = 0x9c
+    v = 0x51
     width = 0x04
     height = 0x0d
 tile_09
@@ -7170,8 +7170,8 @@ tile_09
     x = 0xfffffff1
     y = 0xffffffea
     flags = 0x00
-    tex_x = 0x01
-    tex_y = 0xbb
+    u = 0x01
+    v = 0xbb
     width = 0x05
     height = 0x08
 number_of_tile = 0x0a
@@ -7181,8 +7181,8 @@ tile_00
     x = 0x0007
     y = 0xffffffde
     flags = 0x00
-    tex_x = 0x3c
-    tex_y = 0xee
+    u = 0x3c
+    v = 0xee
     width = 0x05
     height = 0x04
 tile_01
@@ -7190,8 +7190,8 @@ tile_01
     x = 0xfffffffa
     y = 0xffffffd5
     flags = 0x00
-    tex_x = 0x0e
-    tex_y = 0x44
+    u = 0x0e
+    v = 0x44
     width = 0x0d
     height = 0x0d
 tile_02
@@ -7199,8 +7199,8 @@ tile_02
     x = 0xfffffffc
     y = 0xfffffffe
     flags = 0x00
-    tex_x = 0x3d
-    tex_y = 0x8d
+    u = 0x3d
+    v = 0x8d
     width = 0x09
     height = 0x09
 tile_03
@@ -7208,8 +7208,8 @@ tile_03
     x = 0x0005
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0x19
-    tex_y = 0x30
+    u = 0x19
+    v = 0x30
     width = 0x02
     height = 0x04
 tile_04
@@ -7217,8 +7217,8 @@ tile_04
     x = 0xfffffff8
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0x2b
-    tex_y = 0x77
+    u = 0x2b
+    v = 0x77
     width = 0x0d
     height = 0x0a
 tile_05
@@ -7226,8 +7226,8 @@ tile_05
     x = 0x000b
     y = 0xffffffe9
     flags = 0x00
-    tex_x = 0xbb
-    tex_y = 0x96
+    u = 0xbb
+    v = 0x96
     width = 0x04
     height = 0x09
 tile_06
@@ -7235,8 +7235,8 @@ tile_06
     x = 0xfffffffa
     y = 0xffffffe2
     flags = 0x00
-    tex_x = 0x30
-    tex_y = 0x01
+    u = 0x30
+    v = 0x01
     width = 0x11
     height = 0x12
 tile_07
@@ -7244,8 +7244,8 @@ tile_07
     x = 0xfffffff6
     y = 0xffffffee
     flags = 0x00
-    tex_x = 0x59
-    tex_y = 0xe8
+    u = 0x59
+    v = 0xe8
     width = 0x02
     height = 0x05
 tile_08
@@ -7253,8 +7253,8 @@ tile_08
     x = 0xfffffff6
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0x64
-    tex_y = 0x82
+    u = 0x64
+    v = 0x82
     width = 0x04
     height = 0x0a
 tile_09
@@ -7262,8 +7262,8 @@ tile_09
     x = 0xfffffff2
     y = 0xffffffea
     flags = 0x00
-    tex_x = 0xb6
-    tex_y = 0x96
+    u = 0xb6
+    v = 0x96
     width = 0x04
     height = 0x09
 number_of_tile = 0x0a
@@ -7273,8 +7273,8 @@ tile_00
     x = 0x0007
     y = 0xffffffdd
     flags = 0x00
-    tex_x = 0x3c
-    tex_y = 0xee
+    u = 0x3c
+    v = 0xee
     width = 0x05
     height = 0x04
 tile_01
@@ -7282,8 +7282,8 @@ tile_01
     x = 0xfffffffa
     y = 0xffffffd4
     flags = 0x00
-    tex_x = 0x0e
-    tex_y = 0x44
+    u = 0x0e
+    v = 0x44
     width = 0x0d
     height = 0x0d
 tile_02
@@ -7291,8 +7291,8 @@ tile_02
     x = 0xfffffff9
     y = 0xfffffffd
     flags = 0x00
-    tex_x = 0x13
-    tex_y = 0xb2
+    u = 0x13
+    v = 0xb2
     width = 0x08
     height = 0x08
 tile_03
@@ -7300,8 +7300,8 @@ tile_03
     x = 0xfffffff9
     y = 0xfffffffc
     flags = 0x00
-    tex_x = 0x2d
-    tex_y = 0xfa
+    u = 0x2d
+    v = 0xfa
     width = 0x09
     height = 0x01
 tile_04
@@ -7309,8 +7309,8 @@ tile_04
     x = 0x0007
     y = 0xfffffff1
     flags = 0x00
-    tex_x = 0x82
-    tex_y = 0xe1
+    u = 0x82
+    v = 0xe1
     width = 0x02
     height = 0x06
 tile_05
@@ -7318,8 +7318,8 @@ tile_05
     x = 0xfffffff7
     y = 0xfffffff1
     flags = 0x00
-    tex_x = 0x50
-    tex_y = 0x5f
+    u = 0x50
+    v = 0x5f
     width = 0x10
     height = 0x0b
 tile_06
@@ -7327,8 +7327,8 @@ tile_06
     x = 0xfffffff5
     y = 0xfffffff1
     flags = 0x00
-    tex_x = 0x56
-    tex_y = 0xfa
+    u = 0x56
+    v = 0xfa
     width = 0x02
     height = 0x01
 tile_07
@@ -7336,8 +7336,8 @@ tile_07
     x = 0x0009
     y = 0xffffffe7
     flags = 0x00
-    tex_x = 0x0a
-    tex_y = 0x47
+    u = 0x0a
+    v = 0x47
     width = 0x03
     height = 0x0a
 tile_08
@@ -7345,8 +7345,8 @@ tile_08
     x = 0xfffffff7
     y = 0xffffffe1
     flags = 0x00
-    tex_x = 0x85
-    tex_y = 0x13
+    u = 0x85
+    v = 0x13
     width = 0x12
     height = 0x10
 tile_09
@@ -7354,8 +7354,8 @@ tile_09
     x = 0xfffffff5
     y = 0xffffffea
     flags = 0x00
-    tex_x = 0x23
-    tex_y = 0xcc
+    u = 0x23
+    v = 0xcc
     width = 0x02
     height = 0x07
 number_of_tile = 0x0a
@@ -7365,8 +7365,8 @@ tile_00
     x = 0x0007
     y = 0xffffffde
     flags = 0x00
-    tex_x = 0x3c
-    tex_y = 0xee
+    u = 0x3c
+    v = 0xee
     width = 0x05
     height = 0x04
 tile_01
@@ -7374,8 +7374,8 @@ tile_01
     x = 0xfffffffa
     y = 0xffffffd5
     flags = 0x00
-    tex_x = 0x0e
-    tex_y = 0x44
+    u = 0x0e
+    v = 0x44
     width = 0x0d
     height = 0x0d
 tile_02
@@ -7383,8 +7383,8 @@ tile_02
     x = 0x0002
     y = 0xfffffffb
     flags = 0x00
-    tex_x = 0x22
-    tex_y = 0xe1
+    u = 0x22
+    v = 0xe1
     width = 0x07
     height = 0x06
 tile_03
@@ -7392,8 +7392,8 @@ tile_03
     x = 0x0002
     y = 0xfffffff3
     flags = 0x00
-    tex_x = 0x0a
-    tex_y = 0xb2
+    u = 0x0a
+    v = 0xb2
     width = 0x08
     height = 0x08
 tile_04
@@ -7401,8 +7401,8 @@ tile_04
     x = 0xfffffffc
     y = 0xfffffffe
     flags = 0x00
-    tex_x = 0xfe
-    tex_y = 0xd3
+    u = 0xfe
+    v = 0xd3
     width = 0x01
     height = 0x03
 tile_05
@@ -7410,8 +7410,8 @@ tile_05
     x = 0xfffffffc
     y = 0xfffffff3
     flags = 0x00
-    tex_x = 0x79
-    tex_y = 0x6b
+    u = 0x79
+    v = 0x6b
     width = 0x06
     height = 0x0b
 tile_06
@@ -7419,8 +7419,8 @@ tile_06
     x = 0xfffffff6
     y = 0xfffffff3
     flags = 0x00
-    tex_x = 0xd9
-    tex_y = 0x23
+    u = 0xd9
+    v = 0x23
     width = 0x06
     height = 0x10
 tile_07
@@ -7428,8 +7428,8 @@ tile_07
     x = 0x0009
     y = 0xffffffe8
     flags = 0x00
-    tex_x = 0xfd
-    tex_y = 0x12
+    u = 0xfd
+    v = 0x12
     width = 0x02
     height = 0x0b
 tile_08
@@ -7437,8 +7437,8 @@ tile_08
     x = 0xfffffff8
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0xad
-    tex_y = 0x24
+    u = 0xad
+    v = 0x24
     width = 0x11
     height = 0x0f
 tile_09
@@ -7446,8 +7446,8 @@ tile_09
     x = 0xfffffffb
     y = 0xffffffe2
     flags = 0x00
-    tex_x = 0xf0
-    tex_y = 0xf6
+    u = 0xf0
+    v = 0xf6
     width = 0x0e
     height = 0x02
 number_of_tile = 0x0a
@@ -7457,8 +7457,8 @@ tile_00
     x = 0x0007
     y = 0xffffffdf
     flags = 0x00
-    tex_x = 0x3c
-    tex_y = 0xee
+    u = 0x3c
+    v = 0xee
     width = 0x05
     height = 0x04
 tile_01
@@ -7466,8 +7466,8 @@ tile_01
     x = 0xfffffffa
     y = 0xffffffd6
     flags = 0x00
-    tex_x = 0x0e
-    tex_y = 0x44
+    u = 0x0e
+    v = 0x44
     width = 0x0d
     height = 0x0d
 tile_02
@@ -7475,8 +7475,8 @@ tile_02
     x = 0x0003
     y = 0x0000
     flags = 0x00
-    tex_x = 0x0e
-    tex_y = 0xf3
+    u = 0x0e
+    v = 0xf3
     width = 0x0c
     height = 0x03
 tile_03
@@ -7484,8 +7484,8 @@ tile_03
     x = 0x0003
     y = 0xfffffff1
     flags = 0x00
-    tex_x = 0x52
-    tex_y = 0x34
+    u = 0x52
+    v = 0x34
     width = 0x0a
     height = 0x0f
 tile_04
@@ -7493,8 +7493,8 @@ tile_04
     x = 0xfffffff4
     y = 0xfffffffb
     flags = 0x00
-    tex_x = 0xb4
-    tex_y = 0xda
+    u = 0xb4
+    v = 0xda
     width = 0x0a
     height = 0x06
 tile_05
@@ -7502,8 +7502,8 @@ tile_05
     x = 0xffffffff
     y = 0xfffffff1
     flags = 0x00
-    tex_x = 0x5f
-    tex_y = 0x82
+    u = 0x5f
+    v = 0x82
     width = 0x04
     height = 0x0a
 tile_06
@@ -7511,8 +7511,8 @@ tile_06
     x = 0xfffffff7
     y = 0xfffffff1
     flags = 0x00
-    tex_x = 0x25
-    tex_y = 0x82
+    u = 0x25
+    v = 0x82
     width = 0x08
     height = 0x0a
 tile_07
@@ -7520,8 +7520,8 @@ tile_07
     x = 0xfffffff4
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0x11
-    tex_y = 0xcc
+    u = 0x11
+    v = 0xcc
     width = 0x03
     height = 0x07
 tile_08
@@ -7529,8 +7529,8 @@ tile_08
     x = 0x0009
     y = 0xffffffec
     flags = 0x00
-    tex_x = 0x56
-    tex_y = 0xe8
+    u = 0x56
+    v = 0xe8
     width = 0x02
     height = 0x05
 tile_09
@@ -7538,8 +7538,8 @@ tile_09
     x = 0xfffffff9
     y = 0xffffffe3
     flags = 0x00
-    tex_x = 0xc4
-    tex_y = 0x34
+    u = 0xc4
+    v = 0x34
     width = 0x10
     height = 0x0e
 number_of_tile = 0x0a
@@ -7549,8 +7549,8 @@ tile_00
     x = 0x0007
     y = 0xffffffde
     flags = 0x00
-    tex_x = 0x3c
-    tex_y = 0xee
+    u = 0x3c
+    v = 0xee
     width = 0x05
     height = 0x04
 tile_01
@@ -7558,8 +7558,8 @@ tile_01
     x = 0xfffffffa
     y = 0xffffffd5
     flags = 0x00
-    tex_x = 0x0e
-    tex_y = 0x44
+    u = 0x0e
+    v = 0x44
     width = 0x0d
     height = 0x0d
 tile_02
@@ -7567,8 +7567,8 @@ tile_02
     x = 0x0002
     y = 0xfffffffd
     flags = 0x00
-    tex_x = 0x92
-    tex_y = 0xe7
+    u = 0x92
+    v = 0xe7
     width = 0x0c
     height = 0x05
 tile_03
@@ -7576,8 +7576,8 @@ tile_03
     x = 0x0002
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0x33
-    tex_y = 0x8d
+    u = 0x33
+    v = 0x8d
     width = 0x09
     height = 0x09
 tile_04
@@ -7585,8 +7585,8 @@ tile_04
     x = 0xfffffff9
     y = 0xfffffffb
     flags = 0x00
-    tex_x = 0x6b
-    tex_y = 0xf6
+    u = 0x6b
+    v = 0xf6
     width = 0x06
     height = 0x03
 tile_05
@@ -7594,8 +7594,8 @@ tile_05
     x = 0xfffffff9
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0xdf
-    tex_y = 0xc3
+    u = 0xdf
+    v = 0xc3
     width = 0x09
     height = 0x07
 tile_06
@@ -7603,8 +7603,8 @@ tile_06
     x = 0xfffffff3
     y = 0xfffffff7
     flags = 0x00
-    tex_x = 0x72
-    tex_y = 0x6b
+    u = 0x72
+    v = 0x6b
     width = 0x06
     height = 0x0b
 tile_07
@@ -7612,8 +7612,8 @@ tile_07
     x = 0xfffffff6
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0xc4
-    tex_y = 0xf6
+    u = 0xc4
+    v = 0xf6
     width = 0x03
     height = 0x03
 tile_08
@@ -7621,8 +7621,8 @@ tile_08
     x = 0x000a
     y = 0xffffffea
     flags = 0x00
-    tex_x = 0x20
-    tex_y = 0xcc
+    u = 0x20
+    v = 0xcc
     width = 0x02
     height = 0x07
 tile_09
@@ -7630,8 +7630,8 @@ tile_09
     x = 0xfffffff8
     y = 0xffffffe2
     flags = 0x00
-    tex_x = 0x1d
-    tex_y = 0x01
+    u = 0x1d
+    v = 0x01
     width = 0x12
     height = 0x12
 number_of_tile = 0x0a
@@ -7641,8 +7641,8 @@ tile_00
     x = 0x0007
     y = 0xffffffdd
     flags = 0x00
-    tex_x = 0x3c
-    tex_y = 0xee
+    u = 0x3c
+    v = 0xee
     width = 0x05
     height = 0x04
 tile_01
@@ -7650,8 +7650,8 @@ tile_01
     x = 0xfffffffa
     y = 0xffffffd4
     flags = 0x00
-    tex_x = 0x0e
-    tex_y = 0x44
+    u = 0x0e
+    v = 0x44
     width = 0x0d
     height = 0x0d
 tile_02
@@ -7659,8 +7659,8 @@ tile_02
     x = 0x0009
     y = 0xfffffffd
     flags = 0x00
-    tex_x = 0xfe
-    tex_y = 0xf9
+    u = 0xfe
+    v = 0xf9
     width = 0x01
     height = 0x02
 tile_03
@@ -7668,8 +7668,8 @@ tile_03
     x = 0x0000
     y = 0xfffffff6
     flags = 0x00
-    tex_x = 0xde
-    tex_y = 0x81
+    u = 0xde
+    v = 0x81
     width = 0x09
     height = 0x0a
 tile_04
@@ -7677,8 +7677,8 @@ tile_04
     x = 0xfffffff5
     y = 0xfffffff6
     flags = 0x00
-    tex_x = 0x9d
-    tex_y = 0x81
+    u = 0x9d
+    v = 0x81
     width = 0x0b
     height = 0x0a
 tile_05
@@ -7686,8 +7686,8 @@ tile_05
     x = 0xfffffff8
     y = 0xfffffff1
     flags = 0x00
-    tex_x = 0x85
-    tex_y = 0xe1
+    u = 0x85
+    v = 0xe1
     width = 0x11
     height = 0x05
 tile_06
@@ -7695,8 +7695,8 @@ tile_06
     x = 0xfffffff5
     y = 0xfffffff1
     flags = 0x00
-    tex_x = 0xfa
-    tex_y = 0xf9
+    u = 0xfa
+    v = 0xf9
     width = 0x03
     height = 0x02
 tile_07
@@ -7704,8 +7704,8 @@ tile_07
     x = 0x000a
     y = 0xffffffe7
     flags = 0x00
-    tex_x = 0xfb
-    tex_y = 0x81
+    u = 0xfb
+    v = 0x81
     width = 0x04
     height = 0x0a
 tile_08
@@ -7713,8 +7713,8 @@ tile_08
     x = 0xfffffff7
     y = 0xffffffe1
     flags = 0x00
-    tex_x = 0x71
-    tex_y = 0x13
+    u = 0x71
+    v = 0x13
     width = 0x13
     height = 0x10
 tile_09
@@ -7722,8 +7722,8 @@ tile_09
     x = 0xfffffff4
     y = 0xffffffea
     flags = 0x00
-    tex_x = 0x0d
-    tex_y = 0xcc
+    u = 0x0d
+    v = 0xcc
     width = 0x03
     height = 0x07
 number_of_tile = 0x0a
@@ -7733,8 +7733,8 @@ tile_00
     x = 0x0007
     y = 0xffffffde
     flags = 0x00
-    tex_x = 0x3c
-    tex_y = 0xee
+    u = 0x3c
+    v = 0xee
     width = 0x05
     height = 0x04
 tile_01
@@ -7742,8 +7742,8 @@ tile_01
     x = 0xfffffffa
     y = 0xffffffd5
     flags = 0x00
-    tex_x = 0x0e
-    tex_y = 0x44
+    u = 0x0e
+    v = 0x44
     width = 0x0d
     height = 0x0d
 tile_02
@@ -7751,8 +7751,8 @@ tile_02
     x = 0xfffffff9
     y = 0xffffffff
     flags = 0x00
-    tex_x = 0xdd
-    tex_y = 0xda
+    u = 0xdd
+    v = 0xda
     width = 0x09
     height = 0x06
 tile_03
@@ -7760,8 +7760,8 @@ tile_03
     x = 0xfffffffb
     y = 0xfffffff5
     flags = 0x00
-    tex_x = 0x60
-    tex_y = 0x77
+    u = 0x60
+    v = 0x77
     width = 0x0c
     height = 0x0a
 tile_04
@@ -7769,8 +7769,8 @@ tile_04
     x = 0xfffffffb
     y = 0xfffffff1
     flags = 0x00
-    tex_x = 0x6a
-    tex_y = 0xed
+    u = 0x6a
+    v = 0xed
     width = 0x0d
     height = 0x04
 tile_05
@@ -7778,8 +7778,8 @@ tile_05
     x = 0xfffffff9
     y = 0xfffffff7
     flags = 0x00
-    tex_x = 0x3e
-    tex_y = 0xbb
+    u = 0x3e
+    v = 0xbb
     width = 0x02
     height = 0x08
 tile_06
@@ -7787,8 +7787,8 @@ tile_06
     x = 0xfffffff3
     y = 0xfffffff1
     flags = 0x00
-    tex_x = 0xe0
-    tex_y = 0xf9
+    u = 0xe0
+    v = 0xf9
     width = 0x04
     height = 0x02
 tile_07
@@ -7796,8 +7796,8 @@ tile_07
     x = 0x000c
     y = 0xffffffe9
     flags = 0x00
-    tex_x = 0x07
-    tex_y = 0xbb
+    u = 0x07
+    v = 0xbb
     width = 0x04
     height = 0x08
 tile_08
@@ -7805,8 +7805,8 @@ tile_08
     x = 0xfffffff6
     y = 0xffffffe2
     flags = 0x00
-    tex_x = 0xe0
-    tex_y = 0x23
+    u = 0xe0
+    v = 0x23
     width = 0x16
     height = 0x0f
 tile_09
@@ -7814,8 +7814,8 @@ tile_09
     x = 0xfffffff2
     y = 0xffffffea
     flags = 0x00
-    tex_x = 0xed
-    tex_y = 0xcb
+    u = 0xed
+    v = 0xcb
     width = 0x04
     height = 0x07
 number_of_tile = 0x0a
@@ -7825,8 +7825,8 @@ tile_00
     x = 0x0008
     y = 0xffffffe7
     flags = 0x00
-    tex_x = 0xe1
-    tex_y = 0x70
+    u = 0xe1
+    v = 0x70
     width = 0x01
     height = 0x04
 tile_01
@@ -7834,8 +7834,8 @@ tile_01
     x = 0x0008
     y = 0xffffffdd
     flags = 0x00
-    tex_x = 0x97
-    tex_y = 0x96
+    u = 0x97
+    v = 0x96
     width = 0x05
     height = 0x09
 tile_02
@@ -7843,8 +7843,8 @@ tile_02
     x = 0x0000
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0x45
-    tex_y = 0x14
+    u = 0x45
+    v = 0x14
     width = 0x09
     height = 0x10
 tile_03
@@ -7852,8 +7852,8 @@ tile_03
     x = 0xfffffff7
     y = 0xffffffe4
     flags = 0x00
-    tex_x = 0x4f
-    tex_y = 0x14
+    u = 0x4f
+    v = 0x14
     width = 0x09
     height = 0x10
 tile_04
@@ -7861,8 +7861,8 @@ tile_04
     x = 0xfffffff9
     y = 0xffffffd4
     flags = 0x00
-    tex_x = 0x09
-    tex_y = 0x17
+    u = 0x09
+    v = 0x17
     width = 0x07
     height = 0x10
 tile_05
@@ -7870,8 +7870,8 @@ tile_05
     x = 0x0000
     y = 0xffffffdd
     flags = 0x00
-    tex_x = 0x52
-    tex_y = 0xcb
+    u = 0x52
+    v = 0xcb
     width = 0x08
     height = 0x07
 tile_06
@@ -7879,8 +7879,8 @@ tile_06
     x = 0x0000
     y = 0xffffffd4
     flags = 0x00
-    tex_x = 0x90
-    tex_y = 0x96
+    u = 0x90
+    v = 0x96
     width = 0x06
     height = 0x09
 tile_07
@@ -7888,8 +7888,8 @@ tile_07
     x = 0x0000
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0x31
-    tex_y = 0x52
+    u = 0x31
+    v = 0x52
     width = 0x0c
     height = 0x0c
 tile_08
@@ -7897,8 +7897,8 @@ tile_08
     x = 0xfffffff9
     y = 0xfffffffd
     flags = 0x00
-    tex_x = 0x94
-    tex_y = 0xb2
+    u = 0x94
+    v = 0xb2
     width = 0x07
     height = 0x08
 tile_09
@@ -7906,8 +7906,8 @@ tile_09
     x = 0xfffffff7
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0x29
-    tex_y = 0x8d
+    u = 0x29
+    v = 0x8d
     width = 0x09
     height = 0x09
 number_of_tile = 0x0a
@@ -7917,8 +7917,8 @@ tile_00
     x = 0xfffffffa
     y = 0xffffffdd
     flags = 0x00
-    tex_x = 0xae
-    tex_y = 0xd3
+    u = 0xae
+    v = 0xd3
     width = 0x0d
     height = 0x06
 tile_01
@@ -7926,8 +7926,8 @@ tile_01
     x = 0xfffffffb
     y = 0xffffffd6
     flags = 0x00
-    tex_x = 0xe9
-    tex_y = 0xc3
+    u = 0xe9
+    v = 0xc3
     width = 0x09
     height = 0x07
 tile_02
@@ -7935,8 +7935,8 @@ tile_02
     x = 0xfffffff7
     y = 0xffffffff
     flags = 0x00
-    tex_x = 0xa4
-    tex_y = 0xb2
+    u = 0xa4
+    v = 0xb2
     width = 0x07
     height = 0x08
 tile_03
@@ -7944,8 +7944,8 @@ tile_03
     x = 0x0006
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0x50
-    tex_y = 0x3c
+    u = 0x50
+    v = 0x3c
     width = 0x01
     height = 0x05
 tile_04
@@ -7953,8 +7953,8 @@ tile_04
     x = 0xfffffff6
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0x61
-    tex_y = 0x5f
+    u = 0x61
+    v = 0x5f
     width = 0x10
     height = 0x0b
 tile_05
@@ -7962,8 +7962,8 @@ tile_05
     x = 0x000a
     y = 0xffffffed
     flags = 0x00
-    tex_x = 0x19
-    tex_y = 0xcc
+    u = 0x19
+    v = 0xcc
     width = 0x03
     height = 0x07
 tile_06
@@ -7971,8 +7971,8 @@ tile_06
     x = 0x000a
     y = 0xffffffeb
     flags = 0x00
-    tex_x = 0x0d
-    tex_y = 0xfa
+    u = 0x0d
+    v = 0xfa
     width = 0x01
     height = 0x02
 tile_07
@@ -7980,8 +7980,8 @@ tile_07
     x = 0xfffffff8
     y = 0xffffffe3
     flags = 0x00
-    tex_x = 0x98
-    tex_y = 0x01
+    u = 0x98
+    v = 0x01
     width = 0x12
     height = 0x11
 tile_08
@@ -7989,8 +7989,8 @@ tile_08
     x = 0xfffffff2
     y = 0xffffffe9
     flags = 0x00
-    tex_x = 0xb4
-    tex_y = 0xcb
+    u = 0xb4
+    v = 0xcb
     width = 0x06
     height = 0x07
 tile_09
@@ -7998,8 +7998,8 @@ tile_09
     x = 0xfffffff5
     y = 0xffffffe3
     flags = 0x00
-    tex_x = 0x69
-    tex_y = 0xe1
+    u = 0x69
+    v = 0xe1
     width = 0x03
     height = 0x06
 number_of_tile = 0x0a
@@ -8009,8 +8009,8 @@ tile_00
     x = 0xfffffffa
     y = 0xffffffdc
     flags = 0x00
-    tex_x = 0xae
-    tex_y = 0xd3
+    u = 0xae
+    v = 0xd3
     width = 0x0d
     height = 0x06
 tile_01
@@ -8018,8 +8018,8 @@ tile_01
     x = 0xfffffffb
     y = 0xffffffd5
     flags = 0x00
-    tex_x = 0xe9
-    tex_y = 0xc3
+    u = 0xe9
+    v = 0xc3
     width = 0x09
     height = 0x07
 tile_02
@@ -8027,8 +8027,8 @@ tile_02
     x = 0xfffffffc
     y = 0xffffffff
     flags = 0x00
-    tex_x = 0xdd
-    tex_y = 0xf6
+    u = 0xdd
+    v = 0xf6
     width = 0x02
     height = 0x03
 tile_03
@@ -8036,8 +8036,8 @@ tile_03
     x = 0xfffffff6
     y = 0xffffffff
     flags = 0x00
-    tex_x = 0xad
-    tex_y = 0xcb
+    u = 0xad
+    v = 0xcb
     width = 0x06
     height = 0x07
 tile_04
@@ -8045,8 +8045,8 @@ tile_04
     x = 0x0002
     y = 0xfffffffc
     flags = 0x00
-    tex_x = 0xb3
-    tex_y = 0xf6
+    u = 0xb3
+    v = 0xf6
     width = 0x04
     height = 0x03
 tile_05
@@ -8054,8 +8054,8 @@ tile_05
     x = 0xffffffff
     y = 0xfffffff2
     flags = 0x00
-    tex_x = 0xe8
-    tex_y = 0x81
+    u = 0xe8
+    v = 0x81
     width = 0x09
     height = 0x0a
 tile_06
@@ -8063,8 +8063,8 @@ tile_06
     x = 0xfffffff6
     y = 0xfffffff2
     flags = 0x00
-    tex_x = 0x4b
-    tex_y = 0x44
+    u = 0x4b
+    v = 0x44
     width = 0x09
     height = 0x0d
 tile_07
@@ -8072,8 +8072,8 @@ tile_07
     x = 0x000a
     y = 0xffffffe9
     flags = 0x00
-    tex_x = 0xeb
-    tex_y = 0x96
+    u = 0xeb
+    v = 0x96
     width = 0x03
     height = 0x09
 tile_08
@@ -8081,8 +8081,8 @@ tile_08
     x = 0xfffffff5
     y = 0xffffffe2
     flags = 0x00
-    tex_x = 0x5b
-    tex_y = 0x13
+    u = 0x5b
+    v = 0x13
     width = 0x15
     height = 0x10
 tile_09
@@ -8090,8 +8090,8 @@ tile_09
     x = 0xfffffff2
     y = 0xffffffe8
     flags = 0x00
-    tex_x = 0x30
-    tex_y = 0xbb
+    u = 0x30
+    v = 0xbb
     width = 0x03
     height = 0x08
 number_of_tile = 0x0a
@@ -8101,8 +8101,8 @@ tile_00
     x = 0xfffffffa
     y = 0xffffffdb
     flags = 0x00
-    tex_x = 0xae
-    tex_y = 0xd3
+    u = 0xae
+    v = 0xd3
     width = 0x0d
     height = 0x06
 tile_01
@@ -8110,8 +8110,8 @@ tile_01
     x = 0xfffffffb
     y = 0xffffffd4
     flags = 0x00
-    tex_x = 0xe9
-    tex_y = 0xc3
+    u = 0xe9
+    v = 0xc3
     width = 0x09
     height = 0x07
 tile_02
@@ -8119,8 +8119,8 @@ tile_02
     x = 0xfffffff6
     y = 0xfffffffe
     flags = 0x00
-    tex_x = 0xcf
-    tex_y = 0xe7
+    u = 0xcf
+    v = 0xe7
     width = 0x08
     height = 0x05
 tile_03
@@ -8128,8 +8128,8 @@ tile_03
     x = 0x0006
     y = 0xfffffff1
     flags = 0x00
-    tex_x = 0x41
-    tex_y = 0xbb
+    u = 0x41
+    v = 0xbb
     width = 0x02
     height = 0x08
 tile_04
@@ -8137,8 +8137,8 @@ tile_04
     x = 0xfffffffe
     y = 0xfffffff1
     flags = 0x00
-    tex_x = 0x8b
-    tex_y = 0x51
+    u = 0x8b
+    v = 0x51
     width = 0x08
     height = 0x0d
 tile_05
@@ -8146,8 +8146,8 @@ tile_05
     x = 0xfffffff6
     y = 0xfffffff1
     flags = 0x00
-    tex_x = 0x82
-    tex_y = 0x51
+    u = 0x82
+    v = 0x51
     width = 0x08
     height = 0x0d
 tile_06
@@ -8155,8 +8155,8 @@ tile_06
     x = 0x000a
     y = 0xffffffe7
     flags = 0x00
-    tex_x = 0x69
-    tex_y = 0x82
+    u = 0x69
+    v = 0x82
     width = 0x04
     height = 0x0a
 tile_07
@@ -8164,8 +8164,8 @@ tile_07
     x = 0xfffffff8
     y = 0xffffffe1
     flags = 0x00
-    tex_x = 0xab
-    tex_y = 0x13
+    u = 0xab
+    v = 0x13
     width = 0x12
     height = 0x10
 tile_08
@@ -8173,8 +8173,8 @@ tile_08
     x = 0xfffffff5
     y = 0xffffffe1
     flags = 0x00
-    tex_x = 0x0a
-    tex_y = 0x38
+    u = 0x0a
+    v = 0x38
     width = 0x03
     height = 0x0e
 tile_09
@@ -8182,8 +8182,8 @@ tile_09
     x = 0xfffffff1
     y = 0xffffffe7
     flags = 0x00
-    tex_x = 0xca
-    tex_y = 0x96
+    u = 0xca
+    v = 0x96
     width = 0x04
     height = 0x09
 number_of_tile = 0x0a
@@ -8193,8 +8193,8 @@ tile_00
     x = 0xfffffffa
     y = 0xffffffdc
     flags = 0x00
-    tex_x = 0xae
-    tex_y = 0xd3
+    u = 0xae
+    v = 0xd3
     width = 0x0d
     height = 0x06
 tile_01
@@ -8202,8 +8202,8 @@ tile_01
     x = 0xfffffffb
     y = 0xffffffd5
     flags = 0x00
-    tex_x = 0xe9
-    tex_y = 0xc3
+    u = 0xe9
+    v = 0xc3
     width = 0x09
     height = 0x07
 tile_02
@@ -8211,8 +8211,8 @@ tile_02
     x = 0x0002
     y = 0x0001
     flags = 0x00
-    tex_x = 0xa3
-    tex_y = 0xf6
+    u = 0xa3
+    v = 0xf6
     width = 0x05
     height = 0x03
 tile_03
@@ -8220,8 +8220,8 @@ tile_03
     x = 0xfffffff6
     y = 0xfffffffe
     flags = 0x00
-    tex_x = 0x7e
-    tex_y = 0xf2
+    u = 0x7e
+    v = 0xf2
     width = 0x11
     height = 0x03
 tile_04
@@ -8229,8 +8229,8 @@ tile_04
     x = 0xfffffff7
     y = 0xfffffff0
     flags = 0x00
-    tex_x = 0xb1
-    tex_y = 0x34
+    u = 0xb1
+    v = 0x34
     width = 0x12
     height = 0x0e
 tile_05
@@ -8238,8 +8238,8 @@ tile_05
     x = 0xfffffff6
     y = 0xfffffff0
     flags = 0x00
-    tex_x = 0x66
-    tex_y = 0xfa
+    u = 0x66
+    v = 0xfa
     width = 0x01
     height = 0x01
 tile_06
@@ -8247,8 +8247,8 @@ tile_06
     x = 0xfffffff2
     y = 0xfffffff0
     flags = 0x00
-    tex_x = 0xe5
-    tex_y = 0xf9
+    u = 0xe5
+    v = 0xf9
     width = 0x04
     height = 0x02
 tile_07
@@ -8256,8 +8256,8 @@ tile_07
     x = 0x000a
     y = 0xffffffe8
     flags = 0x00
-    tex_x = 0x2c
-    tex_y = 0xbb
+    u = 0x2c
+    v = 0xbb
     width = 0x03
     height = 0x08
 tile_08
@@ -8265,8 +8265,8 @@ tile_08
     x = 0xfffffff5
     y = 0xffffffe2
     flags = 0x00
-    tex_x = 0x9b
-    tex_y = 0x34
+    u = 0x9b
+    v = 0x34
     width = 0x15
     height = 0x0e
 tile_09
@@ -8274,8 +8274,8 @@ tile_09
     x = 0xfffffff2
     y = 0xffffffe9
     flags = 0x00
-    tex_x = 0x15
-    tex_y = 0xcc
+    u = 0x15
+    v = 0xcc
     width = 0x03
     height = 0x07
 number_of_tile = 0x0a
@@ -8285,8 +8285,8 @@ tile_00
     x = 0xfffffffa
     y = 0xffffffdd
     flags = 0x00
-    tex_x = 0xae
-    tex_y = 0xd3
+    u = 0xae
+    v = 0xd3
     width = 0x0d
     height = 0x06
 tile_01
@@ -8294,8 +8294,8 @@ tile_01
     x = 0xfffffffb
     y = 0xffffffd6
     flags = 0x00
-    tex_x = 0xe9
-    tex_y = 0xc3
+    u = 0xe9
+    v = 0xc3
     width = 0x09
     height = 0x07
 tile_02
@@ -8303,8 +8303,8 @@ tile_02
     x = 0x0001
     y = 0xffffffff
     flags = 0x00
-    tex_x = 0x9c
-    tex_y = 0xb2
+    u = 0x9c
+    v = 0xb2
     width = 0x07
     height = 0x08
 tile_03
@@ -8312,8 +8312,8 @@ tile_03
     x = 0x0000
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0x47
-    tex_y = 0x6b
+    u = 0x47
+    v = 0x6b
     width = 0x09
     height = 0x0b
 tile_04
@@ -8321,8 +8321,8 @@ tile_04
     x = 0xfffffff9
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0x6a
-    tex_y = 0x6b
+    u = 0x6a
+    v = 0x6b
     width = 0x07
     height = 0x0b
 tile_05
@@ -8330,8 +8330,8 @@ tile_05
     x = 0xfffffff8
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0x59
-    tex_y = 0x1e
+    u = 0x59
+    v = 0x1e
     width = 0x01
     height = 0x05
 tile_06
@@ -8339,8 +8339,8 @@ tile_06
     x = 0x0007
     y = 0xffffffe9
     flags = 0x00
-    tex_x = 0xa6
-    tex_y = 0xcb
+    u = 0xa6
+    v = 0xcb
     width = 0x06
     height = 0x07
 tile_07
@@ -8348,8 +8348,8 @@ tile_07
     x = 0x0007
     y = 0xffffffe3
     flags = 0x00
-    tex_x = 0x65
-    tex_y = 0xe1
+    u = 0x65
+    v = 0xe1
     width = 0x03
     height = 0x06
 tile_08
@@ -8357,8 +8357,8 @@ tile_08
     x = 0xfffffff5
     y = 0xffffffe3
     flags = 0x00
-    tex_x = 0x85
-    tex_y = 0x01
+    u = 0x85
+    v = 0x01
     width = 0x12
     height = 0x11
 tile_09
@@ -8366,8 +8366,8 @@ tile_09
     x = 0xfffffff2
     y = 0xffffffeb
     flags = 0x00
-    tex_x = 0xe7
-    tex_y = 0x96
+    u = 0xe7
+    v = 0x96
     width = 0x03
     height = 0x09
 number_of_tile = 0x0a
@@ -8377,8 +8377,8 @@ tile_00
     x = 0xfffffffa
     y = 0xffffffdc
     flags = 0x00
-    tex_x = 0xae
-    tex_y = 0xd3
+    u = 0xae
+    v = 0xd3
     width = 0x0d
     height = 0x06
 tile_01
@@ -8386,8 +8386,8 @@ tile_01
     x = 0xfffffffb
     y = 0xffffffd5
     flags = 0x00
-    tex_x = 0xe9
-    tex_y = 0xc3
+    u = 0xe9
+    v = 0xc3
     width = 0x09
     height = 0x07
 tile_02
@@ -8395,8 +8395,8 @@ tile_02
     x = 0x0002
     y = 0xffffffff
     flags = 0x00
-    tex_x = 0x7b
-    tex_y = 0xcb
+    u = 0x7b
+    v = 0xcb
     width = 0x07
     height = 0x07
 tile_03
@@ -8404,8 +8404,8 @@ tile_03
     x = 0x0000
     y = 0xfffffff2
     flags = 0x00
-    tex_x = 0x41
-    tex_y = 0x44
+    u = 0x41
+    v = 0x44
     width = 0x09
     height = 0x0d
 tile_04
@@ -8413,8 +8413,8 @@ tile_04
     x = 0xfffffff9
     y = 0xfffffff2
     flags = 0x00
-    tex_x = 0x94
-    tex_y = 0x51
+    u = 0x94
+    v = 0x51
     width = 0x07
     height = 0x0d
 tile_05
@@ -8422,8 +8422,8 @@ tile_05
     x = 0xfffffff7
     y = 0xfffffff2
     flags = 0x00
-    tex_x = 0xef
-    tex_y = 0x96
+    u = 0xef
+    v = 0x96
     width = 0x02
     height = 0x09
 tile_06
@@ -8431,8 +8431,8 @@ tile_06
     x = 0x000a
     y = 0xffffffe8
     flags = 0x00
-    tex_x = 0x28
-    tex_y = 0xbb
+    u = 0x28
+    v = 0xbb
     width = 0x03
     height = 0x08
 tile_07
@@ -8440,8 +8440,8 @@ tile_07
     x = 0x0007
     y = 0xffffffe2
     flags = 0x00
-    tex_x = 0x06
-    tex_y = 0x38
+    u = 0x06
+    v = 0x38
     width = 0x03
     height = 0x0e
 tile_08
@@ -8449,8 +8449,8 @@ tile_08
     x = 0xfffffff5
     y = 0xffffffe2
     flags = 0x00
-    tex_x = 0x98
-    tex_y = 0x13
+    u = 0x98
+    v = 0x13
     width = 0x12
     height = 0x10
 tile_09
@@ -8458,8 +8458,8 @@ tile_09
     x = 0xfffffff2
     y = 0xffffffe9
     flags = 0x00
-    tex_x = 0xe3
-    tex_y = 0x96
+    u = 0xe3
+    v = 0x96
     width = 0x03
     height = 0x09
 number_of_tile = 0x0a
@@ -8469,8 +8469,8 @@ tile_00
     x = 0xfffffffa
     y = 0xffffffdb
     flags = 0x00
-    tex_x = 0xae
-    tex_y = 0xd3
+    u = 0xae
+    v = 0xd3
     width = 0x0d
     height = 0x06
 tile_01
@@ -8478,8 +8478,8 @@ tile_01
     x = 0xfffffffb
     y = 0xffffffd4
     flags = 0x00
-    tex_x = 0xe9
-    tex_y = 0xc3
+    u = 0xe9
+    v = 0xc3
     width = 0x09
     height = 0x07
 tile_02
@@ -8487,8 +8487,8 @@ tile_02
     x = 0x0001
     y = 0xfffffff0
     flags = 0x00
-    tex_x = 0x14
-    tex_y = 0x01
+    u = 0x14
+    v = 0x01
     width = 0x08
     height = 0x13
 tile_03
@@ -8496,8 +8496,8 @@ tile_03
     x = 0xfffffffc
     y = 0xfffffff9
     flags = 0x00
-    tex_x = 0x9d
-    tex_y = 0xf6
+    u = 0x9d
+    v = 0xf6
     width = 0x05
     height = 0x03
 tile_04
@@ -8505,8 +8505,8 @@ tile_04
     x = 0xfffffff8
     y = 0xfffffff9
     flags = 0x00
-    tex_x = 0x2f
-    tex_y = 0xe8
+    u = 0x2f
+    v = 0xe8
     width = 0x04
     height = 0x05
 tile_05
@@ -8514,8 +8514,8 @@ tile_05
     x = 0xfffffff6
     y = 0xfffffff0
     flags = 0x00
-    tex_x = 0xe2
-    tex_y = 0x8c
+    u = 0xe2
+    v = 0x8c
     width = 0x0b
     height = 0x09
 tile_06
@@ -8523,8 +8523,8 @@ tile_06
     x = 0xfffffff2
     y = 0xfffffff0
     flags = 0x00
-    tex_x = 0x4c
-    tex_y = 0xfa
+    u = 0x4c
+    v = 0xfa
     width = 0x03
     height = 0x01
 tile_07
@@ -8532,8 +8532,8 @@ tile_07
     x = 0x000a
     y = 0xffffffe7
     flags = 0x00
-    tex_x = 0xc5
-    tex_y = 0x96
+    u = 0xc5
+    v = 0x96
     width = 0x04
     height = 0x09
 tile_08
@@ -8541,8 +8541,8 @@ tile_08
     x = 0xfffffff5
     y = 0xffffffe1
     flags = 0x00
-    tex_x = 0x6f
-    tex_y = 0x24
+    u = 0x6f
+    v = 0x24
     width = 0x15
     height = 0x0f
 tile_09
@@ -8550,8 +8550,8 @@ tile_09
     x = 0xfffffff1
     y = 0xffffffe7
     flags = 0x00
-    tex_x = 0xc0
-    tex_y = 0x96
+    u = 0xc0
+    v = 0x96
     width = 0x04
     height = 0x09
 number_of_tile = 0x0a
@@ -8561,8 +8561,8 @@ tile_00
     x = 0xfffffffa
     y = 0xffffffdc
     flags = 0x00
-    tex_x = 0xae
-    tex_y = 0xd3
+    u = 0xae
+    v = 0xd3
     width = 0x0d
     height = 0x06
 tile_01
@@ -8570,8 +8570,8 @@ tile_01
     x = 0xfffffffb
     y = 0xffffffd5
     flags = 0x00
-    tex_x = 0xe9
-    tex_y = 0xc3
+    u = 0xe9
+    v = 0xc3
     width = 0x09
     height = 0x07
 tile_02
@@ -8579,8 +8579,8 @@ tile_02
     x = 0xfffffff8
     y = 0x0001
     flags = 0x00
-    tex_x = 0x97
-    tex_y = 0xf6
+    u = 0x97
+    v = 0xf6
     width = 0x05
     height = 0x03
 tile_03
@@ -8588,8 +8588,8 @@ tile_03
     x = 0x0002
     y = 0xfffffffe
     flags = 0x00
-    tex_x = 0x72
-    tex_y = 0xf6
+    u = 0x72
+    v = 0xf6
     width = 0x06
     height = 0x03
 tile_04
@@ -8597,8 +8597,8 @@ tile_04
     x = 0xfffffffe
     y = 0xfffffff2
     flags = 0x00
-    tex_x = 0xa1
-    tex_y = 0x5e
+    u = 0xa1
+    v = 0x5e
     width = 0x0a
     height = 0x0c
 tile_05
@@ -8606,8 +8606,8 @@ tile_05
     x = 0xfffffff8
     y = 0xfffffffd
     flags = 0x00
-    tex_x = 0x1d
-    tex_y = 0xee
+    u = 0x1d
+    v = 0xee
     width = 0x06
     height = 0x04
 tile_06
@@ -8615,8 +8615,8 @@ tile_06
     x = 0xfffffff6
     y = 0xfffffff2
     flags = 0x00
-    tex_x = 0x51
-    tex_y = 0x6b
+    u = 0x51
+    v = 0x6b
     width = 0x08
     height = 0x0b
 tile_07
@@ -8624,8 +8624,8 @@ tile_07
     x = 0x000a
     y = 0xffffffe9
     flags = 0x00
-    tex_x = 0xdf
-    tex_y = 0x96
+    u = 0xdf
+    v = 0x96
     width = 0x03
     height = 0x09
 tile_08
@@ -8633,8 +8633,8 @@ tile_08
     x = 0xfffffff5
     y = 0xffffffe2
     flags = 0x00
-    tex_x = 0xdc
-    tex_y = 0x12
+    u = 0xdc
+    v = 0x12
     width = 0x15
     height = 0x10
 tile_09
@@ -8642,8 +8642,8 @@ tile_09
     x = 0xfffffff2
     y = 0xffffffe8
     flags = 0x00
-    tex_x = 0x24
-    tex_y = 0xbb
+    u = 0x24
+    v = 0xbb
     width = 0x03
     height = 0x08
 number_of_tile = 0x0a
@@ -8653,8 +8653,8 @@ tile_00
     x = 0x0007
     y = 0xffffffe1
     flags = 0x00
-    tex_x = 0x34
-    tex_y = 0xbb
+    u = 0x34
+    v = 0xbb
     width = 0x03
     height = 0x08
 tile_01
@@ -8662,8 +8662,8 @@ tile_01
     x = 0xfffffff5
     y = 0xffffffe1
     flags = 0x00
-    tex_x = 0x0a
-    tex_y = 0x5f
+    u = 0x0a
+    v = 0x5f
     width = 0x12
     height = 0x0b
 tile_02
@@ -8671,8 +8671,8 @@ tile_02
     x = 0xfffffff3
     y = 0xffffffe8
     flags = 0x00
-    tex_x = 0x68
-    tex_y = 0xf2
+    u = 0x68
+    v = 0xf2
     width = 0x02
     height = 0x04
 tile_03
@@ -8680,8 +8680,8 @@ tile_03
     x = 0xfffffffa
     y = 0xffffffdb
     flags = 0x00
-    tex_x = 0xbc
-    tex_y = 0xd3
+    u = 0xbc
+    v = 0xd3
     width = 0x0d
     height = 0x06
 tile_04
@@ -8689,8 +8689,8 @@ tile_04
     x = 0xfffffffb
     y = 0xffffffd4
     flags = 0x00
-    tex_x = 0xf3
-    tex_y = 0xc3
+    u = 0xf3
+    v = 0xc3
     width = 0x09
     height = 0x07
 tile_05
@@ -8698,8 +8698,8 @@ tile_05
     x = 0xfffffff7
     y = 0xffffffec
     flags = 0x00
-    tex_x = 0x4f
-    tex_y = 0xa0
+    u = 0x4f
+    v = 0xa0
     width = 0x12
     height = 0x08
 tile_06
@@ -8707,8 +8707,8 @@ tile_06
     x = 0xfffffff2
     y = 0xffffffec
     flags = 0x00
-    tex_x = 0x1f
-    tex_y = 0xe8
+    u = 0x1f
+    v = 0xe8
     width = 0x05
     height = 0x05
 tile_07
@@ -8716,8 +8716,8 @@ tile_07
     x = 0x0001
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0x7b
-    tex_y = 0x34
+    u = 0x7b
+    v = 0x34
     width = 0x09
     height = 0x0f
 tile_08
@@ -8725,8 +8725,8 @@ tile_08
     x = 0xfffffff6
     y = 0xfffffffa
     flags = 0x00
-    tex_x = 0x47
-    tex_y = 0x8d
+    u = 0x47
+    v = 0x8d
     width = 0x09
     height = 0x09
 tile_09
@@ -8734,8 +8734,8 @@ tile_09
     x = 0xfffffff6
     y = 0xfffffff4
     flags = 0x00
-    tex_x = 0x7c
-    tex_y = 0xda
+    u = 0x7c
+    v = 0xda
     width = 0x0b
     height = 0x06
 Sprite palette:

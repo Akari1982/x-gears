@@ -78,6 +78,7 @@
     <ClCompile Include="core\library\tinyxml\tinyxmlparser.cpp" />
     <ClCompile Include="core\ScriptManager.cpp" />
     <ClCompile Include="core\SpawnPoint.cpp" />
+    <ClCompile Include="core\Sprite.cpp" />
     <ClCompile Include="core\TextManager.cpp" />
     <ClCompile Include="core\Timer.cpp" />
     <ClCompile Include="core\Trigger.cpp" />
@@ -98,6 +99,7 @@
     <ClCompile Include="core\XmlScreenFile.cpp" />
     <ClCompile Include="core\XmlScreensFile.cpp" />
     <ClCompile Include="core\XmlScriptsFile.cpp" />
+    <ClCompile Include="core\XmlSpriteFile.cpp" />
     <ClCompile Include="core\XmlTextFile.cpp" />
     <ClCompile Include="core\XmlTextsFile.cpp" />
     <ClCompile Include="core\XmlWalkmeshFile.cpp" />
@@ -234,6 +236,7 @@
     <ClInclude Include="core\ScriptManagerBinds.h" />
     <ClInclude Include="core\ScriptManagerCommands.h" />
     <ClInclude Include="core\SpawnPoint.h" />
+    <ClInclude Include="core\Sprite.h" />
     <ClInclude Include="core\TextManager.h" />
     <ClInclude Include="core\TextManagerCommands.h" />
     <ClInclude Include="core\Timer.h" />
@@ -255,6 +258,7 @@
     <ClInclude Include="core\XmlScreenFile.h" />
     <ClInclude Include="core\XmlScreensFile.h" />
     <ClInclude Include="core\XmlScriptsFile.h" />
+    <ClInclude Include="core\XmlSpriteFile.h" />
     <ClInclude Include="core\XmlTextFile.h" />
     <ClInclude Include="core\XmlTextsFile.h" />
     <ClInclude Include="core\XmlWalkmeshFile.h" />

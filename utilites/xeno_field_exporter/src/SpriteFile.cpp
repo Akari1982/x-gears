@@ -157,10 +157,10 @@ SpriteFile::SpriteFile( File* file, Vram* vram, const int file_id, const int spr
 
 
             tile.tex_x = sprite1->GetU8( offset_to_tile_desc + offset ); ++offset;
-            log->Log( "    tex_x = 0x" + HexToString( tile.tex_x, 2, '0' ) + "\n" );
+            log->Log( "    u = 0x" + HexToString( tile.tex_x, 2, '0' ) + "\n" );
 
             tile.tex_y = sprite1->GetU8( offset_to_tile_desc + offset ); ++offset;
-            log->Log( "    tex_y = 0x" + HexToString( tile.tex_y, 2, '0' ) + "\n" );
+            log->Log( "    v = 0x" + HexToString( tile.tex_y, 2, '0' ) + "\n" );
 
             tile.width = sprite1->GetU8( offset_to_tile_desc + offset ); ++offset;
             log->Log( "    width = 0x" + HexToString( tile.width, 2, '0' ) + "\n" );
@@ -168,11 +168,11 @@ SpriteFile::SpriteFile( File* file, Vram* vram, const int file_id, const int spr
             tile.height = sprite1->GetU8( offset_to_tile_desc + offset ); ++offset;
             log->Log( "    height = 0x" + HexToString( tile.height, 2, '0' ) + "\n" );
 
-            export_script->Log( " tex_x=\"" + IntToString( tile.tex_x ) + "\" tex_y=\"" + IntToString( tile.tex_y ) + "\"" );
+            export_script->Log( " u=\"" + IntToString( tile.tex_x ) + "\" v=\"" + IntToString( tile.tex_y ) + "\"" );
             export_script->Log( " width=\"" + IntToString( tile.width ) + "\" height=\"" + IntToString( tile.height ) + "\"" );
 
             frame.tile.push_back( tile );
-            export_script->Log( ">\n" );
+            export_script->Log( " />\n" );
         }
 
         m_Sprite.frame.push_back( frame );
@@ -207,7 +207,7 @@ SpriteFile::SpriteFile( File* file, Vram* vram, const int file_id, const int spr
     {
         CreateTexture( vram, data, "exported/sprites/field/" + GetSpriteName( file_id, sprite_id ) + ".png", textures );
     }
-    CreateMaterial( "xeno/sprite", "exported/sprites/field/" + GetSpriteName( file_id, sprite_id ) + ".material", ( textures.size() > 0 ) ? "sprites/field/" + GetSpriteName( file_id, sprite_id ) + ".png" : "", "", "" );
+    //CreateMaterial( "xeno/sprite", "exported/sprites/field/" + GetSpriteName( file_id, sprite_id ) + ".material", ( textures.size() > 0 ) ? "sprites/field/" + GetSpriteName( file_id, sprite_id ) + ".png" : "", "", "" );
 
 
 

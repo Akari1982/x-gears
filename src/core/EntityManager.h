@@ -6,6 +6,7 @@
 #include "Event.h"
 #include "Entity.h"
 #include "SpawnPoint.h"
+#include "Sprite.h"
 #include "Trigger.h"
 #include "Walkmesh.h"
 
@@ -43,7 +44,9 @@ private:
     std::vector< SpawnPoint* > m_SpawnPoint;
 
     std::vector< Entity* > m_Entity;
-    std::vector< Trigger* > m_Triggers;
+    std::vector< Trigger* > m_Trigger;
+
+    Sprite* m_Sprite;
 
     Ogre::SceneNode* m_SceneNode;
 

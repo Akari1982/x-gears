@@ -289,6 +289,12 @@
     <ClCompile Include="core\SpawnPoint.cpp">
       <Filter>X-Gears files</Filter>
     </ClCompile>
+    <ClCompile Include="core\Sprite.cpp">
+      <Filter>X-Gears files</Filter>
+    </ClCompile>
+    <ClCompile Include="core\XmlSpriteFile.cpp">
+      <Filter>X-Gears files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Main.h">
@@ -754,6 +760,12 @@
       <Filter>X-Gears files</Filter>
     </ClInclude>
     <ClInclude Include="core\SpawnPoint.h">
+      <Filter>X-Gears files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\Sprite.h">
+      <Filter>X-Gears files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\XmlSpriteFile.h">
       <Filter>X-Gears files</Filter>
     </ClInclude>
   </ItemGroup>

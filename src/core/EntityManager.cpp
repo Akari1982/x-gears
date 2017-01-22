@@ -56,12 +56,20 @@ EntityManager::EntityManager():
     m_SceneNode->attachObject( m_Grid );
     m_Axis = Ogre::Root::getSingleton().getSceneManager( "Scene" )->createEntity( "Axis", "system/axis.mesh" );
     m_SceneNode->attachObject( m_Axis );
+
+
+
+    m_Sprite = new Sprite( "Dan" );
 }
 
 
 
 EntityManager::~EntityManager()
 {
+    delete m_Sprite;
+
+
+
     if( m_Grid != NULL )
     {
         Ogre::Root::getSingleton().getSceneManager( "Scene" )->destroyEntity( m_Grid );
@@ -136,6 +144,10 @@ EntityManager::InputToRotation( Ogre::Degree& rotation )
 void
 EntityManager::Update()
 {
+    m_Sprite->Update();
+
+
+
     // update all entity scripts
     ScriptManager::getSingleton().Update( ScriptManager::ENTITY );
 
@@ -189,9 +201,9 @@ EntityManager::UpdateDebug()
         m_Entity[ i ]->UpdateDebug();
     }
 
-    for( size_t i = 0; i < m_Triggers.size(); ++i )
+    for( size_t i = 0; i < m_Trigger.size(); ++i )
     {
-        m_Triggers[ i ]->UpdateDebug();
+        m_Trigger[ i ]->UpdateDebug();
     }
 
     int debug_w = cv_debug_walkmesh.GetI();
@@ -240,11 +252,11 @@ EntityManager::Clear()
     m_Entity.clear();
 
 
-    for( unsigned int i = 0; i < m_Triggers.size(); ++i )
+    for( unsigned int i = 0; i < m_Trigger.size(); ++i )
     {
-        delete m_Triggers[ i ];
+        delete m_Trigger[ i ];
     }
-    m_Triggers.clear();
+    m_Trigger.clear();
 
     m_SceneNode->removeAndDestroyAllChildren();
 }
@@ -295,7 +307,7 @@ EntityManager::AddSquareTrigger( const Ogre::String& name, const Ogre::Vector3& 
 {
     Trigger* trigger = new Trigger( name );
     trigger->SetSquareTrigger( point1, point2, point3, point4 );
-    m_Triggers.push_back( trigger );
+    m_Trigger.push_back( trigger );
 }
 
 
