@@ -1,4 +1,5 @@
 #include "Utilites.h"
+#include "../../common/Logger.h"
 
 
 
@@ -32,16 +33,12 @@ GetSpriteName( const int file_id, const int sprite_id )
     {
         case 632:
         {
-            if( sprite_id == 0 )
+            if( sprite_id == 4 )
             {
                 return "chief_lee";
-            }
-            else if( sprite_id == 1 )
-            {
-                return "dan";
             }
         }
     }
 
-    return "";
+    return "UNKNOWN_file_" + IntToString( file_id ) + "_sprite_" + IntToString( sprite_id );
 }

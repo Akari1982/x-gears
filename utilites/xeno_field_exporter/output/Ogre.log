@@ -1,834 +1,834 @@
-21:43:09: Creating resource group General
-21:43:09: Creating resource group Internal
-21:43:09: Creating resource group Autodetect
-21:43:09: SceneManagerFactory for type 'DefaultSceneManager' registered.
-21:43:09: Registering ResourceManager for type Material
-21:43:09: Registering ResourceManager for type Mesh
-21:43:09: Registering ResourceManager for type Skeleton
-21:43:09: MovableObjectFactory for type 'ParticleSystem' registered.
-21:43:09: ArchiveFactory for archive type FileSystem registered.
-21:43:09: ArchiveFactory for archive type Zip registered.
-21:43:09: ArchiveFactory for archive type EmbeddedZip registered.
-21:43:09: DDS codec registering
-21:43:09: FreeImage version: 3.15.3
-21:43:09: This program uses FreeImage, a free, open source image library supporting all common bitmap formats. See http://freeimage.sourceforge.net for details
-21:43:09: Supported formats: bmp,ico,jpg,jif,jpeg,jpe,jng,koa,iff,lbm,mng,pbm,pbm,pcd,pcx,pgm,pgm,png,ppm,ppm,ras,tga,targa,tif,tiff,wap,wbmp,wbm,psd,cut,xbm,xpm,gif,hdr,g3,sgi,exr,j2k,j2c,jp2,pfm,pct,pict,pic,3fr,arw,bay,bmq,cap,cine,cr2,crw,cs1,dc2,dcr,drf,dsc,dng,erf,fff,ia,iiq,k25,kc2,kdc,mdc,mef,mos,mrw,nef,nrw,orf,pef,ptx,pxn,qtk,raf,raw,rdc,rw2,rwl,rwz,sr2,srf,srw,sti
-21:43:09: Registering ResourceManager for type HighLevelGpuProgram
-21:43:09: Registering ResourceManager for type Compositor
-21:43:09: MovableObjectFactory for type 'Entity' registered.
-21:43:09: MovableObjectFactory for type 'Light' registered.
-21:43:09: MovableObjectFactory for type 'BillboardSet' registered.
-21:43:09: MovableObjectFactory for type 'ManualObject' registered.
-21:43:09: MovableObjectFactory for type 'BillboardChain' registered.
-21:43:09: MovableObjectFactory for type 'RibbonTrail' registered.
-21:43:09: *-*-* OGRE Initialising
-21:43:09: *-*-* Version 1.9.0 (Ghadamon)
-21:43:09: Loading library RenderSystem_Direct3D9.dll
-21:43:09: Installing plugin: D3D9 RenderSystem
-21:43:09: D3D9 : Direct3D9 Rendering Subsystem created.
-21:43:09: D3D9: Driver Detection Starts
-21:43:09: D3D9: Driver Detection Ends
-21:43:09: Plugin successfully installed
-21:43:09: CPU Identifier & Features
-21:43:09: -------------------------
-21:43:09:  *   CPU ID: GenuineIntel: Intel(R) Celeron(R) CPU G1820 @ 2.70GHz
-21:43:09:  *      SSE: yes
-21:43:09:  *     SSE2: yes
-21:43:09:  *     SSE3: yes
-21:43:09:  *      MMX: yes
-21:43:09:  *   MMXEXT: yes
-21:43:09:  *    3DNOW: no
-21:43:09:  * 3DNOWEXT: no
-21:43:09:  *     CMOV: yes
-21:43:09:  *      TSC: yes
-21:43:09:  *      FPU: yes
-21:43:09:  *      PRO: yes
-21:43:09:  *       HT: no
-21:43:09: -------------------------
-21:43:09: D3D9 : Subsystem Initialising
-21:43:09: Registering ResourceManager for type Texture
-21:43:09: Registering ResourceManager for type GpuProgram
-21:43:09: ***************************************
-21:43:09: *** D3D9 : Subsystem Initialised OK ***
-21:43:09: ***************************************
-21:43:09: D3D9RenderSystem::_createRenderWindow "QGearsWindow", 800x600 windowed  miscParams: title=Xenogears Exporter 
-21:43:09: D3D9 : Created D3D9 Rendering Window 'QGearsWindow' : 800x600, 32bpp
-21:43:09: D3D9 : WARNING - disabling VSync in windowed mode can cause timing issues at lower frame rates, turn VSync on if you observe this problem.
-21:43:09: D3D9: Vertex texture format supported - PF_A8R8G8B8
-21:43:09: D3D9: Vertex texture format supported - PF_B8G8R8A8
-21:43:09: D3D9: Vertex texture format supported - PF_FLOAT16_RGB
-21:43:10: D3D9: Vertex texture format supported - PF_FLOAT16_RGBA
-21:43:10: D3D9: Vertex texture format supported - PF_FLOAT32_RGB
-21:43:10: D3D9: Vertex texture format supported - PF_FLOAT32_RGBA
-21:43:10: D3D9: Vertex texture format supported - PF_R8G8B8A8
-21:43:10: D3D9: Vertex texture format supported - PF_DEPTH
-21:43:10: D3D9: Vertex texture format supported - PF_FLOAT16_R
-21:43:10: D3D9: Vertex texture format supported - PF_FLOAT32_R
-21:43:10: D3D9: Vertex texture format supported - PF_FLOAT16_GR
-21:43:10: D3D9: Vertex texture format supported - PF_FLOAT32_GR
-21:43:10: D3D9: Vertex texture format supported - PF_PVRTC_RGB2
-21:43:10: D3D9: Vertex texture format supported - PF_PVRTC_RGBA2
-21:43:10: D3D9: Vertex texture format supported - PF_PVRTC_RGB4
-21:43:10: D3D9: Vertex texture format supported - PF_PVRTC_RGBA4
-21:43:10: D3D9: Vertex texture format supported - PF_PVRTC2_2BPP
-21:43:10: D3D9: Vertex texture format supported - PF_PVRTC2_4BPP
-21:43:10: D3D9: Vertex texture format supported - PF_R11G11B10_FLOAT
-21:43:10: D3D9: Vertex texture format supported - PF_R8_UINT
-21:43:10: D3D9: Vertex texture format supported - PF_R8G8_UINT
-21:43:10: D3D9: Vertex texture format supported - PF_R8G8B8_UINT
-21:43:10: D3D9: Vertex texture format supported - PF_R8G8B8A8_UINT
-21:43:10: D3D9: Vertex texture format supported - PF_R16_UINT
-21:43:10: D3D9: Vertex texture format supported - PF_R16G16_UINT
-21:43:10: D3D9: Vertex texture format supported - PF_R16G16B16_UINT
-21:43:10: D3D9: Vertex texture format supported - PF_R16G16B16A16_UINT
-21:43:10: D3D9: Vertex texture format supported - PF_R32_UINT
-21:43:10: D3D9: Vertex texture format supported - PF_R32G32_UINT
-21:43:10: D3D9: Vertex texture format supported - PF_R32G32B32_UINT
-21:43:10: D3D9: Vertex texture format supported - PF_R32G32B32A32_UINT
-21:43:10: D3D9: Vertex texture format supported - PF_R8_SINT
-21:43:10: D3D9: Vertex texture format supported - PF_R8G8_SINT
-21:43:10: D3D9: Vertex texture format supported - PF_R8G8B8_SINT
-21:43:10: D3D9: Vertex texture format supported - PF_R8G8B8A8_SINT
-21:43:10: D3D9: Vertex texture format supported - PF_R16_SINT
-21:43:10: D3D9: Vertex texture format supported - PF_R16G16_SINT
-21:43:10: D3D9: Vertex texture format supported - PF_R16G16B16_SINT
-21:43:10: D3D9: Vertex texture format supported - PF_R16G16B16A16_SINT
-21:43:10: D3D9: Vertex texture format supported - PF_R32_SINT
-21:43:10: D3D9: Vertex texture format supported - PF_R32G32_SINT
-21:43:10: D3D9: Vertex texture format supported - PF_R32G32B32_SINT
-21:43:10: D3D9: Vertex texture format supported - PF_R32G32B32A32_SINT
-21:43:10: D3D9: Vertex texture format supported - PF_R9G9B9E5_SHAREDEXP
-21:43:10: D3D9: Vertex texture format supported - PF_BC4_UNORM
-21:43:10: D3D9: Vertex texture format supported - PF_BC4_SNORM
-21:43:10: D3D9: Vertex texture format supported - PF_BC5_UNORM
-21:43:10: D3D9: Vertex texture format supported - PF_BC5_SNORM
-21:43:10: D3D9: Vertex texture format supported - PF_BC6H_UF16
-21:43:10: D3D9: Vertex texture format supported - PF_BC6H_SF16
-21:43:10: D3D9: Vertex texture format supported - PF_BC7_UNORM
-21:43:10: D3D9: Vertex texture format supported - PF_BC7_UNORM_SRGB
-21:43:10: D3D9: Vertex texture format supported - PF_R8
-21:43:10: D3D9: Vertex texture format supported - PF_RG8
-21:43:10: D3D9: Vertex texture format supported - PF_R8_SNORM
-21:43:10: D3D9: Vertex texture format supported - PF_R8G8_SNORM
-21:43:10: D3D9: Vertex texture format supported - PF_R8G8B8_SNORM
-21:43:10: D3D9: Vertex texture format supported - PF_R8G8B8A8_SNORM
-21:43:10: D3D9: Vertex texture format supported - PF_R16_SNORM
-21:43:10: D3D9: Vertex texture format supported - PF_R16G16_SNORM
-21:43:10: D3D9: Vertex texture format supported - PF_R16G16B16_SNORM
-21:43:10: D3D9: Vertex texture format supported - PF_R16G16B16A16_SNORM
-21:43:10: D3D9: Vertex texture format supported - PF_ETC1_RGB8
-21:43:10: D3D9: Vertex texture format supported - PF_ETC2_RGB8
-21:43:10: D3D9: Vertex texture format supported - PF_ETC2_RGBA8
-21:43:10: D3D9: Vertex texture format supported - PF_ETC2_RGB8A1
-21:43:10: D3D9: Vertex texture format supported - PF_ATC_RGB
-21:43:10: D3D9: Vertex texture format supported - PF_ATC_RGBA_EXPLICIT_ALPHA
-21:43:10: D3D9: Vertex texture format supported - PF_ATC_RGBA_INTERPOLATED_ALPHA
-21:43:10: RenderSystem capabilities
-21:43:10: -------------------------
-21:43:10: RenderSystem Name: Direct3D9 Rendering Subsystem
-21:43:10: GPU Vendor: nvidia
-21:43:10: Device Name: Monitor-1-NVIDIA GeForce GTX 750
-21:43:10: Driver Version: 10.18.13.5560
-21:43:10:  * Fixed function pipeline: yes
-21:43:10:  * Hardware generation of mipmaps: yes
-21:43:10:  * Texture blending: yes
-21:43:10:  * Anisotropic texture filtering: yes
-21:43:10:  * Dot product texture operation: yes
-21:43:10:  * Cube mapping: yes
-21:43:10:  * Hardware stencil buffer: yes
-21:43:10:    - Stencil depth: 8
-21:43:10:    - Two sided stencil support: yes
-21:43:10:    - Wrap stencil values: yes
-21:43:10:  * Hardware vertex / index buffers: yes
-21:43:10:  * Vertex programs: yes
-21:43:10:  * Number of floating-point constants for vertex programs: 256
-21:43:10:  * Number of integer constants for vertex programs: 16
-21:43:10:  * Number of boolean constants for vertex programs: 16
-21:43:10:  * Fragment programs: yes
-21:43:10:  * Number of floating-point constants for fragment programs: 224
-21:43:10:  * Number of integer constants for fragment programs: 16
-21:43:10:  * Number of boolean constants for fragment programs: 16
-21:43:10:  * Geometry programs: no
-21:43:10:  * Number of floating-point constants for geometry programs: 0
-21:43:10:  * Number of integer constants for geometry programs: 0
-21:43:10:  * Number of boolean constants for geometry programs: 0
-21:43:10:  * Tesselation Hull programs: no
-21:43:10:  * Number of floating-point constants for tesselation hull programs: 0
-21:43:10:  * Number of integer constants for tesselation hull programs: 0
-21:43:10:  * Number of boolean constants for tesselation hull programs: 0
-21:43:10:  * Tesselation Domain programs: no
-21:43:10:  * Number of floating-point constants for tesselation domain programs: 0
-21:43:10:  * Number of integer constants for tesselation domain programs: 0
-21:43:10:  * Number of boolean constants for tesselation domain programs: 0
-21:43:10:  * Compute programs: no
-21:43:10:  * Number of floating-point constants for compute programs: 0
-21:43:10:  * Number of integer constants for compute programs: 0
-21:43:10:  * Number of boolean constants for compute programs: 0
-21:43:10:  * Supported Shader Profiles: hlsl ps_1_1 ps_1_2 ps_1_3 ps_1_4 ps_2_0 ps_2_a ps_2_b ps_2_x ps_3_0 vs_1_1 vs_2_0 vs_2_a vs_2_x vs_3_0
-21:43:10:  * Texture Compression: yes
-21:43:10:    - DXT: yes
-21:43:10:    - VTC: no
-21:43:10:    - PVRTC: no
-21:43:10:    - ATC: no
-21:43:10:    - ETC1: no
-21:43:10:    - ETC2: no
-21:43:10:    - BC4/BC5: no
-21:43:10:    - BC6H/BC7: no
-21:43:10:  * Scissor Rectangle: yes
-21:43:10:  * Hardware Occlusion Query: yes
-21:43:10:  * User clip planes: yes
-21:43:10:  * VET_UBYTE4 vertex element type: yes
-21:43:10:  * Infinite far plane projection: yes
-21:43:10:  * Hardware render-to-texture: yes
-21:43:10:  * Floating point textures: yes
-21:43:10:  * Non-power-of-two textures: yes
-21:43:10:  * 1d textures: yes
-21:43:10:  * Volume textures: yes
-21:43:10:  * Multiple Render Targets: 4
-21:43:10:    - With different bit depths: yes
-21:43:10:  * Point Sprites: yes
-21:43:10:  * Extended point parameters: yes
-21:43:10:  * Max Point Size: 8192
-21:43:10:  * Vertex texture fetch: yes
-21:43:10:  * Number of world matrices: 0
-21:43:10:  * Number of texture units: 8
-21:43:10:  * Stencil buffer depth: 8
-21:43:10:  * Number of vertex blend matrices: 0
-21:43:10:    - Max vertex textures: 4
-21:43:10:    - Vertex textures shared: no
-21:43:10:  * Render to Vertex Buffer : no
-21:43:10:  * Hardware Atomic Counters: no
-21:43:10:  * DirectX per stage constants: yes
-21:43:10: DefaultWorkQueue('Root') initialising on thread 1810.
-21:43:10: Particle Renderer Type 'billboard' registered
-21:43:10: DefaultWorkQueue('Root')::WorkerFunc - thread 14f8 starting.
-21:43:10: DefaultWorkQueue('Root')::WorkerFunc - thread 580 starting.
-21:43:10: OverlayElementFactory for type Panel registered.
-21:43:10: OverlayElementFactory for type BorderPanel registered.
-21:43:10: OverlayElementFactory for type TextArea registered.
-21:43:10: Registering ResourceManager for type Font
-21:43:10: Added resource location './data' of type 'FileSystem' to resource group 'General'
-21:43:10: Added resource location './exported' of type 'FileSystem' to resource group 'General'
-21:43:10: Creating resource group Bootstrap
-21:43:10: Added resource location './data/OgreCore.zip' of type 'Zip' to resource group 'Bootstrap'
-21:43:10: Parsing scripts for resource group Autodetect
-21:43:10: Finished parsing scripts for resource group Autodetect
-21:43:10: Creating resources for group Autodetect
-21:43:10: All done
-21:43:10: Parsing scripts for resource group Bootstrap
-21:43:10: Parsing script OgreCore.material
-21:43:10: Parsing script OgreProfiler.material
-21:43:10: Parsing script Ogre.fontdef
-21:43:10: Parsing script OgreDebugPanel.overlay
-21:43:10: Texture: New_Ogre_Border_Center.png: Loading 1 faces(PF_A8R8G8B8,256x128x1) Internal format is PF_A8R8G8B8,256x128x1.
-21:43:10: Texture: New_Ogre_Border.png: Loading 1 faces(PF_A8R8G8B8,256x256x1) Internal format is PF_A8R8G8B8,256x256x1.
-21:43:10: Texture: New_Ogre_Border_Break.png: Loading 1 faces(PF_A8R8G8B8,32x32x1) Internal format is PF_A8R8G8B8,32x32x1.
-21:43:10: Texture: ogretext.png: Loading 1 faces(PF_A8R8G8B8,256x128x1) Internal format is PF_A8R8G8B8,256x128x1.
-21:43:10: Parsing script OgreLoadingPanel.overlay
-21:43:10: Finished parsing scripts for resource group Bootstrap
-21:43:10: Creating resources for group Bootstrap
-21:43:10: All done
-21:43:10: Parsing scripts for resource group General
-21:43:10: Parsing script debug.material
-21:43:10: Parsing script system.fontdef
-21:43:10: Finished parsing scripts for resource group General
-21:43:10: Creating resources for group General
-21:43:10: All done
-21:43:10: Parsing scripts for resource group Internal
-21:43:10: Finished parsing scripts for resource group Internal
-21:43:10: Creating resources for group Internal
-21:43:10: All done
-21:43:10: Texture: courier_new_9_75.png: Loading 1 faces(PF_A8R8G8B8,256x256x1) with 0 generated mipmaps from Image. Internal format is PF_A8R8G8B8,256x256x1.
-21:43:11: Exporting bones..
-21:43:11: Bones exported.
-21:43:11: Exporting animations, count=1
-21:43:11: Exporting animation: Idle
-21:43:11: Animation exported.
-21:43:11: Skeleton: Loading models/field_maps/0632/0.skeleton
-21:43:11: MeshSerializer writing mesh data to stream ...
-21:43:11: File header written.
-21:43:11: Writing mesh data...
-21:43:11: Writing submesh...
-21:43:11: Exporting submesh texture aliases...
-21:43:11: Submesh texture aliases exported.
-21:43:11: Exporting dedicated geometry bone assignments...
-21:43:11: Dedicated geometry bone assignments exported.
-21:43:11: Submesh exported.
-21:43:11: Writing submesh...
-21:43:11: Exporting submesh texture aliases...
-21:43:11: Submesh texture aliases exported.
-21:43:11: Exporting dedicated geometry bone assignments...
-21:43:11: Dedicated geometry bone assignments exported.
-21:43:11: Submesh exported.
-21:43:11: Exporting skeleton link...
-21:43:11: Skeleton link exported.
-21:43:11: Exporting bounds information....
-21:43:11: Bounds information exported.
-21:43:11: Exporting submesh name table...
-21:43:11: Submesh name table exported.
-21:43:11: Mesh data exported.
-21:43:11: MeshSerializer export successful.
-21:43:11: Exporting bones..
-21:43:11: Bones exported.
-21:43:11: Exporting animations, count=1
-21:43:11: Exporting animation: Idle
-21:43:11: Animation exported.
-21:43:11: Skeleton: Loading models/field_maps/0632/1.skeleton
-21:43:11: MeshSerializer writing mesh data to stream ...
-21:43:11: File header written.
-21:43:11: Writing mesh data...
-21:43:11: Writing submesh...
-21:43:11: Exporting submesh texture aliases...
-21:43:11: Submesh texture aliases exported.
-21:43:11: Exporting dedicated geometry bone assignments...
-21:43:11: Dedicated geometry bone assignments exported.
-21:43:11: Submesh exported.
-21:43:11: Exporting skeleton link...
-21:43:11: Skeleton link exported.
-21:43:11: Exporting bounds information....
-21:43:11: Bounds information exported.
-21:43:11: Exporting submesh name table...
-21:43:11: Submesh name table exported.
-21:43:11: Mesh data exported.
-21:43:11: MeshSerializer export successful.
-21:43:11: Exporting bones..
-21:43:11: Bones exported.
-21:43:11: Exporting animations, count=1
-21:43:11: Exporting animation: Idle
-21:43:11: Animation exported.
-21:43:11: Skeleton: Loading models/field_maps/0632/2.skeleton
-21:43:11: MeshSerializer writing mesh data to stream ...
-21:43:11: File header written.
-21:43:11: Writing mesh data...
-21:43:11: Writing submesh...
-21:43:11: Exporting submesh texture aliases...
-21:43:11: Submesh texture aliases exported.
-21:43:11: Exporting dedicated geometry bone assignments...
-21:43:11: Dedicated geometry bone assignments exported.
-21:43:11: Submesh exported.
-21:43:11: Exporting skeleton link...
-21:43:11: Skeleton link exported.
-21:43:11: Exporting bounds information....
-21:43:11: Bounds information exported.
-21:43:11: Exporting submesh name table...
-21:43:11: Submesh name table exported.
-21:43:11: Mesh data exported.
-21:43:11: MeshSerializer export successful.
-21:43:11: Exporting bones..
-21:43:11: Bones exported.
-21:43:11: Exporting animations, count=1
-21:43:11: Exporting animation: Idle
-21:43:11: Animation exported.
-21:43:11: Skeleton: Loading models/field_maps/0632/3.skeleton
-21:43:11: MeshSerializer writing mesh data to stream ...
-21:43:11: File header written.
-21:43:11: Writing mesh data...
-21:43:11: Writing submesh...
-21:43:11: Exporting submesh texture aliases...
-21:43:11: Submesh texture aliases exported.
-21:43:11: Exporting dedicated geometry bone assignments...
-21:43:11: Dedicated geometry bone assignments exported.
-21:43:11: Submesh exported.
-21:43:11: Writing submesh...
-21:43:11: Exporting submesh texture aliases...
-21:43:11: Submesh texture aliases exported.
-21:43:11: Exporting dedicated geometry bone assignments...
-21:43:11: Dedicated geometry bone assignments exported.
-21:43:11: Submesh exported.
-21:43:11: Exporting skeleton link...
-21:43:11: Skeleton link exported.
-21:43:11: Exporting bounds information....
-21:43:11: Bounds information exported.
-21:43:11: Exporting submesh name table...
-21:43:11: Submesh name table exported.
-21:43:11: Mesh data exported.
-21:43:11: MeshSerializer export successful.
-21:43:11: Exporting bones..
-21:43:11: Bones exported.
-21:43:11: Exporting animations, count=1
-21:43:11: Exporting animation: Idle
-21:43:11: Animation exported.
-21:43:11: Skeleton: Loading models/field_maps/0632/4.skeleton
-21:43:11: MeshSerializer writing mesh data to stream ...
-21:43:11: File header written.
-21:43:11: Writing mesh data...
-21:43:11: Writing submesh...
-21:43:11: Exporting submesh texture aliases...
-21:43:11: Submesh texture aliases exported.
-21:43:11: Exporting dedicated geometry bone assignments...
-21:43:11: Dedicated geometry bone assignments exported.
-21:43:11: Submesh exported.
-21:43:11: Writing submesh...
-21:43:11: Exporting submesh texture aliases...
-21:43:11: Submesh texture aliases exported.
-21:43:11: Exporting dedicated geometry bone assignments...
-21:43:11: Dedicated geometry bone assignments exported.
-21:43:11: Submesh exported.
-21:43:11: Writing submesh...
-21:43:11: Exporting submesh texture aliases...
-21:43:11: Submesh texture aliases exported.
-21:43:11: Exporting dedicated geometry bone assignments...
-21:43:11: Dedicated geometry bone assignments exported.
-21:43:11: Submesh exported.
-21:43:11: Exporting skeleton link...
-21:43:11: Skeleton link exported.
-21:43:11: Exporting bounds information....
-21:43:11: Bounds information exported.
-21:43:11: Exporting submesh name table...
-21:43:11: Submesh name table exported.
-21:43:11: Mesh data exported.
-21:43:11: MeshSerializer export successful.
-21:43:11: Exporting bones..
-21:43:11: Bones exported.
-21:43:11: Exporting animations, count=1
-21:43:11: Exporting animation: Idle
-21:43:11: Animation exported.
-21:43:11: Skeleton: Loading models/field_maps/0632/5.skeleton
-21:43:11: MeshSerializer writing mesh data to stream ...
-21:43:11: File header written.
-21:43:11: Writing mesh data...
-21:43:11: Writing submesh...
-21:43:11: Exporting submesh texture aliases...
-21:43:11: Submesh texture aliases exported.
-21:43:11: Exporting dedicated geometry bone assignments...
-21:43:11: Dedicated geometry bone assignments exported.
-21:43:11: Submesh exported.
-21:43:11: Exporting skeleton link...
-21:43:11: Skeleton link exported.
-21:43:11: Exporting bounds information....
-21:43:11: Bounds information exported.
-21:43:11: Exporting submesh name table...
-21:43:11: Submesh name table exported.
-21:43:11: Mesh data exported.
-21:43:11: MeshSerializer export successful.
-21:43:11: Exporting bones..
-21:43:11: Bones exported.
-21:43:11: Exporting animations, count=1
-21:43:11: Exporting animation: Idle
-21:43:11: Animation exported.
-21:43:11: Skeleton: Loading models/field_maps/0632/6.skeleton
-21:43:11: MeshSerializer writing mesh data to stream ...
-21:43:11: File header written.
-21:43:11: Writing mesh data...
-21:43:11: Writing submesh...
-21:43:11: Exporting submesh texture aliases...
-21:43:11: Submesh texture aliases exported.
-21:43:11: Exporting dedicated geometry bone assignments...
-21:43:11: Dedicated geometry bone assignments exported.
-21:43:11: Submesh exported.
-21:43:11: Exporting skeleton link...
-21:43:11: Skeleton link exported.
-21:43:11: Exporting bounds information....
-21:43:11: Bounds information exported.
-21:43:11: Exporting submesh name table...
-21:43:11: Submesh name table exported.
-21:43:11: Mesh data exported.
-21:43:11: MeshSerializer export successful.
-21:43:11: Exporting bones..
-21:43:11: Bones exported.
-21:43:11: Exporting animations, count=1
-21:43:11: Exporting animation: Idle
-21:43:11: Animation exported.
-21:43:11: Skeleton: Loading models/field_maps/0632/7.skeleton
-21:43:12: MeshSerializer writing mesh data to stream ...
-21:43:12: File header written.
-21:43:12: Writing mesh data...
-21:43:12: Writing submesh...
-21:43:12: Exporting submesh texture aliases...
-21:43:12: Submesh texture aliases exported.
-21:43:12: Exporting dedicated geometry bone assignments...
-21:43:12: Dedicated geometry bone assignments exported.
-21:43:12: Submesh exported.
-21:43:12: Exporting skeleton link...
-21:43:12: Skeleton link exported.
-21:43:12: Exporting bounds information....
-21:43:12: Bounds information exported.
-21:43:12: Exporting submesh name table...
-21:43:12: Submesh name table exported.
-21:43:12: Mesh data exported.
-21:43:12: MeshSerializer export successful.
-21:43:12: Exporting bones..
-21:43:12: Bones exported.
-21:43:12: Exporting animations, count=1
-21:43:12: Exporting animation: Idle
-21:43:12: Animation exported.
-21:43:12: Skeleton: Loading models/field_maps/0632/8.skeleton
-21:43:12: MeshSerializer writing mesh data to stream ...
-21:43:12: File header written.
-21:43:12: Writing mesh data...
-21:43:12: Writing submesh...
-21:43:12: Exporting submesh texture aliases...
-21:43:12: Submesh texture aliases exported.
-21:43:12: Exporting dedicated geometry bone assignments...
-21:43:12: Dedicated geometry bone assignments exported.
-21:43:12: Submesh exported.
-21:43:12: Exporting skeleton link...
-21:43:12: Skeleton link exported.
-21:43:12: Exporting bounds information....
-21:43:12: Bounds information exported.
-21:43:12: Exporting submesh name table...
-21:43:12: Submesh name table exported.
-21:43:12: Mesh data exported.
-21:43:12: MeshSerializer export successful.
-21:43:12: Exporting bones..
-21:43:12: Bones exported.
-21:43:12: Exporting animations, count=1
-21:43:12: Exporting animation: Idle
-21:43:12: Animation exported.
-21:43:12: Skeleton: Loading models/field_maps/0632/9.skeleton
-21:43:12: MeshSerializer writing mesh data to stream ...
-21:43:12: File header written.
-21:43:12: Writing mesh data...
-21:43:12: Writing submesh...
-21:43:12: Exporting submesh texture aliases...
-21:43:12: Submesh texture aliases exported.
-21:43:12: Exporting dedicated geometry bone assignments...
-21:43:12: Dedicated geometry bone assignments exported.
-21:43:12: Submesh exported.
-21:43:12: Exporting skeleton link...
-21:43:12: Skeleton link exported.
-21:43:12: Exporting bounds information....
-21:43:12: Bounds information exported.
-21:43:12: Exporting submesh name table...
-21:43:12: Submesh name table exported.
-21:43:12: Mesh data exported.
-21:43:12: MeshSerializer export successful.
-21:43:12: Exporting bones..
-21:43:12: Bones exported.
-21:43:12: Exporting animations, count=1
-21:43:12: Exporting animation: Idle
-21:43:12: Animation exported.
-21:43:12: Skeleton: Loading models/field_maps/0632/10.skeleton
-21:43:12: MeshSerializer writing mesh data to stream ...
-21:43:12: File header written.
-21:43:12: Writing mesh data...
-21:43:12: Writing submesh...
-21:43:12: Exporting submesh texture aliases...
-21:43:12: Submesh texture aliases exported.
-21:43:12: Exporting dedicated geometry bone assignments...
-21:43:12: Dedicated geometry bone assignments exported.
-21:43:12: Submesh exported.
-21:43:12: Writing submesh...
-21:43:12: Exporting submesh texture aliases...
-21:43:12: Submesh texture aliases exported.
-21:43:12: Exporting dedicated geometry bone assignments...
-21:43:12: Dedicated geometry bone assignments exported.
-21:43:12: Submesh exported.
-21:43:12: Writing submesh...
-21:43:12: Exporting submesh texture aliases...
-21:43:12: Submesh texture aliases exported.
-21:43:12: Exporting dedicated geometry bone assignments...
-21:43:12: Dedicated geometry bone assignments exported.
-21:43:12: Submesh exported.
-21:43:12: Exporting skeleton link...
-21:43:12: Skeleton link exported.
-21:43:12: Exporting bounds information....
-21:43:12: Bounds information exported.
-21:43:12: Exporting submesh name table...
-21:43:12: Submesh name table exported.
-21:43:12: Mesh data exported.
-21:43:12: MeshSerializer export successful.
-21:43:12: Exporting bones..
-21:43:12: Bones exported.
-21:43:12: Exporting animations, count=1
-21:43:12: Exporting animation: Idle
-21:43:12: Animation exported.
-21:43:12: Skeleton: Loading models/field_maps/0632/11.skeleton
-21:43:12: MeshSerializer writing mesh data to stream ...
-21:43:12: File header written.
-21:43:12: Writing mesh data...
-21:43:12: Writing submesh...
-21:43:12: Exporting submesh texture aliases...
-21:43:12: Submesh texture aliases exported.
-21:43:12: Exporting dedicated geometry bone assignments...
-21:43:12: Dedicated geometry bone assignments exported.
-21:43:12: Submesh exported.
-21:43:12: Writing submesh...
-21:43:12: Exporting submesh texture aliases...
-21:43:12: Submesh texture aliases exported.
-21:43:12: Exporting dedicated geometry bone assignments...
-21:43:12: Dedicated geometry bone assignments exported.
-21:43:12: Submesh exported.
-21:43:12: Exporting skeleton link...
-21:43:12: Skeleton link exported.
-21:43:12: Exporting bounds information....
-21:43:12: Bounds information exported.
-21:43:12: Exporting submesh name table...
-21:43:12: Submesh name table exported.
-21:43:12: Mesh data exported.
-21:43:12: MeshSerializer export successful.
-21:43:12: Exporting bones..
-21:43:12: Bones exported.
-21:43:12: Exporting animations, count=1
-21:43:12: Exporting animation: Idle
-21:43:12: Animation exported.
-21:43:12: Skeleton: Loading models/field_maps/0632/12.skeleton
-21:43:12: MeshSerializer writing mesh data to stream ...
-21:43:12: File header written.
-21:43:12: Writing mesh data...
-21:43:12: Writing submesh...
-21:43:12: Exporting submesh texture aliases...
-21:43:12: Submesh texture aliases exported.
-21:43:12: Exporting dedicated geometry bone assignments...
-21:43:12: Dedicated geometry bone assignments exported.
-21:43:12: Submesh exported.
-21:43:12: Writing submesh...
-21:43:12: Exporting submesh texture aliases...
-21:43:12: Submesh texture aliases exported.
-21:43:12: Exporting dedicated geometry bone assignments...
-21:43:12: Dedicated geometry bone assignments exported.
-21:43:12: Submesh exported.
-21:43:12: Exporting skeleton link...
-21:43:12: Skeleton link exported.
-21:43:12: Exporting bounds information....
-21:43:12: Bounds information exported.
-21:43:12: Exporting submesh name table...
-21:43:12: Submesh name table exported.
-21:43:12: Mesh data exported.
-21:43:12: MeshSerializer export successful.
-21:43:12: Exporting bones..
-21:43:12: Bones exported.
-21:43:12: Exporting animations, count=1
-21:43:12: Exporting animation: Idle
-21:43:12: Animation exported.
-21:43:12: Skeleton: Loading models/field_maps/0632/13.skeleton
-21:43:12: MeshSerializer writing mesh data to stream ...
-21:43:12: File header written.
-21:43:12: Writing mesh data...
-21:43:12: Writing submesh...
-21:43:12: Exporting submesh texture aliases...
-21:43:12: Submesh texture aliases exported.
-21:43:12: Exporting dedicated geometry bone assignments...
-21:43:12: Dedicated geometry bone assignments exported.
-21:43:12: Submesh exported.
-21:43:12: Exporting skeleton link...
-21:43:12: Skeleton link exported.
-21:43:12: Exporting bounds information....
-21:43:12: Bounds information exported.
-21:43:12: Exporting submesh name table...
-21:43:12: Submesh name table exported.
-21:43:12: Mesh data exported.
-21:43:12: MeshSerializer export successful.
-21:43:12: Exporting bones..
-21:43:12: Bones exported.
-21:43:12: Exporting animations, count=1
-21:43:12: Exporting animation: Idle
-21:43:12: Animation exported.
-21:43:12: Skeleton: Loading models/field_maps/0632/14.skeleton
-21:43:12: MeshSerializer writing mesh data to stream ...
-21:43:12: File header written.
-21:43:12: Writing mesh data...
-21:43:12: Writing submesh...
-21:43:12: Exporting submesh texture aliases...
-21:43:12: Submesh texture aliases exported.
-21:43:12: Exporting dedicated geometry bone assignments...
-21:43:12: Dedicated geometry bone assignments exported.
-21:43:12: Submesh exported.
-21:43:12: Exporting skeleton link...
-21:43:12: Skeleton link exported.
-21:43:12: Exporting bounds information....
-21:43:12: Bounds information exported.
-21:43:12: Exporting submesh name table...
-21:43:12: Submesh name table exported.
-21:43:12: Mesh data exported.
-21:43:12: MeshSerializer export successful.
-21:43:12: Exporting bones..
-21:43:12: Bones exported.
-21:43:12: Exporting animations, count=1
-21:43:12: Exporting animation: Idle
-21:43:12: Animation exported.
-21:43:12: Skeleton: Loading models/field_maps/0632/15.skeleton
-21:43:12: MeshSerializer writing mesh data to stream ...
-21:43:12: File header written.
-21:43:12: Writing mesh data...
-21:43:12: Writing submesh...
-21:43:12: Exporting submesh texture aliases...
-21:43:12: Submesh texture aliases exported.
-21:43:12: Exporting dedicated geometry bone assignments...
-21:43:12: Dedicated geometry bone assignments exported.
-21:43:12: Submesh exported.
-21:43:12: Writing submesh...
-21:43:12: Exporting submesh texture aliases...
-21:43:12: Submesh texture aliases exported.
-21:43:12: Exporting dedicated geometry bone assignments...
-21:43:12: Dedicated geometry bone assignments exported.
-21:43:12: Submesh exported.
-21:43:12: Exporting skeleton link...
-21:43:12: Skeleton link exported.
-21:43:12: Exporting bounds information....
-21:43:12: Bounds information exported.
-21:43:12: Exporting submesh name table...
-21:43:12: Submesh name table exported.
-21:43:12: Mesh data exported.
-21:43:12: MeshSerializer export successful.
-21:43:12: Exporting bones..
-21:43:12: Bones exported.
-21:43:12: Exporting animations, count=1
-21:43:12: Exporting animation: Idle
-21:43:12: Animation exported.
-21:43:12: Skeleton: Loading models/field_maps/0632/16.skeleton
-21:43:12: MeshSerializer writing mesh data to stream ...
-21:43:12: File header written.
-21:43:12: Writing mesh data...
-21:43:12: Writing submesh...
-21:43:12: Exporting submesh texture aliases...
-21:43:12: Submesh texture aliases exported.
-21:43:12: Exporting dedicated geometry bone assignments...
-21:43:12: Dedicated geometry bone assignments exported.
-21:43:12: Submesh exported.
-21:43:12: Writing submesh...
-21:43:12: Exporting submesh texture aliases...
-21:43:12: Submesh texture aliases exported.
-21:43:12: Exporting dedicated geometry bone assignments...
-21:43:12: Dedicated geometry bone assignments exported.
-21:43:12: Submesh exported.
-21:43:12: Exporting skeleton link...
-21:43:12: Skeleton link exported.
-21:43:12: Exporting bounds information....
-21:43:12: Bounds information exported.
-21:43:12: Exporting submesh name table...
-21:43:12: Submesh name table exported.
-21:43:12: Mesh data exported.
-21:43:12: MeshSerializer export successful.
-21:43:12: Exporting bones..
-21:43:12: Bones exported.
-21:43:12: Exporting animations, count=1
-21:43:12: Exporting animation: Idle
-21:43:12: Animation exported.
-21:43:12: Skeleton: Loading models/field_maps/0632/17.skeleton
-21:43:12: MeshSerializer writing mesh data to stream ...
-21:43:12: File header written.
-21:43:12: Writing mesh data...
-21:43:12: Writing submesh...
-21:43:12: Exporting submesh texture aliases...
-21:43:12: Submesh texture aliases exported.
-21:43:12: Exporting dedicated geometry bone assignments...
-21:43:12: Dedicated geometry bone assignments exported.
-21:43:12: Submesh exported.
-21:43:12: Writing submesh...
-21:43:12: Exporting submesh texture aliases...
-21:43:12: Submesh texture aliases exported.
-21:43:12: Exporting dedicated geometry bone assignments...
-21:43:12: Dedicated geometry bone assignments exported.
-21:43:12: Submesh exported.
-21:43:12: Exporting skeleton link...
-21:43:12: Skeleton link exported.
-21:43:12: Exporting bounds information....
-21:43:12: Bounds information exported.
-21:43:12: Exporting submesh name table...
-21:43:12: Submesh name table exported.
-21:43:12: Mesh data exported.
-21:43:12: MeshSerializer export successful.
-21:43:12: Exporting bones..
-21:43:12: Bones exported.
-21:43:12: Exporting animations, count=1
-21:43:12: Exporting animation: Idle
-21:43:12: Animation exported.
-21:43:12: Skeleton: Loading models/field_maps/0632/18.skeleton
-21:43:12: MeshSerializer writing mesh data to stream ...
-21:43:12: File header written.
-21:43:12: Writing mesh data...
-21:43:12: Writing submesh...
-21:43:12: Exporting submesh texture aliases...
-21:43:12: Submesh texture aliases exported.
-21:43:12: Exporting dedicated geometry bone assignments...
-21:43:12: Dedicated geometry bone assignments exported.
-21:43:12: Submesh exported.
-21:43:12: Exporting skeleton link...
-21:43:12: Skeleton link exported.
-21:43:12: Exporting bounds information....
-21:43:12: Bounds information exported.
-21:43:12: Exporting submesh name table...
-21:43:12: Submesh name table exported.
-21:43:12: Mesh data exported.
-21:43:12: MeshSerializer export successful.
-21:43:13: MaterialSerializer : writing material xeno/model/0632 to queue.
-21:43:13: MaterialSerializer : parsing texture layer.
-21:43:13: MaterialSerializer : done.
-21:43:13: MaterialSerializer : writing material(s) to material script : exported/models/field_maps/0632/0632.material
-21:43:13: MaterialSerializer : done.
-21:43:13: Mesh: Loading models/field_maps/0632/0.mesh.
-21:43:13: Texture: models/field_maps/0632/0632.png: Loading 1 faces(PF_A8R8G8B8,4096x512x1) Internal format is PF_A8R8G8B8,4096x512x1.
-21:43:13: Mesh: Loading models/field_maps/0632/1.mesh.
-21:43:13: Mesh: Loading models/field_maps/0632/2.mesh.
-21:43:13: Mesh: Loading models/field_maps/0632/3.mesh.
-21:43:13: Mesh: Loading models/field_maps/0632/4.mesh.
-21:43:13: Mesh: Loading models/field_maps/0632/5.mesh.
-21:43:13: Mesh: Loading models/field_maps/0632/6.mesh.
-21:43:13: Mesh: Loading models/field_maps/0632/7.mesh.
-21:43:13: Mesh: Loading models/field_maps/0632/8.mesh.
-21:43:13: Mesh: Loading models/field_maps/0632/9.mesh.
-21:43:13: Mesh: Loading models/field_maps/0632/10.mesh.
-21:43:13: Mesh: Loading models/field_maps/0632/11.mesh.
-21:43:13: Mesh: Loading models/field_maps/0632/12.mesh.
-21:43:13: Mesh: Loading models/field_maps/0632/13.mesh.
-21:43:13: Mesh: Loading models/field_maps/0632/14.mesh.
-21:43:13: Mesh: Loading models/field_maps/0632/15.mesh.
-21:43:13: Mesh: Loading models/field_maps/0632/16.mesh.
-21:43:13: Mesh: Loading models/field_maps/0632/17.mesh.
-21:43:13: Mesh: Loading models/field_maps/0632/18.mesh.
-21:43:15: Font BlueHighway using texture size 512x512
-21:43:15: Info: Freetype returned null for character 127 in font BlueHighway
-21:43:15: Info: Freetype returned null for character 128 in font BlueHighway
-21:43:15: Info: Freetype returned null for character 129 in font BlueHighway
-21:43:15: Info: Freetype returned null for character 130 in font BlueHighway
-21:43:15: Info: Freetype returned null for character 131 in font BlueHighway
-21:43:15: Info: Freetype returned null for character 132 in font BlueHighway
-21:43:15: Info: Freetype returned null for character 133 in font BlueHighway
-21:43:15: Info: Freetype returned null for character 134 in font BlueHighway
-21:43:15: Info: Freetype returned null for character 135 in font BlueHighway
-21:43:15: Info: Freetype returned null for character 136 in font BlueHighway
-21:43:15: Info: Freetype returned null for character 137 in font BlueHighway
-21:43:15: Info: Freetype returned null for character 138 in font BlueHighway
-21:43:15: Info: Freetype returned null for character 139 in font BlueHighway
-21:43:15: Info: Freetype returned null for character 140 in font BlueHighway
-21:43:15: Info: Freetype returned null for character 141 in font BlueHighway
-21:43:15: Info: Freetype returned null for character 142 in font BlueHighway
-21:43:15: Info: Freetype returned null for character 143 in font BlueHighway
-21:43:15: Info: Freetype returned null for character 144 in font BlueHighway
-21:43:15: Info: Freetype returned null for character 145 in font BlueHighway
-21:43:15: Info: Freetype returned null for character 146 in font BlueHighway
-21:43:15: Info: Freetype returned null for character 147 in font BlueHighway
-21:43:15: Info: Freetype returned null for character 148 in font BlueHighway
-21:43:15: Info: Freetype returned null for character 149 in font BlueHighway
-21:43:15: Info: Freetype returned null for character 150 in font BlueHighway
-21:43:15: Info: Freetype returned null for character 151 in font BlueHighway
-21:43:15: Info: Freetype returned null for character 152 in font BlueHighway
-21:43:15: Info: Freetype returned null for character 153 in font BlueHighway
-21:43:15: Info: Freetype returned null for character 154 in font BlueHighway
-21:43:15: Info: Freetype returned null for character 155 in font BlueHighway
-21:43:15: Info: Freetype returned null for character 156 in font BlueHighway
-21:43:15: Info: Freetype returned null for character 157 in font BlueHighway
-21:43:15: Info: Freetype returned null for character 158 in font BlueHighway
-21:43:15: Info: Freetype returned null for character 159 in font BlueHighway
-21:43:15: Info: Freetype returned null for character 160 in font BlueHighway
-21:43:15: Texture: BlueHighwayTexture: Loading 1 faces(PF_BYTE_LA,512x512x1) with 0 generated mipmaps from Image. Internal format is PF_BYTE_LA,512x512x1.
-21:43:15: Texture: sprites/field/chief_lee.png: Loading 1 faces(PF_A8R8G8B8,256x256x1) Internal format is PF_A8R8G8B8,256x256x1.
-21:43:28: DefaultWorkQueue('Root') shutting down on thread 1810.
-21:43:28: DefaultWorkQueue('Root')::WorkerFunc - thread 14f8 stopped.
-21:43:28: DefaultWorkQueue('Root')::WorkerFunc - thread 580 stopped.
-21:43:28: *-*-* OGRE Shutdown
-21:43:28: Unregistering ResourceManager for type Compositor
-21:43:28: Unregistering ResourceManager for type Skeleton
-21:43:28: Unregistering ResourceManager for type Mesh
-21:43:28: Unregistering ResourceManager for type HighLevelGpuProgram
-21:43:28: Uninstalling plugin: D3D9 RenderSystem
-21:43:28: D3D9 device: 0x[03A3F820] destroy. Releasing D3D9 texture: sprites/field/chief_lee.png
-21:43:28: Released D3D9 texture: sprites/field/chief_lee.png
-21:43:28: D3D9 device: 0x[03A3F820] destroy. Releasing D3D9 texture: BlueHighwayTexture
-21:43:28: Released D3D9 texture: BlueHighwayTexture
-21:43:28: D3D9 device: 0x[03A3F820] destroy. Releasing D3D9 texture: New_Ogre_Border_Center.png
-21:43:28: Released D3D9 texture: New_Ogre_Border_Center.png
-21:43:28: D3D9 device: 0x[03A3F820] destroy. Releasing D3D9 texture: New_Ogre_Border.png
-21:43:28: Released D3D9 texture: New_Ogre_Border.png
-21:43:28: D3D9 device: 0x[03A3F820] destroy. Releasing D3D9 texture: New_Ogre_Border_Break.png
-21:43:28: Released D3D9 texture: New_Ogre_Border_Break.png
-21:43:28: D3D9 device: 0x[03A3F820] destroy. Releasing D3D9 texture: ogretext.png
-21:43:28: Released D3D9 texture: ogretext.png
-21:43:28: D3D9 : Shutting down cleanly.
-21:43:28: Unregistering ResourceManager for type Texture
-21:43:28: Unregistering ResourceManager for type GpuProgram
-21:43:28: D3D9 : Direct3D9 Rendering Subsystem destroyed.
-21:43:28: Plugin successfully uninstalled
-21:43:28: Unloading library RenderSystem_Direct3D9.dll
-21:43:28: Unregistering ResourceManager for type Material
+22:59:00: Creating resource group General
+22:59:00: Creating resource group Internal
+22:59:00: Creating resource group Autodetect
+22:59:00: SceneManagerFactory for type 'DefaultSceneManager' registered.
+22:59:00: Registering ResourceManager for type Material
+22:59:00: Registering ResourceManager for type Mesh
+22:59:00: Registering ResourceManager for type Skeleton
+22:59:00: MovableObjectFactory for type 'ParticleSystem' registered.
+22:59:00: ArchiveFactory for archive type FileSystem registered.
+22:59:00: ArchiveFactory for archive type Zip registered.
+22:59:00: ArchiveFactory for archive type EmbeddedZip registered.
+22:59:00: DDS codec registering
+22:59:00: FreeImage version: 3.15.3
+22:59:00: This program uses FreeImage, a free, open source image library supporting all common bitmap formats. See http://freeimage.sourceforge.net for details
+22:59:00: Supported formats: bmp,ico,jpg,jif,jpeg,jpe,jng,koa,iff,lbm,mng,pbm,pbm,pcd,pcx,pgm,pgm,png,ppm,ppm,ras,tga,targa,tif,tiff,wap,wbmp,wbm,psd,cut,xbm,xpm,gif,hdr,g3,sgi,exr,j2k,j2c,jp2,pfm,pct,pict,pic,3fr,arw,bay,bmq,cap,cine,cr2,crw,cs1,dc2,dcr,drf,dsc,dng,erf,fff,ia,iiq,k25,kc2,kdc,mdc,mef,mos,mrw,nef,nrw,orf,pef,ptx,pxn,qtk,raf,raw,rdc,rw2,rwl,rwz,sr2,srf,srw,sti
+22:59:00: Registering ResourceManager for type HighLevelGpuProgram
+22:59:00: Registering ResourceManager for type Compositor
+22:59:00: MovableObjectFactory for type 'Entity' registered.
+22:59:00: MovableObjectFactory for type 'Light' registered.
+22:59:00: MovableObjectFactory for type 'BillboardSet' registered.
+22:59:00: MovableObjectFactory for type 'ManualObject' registered.
+22:59:00: MovableObjectFactory for type 'BillboardChain' registered.
+22:59:00: MovableObjectFactory for type 'RibbonTrail' registered.
+22:59:00: *-*-* OGRE Initialising
+22:59:00: *-*-* Version 1.9.0 (Ghadamon)
+22:59:00: Loading library RenderSystem_Direct3D9.dll
+22:59:00: Installing plugin: D3D9 RenderSystem
+22:59:00: D3D9 : Direct3D9 Rendering Subsystem created.
+22:59:00: D3D9: Driver Detection Starts
+22:59:00: D3D9: Driver Detection Ends
+22:59:00: Plugin successfully installed
+22:59:00: CPU Identifier & Features
+22:59:00: -------------------------
+22:59:00:  *   CPU ID: GenuineIntel: Intel(R) Celeron(R) CPU G1820 @ 2.70GHz
+22:59:00:  *      SSE: yes
+22:59:00:  *     SSE2: yes
+22:59:00:  *     SSE3: yes
+22:59:00:  *      MMX: yes
+22:59:00:  *   MMXEXT: yes
+22:59:00:  *    3DNOW: no
+22:59:00:  * 3DNOWEXT: no
+22:59:00:  *     CMOV: yes
+22:59:00:  *      TSC: yes
+22:59:00:  *      FPU: yes
+22:59:00:  *      PRO: yes
+22:59:00:  *       HT: no
+22:59:00: -------------------------
+22:59:00: D3D9 : Subsystem Initialising
+22:59:00: Registering ResourceManager for type Texture
+22:59:00: Registering ResourceManager for type GpuProgram
+22:59:00: ***************************************
+22:59:00: *** D3D9 : Subsystem Initialised OK ***
+22:59:00: ***************************************
+22:59:00: D3D9RenderSystem::_createRenderWindow "QGearsWindow", 800x600 windowed  miscParams: title=Xenogears Exporter 
+22:59:00: D3D9 : Created D3D9 Rendering Window 'QGearsWindow' : 800x600, 32bpp
+22:59:00: D3D9 : WARNING - disabling VSync in windowed mode can cause timing issues at lower frame rates, turn VSync on if you observe this problem.
+22:59:00: D3D9: Vertex texture format supported - PF_A8R8G8B8
+22:59:00: D3D9: Vertex texture format supported - PF_B8G8R8A8
+22:59:00: D3D9: Vertex texture format supported - PF_FLOAT16_RGB
+22:59:00: D3D9: Vertex texture format supported - PF_FLOAT16_RGBA
+22:59:00: D3D9: Vertex texture format supported - PF_FLOAT32_RGB
+22:59:00: D3D9: Vertex texture format supported - PF_FLOAT32_RGBA
+22:59:00: D3D9: Vertex texture format supported - PF_R8G8B8A8
+22:59:00: D3D9: Vertex texture format supported - PF_DEPTH
+22:59:00: D3D9: Vertex texture format supported - PF_FLOAT16_R
+22:59:00: D3D9: Vertex texture format supported - PF_FLOAT32_R
+22:59:00: D3D9: Vertex texture format supported - PF_FLOAT16_GR
+22:59:00: D3D9: Vertex texture format supported - PF_FLOAT32_GR
+22:59:00: D3D9: Vertex texture format supported - PF_PVRTC_RGB2
+22:59:00: D3D9: Vertex texture format supported - PF_PVRTC_RGBA2
+22:59:00: D3D9: Vertex texture format supported - PF_PVRTC_RGB4
+22:59:00: D3D9: Vertex texture format supported - PF_PVRTC_RGBA4
+22:59:00: D3D9: Vertex texture format supported - PF_PVRTC2_2BPP
+22:59:00: D3D9: Vertex texture format supported - PF_PVRTC2_4BPP
+22:59:00: D3D9: Vertex texture format supported - PF_R11G11B10_FLOAT
+22:59:00: D3D9: Vertex texture format supported - PF_R8_UINT
+22:59:00: D3D9: Vertex texture format supported - PF_R8G8_UINT
+22:59:00: D3D9: Vertex texture format supported - PF_R8G8B8_UINT
+22:59:00: D3D9: Vertex texture format supported - PF_R8G8B8A8_UINT
+22:59:00: D3D9: Vertex texture format supported - PF_R16_UINT
+22:59:00: D3D9: Vertex texture format supported - PF_R16G16_UINT
+22:59:00: D3D9: Vertex texture format supported - PF_R16G16B16_UINT
+22:59:00: D3D9: Vertex texture format supported - PF_R16G16B16A16_UINT
+22:59:00: D3D9: Vertex texture format supported - PF_R32_UINT
+22:59:00: D3D9: Vertex texture format supported - PF_R32G32_UINT
+22:59:00: D3D9: Vertex texture format supported - PF_R32G32B32_UINT
+22:59:00: D3D9: Vertex texture format supported - PF_R32G32B32A32_UINT
+22:59:00: D3D9: Vertex texture format supported - PF_R8_SINT
+22:59:00: D3D9: Vertex texture format supported - PF_R8G8_SINT
+22:59:00: D3D9: Vertex texture format supported - PF_R8G8B8_SINT
+22:59:00: D3D9: Vertex texture format supported - PF_R8G8B8A8_SINT
+22:59:00: D3D9: Vertex texture format supported - PF_R16_SINT
+22:59:00: D3D9: Vertex texture format supported - PF_R16G16_SINT
+22:59:00: D3D9: Vertex texture format supported - PF_R16G16B16_SINT
+22:59:00: D3D9: Vertex texture format supported - PF_R16G16B16A16_SINT
+22:59:00: D3D9: Vertex texture format supported - PF_R32_SINT
+22:59:00: D3D9: Vertex texture format supported - PF_R32G32_SINT
+22:59:00: D3D9: Vertex texture format supported - PF_R32G32B32_SINT
+22:59:00: D3D9: Vertex texture format supported - PF_R32G32B32A32_SINT
+22:59:00: D3D9: Vertex texture format supported - PF_R9G9B9E5_SHAREDEXP
+22:59:00: D3D9: Vertex texture format supported - PF_BC4_UNORM
+22:59:00: D3D9: Vertex texture format supported - PF_BC4_SNORM
+22:59:00: D3D9: Vertex texture format supported - PF_BC5_UNORM
+22:59:00: D3D9: Vertex texture format supported - PF_BC5_SNORM
+22:59:00: D3D9: Vertex texture format supported - PF_BC6H_UF16
+22:59:00: D3D9: Vertex texture format supported - PF_BC6H_SF16
+22:59:00: D3D9: Vertex texture format supported - PF_BC7_UNORM
+22:59:00: D3D9: Vertex texture format supported - PF_BC7_UNORM_SRGB
+22:59:00: D3D9: Vertex texture format supported - PF_R8
+22:59:00: D3D9: Vertex texture format supported - PF_RG8
+22:59:00: D3D9: Vertex texture format supported - PF_R8_SNORM
+22:59:00: D3D9: Vertex texture format supported - PF_R8G8_SNORM
+22:59:00: D3D9: Vertex texture format supported - PF_R8G8B8_SNORM
+22:59:00: D3D9: Vertex texture format supported - PF_R8G8B8A8_SNORM
+22:59:00: D3D9: Vertex texture format supported - PF_R16_SNORM
+22:59:00: D3D9: Vertex texture format supported - PF_R16G16_SNORM
+22:59:00: D3D9: Vertex texture format supported - PF_R16G16B16_SNORM
+22:59:00: D3D9: Vertex texture format supported - PF_R16G16B16A16_SNORM
+22:59:00: D3D9: Vertex texture format supported - PF_ETC1_RGB8
+22:59:00: D3D9: Vertex texture format supported - PF_ETC2_RGB8
+22:59:00: D3D9: Vertex texture format supported - PF_ETC2_RGBA8
+22:59:00: D3D9: Vertex texture format supported - PF_ETC2_RGB8A1
+22:59:00: D3D9: Vertex texture format supported - PF_ATC_RGB
+22:59:00: D3D9: Vertex texture format supported - PF_ATC_RGBA_EXPLICIT_ALPHA
+22:59:00: D3D9: Vertex texture format supported - PF_ATC_RGBA_INTERPOLATED_ALPHA
+22:59:00: RenderSystem capabilities
+22:59:00: -------------------------
+22:59:00: RenderSystem Name: Direct3D9 Rendering Subsystem
+22:59:00: GPU Vendor: nvidia
+22:59:00: Device Name: Monitor-1-NVIDIA GeForce GTX 750
+22:59:00: Driver Version: 10.18.13.5560
+22:59:00:  * Fixed function pipeline: yes
+22:59:00:  * Hardware generation of mipmaps: yes
+22:59:00:  * Texture blending: yes
+22:59:00:  * Anisotropic texture filtering: yes
+22:59:00:  * Dot product texture operation: yes
+22:59:00:  * Cube mapping: yes
+22:59:00:  * Hardware stencil buffer: yes
+22:59:00:    - Stencil depth: 8
+22:59:00:    - Two sided stencil support: yes
+22:59:00:    - Wrap stencil values: yes
+22:59:00:  * Hardware vertex / index buffers: yes
+22:59:00:  * Vertex programs: yes
+22:59:00:  * Number of floating-point constants for vertex programs: 256
+22:59:00:  * Number of integer constants for vertex programs: 16
+22:59:00:  * Number of boolean constants for vertex programs: 16
+22:59:00:  * Fragment programs: yes
+22:59:00:  * Number of floating-point constants for fragment programs: 224
+22:59:00:  * Number of integer constants for fragment programs: 16
+22:59:00:  * Number of boolean constants for fragment programs: 16
+22:59:00:  * Geometry programs: no
+22:59:00:  * Number of floating-point constants for geometry programs: 0
+22:59:00:  * Number of integer constants for geometry programs: 0
+22:59:00:  * Number of boolean constants for geometry programs: 0
+22:59:00:  * Tesselation Hull programs: no
+22:59:00:  * Number of floating-point constants for tesselation hull programs: 0
+22:59:00:  * Number of integer constants for tesselation hull programs: 0
+22:59:00:  * Number of boolean constants for tesselation hull programs: 0
+22:59:00:  * Tesselation Domain programs: no
+22:59:00:  * Number of floating-point constants for tesselation domain programs: 0
+22:59:00:  * Number of integer constants for tesselation domain programs: 0
+22:59:00:  * Number of boolean constants for tesselation domain programs: 0
+22:59:00:  * Compute programs: no
+22:59:00:  * Number of floating-point constants for compute programs: 0
+22:59:00:  * Number of integer constants for compute programs: 0
+22:59:00:  * Number of boolean constants for compute programs: 0
+22:59:00:  * Supported Shader Profiles: hlsl ps_1_1 ps_1_2 ps_1_3 ps_1_4 ps_2_0 ps_2_a ps_2_b ps_2_x ps_3_0 vs_1_1 vs_2_0 vs_2_a vs_2_x vs_3_0
+22:59:00:  * Texture Compression: yes
+22:59:00:    - DXT: yes
+22:59:00:    - VTC: no
+22:59:00:    - PVRTC: no
+22:59:00:    - ATC: no
+22:59:00:    - ETC1: no
+22:59:00:    - ETC2: no
+22:59:00:    - BC4/BC5: no
+22:59:00:    - BC6H/BC7: no
+22:59:00:  * Scissor Rectangle: yes
+22:59:00:  * Hardware Occlusion Query: yes
+22:59:00:  * User clip planes: yes
+22:59:00:  * VET_UBYTE4 vertex element type: yes
+22:59:00:  * Infinite far plane projection: yes
+22:59:00:  * Hardware render-to-texture: yes
+22:59:00:  * Floating point textures: yes
+22:59:00:  * Non-power-of-two textures: yes
+22:59:00:  * 1d textures: yes
+22:59:00:  * Volume textures: yes
+22:59:00:  * Multiple Render Targets: 4
+22:59:00:    - With different bit depths: yes
+22:59:00:  * Point Sprites: yes
+22:59:00:  * Extended point parameters: yes
+22:59:00:  * Max Point Size: 8192
+22:59:00:  * Vertex texture fetch: yes
+22:59:00:  * Number of world matrices: 0
+22:59:00:  * Number of texture units: 8
+22:59:00:  * Stencil buffer depth: 8
+22:59:00:  * Number of vertex blend matrices: 0
+22:59:00:    - Max vertex textures: 4
+22:59:00:    - Vertex textures shared: no
+22:59:00:  * Render to Vertex Buffer : no
+22:59:00:  * Hardware Atomic Counters: no
+22:59:00:  * DirectX per stage constants: yes
+22:59:00: DefaultWorkQueue('Root') initialising on thread 156c.
+22:59:00: Particle Renderer Type 'billboard' registered
+22:59:00: DefaultWorkQueue('Root')::WorkerFunc - thread 73c starting.
+22:59:00: DefaultWorkQueue('Root')::WorkerFunc - thread 1304 starting.
+22:59:00: OverlayElementFactory for type Panel registered.
+22:59:00: OverlayElementFactory for type BorderPanel registered.
+22:59:00: OverlayElementFactory for type TextArea registered.
+22:59:00: Registering ResourceManager for type Font
+22:59:00: Added resource location './data' of type 'FileSystem' to resource group 'General'
+22:59:00: Added resource location './exported' of type 'FileSystem' to resource group 'General'
+22:59:00: Creating resource group Bootstrap
+22:59:00: Added resource location './data/OgreCore.zip' of type 'Zip' to resource group 'Bootstrap'
+22:59:00: Parsing scripts for resource group Autodetect
+22:59:00: Finished parsing scripts for resource group Autodetect
+22:59:00: Creating resources for group Autodetect
+22:59:00: All done
+22:59:00: Parsing scripts for resource group Bootstrap
+22:59:00: Parsing script OgreCore.material
+22:59:00: Parsing script OgreProfiler.material
+22:59:00: Parsing script Ogre.fontdef
+22:59:00: Parsing script OgreDebugPanel.overlay
+22:59:00: Texture: New_Ogre_Border_Center.png: Loading 1 faces(PF_A8R8G8B8,256x128x1) Internal format is PF_A8R8G8B8,256x128x1.
+22:59:00: Texture: New_Ogre_Border.png: Loading 1 faces(PF_A8R8G8B8,256x256x1) Internal format is PF_A8R8G8B8,256x256x1.
+22:59:00: Texture: New_Ogre_Border_Break.png: Loading 1 faces(PF_A8R8G8B8,32x32x1) Internal format is PF_A8R8G8B8,32x32x1.
+22:59:00: Texture: ogretext.png: Loading 1 faces(PF_A8R8G8B8,256x128x1) Internal format is PF_A8R8G8B8,256x128x1.
+22:59:00: Parsing script OgreLoadingPanel.overlay
+22:59:00: Finished parsing scripts for resource group Bootstrap
+22:59:00: Creating resources for group Bootstrap
+22:59:00: All done
+22:59:00: Parsing scripts for resource group General
+22:59:00: Parsing script debug.material
+22:59:00: Parsing script system.fontdef
+22:59:00: Finished parsing scripts for resource group General
+22:59:00: Creating resources for group General
+22:59:00: All done
+22:59:00: Parsing scripts for resource group Internal
+22:59:00: Finished parsing scripts for resource group Internal
+22:59:00: Creating resources for group Internal
+22:59:00: All done
+22:59:00: Texture: courier_new_9_75.png: Loading 1 faces(PF_A8R8G8B8,256x256x1) with 0 generated mipmaps from Image. Internal format is PF_A8R8G8B8,256x256x1.
+22:59:02: Exporting bones..
+22:59:02: Bones exported.
+22:59:02: Exporting animations, count=1
+22:59:02: Exporting animation: Idle
+22:59:02: Animation exported.
+22:59:02: Skeleton: Loading models/field_maps/0632/0.skeleton
+22:59:02: MeshSerializer writing mesh data to stream ...
+22:59:02: File header written.
+22:59:02: Writing mesh data...
+22:59:02: Writing submesh...
+22:59:02: Exporting submesh texture aliases...
+22:59:02: Submesh texture aliases exported.
+22:59:02: Exporting dedicated geometry bone assignments...
+22:59:02: Dedicated geometry bone assignments exported.
+22:59:02: Submesh exported.
+22:59:02: Writing submesh...
+22:59:02: Exporting submesh texture aliases...
+22:59:02: Submesh texture aliases exported.
+22:59:02: Exporting dedicated geometry bone assignments...
+22:59:02: Dedicated geometry bone assignments exported.
+22:59:02: Submesh exported.
+22:59:02: Exporting skeleton link...
+22:59:02: Skeleton link exported.
+22:59:02: Exporting bounds information....
+22:59:02: Bounds information exported.
+22:59:02: Exporting submesh name table...
+22:59:02: Submesh name table exported.
+22:59:02: Mesh data exported.
+22:59:02: MeshSerializer export successful.
+22:59:02: Exporting bones..
+22:59:02: Bones exported.
+22:59:02: Exporting animations, count=1
+22:59:02: Exporting animation: Idle
+22:59:02: Animation exported.
+22:59:02: Skeleton: Loading models/field_maps/0632/1.skeleton
+22:59:02: MeshSerializer writing mesh data to stream ...
+22:59:02: File header written.
+22:59:02: Writing mesh data...
+22:59:02: Writing submesh...
+22:59:02: Exporting submesh texture aliases...
+22:59:02: Submesh texture aliases exported.
+22:59:02: Exporting dedicated geometry bone assignments...
+22:59:02: Dedicated geometry bone assignments exported.
+22:59:02: Submesh exported.
+22:59:02: Exporting skeleton link...
+22:59:02: Skeleton link exported.
+22:59:02: Exporting bounds information....
+22:59:02: Bounds information exported.
+22:59:02: Exporting submesh name table...
+22:59:02: Submesh name table exported.
+22:59:02: Mesh data exported.
+22:59:02: MeshSerializer export successful.
+22:59:02: Exporting bones..
+22:59:02: Bones exported.
+22:59:02: Exporting animations, count=1
+22:59:02: Exporting animation: Idle
+22:59:02: Animation exported.
+22:59:02: Skeleton: Loading models/field_maps/0632/2.skeleton
+22:59:02: MeshSerializer writing mesh data to stream ...
+22:59:02: File header written.
+22:59:02: Writing mesh data...
+22:59:02: Writing submesh...
+22:59:02: Exporting submesh texture aliases...
+22:59:02: Submesh texture aliases exported.
+22:59:02: Exporting dedicated geometry bone assignments...
+22:59:02: Dedicated geometry bone assignments exported.
+22:59:02: Submesh exported.
+22:59:02: Exporting skeleton link...
+22:59:02: Skeleton link exported.
+22:59:02: Exporting bounds information....
+22:59:02: Bounds information exported.
+22:59:02: Exporting submesh name table...
+22:59:02: Submesh name table exported.
+22:59:02: Mesh data exported.
+22:59:02: MeshSerializer export successful.
+22:59:02: Exporting bones..
+22:59:02: Bones exported.
+22:59:02: Exporting animations, count=1
+22:59:02: Exporting animation: Idle
+22:59:02: Animation exported.
+22:59:02: Skeleton: Loading models/field_maps/0632/3.skeleton
+22:59:02: MeshSerializer writing mesh data to stream ...
+22:59:02: File header written.
+22:59:02: Writing mesh data...
+22:59:02: Writing submesh...
+22:59:02: Exporting submesh texture aliases...
+22:59:02: Submesh texture aliases exported.
+22:59:02: Exporting dedicated geometry bone assignments...
+22:59:02: Dedicated geometry bone assignments exported.
+22:59:02: Submesh exported.
+22:59:02: Writing submesh...
+22:59:02: Exporting submesh texture aliases...
+22:59:02: Submesh texture aliases exported.
+22:59:02: Exporting dedicated geometry bone assignments...
+22:59:02: Dedicated geometry bone assignments exported.
+22:59:02: Submesh exported.
+22:59:02: Exporting skeleton link...
+22:59:02: Skeleton link exported.
+22:59:02: Exporting bounds information....
+22:59:02: Bounds information exported.
+22:59:02: Exporting submesh name table...
+22:59:02: Submesh name table exported.
+22:59:02: Mesh data exported.
+22:59:02: MeshSerializer export successful.
+22:59:02: Exporting bones..
+22:59:02: Bones exported.
+22:59:02: Exporting animations, count=1
+22:59:02: Exporting animation: Idle
+22:59:02: Animation exported.
+22:59:02: Skeleton: Loading models/field_maps/0632/4.skeleton
+22:59:02: MeshSerializer writing mesh data to stream ...
+22:59:02: File header written.
+22:59:02: Writing mesh data...
+22:59:02: Writing submesh...
+22:59:02: Exporting submesh texture aliases...
+22:59:02: Submesh texture aliases exported.
+22:59:02: Exporting dedicated geometry bone assignments...
+22:59:02: Dedicated geometry bone assignments exported.
+22:59:02: Submesh exported.
+22:59:02: Writing submesh...
+22:59:02: Exporting submesh texture aliases...
+22:59:02: Submesh texture aliases exported.
+22:59:02: Exporting dedicated geometry bone assignments...
+22:59:02: Dedicated geometry bone assignments exported.
+22:59:02: Submesh exported.
+22:59:02: Writing submesh...
+22:59:02: Exporting submesh texture aliases...
+22:59:02: Submesh texture aliases exported.
+22:59:02: Exporting dedicated geometry bone assignments...
+22:59:02: Dedicated geometry bone assignments exported.
+22:59:02: Submesh exported.
+22:59:02: Exporting skeleton link...
+22:59:02: Skeleton link exported.
+22:59:02: Exporting bounds information....
+22:59:02: Bounds information exported.
+22:59:02: Exporting submesh name table...
+22:59:02: Submesh name table exported.
+22:59:02: Mesh data exported.
+22:59:02: MeshSerializer export successful.
+22:59:02: Exporting bones..
+22:59:02: Bones exported.
+22:59:02: Exporting animations, count=1
+22:59:02: Exporting animation: Idle
+22:59:02: Animation exported.
+22:59:02: Skeleton: Loading models/field_maps/0632/5.skeleton
+22:59:02: MeshSerializer writing mesh data to stream ...
+22:59:02: File header written.
+22:59:02: Writing mesh data...
+22:59:02: Writing submesh...
+22:59:02: Exporting submesh texture aliases...
+22:59:02: Submesh texture aliases exported.
+22:59:02: Exporting dedicated geometry bone assignments...
+22:59:02: Dedicated geometry bone assignments exported.
+22:59:02: Submesh exported.
+22:59:02: Exporting skeleton link...
+22:59:02: Skeleton link exported.
+22:59:02: Exporting bounds information....
+22:59:02: Bounds information exported.
+22:59:02: Exporting submesh name table...
+22:59:02: Submesh name table exported.
+22:59:02: Mesh data exported.
+22:59:02: MeshSerializer export successful.
+22:59:02: Exporting bones..
+22:59:02: Bones exported.
+22:59:02: Exporting animations, count=1
+22:59:02: Exporting animation: Idle
+22:59:02: Animation exported.
+22:59:02: Skeleton: Loading models/field_maps/0632/6.skeleton
+22:59:02: MeshSerializer writing mesh data to stream ...
+22:59:02: File header written.
+22:59:02: Writing mesh data...
+22:59:02: Writing submesh...
+22:59:02: Exporting submesh texture aliases...
+22:59:02: Submesh texture aliases exported.
+22:59:02: Exporting dedicated geometry bone assignments...
+22:59:02: Dedicated geometry bone assignments exported.
+22:59:02: Submesh exported.
+22:59:02: Exporting skeleton link...
+22:59:02: Skeleton link exported.
+22:59:02: Exporting bounds information....
+22:59:02: Bounds information exported.
+22:59:02: Exporting submesh name table...
+22:59:02: Submesh name table exported.
+22:59:02: Mesh data exported.
+22:59:02: MeshSerializer export successful.
+22:59:02: Exporting bones..
+22:59:02: Bones exported.
+22:59:02: Exporting animations, count=1
+22:59:02: Exporting animation: Idle
+22:59:02: Animation exported.
+22:59:02: Skeleton: Loading models/field_maps/0632/7.skeleton
+22:59:02: MeshSerializer writing mesh data to stream ...
+22:59:02: File header written.
+22:59:02: Writing mesh data...
+22:59:02: Writing submesh...
+22:59:02: Exporting submesh texture aliases...
+22:59:02: Submesh texture aliases exported.
+22:59:02: Exporting dedicated geometry bone assignments...
+22:59:02: Dedicated geometry bone assignments exported.
+22:59:02: Submesh exported.
+22:59:02: Exporting skeleton link...
+22:59:02: Skeleton link exported.
+22:59:02: Exporting bounds information....
+22:59:02: Bounds information exported.
+22:59:02: Exporting submesh name table...
+22:59:02: Submesh name table exported.
+22:59:02: Mesh data exported.
+22:59:02: MeshSerializer export successful.
+22:59:02: Exporting bones..
+22:59:02: Bones exported.
+22:59:02: Exporting animations, count=1
+22:59:02: Exporting animation: Idle
+22:59:02: Animation exported.
+22:59:02: Skeleton: Loading models/field_maps/0632/8.skeleton
+22:59:02: MeshSerializer writing mesh data to stream ...
+22:59:02: File header written.
+22:59:02: Writing mesh data...
+22:59:02: Writing submesh...
+22:59:02: Exporting submesh texture aliases...
+22:59:02: Submesh texture aliases exported.
+22:59:02: Exporting dedicated geometry bone assignments...
+22:59:02: Dedicated geometry bone assignments exported.
+22:59:02: Submesh exported.
+22:59:02: Exporting skeleton link...
+22:59:02: Skeleton link exported.
+22:59:02: Exporting bounds information....
+22:59:02: Bounds information exported.
+22:59:02: Exporting submesh name table...
+22:59:02: Submesh name table exported.
+22:59:02: Mesh data exported.
+22:59:02: MeshSerializer export successful.
+22:59:02: Exporting bones..
+22:59:02: Bones exported.
+22:59:02: Exporting animations, count=1
+22:59:02: Exporting animation: Idle
+22:59:02: Animation exported.
+22:59:02: Skeleton: Loading models/field_maps/0632/9.skeleton
+22:59:02: MeshSerializer writing mesh data to stream ...
+22:59:02: File header written.
+22:59:02: Writing mesh data...
+22:59:02: Writing submesh...
+22:59:02: Exporting submesh texture aliases...
+22:59:02: Submesh texture aliases exported.
+22:59:02: Exporting dedicated geometry bone assignments...
+22:59:02: Dedicated geometry bone assignments exported.
+22:59:02: Submesh exported.
+22:59:02: Exporting skeleton link...
+22:59:02: Skeleton link exported.
+22:59:02: Exporting bounds information....
+22:59:02: Bounds information exported.
+22:59:02: Exporting submesh name table...
+22:59:02: Submesh name table exported.
+22:59:02: Mesh data exported.
+22:59:02: MeshSerializer export successful.
+22:59:02: Exporting bones..
+22:59:02: Bones exported.
+22:59:02: Exporting animations, count=1
+22:59:02: Exporting animation: Idle
+22:59:02: Animation exported.
+22:59:02: Skeleton: Loading models/field_maps/0632/10.skeleton
+22:59:02: MeshSerializer writing mesh data to stream ...
+22:59:02: File header written.
+22:59:02: Writing mesh data...
+22:59:02: Writing submesh...
+22:59:02: Exporting submesh texture aliases...
+22:59:02: Submesh texture aliases exported.
+22:59:02: Exporting dedicated geometry bone assignments...
+22:59:02: Dedicated geometry bone assignments exported.
+22:59:02: Submesh exported.
+22:59:02: Writing submesh...
+22:59:02: Exporting submesh texture aliases...
+22:59:02: Submesh texture aliases exported.
+22:59:02: Exporting dedicated geometry bone assignments...
+22:59:02: Dedicated geometry bone assignments exported.
+22:59:02: Submesh exported.
+22:59:02: Writing submesh...
+22:59:02: Exporting submesh texture aliases...
+22:59:02: Submesh texture aliases exported.
+22:59:02: Exporting dedicated geometry bone assignments...
+22:59:02: Dedicated geometry bone assignments exported.
+22:59:02: Submesh exported.
+22:59:02: Exporting skeleton link...
+22:59:02: Skeleton link exported.
+22:59:02: Exporting bounds information....
+22:59:02: Bounds information exported.
+22:59:02: Exporting submesh name table...
+22:59:02: Submesh name table exported.
+22:59:02: Mesh data exported.
+22:59:02: MeshSerializer export successful.
+22:59:02: Exporting bones..
+22:59:02: Bones exported.
+22:59:02: Exporting animations, count=1
+22:59:02: Exporting animation: Idle
+22:59:02: Animation exported.
+22:59:02: Skeleton: Loading models/field_maps/0632/11.skeleton
+22:59:02: MeshSerializer writing mesh data to stream ...
+22:59:02: File header written.
+22:59:02: Writing mesh data...
+22:59:02: Writing submesh...
+22:59:02: Exporting submesh texture aliases...
+22:59:02: Submesh texture aliases exported.
+22:59:02: Exporting dedicated geometry bone assignments...
+22:59:02: Dedicated geometry bone assignments exported.
+22:59:02: Submesh exported.
+22:59:02: Writing submesh...
+22:59:02: Exporting submesh texture aliases...
+22:59:02: Submesh texture aliases exported.
+22:59:02: Exporting dedicated geometry bone assignments...
+22:59:02: Dedicated geometry bone assignments exported.
+22:59:02: Submesh exported.
+22:59:02: Exporting skeleton link...
+22:59:02: Skeleton link exported.
+22:59:02: Exporting bounds information....
+22:59:02: Bounds information exported.
+22:59:02: Exporting submesh name table...
+22:59:02: Submesh name table exported.
+22:59:02: Mesh data exported.
+22:59:02: MeshSerializer export successful.
+22:59:02: Exporting bones..
+22:59:02: Bones exported.
+22:59:02: Exporting animations, count=1
+22:59:02: Exporting animation: Idle
+22:59:02: Animation exported.
+22:59:02: Skeleton: Loading models/field_maps/0632/12.skeleton
+22:59:02: MeshSerializer writing mesh data to stream ...
+22:59:02: File header written.
+22:59:02: Writing mesh data...
+22:59:02: Writing submesh...
+22:59:02: Exporting submesh texture aliases...
+22:59:02: Submesh texture aliases exported.
+22:59:02: Exporting dedicated geometry bone assignments...
+22:59:02: Dedicated geometry bone assignments exported.
+22:59:02: Submesh exported.
+22:59:02: Writing submesh...
+22:59:02: Exporting submesh texture aliases...
+22:59:02: Submesh texture aliases exported.
+22:59:02: Exporting dedicated geometry bone assignments...
+22:59:02: Dedicated geometry bone assignments exported.
+22:59:02: Submesh exported.
+22:59:02: Exporting skeleton link...
+22:59:02: Skeleton link exported.
+22:59:02: Exporting bounds information....
+22:59:02: Bounds information exported.
+22:59:02: Exporting submesh name table...
+22:59:02: Submesh name table exported.
+22:59:02: Mesh data exported.
+22:59:02: MeshSerializer export successful.
+22:59:02: Exporting bones..
+22:59:02: Bones exported.
+22:59:02: Exporting animations, count=1
+22:59:02: Exporting animation: Idle
+22:59:02: Animation exported.
+22:59:02: Skeleton: Loading models/field_maps/0632/13.skeleton
+22:59:02: MeshSerializer writing mesh data to stream ...
+22:59:02: File header written.
+22:59:02: Writing mesh data...
+22:59:02: Writing submesh...
+22:59:02: Exporting submesh texture aliases...
+22:59:02: Submesh texture aliases exported.
+22:59:02: Exporting dedicated geometry bone assignments...
+22:59:02: Dedicated geometry bone assignments exported.
+22:59:02: Submesh exported.
+22:59:02: Exporting skeleton link...
+22:59:02: Skeleton link exported.
+22:59:02: Exporting bounds information....
+22:59:02: Bounds information exported.
+22:59:02: Exporting submesh name table...
+22:59:02: Submesh name table exported.
+22:59:02: Mesh data exported.
+22:59:02: MeshSerializer export successful.
+22:59:02: Exporting bones..
+22:59:02: Bones exported.
+22:59:02: Exporting animations, count=1
+22:59:02: Exporting animation: Idle
+22:59:02: Animation exported.
+22:59:02: Skeleton: Loading models/field_maps/0632/14.skeleton
+22:59:02: MeshSerializer writing mesh data to stream ...
+22:59:02: File header written.
+22:59:02: Writing mesh data...
+22:59:02: Writing submesh...
+22:59:02: Exporting submesh texture aliases...
+22:59:02: Submesh texture aliases exported.
+22:59:02: Exporting dedicated geometry bone assignments...
+22:59:02: Dedicated geometry bone assignments exported.
+22:59:02: Submesh exported.
+22:59:02: Exporting skeleton link...
+22:59:02: Skeleton link exported.
+22:59:02: Exporting bounds information....
+22:59:02: Bounds information exported.
+22:59:02: Exporting submesh name table...
+22:59:02: Submesh name table exported.
+22:59:02: Mesh data exported.
+22:59:02: MeshSerializer export successful.
+22:59:02: Exporting bones..
+22:59:02: Bones exported.
+22:59:02: Exporting animations, count=1
+22:59:02: Exporting animation: Idle
+22:59:02: Animation exported.
+22:59:02: Skeleton: Loading models/field_maps/0632/15.skeleton
+22:59:02: MeshSerializer writing mesh data to stream ...
+22:59:02: File header written.
+22:59:02: Writing mesh data...
+22:59:02: Writing submesh...
+22:59:02: Exporting submesh texture aliases...
+22:59:02: Submesh texture aliases exported.
+22:59:02: Exporting dedicated geometry bone assignments...
+22:59:02: Dedicated geometry bone assignments exported.
+22:59:02: Submesh exported.
+22:59:02: Writing submesh...
+22:59:02: Exporting submesh texture aliases...
+22:59:02: Submesh texture aliases exported.
+22:59:02: Exporting dedicated geometry bone assignments...
+22:59:02: Dedicated geometry bone assignments exported.
+22:59:02: Submesh exported.
+22:59:02: Exporting skeleton link...
+22:59:02: Skeleton link exported.
+22:59:02: Exporting bounds information....
+22:59:02: Bounds information exported.
+22:59:02: Exporting submesh name table...
+22:59:02: Submesh name table exported.
+22:59:02: Mesh data exported.
+22:59:02: MeshSerializer export successful.
+22:59:02: Exporting bones..
+22:59:02: Bones exported.
+22:59:02: Exporting animations, count=1
+22:59:02: Exporting animation: Idle
+22:59:02: Animation exported.
+22:59:02: Skeleton: Loading models/field_maps/0632/16.skeleton
+22:59:02: MeshSerializer writing mesh data to stream ...
+22:59:02: File header written.
+22:59:02: Writing mesh data...
+22:59:02: Writing submesh...
+22:59:02: Exporting submesh texture aliases...
+22:59:02: Submesh texture aliases exported.
+22:59:02: Exporting dedicated geometry bone assignments...
+22:59:02: Dedicated geometry bone assignments exported.
+22:59:02: Submesh exported.
+22:59:02: Writing submesh...
+22:59:02: Exporting submesh texture aliases...
+22:59:02: Submesh texture aliases exported.
+22:59:02: Exporting dedicated geometry bone assignments...
+22:59:02: Dedicated geometry bone assignments exported.
+22:59:02: Submesh exported.
+22:59:02: Exporting skeleton link...
+22:59:02: Skeleton link exported.
+22:59:02: Exporting bounds information....
+22:59:02: Bounds information exported.
+22:59:02: Exporting submesh name table...
+22:59:02: Submesh name table exported.
+22:59:02: Mesh data exported.
+22:59:02: MeshSerializer export successful.
+22:59:02: Exporting bones..
+22:59:02: Bones exported.
+22:59:02: Exporting animations, count=1
+22:59:02: Exporting animation: Idle
+22:59:02: Animation exported.
+22:59:02: Skeleton: Loading models/field_maps/0632/17.skeleton
+22:59:02: MeshSerializer writing mesh data to stream ...
+22:59:02: File header written.
+22:59:02: Writing mesh data...
+22:59:02: Writing submesh...
+22:59:02: Exporting submesh texture aliases...
+22:59:02: Submesh texture aliases exported.
+22:59:02: Exporting dedicated geometry bone assignments...
+22:59:02: Dedicated geometry bone assignments exported.
+22:59:02: Submesh exported.
+22:59:02: Writing submesh...
+22:59:02: Exporting submesh texture aliases...
+22:59:02: Submesh texture aliases exported.
+22:59:02: Exporting dedicated geometry bone assignments...
+22:59:02: Dedicated geometry bone assignments exported.
+22:59:02: Submesh exported.
+22:59:02: Exporting skeleton link...
+22:59:02: Skeleton link exported.
+22:59:02: Exporting bounds information....
+22:59:02: Bounds information exported.
+22:59:02: Exporting submesh name table...
+22:59:02: Submesh name table exported.
+22:59:02: Mesh data exported.
+22:59:02: MeshSerializer export successful.
+22:59:02: Exporting bones..
+22:59:02: Bones exported.
+22:59:02: Exporting animations, count=1
+22:59:02: Exporting animation: Idle
+22:59:02: Animation exported.
+22:59:02: Skeleton: Loading models/field_maps/0632/18.skeleton
+22:59:02: MeshSerializer writing mesh data to stream ...
+22:59:02: File header written.
+22:59:02: Writing mesh data...
+22:59:02: Writing submesh...
+22:59:02: Exporting submesh texture aliases...
+22:59:02: Submesh texture aliases exported.
+22:59:02: Exporting dedicated geometry bone assignments...
+22:59:02: Dedicated geometry bone assignments exported.
+22:59:02: Submesh exported.
+22:59:02: Exporting skeleton link...
+22:59:02: Skeleton link exported.
+22:59:02: Exporting bounds information....
+22:59:02: Bounds information exported.
+22:59:02: Exporting submesh name table...
+22:59:02: Submesh name table exported.
+22:59:02: Mesh data exported.
+22:59:02: MeshSerializer export successful.
+22:59:03: MaterialSerializer : writing material xeno/model/0632 to queue.
+22:59:03: MaterialSerializer : parsing texture layer.
+22:59:03: MaterialSerializer : done.
+22:59:03: MaterialSerializer : writing material(s) to material script : exported/models/field_maps/0632/0632.material
+22:59:03: MaterialSerializer : done.
+22:59:03: Mesh: Loading models/field_maps/0632/0.mesh.
+22:59:03: Texture: models/field_maps/0632/0632.png: Loading 1 faces(PF_A8R8G8B8,4096x512x1) Internal format is PF_A8R8G8B8,4096x512x1.
+22:59:03: Mesh: Loading models/field_maps/0632/1.mesh.
+22:59:03: Mesh: Loading models/field_maps/0632/2.mesh.
+22:59:03: Mesh: Loading models/field_maps/0632/3.mesh.
+22:59:03: Mesh: Loading models/field_maps/0632/4.mesh.
+22:59:03: Mesh: Loading models/field_maps/0632/5.mesh.
+22:59:03: Mesh: Loading models/field_maps/0632/6.mesh.
+22:59:03: Mesh: Loading models/field_maps/0632/7.mesh.
+22:59:03: Mesh: Loading models/field_maps/0632/8.mesh.
+22:59:03: Mesh: Loading models/field_maps/0632/9.mesh.
+22:59:03: Mesh: Loading models/field_maps/0632/10.mesh.
+22:59:03: Mesh: Loading models/field_maps/0632/11.mesh.
+22:59:03: Mesh: Loading models/field_maps/0632/12.mesh.
+22:59:03: Mesh: Loading models/field_maps/0632/13.mesh.
+22:59:03: Mesh: Loading models/field_maps/0632/14.mesh.
+22:59:03: Mesh: Loading models/field_maps/0632/15.mesh.
+22:59:03: Mesh: Loading models/field_maps/0632/16.mesh.
+22:59:03: Mesh: Loading models/field_maps/0632/17.mesh.
+22:59:03: Mesh: Loading models/field_maps/0632/18.mesh.
+22:59:04: Font BlueHighway using texture size 512x512
+22:59:04: Info: Freetype returned null for character 127 in font BlueHighway
+22:59:04: Info: Freetype returned null for character 128 in font BlueHighway
+22:59:04: Info: Freetype returned null for character 129 in font BlueHighway
+22:59:04: Info: Freetype returned null for character 130 in font BlueHighway
+22:59:04: Info: Freetype returned null for character 131 in font BlueHighway
+22:59:04: Info: Freetype returned null for character 132 in font BlueHighway
+22:59:04: Info: Freetype returned null for character 133 in font BlueHighway
+22:59:04: Info: Freetype returned null for character 134 in font BlueHighway
+22:59:04: Info: Freetype returned null for character 135 in font BlueHighway
+22:59:04: Info: Freetype returned null for character 136 in font BlueHighway
+22:59:04: Info: Freetype returned null for character 137 in font BlueHighway
+22:59:04: Info: Freetype returned null for character 138 in font BlueHighway
+22:59:04: Info: Freetype returned null for character 139 in font BlueHighway
+22:59:04: Info: Freetype returned null for character 140 in font BlueHighway
+22:59:04: Info: Freetype returned null for character 141 in font BlueHighway
+22:59:04: Info: Freetype returned null for character 142 in font BlueHighway
+22:59:04: Info: Freetype returned null for character 143 in font BlueHighway
+22:59:04: Info: Freetype returned null for character 144 in font BlueHighway
+22:59:04: Info: Freetype returned null for character 145 in font BlueHighway
+22:59:04: Info: Freetype returned null for character 146 in font BlueHighway
+22:59:04: Info: Freetype returned null for character 147 in font BlueHighway
+22:59:04: Info: Freetype returned null for character 148 in font BlueHighway
+22:59:04: Info: Freetype returned null for character 149 in font BlueHighway
+22:59:04: Info: Freetype returned null for character 150 in font BlueHighway
+22:59:04: Info: Freetype returned null for character 151 in font BlueHighway
+22:59:04: Info: Freetype returned null for character 152 in font BlueHighway
+22:59:04: Info: Freetype returned null for character 153 in font BlueHighway
+22:59:04: Info: Freetype returned null for character 154 in font BlueHighway
+22:59:04: Info: Freetype returned null for character 155 in font BlueHighway
+22:59:04: Info: Freetype returned null for character 156 in font BlueHighway
+22:59:04: Info: Freetype returned null for character 157 in font BlueHighway
+22:59:04: Info: Freetype returned null for character 158 in font BlueHighway
+22:59:04: Info: Freetype returned null for character 159 in font BlueHighway
+22:59:04: Info: Freetype returned null for character 160 in font BlueHighway
+22:59:04: Texture: BlueHighwayTexture: Loading 1 faces(PF_BYTE_LA,512x512x1) with 0 generated mipmaps from Image. Internal format is PF_BYTE_LA,512x512x1.
+22:59:04: Texture: sprites/field/chief_lee.png: Loading 1 faces(PF_A8R8G8B8,256x256x1) Internal format is PF_A8R8G8B8,256x256x1.
+22:59:10: DefaultWorkQueue('Root') shutting down on thread 156c.
+22:59:10: DefaultWorkQueue('Root')::WorkerFunc - thread 73c stopped.
+22:59:10: DefaultWorkQueue('Root')::WorkerFunc - thread 1304 stopped.
+22:59:10: *-*-* OGRE Shutdown
+22:59:10: Unregistering ResourceManager for type Compositor
+22:59:10: Unregistering ResourceManager for type Skeleton
+22:59:10: Unregistering ResourceManager for type Mesh
+22:59:10: Unregistering ResourceManager for type HighLevelGpuProgram
+22:59:10: Uninstalling plugin: D3D9 RenderSystem
+22:59:10: D3D9 device: 0x[03B9F820] destroy. Releasing D3D9 texture: sprites/field/chief_lee.png
+22:59:10: Released D3D9 texture: sprites/field/chief_lee.png
+22:59:10: D3D9 device: 0x[03B9F820] destroy. Releasing D3D9 texture: BlueHighwayTexture
+22:59:10: Released D3D9 texture: BlueHighwayTexture
+22:59:10: D3D9 device: 0x[03B9F820] destroy. Releasing D3D9 texture: New_Ogre_Border_Center.png
+22:59:10: Released D3D9 texture: New_Ogre_Border_Center.png
+22:59:10: D3D9 device: 0x[03B9F820] destroy. Releasing D3D9 texture: New_Ogre_Border.png
+22:59:10: Released D3D9 texture: New_Ogre_Border.png
+22:59:10: D3D9 device: 0x[03B9F820] destroy. Releasing D3D9 texture: New_Ogre_Border_Break.png
+22:59:10: Released D3D9 texture: New_Ogre_Border_Break.png
+22:59:10: D3D9 device: 0x[03B9F820] destroy. Releasing D3D9 texture: ogretext.png
+22:59:10: Released D3D9 texture: ogretext.png
+22:59:10: D3D9 : Shutting down cleanly.
+22:59:10: Unregistering ResourceManager for type Texture
+22:59:10: Unregistering ResourceManager for type GpuProgram
+22:59:10: D3D9 : Direct3D9 Rendering Subsystem destroyed.
+22:59:10: Plugin successfully uninstalled
+22:59:10: Unloading library RenderSystem_Direct3D9.dll
+22:59:10: Unregistering ResourceManager for type Material
