@@ -1,5 +1,6 @@
 #include "Sprite.h"
 
+#include "CameraManager.h"
 #include "ConfigVar.h"
 #include "DebugDraw.h"
 #include "Logger.h"
@@ -10,7 +11,6 @@
 
 
 
-ConfigVar cv_debug_sprite_tex( "debug_sprite_tex", "Draw debug sprite texture", "false" );
 ConfigVar cv_debug_sprite_tile( "debug_sprite_tile", "Draw debug sprite tile border", "false" );
 
 
@@ -247,88 +247,6 @@ Sprite::UpdateGeometry()
 
 
 
-    if( cv_debug_sprite_tex.GetB() )
-    {
-        float new_x1 = 0;
-        float new_y1 = 0;
-        float new_x2 = 1;
-        float new_y2 = 0;
-        float new_x3 = 1;
-        float new_y3 = -1;
-        float new_x4 = 0;
-        float new_y4 = -1;
-
-        float tex_x1 = 0;
-        float tex_x2 = 1;
-        float tex_y1 = 0;
-        float tex_y2 = 1;
-
-
-        *writeIterator++ = new_x1;
-        *writeIterator++ = new_y1;
-        *writeIterator++ = 0;
-        *writeIterator++ = 1;
-        *writeIterator++ = 1;
-        *writeIterator++ = 1;
-        *writeIterator++ = 1;
-        *writeIterator++ = tex_x1;
-        *writeIterator++ = tex_y1;
-
-        *writeIterator++ = new_x2;
-        *writeIterator++ = new_y2;
-        *writeIterator++ = 0;
-        *writeIterator++ = 1;
-        *writeIterator++ = 1;
-        *writeIterator++ = 1;
-        *writeIterator++ = 1;
-        *writeIterator++ = tex_x2;
-        *writeIterator++ = tex_y1;
-
-        *writeIterator++ = new_x3;
-        *writeIterator++ = new_y3;
-        *writeIterator++ = 0;
-        *writeIterator++ = 1;
-        *writeIterator++ = 1;
-        *writeIterator++ = 1;
-        *writeIterator++ = 1;
-        *writeIterator++ = tex_x2;
-        *writeIterator++ = tex_y2;
-
-        *writeIterator++ = new_x1;
-        *writeIterator++ = new_y1;
-        *writeIterator++ = 0;
-        *writeIterator++ = 1;
-        *writeIterator++ = 1;
-        *writeIterator++ = 1;
-        *writeIterator++ = 1;
-        *writeIterator++ = tex_x1;
-        *writeIterator++ = tex_y1;
-
-        *writeIterator++ = new_x3;
-        *writeIterator++ = new_y3;
-        *writeIterator++ = 0;
-        *writeIterator++ = 1;
-        *writeIterator++ = 1;
-        *writeIterator++ = 1;
-        *writeIterator++ = 1;
-        *writeIterator++ = tex_x2;
-        *writeIterator++ = tex_y2;
-
-        *writeIterator++ = new_x4;
-        *writeIterator++ = new_y4;
-        *writeIterator++ = 0;
-        *writeIterator++ = 1;
-        *writeIterator++ = 1;
-        *writeIterator++ = 1;
-        *writeIterator++ = 1;
-        *writeIterator++ = tex_x1;
-        *writeIterator++ = tex_y2;
-
-        m_RenderOp.vertexData->vertexCount += 6;
-    }
-
-
-
     m_VertexBuffer->unlock();
 }
 
@@ -337,15 +255,15 @@ Sprite::UpdateGeometry()
 void
 Sprite::renderQueueStarted( Ogre::uint8 queueGroupId, const Ogre::String& invocation, bool& skipThisInvocation )
 {
-    if( queueGroupId == Ogre::RENDER_QUEUE_OVERLAY )
+    if( queueGroupId == Ogre::RENDER_QUEUE_MAIN )
     {
         Ogre::Root::getSingletonPtr()->getRenderSystem()->clearFrameBuffer( Ogre::FBT_DEPTH );
 
         if( m_RenderOp.vertexData->vertexCount != 0 )
         {
             m_RenderSystem->_setWorldMatrix( Ogre::Matrix4::IDENTITY );
-            m_RenderSystem->_setProjectionMatrix( Ogre::Matrix4::IDENTITY );
-            m_RenderSystem->_setViewMatrix( Ogre::Matrix4::IDENTITY );
+            m_RenderSystem->_setViewMatrix( CameraManager::getSingleton().GetCurrentCamera()->getViewMatrix( true ) );
+            m_RenderSystem->_setProjectionMatrix( CameraManager::getSingleton().GetCurrentCamera()->getProjectionMatrixRS() );
             m_SceneManager->_setPass( m_Material->getTechnique( 0 )->getPass( 0 ), true, false );
             m_RenderSystem->_render( m_RenderOp );
 
