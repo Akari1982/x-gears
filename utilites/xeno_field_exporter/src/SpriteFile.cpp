@@ -28,27 +28,55 @@ SpriteFile::SpriteFile( File* file, Vram* vram, const int file_id, const int spr
     VectorTexForGen textures;
 
     PacketFile* sub_pack = new PacketFile( file );
-
     File* sprite0 = sub_pack->ExtractFile( 0 );
     sprite0->WriteFile( "exported/debug/0" + IntToString( file_id ) + "_3_2dsprite_" + IntToString( sprite_id ) + "_0" );
     File* sprite1 = sub_pack->ExtractFile( 1 );
     sprite1->WriteFile( "exported/debug/0" + IntToString( file_id ) + "_3_2dsprite_" + IntToString( sprite_id ) + "_1" );
     File* sprite2 = sub_pack->ExtractFile( 2 );
     sprite2->WriteFile( "exported/debug/0" + IntToString( file_id ) + "_3_2dsprite_" + IntToString( sprite_id ) + "_2" );
-
-
-
     delete sub_pack;
+
+
+
+    u16 number_of_animation = ( sprite0->GetU16LE( 0 ) & 0x3f );
+    log->Log( "number_of_animation = 0x" + HexToString( number_of_animation, 4, '0' ) + "\n" );
+
+    for( u16 animation_id = 0; animation_id < number_of_animation; ++animation_id )
+    {
+        u16 animation_offset = sprite0->GetU16LE( 0x02 + animation_id * 0x02 );
+
+        u16 flag = sprite0->GetU16LE( animation_offset + 0x0 );
+        log->Log( "flag = 0x" + HexToString( flag, 4, '0' ) + "\n" );
+        u16 sequence_offset = sprite0->GetU16LE( animation_offset + 0x02 );
+        u16 alias_type = flag & 0x03;
+        u16 alias_numbers = ( alias_type == 0x02 ) ? 0x05 : ( ( alias_type == 0x01 ) ? 3 : 1 );
+        for( u16 alias_id = 0; alias_id < alias_numbers; ++alias_id )
+        {
+            u16 alias_offset = sprite0->GetU16LE( animation_offset + 0x04 + alias_id * 0x2 );
+            u16 frame_id = sprite0->GetU16LE( animation_offset + 0x04 + alias_id * 0x2 + alias_offset );
+            log->Log( "frame_id = 0x" + HexToString( frame_id, 4, '0' ) + "\n" );
+        }
+
+        u16 sequence_pointer = 0;
+        log->Log( "sequence:" );
+        for( ; ; )
+        {
+            u8 opcode = sprite0->GetU8( sequence_offset + sequence_pointer );
+            ++sequence_pointer;
+            log->Log( HexToString( opcode, 2, '0' ) );
+            if( ( opcode >= 0x80 ) && ( opcode <= 0x82 ) )
+            {
+                break;
+            }
+        }
+        log->Log( "\n" );
+    }
 
 
 
     m_NumberOfFrames = ( sprite1->GetU16LE( 0 ) & 0x1ff );
 
-
-
     export_script->Log( "<sprite>\n" );
-
-
 
     for( u16 frame_id = 0; frame_id < m_NumberOfFrames; ++frame_id )
     {

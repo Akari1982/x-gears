@@ -152,7 +152,7 @@ FieldModule::LoadMap( const int file_id )
     temp = field_pack->Extract( 3 );
     temp->WriteFile( "exported/debug/0" + IntToString( file_id ) + "_3_2dsprite" );
     PacketFile* pack = new PacketFile( temp );
-    for( u32 i = 4; i < 5/*pack->GetNumberOfFiles()*/; ++i )
+    for( u32 i = 0; i < pack->GetNumberOfFiles(); ++i )
     {
         File* file = pack->ExtractFile( i );
         file->WriteFile( "exported/debug/0" + IntToString( file_id ) + "_3_2dsprite_" + IntToString( i ) );
