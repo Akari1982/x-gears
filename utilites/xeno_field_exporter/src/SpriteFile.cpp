@@ -61,7 +61,7 @@ SpriteFile::SpriteFile( File* file, Vram* vram, const int file_id, const int spr
         log->Log( "sequence:" );
         for( ; ; )
         {
-            u8 opcode = sprite0->GetU8( sequence_offset + sequence_pointer );
+            u8 opcode = sprite0->GetU8(  animation_offset + 0x02 + sequence_offset + sequence_pointer );
             ++sequence_pointer;
             log->Log( HexToString( opcode, 2, '0' ) );
             if( ( opcode >= 0x80 ) && ( opcode <= 0x82 ) )

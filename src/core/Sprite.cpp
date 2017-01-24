@@ -15,11 +15,14 @@ ConfigVar cv_debug_sprite_tile( "debug_sprite_tile", "Draw debug sprite tile bor
 
 
 
-Sprite::Sprite( const Ogre::String& name ):
+Sprite::Sprite( const Ogre::String& name, Ogre::SceneNode* node ):
     m_Name( name ),
+    m_SceneNode( node ),
     m_FrameId( 0 )
 {
     Initialise();
+
+    m_SceneNode->setPosition( Ogre::Vector3( 10, 0, 0 ) );
 
     XmlSpriteFile* sprite_file = new XmlSpriteFile( "./data/sprites/field/chief_lee.xml" );
     sprite_file->Load( this );
@@ -261,7 +264,7 @@ Sprite::renderQueueStarted( Ogre::uint8 queueGroupId, const Ogre::String& invoca
 
         if( m_RenderOp.vertexData->vertexCount != 0 )
         {
-            m_RenderSystem->_setWorldMatrix( Ogre::Matrix4::IDENTITY );
+            m_RenderSystem->_setWorldMatrix( m_SceneNode->_getFullTransform() );
             m_RenderSystem->_setViewMatrix( CameraManager::getSingleton().GetCurrentCamera()->getViewMatrix( true ) );
             m_RenderSystem->_setProjectionMatrix( CameraManager::getSingleton().GetCurrentCamera()->getProjectionMatrixRS() );
             m_SceneManager->_setPass( m_Material->getTechnique( 0 )->getPass( 0 ), true, false );

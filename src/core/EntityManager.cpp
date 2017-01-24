@@ -58,8 +58,8 @@ EntityManager::EntityManager():
     m_SceneNode->attachObject( m_Axis );
 
 
-
-    m_Sprite = new Sprite( "Dan" );
+    Ogre::SceneNode* node = m_SceneNode->createChildSceneNode( "Sprite" );
+    m_Sprite = new Sprite( "Dan", node );
 }
 
 

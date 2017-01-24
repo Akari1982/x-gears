@@ -26,7 +26,7 @@ public:
     };
 
 public:
-    Sprite( const Ogre::String& name );
+    Sprite( const Ogre::String& name, Ogre::SceneNode* node );
     virtual ~Sprite();
 
     void AddFrame( const Frame& frame );
@@ -44,6 +44,8 @@ public:
 
 protected:
     Ogre::String m_Name;
+
+    Ogre::SceneNode* m_SceneNode;
 
     unsigned int m_FrameId;
     std::vector< Frame > m_Frame;
