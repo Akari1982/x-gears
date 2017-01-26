@@ -12,6 +12,7 @@
 
 
 ConfigVar cv_debug_sprite_tile( "debug_sprite_tile", "Draw debug sprite tile border", "false" );
+ConfigVar cv_debug_sprite_frame_id( "debug_sprite_frame_id", "Select frame id to draw", "1" );
 
 
 
@@ -111,6 +112,11 @@ Sprite::Update()
         {
             m_FrameId = 0;
         }
+    }
+    m_FrameId = cv_debug_sprite_frame_id.GetI();
+    if( m_FrameId >= m_Frame.size() )
+    {
+        m_FrameId = 0;
     }
 
 

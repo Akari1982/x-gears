@@ -226,7 +226,7 @@
             + 24 [][][][] translation y.
             + 28 [][][][] translation z.
             + 2c [][][][] pointer to allocated data for tiles data.
-            + 30 [][][][] pointer to allocated current render tile data ( for all toles size 0x18).
+            + 30 [][][][] pointer to allocated current render tile data ( for all tiles size 0x18).
                 + 0 [][]     x tile pos
                 + 2 [][]     y tile pos
                 + 4 []       texture x

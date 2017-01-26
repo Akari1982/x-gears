@@ -312,8 +312,10 @@ return ret;
 // func1d3b8()
 // set up tile data to render
 struct_164 = A0;
-frame_id = A1;
+frame_id = A1; // starts from 1
 struct_110 = A2;
+
+struct_b4 = w[struct_164 + 20];
 
 sprite_file_1 = w[struct_110 + 0];
 frame_data = sprite_file_1 + hu[sprite_file_1 + frame_id * 2];
@@ -335,8 +337,7 @@ tile = 0;
 
 if( number_of_tiles != 0 )
 {
-    V0 = w[struct_164 + 20];
-    tile_data = w[V0 + 30];
+    tile_data = w[struct_b4 + 30];
 
     L1d4bc:	; 8001D4BC
         [tile_data + 8] = b(0);
@@ -351,38 +352,34 @@ if( number_of_tiles != 0 )
 
             if( S1 & 40 )
             {
-                V0 = w[struct_164 + 20];
-                if( w[V0 + 34] == 0 ) // if memory not allocated
+                if( w[struct_b4 + 34] == 0 ) // if memory not allocated
                 {
                     A0 = 40; // allocate 40 byte
                     A1 = 0;
                     system_memory_allocate;
-                    V1 = w[struct_164 + 20];
-                    [V1 + 34] = w(V0);
+                    [struct_b4 + 34] = w(V0);
 
                     A0 = struct_164;
                     func2332c; // set all fields to zero
                 }
 
-                S7 = S1 & 7;
-                V0 = w[struct_164 + 20];
-                V0 = w[V0 + 34];
+                V0 = w[struct_b4 + 34];
 
                 if( S1 & 20 )
                 {
-                    [V0 + S7 * 8 + 0] = b(bu[tile_position_setting + 0]);
-                    [V0 + S7 * 8 + 1] = b(bu[tile_position_setting + 1]);
+                    [V0 + (S1 & 7) * 8 + 0] = b(bu[tile_position_setting + 0]);
+                    [V0 + (S1 & 7) * 8 + 1] = b(bu[tile_position_setting + 1]);
                     tile_position_setting = tile_position_setting + 2;
                 }
 
                 if( S1 & 10 )
                 {
-                    [V0 + S7 * 8 + 6] = h(bu[tile_position_setting] << 4);
+                    [V0 + (S1 & 7) * 8 + 6] = h(bu[tile_position_setting] << 4);
                     tile_position_setting = tile_position_setting + 1;
                 }
                 else
                 {
-                    [V0 + S7 * 8 + 6] = h(0);
+                    [V0 + (S1 & 7) * 8 + 6] = h(0);
                 }
             }
             else
@@ -430,7 +427,6 @@ if( number_of_tiles != 0 )
 
 
         A2 = bu[tile_position_setting] >> 4 & 03; // abr - Semi transparency mode
-
         if( A2 != 0 )
         {
             [tile_data + 13] = b(bu[tile_data + 13] | 02); // semi-transparency on

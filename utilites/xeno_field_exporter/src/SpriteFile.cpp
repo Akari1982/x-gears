@@ -17,10 +17,6 @@ SpriteFile::SpriteFile( File* file, Vram* vram, const int file_id, const int spr
     Logger* log = new Logger( "exported/debug/0" + IntToString( file_id ) + "_3_2dsprite_" + IntToString( sprite_id ) + "_log.txt" );
     Logger* export_script = new Logger( "exported/sprites/field/" + GetSpriteName( file_id, sprite_id ) + ".xml" );
 
-    m_NumberOfFrames = 0;
-    m_FrameId = 0;
-    m_Timer = 0;
-
     MeshData data;
     data.name = "sprite";
     data.tex_width = 256;
@@ -38,6 +34,7 @@ SpriteFile::SpriteFile( File* file, Vram* vram, const int file_id, const int spr
 
 
 
+    log->Log( "SPRITE 0\n" );
     u16 number_of_animation = ( sprite0->GetU16LE( 0 ) & 0x3f );
     log->Log( "number_of_animation = 0x" + HexToString( number_of_animation, 4, '0' ) + "\n" );
 
@@ -74,134 +71,160 @@ SpriteFile::SpriteFile( File* file, Vram* vram, const int file_id, const int spr
 
 
 
-    m_NumberOfFrames = ( sprite1->GetU16LE( 0 ) & 0x1ff );
+    log->Log( "\nSPRITE 1\n" );
+    u16 flags = sprite1->GetU16LE( 0 );
+    log->Log( "flags = 0x" + HexToString( flags, 2, '0' ) + "\n" );
+    m_FrameId = 0;
+    m_Timer = 0;
+    m_NumberOfFrames = flags & 0x1ff;
 
     export_script->Log( "<sprite>\n" );
 
     for( u16 frame_id = 0; frame_id < m_NumberOfFrames; ++frame_id )
     {
         export_script->Log( "    <frame name=\"" + IntToString( frame_id ) + "\">\n" );
-
+        log->Log( "frame = 0x" + HexToString( frame_id, 2, '0' ) + "\n" );
         Frame frame;
-
         u16 frame_offset = sprite1->GetU16LE( 0x02 + frame_id * 0x02 );
 
-        u8 number_of_tile = sprite1->GetU8( frame_offset ) & 0x3f;
-        u8 double_size_tile = sprite1->GetU8( frame_offset ) & 0x80;
 
-        log->Log( "number_of_tile = 0x" + HexToString( number_of_tile, 2, '0' ) + "\n" );
-        log->Log( "double_size_tile = 0x" + HexToString( double_size_tile, 2, '0' ) + "\n" );
 
-        u16 offset_to_tile_position = frame_offset + 0x04 + number_of_tile * 0x02;
-
-        for( u8 i = 0; i < number_of_tile; ++i )
+        if( flags & 0x8000 )
         {
-            export_script->Log( "        <tile name=\"" + IntToString( i ) + "\"" );
-
-            Tile tile;
-            log->Log( "tile_" + HexToString( i, 2, '0' ) + "\n" );
+            u8 number_of_tile = sprite1->GetU8( frame_offset ) & 0x3f;
+            u8 double_size_tile = sprite1->GetU8( frame_offset ) & 0x80;
             u16 offset_to_tile_desc = sprite1->GetU16LE( frame_offset + 0x04 + i * 0x02 );
+            u16 offset_to_tile_position = frame_offset + 0x04 + number_of_tile * 0x02;
 
-            while( true )
+            log->Log( "    number_of_tile = 0x" + HexToString( number_of_tile, 2, '0' ) + "\n" );
+            log->Log( "    double_size_tile = 0x" + HexToString( double_size_tile, 2, '0' ) + "\n" );
+
+            for( u8 i = 0; i < number_of_tile; ++i )
             {
-                u8 pos_flag = sprite1->GetU8( offset_to_tile_position );
-                log->Log( "    pos_flag = 0x" + HexToString( pos_flag, 2, '0' ) + "\n" );
+                export_script->Log( "        <tile name=\"" + IntToString( i ) + "\"" );
+                log->Log( "    tile = 0x" + HexToString( i, 2, '0' ) + "\n" );
+                Tile tile;
 
-                if( pos_flag & 0x80 )
+                while( true )
                 {
-                    offset_to_tile_position += 1;
-                    if( pos_flag & 40 )
-                    {
-                        if( pos_flag & 20 )
-                        {
-                            offset_to_tile_position += 2;
-                        }
+                    u8 pos_flag = sprite1->GetU8( offset_to_tile_position );
+                    log->Log( "        pos_flag = 0x" + HexToString( pos_flag, 2, '0' ) + "\n" );
 
-                        if( pos_flag & 10 )
+                    if( pos_flag & 0x80 )
+                    {
+                        offset_to_tile_position += 1;
+                        if( pos_flag & 40 )
                         {
-                            offset_to_tile_position += 1;
+                            if( pos_flag & 20 )
+                            {
+                                log->Log( "        add_tile_data id = 0x" + HexToString( pos_flag & 7, 2, '0' ) + " (" );
+                                log->Log( "trans_x = 0x" + HexToString( sprite1->GetU8( offset_to_tile_position + 0 ), 2, '0' ) + ", " );
+                                log->Log( "trans_y = 0x" + HexToString( sprite1->GetU8( offset_to_tile_position + 1 ), 2, '0' ) + ")\n" );
+                                offset_to_tile_position += 2;
+                            }
+
+                            if( pos_flag & 10 )
+                            {
+                                log->Log( "        add_tile_data id = 0x" + HexToString( pos_flag & 7, 2, '0' ) + " (" );
+                                log->Log( "rot_z = 0x" + HexToString( sprite1->GetU8( offset_to_tile_position ) << 4, 2, '0' ) + ")\n" );
+                                offset_to_tile_position += 1;
+                            }
+                            else
+                            {
+                                log->Log( "        add_tile_data id = 0x" + HexToString( pos_flag & 7, 2, '0' ) + " (" );
+                                log->Log( "rot_z = 0x00)\n" );
+                            }
+                        }
+                        else
+                        {
+                            if( pos_flag & 01 )
+                            {
+                                log->Log( "        tile_data (width_incr = 0x" + HexToString( sprite1->GetU8( offset_to_tile_position ), 2, '0' ) + ")\n" );
+                                offset_to_tile_position += 1;
+                            }
+                            if( pos_flag & 02 )
+                            {
+                                log->Log( "        tile_data (height_inct = 0x" + HexToString( sprite1->GetU8( offset_to_tile_position ), 2, '0' ) + ")\n" );
+                                offset_to_tile_position += 1;
+                            }
+                            if( pos_flag & 04 )
+                            {
+                                log->Log( "        tile_data (flip_horiz = true)\n" );
+                            }
                         }
                     }
                     else
                     {
-                        if( pos_flag & 01 ) // width increase
-                        {
-                            offset_to_tile_position += 1;
-                        }
-                        if( pos_flag & 02 ) // height increase
-                        {
-                            offset_to_tile_position += 1;
-                        }
+                        break;
                     }
+                }
+
+
+
+                log->Log( "        flip abr tex_x = 0x" + HexToString( sprite1->GetU8( offset_to_tile_position ), 2, '0' ) + ")\n" );
+
+
+
+                if( double_size_tile == true )
+                {
+                    tile.x = sprite1->GetU16LE( offset_to_tile_position + 1 );
+                    tile.y = sprite1->GetU16LE( offset_to_tile_position + 3 );
+                    offset_to_tile_position += 2;
                 }
                 else
                 {
-                    break;
+                    tile.x = (s8)sprite1->GetU8( offset_to_tile_position + 1 );
+                    tile.y = (s8)sprite1->GetU8( offset_to_tile_position + 2 );
                 }
+                log->Log( "        x = 0x" + HexToString( tile.x, 4, '0' ) + "\n" );
+                log->Log( "        y = 0x" + HexToString( tile.y, 4, '0' ) + "\n" );
+                export_script->Log( " x=\"" + IntToString( tile.x ) + "\" y=\"" + IntToString( tile.y ) + "\"" );
+                offset_to_tile_position += 3;
+
+
+
+
+                int clut_x = 0x100;
+                int clut_y = 0x1e0;
+                int vram_x = 0x180;
+                int vram_y = 0x100;
+                TexForGen texture;
+                texture.palette_x = clut_x;
+                texture.palette_y = clut_y;
+                texture.texture_x = vram_x;
+                texture.texture_y = vram_y;
+                texture.bpp = BPP_4;
+                AddTexture( texture, data, textures, log );
+
+
+
+                u8 offset = 0;
+                u8 flags = sprite1->GetU8( offset_to_tile_desc + offset ); ++offset;
+                log->Log( "        flags = 0x" + HexToString( flags, 2, '0' ) + "\n" );
+                if( flags & 0x10 )
+                {
+                    u8 flags2 = sprite1->GetU8( offset_to_tile_desc + offset ); ++offset;
+                    log->Log( "        flags2 = 0x" + HexToString( flags2, 2, '0' ) + "\n" );
+                }
+
+                tile.tex_x = sprite1->GetU8( offset_to_tile_desc + offset ); ++offset;
+                tile.tex_y = sprite1->GetU8( offset_to_tile_desc + offset ); ++offset;
+                tile.width = sprite1->GetU8( offset_to_tile_desc + offset ); ++offset;
+                tile.height = sprite1->GetU8( offset_to_tile_desc + offset ); ++offset;
+
+                log->Log( "        u = 0x" + HexToString( tile.tex_x, 2, '0' ) + "\n" );
+                log->Log( "        v = 0x" + HexToString( tile.tex_y, 2, '0' ) + "\n" );
+                log->Log( "        width = 0x" + HexToString( tile.width, 2, '0' ) + "\n" );
+                log->Log( "        height = 0x" + HexToString( tile.height, 2, '0' ) + "\n" );
+                export_script->Log( " u=\"" + IntToString( tile.tex_x ) + "\" v=\"" + IntToString( tile.tex_y ) + "\"" );
+                export_script->Log( " width=\"" + IntToString( tile.width ) + "\" height=\"" + IntToString( tile.height ) + "\"" );
+
+                frame.tile.push_back( tile );
+                export_script->Log( " />\n" );
             }
-
-
-
-            int clut_x = 0x100;
-            int clut_y = 0x1e0;
-            int vram_x = 0x180;
-            int vram_y = 0x100;
-            TexForGen texture;
-            texture.palette_x = clut_x;
-            texture.palette_y = clut_y;
-            texture.texture_x = vram_x;
-            texture.texture_y = vram_y;
-            texture.bpp = BPP_4;
-            AddTexture( texture, data, textures, log );
-
-
-
-            if( double_size_tile == true )
-            {
-                tile.x = sprite1->GetU16LE( offset_to_tile_position + 1 );
-                tile.y = sprite1->GetU16LE( offset_to_tile_position + 3 );
-                offset_to_tile_position += 2;
-            }
-            else
-            {
-                tile.x = (s8)sprite1->GetU8( offset_to_tile_position + 1 );
-                tile.y = (s8)sprite1->GetU8( offset_to_tile_position + 2 );
-            }
-            log->Log( "    x = 0x" + HexToString( tile.x, 4, '0' ) + "\n" );
-            log->Log( "    y = 0x" + HexToString( tile.y, 4, '0' ) + "\n" );
-            export_script->Log( " x=\"" + IntToString( tile.x ) + "\" y=\"" + IntToString( tile.y ) + "\"" );
-            offset_to_tile_position += 3;
-
-
-
-            u8 offset = 0;
-            u8 flags = sprite1->GetU8( offset_to_tile_desc + offset ); ++offset;
-            log->Log( "    flags = 0x" + HexToString( flags, 2, '0' ) + "\n" );
-            if( flags & 0x10 )
-            {
-                u8 flags2 = sprite1->GetU8( offset_to_tile_desc + offset ); ++offset;
-                log->Log( "    flags2 = 0x" + HexToString( flags2, 2, '0' ) + "\n" );
-            }
-
-
-            tile.tex_x = sprite1->GetU8( offset_to_tile_desc + offset ); ++offset;
-            log->Log( "    u = 0x" + HexToString( tile.tex_x, 2, '0' ) + "\n" );
-
-            tile.tex_y = sprite1->GetU8( offset_to_tile_desc + offset ); ++offset;
-            log->Log( "    v = 0x" + HexToString( tile.tex_y, 2, '0' ) + "\n" );
-
-            tile.width = sprite1->GetU8( offset_to_tile_desc + offset ); ++offset;
-            log->Log( "    width = 0x" + HexToString( tile.width, 2, '0' ) + "\n" );
-
-            tile.height = sprite1->GetU8( offset_to_tile_desc + offset ); ++offset;
-            log->Log( "    height = 0x" + HexToString( tile.height, 2, '0' ) + "\n" );
-
-            export_script->Log( " u=\"" + IntToString( tile.tex_x ) + "\" v=\"" + IntToString( tile.tex_y ) + "\"" );
-            export_script->Log( " width=\"" + IntToString( tile.width ) + "\" height=\"" + IntToString( tile.height ) + "\"" );
-
-            frame.tile.push_back( tile );
-            export_script->Log( " />\n" );
         }
+
+
 
         m_Sprite.frame.push_back( frame );
 

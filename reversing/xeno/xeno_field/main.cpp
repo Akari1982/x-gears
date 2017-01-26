@@ -11,66 +11,60 @@ else
 }
 
 80077568	jal    func78fb0 [$80078fb0]
-8007756C	nop
-80077570	lui    v0, $800c
-80077574	lw     v0, $1b60(v0)
-80077578	nop
-if( V0 == 0 )
+
+if( w[800c1b60] == 0 )
 {
     A0 = 80076eac;
     8007758C	jal    func44350 [$80044350]
 }
+
+[80061bac] = w(w[80058bfc]);
+[80061bb4] = w(w[80058c48]);
+
+
+
 A0 = 8;
-80077598	lui    v0, $8006
-8007759C	lw     v0, $8bfc(v0)
-800775A0	lui    v1, $8006
-800775A4	lw     v1, $8c48(v1)
-800775A8	lui    at, $8006
-800775AC	sw     v0, $1bac(at)
-800775B0	lui    at, $8006
-800775B4	sw     v1, $1bb4(at)
-800775B8	jal    func322bc [$800322bc]
-800775BC	addu   a1, zero, zero
-800775C0	lui    v0, $800c
-800775C4	lw     v0, $1b60(v0)
-800775C8	nop
-800775CC	bne    v0, zero, L77614 [$80077614]
-800775D0	nop
-800775D4	lui    v0, $8005
-800775D8	lw     v0, $ea14(v0)
-800775DC	nop
-800775E0	bne    v0, zero, L77614 [$80077614]
-800775E4	ori    a0, zero, $0004
-800775E8	jal    func28280 [$80028280]
-800775EC	addu   a1, zero, zero
-800775F0	ori    a0, zero, $00ad
-800775F4	lui    a1, $8028
-800775F8	addu   a2, zero, zero
-800775FC	jal    func293e8 [$800293e8]
-80077600	ori    a3, zero, $0080
-80077604	jal    func28870 [$80028870]
-80077608	addu   a0, zero, zero
-8007760C	jal    func78fb0 [$80078fb0]
-80077610	nop
+A1 = 0;
+func322bc(); // set group for memory allocation
 
-L77614:	; 80077614
-80077614	lui    v0, $8005
-80077618	lw     v0, $e9b0(v0)
-8007761C	nop
-80077620	bne    v0, zero, L77640 [$80077640]
-80077624	ori    v0, zero, $00ff
-80077628	lui    at, $8007
-8007762C	sw     v0, $f154(at)
-80077630	lui    at, $8007
-80077634	sw     v0, $f150(at)
-80077638	lui    at, $8007
-8007763C	sw     v0, $f14c(at)
 
-L77640:	; 80077640
+
+if( ( w[800c1b60] == 0 ) && ( w[8004ea14] == 0 ) )
+{
+    A0 = 4;
+    A1 = 0;
+    800775E8	jal    func28280 [$80028280]
+
+    A0 = ad;
+    A1 = 80280000;
+    A2 = 0;
+    A3 = 80;
+    800775FC	jal    func293e8 [$800293e8]
+
+    A0 = 0;
+    80077604	jal    func28870 [$80028870]
+
+    8007760C	jal    func78fb0 [$80078fb0]
+}
+
+
+
+if( w[8004e9b0] == 0 )
+{
+    [8006f14c] = w(ff);
+    [8006f150] = w(ff);
+    [8006f154] = w(ff);
+}
+
+
+
+A0 = 0;
 80077640	jal    func84ea4 [$80084ea4]
-80077644	addu   a0, zero, zero
+
+S4 = 0;
+
 80077648	jal    func77318 [$80077318]
-8007764C	addu   s4, zero, zero
+
 80077658	addiu  v0, zero, $ffff (=-$1)
 8007765C	lui    at, $800b
 80077660	sw     v0, $d0c0(at)
@@ -109,8 +103,7 @@ if( w[800c1b60] == 0 )
 800776DC	lhu    v1, $efde(v1)
 800776E0	lui    a0, $8007
 800776E4	lhu    a0, $efe4(a0)
-800776E8	lui    v0, $8007
-800776EC	addiu  v0, v0, $ccc4 (=-$333c)
+V0 = 8006ccc4;
 800776F0	lui    at, $8006
 800776F4	sw     v0, $9a38(at)
 800776F8	lui    v0, $8007
@@ -124,19 +117,21 @@ if( w[800c1b60] == 0 )
 80077718	sh     a0, $e5f6(at)
 8007771C	lui    at, $8007
 80077720	sh     v0, $e5fc(at)
-80077724	bne    v1, zero, L7773c [$8007773c]
-80077728	ori    v0, zero, $00ff
-8007772C	lui    at, $8006
-80077730	sb     zero, $8b6c(at)
-80077734	j      L77744 [$80077744]
-80077738	nop
 
-L7773c:	; 8007773C
-8007773C	lui    v0, $8007
-80077740	lhu    v0, $efe6(v0)
 
-L77744:	; 80077744
-[8004e9c8] = w(V0);
+
+if( V1 == 0 )
+{
+    [80058b6c] = b(0);
+    [8004e9c8] = w(ff);
+
+}
+else
+{
+    [8004e9c8] = w(hu[8006efe6]);
+}
+
+
 
 if( w[800c1b60] == 1 )
 {
@@ -149,16 +144,17 @@ if( w[800c1b60] == 1 )
 }
 
 80077778	jal    func76cb0 [$80076cb0]
-8007777C	nop
-80077780	lui    at, $8005
-80077784	sw     zero, $e9c4(at)
+
+[8004e9c4] = w(0);
+
 80077788	jal    func1aed8 [$8001aed8]
-8007778C	nop
+
 80077790	jal    func1b23c [$8001b23c]
-80077794	nop
-80077798	ori    a0, zero, $0004
-8007779C	jal    system_memory_allocate [$800319ec]
-800777A0	ori    a1, zero, $0001
+
+A0 = 4;
+A1 = 1;
+system_memory_allocate();
+
 800777A4	lui    v1, $800c
 800777A8	lw     v1, $1b60(v1)
 800777AC	lui    at, $800b
