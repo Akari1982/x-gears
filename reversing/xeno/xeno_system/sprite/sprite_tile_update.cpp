@@ -33,7 +33,7 @@ frame_id = A1;
 struct_110 = A2;
 
 struct_b4 = w[struct_164 + 20];
-struct_30 = w[struct_b4 + 30];
+tile_data = w[struct_b4 + 30];
 sprite_file_1 = w[struct_110 + 0];
 sprite_file_2 = w[struct_110 + c];
 frame_data = sprite_file_1 + hu[sprite_file_1 + frame_id * 2];
@@ -121,22 +121,24 @@ two_bytes = bu[frame_data + 0] & 80;
 
 
 S5 = 4;
-S2 = frame_data + 6 + number_of_tiles * 4;
+tile_pos_setting = frame_data + 6 + number_of_tiles * 4;
+
+
+
+tile_id = 0;
 
 if( number_of_tiles != 0 )
 {
-    FP = 0;
-
     L1dbf4:	; 8001DBF4
-        [struct_30 + FP * 18 + 8] = b(0); // width increase
-        [struct_30 + FP * 18 + 9] = b(0); // height increase
-        [struct_30 + FP * 18 + 14] = w(w[struct_30 + FP * 18 + 14] & ffffffdf); // remove 0x000000020 - flip vertical
+        [tile_data + tile_id * 18 + 8] = b(0); // width increase
+        [tile_data + tile_id * 18 + 9] = b(0); // height increase
+        [tile_data + tile_id * 18 + 14] = w(w[tile_data + tile_id * 18 + 14] & ffffffdf); // remove 0x000000020 - flip vertical
 
         L1dc0c:	; 8001DC0C
-        S0 = bu[S2];
+        S0 = bu[tile_pos_setting];
         if( S0 & 80 )
         {
-            S2 = S2 + 1;
+            tile_pos_setting = tile_pos_setting + 1;
             if( S0 & 40 )
             {
                 S5 = S0 & 7;
@@ -152,50 +154,48 @@ if( number_of_tiles != 0 )
                     func2332c(); // init 0x8 items with 0
                 }
 
+                V0 = w[struct_b4 + 34];
+
                 if( S0 & 20 )
                 {
-                    V0 = w[struct_b4 + 34];
-                    [V0 + S5 * 8 + 1] = b(bu[S2]);
-                    S2 = S2 + 1;
-                    [V0 + S5 * 8 + 1] = b(bu[S2]);
-                    S2 = S2 + 1;
+                    [V0 + S5 * 8 + 1] = b(bu[tile_pos_setting + 0]);
+                    [V0 + S5 * 8 + 1] = b(bu[tile_pos_setting + 1]);
+                    tile_pos_setting = tile_pos_setting + 2;
                 }
 
                 if( S0 & 10 )
                 {
-                    V1 = w[struct_b4 + 34];
-                    [V1 + S5 * 8 + 6] = h(bu[S2] << 4);
-                    S2 = S2 + 1;
+                    [V0 + S5 * 8 + 6] = h(bu[tile_pos_setting] << 4);
+                    tile_pos_setting = tile_pos_setting + 1;
                 }
                 else
                 {
-                    V1 = w[struct_b4 + 34];
-                    [V1 + S5 * 8 + 6] = h(0);
+                    [V0 + S5 * 8 + 6] = h(0);
                 }
             }
             else
             {
-                if( S0 & 4 ) // flip vertical
+                if( S0 & 01 ) // width increase
                 {
-                    [struct_30 + FP * 18 + 14] = w(w[struct_30 + FP * 18 + 14] | 00000020);
+                    [tile_data + tile_id * 18 + 8] = b(bu[tile_pos_setting]);
+                    tile_pos_setting = tile_pos_setting + 1;
                 }
-                if( S0 & 1 ) // width increase
+                if( S0 & 02 ) // height increase
                 {
-                    [struct_30 + FP * 18 + 8] = b(bu[S2 + 0]);
-                    S2 = S2 + 1;
+                    [tile_data + tile_id * 18 + 9] = b(bu[tile_pos_setting]);
+                    tile_pos_setting = tile_pos_setting + 1;
                 }
-                if( S0 & 2 ) // height increase
+                if( S0 & 04 ) // flip vertical
                 {
-                    [struct_30 + FP * 18 + 9] = b(bu[S2 + 0]);
-                    S2 = S2 + 1;
+                    [tile_data + tile_id * 18 + 14] = w(w[tile_data + tile_id * 18 + 14] | 00000020);
                 }
             }
             8001DD2C	j      L1dc0c [$8001dc0c]
         }
 
-        [SP + 20] = h(hu[frame_data + 6 + FP * 4 + 2] & 1f);
-        S0 = sprite_file_1 + hu[frame_data + 6 + FP * 4 + 0] * 4;
-        [SP + 22] = h((hu[frame_data + 6 + FP * 4 + 2] >> 5) & 3f);
+        [SP + 20] = h(hu[frame_data + 6 + tile_id * 4 + 2] & 1f);
+        S0 = sprite_file_1 + hu[frame_data + 6 + tile_id * 4 + 0] * 4;
+        [SP + 22] = h((hu[frame_data + 6 + tile_id * 4 + 2] >> 5) & 3f);
 
         A3 = hu[S0 + 2];
 
@@ -204,31 +204,31 @@ if( number_of_tiles != 0 )
         {
             A0 = w[SP + 50] + (hu[SP + 20] << 1);
             S4 = bu[S0 + 0] >> 1;
-            [struct_30 + FP * 18 + 14] = w(w[struct_30 + FP * 18 + 14] | 00000008);
+            [tile_data + tile_id * 18 + 14] = w(w[tile_data + tile_id * 18 + 14] | 00000008);
         }
         else
         {
             A0 = w[SP + 48] + (hu[SP + 20] << 2);
             S4 = bu[S0 + 0] >> 2;
-            [struct_30 + FP * 18 + 14] = w(w[struct_30 + FP * 18 + 14] & fffffff7);
+            [tile_data + tile_id * 18 + 14] = w(w[tile_data + tile_id * 18 + 14] & fffffff7);
         }
 
-        [struct_30 + FP * 18 + 4] = b(A0); // texture x
-        [struct_30 + FP * 18 + 14] = w((w[struct_30 + FP * 18 + 14] & fffffff8) | S5);
+        [tile_data + tile_id * 18 + 4] = b(A0); // texture x
+        [tile_data + tile_id * 18 + 14] = w((w[tile_data + tile_id * 18 + 14] & fffffff8) | S5);
 
-        [struct_30 + FP * 18 + 5] = b(w[SP + 58] + bu[SP + 22]); // texture y
-        [struct_30 + FP * 18 + 6] = b(bu[S0 + 0]); // width
-        [struct_30 + FP * 18 + 7] = b(bu[S0 + 1]); // height
-        [struct_30 + FP * 18 + 14] = w((w[struct_30 + FP * 18 + 14] & ffffffef) | ((bu[S2] >> 2) & 10));
+        [tile_data + tile_id * 18 + 5] = b(w[SP + 58] + bu[SP + 22]); // texture y
+        [tile_data + tile_id * 18 + 6] = b(bu[S0 + 0]); // width
+        [tile_data + tile_id * 18 + 7] = b(bu[S0 + 1]); // height
+        [tile_data + tile_id * 18 + 14] = w((w[tile_data + tile_id * 18 + 14] & ffffffef) | ((bu[tile_pos_setting] >> 2) & 10));
 
-        A1 = (bu[S2] >> 4) & 3;
-        A2 = bu[S2 + 0] & f;
-        [struct_30 + FP * 18 + 10] = w(w[struct_164 + 28]); // command + color vertex 0
+        A1 = (bu[tile_pos_setting] >> 4) & 3;
+        A2 = bu[tile_pos_setting + 0] & f;
+        [tile_data + tile_id * 18 + 10] = w(w[struct_164 + 28]); // command + color vertex 0
 
         if( A1 != 0 )
         {
             A1 = A1 - 1;
-            [struct_30 + FP * 18 + 13] = b(bu[struct_30 + FP * 18 + 13] | 02);
+            [tile_data + tile_id * 18 + 13] = b(bu[tile_data + tile_id * 18 + 13] | 02);
         }
         else
         {
@@ -236,17 +236,17 @@ if( number_of_tiles != 0 )
             if( A1 != 0 )
             {
                 A1 = A1 - 1;
-                [struct_30 + FP * 18 + 13] = b(bu[struct_30 + FP * 18 + 13] | 02);
+                [tile_data + tile_id * 18 + 13] = b(bu[tile_data + tile_id * 18 + 13] | 02);
             }
         }
 
         // tpage
-        [struct_30 + FP * 18 + a] = h(((A3 & 1) << 7) | ((A1 & 3) << 5) | ((hu[SP + 1a] >> 4) & 10) | ((hu[SP + 18] & 3ff) >> 6) | ((hu[SP + 1a] & 200) << 2));
+        [tile_data + tile_id * 18 + a] = h(((A3 & 1) << 7) | ((A1 & 3) << 5) | ((hu[SP + 1a] >> 4) & 10) | ((hu[SP + 18] & 3ff) >> 6) | ((hu[SP + 1a] & 200) << 2));
 
         A0 = h[struct_110 + 8] + (A2 << 4); // clut x
         A1 = h[struct_110 + a]; // clut y
         func438d0(); // ((A1 << 6) | ((A0 >> 4) & 3f)) & ffff
-        [struct_30 + FP * 18 + c] = h(V0); // clut id
+        [tile_data + tile_id * 18 + c] = h(V0); // clut id
 
         A0 = S0 + 4; // address to load
         A1 = ((hu[SP + 18] + hu[SP + 20]) << 10) >> 10; // x
@@ -255,26 +255,28 @@ if( number_of_tiles != 0 )
         A4 = bu[S0 + 1]; // height
         func24fac(); // add texture lo load to vram queue
 
+        // set x and y tile pos
         if( two_bytes != 0 )
         {
-            [struct_30 + FP * 18 + 0] = h((b[S2 + 2] << 8) | bu[S2 + 1]); // x tile pos
-            [struct_30 + FP * 18 + 2] = h((b[S2 + 4] << 8) | bu[S2 + 3]); // y tile pos
-            S2 = S2 + 2;
+            [tile_data + tile_id * 18 + 0] = h(hu[tile_pos_setting + 1]);
+            [tile_data + tile_id * 18 + 2] = h(hu[tile_pos_setting + 3]);
+            tile_pos_setting = tile_pos_setting + 2;
         }
         else
         {
-            [struct_30 + FP * 18 + 0] = h(b[S2 + 1]); // x tile pos
-            [struct_30 + FP * 18 + 2] = h(b[S2 + 2]); // y tile pos
+            [tile_data + tile_id * 18 + 0] = h(b[tile_pos_setting + 1]);
+            [tile_data + tile_id * 18 + 2] = h(b[tile_pos_setting + 2]);
         }
 
-        S2 = S2 + 3;
-        FP = FP + 1;
-    8001DF70	bne    fp, number_of_tiles, L1dbf4 [$8001dbf4]
+
+
+        tile_pos_setting = tile_pos_setting + 3;
+        tile_id = tile_id + 1;
+    8001DF70	bne    tile_id, number_of_tiles, L1dbf4 [$8001dbf4]
 }
 
-
-
-[struct_164 + 40] = w((w[struct_164 + 40] & ffffff03) | ((FP & 3f) << 2));
+// store number of tiles to render
+[struct_164 + 40] = w((w[struct_164 + 40] & ffffff03) | ((tile_id & 3f) << 2));
 
 
 
@@ -316,12 +318,13 @@ frame_id = A1; // starts from 1
 struct_110 = A2;
 
 struct_b4 = w[struct_164 + 20];
+tile_data = w[struct_b4 + 30];
 
 sprite_file_1 = w[struct_110 + 0];
 frame_data = sprite_file_1 + hu[sprite_file_1 + frame_id * 2];
 tile_offsets = frame_data + 4;
 number_of_tiles = bu[frame_data + 0] & 3f;
-tile_position_setting = frame_data + 4 + number_of_tiles * 2;
+tile_pos_setting = frame_data + 4 + number_of_tiles * 2;
 
 [struct_164 + 36] = h((bu[frame_data + 3] * h[struct_164 + 2c]) >> c);
 [struct_164 + 38] = h((bu[frame_data + 1] * h[struct_164 + 2c]) >> c);
@@ -333,22 +336,20 @@ packet_header = w[struct_164 + 28]; // 2C808080
 
 S7 = 4;
 
-tile = 0;
+tile_id = 0;
 
 if( number_of_tiles != 0 )
 {
-    tile_data = w[struct_b4 + 30];
-
     L1d4bc:	; 8001D4BC
-        [tile_data + 8] = b(0);
-        [tile_data + 9] = b(0);
-        [tile_data + 14] = w(w[tile_data + 14] & ffffffdf); // remove flip vertical flag
+        [tile_data + tile_id * 18 + 8] = b(0);
+        [tile_data + tile_id * 18 + 9] = b(0);
+        [tile_data + tile_id * 18 + 14] = w(w[tile_data + tile_id * 18 + 14] & ffffffdf); // remove flip vertical flag
 
         L1d4d4:	; 8001D4D4
-        S1 = bu[tile_position_setting];
+        S1 = bu[tile_pos_setting];
         if( S1 & 80 )
         {
-            tile_position_setting = tile_position_setting + 1;
+            tile_pos_setting = tile_pos_setting + 1;
 
             if( S1 & 40 )
             {
@@ -367,15 +368,15 @@ if( number_of_tiles != 0 )
 
                 if( S1 & 20 )
                 {
-                    [V0 + (S1 & 7) * 8 + 0] = b(bu[tile_position_setting + 0]);
-                    [V0 + (S1 & 7) * 8 + 1] = b(bu[tile_position_setting + 1]);
-                    tile_position_setting = tile_position_setting + 2;
+                    [V0 + (S1 & 7) * 8 + 0] = b(bu[tile_pos_setting + 0]);
+                    [V0 + (S1 & 7) * 8 + 1] = b(bu[tile_pos_setting + 1]);
+                    tile_pos_setting = tile_pos_setting + 2;
                 }
 
                 if( S1 & 10 )
                 {
-                    [V0 + (S1 & 7) * 8 + 6] = h(bu[tile_position_setting] << 4);
-                    tile_position_setting = tile_position_setting + 1;
+                    [V0 + (S1 & 7) * 8 + 6] = h(bu[tile_pos_setting] << 4);
+                    tile_pos_setting = tile_pos_setting + 1;
                 }
                 else
                 {
@@ -386,17 +387,17 @@ if( number_of_tiles != 0 )
             {
                 if( S1 & 01 ) // width increase
                 {
-                    [tile_data + 8] = b(bu[tile_position_setting]);
-                    tile_position_setting = tile_position_setting + 1;
+                    [tile_data + tile_id * 18 + 8] = b(bu[tile_pos_setting]);
+                    tile_pos_setting = tile_pos_setting + 1;
                 }
                 if( S1 & 02 ) // height increase
                 {
-                    [tile_data + 9] = b(bu[tile_position_setting]);
-                    tile_position_setting = tile_position_setting + 1;
+                    [tile_data + tile_id * 18 + 9] = b(bu[tile_pos_setting]);
+                    tile_pos_setting = tile_pos_setting + 1;
                 }
                 if( S1 & 04 ) // flip vertical
                 {
-                    [tile_data + 14] = w(w[tile_data + 14] | 00000020);
+                    [tile_data + tile_id * 18 + 14] = w(w[tile_data + tile_id * 18 + 14] | 00000020);
                 }
             }
             8001D588	j      L1d4d4 [$8001d4d4]
@@ -411,25 +412,25 @@ if( number_of_tiles != 0 )
 
         if( S1 & 01 )
         {
-            [tile_data + 14] = w(w[tile_data + 14] | 00000008);
+            [tile_data + tile_id * 18 + 14] = w(w[tile_data + tile_id * 18 + 14] | 00000008);
             tex_x_off = (hu[struct_110 + 4] & 3f) >> 1;
         }
         else
         {
-            [tile_data + 14] = w(w[tile_data + 14] & fffffff7);
+            [tile_data + tile_id * 18 + 14] = w(w[tile_data + tile_id * 18 + 14] & fffffff7);
             tex_x_off = (hu[struct_110 + 4] & 3f) >> 2;
         }
 
 
 
-        [tile_data + 10] = w(packet_header);
+        [tile_data + tile_id * 18 + 10] = w(packet_header);
 
 
 
-        A2 = bu[tile_position_setting] >> 4 & 03; // abr - Semi transparency mode
+        A2 = bu[tile_pos_setting] >> 4 & 03; // abr - Semi transparency mode
         if( A2 != 0 )
         {
-            [tile_data + 13] = b(bu[tile_data + 13] | 02); // semi-transparency on
+            [tile_data + tile_id * 18 + 13] = b(bu[tile_data + tile_id * 18 + 13] | 02); // semi-transparency on
             A2 = A2 - 1;
         }
         else // 0.5xB+0.5 x F
@@ -437,7 +438,7 @@ if( number_of_tiles != 0 )
             A2 = g_abr;
             if( A2 != 0 )
             {
-                [tile_data + 13] = b(bu[tile_data + 13] | 02); // semi-transparency on
+                [tile_data + tile_id * 18 + 13] = b(bu[tile_data + tile_id * 18 + 13] | 02); // semi-transparency on
                 A2 = A2 - 1;
             }
         }
@@ -453,12 +454,12 @@ if( number_of_tiles != 0 )
             A2 = h[8004f15c + V0]; // tx
             A3 = h[8004f15e + V0]; // ty and tr
             func43894; // ((A0 & 3) << 7) | ((A1 & 3) << 5) | ((A3 & 0100) >> 4) | ((A2 & 03ff) >> 6) | ((A3 & 0200) << 2);
-            [tile_data + a] = h(V0);
+            [tile_data + tile_id * 18 + a] = h(V0);
 
             A0 = (S1 >> 1) + f0; // x
             A1 = ((S1 >> 9) & f) + 1cc; // y
             func438d0(); // ((A1 << 6) | ((A0 >> 4) & 3f)) & ffff;
-            [tile_data + c] = h(V0);
+            [tile_data + tile_id * 18 + c] = h(V0);
         }
         else
         {
@@ -476,7 +477,7 @@ if( number_of_tiles != 0 )
                 abr = (A2 & 03) << 5;
                 tp = (S1 & 01) << 7;
                 tr = (hu[V0 + 2] & 0200) << 2;
-                [tile_data + a] = h( tr | tp | abr | ty | tx);
+                [tile_data + tile_id * 18 + a] = h( tr | tp | abr | ty | tx);
             }
             else
             {
@@ -485,44 +486,44 @@ if( number_of_tiles != 0 )
                 abr = (A2 & 03) << 5;
                 tp = (S1 & 01) << 7;
                 tr = (hu[struct_110 + 6] & 0200) << 2; // Textured Rectangle X-Flip, Y-Flip
-                [tile_data + a] = h( tr | tp | abr | ty | tx);
+                [tile_data + tile_id * 18 + a] = h( tr | tp | abr | ty | tx);
             }
 
-            x = ((h[struct_110 + 8] + ((bu[tile_position_setting] & 0f) << 4)) >> 4) & 3f;
+            x = ((h[struct_110 + 8] + ((bu[tile_pos_setting] & 0f) << 4)) >> 4) & 3f;
             y = hu[struct_110 + a] << 6;
-            [tile_data + c] = h(y | x);
+            [tile_data + tile_id * 18 + c] = h(y | x);
         }
 
 
 
-        [tile_data + 4] = b(bu[tile_address + 1] + tex_x_off);
-        [tile_data + 5] = b(bu[tile_address + 2] + tex_y_off);
-        [tile_data + 6] = b(bu[tile_address + 3]);
-        [tile_data + 7] = b(bu[tile_address + 4]);
+        [tile_data + tile_id * 18 + 4] = b(bu[tile_address + 1] + tex_x_off);
+        [tile_data + tile_id * 18 + 5] = b(bu[tile_address + 2] + tex_y_off);
+        [tile_data + tile_id * 18 + 6] = b(bu[tile_address + 3]);
+        [tile_data + tile_id * 18 + 7] = b(bu[tile_address + 4]);
 
-        [tile_data + 14] = w((w[tile_data + 14] & fffffff8) | S7 );
-        [tile_data + 14] = w((w[tile_data + 14] & ffffffef) | ((bu[tile_position_setting + 0] >> 2) & 10)); // flip horizontal if set
+        [tile_data + tile_id * 18 + 14] = w((w[tile_data + tile_id * 18 + 14] & fffffff8) | S7 );
+        [tile_data + tile_id * 18 + 14] = w((w[tile_data + tile_id * 18 + 14] & ffffffef) | ((bu[tile_pos_setting + 0] >> 2) & 10)); // flip horizontal if set
 
+        // set x and y tile pos
         if( bu[frame_data + 0] & 80 ) // double presision
         {
-            [tile_data + 0] = h(hu[tile_position_setting + 1]);
-            [tile_data + 2] = h(hu[tile_position_setting + 3]);
-            tile_position_setting = tile_position_setting + 2;
+            [tile_data + tile_id * 18 + 0] = h(hu[tile_pos_setting + 1]);
+            [tile_data + tile_id * 18 + 2] = h(hu[tile_pos_setting + 3]);
+            tile_pos_setting = tile_pos_setting + 2;
         }
         else
         {
-            [tile_data + 0] = h(b[tile_position_setting + 1]);
-            [tile_data + 2] = h(b[tile_position_setting + 2]);
+            [tile_data + tile_id * 18 + 0] = h(b[tile_pos_setting + 1]);
+            [tile_data + tile_id * 18 + 2] = h(b[tile_pos_setting + 2]);
         }
 
 
 
-        tile_data = tile_data + 18;
-        tile = tile + 1;
-        tile_position_setting = tile_position_setting + 3;
-    8001D910	bne    tile, number_of_tiles, L1d4bc [$8001d4bc]
+        tile_pos_setting = tile_pos_setting + 3;
+        tile_id = tile_id + 1;
+    8001D910	bne    tile_id, number_of_tiles, L1d4bc [$8001d4bc]
 }
 
 // store number of tiles to render
-[struct_164 + 40] = w((w[struct_164 + 40] & ffffff03) | ((tile & 3f) << 2));
+[struct_164 + 40] = w((w[struct_164 + 40] & ffffff03) | ((tile_id & 3f) << 2));
 ////////////////////////////////

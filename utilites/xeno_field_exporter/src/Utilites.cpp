@@ -33,10 +33,13 @@ GetSpriteName( const int file_id, const int sprite_id )
     {
         case 632:
         {
-            if( sprite_id == 4 )
-            {
-                return "chief_lee";
-            }
+            if( sprite_id == 0 ) return "timothy_father";
+            if( sprite_id == 1 ) return "aruru_no_shukufu";
+            if( sprite_id == 2 ) return "dan";
+            if( sprite_id == 3 ) return "maid";
+            if( sprite_id == 4 ) return "chief_lee";
+            if( sprite_id == 5 ) return "unknown";
+            if( sprite_id == 6 ) return "timothy";
         }
     }
 

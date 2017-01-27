@@ -12208,27 +12208,11 @@ func1f9a8:	; 8001F9A8
 8001FA18	nop
 
 
-func1fa1c:	; 8001FA1C
-8001FA1C	lbu    a1, $0000(a1)
-8001FA20	nop
-8001FA24	andi   v0, a1, $0080
-8001FA28	beq    v0, zero, L1fa3c [$8001fa3c]
-8001FA2C	andi   v0, a1, $007f
-8001FA30	lw     v1, $0088(a0)
-8001FA34	j      L1fa54 [$8001fa54]
-8001FA38	addu   v0, v0, v1
 
-L1fa3c:	; 8001FA3C
-8001FA3C	sll    v1, a1, $18
-8001FA40	lb     v0, $008c(a0)
-8001FA44	sra    v1, v1, $18
-8001FA48	addu   v0, v0, v1
-8001FA4C	addiu  v0, v0, $008e
-8001FA50	addu   v0, a0, v0
-
-L1fa54:	; 8001FA54
-8001FA54	jr     ra 
-8001FA58	nop
+////////////////////////////////
+// func1fa1c
+8001FA1C-8001FA58
+////////////////////////////////
 
 
 
@@ -12372,22 +12356,11 @@ func21a40:	; 80021A40
 80021AC0	nop
 
 
-func21ac4:	; 80021AC4
-80021AC4	lb     a1, $008c(a0)
-80021AC8	addiu  sp, sp, $fff8 (=-$8)
-80021ACC	addu   v0, a0, a1
-80021AD0	lbu    a2, $008e(v0)
-80021AD4	lbu    v1, $008f(v0)
-80021AD8	lbu    v0, $0090(v0)
-80021ADC	addiu  a1, a1, $0003
-80021AE0	sb     a1, $008c(a0)
-80021AE4	sll    v1, v1, $08
-80021AE8	addu   a2, a2, v1
-80021AEC	sll    v0, v0, $10
-80021AF0	addu   v0, a2, v0
-80021AF4	addiu  sp, sp, $0008
-80021AF8	jr     ra 
-80021AFC	nop
+
+////////////////////////////////
+// func21ac4
+80021AC4-80021AFC
+////////////////////////////////
 
 
 

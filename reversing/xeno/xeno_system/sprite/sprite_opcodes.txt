@@ -1,0 +1,30 @@
+sequence data (just animation script)
+00-0f                       play next frame and wait 0x0f frames (used frame from +34).
+10-1f                       play next direction frame and wait 0x0f frames (used frame from +a8).
+20-2f                       play previous frame and wait 0x0f frames (used frame from +34).
+30-3f                       wait 0x0f frames
+80                          start default animation +b0 and return from script.
+81                          start play default +b0/call some callback set flags and return from script.
+82                          immidiately start animation and script from +af and call some callback.
+85                          jump to stored script pos in +8e stack and pop value (return from e2 sub function call).
+86                          wait until +10 became >= 0 and then continue script execution.
+87                          wait until +6 became >= +84 and then continue script execution.
+8e                          set script pointer to 0 and return.
+98                          maybe wain until connected sprite starts some animatiuon and then continue script execution.
+a0[speed]                   set move speed.
+a7[wait]                    set wait 0x7f if 0x80 not set, set wait 0x7f to 0x80058ac4 otherwise.
+b3[direction_frame_id]      set direction frame id & 0x3f.
+b4[value]                   push value to track +8e.
+b5[scale]                   set scale to sprite.
+be[[flags]]                 set frame to play.
+                            0x01ff - frame id.
+                            0x0200 - invert y flag in [struct_164 + ac] (if y and x inversion in [struct_164 + ac] not equal then set [struct_164 + 3c] x inversion).
+                            0x0400 - invert tile y and height.
+                            0x7800 - wait value.
+                            0x8000 - use directed frame???
+c6[value]                   set value to +f4 +c (unknown).
+c8[opcode][data_offset]     executes opcode in param and sets pointer to params for this opcode from scripf if 0x80 in data offset exist or from stack otherwise.
+d4[[jump]]                  jump by number of signed bytes defined in jump and call callback.
+e1[[jump]]                  jump by number of signed bytes defined in jump.
+e2[[jump]]                  push script_pos to +8e stack and jump by number of signed bytes defined in jump (sub function call).
+e4[[jump]]                  decrement value from stack by 1 and jump. If value in stack +8e == 0 move forward (for cycle).

@@ -6,11 +6,10 @@ if( ( w[80058810 + 28] + 1 ) != 0 )
 {
     S0 = 0;
     loop230b8:	; 800230B8
-        wait = h[struct_164 + 9e];
-        if( wait != 0 )
+        if( h[struct_164 + 9e] != 0 ) // wait
         {
-            [struct_164 + 9e] = h(wait - 1);
-            if( ( wait - 1 ) == 0 )
+            [struct_164 + 9e] = h(h[struct_164 + 9e] - 1);
+            if( h[struct_164 + 9e] == 0 )
             {
                 A0 = struct_164;
                 func246ac(); // call script
@@ -26,11 +25,11 @@ if( ( w[80058810 + 28] + 1 ) != 0 )
 
 ////////////////////////////////
 // func246ac()
-struct_164 = S1 = A0;
+struct_164 = A0;
 
 if( bu[80058810 + 3d] != 0 )
 {
-    800246D4	jal    funcc08f0 [$800c08f0]
+    funcc08f0(); // battle sprite animation script
     return;
 }
 
@@ -40,26 +39,12 @@ if( h[struct_164 + 9e] != 0 )
     return;
 }
 
-script_ptr = V0 = w[struct_164 + 64];
+script_ptr = w[struct_164 + 64];
 
-S2 = bu[V0];
-S0 = V0 + 1;
-V1 = S2;
-if( V1 >= 80 )
+opcode = bu[script_ptr];
+if( opcode >= 80 )
 {
-    85 B8490280
-    86 604A0280
-    87 784A0280
-    8e 74490280
-    98 F04A0280
-    be 58480280
-    c8 A44C0280
-    d4 284A0280
-    e1 D8490280
-    e2 7C490280
-    fa E8490280
-
-    if( S2 == 80 )
+    if( opcode == 80 )
     {
         A1 = b[struct_164 + b0]; // default animation id
         if( A1 >= 0 )
@@ -68,23 +53,22 @@ if( V1 >= 80 )
             func243e4(); // play animation
         }
         [struct_164 + a8] = w(w[struct_164 + a8] & cfffffff);
-
         return;
     }
-    else if( S2 == 81 )
+    else if( opcode == 81 )
     {
         if( b[struct_164 + af] == 3f ) // play default animation
         {
             [struct_164 + a8] = w(w[struct_164 + a8] & cfffffff);
-            V1 = w[struct_164 + 68];
-            if( V1 != 0 )
+
+            if( w[struct_164 + 68] != 0 )
             {
                 A0 = struct_164;
-                80024AB4	jalr   v1 ra
+                80024AB4	jalr   w[struct_164 + 68] ra
             }
             else
             {
-                A1 = b[struct_164 + b0]; // animation id
+                A1 = b[struct_164 + b0]; // default animation id
                 if( A1 >= 0 )
                 {
                     A0 = struct_164;
@@ -96,23 +80,22 @@ if( V1 >= 80 )
         else
         {
             [struct_164 + 9e] = h(0); // wait 0
-            V0 = w[struct_164 + 68];
-            if( V0 != 0 )
+
+            if( w[struct_164 + 68] != 0 )
             {
                 A0 = struct_164;
-                80024B98	jalr   v0 ra
+                80024B98	jalr   w[struct_164 + 68] ra
             }
             [struct_164 + a8] = w((w[struct_164 + a8] & cfffffff) | 10000000);
         }
         return;
     }
-    else if( S2 == 82 )
+    else if( opcode == 82 )
     {
-        V1 = w[struct_164 + 68];
-        if( V1 != 0 )
+        if( w[struct_164 + 68] != 0 )
         {
             A0 = struct_164;
-            80024B48	jalr   v0 ra
+            80024B48	jalr   w[struct_164 + 68] ra
         }
 
         S0 = w[struct_164 + 10];
@@ -129,18 +112,72 @@ if( V1 >= 80 )
 
         return;
     }
-    else if( S2 == a7 )
+    else if( opcode == 85 )
     {
-        [struct_164 + 64] = w(w[struct_164 + 64] + bu[8004f2e4 + S2]);
+        A0 = struct_164;
+        func21ac4(); // pop script pos 3 bytes from stack +8e
 
-        if( bu[S0] & 80 )
+        [struct_164 + 64] = w((w[struct_164 + 64] & ff000000) | V0);
+        800249D0	j      L246e4 [$800246e4]
+    }
+    else if( opcode == 86 )
+    {
+        if( w[struct_164 + 10] >= 0 )
         {
-            [80058ac4] = w((bu[S0] & 7f) + 1);
+            [struct_164 + 64] = w(w[struct_164 + 64] + bu[8004f2e4 + opcode]);
+            80024CF0	j      L246e4 [$800246e4]
+        }
+
+        [struct_164 + 9e] = h(1);
+        return;
+    }
+    else if( opcode == 87 )
+    {
+        if( h[struct_164 + 6] >= h[struct_164 + 84] )
+        {
+            [struct_164 + 64] = w(w[struct_164 + 64] + bu[8004f2e4 + opcode]);
+            80024CF0	j      L246e4 [$800246e4]
+        }
+
+        [struct_164 + 9e] = h(1);
+        return;
+    }
+    else if( opcode == 8e )
+    {
+        [struct_164 + 64] = w(0);
+        return;
+    }
+    else if( opcode == 98 )
+    {
+        A0 = w[struct_164 + 70];
+        if( A0 != 0 )
+        {
+            [struct_164 + 9e] = h(1);
+
+            if( b[A0 + af] == b[struct_164 + 8d] )
+            {
+                if( ( w[A0 + a8] & 30000000 ) == 20000000 )
+                {
+                    return;
+                }
+            }
+        }
+
+        [struct_164 + 64] = w(w[struct_164 + 64] + bu[8004f2e4 + opcode]);
+        80024CF0	j      L246e4 [$800246e4]
+    }
+    else if( opcode == a7 )
+    {
+        [struct_164 + 64] = w(w[struct_164 + 64] + bu[8004f2e4 + opcode]);
+
+        if( bu[script_ptr + 1] & 80 )
+        {
+            [80058ac4] = w((bu[script_ptr + 1] & 7f) + 1);
             [struct_164 + 9e] = h(h[struct_164 + 9e] + 1);
         }
         else
         {
-            V1 = ((bu[S0] + 2) * ((w[struct_164 + ac] >> 9) & fff)) >> 8;
+            V1 = ((bu[script_ptr + 1] + 2) * ((w[struct_164 + ac] >> 9) & fff)) >> 8;
             if( V1 == 0 )
             {
                 V1 = 1;
@@ -149,14 +186,105 @@ if( V1 >= 80 )
         }
         return;
     }
-    else if( S2 == e4 )
+    else if( opcode == be )
+    {
+        A3 = h[script_ptr + 1];
+
+        frame_id = A3 & 01ff;
+
+        wait = ((((A3 >> b) & f) + 1) * ((w[struct_164 + ac] >> 9) & fff)) >> 8;
+        if( wait == 0 )
+        {
+            wait = 1;
+        }
+
+        if( ( w[struct_164 + 3c] & 00000003 ) != 00000001 )
+        {
+            [struct_164 + 34] = h(frame_id);
+        }
+        else
+        {
+            if( ( A3 & 8000 ) && ( frame_id != 0 ) )
+            {
+                V0 = w[struct_164 + 60] + frame_id;
+                frame_id = bu[V0 - 1];
+            }
+
+            // invert offset y
+            [struct_164 + ac] = w((w[struct_164 + ac] & ffffffdf) | ((A3 >> 4) & 20));
+
+            // invert tile x and width
+            V0 = (w[struct_164 + ac] >> 5) & 1;
+            V1 = (w[struct_164 + ac] >> 4) & 1;
+            [struct_164 + 3c] = w((w[struct_164 + 3c] & fffffff7) | ((V0 XOR V1) << 3));
+
+            // invert tile y and height
+            if( ( A3 >> a ) & 1 )
+            {
+                [struct_164 + 3c] = w(w[struct_164 + 3c] | 00000010);
+            }
+            else
+            {
+                [struct_164 + 3c] = w(w[struct_164 + 3c] & ffffffef);
+            }
+
+            A0 = struct_164;
+            A1 = frame_id;
+            system_set_sprite_frame();
+        }
+
+        [struct_164 + 9e] = h(hu[struct_164 + 9e] + wait);
+        [struct_164 + 64] = w(w[struct_164 + 64] + 3);
+        return;
+    }
+    else if( opcode == c8 )
     {
         A0 = struct_164;
-        func21a68(); // pop from stack +8e
+        A1 = script_ptr + 2;
+        func1fa1c();
+
+        A0 = struct_164;
+        A1 = bu[script_ptr + 1]; // opcode
+        A2 = V0; // script pointer
+        func1fa5c(); // parse opcode
+
+        [struct_164 + 64] = w(w[struct_164 + 64] + bu[8004f2e4 + opcode]);
+        80024CF0	j      L246e4 [$800246e4]
+    }
+    else if( opcode == d4 )
+    {
+        [struct_164 + 64] = w(w[struct_164 + 64] + h[script_ptr + 1]);
+
+        if( w[struct_164 + 68] != 0 )
+        {
+            A0 = struct_164;
+            80024A50	jalr   w[struct_164 + 68] ra
+        }
+        80024A58	j      L246e4 [$800246e4]
+    }
+    else if( opcode == e1 )
+    {
+        [struct_164 + 64] = w(w[struct_164 + 64] + h[script_ptr + 1]);
+        80024A20	j      L246e4 [$800246e4]
+    }
+    else if( opcode == e2 )
+    {
+        A0 = struct_164;
+        A1 = w[struct_164 + 64] + 3;
+        func21b58(); // push script pos 3 bytes to stack +8e
+
+        [struct_164 + 64] = w(w[struct_164 + 64] + h[script_ptr + 1]);
+        800249B0	j      L246e4 [$800246e4]
+
+    }
+    else if( opcode == e4 )
+    {
+        A0 = struct_164;
+        func21a68(); // pop value 1 byte from stack +8e
 
         if( V0 == 0 )
         {
-            [struct_164 + 64] = w(w[struct_164 + 64] + bu[8004f2e4 + S2]);
+            [struct_164 + 64] = w(w[struct_164 + 64] + bu[8004f2e4 + opcode]);
         }
         else
         {
@@ -164,9 +292,25 @@ if( V1 >= 80 )
             A1 = V0 - 1;
             func21b00(); // push to stack +8e
 
-            [struct_164 + 64] = w(w[struct_164 + 64] + ((bu[S0 + 1] << 18) >> 10) | bu[S0 + 0]);
+            [struct_164 + 64] = w(w[struct_164 + 64] + h[script_ptr + 1]);
         }
         80024C00	j      L246e4 [$800246e4]
+    }
+    else if( opcode == fa )
+    {
+        A0 = struct_164;
+        A1 = script_ptr + 1;
+        func1fa1c();
+
+        if( bu[V0] == 0 )
+        {
+            [struct_164 + 64] = w(w[struct_164 + 64] + bu[8004f2e4 + opcode]);
+        }
+        else
+        {
+            [struct_164 + 64] = w(w[struct_164 + 64] + h[script_ptr + 1]);
+        }
+        80024A20	j      L246e4 [$800246e4]
     }
     else
     // 83 84 88 89 8a 8b 8c 8d 8f 90 91 92 93 94 95 96 97 99 9a 9b 9c 9d 9e 9f a0 a1 a2 a3
@@ -175,118 +319,24 @@ if( V1 >= 80 )
     // e0 e3 e5 e6 e7 e8 e9 ea eb ec ed ee f0 f1 f2 f3 f4 f5 f6 f7 f8 f9 fb fc fd fe ff
     {
         A0 = struct_164;
-        A1 = S2; // opcode
-        A2 = S0; // script pointer
-
-        L24ccc:	; 80024CCC
+        A1 = opcode;
+        A2 = script_ptr + 1;
         func1fa5c(); // parse opcode
 
-        L24cd4:	; 80024CD4
-        V0 = S2;
-
-        L24cd8:	; 80024CD8
-
-        [struct_164 + 64] = w(w[struct_164 + 64] + bu[8004f2e4 + S2]);
+        [struct_164 + 64] = w(w[struct_164 + 64] + bu[8004f2e4 + opcode]);
         80024CF0	j      L246e4 [$800246e4]
     }
-
-    80024858	lb     v0, $0001(s0)
-    8002485C	lbu    v1, $0000(s0)
-    80024860	sll    v0, v0, $08
-    80024864	or     a3, v1, v0
-    80024868	sra    v1, a3, $0b
-    8002486C	andi   v1, v1, $000f
-    80024870	lw     v0, $00ac(s1)
-    80024874	addiu  s0, v1, $0001
-    80024878	srl    v0, v0, $09
-    8002487C	andi   v0, v0, $0fff
-    80024880	mult   s0, v0
-    80024884	mflo   v1
-    80024888	bgez   v1, L24894 [$80024894]
-    8002488C	andi   a1, a3, $01ff
-    80024890	addiu  v1, v1, $00ff
-
-    L24894:	; 80024894
-    80024894	sra    s0, v1, $08
-    80024898	bne    s0, zero, L248a4 [$800248a4]
-    8002489C	ori    v1, zero, $0001
-    800248A0	ori    s0, zero, $0001
-
-    L248a4:	; 800248A4
-    800248A4	lw     v0, $003c(s1)
-    800248A8	nop
-    800248AC	andi   v0, v0, $0003
-    800248B0	beq    v0, v1, L248c8 [$800248c8]
-    800248B4	nop
-    800248B8	lhu    v0, $009e(s1)
-    800248BC	lw     v1, $0064(s1)
-    800248C0	j      L24960 [$80024960]
-    800248C4	sh     a1, $0034(s1)
-
-    L248c8:	; 800248C8
-    800248C8	bgez   a3, L248ec [$800248ec]
-    800248CC	addiu  v0, zero, $ffdf (=-$21)
-    800248D0	beq    a1, zero, L248ec [$800248ec]
-    800248D4	nop
-    800248D8	lw     v0, $0060(s1)
-    800248DC	nop
-    800248E0	addu   v0, a1, v0
-    800248E4	lbu    a1, $ffff(v0)
-    800248E8	addiu  v0, zero, $ffdf (=-$21)
-
-    L248ec:	; 800248EC
-    800248EC	lw     a0, $00ac(s1)
-    800248F0	lw     v1, $003c(s1)
-    800248F4	and    a0, a0, v0
-    800248F8	sra    v0, a3, $04
-    800248FC	andi   v0, v0, $0020
-    80024900	or     a0, a0, v0
-    80024904	addiu  v0, zero, $fff7 (=-$9)
-    80024908	and    a2, v1, v0
-    8002490C	srl    v0, a0, $05
-    80024910	andi   v0, v0, $0001
-    80024914	srl    v1, a0, $04
-    80024918	andi   v1, v1, $0001
-    8002491C	xor    v0, v0, v1
-    80024920	sll    v0, v0, $03
-    80024924	or     a2, a2, v0
-    80024928	sra    v0, a3, $0a
-    8002492C	andi   v0, v0, $0001
-    80024930	sw     a0, $00ac(s1)
-    80024934	beq    v0, zero, L24944 [$80024944]
-    80024938	sw     a2, $003c(s1)
-    8002493C	j      L2494c [$8002494c]
-    80024940	ori    v0, a2, $0010
-
-    L24944:	; 80024944
-    80024944	addiu  v0, zero, $ffef (=-$11)
-    80024948	and    v0, a2, v0
-
-    L2494c:	; 8002494C
-    8002494C	sw     v0, $003c(s1)
-    80024950	jal    system_set_sprite_frame [$8001d134]
-    80024954	addu   a0, s1, zero
-    80024958	lhu    v0, $009e(s1)
-    8002495C	lw     v1, $0064(s1)
-
-    L24960:	; 80024960
-    80024960	addu   v0, v0, s0
-    80024964	addiu  v1, v1, $0003
-    80024968	sh     v0, $009e(s1)
-    8002496C	j      L24cf8 [$80024cf8]
-    80024970	sw     v1, $0064(s1)
-
 }
 
-[struct_164 + 64] = w(S0);
+[struct_164 + 64] = w(script_ptr + 1);
 
-if( V1 < 10 )
+if( opcode < 10 )
 {
     A0 = struct_164;
     A1 = hu[struct_164 + 34] + 1;
     system_set_sprite_frame();
 }
-else if( V1 < 20 )
+else if( opcode < 20 )
 {
     frame_data_id = (w[struct_164 + a8] >> b) & 3f;
     [struct_164 + a8] = w((w[struct_164 + a8] & fffe07ff) | (((frame_data_id + 1) & 3f) << b));
@@ -294,16 +344,16 @@ else if( V1 < 20 )
     A0 = struct_164;
     system_set_rotated_sprite_frame();
 }
-else if( V1 < 30 )
+else if( opcode < 30 )
 {
     A0 = struct_164;
     A1 = hu[struct_164 + 34] - 1;
     system_set_sprite_frame();
 }
 
-if( S2 < 40 )
+if( opcode < 40 )
 {
-    S3 = (S2 & f) + 1;
+    S3 = (opcode & f) + 1;
 }
 S3 = (S3 * ((w[struct_164 + ac] >> 9) & fff)) >> 8;
 if( S3 == 0 )
@@ -318,116 +368,6 @@ if( V0 != 0 )
 {
     [struct_164 + a8] = w((w[struct_164 + a8] & f03fffff) | (V0 << 16));
 }
-return
-
-
-80024974	j      L24cf8 [$80024cf8]
-80024978	sw     zero, $0064(s1)
-8002497C	addu   a0, s1, zero
-80024980	lw     a1, $0064(s1)
-80024984	lbu    v0, $0001(s0)
-80024988	lbu    s0, $0000(s0)
-8002498C	addiu  a1, a1, $0003
-80024990	sll    v0, v0, $18
-80024994	sra    v0, v0, $10
-80024998	jal    func21b58 [$80021b58]
-8002499C	addu   s0, s0, v0
-800249A0	sll    s0, s0, $10
-800249A4	lw     v0, $0064(s1)
-800249A8	sra    s0, s0, $10
-800249AC	addu   s0, s0, v0
-800249B0	j      L246e4 [$800246e4]
-800249B4	sw     s0, $0064(s1)
-800249B8	jal    func21ac4 [$80021ac4]
-800249BC	addu   a0, s1, zero
-800249C0	lw     v1, $0064(s1)
-800249C4	lui    a0, $ff00
-800249C8	and    v1, v1, a0
-800249CC	or     v0, v0, v1
-800249D0	j      L246e4 [$800246e4]
-800249D4	sw     v0, $0064(s1)
-800249D8	lbu    v0, $0001(s0)
-800249DC	lbu    v1, $0000(s0)
-800249E0	j      L24a0c [$80024a0c]
-800249E4	nop
-800249E8	addu   a0, s1, zero
-800249EC	jal    func1fa1c [$8001fa1c]
-800249F0	addu   a1, s0, zero
-800249F4	lbu    v0, $0000(v0)
-800249F8	nop
-800249FC	beq    v0, zero, L24cd8 [$80024cd8]
-80024A00	andi   v0, s2, $00ff
-80024A04	lbu    v0, $0002(s0)
-80024A08	lbu    v1, $0001(s0)
-
-L24a0c:	; 80024A0C
-80024A0C	lw     a0, $0064(s1)
-80024A10	sll    v0, v0, $18
-80024A14	sra    v0, v0, $10
-80024A18	or     v1, v1, v0
-80024A1C	addu   v1, v1, a0
-80024A20	j      L246e4 [$800246e4]
-80024A24	sw     v1, $0064(s1)
-80024A28	lbu    v0, $0001(s0)
-80024A2C	lbu    v1, $0000(s0)
-
-L24a30:	; 80024A30
-80024A30	sll    v0, v0, $18
-80024A34	sra    v0, v0, $10
-80024A38	or     v1, v1, v0
-80024A3C	lw     v0, $0064(s1)
-80024A40	lw     a1, $0068(s1)
-80024A44	addu   v1, v1, v0
-80024A48	beq    a1, zero, L246e4 [$800246e4]
-80024A4C	sw     v1, $0064(s1)
-80024A50	jalr   a1 ra
-80024A54	addu   a0, s1, zero
-80024A58	j      L246e4 [$800246e4]
-80024A5C	nop
-80024A60	lw     v0, $0010(s1)
-80024A64	nop
-80024A68	bgez   v0, L24cd8 [$80024cd8]
-80024A6C	andi   v0, s2, $00ff
-80024A70	j      L24a90 [$80024a90]
-80024A74	ori    v0, zero, $0001
-80024A78	lh     v0, $0006(s1)
-80024A7C	lh     v1, $0084(s1)
-80024A80	nop
-80024A84	slt    v0, v0, v1
-80024A88	beq    v0, zero, L24cd4 [$80024cd4]
-80024A8C	ori    v0, zero, $0001
-
-L24a90:	; 80024A90
-80024A90	j      L24cf8 [$80024cf8]
-80024A94	sh     v0, $009e(s1)
-
-80024AF0	lw     a0, $0070(s1)
-80024AF4	nop
-80024AF8	beq    a0, zero, L24cd4 [$80024cd4]
-80024AFC	ori    v0, zero, $0001
-80024B00	sh     v0, $009e(s1)
-80024B04	lb     v1, $00af(a0)
-80024B08	lb     v0, $008d(s1)
-80024B0C	nop
-80024B10	bne    v1, v0, L24cd8 [$80024cd8]
-80024B14	andi   v0, s2, $00ff
-80024B18	lw     v0, $00a8(a0)
-80024B1C	lui    v1, $3000
-80024B20	and    v0, v0, v1
-80024B24	lui    v1, $2000
-80024B28	beq    v0, v1, L24cf8 [$80024cf8]
-80024B2C	andi   v0, s2, $00ff
-80024B30	j      L24cd8 [$80024cd8]
-80024B34	nop
-80024CA4	addu   a0, s1, zero
-80024CA8	jal    func1fa1c [$8001fa1c]
-80024CAC	addiu  a1, s0, $0001
-80024CB0	addu   a0, s1, zero
-80024CB4	lbu    a1, $0000(s0)
-80024CB8	j      L24ccc [$80024ccc]
-80024CBC	addu   a2, v0, zero
-
-L24cf8:	; 80024CF8
 ////////////////////////////////
 
 
@@ -442,6 +382,35 @@ if( A1 < 73 )
 {
     switch( A1 )
     {
+        case a7: // wait
+        {
+            if( bu[pointer] & 80 )
+            {
+                [80058ac4] = w((bu[pointer] & 7f) + 1);
+                return;
+            }
+            V1 = ((bu[pointer] + 1) * ((w[struct_164 + ac] >> 9) & fff)) >> 8;
+            if( V1 == 0 )
+            {
+                V1 = 1;
+            }
+            [struct_164 + 9e] = h(h[struct_164 + 9e] + V1);
+            return;
+        }
+        break;
+
+        case c6:
+        {
+            if( w[struct_164 + a8] & 00000001 )
+            {
+                V1 = w[struct_164 + 7c];
+                [V1 + c] = h(bu[pointer]);
+            }
+            return;
+        }
+        break;
+
+
 DC150280 // 8A
 C4FB0180 // 8C
 A8FA0180 // 8D
@@ -523,16 +492,6 @@ D8FC0180 // fc
     8001FABC	nop
     8001FAC0	j      L21900 [$80021900]
     8001FAC4	nop
-        case c6:
-        {
-            if( w[struct_164 + a8] & 00000001 )
-            {
-                V1 = w[struct_164 + 7c];
-                [V1 + c] = h(bu[pointer]);
-            }
-            return;
-        }
-        break;
 
     8001FAEC	lw     v0, $00a8(s3)
     8001FAF0	nop
@@ -632,23 +591,6 @@ D8FC0180 // fc
     8001FC58	lhu    v0, $0032(s0)
     8001FC5C	j      L21400 [$80021400]
     8001FC60	sh     v0, $0002(v1)
-
-        case a7: // wait
-        {
-            if( bu[pointer] & 80 )
-            {
-                [80058ac4] = w((bu[pointer] & 7f) + 1);
-                return;
-            }
-            V1 = ((bu[pointer] + 1) * ((w[struct_164 + ac] >> 9) & fff)) >> 8;
-            if( V1 == 0 )
-            {
-                V1 = 1;
-            }
-            [struct_164 + 9e] = h(h[struct_164 + 9e] + V1);
-            return;
-        }
-        break;
 
     8001FCD8	ori    a0, zero, $2000
     8001FCDC	jal    system_memory_allocate [$800319ec]

@@ -34,23 +34,6 @@ animation data
 +02 [][]     offset to sprite sequence data.
 +04 [][]     offset to something related to sprite direction. If there is more directions then there is more offsets to differend data up to 5 for 8 directions.
 
-sequence data (just animation script)
-00-0f                       play next frame and wait 0x0f frames (used frame from +34).
-10-1f                       play next direction frame and wait 0x0f frames (used frame from +a8).
-20-2f                       play previous frame and wait 0x0f frames (used frame from +34).
-30-3f                       wait 0x0f frames
-a0[speed]                   set move speed.
-a7[wait]                    set wait 0x7f if 0x80 not set, set wait 0x7f to 0x80058ac4 otherwise.
-b3[direction_frame_id]      set direction frame id & 0x3f.
-b4[value]                   push value to track +8e.
-b5[scale]                   set scale to sprite.
-be[[flags]]                 0x0200 - invert y flag in [struct_164 + ac] (if y and x inversion in [struct_164 + ac] not equal then set [struct_164 + 3c] x inversion).
-c6[value]                   set value to +f4 +c (unknown).
-                            0x01ff - frame id.
-                            0x7800 - wait value. Stored as this + 1.
-e2[[jump]][[[script_pos]]]  store script_pos to +8e stack and jump by number of bytes defined in jump (function call).
-e4[[jump]]                  decrement and jump if top calue in stack +8e not 0. Move forward otherwise.
-
 direction frame id (array of two bytes frame_id)
 +00 [][]     frame id.
 
