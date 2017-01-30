@@ -93,7 +93,6 @@ SpriteFile::SpriteFile( File* file, Vram* vram, const int file_id, const int spr
         {
             u8 number_of_tile = sprite1->GetU8( frame_offset ) & 0x3f;
             u8 double_size_tile = sprite1->GetU8( frame_offset ) & 0x80;
-            u16 offset_to_tile_desc = sprite1->GetU16LE( frame_offset + 0x04 + i * 0x02 );
             u16 offset_to_tile_position = frame_offset + 0x04 + number_of_tile * 0x02;
 
             log->Log( "    number_of_tile = 0x" + HexToString( number_of_tile, 2, '0' ) + "\n" );
@@ -101,6 +100,8 @@ SpriteFile::SpriteFile( File* file, Vram* vram, const int file_id, const int spr
 
             for( u8 i = 0; i < number_of_tile; ++i )
             {
+                u16 offset_to_tile_desc = sprite1->GetU16LE( frame_offset + 0x04 + i * 0x02 );
+
                 export_script->Log( "        <tile name=\"" + IntToString( i ) + "\"" );
                 log->Log( "    tile = 0x" + HexToString( i, 2, '0' ) + "\n" );
                 Tile tile;
@@ -161,7 +162,7 @@ SpriteFile::SpriteFile( File* file, Vram* vram, const int file_id, const int spr
 
 
 
-                log->Log( "        flip abr tex_x = 0x" + HexToString( sprite1->GetU8( offset_to_tile_position ), 2, '0' ) + ")\n" );
+                log->Log( "        flip abr tex_x = 0x" + HexToString( sprite1->GetU8( offset_to_tile_position ), 2, '0' ) + "\n" );
 
 
 
@@ -176,8 +177,8 @@ SpriteFile::SpriteFile( File* file, Vram* vram, const int file_id, const int spr
                     tile.x = (s8)sprite1->GetU8( offset_to_tile_position + 1 );
                     tile.y = (s8)sprite1->GetU8( offset_to_tile_position + 2 );
                 }
-                log->Log( "        x = 0x" + HexToString( tile.x, 4, '0' ) + "\n" );
-                log->Log( "        y = 0x" + HexToString( tile.y, 4, '0' ) + "\n" );
+                log->Log( "        x = " + IntToString( tile.x ) + "\n" );
+                log->Log( "        y = " + IntToString( tile.y ) + "\n" );
                 export_script->Log( " x=\"" + IntToString( tile.x ) + "\" y=\"" + IntToString( tile.y ) + "\"" );
                 offset_to_tile_position += 3;
 

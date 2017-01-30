@@ -174,9 +174,9 @@ Sprite::UpdateGeometry()
     float width = Ogre::Root::getSingleton().getRenderTarget( "QGearsWindow" )->getViewport( 0 )->getActualWidth();
     float height = Ogre::Root::getSingleton().getRenderTarget( "QGearsWindow" )->getViewport( 0 )->getActualHeight();
 
-    int global_x = 100;
+    int global_x = 200;
     int global_y = 300;
-    float scale = 4.0f;
+    float scale = 8.0f;
 
     Frame frame = m_Frame[ m_FrameId ];
     for( size_t i = 0; i < frame.tile.size(); ++i )
@@ -186,10 +186,10 @@ Sprite::UpdateGeometry()
         float new_x2 = ( global_x + frame.tile[ i ].x * scale +frame.tile[ i ].width * scale ) / width * 2 - 1;
         float new_y2 = -( ( global_y + frame.tile[ i ].y * scale + frame.tile[ i ].height * scale ) / height * 2 - 1 );
 
-        float tex_x1 = frame.tile[ i ].u / 255.0f;
-        float tex_x2 = ( frame.tile[ i ].u + frame.tile[ i ].width ) / 255.0f;
-        float tex_y1 = frame.tile[ i ].v / 255.0f;
-        float tex_y2 = ( frame.tile[ i ].v + frame.tile[ i ].height ) / 255.0f;
+        float tex_x1 = frame.tile[ i ].u / 256.0f + 1.0f / 512.0f;
+        float tex_x2 = ( frame.tile[ i ].u + frame.tile[ i ].width ) / 256.0f + 1.0f / 512.0f;
+        float tex_y1 = frame.tile[ i ].v / 256.0f + 1.0f / 512.0f;
+        float tex_y2 = ( frame.tile[ i ].v + frame.tile[ i ].height ) / 256.0f + 1.0f / 512.0f;
 
         *writeIterator++ = new_x1;
         *writeIterator++ = new_y1;
@@ -270,9 +270,15 @@ Sprite::renderQueueStarted( Ogre::uint8 queueGroupId, const Ogre::String& invoca
 
         if( m_RenderOp.vertexData->vertexCount != 0 )
         {
-            m_RenderSystem->_setWorldMatrix( m_SceneNode->_getFullTransform() );
-            m_RenderSystem->_setViewMatrix( CameraManager::getSingleton().GetCurrentCamera()->getViewMatrix( true ) );
-            m_RenderSystem->_setProjectionMatrix( CameraManager::getSingleton().GetCurrentCamera()->getProjectionMatrixRS() );
+            //m_RenderSystem->_setWorldMatrix( m_SceneNode->_getFullTransform() );
+            //m_RenderSystem->_setViewMatrix( CameraManager::getSingleton().GetCurrentCamera()->getViewMatrix( true ) );
+            //m_RenderSystem->_setProjectionMatrix( CameraManager::getSingleton().GetCurrentCamera()->getProjectionMatrixRS() );
+            m_RenderSystem->_setWorldMatrix( Ogre::Matrix4::IDENTITY );
+            m_RenderSystem->_setViewMatrix( Ogre::Matrix4::IDENTITY );
+            Ogre::Matrix4 mat;
+            m_RenderSystem->_convertProjectionMatrix( Ogre::Matrix4::IDENTITY, mat );
+            m_RenderSystem->_setProjectionMatrix( mat );
+
             m_SceneManager->_setPass( m_Material->getTechnique( 0 )->getPass( 0 ), true, false );
             m_RenderSystem->_render( m_RenderOp );
 

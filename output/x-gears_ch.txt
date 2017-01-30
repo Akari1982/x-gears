@@ -1,4 +1,4 @@
-/map lahan_chief_house1
+/debug_sprite_tile 1
 /map lahan_chief_house1
 /map lahan_chief_house1
 /map lahan_chief_house1
