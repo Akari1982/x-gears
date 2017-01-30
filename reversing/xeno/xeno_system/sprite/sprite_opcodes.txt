@@ -9,9 +9,14 @@ sequence data (just animation script)
 85                          jump to stored script pos in +8e stack and pop value (return from e2 sub function call).
 86                          wait until +10 became >= 0 and then continue script execution.
 87                          wait until +6 became >= +84 and then continue script execution.
+8a                          set animation move and animation move speed to 0.
+8c                          set animation move based on move towards direction of entity in +74.
+8d                          apply texture x and y stored in +110 (+4 +6)
 8e                          set script pointer to 0 and return.
+90                          load new sprite pack from +4c or +48.
+96                          call some callbacks for all sprites.
 98                          maybe wain until connected sprite starts some animatiuon and then continue script execution.
-a0[speed]                   set move speed.
+a0[speed]                   set animation move speed.
 a7[wait]                    set wait 0x7f if 0x80 not set, set wait 0x7f to 0x80058ac4 otherwise.
 b3[direction_frame_id]      set direction frame id & 0x3f.
 b4[value]                   push value to track +8e.

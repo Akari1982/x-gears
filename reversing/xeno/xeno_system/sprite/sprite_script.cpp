@@ -382,22 +382,133 @@ if( A1 < 73 )
 {
     switch( A1 )
     {
+        case 8a:
+        {
+            [struct_164 + c] = w(0);
+            [struct_164 + 14] = w(0);
+            [struct_164 + 18] = w(0);
+            return;
+        }
+
+        case 8c:
+        {
+            S0 = w[struct_164 + 74];
+            A0 = (h[S0 + a] << 10) | h[S0 + 2];
+            A1 = (h[struct_164 + a] << 10) | h[struct_164 + 2];
+            func22fa0(); // get rotation based on two positions x and y
+            rotation = V0;
+
+            A0 = struct_164;
+            A1 = rotation;
+            func21e40(); // set anim move based on rotation
+
+            A0 = struct_164;
+            A1 = rotation;
+            func22218(); // apply new dir and anim
+
+            return;
+        }
+
+        case 8d:
+        {
+            V0 = w[struct_164 + 24];
+            A0 = h[V0 + 4];
+            A1 = h[V0 + 6];
+            system_set_default_tex_page_settings();
+
+            return;
+        }
+
+        case 90:
+        {
+            if( w[struct_164 + 44] == w[struct_164 + 48] )
+            {
+                A0 = struct_164;
+                A1 = w[struct_164 + 4c]; // sprite_pack
+                func22124();
+
+                [struct_164 + b0] = w(w[struct_164 + b0] | 00000400);
+            }
+            else
+            {
+                A0 = struct_164;
+                A1 = w[struct_164 + 48]; // sprite_pack
+                func22124();
+
+                [struct_164 + b0] = w(w[struct_164 + b0] & fffffbff);
+            }
+            return;
+        }
+
+        case 91:
+        {
+            [S3 + 2b] = b(bu[S3 + 2b] & fe);
+            A0 = S3;
+            func1f524();
+
+            return;
+        }
+
+        case 96:
+        {
+            A0 = w[struct_164 + 6c]; // pointer to self
+            func1cd00();
+
+            return;
+        }
+
+        case a0: // set move speed
+        {
+            [struct_164 + 18] = w((((b[pointer] << 4) * (w[80058838] + 1) * h[struct_164 + 82]) >> c) << 8);
+
+            A0 = struct_164;
+            func22800();
+
+            return;
+        }
+
         case a7: // wait
         {
             if( bu[pointer] & 80 )
             {
                 [80058ac4] = w((bu[pointer] & 7f) + 1);
-                return;
             }
-            V1 = ((bu[pointer] + 1) * ((w[struct_164 + ac] >> 9) & fff)) >> 8;
-            if( V1 == 0 )
+            else
             {
-                V1 = 1;
+                V1 = ((bu[pointer] + 1) * ((w[struct_164 + ac] >> 9) & fff)) >> 8;
+                if( V1 == 0 )
+                {
+                    V1 = 1;
+                }
+                [struct_164 + 9e] = h(h[struct_164 + 9e] + V1);
             }
-            [struct_164 + 9e] = h(h[struct_164 + 9e] + V1);
             return;
         }
-        break;
+
+        case b3: // set direction frame id
+        {
+            [struct_164 + a8] = w((w[struct_164 + a8] & fffe07ff) | ((b[pointer] & 3f) << b));
+            return;
+        }
+
+        case b4: // push value to stack
+        {
+            V0 = bu[struct_164 + 8c] - 1;
+            [struct_164 + 8c] = b(V0);
+            [struct_164 + 8e + V0] = b(bu[pointer]);
+            return;
+        }
+
+        case b5: // set scale
+        {
+            if( w[struct_164 + 3c] & 00000003 )
+            {
+                A0 = struct_164;
+                A1 = bu[pointer] << 8;
+                func21e60();
+            }
+            return;
+        }
 
         case c6:
         {
@@ -408,14 +519,8 @@ if( A1 < 73 )
             }
             return;
         }
-        break;
 
 
-DC150280 // 8A
-C4FB0180 // 8C
-A8FA0180 // 8D
-480F0280 // 90
-440C0280 // 91
 540C0280 // 92
 8C0C0280 // 93
 3CFC0180 // 94
@@ -435,11 +540,11 @@ CC120280 // AD
 D0130280 // AF
 70FB0180 // B0
 78130280 // B6
-A4130280
-F8120280
-64FB0180
-940D0280
-700C0280
+A4130280 // b7
+F8120280 // b8
+64FB0180 // b9
+940D0280 // ba
+700C0280 // bb
 64010280 // bc
 6C120280 // bd
 54FD0180 // bf
@@ -449,24 +554,24 @@ C4FF0180 // c0
 20FB0180 // c5
 ECFA0180 // c9
 A0FB0180 // cc
-80FD0180
-34FE0180
-FCFE0180
+80FD0180 // cd
+34FE0180 // ce
+FCFE0180 // cf
 C40B0280 // d0
-0C0A0280
-440A0280
+0C0A0280 // d1
+440A0280 // d2
 C40B0280 // d3
 440A0280 // d5
-AC0A0280
-D00A0280
-F80A0280
-200B0280
-440B0280
-680B0280
-900B0280
-C40B0280
-C40B0280
-100C0280
+AC0A0280 // d6
+D00A0280 // d7
+F80A0280 // d8
+200B0280 // d9
+440B0280 // da
+680B0280 // db
+900B0280 // dc
+C40B0280 // dd
+C40B0280 // de
+100C0280 // df
 A4120280 // e0
 7C0A0280 // e5
 280C0280 // e6
@@ -484,14 +589,6 @@ A80D0280 // f1
 D4100280 // f7
 D8FC0180 // fc
 
-    8001FAA8	lw     v0, $0024(s3)
-    8001FAAC	nop
-    8001FAB0	lh     a0, $0004(v0)
-    8001FAB4	lh     a1, $0006(v0)
-    8001FAB8	jal    system_set_default_tex_page_settings [$8002ca20]
-    8001FABC	nop
-    8001FAC0	j      L21900 [$80021900]
-    8001FAC4	nop
 
     8001FAEC	lw     v0, $00a8(s3)
     8001FAF0	nop
@@ -551,36 +648,7 @@ D8FC0180 // fc
     8001FBB8	addu   v1, v1, a0
     8001FBBC	j      L21900 [$80021900]
     8001FBC0	sw     v1, $0088(s3)
-    8001FBC4	lw     s0, $0074(s3)
-    8001FBC8	lh     v0, $0002(s3)
-    8001FBCC	nop
-    8001FBD0	sh     v0, $0058(sp)
-    8001FBD4	lhu    a0, $0058(sp)
-    8001FBD8	lh     v0, $000a(s3)
-    8001FBDC	nop
-    8001FBE0	sh     v0, $005a(sp)
-    8001FBE4	lhu    a1, $005a(sp)
-    8001FBE8	lh     v0, $0002(s0)
-    8001FBEC	sll    a1, a1, $10
-    8001FBF0	sh     v0, $0060(sp)
-    8001FBF4	lh     v0, $000a(s0)
-    8001FBF8	or     a1, a0, a1
-    8001FBFC	sh     v0, $0062(sp)
-    8001FC00	lhu    a0, $0062(sp)
-    8001FC04	lhu    v1, $0060(sp)
-    8001FC08	sll    a0, a0, $10
-    8001FC0C	jal    func22fa0 [$80022fa0]
-    8001FC10	or     a0, v1, a0
-    8001FC14	addu   a0, s3, zero
-    8001FC18	sll    s0, v0, $10
-    8001FC1C	sra    s0, s0, $10
-    8001FC20	jal    func21e40 [$80021e40]
-    8001FC24	addu   a1, s0, zero
-    8001FC28	addu   a0, s3, zero
-    8001FC2C	jal    func22218 [$80022218]
-    8001FC30	addu   a1, s0, zero
-    8001FC34	j      L21900 [$80021900]
-    8001FC38	nop
+
     8001FC3C	ori    v1, zero, $0002
     8001FC40	lw     v0, $003c(s3)
     8001FC44	lw     s0, $0070(s3)
@@ -627,13 +695,6 @@ D8FC0180 // fc
     8001FD54	lbu    v0, $0000(s1)
     8001FD58	j      L21900 [$80021900]
     8001FD5C	sh     v0, $0036(s3)
-
-        case 96:
-        {
-            A0 = w[S3 + 6c]; // pointer to self
-            func1cd00();
-            return;
-        }
 
     8001FD74	lbu    v0, $0000(s1)
     8001FD78	j      L21900 [$80021900]
@@ -1676,15 +1737,10 @@ D8FC0180 // fc
     80020C38	sb     zero, $0001(v0)
     80020C3C	j      L21900 [$80021900]
     80020C40	sb     v1, $0000(v0)
-    80020C44	lbu    v0, $002b(s3)
-    80020C48	addu   a0, s3, zero
-    80020C4C	j      L20c60 [$80020c60]
-    80020C50	andi   v0, v0, $00fe
+
     80020C54	lbu    v0, $002b(s3)
     80020C58	addu   a0, s3, zero
     80020C5C	ori    v0, v0, $0001
-
-    L20c60:	; 80020C60
     80020C60	jal    func1f524 [$8001f524]
     80020C64	sb     v0, $002b(a0)
     80020C68	j      L21900 [$80021900]
@@ -1885,28 +1941,7 @@ D8FC0180 // fc
     80020F3C	nop
     80020F40	j      L21900 [$80021900]
     80020F44	nop
-    80020F48	lw     v0, $0044(s3)
-    80020F4C	lw     a1, $0048(s3)
-    80020F50	nop
-    80020F54	bne    v0, a1, L20f7c [$80020f7c]
-    80020F58	nop
-    80020F5C	lw     a1, $004c(s3)
-    80020F60	jal    func22124 [$80022124]
-    80020F64	addu   a0, s3, zero
-    80020F68	lw     v0, $00b0(s3)
-    80020F6C	nop
-    80020F70	ori    v0, v0, $0400
-    80020F74	j      L21900 [$80021900]
-    80020F78	sw     v0, $00b0(s3)
 
-    L20f7c:	; 80020F7C
-    80020F7C	jal    func22124 [$80022124]
-    80020F80	addu   a0, s3, zero
-    80020F84	lw     v0, $00b0(s3)
-    80020F88	addiu  v1, zero, $fbff (=-$401)
-    80020F8C	and    v0, v0, v1
-    80020F90	j      L21900 [$80021900]
-    80020F94	sw     v0, $00b0(s3)
     80020F98	ori    a0, zero, $0005
     80020F9C	jal    func322bc [$800322bc]
     80020FA0	addu   a1, zero, zero
@@ -2034,19 +2069,6 @@ D8FC0180 // fc
     8002116C	j      L21900 [$80021900]
     80021170	sw     s1, $0034(v0)
 
-        case b5: // set scale
-        {
-            if( w[struct_164 + 3c] & 00000003 )
-            {
-                A0 = struct_164;
-                A1 = bu[pointer] << 8;
-                func21e60;
-            }
-            return;
-        }
-        break;
-
-
     8002119C	addu   a0, s3, zero
     800211A0	lbu    v0, $0001(s1)
     800211A4	lbu    a1, $0000(s1)
@@ -2131,14 +2153,6 @@ D8FC0180 // fc
             [struct_164 + a8] = w(V1 | V0);
             return;
 
-        case b4: // push value to stack
-        {
-            V0 = bu[struct_164 + 8c] - 1;
-            [struct_164 + 8c] = b(V0);
-            [struct_164 + 8e + V0] = b(bu[pointer]);
-            return;
-        }
-        break;
 
     800212F8	lb     v1, $0000(s1)
     800212FC	lbu    v0, $008c(s3)
@@ -2146,13 +2160,6 @@ D8FC0180 // fc
     80021304	subu   v0, v0, v1
     80021308	j      L21900 [$80021900]
     8002130C	sb     v0, $008c(s3)
-
-        case b3: // set direction frame id
-        {
-            [struct_164 + a8] = w((w[struct_164 + a8] & fffe07ff) | ((b[pointer] & 3f) << b));
-            return;
-        }
-        break;
 
     80021338	lb     v1, $0000(s1)
     8002133C	lw     v0, $00ac(s3)
@@ -2341,10 +2348,7 @@ D8FC0180 // fc
     800215D0	sh     v0, $0032(a0)
     800215D4	j      L21900 [$80021900]
     800215D8	nop
-    800215DC	sw     zero, $000c(s3)
-    800215E0	sw     zero, $0014(s3)
-    800215E4	j      L21900 [$80021900]
-    800215E8	sw     zero, $0018(s3)
+
     800215EC	lw     v0, $00a8(s3)
     800215F0	nop
     800215F4	andi   v0, v0, $0001
@@ -2466,17 +2470,6 @@ D8FC0180 // fc
     80021794	addu   v1, v1, v0
     80021798	j      L21900 [$80021900]
     8002179C	sw     v1, $0010(s3)
-
-        case a0: // set move speed
-        {
-            [struct_164 + 18] = w((((b[pointer] << 4) * (w[80058838] + 1) * h[struct_164 + 82]) >> c) << 8);
-
-            A0 = struct_164;
-            func22800();
-
-            return;
-        }
-        break;
 
     800217F4	lw     v0, $00a8(s3)
     800217F8	nop

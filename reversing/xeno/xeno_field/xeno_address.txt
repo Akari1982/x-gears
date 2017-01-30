@@ -176,6 +176,7 @@
         + 68 [][][][] init with 0. Pointer to callback func func76104. This callback adds flag 0x00010000 to +4 in struct_138.
         + 6c [][][][] init with 0. Pointer to itself (allocated struct start).
         + 70 [][][][] init with 0.
+        + 74 [][][][] pointer to some other entity struct_168.
         + 7c [][][][] pointer to +f4.
         + 80 [][]     init with 0. Maybe direction.
         + 82 [][]     init as 0x2000 when init PC entity. Used co calculate +1c. Set to +18 as * 30 or * 60.

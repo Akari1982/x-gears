@@ -12075,56 +12075,10 @@ L1f374:	; 8001F374
 
 
 
-func1f524:	; 8001F524
-8001F524	addu   t0, a0, zero
-8001F528	lw     a0, $003c(t0)
-8001F52C	ori    v0, zero, $0001
-8001F530	andi   v1, a0, $0003
-8001F534	bne    v1, v0, L1f5c4 [$8001f5c4]
-8001F538	addiu  sp, sp, $fff8 (=-$8)
-8001F53C	srl    a3, a0, $05
-8001F540	andi   a3, a3, $0007
-8001F544	beq    a3, zero, L1f550 [$8001f550]
-8001F548	nop
-8001F54C	addiu  a3, a3, $ffff (=-$1)
-
-L1f550:	; 8001F550
-8001F550	lw     v0, $0024(t0)
-8001F554	nop
-8001F558	lwl    v1, $0007(v0)
-8001F55C	lwr    v1, $0004(v0)
-8001F560	nop
-8001F564	swl    v1, $0003(sp)
-8001F568	swr    v1, $0000(sp)
-8001F56C	lw     v0, $0040(t0)
-8001F570	lw     v1, $0020(t0)
-8001F574	lw     t1, $0028(t0)
-8001F578	srl    v0, v0, $02
-8001F57C	andi   v0, v0, $003f
-8001F580	lw     v1, $0030(v1)
-8001F584	beq    v0, zero, L1f5c4 [$8001f5c4]
-8001F588	addu   a1, zero, zero
-8001F58C	sll    a2, a3, $05
-8001F590	addu   a0, v1, zero
-
-loop1f594:	; 8001F594
-8001F594	lhu    v0, $000a(a0)
-8001F598	addiu  a1, a1, $0001
-8001F59C	sw     t1, $0010(a0)
-8001F5A0	andi   v0, v0, $ff9f
-8001F5A4	or     v0, v0, a2
-8001F5A8	sh     v0, $000a(a0)
-8001F5AC	lw     v0, $0040(t0)
-8001F5B0	nop
-8001F5B4	srl    v0, v0, $02
-8001F5B8	andi   v0, v0, $003f
-8001F5BC	bne    a1, v0, loop1f594 [$8001f594]
-8001F5C0	addiu  a0, a0, $0018
-
-L1f5c4:	; 8001F5C4
-8001F5C4	addiu  sp, sp, $0008
-8001F5C8	jr     ra 
-8001F5CC	nop
+////////////////////////////////
+// func1f524
+8001F524-8001F5CC
+////////////////////////////////
 
 
 
@@ -13034,27 +12988,12 @@ func22eb8:	; 80022EB8
 
 
 
-func22fa0:	; 80022FA0
-80022FA0	addiu  sp, sp, $ffd8 (=-$28)
-80022FA4	sw     a0, $0028(sp)
-80022FA8	sw     a1, $002c(sp)
-80022FAC	lh     a1, $0028(sp)
-80022FB0	lh     v0, $002c(sp)
-80022FB4	nop
-80022FB8	subu   a1, a1, v0
-80022FBC	sw     a1, $0010(sp)
-80022FC0	lh     a0, $002a(sp)
-80022FC4	lh     v0, $002e(sp)
-80022FC8	sw     ra, $0020(sp)
-80022FCC	subu   a0, a0, v0
-80022FD0	jal    system_get_rotation_based_on_vector_x_y [$8004b1d4]
-80022FD4	sw     a0, $0018(sp)
-80022FD8	subu   v0, zero, v0
-80022FDC	andi   v0, v0, $0fff
-80022FE0	lw     ra, $0020(sp)
-80022FE4	addiu  sp, sp, $0028
-80022FE8	jr     ra 
-80022FEC	nop
+////////////////////////////////
+// func22fa0
+80022FA0-80022FEC
+////////////////////////////////
+
+
 
 80022FF0	addiu  sp, sp, $ffe8 (=-$18)
 80022FF4	lui    t1, $ffcf
