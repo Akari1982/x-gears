@@ -30,6 +30,7 @@ public:
     virtual ~Sprite();
 
     void AddFrame( const Frame& frame );
+    void SetImage( const Ogre::String& image );
 
     void Initialise();
 

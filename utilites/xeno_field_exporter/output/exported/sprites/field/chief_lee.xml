@@ -1,4 +1,4 @@
-<sprite>
+<sprite texture="sprites/field/chief_lee.png">
     <frame name="0">
         <tile name="0" x="-6" y="-30" u="231" v="138" width="16" height="10" />
         <tile name="1" x="-6" y="-39" u="143" v="139" width="11" height="9" />

@@ -1,46 +1,46 @@
 SPRITE 0
 number_of_animation = 0x0006
 flag = 0x0042
-frame_id = 0x0009
-frame_id = 0x0017
-frame_id = 0x0025
-frame_id = 0x0033
-frame_id = 0x0041
+frame_id = 8
+frame_id = 22
+frame_id = 36
+frame_id = 50
+frame_id = 64
 sequence:1381
 flag = 0x0042
-frame_id = 0x0001
-frame_id = 0x000f
-frame_id = 0x001d
-frame_id = 0x002b
-frame_id = 0x0039
+frame_id = 0
+frame_id = 14
+frame_id = 28
+frame_id = 42
+frame_id = 56
 sequence:a0141205050505050505b3ff1282
 flag = 0x0042
-frame_id = 0x005b
-frame_id = 0x005e
-frame_id = 0x0061
-frame_id = 0x0064
-frame_id = 0x0067
+frame_id = 90
+frame_id = 93
+frame_id = 96
+frame_id = 99
+frame_id = 102
 sequence:150505252581
 flag = 0x0042
-frame_id = 0x006a
-frame_id = 0x006d
-frame_id = 0x0070
-frame_id = 0x0073
-frame_id = 0x0076
+frame_id = 105
+frame_id = 108
+frame_id = 111
+frame_id = 114
+frame_id = 117
 sequence:130f3323072307230723072307b3ff1381
 flag = 0x0042
-frame_id = 0x0047
-frame_id = 0x004b
-frame_id = 0x004f
-frame_id = 0x0053
-frame_id = 0x0057
+frame_id = 70
+frame_id = 74
+frame_id = 78
+frame_id = 82
+frame_id = 86
 sequence:1d0f33070720a72480
 flag = 0x0042
-frame_id = 0x0079
-frame_id = 0x0079
-frame_id = 0x0079
-frame_id = 0x0079
-frame_id = 0x0079
+frame_id = 120
+frame_id = 120
+frame_id = 120
+frame_id = 120
+frame_id = 120
 sequence:1f3d0f330f3381
 
 SPRITE 1

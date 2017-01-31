@@ -1,19 +1,19 @@
 ////////////////////////////////
 // func1e130
-struct = A0;
-S1 = A1;
+struct_164 = A0;
+packet_addr = A1;
 
-A0 = struct;
+A0 = struct_164;
 func1dfe8;
 
-A0 = struct;
-A1 = S1;
-func1e264;
+A0 = struct_164;
+A1 = packet_addr;
+func1e264();
 
-if( w[struct + 3c] & 00000004 )
+if( w[struct_164 + 3c] & 00000004 )
 {
-    A0 = struct;
-    A1 = S1;
+    A0 = struct_164;
+    A1 = packet_addr;
     func1e834;
 }
 ////////////////////////////////
@@ -22,7 +22,7 @@ if( w[struct + 3c] & 00000004 )
 
 ////////////////////////////////
 // func1dfe8
-struct = S1 = A0;
+struct_164 = S1 = A0;
 8001DFE8	lui    v0, $8006
 8001DFEC	lbu    v0, $884d(v0)
 
@@ -35,7 +35,7 @@ struct = S1 = A0;
 8001E01C	nop
 
 L1e020:	; 8001E020
-A0 = struct;
+A0 = struct_164;
 func21e98;
 
 L1e028:	; 8001E028
@@ -114,7 +114,7 @@ system_gte_set_translation_vector;
 
 ////////////////////////////////
 // func21e98
-struct = S0 = A0;
+struct_164 = S0 = A0;
 
 80021EA8	lw     v0, $003c(s0)
 80021EAC	lui    v1, $1000
@@ -135,21 +135,22 @@ L21ed8:	; 80021ED8
 
 
 ////////////////////////////////
-// func1e264
-struct = A0;
+// func1e264()
+struct_164 = A0;
 packet_addr = A1;
-addr = w[struct + 20];
-addr2 = w[addr + 34];
-sprite_data = w[addr + 30];
-scale = (w[struct + 40] >> 8) & 1f;
-number_of_tiles = (w[struct + 40] >> 2) & 3f;
+
+struct_b4 = w[struct_164 + 20];
+struct_124 = w[struct_b4 + 34];
+tile_data = w[struct_b4 + 30];
+scale = (w[struct_164 + 40] >> 8) & 1f;
+number_of_tiles = (w[struct_164 + 40] >> 2) & 3f;
 
 
 
 // offset for sprite
-offset_x = b[addr + 3c] << scale;
-offset_y = b[addr + 3d] << scale;
-if( w[struct + ac] & 00000010 )
+offset_x = b[struct_b4 + 3c] << scale;
+offset_y = b[struct_b4 + 3d] << scale;
+if( w[struct_164 + ac] & 00000010 )
 {
     offset_x = 0 - offset_x;
 }
@@ -167,30 +168,30 @@ tile = 0;
 add_id = -1;
 
 L1e324:	; 8001E324
-    V0 = w[sprite_data + 14] & 00000007;
+    V0 = w[tile_data + 14] & 00000007;
     if( add_id != V0 )
     {
         add_id = V0;
-        [SP + 78] = b((hu[8004f19c + add_id * 2] & bu[struct + 3d]) < 1);
+        [SP + 78] = b((hu[8004f19c + add_id * 2] & bu[struct_164 + 3d]) < 1);
 
-        if( ( addr2 != 0 && ( ( hu[addr2 + add_id * 8 + 0] == 0 ) || ( h[addr2 + add_id * 8 + 6] != 0 ) )
+        if( ( struct_124 != 0 && ( ( hu[struct_124 + add_id * 8 + 0] == 0 ) || ( h[struct_124 + add_id * 8 + 6] != 0 ) )
         {
-            S0 = b[addr2 + add_id * 8 + 0] << scale;
-            S1 = b[addr2 + add_id * 8 + 1] << scale;
-            if( w[struct + 3c] & 00000008 )
+            S0 = b[struct_124 + add_id * 8 + 0] << scale;
+            S1 = b[struct_124 + add_id * 8 + 1] << scale;
+            if( w[struct_164 + 3c] & 00000008 )
             {
-                S0 = 0 - b[addr2 + add_id * 8 + 0] << scale;
+                S0 = 0 - b[struct_124 + add_id * 8 + 0] << scale;
             }
 
-            S1 = (S1 * h[struct + 2c]) >> c;
-            S0 = (S0 * h[struct + 2c]) >> c;
+            S1 = (S1 * h[struct_164 + 2c]) >> c;
+            S0 = (S0 * h[struct_164 + 2c]) >> c;
 
-            [SP + 48] = h(hu[addr2 + add_id * 8 + 2]); // rotation x
-            [SP + 4a] = h(hu[addr2 + add_id * 8 + 4]); // rotation y
-            [SP + 4c] = h(hu[addr2 + add_id * 8 + 6]); // rotation z
-            if( w[struct + 3c] & 00000008 )
+            [SP + 48] = h(hu[struct_124 + add_id * 8 + 2]); // rotation x
+            [SP + 4a] = h(hu[struct_124 + add_id * 8 + 4]); // rotation y
+            [SP + 4c] = h(hu[struct_124 + add_id * 8 + 6]); // rotation z
+            if( w[struct_164 + 3c] & 00000008 )
             {
-                [SP + 4c] = h(0 - hu[addr2 + add_id * 8 + 6]);
+                [SP + 4c] = h(0 - hu[struct_124 + add_id * 8 + 6]);
             }
 
             A0 = SP + 48;
@@ -198,11 +199,11 @@ L1e324:	; 8001E324
             system_calculate_rotation_matrix(); // rotaion matrix from rotation angles
 
             // translation vector
-            [SP + 3c] = w(w[addr + 20] + S0);
-            [SP + 40] = w(w[addr + 24] + S1);
-            [SP + 44] = w(w[addr + 28]);
+            [SP + 3c] = w(w[struct_b4 + 20] + S0);
+            [SP + 40] = w(w[struct_b4 + 24] + S1);
+            [SP + 44] = w(w[struct_b4 + 28]);
 
-            A0 = addr + c;
+            A0 = struct_b4 + c;
             A1 = SP + 28;
             func49724;  // multiply 2 matrix and set result as rotation matrix
 
@@ -211,10 +212,10 @@ L1e324:	; 8001E324
         }
         else
         {
-            A0 = addr + c;
+            A0 = struct_b4 + c;
             system_gte_set_rotation_matrix;
 
-            A0 = addr + c;
+            A0 = struct_b4 + c;
             system_gte_set_translation_vector;
         }
     }
@@ -227,27 +228,27 @@ L1e324:	; 8001E324
         [80058c1c] = w(S0 + 28);
 
         [S0 + 3] = b(09);
-        [S0 + 4] = w(w[sprite_data + 10]); // 2c808080 - Command + Color Vertex 0
-        [S0 + e] = h(h[sprite_data + c]); // clut id
-        [S0 + 16] = h(h[sprite_data + a]); // tpage
+        [S0 + 4] = w(w[tile_data + 10]); // 2c808080 - Command + Color Vertex 0
+        [S0 + e] = h(h[tile_data + c]); // clut id
+        [S0 + 16] = h(h[tile_data + a]); // tpage
 
-        x0 = h[sprite_data + 0] << scale;
-        y0 = h[sprite_data + 2] << scale;
-        width = (bu[sprite_data + 6] + b[sprite_data + 8]) << scale;
-        height = (bu[sprite_data + 7] + b[sprite_data + 9]) << scale;
+        x0 = h[tile_data + 0] << scale;
+        y0 = h[tile_data + 2] << scale;
+        width = (bu[tile_data + 6] + b[tile_data + 8]) << scale;
+        height = (bu[tile_data + 7] + b[tile_data + 9]) << scale;
 
-        if( w[struct + 3c] & 00000008 )
+        if( w[struct_164 + 3c] & 00000008 )
         {
             x0 = 0 - x0;
             width = 0 - width;
         }
-        if( w[struct + 3c] & 00000010 )
+        if( w[struct_164 + 3c] & 00000010 )
         {
             y0 = 0 - y0;
             height = 0 - height;
         }
 
-        if( ( w[sprite_data + 14] & 00000010 ) == 0 ) // flip horizontal <>
+        if( ( w[tile_data + 14] & 00000010 ) == 0 ) // flip horizontal <>
         {
             [8004f23c + 00] = h(x0);
             [8004f23c + 08] = h(x0 + width);
@@ -262,7 +263,7 @@ L1e324:	; 8001E324
             [8004f23c + 18] = h(x0 + width);
         }
 
-        if( ( w[sprite_data + 14] & 00000020 ) == 0 ) // flip vertical
+        if( ( w[tile_data + 14] & 00000020 ) == 0 ) // flip vertical
         {
             [8004f23c + 02] = h(y0);
             [8004f23c + 0a] = h(y0);
@@ -301,10 +302,10 @@ L1e324:	; 8001E324
 
 
         // set up texture coordinates
-        u0 = bu[sprite_data + 4];
-        v0 = bu[sprite_data + 5];
-        width = bu[sprite_data + 6] - 1;
-        height = bu[sprite_data + 7] - 1;
+        u0 = bu[tile_data + 4];
+        v0 = bu[tile_data + 5];
+        width = bu[tile_data + 6] - 1;
+        height = bu[tile_data + 7] - 1;
         if( h[S0 + 20] < h[S0 + 8] ) // x3 < x0
         {
             u0 = u0 - 1;
@@ -325,7 +326,7 @@ L1e324:	; 8001E324
 
 
 
-        if( w[struct + 3c] & 00000800 )
+        if( w[struct_164 + 3c] & 00000800 )
         {
             [S0 + 0] = w((w[S0] & ff000000) | (w[packet_addr - add_id * 4] & 00ffffff));
             [packet_addr - add_id * 4] = w((w[packet_addr - add_id * 4] & ff000000) | (S0 & 00ffffff));
@@ -339,7 +340,7 @@ L1e324:	; 8001E324
 
 
 
-    sprite_data = sprite_data + 18;
+    tile_data = tile_data + 18;
     tile = tile + 1;
 8001E7F8	bne    tile, number_of_tiles, L1e324 [$8001e324]
 ////////////////////////////////

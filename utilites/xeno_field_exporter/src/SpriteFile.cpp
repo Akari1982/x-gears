@@ -51,7 +51,7 @@ SpriteFile::SpriteFile( File* file, Vram* vram, const int file_id, const int spr
         {
             u16 alias_offset = sprite0->GetU16LE( animation_offset + 0x04 + alias_id * 0x2 );
             u16 frame_id = sprite0->GetU16LE( animation_offset + 0x04 + alias_id * 0x2 + alias_offset );
-            log->Log( "frame_id = 0x" + HexToString( frame_id, 4, '0' ) + "\n" );
+            log->Log( "frame_id = " + IntToString( frame_id - 1 ) + "\n" );
         }
 
         u16 sequence_pointer = 0;
@@ -78,7 +78,7 @@ SpriteFile::SpriteFile( File* file, Vram* vram, const int file_id, const int spr
     m_Timer = 0;
     m_NumberOfFrames = flags & 0x1ff;
 
-    export_script->Log( "<sprite>\n" );
+    export_script->Log( "<sprite texture=\"sprites/field/" + GetSpriteName( file_id, sprite_id ) + ".png\">\n" );
 
     for( u16 frame_id = 0; frame_id < m_NumberOfFrames; ++frame_id )
     {
@@ -210,8 +210,8 @@ SpriteFile::SpriteFile( File* file, Vram* vram, const int file_id, const int spr
 
                 tile.tex_x = sprite1->GetU8( offset_to_tile_desc + offset ); ++offset;
                 tile.tex_y = sprite1->GetU8( offset_to_tile_desc + offset ); ++offset;
-                tile.width = sprite1->GetU8( offset_to_tile_desc + offset ); ++offset;
-                tile.height = sprite1->GetU8( offset_to_tile_desc + offset ); ++offset;
+                tile.width = sprite1->GetU8( offset_to_tile_desc + offset ) - 1; ++offset;
+                tile.height = sprite1->GetU8( offset_to_tile_desc + offset ) - 1; ++offset;
 
                 log->Log( "        u = 0x" + HexToString( tile.tex_x, 2, '0' ) + "\n" );
                 log->Log( "        v = 0x" + HexToString( tile.tex_y, 2, '0' ) + "\n" );

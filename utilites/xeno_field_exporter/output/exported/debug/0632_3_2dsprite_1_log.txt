@@ -1,32 +1,32 @@
 SPRITE 0
 number_of_animation = 0x0004
 flag = 0x0042
-frame_id = 0x0013
-frame_id = 0x001e
-frame_id = 0x0029
-frame_id = 0x0034
-frame_id = 0x003f
+frame_id = 18
+frame_id = 29
+frame_id = 40
+frame_id = 51
+frame_id = 62
 sequence:1381
 flag = 0x0042
-frame_id = 0x000b
-frame_id = 0x0016
-frame_id = 0x0021
-frame_id = 0x002c
-frame_id = 0x0037
+frame_id = 10
+frame_id = 21
+frame_id = 32
+frame_id = 43
+frame_id = 54
 sequence:a014170705050707050582
 flag = 0x0042
-frame_id = 0x0001
-frame_id = 0x0003
-frame_id = 0x0005
-frame_id = 0x0007
-frame_id = 0x0009
+frame_id = 0
+frame_id = 2
+frame_id = 4
+frame_id = 6
+frame_id = 8
 sequence:190f332980
 flag = 0x0042
-frame_id = 0x0002
-frame_id = 0x0004
-frame_id = 0x0006
-frame_id = 0x0008
-frame_id = 0x000a
+frame_id = 1
+frame_id = 3
+frame_id = 5
+frame_id = 7
+frame_id = 9
 sequence:1981
 
 SPRITE 1

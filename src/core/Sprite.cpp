@@ -11,7 +11,7 @@
 
 
 
-ConfigVar cv_debug_sprite_tile( "debug_sprite_tile", "Draw debug sprite tile border", "false" );
+ConfigVar cv_debug_sprite( "debug_sprite", "Draw sprite info", "true" );
 ConfigVar cv_debug_sprite_frame_id( "debug_sprite_frame_id", "Select frame id to draw", "1" );
 
 
@@ -25,7 +25,7 @@ Sprite::Sprite( const Ogre::String& name, Ogre::SceneNode* node ):
 
     m_SceneNode->setPosition( Ogre::Vector3( 10, 0, 0 ) );
 
-    XmlSpriteFile* sprite_file = new XmlSpriteFile( "./data/sprites/field/chief_lee.xml" );
+    XmlSpriteFile* sprite_file = new XmlSpriteFile( "./data/sprites/field/timothy_father.xml" );
     sprite_file->Load( this );
     delete sprite_file;
 }
@@ -47,6 +47,16 @@ void
 Sprite::AddFrame( const Frame& frame )
 {
     m_Frame.push_back( frame );
+}
+
+
+
+void
+Sprite::SetImage( const Ogre::String& image )
+{
+    Ogre::Pass* pass = m_Material->getTechnique( 0 )->getPass( 0 );
+    Ogre::TextureUnitState* tex = pass->getTextureUnitState( 0 );
+    tex->setTextureName( image );
 }
 
 
@@ -88,7 +98,7 @@ Sprite::Initialise()
     //pass->setAlphaRejectFunction( Ogre::CMPF_GREATER );
     //pass->setAlphaRejectValue( 0 );
     Ogre::TextureUnitState* tex = pass->createTextureUnitState();
-    tex->setTextureName( "sprites/field/chief_lee.png" );
+    tex->setTextureName( "system/blank.png" );
     tex->setNumMipmaps( -1 );
     tex->setTextureFiltering( Ogre::TFO_NONE );
 
@@ -123,7 +133,7 @@ Sprite::Update()
 
     UpdateGeometry();
 
-    if( cv_debug_sprite_tile.GetB() )
+    if( cv_debug_sprite.GetB() )
     {
         UpdateDebug();
     }
@@ -134,27 +144,10 @@ Sprite::Update()
 void
 Sprite::UpdateDebug()
 {
-    int global_x = 100;
-    int global_y = 300;
-    float scale = 4.0f;
-
     DEBUG_DRAW.SetScreenSpace( true );
     DEBUG_DRAW.SetColour( Ogre::ColourValue( 1, 0, 0, 1 ) );
 
-    Frame frame = m_Frame[ m_FrameId ];
-    for( size_t i = 0; i < frame.tile.size(); ++i )
-    {
-        int x1 = global_x + frame.tile[ i ].x * scale;
-        int x2 = global_x + frame.tile[ i ].x * scale + frame.tile[ i ].width * scale;
-        int y1 = global_y + frame.tile[ i ].y * scale;
-        int y2 = global_y + frame.tile[ i ].y * scale + frame.tile[ i ].height * scale;
-
-        DEBUG_DRAW.Line( x1, y1, x2, y1 );
-        DEBUG_DRAW.Line( x1, y2, x2, y2 );
-        DEBUG_DRAW.Line( x2, y1, x2, y2 );
-        DEBUG_DRAW.Line( x1, y1, x1, y2 );
-    }
-
+    DEBUG_DRAW.Text( 100, 100, "Frame Id:" + Ogre::StringConverter::toString( m_FrameId ) );
 }
 
 
@@ -175,7 +168,7 @@ Sprite::UpdateGeometry()
     float height = Ogre::Root::getSingleton().getRenderTarget( "QGearsWindow" )->getViewport( 0 )->getActualHeight();
 
     int global_x = 200;
-    int global_y = 300;
+    int global_y = 500;
     float scale = 8.0f;
 
     Frame frame = m_Frame[ m_FrameId ];
@@ -186,10 +179,10 @@ Sprite::UpdateGeometry()
         float new_x2 = ( global_x + frame.tile[ i ].x * scale +frame.tile[ i ].width * scale ) / width * 2 - 1;
         float new_y2 = -( ( global_y + frame.tile[ i ].y * scale + frame.tile[ i ].height * scale ) / height * 2 - 1 );
 
-        float tex_x1 = frame.tile[ i ].u / 256.0f + 1.0f / 512.0f;
-        float tex_x2 = ( frame.tile[ i ].u + frame.tile[ i ].width ) / 256.0f + 1.0f / 512.0f;
-        float tex_y1 = frame.tile[ i ].v / 256.0f + 1.0f / 512.0f;
-        float tex_y2 = ( frame.tile[ i ].v + frame.tile[ i ].height ) / 256.0f + 1.0f / 512.0f;
+        float tex_x1 = frame.tile[ i ].u / 256.0f;
+        float tex_x2 = ( frame.tile[ i ].u + frame.tile[ i ].width ) / 256.0f;
+        float tex_y1 = frame.tile[ i ].v / 256.0f;
+        float tex_y2 = ( frame.tile[ i ].v + frame.tile[ i ].height ) / 256.0f;
 
         *writeIterator++ = new_x1;
         *writeIterator++ = new_y1;

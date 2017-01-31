@@ -31,6 +31,11 @@ XmlSpriteFile::Load( Sprite* sprite )
         return;
     }
 
+    if( node->Type() == TiXmlNode::TINYXML_ELEMENT )
+    {
+        sprite->SetImage( GetString( node, "texture" ) );
+    }
+
     node = node->FirstChild();
     while( node != NULL )
     {
