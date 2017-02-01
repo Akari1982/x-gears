@@ -9,7 +9,7 @@
 
 
 
-SpriteFile::SpriteFile( File* file, Vram* vram, const int file_id, const int sprite_id ):
+SpriteFile::SpriteFile( File* file, FieldPackFile* field_file, Vram* vram, const int file_id, const int sprite_id ):
     File( file )
 {
     Initialise();
@@ -34,6 +34,10 @@ SpriteFile::SpriteFile( File* file, Vram* vram, const int file_id, const int spr
 
 
 
+    export_script->Log( "<sprite texture=\"sprites/field/" + GetSpriteName( file_id, sprite_id ) + ".png\">\n" );
+
+
+
     log->Log( "SPRITE 0\n" );
     u16 number_of_animation = ( sprite0->GetU16LE( 0 ) & 0x3f );
     log->Log( "number_of_animation = 0x" + HexToString( number_of_animation, 4, '0' ) + "\n" );
@@ -52,6 +56,7 @@ SpriteFile::SpriteFile( File* file, Vram* vram, const int file_id, const int spr
             u16 alias_offset = sprite0->GetU16LE( animation_offset + 0x04 + alias_id * 0x2 );
             u16 frame_id = sprite0->GetU16LE( animation_offset + 0x04 + alias_id * 0x2 + alias_offset );
             log->Log( "frame_id = " + IntToString( frame_id - 1 ) + "\n" );
+            export_script->Log( "    <start_dir_frame id=\"" + IntToString( frame_id - 1 ) + "\" />\n" );
         }
 
         u16 sequence_pointer = 0;
@@ -78,11 +83,9 @@ SpriteFile::SpriteFile( File* file, Vram* vram, const int file_id, const int spr
     m_Timer = 0;
     m_NumberOfFrames = flags & 0x1ff;
 
-    export_script->Log( "<sprite texture=\"sprites/field/" + GetSpriteName( file_id, sprite_id ) + ".png\">\n" );
-
     for( u16 frame_id = 0; frame_id < m_NumberOfFrames; ++frame_id )
     {
-        export_script->Log( "    <frame name=\"" + IntToString( frame_id ) + "\">\n" );
+        export_script->Log( "    <frame id=\"" + IntToString( frame_id ) + "\">\n" );
         log->Log( "frame = 0x" + HexToString( frame_id, 2, '0' ) + "\n" );
         Frame frame;
         u16 frame_offset = sprite1->GetU16LE( 0x02 + frame_id * 0x02 );
@@ -102,7 +105,7 @@ SpriteFile::SpriteFile( File* file, Vram* vram, const int file_id, const int spr
             {
                 u16 offset_to_tile_desc = sprite1->GetU16LE( frame_offset + 0x04 + i * 0x02 );
 
-                export_script->Log( "        <tile name=\"" + IntToString( i ) + "\"" );
+                export_script->Log( "        <tile " );
                 log->Log( "    tile = 0x" + HexToString( i, 2, '0' ) + "\n" );
                 Tile tile;
 
@@ -184,11 +187,9 @@ SpriteFile::SpriteFile( File* file, Vram* vram, const int file_id, const int spr
 
 
 
-
                 int clut_x = 0x100;
                 int clut_y = 0x1e0;
-                int vram_x = 0x180;
-                int vram_y = 0x100;
+                field_file->GetVramTex( sprite_id, vram_x, vram_y );
                 TexForGen texture;
                 texture.palette_x = clut_x;
                 texture.palette_y = clut_y;

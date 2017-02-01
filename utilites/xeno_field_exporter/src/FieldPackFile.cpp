@@ -41,3 +41,12 @@ FieldPackFile::Extract( u32 file_number )
     delete comp;
     return file;
 }
+
+
+
+void
+FieldPackFile::GetVramTex( const unsigned int tex_id, unsigned int& vram_u, unsigned int& vram_v )
+{
+    vram_u = GetU16LE( tex_id * 0x00 + 0 );
+    vram_v = GetU16LE( tex_id * 0x00 + 2 );
+}

@@ -12,7 +12,8 @@
 #include "WalkmeshFile.h"
 #include "../../common/Logger.h"
 
-SpriteFile* sprite = NULL;
+
+
 Walkmesh* walkmesh = NULL;
 
 
@@ -156,7 +157,8 @@ FieldModule::LoadMap( const int file_id )
     {
         File* file = pack->ExtractFile( i );
         file->WriteFile( "exported/debug/0" + IntToString( file_id ) + "_3_2dsprite_" + IntToString( i ) );
-        sprite = new SpriteFile( file, vram, file_id, i );
+        SpriteFile* sprite = new SpriteFile( file, field_pack, vram, file_id, i );
+        delete sprite;
         delete file;
     }
     delete pack;
@@ -285,11 +287,6 @@ FieldModule::LoadMap( const int file_id )
 void
 FieldModule::Update( float delta )
 {
-    if( sprite != NULL )
-    {
-        sprite->Update( delta );
-    }
-
     if( walkmesh != NULL )
     {
         walkmesh->Update();

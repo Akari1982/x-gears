@@ -13,7 +13,7 @@ read_two_bytes_with_80();
 A0 = entity_id;
 A1 = V0; // sprite id to load
 A2 = sprite_data + w[sprite_data + V0 * 4 + 4];
-A3 = 0; // local sprite
+A3 = 0; // field sprite
 A4 = 0;
 A5 = V0 | 80;
 A6 = 0;
@@ -75,7 +75,7 @@ if( party_slot_id != -1 )
         model_id = bu[800ad76c + character_id];
         A1 = model_id + T1;
         A2 = sprite_data + w[sprite_data + model_id * 4 + T1 * 4 + 4];
-        A3 = 0; // local sprite
+        A3 = 0; // field sprite
         A4 = 0;
         A5 = (model_id + T1) | 80;
         A6 = 1;
@@ -157,7 +157,7 @@ struct_138 = w[800af54c];
 A0 = entity_id;
 A1 = 0;
 A2 = sprite_data + w[sprite_data + 4];
-A3 = 0; // local sprite
+A3 = 0; // field sprite
 A4 = 0;
 A5 = 80;
 A6 = 1;
@@ -204,8 +204,8 @@ struct_138 = w[struct_5c_p + entity_id * 5c + 4c];
 if( S7 == 0 )
 {
     // from first 0x100 bytes of field file
-    S5 = hu[800b144c + sprite_id * 8 + 0]; // tx
-    S0 = hu[800b144c + sprite_id * 8 + 2]; // ty
+    tx = hu[800b144c + sprite_id * 8 + 0];
+    ty = hu[800b144c + sprite_id * 8 + 2]; // ty
     if( S6 == 0 )
     {
         if( hu[struct_5c_p + entity_id * 5c + 5a] & 0001 )
@@ -217,8 +217,8 @@ if( S7 == 0 )
         A0 = sprite_data;
         A1 = 100;      // clut x
         A2 = sprite_id + 1e0; // clut y
-        A3 = S5;       // tx
-        A4 = S0;       // ty
+        A3 = tx;
+        A4 = ty;
         A5 = 40;
         func24330(); // sprite set up
         struct_164 = V0;
@@ -235,8 +235,8 @@ if( S7 == 0 )
         A0 = sprite_data;
         A1 = 100 + S6 * 10;
         A2 = sprite_id + 1e0;
-        A3 = S5;
-        A4 = S0;
+        A3 = tx;
+        A4 = ty;
         A5 = 40;
         A6 = S6;
         func240a0();

@@ -1,46 +1,45 @@
 ////////////////////////////////
-// func1f524()
-8001F524	addu   t0, a0, zero
-8001F528	lw     a0, $003c(t0)
-8001F530	andi   v1, a0, $0003
-if( V1 == 1 )
+// func1d364()
+struct_164 = A0;
+struct_b4 = w[struct_164 + 20];
+if( w[struct_b4 + 34] == 0 )
 {
-    8001F53C	srl    a3, a0, $05
-    8001F540	andi   a3, a3, $0007
+    A0 = 40;
+    A1 = 0;
+    system_memory_allocate();
+    [struct_b4 + 34] = w(V0);
+
+    A0 = struct_164;
+    func2332c(); // init 0x8 items with 0
+}
+return w[struct_b4 + 34];
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func1f524()
+struct_164 = A0;
+
+if( ( w[struct_164 + 3c] & 3 ) == 1 )
+{
+    A3 = (w[struct_164 + 3c] >> 5) & 7;
     if( A3 != 0 )
     {
         A3 = A3 - 1;
     }
 
-    8001F550	lw     v0, $0024(t0)
-    8001F558	lwl    v1, $0007(v0)
-    8001F55C	lwr    v1, $0004(v0)
-    8001F564	swl    v1, $0003(sp)
-    8001F568	swr    v1, $0000(sp)
-    8001F56C	lw     v0, $0040(t0)
-    8001F570	lw     v1, $0020(t0)
-    8001F574	lw     t1, $0028(t0)
-    8001F578	srl    v0, v0, $02
-    8001F57C	andi   v0, v0, $003f
-    8001F580	lw     v1, $0030(v1)
-    if( V0 != 0 )
+    number_of_tiles = (w[struct_164 + 40] >> 2) & 3f;
+    if( number_of_tiles != 0 )
     {
-        8001F588	addu   a1, zero, zero
-        8001F58C	sll    a2, a3, $05
-        8001F590	addu   a0, v1, zero
-
+        struct_b4 = w[struct_164 + 20];
+        tile_data = w[struct_b4 + 30];
+        tile_id = 0;
         loop1f594:	; 8001F594
-            8001F594	lhu    v0, $000a(a0)
-            8001F598	addiu  a1, a1, $0001
-            8001F59C	sw     t1, $0010(a0)
-            8001F5A0	andi   v0, v0, $ff9f
-            8001F5A4	or     v0, v0, a2
-            8001F5A8	sh     v0, $000a(a0)
-            8001F5AC	lw     v0, $0040(t0)
-            8001F5C0	addiu  a0, a0, $0018
-            8001F5B4	srl    v0, v0, $02
-            8001F5B8	andi   v0, v0, $003f
-        8001F5BC	bne    a1, v0, loop1f594 [$8001f594]
+            [tile_data + tile_id * 18 + 10] = w(w[struct_164 + 28]);
+            [tile_data + tile_id * 18 + a] = h((hu[tile_data + tile_id * 18 + a] & ff9f) | (A3 << 5)); // tex page ABR (semitransparency mode)
+            tile_id = tile_id + 1;
+        8001F5BC	bne    tile_id, number_of_tiles, loop1f594 [$8001f594]
     }
 }
 ////////////////////////////////

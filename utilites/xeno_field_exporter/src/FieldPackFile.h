@@ -11,6 +11,7 @@ public:
     FieldPackFile( const Ogre::String& file );
     virtual ~FieldPackFile();
     File* Extract( u32 file_number );
+    void GetVramTex( const unsigned int tex_id, unsigned int& vram_u, unsigned int& vram_v );
 };
 
 

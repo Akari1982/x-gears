@@ -44,9 +44,21 @@ Sprite::~Sprite()
 
 
 void
-Sprite::AddFrame( const Frame& frame )
+Sprite::AddFrame( const Frame& frame, const unsigned int id )
 {
-    m_Frame.push_back( frame );
+    if( id == m_Frame.size() )
+    {
+        m_Frame.push_back( frame );
+    }
+    else if( id < m_Frame.size() )
+    {
+        m_Frame[ id ] = frame;
+    }
+    else if( id > m_Frame.size() )
+    {
+        m_Frame.resize( id + 1 );
+        m_Frame[ id ] = frame;
+    }
 }
 
 

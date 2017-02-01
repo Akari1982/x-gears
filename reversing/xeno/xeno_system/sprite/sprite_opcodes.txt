@@ -14,6 +14,10 @@ sequence data (just animation script)
 8d                          apply texture x and y stored in +110 (+4 +6)
 8e                          set script pointer to 0 and return.
 90                          load new sprite pack from +4c or +48.
+91                          remove lighting from sprite.
+92                          add lighting to sprite.
+93                          copy additional tile data from sprite in +70 and apply.
+94                          set Y rotation from sprite in +70.
 96                          call some callbacks for all sprites.
 98                          maybe wain until connected sprite starts some animatiuon and then continue script execution.
 a0[speed]                   set animation move speed.

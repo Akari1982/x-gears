@@ -442,10 +442,77 @@ if( A1 < 73 )
 
         case 91:
         {
-            [S3 + 2b] = b(bu[S3 + 2b] & fe);
-            A0 = S3;
+            [struct_164 + 2b] = b(bu[struct_164 + 2b] & fe);
+            A0 = struct_164;
             func1f524();
 
+            return;
+        }
+
+        case 92:
+        {
+            [struct_164 + 2b] = b(bu[struct_164 + 2b] | 01);
+            A0 = struct_164;
+            func1f524();
+
+            return;
+        }
+
+        case 93:
+        {
+            struct_164_2 = w[struct_164 + 70];
+            if( struct_164_2 != 0 )
+            {
+                if( w[struct_164 + 3c] & 00000003 )
+                {
+                    struct_110 = w[struct_164 + 24];
+                    sprite_file_1 = w[struct_110 + 0];
+                    if( ( hu[sprite_file_1 + 0] >> f ) == 0 )
+                    {
+                        [struct_164 + 40] = w((w[struct_164 + 40] & fffe1fff) | 0001c000);
+                    }
+
+                    struct_b4 = w[struct_164 + 20];
+                    if( struct_b4 != 0 )
+                    {
+                        struct_b4_2 = w[struct_164_2 + 20];
+                        struct_124_2 = w[struct_b4_2 + 34];
+                        if( struct_124_2 != 0 )
+                        {
+                            A0 = struct_164;
+                            func1d364();
+
+                            struct_124 = w[struct_b4 + 34];
+
+                            T0 = 0;
+                            loop20d20:	; 80020D20
+                                [struct_124 + T0 * 8 + 0] = w(w[struct_124_2 + T0 * 8 + 0]);
+                                [struct_124 + T0 * 8 + 4] = w(w[struct_124_2 + T0 * 8 + 4]);
+                                T0 = T0 + 1;
+                            80020D5C	bne    t0, 8, loop20d20 [$80020d20]
+
+                            [struct_b4 + 3c] = b(b[struct_b4_2 + 3c]);
+                            [struct_b4 + 3d] = b(b[struct_b4_2 + 3d]);
+                        }
+                    }
+
+                    A0 = struct_164;
+                    A1 = hu[struct_164 + 34]; // frame id
+                    system_set_sprite_frame();
+                }
+            }
+            return;
+        }
+
+        case 94:
+        {
+            if( ( w[struct_164 + 3c] & 00000003 ) == 2 )
+            {
+                S0 = w[struct_164 + 70];
+                struct_b4 = w[struct_164 + 20];
+                [struct_b4 + 2] = h(hu[S0 + 32]); // rotation y
+                [struct_164 + 3c] = w(w[struct_164 + 3c] | 10000000);
+            }
             return;
         }
 
@@ -520,10 +587,44 @@ if( A1 < 73 )
             return;
         }
 
+        case fc:
+        {
+            A0 = 2000;
+            A1 = 0;
+            system_memory_allocate();
+            S0 = V0;
 
-540C0280 // 92
-8C0C0280 // 93
-3CFC0180 // 94
+            V0 = S0 + 1f00;
+            T0 = V0;
+            [T0] = w(SP);
+            T0 = T0 - 4;
+            SP = T0;
+            8001FCFC	lb     v0, $0002(s1)
+            8001FD00	lbu    v1, $0001(s1)
+            8001FD04	sll    v0, v0, $10
+            8001FD08	sll    v1, v1, $08
+            8001FD0C	addu   v0, v0, v1
+            8001FD10	lbu    v1, $0000(s1)
+
+            A0 = w[S3 + 24];
+            8001FD18	addu   v0, v0, v1
+            8001FD1C	lh     v1, $0004(a0)
+            8001FD20	lh     a0, $0006(a0)
+            8001FD24	addu   v0, v0, s1
+            8001FD28	sw     v0, $0170(gp)
+            8001FD2C	sh     v1, $0174(gp)
+            8001FD30	sh     a0, $0178(gp)
+            func1f9a8();
+
+            SP = SP + 4;
+            SP = w[SP];
+
+            A0 = S0;
+            system_memory_free();
+
+            return;
+        }
+
 F4170280 // A1
 74FD0180 // A2
 EC150280 // A3
@@ -587,7 +688,6 @@ A80D0280 // f1
 980F0280 // f5
 38100280 // f6
 D4100280 // f7
-D8FC0180 // fc
 
 
     8001FAEC	lw     v0, $00a8(s3)
@@ -649,49 +749,6 @@ D8FC0180 // fc
     8001FBBC	j      L21900 [$80021900]
     8001FBC0	sw     v1, $0088(s3)
 
-    8001FC3C	ori    v1, zero, $0002
-    8001FC40	lw     v0, $003c(s3)
-    8001FC44	lw     s0, $0070(s3)
-    8001FC48	andi   v0, v0, $0003
-    8001FC4C	bne    v0, v1, L21900 [$80021900]
-    8001FC50	nop
-    8001FC54	lw     v1, $0020(s3)
-    8001FC58	lhu    v0, $0032(s0)
-    8001FC5C	j      L21400 [$80021400]
-    8001FC60	sh     v0, $0002(v1)
-
-    8001FCD8	ori    a0, zero, $2000
-    8001FCDC	jal    system_memory_allocate [$800319ec]
-    8001FCE0	addu   a1, zero, zero
-    8001FCE4	addu   s0, v0, zero
-    8001FCE8	addiu  v0, s0, $1f00
-    8001FCEC	addu   t0, v0, zero
-    8001FCF0	sw     sp, $0000(t0)
-    8001FCF4	addiu  t0, t0, $fffc (=-$4)
-    8001FCF8	addu   sp, t0, zero
-    8001FCFC	lb     v0, $0002(s1)
-    8001FD00	lbu    v1, $0001(s1)
-    8001FD04	sll    v0, v0, $10
-    8001FD08	sll    v1, v1, $08
-    8001FD0C	addu   v0, v0, v1
-    8001FD10	lbu    v1, $0000(s1)
-    8001FD14	lw     a0, $0024(s3)
-    8001FD18	addu   v0, v0, v1
-    8001FD1C	lh     v1, $0004(a0)
-    8001FD20	lh     a0, $0006(a0)
-    8001FD24	addu   v0, v0, s1
-    8001FD28	sw     v0, $0170(gp)
-    8001FD2C	sh     v1, $0174(gp)
-    8001FD30	sh     a0, $0178(gp)
-    8001FD34	jal    func1f9a8 [$8001f9a8]
-    8001FD38	nop
-    8001FD3C	addiu  sp, sp, $0004
-    8001FD40	lw     sp, $0000(sp)
-    A0 = S0;
-    system_memory_free();
-
-    8001FD4C	j      L21900 [$80021900]
-    8001FD50	nop
     8001FD54	lbu    v0, $0000(s1)
     8001FD58	j      L21900 [$80021900]
     8001FD5C	sh     v0, $0036(s3)
@@ -1738,13 +1795,6 @@ D8FC0180 // fc
     80020C3C	j      L21900 [$80021900]
     80020C40	sb     v1, $0000(v0)
 
-    80020C54	lbu    v0, $002b(s3)
-    80020C58	addu   a0, s3, zero
-    80020C5C	ori    v0, v0, $0001
-    80020C60	jal    func1f524 [$8001f524]
-    80020C64	sb     v0, $002b(a0)
-    80020C68	j      L21900 [$80021900]
-    80020C6C	nop
     80020C70	lbu    v0, $0000(s1)
     80020C74	lhu    v1, $0030(s3)
     80020C78	sll    v0, v0, $18
@@ -1752,78 +1802,7 @@ D8FC0180 // fc
     80020C80	addu   v0, v0, v1
     80020C84	j      L21900 [$80021900]
     80020C88	sh     v0, $0030(s3)
-    80020C8C	lw     s0, $0070(s3)
-    80020C90	nop
-    80020C94	beq    s0, zero, L21900 [$80021900]
-    80020C98	nop
-    80020C9C	lw     v0, $003c(s3)
-    80020CA0	nop
-    80020CA4	andi   v0, v0, $0003
-    80020CA8	beq    v0, zero, L21900 [$80021900]
-    80020CAC	nop
-    80020CB0	lw     v0, $0024(s3)
-    80020CB4	nop
-    80020CB8	lw     a0, $0000(v0)
-    80020CBC	jal    func1ecd8 [$8001ecd8]
-    80020CC0	nop
-    80020CC4	bne    v0, zero, L20ce8 [$80020ce8]
-    80020CC8	lui    a0, $fffe
-    80020CCC	ori    a0, a0, $1fff
-    80020CD0	lui    v1, $0001
-    80020CD4	lw     v0, $0040(s3)
-    80020CD8	ori    v1, v1, $c000
-    80020CDC	and    v0, v0, a0
-    80020CE0	or     v0, v0, v1
-    80020CE4	sw     v0, $0040(s3)
 
-    L20ce8:	; 80020CE8
-    80020CE8	lw     v0, $0020(s3)
-    80020CEC	nop
-    80020CF0	beq    v0, zero, L20d80 [$80020d80]
-    80020CF4	nop
-    80020CF8	lw     v0, $0020(s0)
-    80020CFC	nop
-    80020D00	lw     v0, $0034(v0)
-    80020D04	nop
-    80020D08	beq    v0, zero, L20d80 [$80020d80]
-    80020D0C	nop
-    80020D10	jal    func1d364 [$8001d364]
-    80020D14	addu   a0, s3, zero
-    80020D18	addu   t0, zero, zero
-    80020D1C	ori    t1, zero, $0008
-
-    loop20d20:	; 80020D20
-    80020D20	sll    a0, t0, $03
-    80020D24	addiu  t0, t0, $0001
-    80020D28	lw     v0, $0020(s3)
-    80020D2C	lw     v1, $0020(s0)
-    80020D30	lw     v0, $0034(v0)
-    80020D34	lw     v1, $0034(v1)
-    80020D38	addu   v0, a0, v0
-    80020D3C	addu   a0, a0, v1
-    80020D40	lwl    v1, $0003(a0)
-    80020D44	lwr    v1, $0000(a0)
-    80020D48	lwl    a1, $0007(a0)
-    80020D4C	lwr    a1, $0004(a0)
-    80020D50	swl    v1, $0003(v0)
-    80020D54	swr    v1, $0000(v0)
-    80020D58	swl    a1, $0007(v0)
-    80020D5C	bne    t0, t1, loop20d20 [$80020d20]
-    80020D60	swr    a1, $0004(v0)
-    80020D64	lw     v1, $0020(s3)
-    80020D68	lw     v0, $0020(s0)
-    80020D6C	nop
-    80020D70	lb     a0, $003c(v0)
-    80020D74	lb     a1, $003d(v0)
-    80020D78	sb     a0, $003c(v1)
-    80020D7C	sb     a1, $003d(v1)
-
-    L20d80:	; 80020D80
-    80020D80	lhu    a1, $0034(s3)
-    80020D84	jal    system_set_sprite_frame [$8001d134]
-    80020D88	addu   a0, s3, zero
-    80020D8C	j      L21900 [$80021900]
-    80020D90	nop
     80020D94	lbu    a1, $0000(s1)
     80020D98	jal    func23114 [$80023114]
     80020D9C	addu   a0, s3, zero
@@ -2217,11 +2196,10 @@ D8FC0180 // fc
     800213FC	sh     v1, $0004(v0)
 
     L21400:	; 80021400
-    80021400	lw     v0, $003c(s3)
-    80021404	lui    v1, $1000
-    80021408	or     v0, v0, v1
+    [S3 + 3c] = w(w[S3 + 3c] | 10000000);
+
     8002140C	j      L21900 [$80021900]
-    80021410	sw     v0, $003c(s3)
+
     80021414	jal    system_get_random_2_bytes [$8003f8b0]
     80021418	nop
     8002141C	lbu    v1, $0000(s1)

@@ -29,7 +29,8 @@ public:
     Sprite( const Ogre::String& name, Ogre::SceneNode* node );
     virtual ~Sprite();
 
-    void AddFrame( const Frame& frame );
+    void AddFrame( const Frame& frame, const unsigned int id );
+    void AddDirFrameId( const unsigned int frame_id );
     void SetImage( const Ogre::String& image );
 
     void Initialise();
@@ -50,6 +51,7 @@ protected:
 
     unsigned int m_FrameId;
     std::vector< Frame > m_Frame;
+    std::vector< unsigned int > m_DirFrameStart;
 
     Ogre::MaterialPtr m_Material;
     Ogre::SceneManager* m_SceneManager;
