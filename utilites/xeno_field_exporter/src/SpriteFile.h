@@ -9,6 +9,7 @@
 
 #include "../../common/File.h"
 #include "../../common/Vram.h"
+#include "FieldPackFile.h"
 
 
 

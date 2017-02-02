@@ -189,6 +189,8 @@ SpriteFile::SpriteFile( File* file, FieldPackFile* field_file, Vram* vram, const
 
                 int clut_x = 0x100;
                 int clut_y = 0x1e0;
+                unsigned int vram_x;
+                unsigned int vram_y;
                 field_file->GetVramTex( sprite_id, vram_x, vram_y );
                 TexForGen texture;
                 texture.palette_x = clut_x;
@@ -211,8 +213,8 @@ SpriteFile::SpriteFile( File* file, FieldPackFile* field_file, Vram* vram, const
 
                 tile.tex_x = sprite1->GetU8( offset_to_tile_desc + offset ); ++offset;
                 tile.tex_y = sprite1->GetU8( offset_to_tile_desc + offset ); ++offset;
-                tile.width = sprite1->GetU8( offset_to_tile_desc + offset ) - 1; ++offset;
-                tile.height = sprite1->GetU8( offset_to_tile_desc + offset ) - 1; ++offset;
+                tile.width = sprite1->GetU8( offset_to_tile_desc + offset ); ++offset;
+                tile.height = sprite1->GetU8( offset_to_tile_desc + offset ); ++offset;
 
                 log->Log( "        u = 0x" + HexToString( tile.tex_x, 2, '0' ) + "\n" );
                 log->Log( "        v = 0x" + HexToString( tile.tex_y, 2, '0' ) + "\n" );

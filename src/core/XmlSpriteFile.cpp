@@ -62,7 +62,7 @@ XmlSpriteFile::Load( Sprite* sprite )
         }
         else if( node->Type() == TiXmlNode::TINYXML_ELEMENT && node->ValueStr() == "start_dir_frame" )
         {
-            sprite->AddDirFrameId( GetInt( node, "id" ) );
+            sprite->AddDirFrameId( ( unsigned int )GetInt( node, "id" ) );
         }
         node = node->NextSibling();
     }

@@ -64,6 +64,13 @@ Sprite::AddFrame( const Frame& frame, const unsigned int id )
 
 
 void
+Sprite::AddDirFrameId( const unsigned int frame_id )
+{
+}
+
+
+
+void
 Sprite::SetImage( const Ogre::String& image )
 {
     Ogre::Pass* pass = m_Material->getTechnique( 0 )->getPass( 0 );
