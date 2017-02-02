@@ -1,4 +1,283 @@
 ////////////////////////////////
+// system_set_rotated_sprite_frame()
+struct_164 = A0;
+
+anim_frame_id = (w[struct_164 + a8] >> b) & 3f;
+V0 = w[struct_164 + 54];
+frame_id = hu[V0 + anim_frame_id * 2];
+
+// invert offset y
+if( frame_id & 0200 )
+{
+    [struct_164 + ac] = w(w[struct_164 + ac] | 00000020);
+}
+else
+{
+    [struct_164 + ac] = w(w[struct_164 + ac] & ffffffdf);
+}
+
+V1 = w[struct_164 + ac];
+[struct_164 + 3c] = w((w[struct_164 + 3c] & fffffff7) | ((((V1 >> 5) & 1) XOR ((V1 >> 4) & 1)) << 3));
+
+A0 = struct_164;
+A1 = frame_id & 01ff;
+system_set_sprite_frame();
+////////////////////////////////
+
+
+
+////////////////////////////////
+// system_set_sprite_frame()
+struct_164 = A0;
+frame_id = A1;
+
+struct_b4 = w[struct_164 + 20];
+
+if( ( w[struct_164 + 3c] & 00000003 ) != 00000001 )
+{
+    [struct_164 + 34] = h(0); // reset frame id
+    return;
+}
+
+// if we will use additional translation and rotation - init them
+if( w[struct_164 + 40] & 00100000 )
+{
+    [struct_164 + 40] = w(w[struct_164 + 40] & ffefffff);
+    if( w[struct_b4 + 34] != 0 )
+    {
+        A0 = struct_164;
+        func2332c(); // init 0x8 items in +124 with 0
+    }
+}
+
+last_struct = w[GP + 20];
+if( ( w[struct_164 + 40] & 00020000 ) && ( last_struct != 0 ) )
+{
+    loop1d1d4:	; 8001D1D4
+        if( last_struct == struct_164 )
+        {
+            struct_110 = w[struct_164 + 24];
+            if( struct_110 != 80059b04 && struct_110 != 8006b4a0 ) // some predefine texture data for sprite
+            {
+                if( ( w[struct_164 + 40] & 00080000 ) == 0 )
+                {
+                    A0 = struct_164;
+                    A1 = hu[struct_164 + 34]; // prev frame
+                    A2 = struct_110;
+                    func1f764(); // init sprite struct_124 with data for short and long tile data.
+                }
+            }
+
+            [struct_164 + 34] = h(frame_id);
+            return;
+        }
+
+        V0 = w[last_struct + 20];
+        last_struct = w[V0 + 38];
+    8001D22C	bne    last_struct, zero, loop1d1d4 [$8001d1d4]
+}
+
+[struct_164 + 34] = h(frame_id);
+
+// link sprite struct list
+A1 = w[GP + 20];
+[GP + 20] = w(struct_164);
+[struct_b4 + 38] = w(A1);
+[struct_164 + 40] = w(w[struct_164 + 40] | 00020000);
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func1f764()
+struct_164 = A0;
+frame_id = A1;
+struct_110 = A2;
+
+sprite_file_1 = w[struct_110 + 0];
+
+if( frame_id >= ((hu[sprite_file_1 + 0] & 01ff) + 1) )
+{
+    return;
+}
+
+if( hu[sprite_file_1 + 0] & 8000 )
+{
+    A0 = struct_164;
+    A1 = frame_id;
+    A2 = struct_110;
+    func1f5d0(); // init sprite struct_124 with data for short tile data.
+
+    return;
+}
+
+frame_data = sprite_file_1 + hu[sprite_file_1 + frame_id * 2];
+V0 = bu[frame_data + 0];
+bytes2 = V0 & 80; // two bytes tile position
+number_of_tiles = V0 & 3f;
+
+if( number_of_tiles != 0 )
+{
+    S0 = frame_data + 6 + number_of_tiles * 4;
+
+    tile_id = 0;
+    L1f7f4:	; 8001F7F4
+        control = bu[S0];
+        if( bytes2 & 80 )
+        {
+            S0 = S0 + 1;
+
+            if( control & 40 )
+            {
+                // if pointer to additional tile data not exist
+                // allocate place and create pointer
+                struct_b4 = w[struct_164 + 20];
+                if( w[struct_b4 + 34] == 0 )
+                {
+                    A0 = 40;
+                    A1 = 0;
+                    system_memory_allocate();
+                    [struct_b4 + 34] = w(V0);
+
+                    A0 = struct_164;
+                    func2332c(); // init 0x8 items in +124 with 0
+                }
+
+                A1 = S1 & 7;
+                if( S1 & 20 ) // additional offset
+                {
+                    V0 = w[struct_b4 + 34];
+                    [V0 + A1 * 8 + 0] = b(bu[S0 + 0]);
+                    [V0 + A1 * 8 + 1] = b(bu[S0 + 1]);
+                    S0 = S0 + 2;
+                }
+                if( S1 & 10 )
+                {
+                    V0 = w[struct_b4 + 34];
+                    [V0 + A1 * 8 + 6] = h(bu[S0] << 4);
+                    S0 = S0 + 1;
+                }
+                else
+                {
+                    V0 = w[struct_b4 + 34];
+                    [V0 + A1 * 8 + 6] = h(0);
+                }
+            }
+            else
+            {
+                if( S1 & 01 )
+                {
+                    S0 = S0 + 1;
+                }
+                if( S1 & 02 )
+                {
+                    S0 = S0 + 1;
+                }
+            }
+
+            8001F8E8	j      L1f7f4 [$8001f7f4]
+        }
+
+        S0 = S0 + 3;
+        if( bytes2 != 0 )
+        {
+            S0 = S0 + 2;
+        }
+        tile_id = tile_id + 1;
+    8001F8FC	bne    tile_id, number_of_tiles, L1f7f4 [$8001f7f4]
+}
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func1f5d0()
+struct_164 = A0;
+frame_id = A1;
+struct_110 = A2;
+
+sprite_file_1 = w[struct_110 + 0];
+
+frame_data = sprite_file_1 + hu[sprite_file_1 + frame_id * 2];
+V0 = bu[frame_data + 0];
+bytes2 = V0 & 80;
+number_of_tiles = V0 & 3f;
+
+if( number_of_tiles != 0 )
+{
+    S0 = frame_data + 4 + number_of_tiles * 2;
+
+    tile_id = 0;
+    L1f62c:	; 8001F62C
+        S1 = bu[S0];
+        if( S1 & 80 )
+        {
+            S0 = S0 + 1;
+
+            if( S1 & 40 )
+            {
+                // if pointer to additional tile data not exist
+                // allocate place and create pointer
+                struct_b4 = w[struct_164 + 20];
+                if( w[struct_b4 + 34] == 0 )
+                {
+                    A0 = 40;
+                    A1 = 0;
+                    system_memory_allocate();
+                    [struct_b4 + 34] = w(V0);
+
+                    A0 = struct_164;
+                    func2332c(); // init 0x8 items in +124 with 0
+               }
+
+                A1 = S1 & 7;
+                if( S1 & 20 ) // additional offset
+                {
+                    V0 = w[struct_b4 + 34];
+                    [V0 + A1 * 8 + 0] = b(bu[S0 + 0]);
+                    [V0 + A1 * 8 + 1] = b(bu[S0 + 1]);
+                    S0 = S0 + 2;
+                }
+                if( S1 & 10 )
+                {
+                    V0 = w[struct_b4 + 34];
+                    [V0 + A1 * 8 + 6] = h(bu[S0] << 4);
+                    S0 = S0 + 1;
+                }
+                else
+                {
+                    V0 = w[struct_b4 + 34];
+                    [V0 + A1 * 8 + 6] = h(0);
+                }
+            }
+            else
+            {
+                if( S1 & 01 )
+                {
+                    S0 = S0 + 1;
+                }
+                if( S1 & 02 )
+                {
+                    S0 = S0 + 1;
+                }
+            }
+
+            8001F71C	j      L1f62c [$8001f62c]
+        }
+
+        S0 = S0 + 3;
+        if( bytes2 != 0 )
+        {
+            S0 = S0 + 2;
+        }
+        tile_id = tile_id + 1;
+    8001F730	bne    tile_id, number_of_tiles, L1f62c [$8001f62c]
+}
+////////////////////////////////
+
+
+
+////////////////////////////////
 // func1d364()
 struct_164 = A0;
 struct_b4 = w[struct_164 + 20];
@@ -466,4 +745,46 @@ system_cos();
 A0 = h[struct_164 + 32];
 system_sin();
 [struct_164 + 14] = w((0 - (S0 * (V0 >> 2))) >> 6);
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func22124()
+struct_164 = A0;
+sprite_pack = A1;
+
+if( sprite_pack != 0 )
+{
+    struct_110 = w[struct_164 + 24];
+
+    if( sprite_pack != w[struct_164 + 44] )
+    {
+        A0 = struct_110;
+        A1 = sprite_pack;
+        A2 = (hu[struct_110 + 6] << 10) | hu[struct_110 + 4]; // tx ty
+        A3 = (hu[struct_110 + a] << 10) | hu[struct_110 + 8]; // clut x clut y
+        func22084();
+
+        [struct_164 + 44] = w(sprite_pack);
+        [struct_164 + 3c] = w(w[struct_164 + 3c] | 40000000);
+    }
+
+    if( bu[80058810 + 3d] != 0 )
+    {
+        A0 = w[struct_110 + 0];
+        V0 = hu[A0 + 0] >> f;
+
+        if( V0 == 0 )
+        {
+            [struct_110 + 4] = h(0300); // tx
+            [struct_110 + 6] = h(0100); // ty
+        }
+        else
+        {
+            V0 = w[struct_164 + 7c];
+            [struct_110 + 4] = w(w[V0 + e]); // tx
+        }
+    }
+}
 ////////////////////////////////

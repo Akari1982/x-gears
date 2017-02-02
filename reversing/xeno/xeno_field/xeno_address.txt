@@ -168,7 +168,7 @@
         + 48 [][][][] pointer to sprite pack.
         + 4c [][][][] pointer to some sprite pack (used if animation id < 0).
         + 50 [][][][] init with 0.
-        + 54 [][][][] pointer to some data related with sprite direction in sprite data file 0. Pointer to first direction start frame.
+        + 54 [][][][] pointer to some start frame id for different directions in sprite data file 0. Pointer to first direction start frame.
         + 58 [][][][] pointer to animation data in sprite data file 0.
         + 5c [][][][] pointer to animation data in sprite data file 0 + 6, set when sprite has only two directions (one animation sequence).
         + 60 [][][][] pointer to 1st animation data in sprite data file 0.
@@ -193,8 +193,8 @@
         + a8 [][][][] init with 0. Some flags.
                         0x00000001 - set if bu[80058810 + 3d] == 0, removed otherwise. Reset f4+0, f4+4, f4+c if set.
                         0x000007fe - removed when start animation.
-                        0x0001f800 - direction frame id (frames differ for different direction).
-                        0x000e0000 - direction animation id.
+                        0x0001f800 - next frame in direction frame id array (real frames differ for different direction). Usually there id only 1 frame.
+                        0x000e0000 - direction id.
                         0x00300000 - store here flags from animation data 0x0003. Looks like this types of direction behaviour in animation.
                                         0x00 - 2 direction sprite.
                                         0x01 - 4 direction sprite.

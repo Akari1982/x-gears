@@ -338,8 +338,8 @@ if( opcode < 10 )
 }
 else if( opcode < 20 )
 {
-    frame_data_id = (w[struct_164 + a8] >> b) & 3f;
-    [struct_164 + a8] = w((w[struct_164 + a8] & fffe07ff) | (((frame_data_id + 1) & 3f) << b));
+    anim_frame_id = (w[struct_164 + a8] >> b) & 3f;
+    [struct_164 + a8] = w((w[struct_164 + a8] & fffe07ff) | (((anim_frame_id + 1) & 3f) << b));
 
     A0 = struct_164;
     system_set_rotated_sprite_frame();

@@ -1,7 +1,7 @@
 sequence data (just animation script)
-00-0f                       play next frame and wait 0x0f frames (used frame from +34).
-10-1f                       play next direction frame and wait 0x0f frames (used frame from +a8).
-20-2f                       play previous frame and wait 0x0f frames (used frame from +34).
+00-0f                       play frame id from +34 and wait 0x0f frames (store frame id + 1 in +34).
+10-1f                       play first frame in direction frame id array and store it in +34 and wait 0x0f frames (uses direction frame id from +a8 (usually 0)).
+20-2f                       play frame id from +34 and wait 0x0f frames (store frame id - 1 in +34).
 30-3f                       wait 0x0f frames
 80                          start default animation +b0 and return from script.
 81                          start play default +b0/call some callback set flags and return from script.

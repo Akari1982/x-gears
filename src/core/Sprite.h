@@ -30,7 +30,7 @@ public:
     virtual ~Sprite();
 
     void AddFrame( const Frame& frame, const unsigned int id );
-    void AddDirFrameId( const unsigned int frame_id );
+    void AddAnimFrameStart( const unsigned int frame_id );
     void SetImage( const Ogre::String& image );
 
     void Initialise();
@@ -51,7 +51,7 @@ protected:
 
     unsigned int m_FrameId;
     std::vector< Frame > m_Frame;
-    std::vector< unsigned int > m_DirFrameStart;
+    std::vector< unsigned int > m_AnimFrameStart;
 
     Ogre::MaterialPtr m_Material;
     Ogre::SceneManager* m_SceneManager;

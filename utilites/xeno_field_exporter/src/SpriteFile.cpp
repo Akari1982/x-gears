@@ -60,18 +60,55 @@ SpriteFile::SpriteFile( File* file, FieldPackFile* field_file, Vram* vram, const
         }
 
         u16 sequence_pointer = 0;
-        log->Log( "sequence:" );
+        log->Log( "sequence:\n" );
         for( ; ; )
         {
-            u8 opcode = sprite0->GetU8(  animation_offset + 0x02 + sequence_offset + sequence_pointer );
+            u8 opcode = sprite0->GetU8( animation_offset + 0x02 + sequence_offset + sequence_pointer );
             ++sequence_pointer;
-            log->Log( HexToString( opcode, 2, '0' ) );
-            if( ( opcode >= 0x80 ) && ( opcode <= 0x82 ) )
+            if( opcode < 10 )
             {
+                log->Log( "    next_frame( " + IntToString( opcode & 0xf ) + ")\n" );
+            }
+            else if( opcode < 20 )
+            {
+                log->Log( "    dir_frame_start( " + IntToString( opcode & 0xf ) + ")\n" );
+            }
+            else if( opcode < 30 )
+            {
+                log->Log( "    prev_frame( " + IntToString( opcode & 0xf ) + ")\n" );
+            }
+            else if( opcode < 40 )
+            {
+                log->Log( "    wait( " + IntToString( opcode & 0xf ) + ")\n" );
+            }
+            else if( ( opcode >= 0x80 ) && ( opcode <= 0x82 ) )
+            {
+                log->Log( "    0x" + HexToString( opcode, 2, '0' ) + "\n" );
                 break;
             }
+            else if( opcode == 0xa0 )
+            {
+                u8 speed = sprite0->GetU8( animation_offset + 0x02 + sequence_offset + sequence_pointer );
+                ++sequence_pointer;
+                log->Log( "    set_animation_move_speed( " + IntToString( speed ) + "\n" );
+            }
+            else if( opcode == 0xa7 )
+            {
+                u8 wait = sprite0->GetU8( animation_offset + 0x02 + sequence_offset + sequence_pointer );
+                ++sequence_pointer;
+                log->Log( "    wait( " + IntToString( wait ) + "\n" );
+            }
+            else if( opcode == 0xb3 )
+            {
+                s8 dir_frame_id = ( s8 )sprite0->GetU8( animation_offset + 0x02 + sequence_offset + sequence_pointer );
+                ++sequence_pointer;
+                log->Log( "    set_dir_frame_id( " + IntToString( dir_frame_id ) + "\n" );
+            }
+            else
+            {
+                log->Log( "    0x" + HexToString( opcode, 2, '0' ) + "\n" );
+            }
         }
-        log->Log( "\n" );
     }
 
 
@@ -262,7 +299,6 @@ SpriteFile::SpriteFile( File* file, FieldPackFile* field_file, Vram* vram, const
     {
         CreateTexture( vram, data, "exported/sprites/field/" + GetSpriteName( file_id, sprite_id ) + ".png", textures );
     }
-    //CreateMaterial( "xeno/sprite", "exported/sprites/field/" + GetSpriteName( file_id, sprite_id ) + ".material", ( textures.size() > 0 ) ? "sprites/field/" + GetSpriteName( file_id, sprite_id ) + ".png" : "", "", "" );
 
 
 

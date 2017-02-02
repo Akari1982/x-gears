@@ -6,28 +6,28 @@ frame_id = 67
 frame_id = 76
 frame_id = 85
 frame_id = 94
-sequence:1381
+sequence:13 81
 flag = 0x0042
 frame_id = 50
 frame_id = 59
 frame_id = 68
 frame_id = 77
 frame_id = 86
-sequence:a014150505050505050582
+sequence:a014 15 05050505050505 82
 flag = 0x0042
 frame_id = 35
 frame_id = 38
 frame_id = 41
 frame_id = 44
 frame_id = 47
-sequence:17090b292780
+sequence:17 090b 2927 80
 flag = 0x0042
 frame_id = 0
 frame_id = 5
 frame_id = 10
 frame_id = 15
 frame_id = 20
-sequence:1d0d0f00a72600a73ab3ff1780
+sequence:1d 0d0f00 a726 00 a73a b3ff 17 80
 
 SPRITE 1
 flags = 0x945f
