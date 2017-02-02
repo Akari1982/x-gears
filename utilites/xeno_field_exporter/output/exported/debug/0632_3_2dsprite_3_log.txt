@@ -6,21 +6,40 @@ frame_id = 17
 frame_id = 26
 frame_id = 35
 frame_id = 44
-sequence:1381
+sequence:
+    dir_frame_start( 3 )
+    0x81
 flag = 0x0042
 frame_id = 0
 frame_id = 9
 frame_id = 18
 frame_id = 27
 frame_id = 36
-sequence:a014150507050505070582
+sequence:
+    set_animation_move_speed( 20 )
+    dir_frame_start( 5 )
+    next_frame( 5 )
+    next_frame( 7 )
+    next_frame( 5 )
+    next_frame( 5 )
+    next_frame( 5 )
+    next_frame( 7 )
+    next_frame( 5 )
+    0x82
 flag = 0x0042
 frame_id = 45
 frame_id = 48
 frame_id = 51
 frame_id = 54
 frame_id = 57
-sequence:1505052525b3ff81
+sequence:
+    dir_frame_start( 5 )
+    next_frame( 5 )
+    next_frame( 5 )
+    prev_frame( 5 )
+    prev_frame( 5 )
+    set_dir_frame_id( -1 )
+    0x81
 
 SPRITE 1
 flags = 0x883c

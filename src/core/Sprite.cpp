@@ -25,7 +25,7 @@ Sprite::Sprite( const Ogre::String& name, Ogre::SceneNode* node ):
 
     m_SceneNode->setPosition( Ogre::Vector3( 10, 0, 0 ) );
 
-    XmlSpriteFile* sprite_file = new XmlSpriteFile( "./data/sprites/field/timothy_father.xml" );
+    XmlSpriteFile* sprite_file = new XmlSpriteFile( "./data/sprites/field/unknown.xml" );
     sprite_file->Load( this );
     delete sprite_file;
 }
@@ -64,7 +64,7 @@ Sprite::AddFrame( const Frame& frame, const unsigned int id )
 
 
 void
-Sprite::AddDirFrameId( const unsigned int frame_id )
+Sprite::AddAnimFrameStart( const unsigned int frame_id )
 {
 }
 
