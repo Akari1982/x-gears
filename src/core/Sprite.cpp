@@ -276,7 +276,7 @@ Sprite::UpdateGeometry()
 void
 Sprite::renderQueueStarted( Ogre::uint8 queueGroupId, const Ogre::String& invocation, bool& skipThisInvocation )
 {
-    if( queueGroupId == Ogre::RENDER_QUEUE_MAIN )
+    if( queueGroupId == Ogre::RENDER_QUEUE_OVERLAY )
     {
         Ogre::Root::getSingletonPtr()->getRenderSystem()->clearFrameBuffer( Ogre::FBT_DEPTH );
 

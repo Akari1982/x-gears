@@ -25,11 +25,14 @@ public:
     void UpdateDebug();
     void OnResize();
 
+    void InitCmd();
+
     void Clear();
 
     void AddWalkmesh( Walkmesh* walkmesh );
     void AddSpawnPoint( SpawnPoint* spawn_point );
     void AddEntity( const Ogre::String& name, const Ogre::String& file_name, const Ogre::Vector3& position, const Ogre::Degree& direction, const bool script );
+    void AddSprite( const Ogre::String& name );
     void AddSquareTrigger( const Ogre::String& name, const Ogre::Vector3& point1, const Ogre::Vector3& point2, const Ogre::Vector3& point3, const Ogre::Vector3& point4, const bool enabled );
 
     void EntityToSpawnPoint( Entity* entity, const Ogre::String& point_name );

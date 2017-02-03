@@ -1,4 +1,5 @@
 #include "EntityManager.h"
+#include "EntityManagerCommands.h"
 
 #include <OgreEntity.h>
 #include <OgreRoot.h>
@@ -48,6 +49,8 @@ PointElevation( const Ogre::Vector2& point, const Ogre::Vector3& A, const Ogre::
 EntityManager::EntityManager():
     m_MoveMask( 0x00 )
 {
+    InitCmd();
+
     LOG_TRIVIAL( "EntityManager created." );
 
     m_SceneNode = Ogre::Root::getSingleton().getSceneManager( "Scene" )->getRootSceneNode()->createChildSceneNode( "EntityManager" );
@@ -56,17 +59,16 @@ EntityManager::EntityManager():
     m_SceneNode->attachObject( m_Grid );
     m_Axis = Ogre::Root::getSingleton().getSceneManager( "Scene" )->createEntity( "Axis", "system/axis.mesh" );
     m_SceneNode->attachObject( m_Axis );
-
-
-    Ogre::SceneNode* node = m_SceneNode->createChildSceneNode( "Sprite" );
-    m_Sprite = new Sprite( "Dan", node );
 }
 
 
 
 EntityManager::~EntityManager()
 {
-    delete m_Sprite;
+    if( m_Sprite != NULL )
+    {
+        delete m_Sprite;
+    }
 
 
 
@@ -144,7 +146,10 @@ EntityManager::InputToRotation( Ogre::Degree& rotation )
 void
 EntityManager::Update()
 {
-    m_Sprite->Update();
+    if( m_Sprite != NULL )
+    {
+        m_Sprite->Update();
+    }
 
 
 
@@ -298,6 +303,20 @@ EntityManager::AddEntity( const Ogre::String& name, const Ogre::String& file_nam
     entity->SetPosition( position );
     entity->SetRotation( rotation );
     m_Entity.push_back( entity );
+}
+
+
+
+void
+EntityManager::AddSprite( const Ogre::String& name )
+{
+    if( m_Sprite != NULL )
+    {
+        delete m_Sprite;
+    }
+
+    Ogre::SceneNode* node = m_SceneNode->createChildSceneNode( "Sprite" );
+    m_Sprite = new Sprite( name, node );
 }
 
 
