@@ -1,5 +1,6 @@
 #include <OgreStringConverter.h>
 
+#include "Console.h"
 #include "ConfigCmdManager.h"
 #include "ConfigVarManager.h"
 #include "EntityManager.h"
@@ -55,6 +56,6 @@ CmdSprite( const Ogre::StringVector& params )
 void
 EntityManager::InitCmd()
 {
-    AddCommand( "map", "Run game module", "", CmdMap, CmdMapCompletion );
-    AddCommand( "sprite", "debug sprite", "", CmdSprite, NULL );
+    ConfigCmdManager::getSingleton().AddCommand( "map", "Run game module", "", CmdMap, CmdMapCompletion );
+    ConfigCmdManager::getSingleton().AddCommand( "sprite", "debug sprite", "", CmdSprite, NULL );
 }

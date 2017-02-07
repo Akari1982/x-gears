@@ -47,7 +47,8 @@ PointElevation( const Ogre::Vector2& point, const Ogre::Vector3& A, const Ogre::
 
 
 EntityManager::EntityManager():
-    m_MoveMask( 0x00 )
+    m_MoveMask( 0x00 ),
+    m_Sprite( NULL )
 {
     InitCmd();
 
@@ -59,6 +60,10 @@ EntityManager::EntityManager():
     m_SceneNode->attachObject( m_Grid );
     m_Axis = Ogre::Root::getSingleton().getSceneManager( "Scene" )->createEntity( "Axis", "system/axis.mesh" );
     m_SceneNode->attachObject( m_Axis );
+
+
+
+    m_SceneNode->createChildSceneNode( "Sprite" );
 }
 
 
@@ -315,8 +320,7 @@ EntityManager::AddSprite( const Ogre::String& name )
         delete m_Sprite;
     }
 
-    Ogre::SceneNode* node = m_SceneNode->createChildSceneNode( "Sprite" );
-    m_Sprite = new Sprite( name, node );
+    m_Sprite = new Sprite( name, ( Ogre::SceneNode* )m_SceneNode->getChild( "Sprite" ) );
 }
 
 

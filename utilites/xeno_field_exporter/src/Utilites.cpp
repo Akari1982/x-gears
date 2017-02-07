@@ -31,6 +31,17 @@ GetSpriteName( const int file_id, const int sprite_id )
 {
     switch( file_id )
     {
+        case 608:
+        {
+            if( sprite_id == 0 ) return "dan";
+            if( sprite_id == 1 ) return "maid";
+            if( sprite_id == 2 ) return "cow";
+            if( sprite_id == 5 ) return "chief_lee";
+            if( sprite_id == 8 ) return "dog";
+            if( sprite_id == 9 ) return "chiken";
+        }
+        break;
+
         case 632:
         {
             if( sprite_id == 0 ) return "timothy_father";
@@ -41,6 +52,7 @@ GetSpriteName( const int file_id, const int sprite_id )
             if( sprite_id == 5 ) return "unknown";
             if( sprite_id == 6 ) return "timothy";
         }
+        break;
     }
 
     return "UNKNOWN_file_" + IntToString( file_id ) + "_sprite_" + IntToString( sprite_id );

@@ -25,7 +25,7 @@ Sprite::Sprite( const Ogre::String& name, Ogre::SceneNode* node ):
 
     m_SceneNode->setPosition( Ogre::Vector3( 10, 0, 0 ) );
 
-    XmlSpriteFile* sprite_file = new XmlSpriteFile( "./data/sprites/field/unknown.xml" );
+    XmlSpriteFile* sprite_file = new XmlSpriteFile( "./data/sprites/field/" + m_Name + ".xml" );
     sprite_file->Load( this );
     delete sprite_file;
 }
