@@ -1,4 +1,73 @@
 ////////////////////////////////
+// func19d24()
+if( hu[80058c0c] == 090c ) // pressed buttons start select L1 R1
+{
+    func19d54();
+}
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func19d54()
+80019D5C	jal    func4038c [$8004038c]
+80019D60	nop
+80019D64	jal    system_reset_graph [$80043f88]
+80019D68	addu   a0, zero, zero
+80019D6C	jal    func281e4 [$800281e4]
+80019D70	nop
+80019D74	jal    func37c68 [$80037c68]
+80019D78	nop
+80019D7C	jal    func4d13c [$8004d13c]
+80019D80	nop
+80019D84	jal    func36298 [$80036298]
+80019D88	addu   a0, zero, zero
+80019D8C	jal    func44350 [$80044350]
+80019D90	addu   a0, zero, zero
+80019D94	jal    func4b678 [$8004b678]
+80019D98	addu   a0, zero, zero
+80019D9C	jal    func40d4c [$80040d4c]
+80019DA0	nop
+80019DA4	jal    func4076c [$8004076c]
+80019DA8	nop
+80019DAC	jal    func4036c [$8004036c]
+80019DB0	nop
+80019DB4	jal    func195b8 [$800195b8]
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func1f92c()
+8001F934	addu   s0, a0, zero
+8001F93C	addu   s2, a1, zero
+8001F940	lui    a0, $8005
+8001F944	addiu  a0, a0, $f27c (=-$d84)
+8001F948	addu   a1, zero, zero
+8001F950	jal    func32cac [$80032cac]
+
+S1 = V0;
+
+8001F95C	addu   a0, s1, zero
+8001F960	ori    a1, zero, $0001
+8001F964	addu   a2, s0, zero
+8001F968	addu   a3, s2, zero
+8001F96C	sw     zero, $0010(sp)
+8001F970	sw     zero, $0014(sp)
+8001F974	jal    func2dbf4 [$8002dbf4]
+8001F978	sw     zero, $0018(sp)
+
+A0 = 0;
+system_draw_sync();
+
+A0 = S1;
+system_memory_free();
+////////////////////////////////
+
+
+
+
+////////////////////////////////
 // func1f9a8()
 A0 = 2000;
 A1 = 1;

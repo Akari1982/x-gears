@@ -1,4 +1,41 @@
 ﻿////////////////////////////////
+// func37d34()
+channel_id = 0;
+loop37d40:	; 80037D40
+    V1 = w[80061bbc + channel_id * 4];
+    if( V1 != 0 )
+    {
+        [V1 + 6] = h(hu[V1 + 6] | 01f5);
+    }
+    channel_id = channel_id + 1;
+    V0 = channel_id < 18;
+80037D64	bne    v0, zero, loop37d40 [$80037d40]
+
+[80058c18] = h(hu[80058c18] & ffbf); // remove stop sound flag
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func37d8c()
+[80058c18] = h(hu[80058c18] | 0040); // add stop sound flag
+
+spu = w[8004ff84]; // SPU registers 0x1f801c00
+channel_id = 0;
+loop37db4:	; 80037DB4
+    [spu + channel_id * 10 + 0] = h(0); // 38 left volume
+    [spu + channel_id * 10 + 2] = h(0); // 3a right volume
+    [spu + channel_id * 10 + 4] = h(0); // 44 pitch
+    [spu + channel_id * 10 + 8] = h(bu[spu + channel_id * 10 + 8] + 7f00); // attack mode and rate
+    [spu + channel_id * 10 + a] = h(1fdf); // sustain mode and rate
+    channel_id = channel_id + 1;
+    V0 = channel_id < 18;
+80037DDC	bne    v0, zero, loop37db4 [$80037db4]
+////////////////////////////////
+
+
+
+////////////////////////////////
 // func3e6e4
 if( A1 < 18 && w[80061bbc + A1 * 4] == A0 )
 {

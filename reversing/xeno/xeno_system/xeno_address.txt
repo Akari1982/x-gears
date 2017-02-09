@@ -265,6 +265,7 @@
 +00 [][]     some id. In music set to 2;
 +02 [][]     0.
 +04 [][][][] 0.
++06 [][]     add 0x01f5 when we enable channel.
 +08 [][][][] end of data in this struct (number of channels * 0x158 + 0x94 if bu[smd + 15] != 0 then add 0x180).
 +0c [][][][] link to next struct.
 
