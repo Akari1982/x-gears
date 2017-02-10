@@ -627,19 +627,16 @@ if( w[8005895c] != S0 )
 
     A0 = SP + 10;
     A1 = SP + 14;
-    80019A8C	jal    func282c4 [$800282c4]
+    func282c4(); // get directory
 
-    A0 = 6;
-    80019A94	jal    func319b8 [$800319b8]
+    [GP + 1ac] = h(6);
 
     A0 = 0;
     A1 = 1;
-    80019AA0	jal    func28280 [$80028280]
+    func28280(); // set directory
 
-    A0 = 1;
-    80019AA8	jal    func319c4 [$800319c4]
-
-    S1 = V0;
+    S1 = w[GP + 1c0];
+    [GP + 1c0] = w(1);
 
     A0 = w[8004e948 + S0 * 4]; // 00000000 0E000000 10000000 0F000000 0D000000 11000000 12000000 00000000
     func28548(); // get filesize by global file id
@@ -662,18 +659,74 @@ if( w[8005895c] != S0 )
         [8005895c] = w(-1);
     }
 
-    A0 = S1;
-    80019B0C	jal    func319c4 [$800319c4]
+    [GP + 1c0] = w(S1);
 
     A0 = w[SP + 10];
     A1 = w[SP + 14];
-    80019B1C	jal    func28280 [$80028280]
+    func28280(); // restore directory
 
-    A0 = S2;
-    80019B24	jal    func319b8 [$800319b8]
+    [GP + 1ac] = h(S2);
 }
 
 return w[80058958];
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func282c4()
+A3 = w[8004f498];
+
+A2 = 0;
+loop282d0:	; 800282D0
+    // if ??? == id of first file in dir 7
+    if( hu[A3 + A2 * 2] == ( w[8004f4b8] + 1 ) )
+    {
+        [A0] = w((A2 >> 2) << 2);
+        [A1] = w(A2 % 4);
+        break;
+    }
+    A2 = A2 + 1;
+    V0 = A2 < 40;
+80028314	bne    v0, zero, loop282d0 [$800282d0]
+
+if( A2 == 40 )
+{
+    [A0] = w(0);
+    [A1] = w(0);
+}
+
+return w[8004f4b8];
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func28280()
+V0 = w[8004f498];
+// 16001800FFFFFFFF
+// A801FFFFFFFFFFFF
+// FFFFFFFFFFFFFFFF
+// 350A3A0A350DD30A
+// 220A2E0A2F0AFFFF
+// FFFFFFFFFFFFFFFF
+// 140001001300FFFF
+// 7500FFFFFFFFFFFF
+// 100C140C150C190C
+// 520FFFFFFFFFFFFF
+// 4C0F6E0B4D0C3710
+// 090CAD0BFFFFFFFF
+// 2E003400FFFFFFFF
+// FFFFFFFFFFFFFFFF
+// FFFFFFFFFFFFFFFF
+V0 = hu[V0 + (A0 + A1) * 2] - 1;
+[8004f4b8] = w(V0);
+if( V0 < 0 )
+{
+    [8004f4b8] = w(0);
+    return -1;
+}
+return V0;
 ////////////////////////////////
 
 

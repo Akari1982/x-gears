@@ -21,12 +21,14 @@
 
 
 
+8004f498 [][][][] ???
 8004f49c [][][][] file size to load.
 8004f4a0 [][][][] store 1 here before load.
 8004f4a8 [][][][] file sector to load.
 8004f4ac [][][][] pointer to allocated memory for file load.
 8004f4b0 [][][][] 0
 8004f4b4 [][][][] 0
+8004f4b8 [][][][] start id of files in dir or some marker.
 8004f4c0 [][][][] 
 8004f4d4 [][][][] pointer to allocated memory for file load.
 8004f4d8 [][][][] 0
@@ -115,6 +117,8 @@
     +1cc [][][][] store size of allocated data here.
     +1d0 [][][][] place in code from where we call current function.
 
+80058958 [][][][] pointer to file loaded via func19a50() (we allocate place for file here).
+8005895c [][][][] store here id of file to load via func19a50().
 
 800589a8 [][]     store tex page setting here during initialization.
 800589ac [][]     store here clut setting during initialization.
