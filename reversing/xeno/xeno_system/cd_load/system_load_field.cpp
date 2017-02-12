@@ -43,49 +43,11 @@ return -1;
 
 
 ////////////////////////////////
-// func284dc()
-S0 = w[8004f4a0];
-if( S0 == 0 )
-{
-    if( w[8004f4ec] == 0 )
-    {
-        A0 = 1;
-        system_psyq_CdDataSync();
-        if( V0 != 0 )
-        {
-            return 1; // error or transfer still being performed
-        }
-    }
-    if( w[8004f4c0] != 0 )
-    {
-        return 1;
-    }
-}
-return S0;
-////////////////////////////////
-
-
-
-////////////////////////////////
-// func28870()
-if( A0 == 0 )
-{
-    loop2887c:	; 8002887C
-        func284dc();
-    80028884	bgtz   v0, loop2887c [$8002887c]
-}
-func284dc();
-////////////////////////////////
-
-
-
-////////////////////////////////
 // func1b3d0()
-S0 = A0 + b8; // global file index for files in directory 11 (field)
+dir_file_id = A0 + b8; // dir file index for files in directory 11 (field)
 
-
-A0 = S0;
-func286fc(); // get filesize by global field id
+A0 = dir_file_id;
+func286fc(); // get filesize by dir file id
 [80059b50] = w(V0);
 
 A0 = V0;
@@ -96,7 +58,7 @@ system_memory_allocate();
 A0 = V0;
 func31ec8(); // mark keep memory
 
-A0 = S0;
+A0 = dir_file_id;
 A1 = w[80059b70];
 A2 = 0;
 A3 = 80;

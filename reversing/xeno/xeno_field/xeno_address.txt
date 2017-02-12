@@ -50,6 +50,8 @@
 
 800ad070 [][][][] checked if equal to 0 in func83f40.
 
+800ad07ñ [][][][] store here time from last draw time.
+
 800ad0b4 [][][][] battle not started ( 0 - started ).
 800ad0b8 [][][][] if this is 0 - we dont perform something in call_run_script_8 (move related).
 800ad0bc [][][][] if this is 0 - we dont perform something in call_run_script_8 (move related).

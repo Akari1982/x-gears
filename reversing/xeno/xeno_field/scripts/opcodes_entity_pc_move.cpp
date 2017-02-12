@@ -259,8 +259,8 @@ if( w[800b1770] > 0 )
 
                 if( w[8004ea14] == 0 )
                 {
-                    A0 = 2;
-                    func19a50();
+                    A0 = 2; // battle
+                    func19a50(); // load exe
                 }
 
                 [800ad0b4] = w(0);

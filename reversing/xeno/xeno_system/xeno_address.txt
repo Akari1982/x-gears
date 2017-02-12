@@ -1,3 +1,4 @@
+8004e948 array if file indexes in dir 0_1.
 8004e9d4 [][][][] looks like current field.
 8004e9f0 [][][][] field id to load.
 
@@ -21,6 +22,7 @@
 
 
 
+8004f494 [][][][] pointer to 0x80010004 (file with data about files and directories).
 8004f498 [][][][] ???
 8004f49c [][][][] file size to load.
 8004f4a0 [][][][] store 1 here before load.
@@ -29,10 +31,11 @@
 8004f4b0 [][][][] 0
 8004f4b4 [][][][] 0
 8004f4b8 [][][][] start id of files in dir or some marker.
-8004f4c0 [][][][] 
+8004f4c0 [][][][] store 8004f4b8 here at start of loading.
 8004f4d4 [][][][] pointer to allocated memory for file load.
 8004f4d8 [][][][] 0
 8004f4dc [][][][] some func param (0).
+8004f4ec [][][][] pointer to some debug filenames maybe files on working disk. They are not in release so debug wont work.
 
 
 
@@ -95,6 +98,7 @@
 80055e28 []       cd sync interrupt result.
 80055e29 []       cd ready interrupt result.
 
+80055f7c [][][][] draw sync callback pointer.
 
 800560a0 square root data (0x2 each). 12bit fixed point.
 
@@ -239,7 +243,8 @@
 8005977a [][]     store -1 here when translate number to letters for text.
 80059780 temp array with letters generated from numbers to insert number in text (in usual text format).
 
-80059b70 [][][][] pointer to allocated memory for loading file.
+80059b50 [][][][] file size for loading field file.
+80059b70 [][][][] pointer to allocated memory for loading field file.
 
 80061c8c controller input buffers (size 0x22 2 items).
     +02 [][]     button mask. (0=Pressed, 1=Released)

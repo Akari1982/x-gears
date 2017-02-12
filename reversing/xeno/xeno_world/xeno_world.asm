@@ -5888,15 +5888,15 @@ func75924:	; 80075924
 80075930	addu   a0, zero, zero
 80075934	jal    func4b3f4 [$8004b3f4]
 80075938	addu   a0, zero, zero
-8007593C	jal    func4034c [$8004034c]
+8007593C	jal    system_enter_critical_section [$8004034c]
 80075940	nop
 80075944	jal    system_draw_sync [$80044448]
 80075948	addu   a0, zero, zero
 8007594C	jal    func4b3f4 [$8004b3f4]
 80075950	addu   a0, zero, zero
-80075954	jal    func402cc [$800402cc]
+80075954	jal    system_bios_flush_cache [$800402cc]
 80075958	nop
-8007595C	jal    func4035c [$8004035c]
+8007595C	jal    system_exit_critical_section [$8004035c]
 80075960	nop
 80075964	lw     ra, $0010(sp)
 80075968	addiu  sp, sp, $0018

@@ -87474,11 +87474,11 @@ funcbe274:	; 800BE274
 800BE2F4	addu   a0, zero, zero
 800BE2F8	jal    func4b3f4 [$8004b3f4]
 800BE2FC	addu   a0, zero, zero
-800BE300	jal    func4034c [$8004034c]
+800BE300	jal    system_enter_critical_section [$8004034c]
 800BE304	nop
-800BE308	jal    func402cc [$800402cc]
+800BE308	jal    system_bios_flush_cache [$800402cc]
 800BE30C	nop
-800BE310	jal    func4035c [$8004035c]
+800BE310	jal    system_exit_critical_section [$8004035c]
 800BE314	nop
 
 Lbe318:	; 800BE318

@@ -10,12 +10,16 @@ else
     [800c1b60] = w(1);
 }
 
-80077568	jal    func78fb0 [$80078fb0]
 
-if( w[800c1b60] == 0 )
+
+func78fb0(); // sync and flush cache
+
+
+
+if( w[800c1b60] == 0 ) // debug
 {
     A0 = 80076eac;
-    8007758C	jal    func44350 [$80044350]
+    system_set_draw_sync_callback();
 }
 
 [80061bac] = w(w[80058bfc]);
@@ -29,22 +33,23 @@ func322bc(); // set group for memory allocation
 
 
 
+// load some debug executable
 if( ( w[800c1b60] == 0 ) && ( w[8004ea14] == 0 ) )
 {
     A0 = 4;
     A1 = 0;
-    800775E8	jal    func28280 [$80028280]
+    func28280(); // set directory
 
-    A0 = ad;
-    A1 = 80280000;
+    A0 = ad; // STRIPCD1\10\0595 - 0x1d6d3, 0x621c
+    A1 = 80280000; // allocated_memory
     A2 = 0;
     A3 = 80;
-    800775FC	jal    func293e8 [$800293e8]
+    func293e8(); // load file
 
     A0 = 0;
     func28870(); // execute until command finished
 
-    8007760C	jal    func78fb0 [$80078fb0]
+    func78fb0(); // sync and flush command cache
 }
 
 
@@ -59,7 +64,9 @@ if( w[8004e9b0] == 0 )
 
 
 A0 = 0;
-80077640	jal    func84ea4 [$80084ea4]
+func84ea4();
+
+
 
 S4 = 0;
 
@@ -81,7 +88,7 @@ S4 = 0;
 
 
 
-if( w[800c1b60] == 0 )
+if( w[800c1b60] == 0 ) // debug
 {
     800776C8	0C0A0481	Ѓ...
 }
@@ -120,7 +127,7 @@ else
 
 
 
-if( w[800c1b60] == 1 )
+if( w[800c1b60] == 1 ) // not debug
 {
     V1 = w[80059a38];
     [V1 + 1980] = h(1);
@@ -145,7 +152,7 @@ system_memory_allocate();
 
 
 
-if( w[800c1b60] == 0 )
+if( w[800c1b60] == 0 ) // debug
 {
     800777BC	break   $00400
 
@@ -207,7 +214,7 @@ L77810:	; 80077810
 
 
 
-    if( w[800c1b60] == 1 )
+    if( w[800c1b60] == 1 ) // not debug
     {
         A0 = 50;
         A1 = 1;
@@ -430,7 +437,7 @@ L77810:	; 80077810
 
 
 
-    if( w[800c1b60] == 0 )
+    if( w[800c1b60] == 0 ) // debug
     {
         if( hu[800c2ddc] & 0040 ) // cross on second controller repeated
         {
@@ -594,7 +601,7 @@ A0 = 0;
 system_draw_sync();
 
 A0 = 0;
-80078104	jal    func4b3f4 [$8004b3f4]
+func4b3f4(); // get time
 
 8007810C	jal    func6f740 [$8006f740]
 
@@ -665,4 +672,75 @@ if( w[800ad0a8] == 1 )
 }
 
 return 0;
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func78fb0()
+func76c88(); // sync
+
+system_enter_critical_section();
+
+system_bios_flush_cache();
+
+system_exit_critical_section();
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func84ea4()
+A0 = 4;
+A1 = 0;
+func28280(); // set directory
+
+A0 = a8; // STRIPCD1\10\0590.sed - 0x1d67a, 0x6f8c
+func286fc(); // get filesize
+S0 = V0;
+
+A0 = S0;
+A1 = 0;
+system_memory_allocate();
+[80061c2c] = w(V0);
+
+A0 = V0;
+func31ec8(); // mark keep memory
+
+if( w[8004e9d0] == -1 )
+{
+    A0 = a8; // STRIPCD1\10\0590.sed - 0x1d67a, 0x6f8c
+    A1 = w[80061c2c];
+    A2 = 0;
+    A3 = 80;
+    func293e8();
+
+    A0 = 0;
+    func28870(); // ececute till cd sync
+}
+else
+{
+    A0 = w[80061c2c];
+    A1 = w[80059b4c];
+    A2 = S0;
+    system_copy_memory();
+
+    A0 = w[80059b4c];
+    func31edc(); // mark memory for release
+
+    A0 = w[80059b4c];
+    system_memory_free();
+}
+
+A0 = w[80061c2c];
+func382d0();
+
+A0 = 10;
+func3bca4(); // wait for some sound flag
+
+A0 = 4;
+A1 = 0;
+func28280(); // set directory
+
+[8004e9d0] = w(-1);
 ////////////////////////////////
