@@ -185,7 +185,7 @@ data_138 = w[800af54c];
 ////////////////////////////////
 // func7889c()
 
-// if battle already started of ???
+// if battle already started or ???
 if( ( w[800ad0b4] == 0 ) || ( w[800ad0bc] == 0 ) || ( w[800ad0c4] == 0 ) || ( w[8004e9ac] == -1 ) )
 {
     return;

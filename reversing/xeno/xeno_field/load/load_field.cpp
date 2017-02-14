@@ -1232,8 +1232,8 @@ if( V1 > 0 )
 
 80070FD4	jal    funca1ca4 [$800a1ca4]
 
-[8004e9d8] = w(ffffffff);
-[8004e9d4] = w(ffffffff);
+[8004e9d8] = w(-1);
+[8004e9d4] = w(-1);
 
 80070FF0	jal    func734c8 [$800734c8]
 

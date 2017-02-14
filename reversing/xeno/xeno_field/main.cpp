@@ -234,17 +234,15 @@ L77810:	; 80077810
 
 
 
-    // load battle?
+    // load battle
     if( w[800acfe0] == 1 )
     {
         if( w[800ad0b4] == 0 )
         {
             func781dc();
-
             if( V0 == 0 )
             {
                 func774a0();
-
                 if( V0 == 0 )
                 {
                     if( w[8004e9d8] != -1 )
@@ -262,29 +260,30 @@ L77810:	; 80077810
                         S5 = 1;
                     }
 
-                    800779A0	jal    func7f5fc [$8007f5fc]
+                    func7f5fc(); // close and clean dialogs
 
                     if( w[800ad0a8] == 1 )
                     {
-                        A0 = h[800b1829 - c5];
-                        A1 = w[8004e9dc];
                         [80058be8] = b(bu[800b1829]);
                         [800af14c] = w(w[8004e9c8]);
+
+                        A0 = h[800b1764]; // value from 800b1774 + encounter * 2
+                        A1 = w[8004e9dc];
 
                         if( A1 != A0 )
                         {
                             if( A1 != -1 )
                             {
-                                [8005e9ec] = w(1);
+                                [8004e9ec] = w(1);
                             }
 
-                            800779FC	jal    func1b500 [$8001b500]
+                            func1b500(); // something sound related
 
-                            A0 = h[800b1829 - c5];
+                            A0 = h[800b1764]; // value from 800b1774 + encounter * 2
                             [8004e9ac] = w(-1);
                             [8004e9c8] = w(A0);
                             A1 = 1;
-                            80077A18	jal    func85134 [$80085134]
+                            func85134();
                         }
 
                         [800ad0a8] = w(0);
@@ -426,7 +425,7 @@ L77810:	; 80077810
                         }
 
                         S0 = 3;
-                        80077CF4	jal    func1b500 [$8001b500]
+                        func1b500(); // something sound related
 
                         80077CFC	j      L780cc [$800780cc]
                     }
@@ -548,7 +547,7 @@ L77810:	; 80077810
 
                 if( ( V0 & 00001800 ) == 0 )
                 {
-                    80078038	jal    func7f5fc [$8007f5fc]
+                    func7f5fc(); // close and clean dialogs
 
                     // call script here
                     80078040	jal    func78fe8 [$80078fe8]
@@ -595,7 +594,7 @@ L780cc:	; 800780CC
 
 800780EC	jal    func85b04 [$80085b04]
 
-800780F4	jal    func7f5fc [$8007f5fc]
+func7f5fc(); // close and clean dialogs
 
 A0 = 0;
 system_draw_sync();
@@ -644,30 +643,16 @@ return -1;
 // func774a0()
 if( w[800ad0a8] == 1 )
 {
-    800774B4	lui    v1, $800b
-    800774B8	lh     v1, $1818(v1)
-
-    if( V1 == 0 )
+    if( h[800b1818] == 0 )
     {
-        800774C8	lui    v1, $800b
-        800774CC	lw     v1, $1740(v1)
-        800774D0	nop
-        800774D4	sll    v0, v1, $01
-        800774D8	addu   v0, v0, v1
-        800774DC	sll    v0, v0, $03
-        800774E0	subu   v0, v0, v1
-        800774E4	lui    v1, $800b
-        800774E8	lw     v1, $efe4(v1)
-        800774EC	sll    v0, v0, $02
-        800774F0	addu   v0, v0, v1
-        800774F4	lw     v0, $004c(v0)
-        800774F8	nop
-        800774FC	lw     v0, $0000(v0)
-        80077500	nop
-        80077504	andi   v0, v0, $0800
-        80077508	sltu   v0, zero, v0
-        8007750C	subu   v0, zero, v0
-        return V0;
+        leader_entity_id = w[800b1740];
+        struct_5c_p = w[800aefe4];
+        struct_138 = w[struct_5c_p + leader_entity_id * 5c + 4c];
+
+        if( ( w[struct_138 + 0] & 00000800 ) != 0 )
+        {
+            return -1;
+        }
     }
 }
 
@@ -743,4 +728,80 @@ A1 = 0;
 func28280(); // set directory
 
 [8004e9d0] = w(-1);
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func85134()
+8008513C	addu   s0, a0, zero
+
+A0 = 0;
+func28870(); // execute until command finished
+
+8008515C	ori    s2, zero, $00ff
+
+func1b500(); // something sound related
+
+80085160	bne    s0, s2, L85178 [$80085178]
+
+80085168	lui    at, $8005
+8008516C	sw     zero, $e9ac(at)
+return;
+
+L85178:	; 80085178
+A0 = 1c;
+A1 = 0;
+func28280(); // set directory
+
+80085180	sll    s1, s0, $01
+80085184	lui    s0, $800b
+80085188	addiu  s0, s0, $d4a5 (=-$2b5b)
+8008518C	lui    at, $800b
+80085190	addu   at, at, s1
+80085194	lbu    v0, $d4a5(at)
+80085198	ori    s3, zero, $0001
+8008519C	bne    v0, s3, L851b0 [$800851b0]
+800851A0	addu   v0, s0, s1
+800851A4	jal    func85638 [$80085638]
+800851A8	nop
+800851AC	addu   v0, s0, s1
+
+L851b0:	; 800851B0
+800851B0	lbu    a0, $ffff(v0)
+800851B4	nop
+800851B8	beq    a0, s2, L8520c [$8008520c]
+800851BC	sll    v0, a0, $01
+800851C0	lui    v1, $8005
+800851C4	lw     v1, $e9e0(v1)
+800851C8	nop
+800851CC	beq    v1, a0, L8520c [$8008520c]
+800851D0	addiu  v0, v0, $0013
+800851D4	addu   a0, v0, zero
+800851D8	lui    a2, $8008
+800851DC	addiu  a2, a2, $4ff0
+800851E0	jal    func84b74 [$80084b74]
+800851E4	ori    a1, zero, $0001
+800851E8	ori    a0, zero, $2000
+800851EC	lui    at, $8005
+800851F0	sw     s3, $e9f8(at)
+800851F4	lui    at, $800b
+800851F8	sw     zero, $1844(at)
+A1 = 1;
+system_memory_allocate();
+
+80085204	lui    at, $800c
+80085208	sw     v0, $2ef0(at)
+
+L8520c:	; 8008520C
+A0 = 4;
+A1 = 0;
+func28280(); // set directory
+
+80085218	addiu  v0, zero, $ffff (=-$1)
+8008521C	lui    at, $8005
+80085220	sw     v0, $e9ac(at)
+80085224	ori    v0, zero, $0001
+80085228	lui    at, $800b
+8008522C	sw     v0, $f128(at)
 ////////////////////////////////

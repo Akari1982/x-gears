@@ -1,5 +1,10 @@
 8004e948 array if file indexes in dir 0_1.
+8004e9ac [][][][] -1 during battle load.
+8004e9c8 [][][][] store here value from 800b1774 + encounter * 2.
 8004e9d4 [][][][] looks like current field.
+8004e9d8 [][][][] init with -1 after field load and set to 0 when start field load.
+8004e9dc [][][][] compare this with value from 800b1774 + encounter * 2 during battle load.
+8004e9ec [][][][] store here 1 in some cases during battle load.
 8004e9f0 [][][][] field id to load.
 
 8004f23c store 4 points xyz for sprite tile during calculation in func1e264
@@ -166,6 +171,7 @@
 80058b40 [][]     repeated buttons for controller 1 (details in 80058c0c). 0x20 timer to repeat.
 80058b44 [][]     repeated buttons for controller 2 (details in 80058c0c). 0x20 timer to repeat.
 
+80058b94 [][][][] store here 0 when start load battle exe.
 80058b98 [][][][] flags for turning SPU Voice ON.
 
 80058ba4 [][][][] store here id of encounter in field.

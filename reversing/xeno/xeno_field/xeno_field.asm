@@ -9868,86 +9868,10 @@ func84f9c:	; 80084F9C
 
 
 
-func85134:	; 80085134
-80085134	addiu  sp, sp, $ffd0 (=-$30)
-80085138	sw     s0, $0018(sp)
-8008513C	addu   s0, a0, zero
-80085140	addu   a0, zero, zero
-80085144	sw     ra, $0028(sp)
-80085148	sw     s3, $0024(sp)
-8008514C	sw     s2, $0020(sp)
-80085150	jal    func28870 [$80028870]
-80085154	sw     s1, $001c(sp)
-80085158	jal    func1b500 [$8001b500]
-8008515C	ori    s2, zero, $00ff
-80085160	bne    s0, s2, L85178 [$80085178]
-80085164	ori    a0, zero, $001c
-80085168	lui    at, $8005
-8008516C	sw     zero, $e9ac(at)
-80085170	j      L85230 [$80085230]
-80085174	nop
-
-L85178:	; 80085178
-80085178	jal    func28280 [$80028280]
-8008517C	addu   a1, zero, zero
-80085180	sll    s1, s0, $01
-80085184	lui    s0, $800b
-80085188	addiu  s0, s0, $d4a5 (=-$2b5b)
-8008518C	lui    at, $800b
-80085190	addu   at, at, s1
-80085194	lbu    v0, $d4a5(at)
-80085198	ori    s3, zero, $0001
-8008519C	bne    v0, s3, L851b0 [$800851b0]
-800851A0	addu   v0, s0, s1
-800851A4	jal    func85638 [$80085638]
-800851A8	nop
-800851AC	addu   v0, s0, s1
-
-L851b0:	; 800851B0
-800851B0	lbu    a0, $ffff(v0)
-800851B4	nop
-800851B8	beq    a0, s2, L8520c [$8008520c]
-800851BC	sll    v0, a0, $01
-800851C0	lui    v1, $8005
-800851C4	lw     v1, $e9e0(v1)
-800851C8	nop
-800851CC	beq    v1, a0, L8520c [$8008520c]
-800851D0	addiu  v0, v0, $0013
-800851D4	addu   a0, v0, zero
-800851D8	lui    a2, $8008
-800851DC	addiu  a2, a2, $4ff0
-800851E0	jal    func84b74 [$80084b74]
-800851E4	ori    a1, zero, $0001
-800851E8	ori    a0, zero, $2000
-800851EC	lui    at, $8005
-800851F0	sw     s3, $e9f8(at)
-800851F4	lui    at, $800b
-800851F8	sw     zero, $1844(at)
-800851FC	jal    system_memory_allocate [$800319ec]
-80085200	ori    a1, zero, $0001
-80085204	lui    at, $800c
-80085208	sw     v0, $2ef0(at)
-
-L8520c:	; 8008520C
-8008520C	ori    a0, zero, $0004
-80085210	jal    func28280 [$80028280]
-80085214	addu   a1, zero, zero
-80085218	addiu  v0, zero, $ffff (=-$1)
-8008521C	lui    at, $8005
-80085220	sw     v0, $e9ac(at)
-80085224	ori    v0, zero, $0001
-80085228	lui    at, $800b
-8008522C	sw     v0, $f128(at)
-
-L85230:	; 80085230
-80085230	lw     ra, $0028(sp)
-80085234	lw     s3, $0024(sp)
-80085238	lw     s2, $0020(sp)
-8008523C	lw     s1, $001c(sp)
-80085240	lw     s0, $0018(sp)
-80085244	addiu  sp, sp, $0030
-80085248	jr     ra 
-8008524C	nop
+////////////////////////////////
+// func85134
+80085134-8008524C
+////////////////////////////////
 
 
 

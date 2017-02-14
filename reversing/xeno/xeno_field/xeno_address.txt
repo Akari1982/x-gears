@@ -40,6 +40,8 @@
 
 800acfda [][]     looks like this is timer when we stack during auto slide down.
 
+800acfe0 [][][][] if this 1 then load battle logic wont work.
+
 800acff4          we read something from here during rotation set. We will not set 80115cdc + 108 if this is not 0.
 
 800acffc [][][][] something related to pointers in 800b1588 800b15bc 800b1590 800b1594.
@@ -51,6 +53,8 @@
 800ad070 [][][][] checked if equal to 0 in func83f40.
 
 800ad07ñ [][][][] store here time from last draw time.
+
+800ad0a8 [][][][] store 1 when start load battle.
 
 800ad0b4 [][][][] battle not started ( 0 - started ).
 800ad0b8 [][][][] if this is 0 - we dont perform something in call_run_script_8 (move related).
@@ -558,6 +562,7 @@
 800b181a [][]     maybe default animation id. Init with 3.
 800b181e [][]     init with 0x40.
 800b1820 [][]     init with 0xff.
+800b1829 []       store this value to 80058be8 during battle load.
 800b182a []       init with 0x5.
 
 800b1834 array of stored index to party character data (somewhere in 800b09d8) (0x4 size)
