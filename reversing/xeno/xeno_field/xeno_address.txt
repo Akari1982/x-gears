@@ -42,7 +42,7 @@
 
 800acfe0 [][][][] if this 1 then load battle logic wont work.
 
-800acff4          we read something from here during rotation set. We will not set 80115cdc + 108 if this is not 0.
+800acff4 [][][][] we read something from here during rotation set. We will not set 80115cdc + 108 if this is not 0.
 
 800acffc [][][][] something related to pointers in 800b1588 800b15bc 800b1590 800b1594.
 
@@ -103,10 +103,22 @@
 800aec3c some data during texture set (func910b0).
 
 800aee60 [][]     some rotation (maybe camera rotation).
-
+800aeeac [][][][] some flags.
+                    0x00000001 use 800aeef0 counter.
+                    0x00000008 use 800aeed4 counter. Add in 0xA4 CameraAngle.
 800aeeba [][]     store some direction here. maybe for camera. func9efe4.
+800aeec0 [][][][] store here 2000000 divided by camera direction set by opcode 0xC7 CameraRotate.
 800aeec4 [][][][] store some direction here. maybe for camera. func9efe4.
-800aeee0 [][][][] store some direction here. maybe for camera. func9efe4.
+800aeeca [][]     store here camera direction set by opcode 0xC7 CameraRotate.
+800aeed0 [][]     copy of upper part of 800aeed8.
+800aeed2 [][]     copy of upper part of 800aeef4.
+800aeed4 [][][][] number of steps. If 0 the remove flag 0x00000008 in 800aeeac. Store here param_3 & 7f from opcode 0xA4 CameraAngle.
+800aeed8 [][][][] main value. Increase this by 800aeedc. Start value 800aeed0 << 0x10 when call opcode 0xA4 CameraAngle.
+800aeedc [][][][] step value. Increase 800aeed8 by this. Calculated in opcode 0xA4 CameraAngle.
+800aeee0 [][][][] store some direction here. maybe for camera. func9efe4. Discrease by 0x200 in opcode 0xC7 CameraRotate.
+800aeef0 [][][][] number of steps. If 0 the remove flag 0x00000001 in 800aeeac.
+800aeef4 [][][][] main value. Increase this by 800aeef8.
+800aeef8 [][][][] step value. Increase 800aeef4 by this.
 
 800aef38 some matrix and translation.
 800aef78 some matrix and translation.
@@ -546,6 +558,7 @@
 800b16a0 []       if this is not 0 we nulify triangle material mask. If this not 0 we do not run scripts for party character entity (in call_run_script_8 (move related)).
 
 800b16aa [][]     if this != 8 then dialog speed doubled (store 2 instead of 1)
+800b16ac [][][][] increase by 2 if we set camera direction by opcode 0xC7 CameraRotate to 0.
 
 800b1740 [][][][] store entity id which controls party leader here.
 

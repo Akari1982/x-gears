@@ -624,11 +624,11 @@ return 0;
 
 
 ////////////////////////////////
-// func3962c
+// func3962c()
 // find first item in array with 00 == 0
 V1 = 0;
 loop39634:	; 80039634
-    if( bu[8006f08c + V1 * 10 + 00] == 0 )
+    if( bu[8006f08c + V1 * 10 + 0] == 0 )
     {
         return V1;
     }

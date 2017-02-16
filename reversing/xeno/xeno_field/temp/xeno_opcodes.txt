@@ -1241,45 +1241,6 @@ L99bac:	; 80099BAC
 
 
 //////////////////////////////////////////////////////////
-// 0xA4 CameraAngle
-80099A64	lui    v0, $800b
-80099A68	lw     v0, $f54c(v0)
-80099A6C	lui    v1, $800b
-80099A70	lw     v1, $d0d8(v1)
-80099A74	addiu  sp, sp, $ffe8 (=-$18)
-80099A78	sw     ra, $0010(sp)
-80099A7C	lhu    v0, $00cc(v0)
-80099A80	nop
-80099A84	addu   v0, v0, v1
-80099A88	lbu    a1, $0003(v0)
-80099A8C	jal    read_two_bytes_based_on_flag_80 [$8009c508]
-80099A90	ori    a0, zero, $0001
-80099A94	lui    v1, $800b
-80099A98	lw     v1, $f54c(v1)
-80099A9C	lui    a0, $800b
-80099AA0	lw     a0, $d0d8(a0)
-80099AA4	lhu    v1, $00cc(v1)
-80099AA8	nop
-80099AAC	addu   v1, v1, a0
-80099AB0	lbu    a1, $0003(v1)
-80099AB4	addu   a0, v0, zero
-80099AB8	jal    func999f4 [$800999f4]
-80099ABC	andi   a1, a1, $007f
-80099AC0	lui    v1, $800b
-80099AC4	lw     v1, $f54c(v1)
-80099AC8	nop
-80099ACC	lhu    v0, $00cc(v1)
-80099AD0	nop
-80099AD4	addiu  v0, v0, $0004
-80099AD8	lw     ra, $0010(sp)
-80099ADC	sh     v0, $00cc(v1)
-80099AE0	jr     ra 
-80099AE4	addiu  sp, sp, $0018
-//////////////////////////////////////////////////////////
-
-
-
-//////////////////////////////////////////////////////////
 // 0xB4 FadeIn
 80096938	addiu  sp, sp, $ffe8 (=-$18)
 8009693C	sw     ra, $0010(sp)
@@ -1298,89 +1259,6 @@ L99bac:	; 80099BAC
 80096970	jr     ra 
 80096974	addiu  sp, sp, $0018
 //////////////////////////////////////////////////////////
-
-
-
-//////////////////////////////////////////////////////////
-// 0xB5 CameraSetDirection
-8009AEB8	addiu  sp, sp, $ffe8 (=-$18)
-8009AEBC	ori    a0, zero, $0001
-8009AEC0	sw     ra, $0014(sp)
-8009AEC4	jal    read_two_bytes_with_80 [$800ac2c4]
-8009AEC8	sw     s0, $0010(sp)
-8009AECC	ori    a0, zero, $0003
-8009AED0	jal    read_two_bytes_with_80 [$800ac2c4]
-8009AED4	addu   s0, v0, zero
-8009AED8	lui    v1, $800b
-8009AEDC	lw     v1, $cff4(v1)
-8009AEE0	nop
-8009AEE4	bne    v1, zero, L9af1c [$8009af1c]
-8009AEE8	addu   a1, v0, zero
-8009AEEC	addiu  v0, s0, $0004
-8009AEF0	andi   v0, v0, $0007
-8009AEF4	sll    v1, v0, $09
-8009AEF8	lui    at, $800b
-8009AEFC	sh     v1, $eeba(at)
-8009AF00	lui    v1, $800b
-8009AF04	lw     v1, $f54c(v1)
-8009AF08	sll    v0, v0, $09
-8009AF0C	lui    at, $800b
-8009AF10	sw     v0, $eee0(at)
-8009AF14	j      L9af40 [$8009af40]
-8009AF18	nop
-
-L9af1c:	; 8009AF1C
-8009AF1C	lui    v0, $800b
-8009AF20	lh     v0, $eeca(v0)
-8009AF24	nop
-8009AF28	bne    v0, zero, L9af58 [$8009af58]
-8009AF2C	ori    v0, zero, $0001
-8009AF30	jal    func9acdc [$8009acdc]
-8009AF34	addu   a0, s0, zero
-8009AF38	lui    v1, $800b
-8009AF3C	lw     v1, $f54c(v1)
-
-L9af40:	; 8009AF40
-8009AF40	nop
-8009AF44	lhu    v0, $00cc(v1)
-8009AF48	nop
-8009AF4C	addiu  v0, v0, $0005
-8009AF50	sh     v0, $00cc(v1)
-8009AF54	ori    v0, zero, $0001
-
-L9af58:	; 8009AF58
-8009AF58	lui    at, $800b
-8009AF5C	sw     v0, $f594(at)
-8009AF60	lw     ra, $0014(sp)
-8009AF64	lw     s0, $0010(sp)
-8009AF68	addiu  sp, sp, $0018
-8009AF6C	jr     ra 
-8009AF70	nop
-//////////////////////////////////////////////////////////
-
-
-
-////////////////////////////////////////////////////////
-// 0xC7 CameraRotate
-V0 = h[800AEECA];
-if (V0 == 0)
-{
-    A0 = 1;
-    read_two_bytes_with_80;
-
-    A0 = 0;
-    A1 = V0;
-    func9ad7c;
-
-    // move script pointer
-    V1 = w[800AF54C];
-    V0 = hu[V1 + CC];
-    V0 = V0 + 3;
-    [V1 + CC] = h(V0);
-}
-
-[800AF594] = w(1);
-////////////////////////////////////////////////////////
 
 
 

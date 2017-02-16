@@ -72,8 +72,8 @@ system_get_rotation_based_on_vector_x_y();
 80073168	sw     sp, $0000(t0)
 8007316C	addiu  t0, t0, $fffc (=-$4)
 80073170	addu   sp, t0, zero
-80073174	jal    func728c0 [$800728c0]
-80073178	nop
+func728c0(); // camera update
+
 8007317C	addiu  sp, sp, $0004
 80073180	lw     sp, $0000(sp)
 80073184	lw     v0, $ffe8(s0)

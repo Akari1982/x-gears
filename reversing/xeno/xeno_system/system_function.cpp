@@ -32,7 +32,7 @@ if( w[8004ea04] == 1 )
 if( w[8004ea00] == 1 )
 {
     A0 = w[80061bb8];
-    8001B49C	jal    func39af4 [$80039af4]
+    func39af4();
 
     if( w[8004e9ec] == 0 )
     {
@@ -97,9 +97,9 @@ L38240:	; 80038240
 A0 = w[80058c58];
 system_bios_enable_event();
 
-80038250	lw     a0, $0028(s1)
-80038254	jal    func39588 [$80039588]
-80038258	nop
+A0 = w[S1 + 28];
+func39588();
+
 8003825C	lw     v1, $0028(s1)
 80038260	nop
 80038264	beq    v1, v0, L38274 [$80038274]
@@ -118,40 +118,102 @@ L3827c:	; 8003827C
 
 ////////////////////////////////
 // func3f558()
-8003F55C	lui    v1, $8006
-8003F560	lhu    v1, $8c18(v1)
-8003F564	addu   a1, a0, zero
-8003F568	andi   v0, v1, $0088
-8003F56C	bne    v0, zero, L3f5d0 [$8003f5d0]
+A1 = A0;
+V1 = hu[80058c18];
+if( V1 & 0088 )
+{
+    return;
+}
+[80058c18] = h(V1 | 0008);
 
-8003F574	ori    v0, v1, $0008
-8003F578	lui    at, $8006
-8003F57C	sh     v0, $8c18(at)
-8003F580	lui    at, $8006
-8003F584	sh     a1, $8b9c(at)
-8003F588	jal    func39588 [$80039588]
-8003F58C	lui    a0, $0001
+[80058b9c] = h(A1);
 
-8003F590	lui    a0, $8005
-8003F594	addiu  a0, a0, $ffe0 (=-$20)
+A0 = 10000;
+func39588();
+
+A0 = 8004ffe0;
+A1 = 0;
 8003F598	jal    func37e80 [$80037e80]
-8003F59C	addu   a1, zero, zero
 
-8003F5A0	lui    a0, $8005
-8003F5A4	addiu  a0, a0, $ffb0 (=-$50)
+A0 = 8004ffb0;
 8003F5A8	jal    func382d0 [$800382d0]
 
-
+A0 = 10;
 8003F5B0	jal    func3bca4 [$8003bca4]
-8003F5B4	ori    a0, zero, $0010
-8003F5B8	lui    a0, $8005
-8003F5BC	lhu    a0, $ffc4(a0)
-8003F5C0	nop
-8003F5C4	sll    a0, a0, $10
-8003F5C8	jal    func39d08 [$80039d08]
-8003F5CC	ori    a0, a0, $0001
 
-L3f5d0:	; 8003F5D0
+A0 = (hu[8004ffc4] << 10) | 0001;
+8003F5C8	jal    func39d08 [$80039d08]
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func37e80()
+80037E88	addu   s0, a0, zero
+80037E94	jal    func3809c [$8003809c]
+
+80037E9C	addu   s2, v0, zero
+80037EA0	bne    s2, zero, L37eb0 [$80037eb0]
+80037EA4	addu   a0, s2, zero
+80037EA8	j      L37ee8 [$80037ee8]
+80037EAC	ori    a0, zero, $001f
+
+L37eb0:	; 80037EB0
+80037EB0	addu   a3, zero, zero
+80037EB4	lw     a1, $0018(s0)
+80037EB8	lw     a2, $0014(s0)
+80037EBC	jal    func3bab8 [$8003bab8]
+80037EC0	addu   a1, s0, a1
+80037EC4	lw     a0, $0010(s0)
+80037EC8	jal    func38ecc [$80038ecc]
+80037ECC	nop
+80037ED0	addu   s1, v0, zero
+80037ED4	bne    s1, zero, L37ef8 [$80037ef8]
+80037ED8	addu   a0, s1, zero
+80037EDC	jal    func39588 [$80039588]
+80037EE0	addu   a0, s2, zero
+80037EE4	ori    a0, zero, $001e
+
+L37ee8:	; 80037EE8
+80037EE8	jal    func3f558 [$8003f558]
+80037EEC	nop
+80037EF0	j      L37f5c [$80037f5c]
+80037EF4	addu   v0, zero, zero
+
+L37ef8:	; 80037EF8
+80037EF8	lw     a2, $0010(s0)
+80037EFC	jal    func390f0 [$800390f0]
+80037F00	addu   a1, s0, zero
+80037F04	lui    a0, $8006
+80037F08	lw     a0, $8c58(a0)
+80037F10	sw     s2, $0028(s1)
+system_bios_disable_event();
+
+80037F14	lui    v0, $8006
+80037F18	lw     v0, $8bf4(v0)
+80037F1C	lui    a0, $8006
+80037F20	addiu  a0, a0, $8bf4 (=-$740c)
+80037F24	beq    v0, zero, L37f44 [$80037f44]
+80037F28	nop
+
+loop37f2c:	; 80037F2C
+80037F2C	lw     v0, $0000(a0)
+80037F30	nop
+80037F34	lw     v1, $002c(v0)
+80037F38	nop
+80037F3C	bne    v1, zero, loop37f2c [$80037f2c]
+80037F40	addiu  a0, v0, $002c
+
+L37f44:	; 80037F44
+80037F44	sw     s1, $0000(a0)
+80037F54	sw     zero, $002c(s1)
+80037F48	lui    a0, $8006
+80037F4C	lw     a0, $8c58(a0)
+system_bios_enable_event();
+
+80037F58	addu   v0, s1, zero
+
+L37f5c:	; 80037F5C
 ////////////////////////////////
 
 

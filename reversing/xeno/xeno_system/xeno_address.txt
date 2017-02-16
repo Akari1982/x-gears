@@ -287,7 +287,9 @@
 // start of music data (0x94 size) after this starts channels structs
 +00 [][][][] store here previous music data pointer from 0x80058c00.
 +08 [][][][] pointer to smd file.
-+10 [][]     some flags. Add 0x0001 on init.
++10 [][]     some flags.
+                0x0001 add on init.
+                0x8000 remove when stops all channels.
 +12 [][]     smd + 10.
 +14 []       number of channels.
 +16 [][]     smd + 16.
