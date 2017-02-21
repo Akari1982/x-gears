@@ -106,6 +106,10 @@
 800aeeac [][][][] some flags.
                     0x00000001 use 800aeef0 counter.
                     0x00000008 use 800aeed4 counter. Add in 0xA4 CameraAngle.
+800aeeb0 [][]     restriction cam x.
+800aeeb2 [][]     restriction cam z.
+800aeeb4 [][]     restriction cam width x.
+800aeeb6 [][]     restriction cam height z.
 800aeeba [][]     store some direction here. maybe for camera. func9efe4.
 800aeec0 [][][][] store here 2000000 divided by camera direction set by opcode 0xC7 CameraRotate.
 800aeec4 [][][][] store some direction here. maybe for camera. func9efe4.

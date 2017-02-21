@@ -51,5 +51,5 @@ flags:
 00020000 - auto sliding down.
 00200000 - animation_id set to 6.
 00400000 - we can go down on this material but can't go up. Auto sliding down. If we encount eny entity on the way - we don't collide with it.
-00800000 - we cant pass this material if walkmesh id == 0.
+00800000 - we cant pass this material.
 10000000 0 unpassable if walkmesh id == 0.
