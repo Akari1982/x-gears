@@ -1,78 +1,103 @@
 ////////////////////////////////
 // func728c0()
-800728C4	lui    a0, $800b
-800728C8	addiu  a0, a0, $ee08 (=-$11f8)
-800728D8	lh     v1, $0000(a0)
-800728DC	ori    v0, zero, $0001
-800728E0	beq    v1, v0, L72b30 [$80072b30]
-800728E4	slti   v0, v1, $0002
-800728E8	beq    v0, zero, L72900 [$80072900]
-800728EC	nop
-800728F0	beq    v1, zero, L7293c [$8007293c]
-800728F4	nop
+if( h[800aee08] == 0 )
+{
+    [800ad088] = w(0);
+
+    if( ( w[800ad084] & 3 ) == 0 )
+    {
+        if( w[800aee58] >= 9 )
+        {
+            [800aee58] = w(w[800aee58] - 2);
+        }
+        else
+        {
+            [800aee58] = w(8);
+        }
+
+        [800aee58] = w(V0);
+
+        if( w[800aee5c] >= 9 )
+        {
+            [800aee5c] = w(w[800aee5c] - 2);
+        }
+        else
+        {
+            [800aee5c] = w(8);
+        }
+    }
+
+    [800ad084] = w(w[800ad084] + 1);
+
+    80072934	j      L729b8 [$800729b8]
+}
+else if( h[800aee08] == 1 )
+{
+    [800ad084] = w(0);
+    [800ad088] = w(0);
+
+    if( hu[800aee10] & 0001 )
+    {
+        if( h[800aee12] != 0 )
+        {
+            [800aee14] = w(w[800aee14] + w[800aee24]);
+            [800aee18] = w(w[800aee18] + w[800aee28]);
+            [800aee1c] = w(w[800aee1c] + w[800aee2c]);
+        }
+
+        [800aee12] = h(h[800aee12] - 1);
+
+        if( h[800aee12] == 0 )
+        {
+            [800aee10] = h(hu[800aee10] & fffe);
+        }
+
+        [800aed94] = w(w[800aee14]);
+        [800aed98] = w(w[800aee18]);
+        [800aed9c] = w(w[800aee1c]);
+    }
+
+    if( hu[800aee10] & 0002 )
+    {
+        if( h[800aee34] != 0 )
+        {
+            [800aee38] = w(w[800aee38] + w[800aee48]);
+            [800aee3c] = w(w[800aee3c] + w[800aee4c]);
+            [800aee40] = w(w[800aee40] + w[800aee50]);
+        }
+
+        [800aee34] = h(h[800aee34] - 1);
+
+        if( h[800aee34] == 0 )
+        {
+            [800aee10] = h(hu[800aee10] & fffd);
+        }
+
+        [800aed84] = w(w[800aee38]);
+        [800aed88] = w(w[800aee3c]);
+        [800aed8c] = w(w[800aee40]);
+    }
+
+    800728F8	j      L72cdc [$80072cdc]
+}
+else if( h[800aee08] == 2 )
+{
+    [800ad088] = w(w[800ad088] + 1);
+    [800ad084] = w(0);
+
+    if( w[800ad088] >= 41 )
+    {
+        [800aee08] = h(0);
+    }
+    80072934	j      L729b8 [$800729b8]
+}
+
 800728F8	j      L72cdc [$80072cdc]
-800728FC	nop
 
-L72900:	; 80072900
-80072900	ori    v0, zero, $0002
-80072904	bne    v1, v0, L72cdc [$80072cdc]
-80072908	nop
-8007290C	lui    v0, $800b
-80072910	lw     v0, $d088(v0)
-80072914	lui    at, $800b
-80072918	sw     zero, $d084(at)
-8007291C	addiu  v0, v0, $0001
-80072920	lui    at, $800b
-80072924	sw     v0, $d088(at)
-80072928	slti   v0, v0, $0041
-8007292C	bne    v0, zero, L729b8 [$800729b8]
-80072930	nop
-80072934	j      L729b8 [$800729b8]
-80072938	sh     zero, $0000(a0)
 
-L7293c:	; 8007293C
-8007293C	lui    v0, $800b
-80072940	lw     v0, $d084(v0)
-80072944	lui    at, $800b
-80072948	sw     zero, $d088(at)
-8007294C	andi   v0, v0, $0003
-80072950	bne    v0, zero, L729a0 [$800729a0]
-80072954	nop
-80072958	lui    v1, $800b
-8007295C	lw     v1, $ee58(v1)
-80072960	nop
-80072964	slti   v0, v1, $0009
-80072968	bne    v0, zero, L72974 [$80072974]
-8007296C	ori    v0, zero, $0008
-80072970	addiu  v0, v1, $fffe (=-$2)
-
-L72974:	; 80072974
-80072974	lui    at, $800b
-80072978	sw     v0, $ee58(at)
-8007297C	lui    a0, $800b
-80072980	addiu  a0, a0, $ee5c (=-$11a4)
-80072984	lw     v1, $0000(a0)
-80072988	nop
-8007298C	slti   v0, v1, $0009
-80072990	bne    v0, zero, L7299c [$8007299c]
-80072994	ori    v0, zero, $0008
-80072998	addiu  v0, v1, $fffe (=-$2)
-
-L7299c:	; 8007299C
-8007299C	sw     v0, $0000(a0)
-
-L729a0:	; 800729A0
-800729A0	lui    v0, $800b
-800729A4	lw     v0, $d084(v0)
-800729A8	nop
-800729AC	addiu  v0, v0, $0001
-800729B0	lui    at, $800b
-800729B4	sw     v0, $d084(at)
 
 L729b8:	; 800729B8
-func71d78();
-
-
+func71d78(); // set camera rotation based on buttons and step rotation
 
 pc_entity_id = hu[800b1812];
 struct_5c_p = w[800aefe4];
@@ -86,439 +111,179 @@ A0 = SP + 18;
 A1 = h[struct_138 + 72]; // current y pos
 func720c8();
 
-80072A3C	lui    v0, $800b
-80072A40	lw     v0, $eeac(v0)
-80072A44	nop
-80072A48	andi   v0, v0, $4000
-80072A4C	bne    v0, zero, L72aa0 [$80072aa0]
-80072A50	addiu  v0, sp, $0028
-80072A54	lui    a0, $800b
-80072A58	lh     a0, $ed86(a0)
-80072A5C	lui    a1, $800b
-80072A60	lh     a1, $ed8e(a1)
-80072A64	lui    a2, $800b
-80072A68	lh     a2, $f028(a2)
-80072A6C	addiu  a3, sp, $0038
-80072A70	sw     v0, $0010(sp)
-80072A74	jal    func7a7d8 [$8007a7d8]
-80072A78	addiu  a2, a2, $ffff (=-$1)
-80072A7C	lui    v0, $800b
-80072A80	lh     v0, $ed8a(v0)
-80072A84	lh     v1, $003a(sp)
-80072A88	nop
-80072A8C	slt    v0, v1, v0
-80072A90	beq    v0, zero, L72aa0 [$80072aa0]
-80072A94	sll    v0, v1, $10
-80072A98	lui    at, $800b
-80072A9C	sw     v0, $ed88(at)
+if( ( w[800aeeac] & 00004000 ) == 0 )
+{
+    A0 = h[800aed86];
+    A1 = h[800aed8e];
+    A2 = h[800af028] - 1;
+    A3 = SP + 38;
+    A4 = SP + 28;
+    80072A74	jal    func7a7d8 [$8007a7d8]
 
-L72aa0:	; 80072AA0
-80072AA0	lui    s1, $800b
-80072AA4	addiu  s1, s1, $ee08 (=-$11f8)
-80072AA8	lh     v1, $0000(s1)
-80072AAC	ori    v0, zero, $0002
-80072AB0	bne    v1, v0, L72cdc [$80072cdc]
-80072AB4	nop
-80072AB8	lui    v1, $800b
-80072ABC	lh     v1, $ed96(v1)
-80072AC0	lui    a0, $800b
-80072AC4	lh     a0, $ed66(a0)
-80072AC8	lui    v0, $800b
-80072ACC	lh     v0, $ed9e(v0)
-80072AD0	lui    a1, $800b
-80072AD4	lh     a1, $ed6e(a1)
-80072AD8	subu   a0, v1, a0
-80072ADC	jal    length_of_vector_by_x_y [$80099020]
-80072AE0	subu   a1, v0, a1
-80072AE4	addu   s0, v0, zero
-80072AE8	lui    a2, $800b
-80072AEC	lh     a2, $ed86(a2)
-80072AF0	lui    a0, $800b
-80072AF4	lh     a0, $ed56(a0)
-80072AF8	lui    v1, $800b
-80072AFC	lh     v1, $ed8e(v1)
-80072B00	lui    a1, $800b
-80072B04	lh     a1, $ed5e(a1)
-80072B08	subu   a0, a2, a0
-80072B0C	jal    length_of_vector_by_x_y [$80099020]
-80072B10	subu   a1, v1, a1
-80072B14	slti   s0, s0, $0080
-80072B18	beq    s0, zero, L72cdc [$80072cdc]
-80072B1C	slti   v0, v0, $0080
-80072B20	beq    v0, zero, L72cdc [$80072cdc]
-80072B24	nop
-80072B28	j      L72cdc [$80072cdc]
-80072B2C	sh     zero, $0000(s1)
+    if( h[SP + 3a] < h[800aed8a] )
+    {
+        [800aed88] = w(h[SP + 3a] << 10);
+    }
+}
 
-L72b30:	; 80072B30
-80072B30	lui    a3, $800b
-80072B34	lhu    a3, $ee10(a3)
-80072B38	lui    at, $800b
-80072B3C	sw     zero, $d084(at)
-80072B40	lui    at, $800b
-80072B44	sw     zero, $d088(at)
-80072B48	andi   v0, a3, $0001
-80072B4C	beq    v0, zero, L72c0c [$80072c0c]
-80072B50	nop
-80072B54	lui    v0, $800b
-80072B58	lh     v0, $ee12(v0)
-80072B5C	nop
-80072B60	beq    v0, zero, L72bbc [$80072bbc]
-80072B64	addu   a2, v0, zero
-80072B68	lui    v0, $800b
-80072B6C	lw     v0, $ee14(v0)
-80072B70	lui    v1, $800b
-80072B74	lw     v1, $ee24(v1)
-80072B78	lui    a0, $800b
-80072B7C	lw     a0, $ee28(a0)
-80072B80	lui    a1, $800b
-80072B84	lw     a1, $ee2c(a1)
-80072B88	addu   v0, v0, v1
-80072B8C	lui    at, $800b
-80072B90	sw     v0, $ee14(at)
-80072B94	lui    v0, $800b
-80072B98	lw     v0, $ee18(v0)
+if( h[800aee08] == 2 )
+{
+    A0 = h[800aed96] - h[800aed66];
+    A1 = h[800aed9e] - h[800aed6e];
+    length_of_vector_by_x_y();
+    S0 = V0;
 
-L72b9c:	; 80072B9C
-80072B9C	lui    v1, $800b
-80072BA0	lw     v1, $ee1c(v1)
-80072BA4	addu   v0, v0, a0
-80072BA8	addu   v1, v1, a1
-80072BAC	lui    at, $800b
-80072BB0	sw     v0, $ee18(at)
-80072BB4	lui    at, $800b
-80072BB8	sw     v1, $ee1c(at)
+    A0 = h[800aed86] - h[800aed56];
+    A1 = h[800aed8e] - h[800aed5e];
+    length_of_vector_by_x_y();
 
-L72bbc:	; 80072BBC
-80072BBC	addiu  v0, a2, $ffff (=-$1)
-80072BC0	lui    at, $800b
-80072BC4	sh     v0, $ee12(at)
-80072BC8	sll    v0, v0, $10
-80072BCC	bne    v0, zero, L72bdc [$80072bdc]
-80072BD0	andi   v0, a3, $fffe
-80072BD4	lui    at, $800b
-80072BD8	sh     v0, $ee10(at)
-
-L72bdc:	; 80072BDC
-80072BDC	lui    v0, $800b
-80072BE0	lw     v0, $ee14(v0)
-80072BE4	lui    v1, $800b
-80072BE8	lw     v1, $ee18(v1)
-80072BEC	lui    a0, $800b
-80072BF0	lw     a0, $ee1c(a0)
-80072BF4	lui    at, $800b
-80072BF8	sw     v0, $ed94(at)
-80072BFC	lui    at, $800b
-80072C00	sw     v1, $ed98(at)
-80072C04	lui    at, $800b
-80072C08	sw     a0, $ed9c(at)
-
-L72c0c:	; 80072C0C
-80072C0C	lui    t0, $800b
-80072C10	addiu  t0, t0, $ee10 (=-$11f0)
-80072C14	lhu    a3, $0000(t0)
-80072C18	nop
-80072C1C	andi   v0, a3, $0002
-80072C20	beq    v0, zero, L72cdc [$80072cdc]
-80072C24	nop
-80072C28	lui    v0, $800b
-80072C2C	lh     v0, $ee34(v0)
-80072C30	nop
-80072C34	beq    v0, zero, L72c90 [$80072c90]
-80072C38	addu   a2, v0, zero
-80072C3C	lui    v0, $800b
-80072C40	lw     v0, $ee38(v0)
-80072C44	lui    v1, $800b
-80072C48	lw     v1, $ee48(v1)
-80072C4C	lui    a0, $800b
-80072C50	lw     a0, $ee4c(a0)
-80072C54	lui    a1, $800b
-80072C58	lw     a1, $ee50(a1)
-80072C5C	addu   v0, v0, v1
-80072C60	lui    at, $800b
-
-L72c64:	; 80072C64
-80072C64	sw     v0, $ee38(at)
-80072C68	lui    v0, $800b
-80072C6C	lw     v0, $ee3c(v0)
-80072C70	lui    v1, $800b
-80072C74	lw     v1, $ee40(v1)
-80072C78	addu   v0, v0, a0
-80072C7C	addu   v1, v1, a1
-80072C80	lui    at, $800b
-80072C84	sw     v0, $ee3c(at)
-80072C88	lui    at, $800b
-80072C8C	sw     v1, $ee40(at)
-
-L72c90:	; 80072C90
-80072C90	addiu  v0, a2, $ffff (=-$1)
-80072C94	lui    at, $800b
-80072C98	sh     v0, $ee34(at)
-80072C9C	sll    v0, v0, $10
-80072CA0	bne    v0, zero, L72cac [$80072cac]
-80072CA4	andi   v0, a3, $fffd
-80072CA8	sh     v0, $0000(t0)
-
-L72cac:	; 80072CAC
-80072CAC	lui    v0, $800b
-80072CB0	lw     v0, $ee38(v0)
-80072CB4	lui    v1, $800b
-80072CB8	lw     v1, $ee3c(v1)
-80072CBC	lui    a0, $800b
-80072CC0	lw     a0, $ee40(a0)
-80072CC4	lui    at, $800b
-80072CC8	sw     v0, $ed84(at)
-80072CCC	lui    at, $800b
-80072CD0	sw     v1, $ed88(at)
-80072CD4	lui    at, $800b
-80072CD8	sw     a0, $ed8c(at)
+    if( ( S0 & 0080 ) && ( V0 & 0080 ) )
+    {
+        [800aee08] = h(0);
+    }
+}
 
 L72cdc:	; 80072CDC
-80072CDC	jal    func72404 [$80072404]
-80072CE0	nop
-80072CE4	lui    v1, $800b
-80072CE8	addiu  v1, v1, $eeba (=-$1146)
-80072CEC	lhu    v0, $0000(v1)
-80072CF0	nop
-80072CF4	andi   v0, v0, $0fff
-80072CF8	sh     v0, $0000(v1)
+func72404();
+
+[800aeeba] = h(hu[800aeeba] & fff);
 ////////////////////////////////
 
 
 
 ////////////////////////////////
 // func71d78()
-80071D7C	lui    a0, $800b
-80071D80	lbu    a0, $eec8(a0)
-80071D84	ori    v1, zero, $00ff
-80071D8C	andi   v0, a0, $00ff
-80071D90	beq    v0, v1, L72028 [$80072028]
 
-80071D98	lui    v0, $800b
-80071D9C	lbu    v0, $eec9(v0)
-80071DA0	nop
-80071DA4	beq    v0, v1, L72028 [$80072028]
-80071DA8	nop
-80071DAC	lui    v0, $800b
-80071DB0	lh     v0, $eeca(v0)
-80071DB4	nop
-80071DB8	bne    v0, zero, L71ee0 [$80071ee0]
-80071DBC	nop
-80071DC0	lui    v0, $800b
-80071DC4	lhu    v0, $eeba(v0)
-80071DC8	nop
-80071DCC	andi   v0, v0, $0fff
-80071DD0	srl    v0, v0, $09
-80071DD4	lui    at, $800b
-80071DD8	addu   at, at, v0
-80071DDC	lbu    v0, $d0f4(at)
-80071DE0	nop
-80071DE4	and    v0, v0, a0
-80071DE8	beq    v0, zero, L71e34 [$80071e34]
-80071DEC	lui    v0, $ffc0
-80071DF0	lui    v1, $800b
-80071DF4	lw     v1, $eec0(v1)
-80071DF8	nop
-80071DFC	beq    v1, v0, L71e28 [$80071e28]
-80071E00	lui    a0, $0040
-80071E04	beq    v1, a0, L71e2c [$80071e2c]
-80071E08	ori    v0, zero, $0008
-80071E0C	lui    v0, $800b
-80071E10	lw     v0, $eee0(v0)
-80071E14	lui    at, $800b
-80071E18	sw     a0, $eec0(at)
-80071E1C	addiu  v0, v0, $0200
-80071E20	lui    at, $800b
-80071E24	sw     v0, $eee0(at)
+// ??? and not all camera direction locked
+if( ( ( bu[800aeec8] & ff ) != ff ) && ( bu[800aeec9] != ff ) )
+{
+    if( h[800aeeca] == 0 )
+    {
+        V0 = (hu[800aeeba] & fff) >> 9;
+        if( bu[800ad0f4 + V0] & bu[800aeec8] )
+        {
+            if( ( w[800aeec0] != ffc00000 ) && ( w[800aeec0] != 00400000 ) )
+            {
+                [800aeec0] = w(00400000);
+                [800aeee0] = w(w[800aeee0] + 200);
+            }
+            [800aeeca] = h(8);
+        }
 
-L71e28:	; 80071E28
-80071E28	ori    v0, zero, $0008
+        // if current cam direction disallowed
+        A1 = (hu[800aeeba] & fff) >> 9;
+        if( bu[800ad0f4 + A1] & bu[800aeec9] )
+        {
+            A0 = bu[800aeec9];
+            A1 = (hu[800aeeba] & fff) >> 9;
+            func719dc();
+            S0 = V0;
 
-L71e2c:	; 80071E2C
-80071E2C	lui    at, $800b
-80071E30	sh     v0, $eeca(at)
+            A0 = bu[800aeec9];
+            A1 = (hu[800aeeba] & fff) >> 9;
+            func71a28();
 
-L71e34:	; 80071E34
-80071E34	lui    s0, $800b
-80071E38	addiu  s0, s0, $eec9 (=-$1137)
-80071E3C	lui    v0, $800b
-80071E40	lhu    v0, $eeba(v0)
-80071E44	lbu    a0, $0000(s0)
-80071E48	andi   v0, v0, $0fff
-80071E4C	srl    a1, v0, $09
-80071E50	lui    at, $800b
-80071E54	addu   at, at, a1
-80071E58	lbu    v0, $d0f4(at)
-80071E5C	nop
-80071E60	and    v0, v0, a0
-80071E64	beq    v0, zero, L71ee0 [$80071ee0]
-80071E68	nop
-80071E6C	jal    func719dc [$800719dc]
-80071E70	nop
-80071E74	lui    a1, $800b
-80071E78	lhu    a1, $eeba(a1)
-80071E7C	lbu    a0, $0000(s0)
-80071E80	addu   s0, v0, zero
-80071E84	andi   a1, a1, $0fff
-80071E88	jal    func71a28 [$80071a28]
-80071E8C	srl    a1, a1, $09
-80071E90	slt    v0, v0, s0
-80071E94	beq    v0, zero, L71eb4 [$80071eb4]
-80071E98	lui    v1, $ffc0
-80071E9C	lui    v0, $800b
-80071EA0	lw     v0, $eee0(v0)
-80071EA4	lui    at, $800b
-80071EA8	sw     v1, $eec0(at)
-80071EAC	j      L71ecc [$80071ecc]
-80071EB0	addiu  v0, v0, $fe00 (=-$200)
+            if( V0 < S0 ) // closest allowed rotation
+            {
+                [800aeec0] = w(ffc00000);
+                [800aeee0] = w(w[800aeee0] - 200);
+                [800aeeca] = h(8);
+            }
+            else
+            {
+                [800aeec0] = w(00400000);
+                [800aeee0] = w(w[800aeee0] + 200);
+                [800aeeca] = h(8);
+            }
+        }
+    }
 
-L71eb4:	; 80071EB4
-80071EB4	lui    v0, $800b
-80071EB8	lw     v0, $eee0(v0)
-80071EBC	lui    v1, $0040
-80071EC0	lui    at, $800b
-80071EC4	sw     v1, $eec0(at)
-80071EC8	addiu  v0, v0, $0200
+    // L1 currently pressed and ???
+    if( ( hu[800af370] & 0004 ) && ( ( w[800aeeac] & 80000000 ) == 0 ) && ( h[800aeeca] == 0 ) )
+    {
+        V0 = ((h[800aeeba] - 200) & fff) >> 9;
+        if( ( bu[800ad0f4 + V0] & bu[800aeec9] ) == 0 )
+        {
+            [800aeec0] = w(ffc00000);
+            [800aeeca] = h(8);
+            [800aeee0] = w(w[800aeee0] - 200);
+        }
+    }
 
-L71ecc:	; 80071ECC
-80071ECC	lui    at, $800b
-80071ED0	sw     v0, $eee0(at)
-80071ED4	ori    v0, zero, $0008
-80071ED8	lui    at, $800b
-80071EDC	sh     v0, $eeca(at)
+    // R1 currently pressed and ???
+    if( ( hu[800af370] & 0008 ) && ( ( w[800aeeac] & 00008000 ) == 0 ) && ( h[800aeeca] == 0 ) )
+    {
+        V0 = ((h[800aeeba] + 200) & fff) >> 9;
+        if( ( bu[800ad0f4 + V0] & bu[800aeec9] ) == 0 )
+        {
+            [800aeec0] = w(00400000);
+            [800aeeca] = h(8);
+            [800aeee0] = w(w[800aeee0] + 200);
+        }
+    }
+}
 
-L71ee0:	; 80071EE0
-80071EE0	lui    v0, $800b
-80071EE4	lhu    v0, $f370(v0)
-80071EE8	nop
-80071EEC	andi   v0, v0, $0004
-80071EF0	beq    v0, zero, L71f84 [$80071f84]
-80071EF4	nop
-80071EF8	lui    v0, $800b
-80071EFC	lw     v0, $eeac(v0)
-80071F00	nop
-80071F04	andi   v0, v0, $8000
-80071F08	bne    v0, zero, L71f84 [$80071f84]
-80071F0C	nop
-80071F10	lui    v0, $800b
-80071F14	lh     v0, $eeca(v0)
-80071F18	nop
-80071F1C	bne    v0, zero, L71f84 [$80071f84]
-80071F20	nop
-80071F24	lui    v0, $800b
-80071F28	lh     v0, $eeba(v0)
-80071F2C	lui    v1, $800b
-80071F30	lbu    v1, $eec9(v1)
-80071F34	addiu  v0, v0, $fe00 (=-$200)
-80071F38	andi   v0, v0, $0fff
-80071F3C	sra    v0, v0, $09
-80071F40	lui    at, $800b
-80071F44	addu   at, at, v0
-80071F48	lbu    v0, $d0f4(at)
-80071F4C	nop
-80071F50	and    v0, v0, v1
-80071F54	bne    v0, zero, L71f84 [$80071f84]
-80071F58	lui    v0, $ffc0
-80071F5C	lui    at, $800b
-80071F60	sw     v0, $eec0(at)
-80071F64	lui    v0, $800b
-80071F68	lw     v0, $eee0(v0)
-80071F6C	ori    v1, zero, $0008
-80071F70	lui    at, $800b
-80071F74	sh     v1, $eeca(at)
-80071F78	addiu  v0, v0, $fe00 (=-$200)
-80071F7C	lui    at, $800b
-80071F80	sw     v0, $eee0(at)
+// perform one rotation step
+if( h[800aeeca] != 0 )
+{
+    [800aeec4] = w(w[800aeec4] + w[800aeec0]);
+    [800aeeba] = h(w[800aeec4] >> 10);
+    [800aeeca] = h(hu[800aeeca] - 1);
+}
 
-L71f84:	; 80071F84
-80071F84	lui    v0, $800b
-80071F88	lhu    v0, $f370(v0)
-80071F8C	nop
-80071F90	andi   v0, v0, $0008
-80071F94	beq    v0, zero, L72028 [$80072028]
-80071F98	nop
-80071F9C	lui    v0, $800b
-80071FA0	lw     v0, $eeac(v0)
-80071FA4	nop
-80071FA8	andi   v0, v0, $8000
-80071FAC	bne    v0, zero, L72028 [$80072028]
-80071FB0	nop
-80071FB4	lui    v0, $800b
-80071FB8	lh     v0, $eeca(v0)
-80071FBC	nop
-80071FC0	bne    v0, zero, L7203c [$8007203c]
-80071FC4	nop
-80071FC8	lui    v0, $800b
-80071FCC	lh     v0, $eeba(v0)
-80071FD0	lui    v1, $800b
-80071FD4	lbu    v1, $eec9(v1)
-80071FD8	addiu  v0, v0, $0200
-80071FDC	andi   v0, v0, $0fff
-80071FE0	sra    v0, v0, $09
-80071FE4	lui    at, $800b
-80071FE8	addu   at, at, v0
-80071FEC	lbu    v0, $d0f4(at)
-80071FF0	nop
-80071FF4	and    v0, v0, v1
-80071FF8	bne    v0, zero, L72028 [$80072028]
-80071FFC	lui    v0, $0040
-80072000	lui    at, $800b
-80072004	sw     v0, $eec0(at)
-80072008	lui    v0, $800b
-8007200C	lw     v0, $eee0(v0)
-80072010	ori    v1, zero, $0008
-80072014	lui    at, $800b
-80072018	sh     v1, $eeca(at)
-8007201C	addiu  v0, v0, $0200
-80072020	lui    at, $800b
-80072024	sw     v0, $eee0(at)
+if( hu[800aeeca] == 0 )
+{
+    [800aeeba] = h(w[800aeee0]);
+}
 
-L72028:	; 80072028
-80072028	lui    v0, $800b
-8007202C	lh     v0, $eeca(v0)
-80072030	nop
-80072034	beq    v0, zero, L72088 [$80072088]
-80072038	nop
+if( w[800c1b60] == 0 )
+{
+    800720AC	0C0A13BE	ѕ...
+}
+////////////////////////////////
 
-L7203c:	; 8007203C
-8007203C	lui    a0, $800b
-80072040	addiu  a0, a0, $eec4 (=-$113c)
-80072044	lw     v0, $0000(a0)
-80072048	lui    v1, $800b
 
-func7204c:	; 8007204C
-8007204C	lw     v1, $eec0(v1)
-80072050	nop
-80072054	addu   v0, v0, v1
-80072058	sw     v0, $0000(a0)
-8007205C	lui    v1, $800b
-80072060	lhu    v1, $eeca(v1)
-80072064	sra    v0, v0, $10
-80072068	lui    at, $800b
-8007206C	sh     v0, $eeba(at)
-80072070	addiu  v1, v1, $ffff (=-$1)
-80072074	lui    at, $800b
-80072078	sh     v1, $eeca(at)
-8007207C	sll    v1, v1, $10
-80072080	bne    v1, zero, L72098 [$80072098]
-80072084	nop
 
-L72088:	; 80072088
-80072088	lui    v0, $800b
-8007208C	lw     v0, $eee0(v0)
-80072090	lui    at, $800b
-80072094	sh     v0, $eeba(at)
+////////////////////////////////
+// func719dc()
+disable = A0;
+rot = A1;
 
-L72098:	; 80072098
-80072098	lui    v0, $800c
-8007209C	lw     v0, $1b60(v0)
-800720A0	nop
-800720A4	bne    v0, zero, L720b4 [$800720b4]
-800720A8	nop
-800720AC	0C0A13BE	ѕ...
-800720B0	nop
+A2 = 0;
+loop719e4:	; 800719E4
+    if( ( bu[800ad0f4 + (rot & 7)] & disable ) == 0 )
+    {
+        return A2;
+    }
 
-L720b4:	; 800720B4
+    rot = rot + 1;
+    A2 = A2 + 1;
+    V0 = V1 < 8;
+80071A14	bne    v0, zero, loop719e4 [$800719e4]
+
+return 0;
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func71a28()
+disable = A0;
+rot = A1;
+
+A2 = 0;
+loop71a30:	; 80071A30
+    if( ( bu[800ad0f4 + (rot & 7)] & disable ) == 0 )
+    {
+        return A2;
+    }
+
+    rot = rot - 1;
+    A2 = A2 + 1;
+    V0 = V1 < 8;
+80071A60	bne    v0, zero, loop71a30 [$80071a30]
+
+return 0;
 ////////////////////////////////
 
 
@@ -568,10 +333,12 @@ if( V0 == -1 ) // we found triangle
 }
 else
 {
+    // if we don't found triangle - use data from entity
+    [800aed94] = w(w[S0 + 0]); // x
+    [800aed98] = w(ffe00000 + w[S0 + 4]); // y
+    [800aed9c] = w(w[S0 + 8]); // z
+
     [800ad080] = w(0);
-    [800aed94] = w(w[S0 + 0]);
-    [800aed98] = w(ffe00000 + w[S0 + 4]);
-    [800aed9c] = w(w[S0 + 8]);
 }
 
 
@@ -588,8 +355,9 @@ system_sin();
 
 
 
+A0 = 800aed84;
 A1 = 800aed94;
-800722F8	jal    func72d14 [$80072d14]
+func72d14(); // calculate cam pos with rotation (maybe look at point)
 
 
 
@@ -597,9 +365,8 @@ if( w[800aeeac] & 00000001 )
 {
     if( h[800aeef0] != 0 )
     {
-        V0 = w[800aeef4] + w[800aeef8];
-        [800aeef4] = w(V0);
-        [800aeed2] = h(V0 >> 10);
+        [800aeef4] = w(w[800aeef4] + w[800aeef8]);
+        [800aeed2] = h(w[800aeef4] >> 10);
     }
 
     [800aeef0] = h(h[800aeef0] - 1);
@@ -613,9 +380,8 @@ if( w[800aeeac] & 00000001 )
 
 if( w[800aeeac] & 00000008 )
 {
-    V0 = w[800aeed8] + w[800aeedc];
-    [800aeed8] = w(V0);
-    [800aeed0] = h(V0 >> 10);
+    [800aeed8] = w(w[800aeed8] + w[800aeedc]);
+    [800aeed0] = h(w[800aeed8] >> 10);
 
     [800aeed4] = h(hu[800aeed4]) - 1;
     if( hu[800aeed4] == 0 )
@@ -623,6 +389,34 @@ if( w[800aeeac] & 00000008 )
         [800aeeac] = w(w[800aeeac] & 0000fff7)
     }
 }
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func72d14()
+S1 = A0;
+cam_pos = A1;
+
+system_gte_push_matrix();
+
+A0 = 800aeeb8; // rot angles vector
+A1 = SP + 10;
+system_calculate_rotation_matrix();
+
+[SP + 30] = w(w[cam_pos + 0] - w[S1 + 0]);
+[SP + 34] = w(w[cam_pos + 4] - w[S1 + 4]);
+[SP + 38] = w(w[cam_pos + 8] - w[S1 + 8]);
+
+A0 = SP + 10;
+A1 = SP + 30;
+A2 = SP + 40;
+system_gte_apply_matrix_lv();
+
+[S1 + 0] = w(w[cam_pos + 0] + w[SP + 40]);
+[S1 + 8] = w(w[cam_pos + 8] + w[SP + 48]);
+
+system_gte_pop_matrix();
 ////////////////////////////////
 
 
@@ -912,4 +706,254 @@ else if( A1 == 4 )
 [ret_addr + 6] = h(fin_z);
 
 return -1;
+////////////////////////////////
+
+
+
+////////////////////////////////
+// func72404()
+if( w[800aeeac] & 00000010 )
+{
+    if( h[800aeee4] != 0 )
+    {
+        [800aeee8] = w(w[800aeee8] + w[800aeeec]);
+        [800aeecc] = w(w[800aeee8] >> 10);
+    }
+
+    [800aeee4] = h(h[800aeee4] - 1);
+
+    if( h[800aeee4] < 0 )
+    {
+        [800aeeac] = w(w[800aeeac] & 0000ffef);
+        [800aeee4] = h(0);
+    }
+}
+
+
+
+if( w[800b16ac] != 0 )
+{
+    [800aee58] = w(1);
+    [800aee5c] = w(1);
+    [800b16ac] = w(w[800b16ac] - 1);
+}
+
+
+
+T0 = w[800aee58] * w[800aee58];
+A3 = w[800aee5c] * w[800aee5c];
+
+if( ( w[800aed54] >> 10 ) != ( w[800aed84] >> 10 ) )
+{
+    V1 = w[800aed84] - w[800aed54];
+    V0 = V1 >> 10;
+    if( ( V0 * V0 ) >= A3 )
+    {
+        [800aed54] = w(w[800aed54] + (V1 / w[800aee5c]));
+    }
+}
+
+8007252C	lui    a2, $800b
+80072530	addiu  a2, a2, $ed5c (=-$12a4)
+80072534	lw     a0, $0000(a2)
+80072538	lui    a1, $800b
+8007253C	lw     a1, $ed8c(a1)
+80072540	sra    v1, a0, $10
+80072544	sra    v0, a1, $10
+80072548	beq    v1, v0, L72588 [$80072588]
+8007254C	subu   v1, a1, a0
+80072550	sra    v0, v1, $10
+80072554	mult   v0, v0
+80072558	mflo   t1
+8007255C	slt    v0, t1, a3
+80072560	bne    v0, zero, L72588 [$80072588]
+80072564	nop
+80072568	lui    v0, $800b
+8007256C	lw     v0, $ee5c(v0)
+80072570	nop
+80072574	div    v1, v0
+80072578	mflo   v0
+8007257C	nop
+80072580	addu   v0, a0, v0
+80072584	sw     v0, $0000(a2)
+
+L72588:	; 80072588
+80072588	lui    a2, $800b
+8007258C	addiu  a2, a2, $ed58 (=-$12a8)
+80072590	lw     a0, $0000(a2)
+80072594	lui    a1, $800b
+80072598	lw     a1, $ed88(a1)
+8007259C	sra    v1, a0, $10
+800725A0	sra    v0, a1, $10
+800725A4	beq    v1, v0, L725e4 [$800725e4]
+800725A8	subu   v1, a1, a0
+800725AC	sra    v0, v1, $10
+800725B0	mult   v0, v0
+800725B4	mflo   t1
+800725B8	slt    v0, t1, a3
+800725BC	bne    v0, zero, L725e4 [$800725e4]
+800725C0	nop
+800725C4	lui    v0, $800b
+800725C8	lw     v0, $ee5c(v0)
+800725CC	nop
+800725D0	div    v1, v0
+800725D4	mflo   v0
+800725D8	nop
+800725DC	addu   v0, a0, v0
+800725E0	sw     v0, $0000(a2)
+
+L725e4:	; 800725E4
+800725E4	lui    a2, $800b
+800725E8	addiu  a2, a2, $ed64 (=-$129c)
+800725EC	lw     a0, $0000(a2)
+800725F0	lui    a1, $800b
+800725F4	lw     a1, $ed94(a1)
+800725F8	sra    v1, a0, $10
+800725FC	sra    v0, a1, $10
+80072600	beq    v1, v0, L72640 [$80072640]
+80072604	subu   v1, a1, a0
+80072608	sra    v0, v1, $10
+8007260C	mult   v0, v0
+80072610	mflo   t1
+80072614	slt    v0, t1, t0
+80072618	bne    v0, zero, L72640 [$80072640]
+8007261C	nop
+80072620	lui    v0, $800b
+80072624	lw     v0, $ee58(v0)
+80072628	nop
+8007262C	div    v1, v0
+80072630	mflo   v0
+80072634	nop
+80072638	addu   v0, a0, v0
+8007263C	sw     v0, $0000(a2)
+
+L72640:	; 80072640
+80072640	lui    a2, $800b
+80072644	addiu  a2, a2, $ed6c (=-$1294)
+80072648	lw     a0, $0000(a2)
+8007264C	lui    a1, $800b
+80072650	lw     a1, $ed9c(a1)
+80072654	sra    v1, a0, $10
+80072658	sra    v0, a1, $10
+8007265C	beq    v1, v0, L7269c [$8007269c]
+80072660	subu   v1, a1, a0
+80072664	sra    v0, v1, $10
+80072668	mult   v0, v0
+8007266C	mflo   t1
+80072670	slt    v0, t1, t0
+80072674	bne    v0, zero, L7269c [$8007269c]
+80072678	nop
+8007267C	lui    v0, $800b
+80072680	lw     v0, $ee58(v0)
+80072684	nop
+80072688	div    v1, v0
+8007268C	mflo   v0
+80072690	nop
+80072694	addu   v0, a0, v0
+80072698	sw     v0, $0000(a2)
+
+L7269c:	; 8007269C
+8007269C	lui    a2, $800b
+800726A0	addiu  a2, a2, $ed68 (=-$1298)
+800726A4	lw     a0, $0000(a2)
+800726A8	lui    a1, $800b
+800726AC	lw     a1, $ed98(a1)
+800726B0	sra    v1, a0, $10
+800726B4	sra    v0, a1, $10
+800726B8	beq    v1, v0, L726f8 [$800726f8]
+800726BC	subu   v1, a1, a0
+800726C0	sra    v0, v1, $10
+800726C4	mult   v0, v0
+800726C8	mflo   t1
+800726CC	slt    v0, t1, t0
+800726D0	bne    v0, zero, L726f8 [$800726f8]
+800726D4	nop
+800726D8	lui    v0, $800b
+800726DC	lw     v0, $ee58(v0)
+800726E0	nop
+800726E4	div    v1, v0
+800726E8	mflo   v0
+800726EC	nop
+800726F0	addu   v0, a0, v0
+800726F4	sw     v0, $0000(a2)
+
+L726f8:	; 800726F8
+800726F8	lui    v0, $800b
+800726FC	lh     v0, $eefc(v0)
+80072700	lui    at, $800b
+80072704	sw     zero, $edb4(at)
+80072708	lui    at, $800b
+8007270C	sw     zero, $edb8(at)
+80072710	lui    at, $800b
+80072714	sw     zero, $edbc(at)
+if( V0 != 0 )
+{
+    if( h[800aeefe] != 0 )
+    {
+        80072734	lui    v0, $800b
+        80072738	lw     v0, $ef04(v0)
+        8007273C	lui    v1, $800b
+        80072740	lw     v1, $ef10(v1)
+        80072744	lui    a0, $800b
+        80072748	lw     a0, $ef14(a0)
+        8007274C	lui    a1, $800b
+        80072750	lw     a1, $ef18(a1)
+        80072754	addu   v0, v0, v1
+        80072758	lui    at, $800b
+        8007275C	sw     v0, $ef04(at)
+        80072760	lui    v0, $800b
+        80072764	lw     v0, $ef08(v0)
+        80072768	lui    v1, $800b
+        8007276C	lw     v1, $ef0c(v1)
+        80072770	addu   v0, v0, a0
+        80072774	addu   v1, v1, a1
+        80072778	lui    at, $800b
+        8007277C	sw     v0, $ef08(at)
+        80072780	lui    at, $800b
+        80072784	sw     v1, $ef0c(at)
+    }
+    else
+    {
+        if( h[800aef00] != 0 )
+        {
+            [800aeefc] = h(0);
+            [800aef00] = h(0);
+            [800aef04] = w(0);
+            [800aef08] = w(0);
+            [800aef0c] = w(0);
+        }
+    }
+
+    system_get_random_2_bytes();
+    [800aedb4] = w(h[800aef06] * V0);
+
+    system_get_random_2_bytes();
+    [800aedb8] = w(h[800aef0a] * V0);
+
+    system_get_random_2_bytes();
+    [800aedbc] = w(h[800aef0e] * V0);
+
+    if( w[800aedb4] < 0 )
+    {
+        [800aedb4] = w(0);
+        [800aed04] = w(0);
+    }
+
+    if( w[800aedb8] < 0 )
+    {
+        [800aedb8] = w(0);
+        [800aed08] = w(0);
+    }
+
+    if( w[800aedbc] < 0 )
+    {
+        [800aedbc] = w(0);
+        [800aed0c] = w(0);
+    }
+
+    if( h[800aeefe] > 0 )
+    {
+        [800aeefe] = h(h[800aeefe] - 1);
+    }
+}
 ////////////////////////////////

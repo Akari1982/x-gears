@@ -11156,7 +11156,7 @@ L1e8dc:	; 8001E8DC
 8001E90C	addiu  a1, sp, $0048
 8001E910	lhu    v0, $0084(s3)
 8001E914	addiu  a2, sp, $0050
-8001E918	jal    system_matrix_vector_multiply_GTE [$80049b94]
+8001E918	jal    system_gte_apply_matrix [$80049b94]
 8001E91C	sh     v0, $004a(sp)
 8001E920	addu   a0, s0, zero
 8001E924	lw     v0, $003c(sp)
@@ -14360,7 +14360,7 @@ L255d0:	; 800255D0
 80025614	andi   v0, v0, $0002
 80025618	beq    v0, zero, L256d0 [$800256d0]
 8002561C	nop
-80025620	jal    func494b4 [$800494b4]
+80025620	jal    system_gte_push_matrix [$800494b4]
 80025624	nop
 80025628	lw     v0, $0020(s2)
 8002562C	nop
@@ -14402,7 +14402,7 @@ L255d0:	; 800255D0
 800256BC	addu   a0, s1, zero
 800256C0	jal    func49dd4 [$80049dd4]
 800256C4	addu   a0, s0, zero
-800256C8	jal    func49554 [$80049554]
+800256C8	jal    system_gte_pop_matrix [$80049554]
 800256CC	nop
 
 L256d0:	; 800256D0
@@ -14546,7 +14546,7 @@ L25858:	; 80025858
 800258C0	sh     v0, $004a(sp)
 800258C4	lh     v0, $000a(s1)
 800258C8	addiu  a2, sp, $0038
-800258CC	jal    system_matrix_vector_multiply_GTE [$80049b94]
+800258CC	jal    system_gte_apply_matrix [$80049b94]
 800258D0	sh     v0, $004c(sp)
 800258D4	lui    v0, $8005
 800258D8	lw     v0, $f270(v0)
@@ -14956,7 +14956,7 @@ L25d7c:	; 80025D7C
 80025E44	sll    a0, a0, $10
 80025E48	sra    a0, a0, $10
 80025E4C	sw     v1, $0048(sp)
-80025E50	jal    func494b4 [$800494b4]
+80025E50	jal    system_gte_push_matrix [$800494b4]
 80025E54	sw     a0, $004c(sp)
 80025E58	addiu  s0, sp, $0028
 80025E5C	addu   a0, s0, zero
@@ -15146,7 +15146,7 @@ L260dc:	; 800260DC
 800260EC	lw     a0, $0078(sp)
 800260F0	jal    system_gte_set_projection_plane_distance [$80049ff4]
 800260F4	nop
-800260F8	jal    func49554 [$80049554]
+800260F8	jal    system_gte_pop_matrix [$80049554]
 800260FC	nop
 80026100	lh     v0, $0000(s7)
 80026104	lw     ra, $00a4(sp)
@@ -42952,12 +42952,8 @@ L48f80:	; 80048F80
 
 ////////////////////////////////
 // system_gte_matrix_multiplication_to_A2
-800490B4-800491BC
+800490B4-800491C0
 ////////////////////////////////
-
-
-
-800491C0	nop
 
 
 
@@ -42968,119 +42964,11 @@ L48f80:	; 80048F80
 
 
 
-func49324:	; 80049324
-80049324	lw     t0, $0000(a0)
-80049328	lw     t1, $0004(a0)
-8004932C	lw     t2, $0008(a0)
-80049330	lw     t3, $000c(a0)
-80049334	lw     t4, $0010(a0)
-80049338	ctc2   t0,vxy0
-8004933C	ctc2   t1,vz0
-80049340	ctc2   t2,vxy1
-80049344	ctc2   t3,vz1
-80049348	ctc2   t4,vxy2
-8004934C	lw     t0, $0000(a1)
-80049350	lw     t1, $0004(a1)
-80049354	lw     t2, $0008(a1)
-80049358	bgez   t0, L4937c [$8004937c]
-8004935C	sra    t3, t0, $0f
-80049360	subu   t0, zero, t0
-80049364	sra    t3, t0, $0f
-80049368	andi   t0, t0, $7fff
-8004936C	subu   t3, zero, t3
-80049370	beq    zero, zero, L49380 [$80049380]
-80049374	subu   t0, zero, t0
-80049378	sra    t3, t0, $0f
+////////////////////////////////
+// system_gte_apply_matrix_lv
+80049324-80049480
+////////////////////////////////
 
-L4937c:	; 8004937C
-8004937C	andi   t0, t0, $7fff
-
-L49380:	; 80049380
-80049380	bgez   t1, L493a4 [$800493a4]
-80049384	sra    t4, t1, $0f
-80049388	subu   t1, zero, t1
-8004938C	sra    t4, t1, $0f
-80049390	andi   t1, t1, $7fff
-80049394	subu   t4, zero, t4
-80049398	beq    zero, zero, L493a8 [$800493a8]
-8004939C	subu   t1, zero, t1
-800493A0	sra    t4, t1, $0f
-
-L493a4:	; 800493A4
-800493A4	andi   t1, t1, $7fff
-
-L493a8:	; 800493A8
-800493A8	bgez   t2, L493cc [$800493cc]
-800493AC	sra    t5, t2, $0f
-800493B0	subu   t2, zero, t2
-800493B4	sra    t5, t2, $0f
-800493B8	andi   t2, t2, $7fff
-800493BC	subu   t5, zero, t5
-800493C0	beq    zero, zero, L493d0 [$800493d0]
-800493C4	subu   t2, zero, t2
-800493C8	sra    t5, t2, $0f
-
-L493cc:	; 800493CC
-800493CC	andi   t2, t2, $7fff
-
-L493d0:	; 800493D0
-800493D0	mtc2   t3,l13l21
-800493D4	mtc2   t4,l22l23
-800493D8	mtc2   t5,l31l32
-800493DC	nop
-800493E0	gte_func18at,dqb
-800493E4	mfc2   t3,ofy
-800493E8	mfc2   t4,h
-800493EC	mfc2   t5,dqa
-800493F0	mtc2   t0,l13l21
-800493F4	mtc2   t1,l22l23
-800493F8	mtc2   t2,l31l32
-800493FC	nop
-80049400	gte_func18t1,dqb
-80049404	bgez   t3, L4941c [$8004941c]
-80049408	nop
-8004940C	subu   t3, zero, t3
-80049410	sll    t3, t3, $03
-80049414	beq    zero, zero, L49420 [$80049420]
-80049418	subu   t3, zero, t3
-
-L4941c:	; 8004941C
-8004941C	sll    t3, t3, $03
-
-L49420:	; 80049420
-80049420	bgez   t4, L49438 [$80049438]
-80049424	nop
-80049428	subu   t4, zero, t4
-8004942C	sll    t4, t4, $03
-80049430	beq    zero, zero, L4943c [$8004943c]
-80049434	subu   t4, zero, t4
-
-L49438:	; 80049438
-80049438	sll    t4, t4, $03
-
-L4943c:	; 8004943C
-8004943C	bgez   t5, L49454 [$80049454]
-80049440	nop
-80049444	subu   t5, zero, t5
-80049448	sll    t5, t5, $03
-8004944C	beq    zero, zero, L49458 [$80049458]
-80049450	subu   t5, zero, t5
-
-L49454:	; 80049454
-80049454	sll    t5, t5, $03
-
-L49458:	; 80049458
-80049458	mfc2   t0,ofy
-8004945C	mfc2   t1,h
-80049460	mfc2   t2,dqa
-80049464	addu   t0, t0, t3
-80049468	addu   t1, t1, t4
-8004946C	addu   t2, t2, t5
-80049470	sw     t0, $0000(a2)
-80049474	sw     t1, $0004(a2)
-80049478	sw     t2, $0008(a2)
-8004947C	jr     ra 
-80049480	addu   v0, a2, zero
 
 
 func49484:	; 80049484
@@ -43098,96 +42986,18 @@ func49484:	; 80049484
 800494B0	nop
 
 
-func494b4:	; 800494B4
-800494B4	lui    t6, $8005
-800494B8	lw     t6, $63cc(t6)
-800494BC	nop
-800494C0	slti   at, t6, $0280
-800494C4	bne    at, zero, L494f0 [$800494f0]
-800494C8	lui    at, $8005
-800494CC	sw     ra, $63c0(at)
-800494D0	lui    a0, $8005
-800494D4	jal    func199e8 [$800199e8]
-800494D8	addiu  a0, a0, $6650
-800494DC	lui    ra, $8005
-800494E0	lw     ra, $63c0(ra)
-800494E4	nop
-800494E8	jr     ra 
-800494EC	nop
+
+////////////////////////////////
+// system_gte_push_matrix
+800494B4-80049550
+////////////////////////////////
 
 
-L494f0:	; 800494F0
-800494F0	lui    t7, $8005
-800494F4	addu   t7, t7, t6
-800494F8	addiu  t7, t7, $63d0
-800494FC	cfc2   t0,vxy0
-80049500	cfc2   t1,vz0
-80049504	sw     t0, $0000(t7)
-80049508	sw     t1, $0004(t7)
-8004950C	cfc2   t0,vxy1
-80049510	cfc2   t1,vz1
-80049514	sw     t0, $0008(t7)
-80049518	sw     t1, $000c(t7)
-8004951C	cfc2   t0,vxy2
-80049520	nop
-80049524	sw     t0, $0010(t7)
-80049528	cfc2   t0,vz2
-8004952C	cfc2   t1,rgb
-80049530	cfc2   t2,otz
-80049534	sw     t0, $0014(t7)
-80049538	sw     t1, $0018(t7)
-8004953C	sw     t2, $001c(t7)
-80049540	addi   t6, t6, $0020
-80049544	lui    at, $8005
-80049548	sw     t6, $63cc(at)
-8004954C	jr     ra 
-80049550	nop
 
-
-func49554:	; 80049554
-80049554	lui    t6, $8005
-80049558	lw     t6, $63cc(t6)
-8004955C	nop
-80049560	bgtz   t6, L4958c [$8004958c]
-80049564	lui    at, $8005
-80049568	sw     ra, $63c0(at)
-8004956C	lui    a0, $8005
-80049570	jal    func199e8 [$800199e8]
-80049574	addiu  a0, a0, $6681
-80049578	lui    ra, $8005
-8004957C	lw     ra, $63c0(ra)
-80049580	nop
-80049584	jr     ra 
-80049588	nop
-
-
-L4958c:	; 8004958C
-8004958C	addi   t6, t6, $ffe0 (=-$20)
-80049590	lui    at, $8005
-80049594	sw     t6, $63cc(at)
-80049598	lui    t7, $8005
-8004959C	addu   t7, t7, t6
-800495A0	addiu  t7, t7, $63d0
-800495A4	lw     t0, $0000(t7)
-800495A8	lw     t1, $0004(t7)
-800495AC	ctc2   t0,vxy0
-800495B0	ctc2   t1,vz0
-800495B4	lw     t0, $0008(t7)
-800495B8	lw     t1, $000c(t7)
-800495BC	ctc2   t0,vxy1
-800495C0	ctc2   t1,vz1
-800495C4	lw     t0, $0010(t7)
-800495C8	nop
-800495CC	ctc2   t0,vxy2
-800495D0	nop
-800495D4	lw     t0, $0014(t7)
-800495D8	lw     t1, $0018(t7)
-800495DC	lw     t2, $001c(t7)
-800495E0	ctc2   t0,vz2
-800495E4	ctc2   t1,rgb
-800495E8	ctc2   t2,otz
-800495EC	jr     ra 
-800495F0	nop
+////////////////////////////////
+// system_gte_pop_matrix
+80049554-800495F0
+////////////////////////////////
 
 
 
@@ -43401,7 +43211,7 @@ L49940:	; 80049940
 
 
 ////////////////////////////////
-// system_matrix_vector_multiply_GTE
+// system_gte_apply_matrix
 80049B94-80049BE0
 ////////////////////////////////
 

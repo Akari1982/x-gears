@@ -2225,7 +2225,7 @@ D4100280 // f7
     80021464	addu   a1, s0, zero
     80021468	addu   a0, s0, zero
     8002146C	addiu  a1, s3, $000c
-    80021470	jal    func49324 [$80049324]
+    80021470	jal    system_gte_apply_matrix_lv [$80049324]
     80021474	addiu  a2, sp, $0020
     80021478	lw     v0, $0020(sp)
     8002147C	nop

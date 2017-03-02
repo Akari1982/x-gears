@@ -80,7 +80,7 @@ L1e088:	; 8001E088
 8001E0A8	lh     v0, $000a(s1)
 8001E0AC	addiu  a2, sp, $0018
 8001E0B4	sh     v0, $0014(sp)
-system_matrix_vector_multiply_GTE;
+system_gte_apply_matrix;
 
 8001E0B8	lui    v0, $8005
 8001E0BC	lw     v0, $f270(v0)

@@ -58,13 +58,34 @@ struct_138 = w[800af54c];
 
 
 ////////////////////////////////
-// 0xC7 CameraRotate
+// 0xC7 CameraRotateRight
 if( h[800aeeca] == 0 )
 {
     A0 = 1;
     read_two_bytes_with_80;
 
     A0 = 0;
+    A1 = V0;
+    func9ad7c();
+
+    // move script pointer
+    struct_138 = w[800af54c];
+    [struct_138 + cc] = h(hu[struct_138 + cc] + 3);
+}
+
+[800af594] = w(1); // wait
+////////////////////////////////
+
+
+
+////////////////////////////////
+// 0xC8 CameraRotateLeft
+if( h[800aeeca] == 0 )
+{
+    A0 = 1;
+    read_two_bytes_with_80;
+
+    A0 = 1;
     A1 = V0;
     func9ad7c();
 

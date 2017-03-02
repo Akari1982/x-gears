@@ -395,7 +395,7 @@ AC0C0C80 // 9C
         800C0CE0	sh     v0, $0018(sp)
         800C0CE4	addu   a0, s0, zero
         800C0CE8	addiu  a1, sp, $0018
-        800C0CEC	jal    system_matrix_vector_multiply_GTE [$80049b94]
+        800C0CEC	jal    system_gte_apply_matrix [$80049b94]
         800C0CF0	addiu  a2, sp, $0040
         800C0CF4	lui    a0, $0001
         800C0CF8	ori    a0, a0, $e000

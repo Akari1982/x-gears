@@ -54,7 +54,7 @@ if (arg_3 > 0)
         A0 = w[model_struct + 4] + 2c; // matrix
         A1 = SP + 48; // vector
         A2 = SP + 38; // result
-        system_matrix_vector_multiply_GTE;
+        system_gte_apply_matrix;
 
         A0 = w[model_struct + 4];
         [A0 + 5c] = w(w[A0 + 5c] + ((h[model_struct + 1c] * w[SP + 38]) >> c));

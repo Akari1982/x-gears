@@ -11960,7 +11960,7 @@ L7b120:	; 8007B120
 8007B204	addiu  v0, zero, $f000 (=-$1000)
 8007B208	sh     zero, $00a0(s4)
 8007B20C	sh     v0, $00a2(s4)
-8007B210	jal    system_matrix_vector_multiply_GTE [$80049b94]
+8007B210	jal    system_gte_apply_matrix [$80049b94]
 8007B214	sh     zero, $00a4(s4)
 8007B218	addu   a0, s4, zero
 8007B21C	addu   a1, s3, zero
@@ -22439,7 +22439,7 @@ L848f8:	; 800848F8
 80084AEC	sh     a3, $0114(at)
 80084AF0	lui    at, $1f80
 80084AF4	sh     a3, $011a(at)
-80084AF8	jal    func49324 [$80049324]
+80084AF8	jal    system_gte_apply_matrix_lv [$80049324]
 80084AFC	ori    a2, a2, $0040
 80084B00	lui    v0, $1f80
 80084B04	lw     v0, $0040(v0)
@@ -27045,7 +27045,7 @@ L88c1c:	; 80088C1C
 80088C44	sw     v0, $ffbc(s2)
 80088C48	addu   a0, s0, zero
 80088C4C	addiu  a1, s6, $0024
-80088C50	jal    system_matrix_vector_multiply_GTE [$80049b94]
+80088C50	jal    system_gte_apply_matrix [$80049b94]
 80088C54	addiu  a2, s3, $0020
 80088C58	andi   v0, s4, $0020
 80088C5C	bne    v0, zero, L88c7c [$80088c7c]
@@ -27139,7 +27139,7 @@ L88d44:	; 80088D44
 80088D84	mflo   a3
 80088D88	addu   v0, v0, a3
 80088D8C	addu   v0, v0, v1
-80088D90	jal    system_matrix_vector_multiply_GTE [$80049b94]
+80088D90	jal    system_gte_apply_matrix [$80049b94]
 80088D94	sw     v0, $ffc8(s2)
 80088D98	andi   v0, s4, $0040
 80088D9C	bne    v0, zero, L88dbc [$80088dbc]
@@ -42554,7 +42554,7 @@ L96370:	; 80096370
 80096394	sw     zero, $0004(at)
 80096398	lui    at, $1f80
 8009639C	sw     s0, $0008(at)
-800963A0	jal    func49324 [$80049324]
+800963A0	jal    system_gte_apply_matrix_lv [$80049324]
 800963A4	ori    a2, a2, $0010
 800963A8	lui    v0, $1f80
 800963AC	lw     v0, $0010(v0)
@@ -42594,7 +42594,7 @@ L96418:	; 80096418
 80096424	sh     v0, $00a2(at)
 80096428	lui    at, $1f80
 8009642C	sh     zero, $00a4(at)
-80096430	jal    system_matrix_vector_multiply_GTE [$80049b94]
+80096430	jal    system_gte_apply_matrix [$80049b94]
 80096434	addiu  a2, s1, $0010
 80096438	lw     ra, $0020(sp)
 8009643C	lw     s3, $001c(sp)
@@ -42853,7 +42853,7 @@ L966b8:	; 800966B8
 800967F0	lw     v1, $001c(s1)
 800967F4	sw     v0, $0018(t0)
 800967F8	sw     v1, $001c(t0)
-800967FC	jal    system_matrix_vector_multiply_GTE [$80049b94]
+800967FC	jal    system_gte_apply_matrix [$80049b94]
 80096800	lui    a2, $1f80
 80096804	addu   a0, s1, zero
 80096808	jal    func49c44 [$80049c44]
@@ -43002,7 +43002,7 @@ L96958:	; 80096958
 80096A18	sw     v0, $0010(s1)
 80096A1C	sw     v1, $0014(s1)
 80096A20	sw     a3, $0018(s1)
-80096A24	jal    system_matrix_vector_multiply_GTE [$80049b94]
+80096A24	jal    system_gte_apply_matrix [$80049b94]
 80096A28	sw     t0, $001c(s1)
 80096A2C	addu   a0, s0, zero
 80096A30	jal    func49c44 [$80049c44]

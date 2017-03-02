@@ -126,8 +126,9 @@ gte_func16t8,r11r12     gte_RTPS        Perspective transform
 gte_func17t0,r11r12     gte_RTPT        Perspective transform on 3 points.
 
 gte_func18t0,r11r12     gte_rtv0tr      v0 * rotmatrix + tr vector.
-gte_func18t1,dqb        gte_rtir12      ir * rotmatrix.
 gte_func18t0,l33        gte_rtv0        v0 * rotmatrix.
+gte_func18at,dqb        gte_rtir0       ir * rotmatrix.
+gte_func18t1,dqb        gte_rtir12      ir * rotmatrix.
 
 gte_func19t8,r11r12     gte_DPCS        Depth Cueing.
 

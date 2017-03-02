@@ -1,4 +1,141 @@
 ////////////////////////////////
+// system_gte_apply_matrix_lv()
+R11R12 = w[A0 + 0];
+R13R21 = w[A0 + 4];
+R22R23 = w[A0 + 8];
+R31R32 = w[A0 + c];
+R33 = w[A0 + 10];
+
+T0 = w[A1 + 0];
+T1 = w[A1 + 4];
+T2 = w[A1 + 8];
+
+if( T0 < 0 )
+{
+    T3 = 0 - ((0 - T0) >> f);
+    T0 = 0 - ((0 - T0) & 7fff);
+}
+else
+{
+    T3 = T0 >> f;
+    T0 = T0 & 7fff;
+}
+
+if( T1 < 0 )
+{
+    T4 = 0 - ((0 - T1) >> f);
+    T1 = 0 - ((0 - T1) & 7fff);
+}
+else
+{
+    T4 = T1 >> f;
+    T1 = T1 & 7fff;
+}
+
+if( T2 < 0 )
+{
+    T5 = 0 - ((0 - T2) >> f);
+    T2 = 0 - ((0 - T2) & 7fff);
+}
+else
+{
+    T5 = T2 >> f;
+    T2 = T2 & 7fff;
+}
+
+IR1 = T3;
+IR2 = T4;
+IR3 = T5;
+gte_rtir0(); // ir * rotmatrix
+T3 = MAC1 * 8;
+T4 = MAC2 * 8;
+T5 = MAC3 * 8;
+
+IR1 = T0;
+IR2 = T1;
+IR3 = T2;
+gte_rtir12(); // ir * rotmatrix
+[A2 + 0] = w(T3 + MAC1);
+[A2 + 4] = w(T4 + MAC2);
+[A2 + 8] = w(T5 + MAC3);
+
+return A2;
+////////////////////////////////
+
+
+
+////////////////////////////////
+// system_gte_apply_matrix()
+R11R12 = w[A0 + 0];
+R13R21 = w[A0 + 4];
+R22R23 = w[A0 + 8];
+R31R32 = w[A0 + c];
+R33 = w[A0 + 10];
+
+VXY0 = w[A1 + 0];
+VZ0 = w[A1 + 4];
+gte_rtv0(); // v0 * rotmatrix.
+[A2 + 0] = w(MAC1);
+[A2 + 4] = w(MAC2);
+[A2 + 8] = w(MAC3);
+
+return A2;
+////////////////////////////////
+
+
+
+////////////////////////////////
+// system_gte_push_matrix()
+// Saves a constant rotation matrix on a stack. The stack has 20 slots.
+T6 = w[800563cc];
+if( T6 >= 280 )
+{
+    A0 = 80056650; // "Error: Can't push matrix,stack(max 20) is full!"
+    800494D4	jal    func199e8 [$800199e8]
+}
+else
+{
+    [800563d0 + T6 + 0] = w(R11R12);
+    [800563d0 + T6 + 4] = w(R13R21);
+    [800563d0 + T6 + 8] = w(R22R23);
+    [800563d0 + T6 + c] = w(R31R32);
+    [800563d0 + T6 + 10] = w(R33);
+    [800563d0 + T6 + 14] = w(TRX);
+    [800563d0 + T6 + 18] = w(TRY);
+    [800563d0 + T6 + 1c] = w(TRZ);
+    [800563cc] = w(T6 + 20);
+}
+////////////////////////////////
+
+
+
+////////////////////////////////
+// system_gte_pop_matrix()
+// Resets a constant rotation matrix from a stack.
+T6 = w[800563cc];
+if( T6 <= 0 )
+{
+    A0 = 80056681; // "Error: Can't pop matrix,stack is empty!"
+    80049570	jal    func199e8 [$800199e8]
+}
+else
+{
+    T6 = T6 - 20;
+    [800563cc] = w(T6);
+    R11R12 = w[800563d0 + T6 + 0];
+    R13R21 = w[800563d0 + T6 + 4];
+    R22R23 = w[800563d0 + T6 + 8];
+    R31R32 = w[800563d0 + T6 + c];
+    R33 = w[800563d0 + T6 + 10];
+    TRX = w[800563d0 + T6 + 14];
+    TRY = w[800563d0 + T6 + 18];
+    TRZ = w[800563d0 + T6 + 1c];
+}
+////////////////////////////////
+
+
+
+////////////////////////////////
 // system_gte_set_projection_plane_distance()
 H = A0;
 ////////////////////////////////
@@ -359,26 +496,6 @@ gte_op12(); // Outer product
 R11R12 = T5;
 R22R23 = T6;
 R33 = T7;
-////////////////////////////////
-
-
-
-////////////////////////////////
-// system_matrix_vector_multiply_GTE()
-R11R12 = w[A0 + 0];
-R13R21 = w[A0 + 4];
-R22R23 = w[A0 + 8];
-R31R32 = w[A0 + c];
-R33 = w[A0 + 10];
-
-VXY0 = w[A1 + 0];
-VZ0 = w[A1 + 4];
-gte_rtv0(); // v0 * rotmatrix.
-[A2 + 0] = w(MAC1);
-[A2 + 4] = w(MAC2);
-[A2 + 8] = w(MAC3);
-
-return A2;
 ////////////////////////////////
 
 

@@ -53,6 +53,7 @@
 800ad070 [][][][] checked if equal to 0 in func83f40.
 
 800ad07ñ [][][][] store here time from last draw time.
+800ad080 [][][][] 1 if we use cam y pos same as entity y. 0 otherwise.
 
 800ad0a8 [][][][] store 1 when start load battle.
 
@@ -69,6 +70,8 @@
 
 800ad0e4 [][][][] checked if equal to 1 in func83f40.
 800ad0e8 [][][][] some index in 0x1f800000. Maybe move stack?
+
+800ad0f4 array of 1 bytes of camera rotation mask for each direction.
 
 800ad43c [][][][] store here 0, 1 during entity script2 3 call checking.
 
@@ -102,25 +105,46 @@
 
 800aec3c some data during texture set (func910b0).
 
+800aed84 [][][][] x pos of cam after rot.
+800aed88 [][][][] y pos of cam after rot.
+800aed8c [][][][] z pos of cam after rot.
+
+800aed94 [][][][] x pos of cam after bound alterations.
+800aed98 [][][][] y pos of cam with height addition.
+800aed9c [][][][] z pos of cam after bound alterations.
+
+800aee08 [][]     camera mode (0, 1, 2)
+
+800aee58 [][][][] store 1 here if 800b16ac not 0.
+800aee5c [][][][] store 1 here if 800b16ac not 0.
 800aee60 [][]     some rotation (maybe camera rotation).
 800aeeac [][][][] some flags.
-                    0x00000001 use 800aeef0 counter.
+                    0x00000001 use 800aeef0 decrement counter.
                     0x00000008 use 800aeed4 counter. Add in 0xA4 CameraAngle.
+                    0x00000010 use 800aeee4 decrement counter.
 800aeeb0 [][]     restriction cam x.
 800aeeb2 [][]     restriction cam z.
 800aeeb4 [][]     restriction cam width x.
 800aeeb6 [][]     restriction cam height z.
-800aeeba [][]     store some direction here. maybe for camera. func9efe4.
-800aeec0 [][][][] store here 2000000 divided by camera direction set by opcode 0xC7 CameraRotate.
-800aeec4 [][][][] store some direction here. maybe for camera. func9efe4.
-800aeeca [][]     store here camera direction set by opcode 0xC7 CameraRotate.
+800aeeb8 [][]     cam x rot.
+800aeeba [][]     cam y rot.
+800aeebc [][]     cam z rot.
+800aeec0 [][][][] camera rotate one step size.
+800aeec4 [][][][] camera current rotation for rotate by steps.
+800aeec8 []       some other disallowed camera direction (not used in manual rot restriction). Only in current check.
+800aeec9 []       disallowed camera directions mask. If bit is set then we cant rotate to that direction.
+800aeeca [][]     number of camera rotate steps left.
+800aeecc [][][][] copy of upper part of 800aeee8. Used in 800aed88 and 800aed8c calculation.
 800aeed0 [][]     copy of upper part of 800aeed8.
 800aeed2 [][]     copy of upper part of 800aeef4.
 800aeed4 [][][][] number of steps. If 0 the remove flag 0x00000008 in 800aeeac. Store here param_3 & 7f from opcode 0xA4 CameraAngle.
 800aeed8 [][][][] main value. Increase this by 800aeedc. Start value 800aeed0 << 0x10 when call opcode 0xA4 CameraAngle.
 800aeedc [][][][] step value. Increase 800aeed8 by this. Calculated in opcode 0xA4 CameraAngle.
-800aeee0 [][][][] store some direction here. maybe for camera. func9efe4. Discrease by 0x200 in opcode 0xC7 CameraRotate.
-800aeef0 [][][][] number of steps. If 0 the remove flag 0x00000001 in 800aeeac.
+800aeee0 [][][][] final camera rotation during step rotation.
+800aeee4 [][]     number of steps left.
+800aeee8 [][][][] main value. Increase this by 800aeeec.
+800aeeec [][][][] step value. Increase 800aeee8 by this.
+800aeef0 [][][][] number of steps. If 0 the remove flag 0x00000001 in 800aeeac. Increment 800aeef4 by 800aeef8.
 800aeef4 [][][][] main value. Increase this by 800aeef8.
 800aeef8 [][][][] step value. Increase 800aeef4 by this.
 
@@ -560,9 +584,10 @@
 800b168c [][][][] store here id of sound to play.
 
 800b16a0 []       if this is not 0 we nulify triangle material mask. If this not 0 we do not run scripts for party character entity (in call_run_script_8 (move related)).
+800b16a1 []       if 0 then we use entity y pos for camera y.
 
 800b16aa [][]     if this != 8 then dialog speed doubled (store 2 instead of 1)
-800b16ac [][][][] increase by 2 if we set camera direction by opcode 0xC7 CameraRotate to 0.
+800b16ac [][][][] increase by 2 if we set camera direction by opcode 0xC7 CameraRotate to 0. Store 1 to 800aee58 and 800aee5c if this not 0 and decrement.
 
 800b1740 [][][][] store entity id which controls party leader here.
 
