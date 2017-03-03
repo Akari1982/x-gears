@@ -719,17 +719,13 @@ if( w[800aeeac] & 00000010 )
         [800aeee8] = w(w[800aeee8] + w[800aeeec]);
         [800aeecc] = w(w[800aeee8] >> 10);
     }
-
     [800aeee4] = h(h[800aeee4] - 1);
-
     if( h[800aeee4] < 0 )
     {
         [800aeeac] = w(w[800aeeac] & 0000ffef);
         [800aeee4] = h(0);
     }
 }
-
-
 
 if( w[800b16ac] != 0 )
 {
@@ -738,190 +734,85 @@ if( w[800b16ac] != 0 )
     [800b16ac] = w(w[800b16ac] - 1);
 }
 
-
-
-T0 = w[800aee58] * w[800aee58];
-A3 = w[800aee5c] * w[800aee5c];
-
 if( ( w[800aed54] >> 10 ) != ( w[800aed84] >> 10 ) )
 {
     V1 = w[800aed84] - w[800aed54];
     V0 = V1 >> 10;
-    if( ( V0 * V0 ) >= A3 )
+    if( ( V0 * V0 ) >= ( w[800aee5c] * w[800aee5c] ) )
     {
         [800aed54] = w(w[800aed54] + (V1 / w[800aee5c]));
     }
 }
 
-8007252C	lui    a2, $800b
-80072530	addiu  a2, a2, $ed5c (=-$12a4)
-80072534	lw     a0, $0000(a2)
-80072538	lui    a1, $800b
-8007253C	lw     a1, $ed8c(a1)
-80072540	sra    v1, a0, $10
-80072544	sra    v0, a1, $10
-80072548	beq    v1, v0, L72588 [$80072588]
-8007254C	subu   v1, a1, a0
-80072550	sra    v0, v1, $10
-80072554	mult   v0, v0
-80072558	mflo   t1
-8007255C	slt    v0, t1, a3
-80072560	bne    v0, zero, L72588 [$80072588]
-80072564	nop
-80072568	lui    v0, $800b
-8007256C	lw     v0, $ee5c(v0)
-80072570	nop
-80072574	div    v1, v0
-80072578	mflo   v0
-8007257C	nop
-80072580	addu   v0, a0, v0
-80072584	sw     v0, $0000(a2)
+if( ( w[800aed58] >> 10 ) != ( w[800aed88] >> 10 ) )
+{
+    V1 = w[800aed88] - w[800aed58];
+    V0 = V1 >> 10;
+    if( ( V0 * V0 ) >= ( w[800aee5c] * w[800aee5c] ) )
+    {
+        [800aed58] = w(w[800aed58] + (V1 / w[800aee5c]));
+    }
+}
 
-L72588:	; 80072588
-80072588	lui    a2, $800b
-8007258C	addiu  a2, a2, $ed58 (=-$12a8)
-80072590	lw     a0, $0000(a2)
-80072594	lui    a1, $800b
-80072598	lw     a1, $ed88(a1)
-8007259C	sra    v1, a0, $10
-800725A0	sra    v0, a1, $10
-800725A4	beq    v1, v0, L725e4 [$800725e4]
-800725A8	subu   v1, a1, a0
-800725AC	sra    v0, v1, $10
-800725B0	mult   v0, v0
-800725B4	mflo   t1
-800725B8	slt    v0, t1, a3
-800725BC	bne    v0, zero, L725e4 [$800725e4]
-800725C0	nop
-800725C4	lui    v0, $800b
-800725C8	lw     v0, $ee5c(v0)
-800725CC	nop
-800725D0	div    v1, v0
-800725D4	mflo   v0
-800725D8	nop
-800725DC	addu   v0, a0, v0
-800725E0	sw     v0, $0000(a2)
+if( ( w[800aed5c] >> 10 ) != ( w[800aed8c] >> 10 ) )
+{
+    V1 = w[800aed8c] - w[800aed5c];
+    V0 = V1 >> 10;
+    if( ( V0 * V0 ) >= ( w[800aee5c] * w[800aee5c] ) )
+    {
+        [800aed5c] = w(w[800aed5c] + (V1 / w[800aee5c]));
+    }
+}
 
-L725e4:	; 800725E4
-800725E4	lui    a2, $800b
-800725E8	addiu  a2, a2, $ed64 (=-$129c)
-800725EC	lw     a0, $0000(a2)
-800725F0	lui    a1, $800b
-800725F4	lw     a1, $ed94(a1)
-800725F8	sra    v1, a0, $10
-800725FC	sra    v0, a1, $10
-80072600	beq    v1, v0, L72640 [$80072640]
-80072604	subu   v1, a1, a0
-80072608	sra    v0, v1, $10
-8007260C	mult   v0, v0
-80072610	mflo   t1
-80072614	slt    v0, t1, t0
-80072618	bne    v0, zero, L72640 [$80072640]
-8007261C	nop
-80072620	lui    v0, $800b
-80072624	lw     v0, $ee58(v0)
-80072628	nop
-8007262C	div    v1, v0
-80072630	mflo   v0
-80072634	nop
-80072638	addu   v0, a0, v0
-8007263C	sw     v0, $0000(a2)
+if( ( w[800aed64] >> 10 ) != ( w[800aed94] >> 10 ) )
+{
+    V1 = w[800aed94] - w[800aed64];
+    V0 = V1 >> 10;
+    if( ( V0 * V0 ) >= ( w[800aee58] * w[800aee58] ) )
+    {
+        [800aed64] = w(w[800aed64] + (V1 / w[800aee58]));
+    }
+}
 
-L72640:	; 80072640
-80072640	lui    a2, $800b
-80072644	addiu  a2, a2, $ed6c (=-$1294)
-80072648	lw     a0, $0000(a2)
-8007264C	lui    a1, $800b
-80072650	lw     a1, $ed9c(a1)
-80072654	sra    v1, a0, $10
-80072658	sra    v0, a1, $10
-8007265C	beq    v1, v0, L7269c [$8007269c]
-80072660	subu   v1, a1, a0
-80072664	sra    v0, v1, $10
-80072668	mult   v0, v0
-8007266C	mflo   t1
-80072670	slt    v0, t1, t0
-80072674	bne    v0, zero, L7269c [$8007269c]
-80072678	nop
-8007267C	lui    v0, $800b
-80072680	lw     v0, $ee58(v0)
-80072684	nop
-80072688	div    v1, v0
-8007268C	mflo   v0
-80072690	nop
-80072694	addu   v0, a0, v0
-80072698	sw     v0, $0000(a2)
+if( ( w[800aed68] >> 10 ) != ( w[800aed98] >> 10 ) )
+{
+    V1 = w[800aed98] - w[800aed68];
+    V0 = V1 >> 10;
+    if( ( V0 * V0 ) >= ( w[800aee58] * w[800aee58] ) )
+    {
+        [800aed68] = w(w[800aed68] + (V1 / w[800aee58]))
+    }
+}
 
-L7269c:	; 8007269C
-8007269C	lui    a2, $800b
-800726A0	addiu  a2, a2, $ed68 (=-$1298)
-800726A4	lw     a0, $0000(a2)
-800726A8	lui    a1, $800b
-800726AC	lw     a1, $ed98(a1)
-800726B0	sra    v1, a0, $10
-800726B4	sra    v0, a1, $10
-800726B8	beq    v1, v0, L726f8 [$800726f8]
-800726BC	subu   v1, a1, a0
-800726C0	sra    v0, v1, $10
-800726C4	mult   v0, v0
-800726C8	mflo   t1
-800726CC	slt    v0, t1, t0
-800726D0	bne    v0, zero, L726f8 [$800726f8]
-800726D4	nop
-800726D8	lui    v0, $800b
-800726DC	lw     v0, $ee58(v0)
-800726E0	nop
-800726E4	div    v1, v0
-800726E8	mflo   v0
-800726EC	nop
-800726F0	addu   v0, a0, v0
-800726F4	sw     v0, $0000(a2)
+if( ( w[800aed6c] >> 10 ) != ( w[800aed9c] >> 10 ) )
+{
+    V1 = w[800aed9c] - w[800aed6c];
+    V0 = V1 >> 10;
+    if( ( V0 * V0 ) >= ( w[800aee58] * w[800aee58] ) )
+    {
+        [800aed6c] = w(w[800aed6c] + (V1 / w[800aee58]));
+    }
+}
 
-L726f8:	; 800726F8
-800726F8	lui    v0, $800b
-800726FC	lh     v0, $eefc(v0)
-80072700	lui    at, $800b
-80072704	sw     zero, $edb4(at)
-80072708	lui    at, $800b
-8007270C	sw     zero, $edb8(at)
-80072710	lui    at, $800b
-80072714	sw     zero, $edbc(at)
-if( V0 != 0 )
+[800aedb4] = w(0);
+[800aedb8] = w(0);
+[800aedbc] = w(0);
+
+if( h[800aeefc] != 0 )
 {
     if( h[800aeefe] != 0 )
     {
-        80072734	lui    v0, $800b
-        80072738	lw     v0, $ef04(v0)
-        8007273C	lui    v1, $800b
-        80072740	lw     v1, $ef10(v1)
-        80072744	lui    a0, $800b
-        80072748	lw     a0, $ef14(a0)
-        8007274C	lui    a1, $800b
-        80072750	lw     a1, $ef18(a1)
-        80072754	addu   v0, v0, v1
-        80072758	lui    at, $800b
-        8007275C	sw     v0, $ef04(at)
-        80072760	lui    v0, $800b
-        80072764	lw     v0, $ef08(v0)
-        80072768	lui    v1, $800b
-        8007276C	lw     v1, $ef0c(v1)
-        80072770	addu   v0, v0, a0
-        80072774	addu   v1, v1, a1
-        80072778	lui    at, $800b
-        8007277C	sw     v0, $ef08(at)
-        80072780	lui    at, $800b
-        80072784	sw     v1, $ef0c(at)
+        [800aef04] = w(w[800aef04] + w[800aef10]);
+        [800aef08] = w(w[800aef08] + w[800aef14]);
+        [800aef0c] = w(w[800aef0c] + w[800aef18]);
     }
-    else
+    else if( h[800aef00] != 0 )
     {
-        if( h[800aef00] != 0 )
-        {
-            [800aeefc] = h(0);
-            [800aef00] = h(0);
-            [800aef04] = w(0);
-            [800aef08] = w(0);
-            [800aef0c] = w(0);
-        }
+        [800aeefc] = h(0);
+        [800aef00] = h(0);
+        [800aef04] = w(0);
+        [800aef08] = w(0);
+        [800aef0c] = w(0);
     }
 
     system_get_random_2_bytes();

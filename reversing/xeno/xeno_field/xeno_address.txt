@@ -105,6 +105,14 @@
 
 800aec3c some data during texture set (func910b0).
 
+800aed54 [][][][] x pos
+800aed58 [][][][] y pos
+800aed5c [][][][] z pos
+
+800aed64 [][][][] x pos
+800aed68 [][][][] y pos
+800aed6c [][][][] z pos
+
 800aed84 [][][][] x pos of cam after rot.
 800aed88 [][][][] y pos of cam after rot.
 800aed8c [][][][] z pos of cam after rot.
@@ -112,6 +120,10 @@
 800aed94 [][][][] x pos of cam after bound alterations.
 800aed98 [][][][] y pos of cam with height addition.
 800aed9c [][][][] z pos of cam after bound alterations.
+
+800aedb4 [][][][] set to 0 when cam update. Shake data?
+800aedb8 [][][][] set to 0 when cam update. Shake data?
+800aedbc [][][][] set to 0 when cam update. Shake data?
 
 800aee08 [][]     camera mode (0, 1, 2)
 
@@ -147,6 +159,15 @@
 800aeef0 [][][][] number of steps. If 0 the remove flag 0x00000001 in 800aeeac. Increment 800aeef4 by 800aeef8.
 800aeef4 [][][][] main value. Increase this by 800aeef8.
 800aeef8 [][][][] step value. Increase 800aeef4 by this.
+800aeefc [][]     if not 0 do shake logic.
+800aeefe [][]     number of steps for increase shake 800aef04 800aef08 800aef0c.
+800aef00 [][]     in not 0 set itself, 800aeefc and 800aef04 800aef08 800aef0c to 0.
+800aef04 [][][][] increased by 800aef10 if 800aeefe not 0.
+800aef08 [][][][] increased by 800aef14 if 800aeefe not 0.
+800aef0c [][][][] increased by 800aef18 if 800aeefe not 0.
+800aef10 [][][][] increment for 800aef04.
+800aef14 [][][][] increment for 800aef08.
+800aef18 [][][][] increment for 800aef0c.
 
 800aef38 some matrix and translation.
 800aef78 some matrix and translation.
