@@ -1997,8 +1997,13 @@ system_calculate_rotation_matrix();
 800702C8	addiu  v0, v0, $1970
 800702CC	lui    at, $800c
 800702D0	sw     v0, $3740(at)
-800702D4	jal    func71bdc [$80071bdc]
-800702D8	nop
+
+
+
+func71bdc(); // init camera
+
+
+
 800702DC	jal    func70314 [$80070314]
 800702E0	nop
 800702E4	jal    func85ac8 [$80085ac8]

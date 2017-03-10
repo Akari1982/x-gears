@@ -54,6 +54,8 @@
 
 800ad07ñ [][][][] store here time from last draw time.
 800ad080 [][][][] 1 if we use cam y pos same as entity y. 0 otherwise.
+800ad084 [][][][] set to 0 in cam mode 2. Counter for cam mode 0. Each &3 == 0 we do adjustments to 800aee58 and 800aee5c.
+800ad088 [][][][] some incremental counter used while in cam mode 2. When reach 0x41 set cam mode (800aee08) to 0.
 
 800ad0a8 [][][][] store 1 when start load battle.
 
@@ -105,6 +107,10 @@
 
 800aec3c some data during texture set (func910b0).
 
+800aed04 [][][][] x pos. Set to 0 when shake less than 0.
+800aed08 [][][][] y pos. Set to 0 when shake less than 0.
+800aed0c [][][][] z pos. Set to 0 when shake less than 0.
+
 800aed54 [][][][] x pos
 800aed58 [][][][] y pos
 800aed5c [][][][] z pos
@@ -127,6 +133,24 @@
 
 800aee08 [][]     camera mode (0, 1, 2)
 
+800aee10 [][]     flags in cam mod 1.
+                    0x0001 - use counter 800aee12.
+                    0x0002 - use counter 800aee34.
+800aee12 [][]     counter. If not 0 increase 800aee14 by 800aee24 and so on.
+800aee14 [][][][] some x value.
+800aee18 [][][][] some y value.
+800aee1c [][][][] some z value.
+800aee24 [][][][] increase 800aee14 value.
+800aee28 [][][][] increase 800aee18 value.
+800aee2c [][][][] increase 800aee1c value.
+800aee34 [][]     counter. If not 0 increase 800aee38 by 800aee48 and so on.
+800aee38 [][][][] some x value.
+800aee3c [][][][] some y value.
+800aee40 [][][][] some z value.
+800aee48 [][][][] increase 800aee38 value.
+800aee4c [][][][] increase 800aee3c value.
+800aee50 [][][][] increase 800aee40 value.
+
 800aee58 [][][][] store 1 here if 800b16ac not 0.
 800aee5c [][][][] store 1 here if 800b16ac not 0.
 800aee60 [][]     some rotation (maybe camera rotation).
@@ -134,6 +158,7 @@
                     0x00000001 use 800aeef0 decrement counter.
                     0x00000008 use 800aeed4 counter. Add in 0xA4 CameraAngle.
                     0x00000010 use 800aeee4 decrement counter.
+                    0x00004000 if this == 0 recalculate cam pos in cam mode 0 or 2.
 800aeeb0 [][]     restriction cam x.
 800aeeb2 [][]     restriction cam z.
 800aeeb4 [][]     restriction cam width x.

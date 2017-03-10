@@ -1,4 +1,75 @@
 ////////////////////////////////
+// func71bdc()
+[800aee58] = w(8);
+[800aee5c] = w(8);
+[800aeec0] = w(00400000);
+[800aeec4] = w(08000000);
+[800aeeba] = h(0800);
+[800aef04] = w(0);
+[800aef08] = w(0);
+[800aef0c] = w(0);
+[800aef10] = w(0);
+[800aef14] = w(0);
+[800aef18] = w(0);
+[800aeefc] = h(0);
+[800aef00] = h(0);
+[800aeeac] = w(0);
+[800aee62] = h(0);
+[800aee60] = h(0);
+[800aeec8] = b(0);
+[800aeec9] = b(0);
+[800aeeca] = h(0);
+[800aeeb8] = h(0);
+[800aeebc] = h(0);
+[800aeee0] = w(00000800);
+[800aeea4] = h(0);
+[800aeea6] = h(0);
+[800aeea8] = h(0);
+
+A0 = 800aee84;
+80071CC8	jal    func6fc24 [$8006fc24]
+
+[800aed54] = w(0);
+[800aed58] = w(0);
+[800aed5c] = w(0);
+
+[800aed78] = w(10000000);
+[800aeda8] = w(10000000);
+
+[800aeecc] = w(200);
+[800aeed0] = h(1e);
+[800aeed2] = h(1000);
+
+S0 = 800aee58;
+
+80071D04	sw     zero, $ff0c(s0)
+80071D08	sw     zero, $ff10(s0)
+80071D0C	sw     zero, $ff14(s0)
+80071D10	sw     zero, $ff1c(s0)
+80071D14	sw     zero, $ff24(s0)
+80071D18	sw     zero, $ff5c(s0)
+80071D1C	sw     zero, $ff60(s0)
+80071D20	sw     zero, $ff64(s0)
+80071D24	sw     zero, $ff2c(s0)
+80071D28	sw     zero, $ff30(s0)
+80071D2C	sw     zero, $ff34(s0)
+80071D30	sw     zero, $ff3c(s0)
+80071D34	sw     zero, $ff40(s0)
+80071D38	sw     zero, $ff44(s0)
+80071D3C	sw     zero, $ff4c(s0)
+80071D40	sw     zero, $ff54(s0)
+80071D44	sh     zero, $007c(s0)
+80071D48	sh     zero, $008c(s0)
+80071D4C	sh     zero, $0098(s0)
+80071D54	sh     zero, $ffb0(s0)
+80071D58	sh     zero, $ffb8(s0)
+80071D5C	sh     zero, $ffba(s0)
+80071D60	sh     zero, $ffdc(s0)
+////////////////////////////////
+
+
+
+////////////////////////////////
 // func728c0()
 if( h[800aee08] == 0 )
 {
@@ -15,8 +86,6 @@ if( h[800aee08] == 0 )
             [800aee58] = w(8);
         }
 
-        [800aee58] = w(V0);
-
         if( w[800aee5c] >= 9 )
         {
             [800aee5c] = w(w[800aee5c] - 2);
@@ -28,8 +97,6 @@ if( h[800aee08] == 0 )
     }
 
     [800ad084] = w(w[800ad084] + 1);
-
-    80072934	j      L729b8 [$800729b8]
 }
 else if( h[800aee08] == 1 )
 {
@@ -77,8 +144,6 @@ else if( h[800aee08] == 1 )
         [800aed88] = w(w[800aee3c]);
         [800aed8c] = w(w[800aee40]);
     }
-
-    800728F8	j      L72cdc [$80072cdc]
 }
 else if( h[800aee08] == 2 )
 {
@@ -89,62 +154,62 @@ else if( h[800aee08] == 2 )
     {
         [800aee08] = h(0);
     }
-    80072934	j      L729b8 [$800729b8]
 }
 
-800728F8	j      L72cdc [$80072cdc]
 
 
-
-L729b8:	; 800729B8
-func71d78(); // set camera rotation based on buttons and step rotation
-
-pc_entity_id = hu[800b1812];
-struct_5c_p = w[800aefe4];
-struct_138 = w[struct_5c_p + pc_entity_id * 5c + 4c];
-
-[SP + 18] = w(w[struct_138 + 20]);
-[SP + 1c] = w(w[struct_138 + 24]);
-[SP + 20] = w(w[struct_138 + 28]);
-
-A0 = SP + 18;
-A1 = h[struct_138 + 72]; // current y pos
-func720c8();
-
-if( ( w[800aeeac] & 00004000 ) == 0 )
+if( ( h[800aee08] == 0 ) || ( h[800aee08] == 2 ) )
 {
-    A0 = h[800aed86];
-    A1 = h[800aed8e];
-    A2 = h[800af028] - 1;
-    A3 = SP + 38;
-    A4 = SP + 28;
-    80072A74	jal    func7a7d8 [$8007a7d8]
+    func71d78(); // set camera rotation based on buttons and step rotation
 
-    if( h[SP + 3a] < h[800aed8a] )
+    pc_entity_id = hu[800b1812];
+    struct_5c_p = w[800aefe4];
+    struct_138 = w[struct_5c_p + pc_entity_id * 5c + 4c];
+
+    [SP + 18] = w(w[struct_138 + 20]);
+    [SP + 1c] = w(w[struct_138 + 24]);
+    [SP + 20] = w(w[struct_138 + 28]);
+
+    A0 = SP + 18;
+    A1 = h[struct_138 + 72]; // current y pos
+    func720c8();
+
+    if( ( w[800aeeac] & 00004000 ) == 0 )
     {
-        [800aed88] = w(h[SP + 3a] << 10);
+        A0 = h[800aed86];
+        A1 = h[800aed8e];
+        A2 = h[800af028] - 1; // camera walkmesh id
+        A3 = SP + 38; // ret normal
+        A4 = SP + 28; // ret position
+        func7a7d8(); // get triangle in which camera resides
+
+        if( h[SP + 3a] < h[800aed8a] )
+        {
+            [800aed88] = w(h[SP + 3a] << 10);
+        }
+    }
+
+    if( h[800aee08] == 2 )
+    {
+        A0 = h[800aed96] - h[800aed66];
+        A1 = h[800aed9e] - h[800aed6e];
+        length_of_vector_by_x_y();
+        S0 = V0;
+
+        A0 = h[800aed86] - h[800aed56];
+        A1 = h[800aed8e] - h[800aed5e];
+        length_of_vector_by_x_y();
+
+        if( ( S0 & 0080 ) && ( V0 & 0080 ) )
+        {
+            [800aee08] = h(0);
+        }
     }
 }
 
-if( h[800aee08] == 2 )
-{
-    A0 = h[800aed96] - h[800aed66];
-    A1 = h[800aed9e] - h[800aed6e];
-    length_of_vector_by_x_y();
-    S0 = V0;
 
-    A0 = h[800aed86] - h[800aed56];
-    A1 = h[800aed8e] - h[800aed5e];
-    length_of_vector_by_x_y();
 
-    if( ( S0 & 0080 ) && ( V0 & 0080 ) )
-    {
-        [800aee08] = h(0);
-    }
-}
-
-L72cdc:	; 80072CDC
-func72404();
+func72404(); // update cam move and shake
 
 [800aeeba] = h(hu[800aeeba] & fff);
 ////////////////////////////////

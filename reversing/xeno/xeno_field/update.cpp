@@ -3,92 +3,62 @@
 
 func80720(); // move routine
 
+
+
 A0 = 800b1658;
 A1 = 800af104;
 system_calculate_rotation_matrix();
 
-80073080	lui    s0, $800b
-80073084	addiu  s0, s0, $ed6c (=-$1294)
-80073088	lui    at, $800b
-8007308C	sw     zero, $f120(at)
-80073090	lui    at, $800b
-80073094	sw     zero, $f11c(at)
-80073098	lui    at, $800b
-8007309C	sw     zero, $f118(at)
-800730A0	lw     v1, $0000(s0)
-800730A4	lui    a0, $800b
-800730A8	lw     a0, $ed5c(a0)
-800730AC	lui    v0, $800b
-800730B0	lw     v0, $ed64(v0)
-800730B4	lw     a1, $ffe8(s0)
-800730B8	subu   a0, v1, a0
-800730C0	subu   a1, v0, a1
-system_get_rotation_based_on_vector_x_y();
+[800af120] = w(0);
+[800af11c] = w(0);
+[800af118] = w(0);
 
-800730C4	lui    v1, $800b
-800730C8	lw     v1, $ed9c(v1)
-800730CC	lui    a0, $800b
-800730D0	lw     a0, $ed8c(a0)
-800730D4	addiu  v0, v0, $fc00 (=-$400)
-800730D8	lui    at, $800b
-800730DC	sh     v0, $ee62(at)
-800730E0	lui    v0, $800b
-800730E4	lw     v0, $ed94(v0)
-800730E8	lui    a1, $800b
-800730EC	lw     a1, $ed84(a1)
-800730F0	subu   a0, v1, a0
-800730F8	subu   a1, v0, a1
+A0 = w[800aed6c] - w[800aed5c];
+A1 = w[800aed64] - w[800aed54];
 system_get_rotation_based_on_vector_x_y();
+[800aee62] = h(V0 - 400);
 
-800730FC	lui    a0, $800b
-80073100	lw     a0, $ed64(a0)
-80073104	lw     v1, $ffe8(s0)
-80073108	addiu  v0, v0, $fc00 (=-$400)
-8007310C	lui    at, $800b
-80073110	sh     v0, $ee60(at)
-80073114	lw     a1, $0000(s0)
-80073118	lui    v0, $800b
-8007311C	lw     v0, $ed5c(v0)
-80073120	subu   a0, a0, v1
-80073124	sra    a0, a0, $10
-80073128	subu   a1, a1, v0
-80073130	sra    a1, a1, $10
+A0 = w[800aed9c] - w[800aed8c];
+A1 = w[800aed94] - w[800aed84];
+system_get_rotation_based_on_vector_x_y();
+[800aee60] = h(V0 - 400);
+
+A0 = (w[800aed64] - w[800aed54]) >> 10;
+A1 = (w[800aed6c] - w[800aed5c]) >> 10;
 length_of_vector_by_x_y();
 
-80073134	lui    a1, $800b
-80073138	lw     a1, $ed68(a1)
-8007313C	lui    v1, $800b
-80073140	lw     v1, $ed58(v1)
-80073144	addu   a0, v0, zero
-80073148	subu   a1, a1, v1
-80073150	sra    a1, a1, $10
+A0 = V0;
+A1 = (w[800aed68] - w[800aed58]) >> 10;
 system_get_rotation_based_on_vector_x_y();
+[800af588] = w(V0);
 
-80073154	lui    t1, $1f80
-80073158	ori    t1, t1, $03fc
-8007315C	lui    at, $800b
-80073160	sw     v0, $f588(at)
-80073164	addu   t0, t1, zero
-80073168	sw     sp, $0000(t0)
-8007316C	addiu  t0, t0, $fffc (=-$4)
-80073170	addu   sp, t0, zero
+
+
+T1 = 1f8003fc;
+T0 = 1f8003fc;
+[1f8003fc] = w(SP);
+T0 = 1f8003fc - 4;
+SP = T0;
+
+
+
 func728c0(); // camera update
 
-8007317C	addiu  sp, sp, $0004
-80073180	lw     sp, $0000(sp)
-80073184	lw     v0, $ffe8(s0)
-80073188	lui    v1, $800b
-8007318C	lw     v1, $ed58(v1)
-80073190	lui    a1, $800b
-80073194	lw     a1, $ed5c(a1)
-80073198	lui    a3, $800b
-8007319C	lw     a3, $edb4(a3)
-800731A0	lui    t0, $800b
-800731A4	lw     t0, $edb8(t0)
-800731A8	lui    a2, $800b
-800731AC	lw     a2, $edbc(a2)
-800731B0	sw     v0, $0010(sp)
-800731B4	addu   v0, v0, a3
+
+
+SP = SP + 4;
+
+
+SP = w[SP];
+V0 = w[800aed54];
+V1 = w[800aed58];
+A1 = w[800aed5c];
+A3 = w[800aedb4];
+T0 = w[800aedb8];
+A2 = w[800aedbc];
+V0 = w[SP + 10];
+V0 = V0 + A3;
+
 800731B8	sw     v0, $0010(sp)
 800731BC	lui    v0, $800b
 800731C0	lw     v0, $ed64(v0)
@@ -98,6 +68,7 @@ func728c0(); // camera update
 800731D0	lui    v1, $800b
 800731D4	lw     v1, $ed68(v1)
 800731D8	sw     a1, $0018(sp)
+S0 = 800aed6c;
 800731DC	lw     a0, $0000(s0)
 800731E0	sw     v0, $0020(sp)
 800731E4	addu   v0, v0, a3
@@ -160,8 +131,9 @@ L7327c:	; 8007327C
 800732C0	sw     a2, $0114(s0)
 800732C4	addiu  a1, sp, $0010
 800732C8	addiu  a2, sp, $0020
-800732CC	jal    func72de0 [$80072de0]
 800732D0	addiu  a3, s0, $0008
+800732CC	jal    func72de0 [$80072de0]
+
 800732D4	lui    t1, $1f80
 
 L732d8:	; 800732D8
