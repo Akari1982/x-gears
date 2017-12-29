@@ -1,2 +1,4 @@
 <ui>
+    <prototype file_name="screens/friends/prototypes.xml" />
+    <screen file_name="screens/friends/friends.xml" />
 </ui>

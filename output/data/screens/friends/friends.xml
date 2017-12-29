@@ -1,0 +1,84 @@
+<screen name="MainUI" visible="true">
+    <sprite name="test1" width="100" height="450" origin_x="-100" origin_y="50%" align="left" valign="middle" colour="0.5 0.5 0.5" alpha="0.6" visible="true">
+        <prototype name="scroll" />
+    </sprite>
+
+    <widget name="test2" x="200" y = "200" width="100%" height="100%" visible="true">
+        <prototype name="friends_2_slot" />
+    </widget>
+
+    <widget name="FriendList" width="360" height="450" origin_x="50%" origin_y="50%" align="center" valign="middle" visible="false">
+        <sprite name="s1" image="screens/friends/ui_texturs1.png" x="-33" y="-33" width="44" height="43" alpha="0.6" visible="true" />
+        <sprite name="s2" image="screens/friends/ui_texturs2.png" x="11" y="-33" width="339" height="43" alpha="0.6" visible="true" />
+        <sprite name="s3" image="screens/friends/ui_texturs3.png" x="350" y="-33" width="43" height="43" alpha="0.6" visible="true" />
+        <sprite name="s4" image="screens/friends/ui_texturs4.png" x="-33" y="10" width="44" height="429" alpha="0.6" visible="true" />
+        <sprite name="s5" image="screens/friends/ui_texturs5.png" x="11" y="10" width="339" height="429" alpha="0.6" visible="true" />
+        <sprite name="s6" image="screens/friends/ui_texturs6.png" x="350" y="10" width="43" height="429" alpha="0.6" visible="true" />
+        <sprite name="s7" image="screens/friends/ui_texturs7.png" x="-33" y="439" width="44" height="43" alpha="0.6" visible="true" />
+        <sprite name="s8" image="screens/friends/ui_texturs8.png" x="11" y="439" width="339" height="43" alpha="0.6" visible="true" />
+        <sprite name="s9" image="screens/friends/ui_texturs9.png" x="350" y="439" width="43" height="43" alpha="0.6" visible="true" />
+        <sprite name="s10" image="screens/friends/main_ui_3.png" x="1" y="416" width="358" height="2" alpha="0.3" visible="true" />
+        <sprite name="s11" image="screens/friends/main_ui_3.png" x="1" y="46" width="358" height="2" alpha="0.3" visible="true" />
+
+        <widget name="bookmrk_btn_1" x="2" y="1" width="180" height="48" visible="true">
+            <prototype name="fr_2_bookmrk_btn" />
+        </widget>
+        <widget name="bookmrk_btn_2" x="178" y="1" width="180" height="48" visible="true">
+            <prototype name="fr_2_bookmrk_btn" />
+        </widget>
+
+        <widget name="find_input" x="12" y="62" width="10" height="10" effect="ui\graphics\inventory\find_input_2" visible="true" />
+
+        <text_area name="online" x="8" y="417" width="200" height="30" text_name="Online" font="FFVIIFont" colour="0.33 0.33 0.33" visible="true" />
+        <text_area name="all" x="132" y="417" width="200" height="30" text_name="All" font="FFVIIFont" colour="0.33 0.33 0.33" visible="true" />
+        <text_area name="text_49" x="11" y="66" width="320" height="20" text_name="FriendsInGame" font="FFVIIFont" colour="1 1 1" visible="true" />
+
+        <widget name="list" x="1" y="102" width="320" height="320" alpha="0.6" visible="true">
+            <widget name="self" x="0" y="0" width="360" height="310" visible="true">
+                <sprite name="s1" image="screens/friends/main_ui_3.png" x="-1" y="0" width="358" height="2" alpha="0.3" visible="true" />
+                <widget name="line1" x="0" y="3" width="250" height="20" visible="true">
+                    <prototype name="friends_2_title" />
+                </widget>
+                <widget name="line2" x="0" y="67" width="250" height="20" visible="true">
+                    <prototype name="friends_2_slot" />
+                </widget>
+                <widget name="line3" x="0" y="131" width="250" height="20" visible="true">
+                    <prototype name="friends_2_slot" />
+                </widget>
+                <widget name="line4" x="0" y="194" width="250" height="20" visible="true">
+                    <prototype name="friends_2_slot" />
+                </widget>
+                <widget name="line5" x="0" y="258" width="250" height="20" visible="true">
+                    <prototype name="friends_2_slot" />
+                </widget>
+
+                <widget name="scroll" x="328" y="5" width="10" height="290" visible="true"><prototype name="scroll" /></widget>
+            </widget>
+        </widget>
+
+        <widget name="list2" x="1" y="49" width="320" height="320" alpha="0.6" visible="false">
+            <widget name="self" x="0" y="0" width="360" height="364" visible="true">
+                <widget name="line1" x="0" y="0" width="250" height="20" visible="true">
+                    <prototype name="friends_2_title" />
+                </widget>
+                <widget name="line2" x="0" y="61" width="250" height="20" visible="true">
+                    <prototype name="friends_2_slot" />
+                </widget>
+                <widget name="line3" x="0" y="122" width="250" height="20" visible="true">
+                    <prototype name="friends_2_slot" />
+                </widget>
+                <widget name="line4" x="0" y="184" width="250" height="20" visible="true">
+                    <prototype name="friends_2_slot" />
+                </widget>
+                <widget name="line5" x="0" y="245" width="250" height="20" visible="true">
+                    <prototype name="friends_2_slot" />
+                </widget>
+                <widget name="line6" x="0" y="306" width="250" height="20" visible="true">
+                    <prototype name="friends_2_slot" />
+                </widget>
+
+                <widget name="scroll" x="328" y="0" width="10" height="350" visible="true"><prototype name="scroll" /></widget>
+            </widget>
+        </widget>
+    </widget>
+</screen>

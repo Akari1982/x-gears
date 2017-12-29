@@ -9,10 +9,10 @@ template<>TextManager* Ogre::Singleton< TextManager >::msSingleton = NULL;
 
 
 
-TextManager::TextManager():
-    m_Language( "" )
+TextManager::TextManager()
 {
     InitCmd();
+    SetLanguage( "English" );
 }
 
 

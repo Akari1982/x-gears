@@ -1,0 +1,12 @@
+material field/walkmesh
+{
+    technique
+    {
+        pass
+        {
+            ambient vertexcolour
+            cull_hardware none
+            polygon_mode wireframe
+        }
+    }
+}

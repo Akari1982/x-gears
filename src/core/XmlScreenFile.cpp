@@ -107,7 +107,18 @@ XmlScreenFile::LoadScreenRecursive( TiXmlNode* node, const Ogre::String& base_na
                         {
                             ( ( UiSprite* )widget2 )->SetImage( image );
                         }
-
+                        Ogre::String uv_str = GetString( node, "uv" );
+                        if( uv_str != "" )
+                        {
+                            Ogre::StringVector uv_arr = Ogre::StringUtil::split( uv_str, " " );
+                            float uv[ 8 ];
+                            for( unsigned int i = 0; i < 8; ++i )
+                            {
+                                Ogre::StringUtil::trim( uv_arr[ i ] );
+                                uv[ i ] = ( i < uv_arr.size() ) ? Ogre::StringConverter::parseReal( uv_arr[ i ] ) : 0;
+                            }
+                            ( ( UiSprite* )widget2 )->SetUV( uv[ 0 ], uv[ 1 ], uv[ 2 ], uv[ 3 ], uv[ 4 ], uv[ 5 ], uv[ 6 ], uv[ 7 ] );
+                        }
                         Ogre::String vertex_shader = GetString( node, "vertex_shader" );
                         if( vertex_shader != "" )
                         {
