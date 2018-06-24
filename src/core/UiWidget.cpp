@@ -479,8 +479,12 @@ UiWidget::UpdateTransformation()
     Ogre::Vector2 area_size = ( m_Parent != NULL ) ? m_Parent->GetFinalSize() : Ogre::Vector2( m_ScreenWidth, m_ScreenHeight );
     float area_rotation = ( m_Parent != NULL ) ? m_Parent->GetFinalRotation() : 0;
 
-    float local_x = ( ( area_size.x * m_XPercent ) / 100.0f + ( m_X * m_ScreenHeight / 720.0f ) * area_scale.x ) - area_origin.x;
-    float local_y = ( ( area_size.y * m_YPercent ) / 100.0f + ( m_Y * m_ScreenHeight / 720.0f ) * area_scale.y ) - area_origin.y;
+    float aspect_coef_x = m_ScreenWidth / 1280.0f;
+    float aspect_coef_y = m_ScreenHeight / 720.0f;
+    float aspect_coef = ( aspect_coef_x < aspect_coef_y ) ? aspect_coef_x : aspect_coef_y;
+
+    float local_x = ( ( area_size.x * m_XPercent ) / 100.0f + ( m_X * aspect_coef ) * area_scale.x ) - area_origin.x;
+    float local_y = ( ( area_size.y * m_YPercent ) / 100.0f + ( m_Y * aspect_coef ) * area_scale.y ) - area_origin.y;
 
     float x = local_x;
     float y = local_y;
@@ -523,10 +527,10 @@ UiWidget::UpdateTransformation()
 
     m_FinalZ = ( m_Parent != NULL ) ? m_Parent->GetFinalZ() + m_Z : m_Z;
     m_FinalScale = area_scale * m_Scale;
-    m_FinalSize.x = ( area_size.x * m_WidthPercent * m_Scale.x ) / 100.0f + ( m_Width * m_ScreenHeight / 720.0f ) * m_FinalScale.x;
-    m_FinalSize.y = ( area_size.y * m_HeightPercent * m_Scale.y ) / 100.0f + ( m_Height * m_ScreenHeight / 720.0f ) * m_FinalScale.y;
-    m_FinalOrigin.x = ( m_FinalSize.x * m_OriginXPercent ) / 100.0f + m_OriginX * m_ScreenHeight * m_FinalScale.x / 720.0f;
-    m_FinalOrigin.y = ( m_FinalSize.y * m_OriginYPercent ) / 100.0f + m_OriginY * m_ScreenHeight * m_FinalScale.y / 720.0f;
+    m_FinalSize.x = ( area_size.x * m_WidthPercent * m_Scale.x ) / 100.0f + ( m_Width * aspect_coef ) * m_FinalScale.x;
+    m_FinalSize.y = ( area_size.y * m_HeightPercent * m_Scale.y ) / 100.0f + ( m_Height * aspect_coef ) * m_FinalScale.y;
+    m_FinalOrigin.x = ( m_FinalSize.x * m_OriginXPercent ) / 100.0f + m_OriginX * m_FinalScale.x * aspect_coef;
+    m_FinalOrigin.y = ( m_FinalSize.y * m_OriginYPercent ) / 100.0f + m_OriginY * m_FinalScale.y * aspect_coef;
     m_FinalRotation = area_rotation + m_Rotation;
 
 
@@ -534,10 +538,10 @@ UiWidget::UpdateTransformation()
     // scissor update
     if( m_LocalScissor == true )
     {
-        float local_x1 = m_FinalSize.x * m_ScissorXPercentTop / 100.0f + m_ScissorXTop * m_ScreenHeight * m_FinalScale.x / 720.0f - m_FinalOrigin.x;
-        float local_y1 = m_FinalSize.y * m_ScissorYPercentLeft / 100.0f + m_ScissorYLeft * m_ScreenHeight * m_FinalScale.y / 720.0f - m_FinalOrigin.y;
-        float local_x2 = m_FinalSize.x * m_ScissorXPercentBottom / 100.0f + m_ScissorXBottom * m_ScreenHeight * m_FinalScale.x / 720.0f - m_FinalOrigin.x;
-        float local_y2 = m_FinalSize.y * m_ScissorYPercentRight / 100.0f + m_ScissorYRight * m_ScreenHeight * m_FinalScale.y / 720.0f - m_FinalOrigin.y;
+        float local_x1 = m_FinalSize.x * m_ScissorXPercentTop / 100.0f + m_ScissorXTop * m_FinalScale.x * aspect_coef - m_FinalOrigin.x;
+        float local_y1 = m_FinalSize.y * m_ScissorYPercentLeft / 100.0f + m_ScissorYLeft * m_FinalScale.y * aspect_coef - m_FinalOrigin.y;
+        float local_x2 = m_FinalSize.x * m_ScissorXPercentBottom / 100.0f + m_ScissorXBottom * m_FinalScale.x * aspect_coef - m_FinalOrigin.x;
+        float local_y2 = m_FinalSize.y * m_ScissorYPercentRight / 100.0f + m_ScissorYRight * m_FinalScale.y * aspect_coef - m_FinalOrigin.y;
         float x = m_FinalTranslate.x;
         float y = m_FinalTranslate.y;
 

@@ -65,6 +65,12 @@ DebugDraw::DebugDraw():
     pass->setLightingEnabled( false );
     pass->setSceneBlending( Ogre::SBT_TRANSPARENT_ALPHA );
 
+    pass->setAlphaRejectFunction( Ogre::CMPF_GREATER );
+    pass->setAlphaRejectValue( 0 );
+    Ogre::TextureUnitState* tex = pass->getTextureUnitState( 0 );
+    tex->setNumMipmaps( -1 );
+    tex->setTextureFiltering( Ogre::TFO_NONE );
+
     //Ogre::MaterialSerializer mat;
     //mat.exportMaterial( m_Font->getMaterial(), "font.material" );
 

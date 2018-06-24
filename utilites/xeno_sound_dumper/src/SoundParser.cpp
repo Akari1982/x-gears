@@ -1,6 +1,7 @@
 #include "SoundParser.h"
 
 #include "engine/SoundManager.h"
+#include "../../common/DebugDraw.h"
 #include "../../common/File.h"
 #include "../../common/Logger.h"
 #include "../../common/TypeDefine.h"
@@ -334,7 +335,7 @@ SoundParser::LoadInstruments( const Ogre::String& file_name )
         delete[] buffer;
         delete file;
 
-        LOGGER->Log( "Instruments from file " + file_name + " loaded.\n" );
+        //LOGGER->Log( "Instruments from file " + file_name + " loaded.\n" );
     }
 }
 
@@ -396,7 +397,7 @@ SoundParser::LoadSequence( const Ogre::String& file_name )
     m_MainData.global_volume_distr = 0;
     m_MainData.unk90 = 0;
 
-    LOGGER->Log( "number of channels: " + HexToString( m_MainData.number_of_channels, 2, '0' ) + "\n" );
+    //LOGGER->Log( "number of channels: " + HexToString( m_MainData.number_of_channels, 2, '0' ) + "\n" );
     ChannelData channel_data;
     memset( ( u8* )&channel_data, 0, sizeof( ChannelData ) );
     m_ChannelData.resize( m_MainData.number_of_channels, channel_data );
@@ -488,18 +489,146 @@ SoundParser::LoadSequence( const Ogre::String& file_name )
 
     u8 number_of_unknown15 = m_Music->GetU8( 0x15 ); // we allocate additional 0x180 if this is set
     u8 offset_to_unknown15 = m_Music->GetU8( 0x20 );
-    LOGGER->Log( "unknown 15: " + HexToString( number_of_unknown15, 2, '0' ) + "\n" );
+    //LOGGER->Log( "unknown 15: " + HexToString( number_of_unknown15, 2, '0' ) + "\n" );
     memset( ( u8* )m_Unknown15, 0, 0x180 );
     for( u8 i = 0; i < number_of_unknown15; ++i )
     {
         u8 id = m_Music->GetU8( offset_to_unknown15 + i * 5 );
         m_Unknown15[ id ] = m_Music->GetU32LE( offset_to_unknown15 + i * 5 + 1 );
-        LOGGER->Log( "unknown 15: id=" + HexToString( id, 2, '0' ) + ": " + HexToString( m_Unknown15[ id ], 8, '0' ) + "\n" );
+        //LOGGER->Log( "unknown 15: id=" + HexToString( id, 2, '0' ) + ": " + HexToString( m_Unknown15[ id ], 8, '0' ) + "\n" );
     }
 
 
 
-    LOGGER->Log( "Sequence from file " + file_name + " loaded.\n" );
+    //LOGGER->Log( "Sequence from file " + file_name + " loaded.\n" );
+}
+
+
+
+
+void
+SoundParser::DebugUpdate()
+{
+    float width = Ogre::Root::getSingleton().getRenderTarget( "QGearsWindow" )->getViewport( 0 )->getActualWidth();
+    int add_y = 0;
+    int size = 8;
+    int base_x = 100;
+
+    for( size_t i = 0; i < m_ChannelData.size(); ++i )
+    {
+        u32 cur_offset = m_ChannelData[ i ].sequence_start;
+        DEBUG_DRAW.SetTextAlignment( DebugDraw::LEFT );
+        DEBUG_DRAW.SetColour( Ogre::ColourValue( 1.0f, 1.0f, 1.0f, 1.0f ) );
+        DEBUG_DRAW.Text( 0, i * 20 + add_y, "channel_" + HexToString( i, 1, ' ' ) + ": " );
+        int x = base_x;
+        bool read = true;
+        while( read )
+        {
+            if( cur_offset == m_ChannelData[ i ].sequence_current )
+            {
+                DEBUG_DRAW.SetColour( Ogre::ColourValue( 0.0f, 1.0f, 0.0f, 1.0f ) );
+            }
+            else
+            {
+                DEBUG_DRAW.SetColour( Ogre::ColourValue( 1.0f, 1.0f, 1.0f, 1.0f ) );
+            }
+
+            if( x >= width - 50 )
+            {
+                x = base_x;
+                add_y += 20;
+            }
+
+            u8 opcode = m_Music->GetU8( cur_offset );
+            if( opcode < 0x80 )
+            {
+                u8 data1 = m_Music->GetU8( cur_offset + 1 );
+                cur_offset += 2;
+                u8 time = pause_table[ data1 ];
+                //DEBUG_DRAW.Text( x, i * 20 + add_y, " " + HexToString( opcode, 2, '0' ) + HexToString( data1, 2, '0' ) ); x += 5 * size;
+                DEBUG_DRAW.Text( x, i * 20 + add_y, "|" ); x += 1 * size;
+
+                if( time == 0 )
+                {
+                    time = m_Music->GetU8( cur_offset );
+                    //DEBUG_DRAW.Text( x, i * 20 + add_y, HexToString( time, 2, '0' ) ); x += 2 * size;
+                    cur_offset += 1;
+                }
+            }
+            else
+            {
+                switch( opcode )
+                {
+                    case 0x80:
+                    case 0x81:
+                    case 0x94:
+                    case 0x98:
+                    case 0xa9:
+                    case 0xac:
+                    case 0xc2:
+                    case 0xc4:
+                    case 0xc9:
+                    case 0xd0:
+                    case 0xd1:
+                    case 0xe0:
+                    case 0xe8:
+                    {
+                        u8 data = m_Music->GetU8( cur_offset + 1 );
+                        cur_offset += 2;
+                        //DEBUG_DRAW.Text( x, i * 20 + add_y, " " + HexToString( opcode, 2, '0' ) + HexToString( data, 2, '0' ) ); x += 5 * size;
+                        DEBUG_DRAW.Text( x, i * 20 + add_y, "" + HexToString( opcode, 2, '0' ) ); x += 2 * size;
+                    }
+                    break;
+
+                    case 0x91:
+                    case 0x95:
+                    case 0x96:
+                    case 0x99:
+                    case 0xba:
+                    {
+                        cur_offset += 1;
+                        DEBUG_DRAW.Text( x, i * 20 + add_y, "" + HexToString( opcode, 2, '0' ) ); x += 2 * size;
+                    }
+                    break;
+
+                    case 0xf8:
+                    {
+                        u8 data1 = m_Music->GetU8( cur_offset + 1 );
+                        u8 data2 = m_Music->GetU8( cur_offset + 2 );
+                        u8 data3 = m_Music->GetU8( cur_offset + 3 );
+                        cur_offset += 4;
+                        //DEBUG_DRAW.Text( x, i * 20 + add_y, " " + HexToString( opcode, 2, '0' ) + HexToString( data1, 2, '0' ) + HexToString( data2, 2, '0' ) + HexToString( data3, 2, '0' ) ); x += 9 * size;
+                        DEBUG_DRAW.Text( x, i * 20 + add_y, "" + HexToString( opcode, 2, '0' ) ); x += 2 * size;
+                    }
+                    break;
+
+                    case 0xe2:
+                    {
+                        u8 data1 = m_Music->GetU8( cur_offset + 1 );
+                        u8 data2 = m_Music->GetU8( cur_offset + 2 );
+                        cur_offset += 3;
+                        // DEBUG_DRAW.Text( x, i * 20 + add_y, " " + HexToString( opcode, 2, '0' ) + HexToString( data1, 2, '0' ) + HexToString( data2, 2, '0' ) ); x += 7 * size;
+                        DEBUG_DRAW.Text( x, i * 20 + add_y, "" + HexToString( opcode, 2, '0' ) ); x += 2 * size;
+                    }
+                    break;
+
+                    case 0x90:
+                    {
+                        cur_offset += 1;
+                        DEBUG_DRAW.Text( x, i * 20 + add_y, "" + HexToString( opcode, 2, '0' ) ); x += 2 * size;
+                        read = false;
+                    }
+                    break;
+
+                    default:
+                    {
+                        DEBUG_DRAW.Text( x, i * 20 + add_y, " UNKNOWN " + HexToString( opcode, 2, '0' ) );
+                        read = false;
+                    }
+                }
+            }
+        }
+    }
 }
 
 
@@ -508,167 +637,10 @@ void
 SoundParser::Update()
 {
     UpdateSpu();
-
-
-
-/*
-    S0 = w[80058c00];
-    if( S0 != 0 )
-    {
-        L3bff4:	; 8003BFF4
-            V0 = h[S0 + 10];
-            if( V0 < 0 )
-            {
-                V1 = w[S0 + 2c];
-                if( V1 != 0 )
-                {
-                    if( w[S0 + 24] >= V1 )
-                    {
-                        A0 = S0;
-                        8003C028	jal    func3ad2c [$8003ad2c]
-                    }
-                }
-
-                if( h[S0 + 6c] != 0 )
-                {
-                    A0 = S0 + 64;
-                    func3c32c;
-
-                    [S0 + 54] = w(h[S0 + 5a] * h[S0 + 66]);
-                }
-
-                if( h[S0 + 78] != 0 )
-                {
-                    A0 = S0 + 70;
-                    func3c32c;
-
-                    A0 = 0100;
-                    A1 = S0;
-                    8003C07C	jal    func3e528 [$8003e528]
-                }
-
-                if( h[S0 + 84] != 0 )
-                {
-                    A0 = S0 + 7c;
-                    func3c32c;
-
-                    A0 = 0200;
-                    A1 = S0;
-                    8003C0A0	jal    func3e528 [$8003e528]
-                }
-
-                if( h[S0 + 90] != 0 )
-                {
-                    A0 = S0 + 88;
-                    func3c32c;
-
-                    A0 = 0100;
-                    A1 = S0;
-                    8003C0C4	jal    func3e528 [$8003e528]
-                }
-
-                [S0 + 20] = w(w[S0 + 20] + 1);
-                [S0 + 28] = w(w[S0 + 28] + h[S0 + 66]);
-                [S0 + 50] = w(w[S0 + 50] - w[S0 + 54]);
-
-                if( w[S0 + 50] < 0 )
-                {
-                    loop3c100:	; 8003C100
-                        [S0 + 36] = h(hu[S0 + 36] - 1);
-                        [S0 + 50] = w(w[S0 + 50] + 10000);
-
-                        if( hu[S0 + 36] == 0 )
-                        {
-                            [S0 + 36] = h(hu[S0 + 3a]);
-                            [S0 + 34] = h(hu[S0 + 34] + 1);
-
-                            if( hu[S0 + 38] < hu[S0 + 34] )
-                            {
-                                [S0 + 34] = h(1);
-                                [S0 + 32] = h(hu[S0 + 32] + 1);
-                            }
-                        }
-
-                        S1 = bu[S0 + 14];
-                        S2 = S0 + 94;
-                        if( S1 != 0 )
-                        {
-*/
-                            UpdateTimers();
-                            UpdateSequenceData();
-/*
-                        }
-
-                        if( w[S0 + 48] == 0 )
-                        {
-                            [S0 + 10] = h(hu[S0 + 10] & 7fff);
-                            8003C204	j      L3c21c [$8003c21c]
-                        }
-
-                        [S0 + 24] = w(w[S0 + 24] + 1);
-
-                        if( w[S0 + 70] == 0 )
-                        {
-                            A0 = S0;
-                            8003C1AC	jal    func39af4 [$80039af4]
-
-                            [S0 + 10] = h(hu[S0 + 10] | 0100);
-                        }
-
-                        if( hu[S0 + 32] == hu[S0 + 1e] )
-                        {
-                            [S0 + 10] = h(hu[S0 + 10] & ffdf);
-                            [S0 + 1e] = h(0);
-
-                            A0 = S0;
-                            A1 = 0;
-                            A2 = 0;
-                            8003C1E8	jal    func3a6e0 [$8003a6e0]
-                        }
-
-                        V0 = w[S0 + 50];
-                    8003C214	bltz   v0, loop3c100 [$8003c100]
-                }
-
-            L3c21c:	; 8003C21C
-            S0 = w[S0 + 0];
-        8003C224	bne    s0, zero, L3bff4 [$8003bff4]
-    }
-*/
-
-
-
-/*
-    S0 = w[80058c00];
-    if( S0 != 0 )
-    {
-        loop3c240:	; 8003C240
-            if( h[S0 + 10] < 0 )
-            {
-                number_of_channels = bu[S0 + 14];
-                channel_structs = S0 + 94;
-                if( number_of_channels != 0 )
-                {
-                    A0 = S0;
-                    A1 = channel_structs;
-                    A2 = number_of_channels;
-                    func3ee8c;
-
-*/
-                    UpdateByFlags2Data();
-/*
-                }
-            }
-
-            S0 = w[S0 + 0];
-        8003C288	bne    s0, zero, loop3c240 [$8003c240]
-    }
-*/
-
-
-
+    UpdateTimers();
+    UpdateSequenceData();
+    UpdateByFlags2Data();
     UpdateSpu2(); // update spu registers and turn voice off
-    //func3ea04;
 }
 
 
@@ -709,11 +681,6 @@ SoundParser::UpdateSpu()
 
     for( size_t i = 0; i < m_ChannelData.size(); ++i )
     {
-if( channel_to_play != -1 && channel_to_play != i )
-{
-    continue;
-}
-
         if( m_ChannelData[ i ].spu_channel_id != -1 )
         {
             s8 spu_channel_id = m_ChannelData[ i ].spu_channel_id;
@@ -721,78 +688,78 @@ if( channel_to_play != -1 && channel_to_play != i )
 
             if( flags & SPU_VOLUME )
             {
-                LOGGER->Log( "UpdateSpu::SPU_VOLUME channel_" + IntToString( i ) + "" );
+                //LOGGER->Log( "UpdateSpu::SPU_VOLUME channel_" + IntToString( i ) + "" );
                 SPUwriteRegister( 0x1f801c00 + spu_channel_id * 0x10 + 0x00, m_ChannelData[ i ].left_volume );
-                LOGGER->Log( " left_volume=" + HexToString( m_ChannelData[ i ].left_volume, 4, '0' ) );
+                //LOGGER->Log( " left_volume=" + HexToString( m_ChannelData[ i ].left_volume, 4, '0' ) );
                 SPUwriteRegister( 0x1f801c00 + spu_channel_id * 0x10 + 0x02, m_ChannelData[ i ].right_volume );
-                LOGGER->Log( " right_volume=" + HexToString( m_ChannelData[ i ].right_volume, 4, '0' ) + ".\n" );
+                //LOGGER->Log( " right_volume=" + HexToString( m_ChannelData[ i ].right_volume, 4, '0' ) + ".\n" );
             }
 
             if( flags & SPU_PITCH )
             {
-                LOGGER->Log( "UpdateSpu::SPU_PITCH channel_" + IntToString( i ) + "" );
+                //LOGGER->Log( "UpdateSpu::SPU_PITCH channel_" + IntToString( i ) + "" );
                 SPUwriteRegister( 0x1f801c00 + spu_channel_id * 0x10 + 0x04, m_ChannelData[ i ].pitch );
-                LOGGER->Log( " pitch=" + HexToString( m_ChannelData[ i ].pitch, 4, '0' ) + ".\n"  );
+                //LOGGER->Log( " pitch=" + HexToString( m_ChannelData[ i ].pitch, 4, '0' ) + ".\n"  );
             }
 
             if( flags & SPU_OFFSET )
             {
-                LOGGER->Log( "UpdateSpu::SPU_OFFSET channel_" + IntToString( i ) + "" );
+                //LOGGER->Log( "UpdateSpu::SPU_OFFSET channel_" + IntToString( i ) + "" );
                 SPUwriteRegister( 0x1f801c00 + spu_channel_id * 0x10 + 0x06, m_ChannelData[ i ].start_offset >> 3 );
-                LOGGER->Log( " start_offset=" + HexToString( m_ChannelData[ i ].start_offset >> 3, 8, '0' ) + "" );
+                //LOGGER->Log( " start_offset=" + HexToString( m_ChannelData[ i ].start_offset >> 3, 8, '0' ) + "" );
                 SPUwriteRegister( 0x1f801c00 + spu_channel_id * 0x10 + 0x0e, m_ChannelData[ i ].loop_offset >> 3 );
-                LOGGER->Log( " loop_offset=" + HexToString( m_ChannelData[ i ].loop_offset >> 3, 8, '0' ) + ".\n"  );
+                //LOGGER->Log( " loop_offset=" + HexToString( m_ChannelData[ i ].loop_offset >> 3, 8, '0' ) + ".\n"  );
             }
 
             if( flags & SPU_ATTACK )
             {
-                LOGGER->Log( "UpdateSpu::SPU_ATTACK channel_" + IntToString( i ) + "" );
+                //LOGGER->Log( "UpdateSpu::SPU_ATTACK channel_" + IntToString( i ) + "" );
                 // originally it reads 1 byte from register. Somehow it reads second byte - not first one.
                 u16 temp = SPUreadRegister( 0x1f801c00 + spu_channel_id * 0x10 + 0x08 ) >> 0x8;
-                LOGGER->Log( " prev_temp=" + HexToString( temp, 4, '0' ) + ""  );
+                //LOGGER->Log( " prev_temp=" + HexToString( temp, 4, '0' ) + ""  );
                 temp |=  ( m_ChannelData[ i ].attack_rate << 0x08 ) | ( ( m_ChannelData[ i ].attack_mode >> 2 ) <<0x0f );
                 SPUwriteRegister( 0x1f801c00 + spu_channel_id * 0x10 + 0x08, temp );
-                LOGGER->Log( " temp=" + HexToString( temp, 4, '0' ) + ".\n"  );
+                //LOGGER->Log( " temp=" + HexToString( temp, 4, '0' ) + ".\n"  );
             }
 
             if( flags & SPU_DECAY_RATE )
             {
-                LOGGER->Log( "UpdateSpu::SPU_DECAY_RATE channel_" + IntToString( i ) + "" );
+                //LOGGER->Log( "UpdateSpu::SPU_DECAY_RATE channel_" + IntToString( i ) + "" );
                 u16 temp = SPUreadRegister( 0x1f801c00 + spu_channel_id * 0x10 + 0x08 ) & 0xff0f;
-                LOGGER->Log( " prev_temp=" + HexToString( temp, 4, '0' ) + ""  );
+                //LOGGER->Log( " prev_temp=" + HexToString( temp, 4, '0' ) + ""  );
                 temp |= m_ChannelData[ i ].decay_rate << 4;
                 SPUwriteRegister( 0x1f801c00 + spu_channel_id * 0x10 + 0x08, temp );
-                LOGGER->Log( " temp=" + HexToString( temp, 4, '0' ) + ".\n"  );
+                //LOGGER->Log( " temp=" + HexToString( temp, 4, '0' ) + ".\n"  );
             }
 
             if( flags & SPU_SUSTAIN )
             {
-                LOGGER->Log( "UpdateSpu::SPU_SUSTAIN channel_" + IntToString( i ) + "" );
+                //LOGGER->Log( "UpdateSpu::SPU_SUSTAIN channel_" + IntToString( i ) + "" );
                 u16 temp = SPUreadRegister( 0x1f801c00 + spu_channel_id * 0x10 + 0x0a ) & 0x003f;
-                LOGGER->Log( " prev_temp=" + HexToString( temp, 4, '0' ) + ""  );
+                //LOGGER->Log( " prev_temp=" + HexToString( temp, 4, '0' ) + ""  );
                 temp |= ( m_ChannelData[ i ].sustain_rate << 0x06 ) | ( (m_ChannelData[ i ].sustain_mode >> 0x01 ) << 0x0e );
                 SPUwriteRegister( 0x1f801c00 + spu_channel_id * 0x10 + 0x0a, temp );
-                LOGGER->Log( " temp=" + HexToString( temp, 4, '0' ) + ".\n"  );
+                //LOGGER->Log( " temp=" + HexToString( temp, 4, '0' ) + ".\n"  );
             }
 
             if( flags & SPU_RELEASE )
             {
-                LOGGER->Log( "UpdateSpu::SPU_RELEASE channel_" + IntToString( i ) + "" );
+                //LOGGER->Log( "UpdateSpu::SPU_RELEASE channel_" + IntToString( i ) + "" );
                 u16 temp = SPUreadRegister( 0x1f801c00 + spu_channel_id * 0x10 + 0x0a ) & 0xffc0;
-                LOGGER->Log( " prev_temp=" + HexToString( temp, 4, '0' ) + ""  );
+                //LOGGER->Log( " prev_temp=" + HexToString( temp, 4, '0' ) + ""  );
                 temp |= m_ChannelData[ i ].release_rate | ( ( m_ChannelData[ i ].release_mode >> 0x02 ) << 0x05 );
                 SPUwriteRegister( 0x1f801c00 + spu_channel_id * 0x10 + 0x0a, temp );
-                LOGGER->Log( " temp=" + HexToString( temp, 4, '0' ) + ".\n"  );
+                //LOGGER->Log( " temp=" + HexToString( temp, 4, '0' ) + ".\n"  );
             }
 
             if( flags & SPU_SUSTAIN_LEVEL )
             {
-                LOGGER->Log( "UpdateSpu::SPU_SUSTAIN_LEVEL channel_" + IntToString( i ) + "" );
+                //LOGGER->Log( "UpdateSpu::SPU_SUSTAIN_LEVEL channel_" + IntToString( i ) + "" );
                 u16 temp = SPUreadRegister( 0x1f801c00 + spu_channel_id * 0x10 + 0x08 ) & 0xfff0;
-                LOGGER->Log( " prev_temp=" + HexToString( temp, 4, '0' ) + ""  );
+                //LOGGER->Log( " prev_temp=" + HexToString( temp, 4, '0' ) + ""  );
                 temp |= m_ChannelData[ i ].sustain_level;
                 SPUwriteRegister( 0x1f801c00 + spu_channel_id * 0x10 + 0x08, temp );
-                LOGGER->Log( " temp=" + HexToString( temp, 4, '0' ) + ".\n"  );
+                //LOGGER->Log( " temp=" + HexToString( temp, 4, '0' ) + ".\n"  );
             }
 
             update_modes |= ( flags & ( SPU_UPDATE_FM | SPU_UPDATE_NOISE | SPU_UPDATE_REVERB ) );
@@ -806,28 +773,28 @@ if( channel_to_play != -1 && channel_to_play != i )
 
     if( update_modes & SPU_UPDATE_FM )
     {
-        LOGGER->Log( "UpdateSpu::ENABLE FM channels 0x" + HexToString( fm_flags, 8, '0' ) + ".\n" );
+//        //LOGGER->Log( "UpdateSpu::ENABLE FM channels 0x" + HexToString( fm_flags, 8, '0' ) + ".\n" );
         SPUwriteRegister( 0x1f801d90, fm_flags & 0xffff );
         SPUwriteRegister( 0x1f801d92, fm_flags >> 0x10 );
     }
 
     if( update_modes & SPU_UPDATE_NOISE )
     {
-        LOGGER->Log( "UpdateSpu::ENABLE NOISE channels 0x" + HexToString( noise_flags, 8, '0' ) + ".\n" );
+        //LOGGER->Log( "UpdateSpu::ENABLE NOISE channels 0x" + HexToString( noise_flags, 8, '0' ) + ".\n" );
         SPUwriteRegister( 0x1f801d94, noise_flags & 0xffff );
         SPUwriteRegister( 0x1f801d96, noise_flags >> 0x10 );
     }
 
     if( update_modes & SPU_UPDATE_REVERB )
     {
-        LOGGER->Log( "UpdateSpu::ENABLE REVERB channels 0x" + HexToString( reverb_flags, 8, '0' ) + ".\n" );
+        //LOGGER->Log( "UpdateSpu::ENABLE REVERB channels 0x" + HexToString( reverb_flags, 8, '0' ) + ".\n" );
         SPUwriteRegister( 0x1f801d98, reverb_flags & 0xffff );
         SPUwriteRegister( 0x1f801d9a, reverb_flags >> 0x10 );
     }
 
     if( m_VoiceOn != 0 )
     {
-        LOGGER->Log( "UpdateSpu::PLAY channels 0x" + HexToString( m_VoiceOn, 8, '0' ) + ".\n" );
+        //LOGGER->Log( "UpdateSpu::PLAY channels 0x" + HexToString( m_VoiceOn, 8, '0' ) + ".\n" );
         SPUwriteRegister( 0x1f801d88, m_VoiceOn & 0xffff );
         SPUwriteRegister( 0x1f801d8a, m_VoiceOn >> 0x10 );
         m_VoiceOn = 0;
@@ -841,7 +808,7 @@ SoundParser::UpdateSpu2()
 {
     if( m_VoiceOff != 0 )
     {
-        LOGGER->Log( "UpdateSpu::STOP channels " + HexToString( m_VoiceOff, 8, '0' ) + ".\n" );
+        //LOGGER->Log( "UpdateSpu::STOP channels " + HexToString( m_VoiceOff, 8, '0' ) + ".\n" );
         SPUwriteRegister( 0x1f801d8c, m_VoiceOff & 0xffff );
         SPUwriteRegister( 0x1f801d8e, m_VoiceOff >> 0x10 );
         m_VoiceOff = 0;
@@ -899,7 +866,7 @@ if( channel_to_play != -1 && channel_to_play != i )
                         update_flags &= ~UPDATE_BASE_VOLUME;
                     }
                     m_ChannelData[ i ].base_volume += m_ChannelData[ i ].base_volume_add;
-                    LOGGER->Log( "UpdateTimers::UPDATE_BASE_VOLUME channel_" + IntToString( i ) + " base_volume_timer=0x" + HexToString(  m_ChannelData[ i ].base_volume_timer, 4, '0' ) + ".\n" );
+                    //LOGGER->Log( "UpdateTimers::UPDATE_BASE_VOLUME channel_" + IntToString( i ) + " base_volume_timer=0x" + HexToString(  m_ChannelData[ i ].base_volume_timer, 4, '0' ) + ".\n" );
                     calculate_flags |= CALC_VOLUME;
                 }
 /*
@@ -930,7 +897,7 @@ if( channel_to_play != -1 && channel_to_play != i )
                     {
                         m_ChannelData[ i ].volume_distr += m_ChannelData[ i ].volume_distr_timer_add;
                     }
-                    LOGGER->Log( "UpdateTimers::UPDATE_VOLUME_DISTR channel_" + IntToString( i ) + " volume_distr=0x" + HexToString(  m_ChannelData[ i ].volume_distr_timer, 4, '0' ) + ".\n" );
+                    //LOGGER->Log( "UpdateTimers::UPDATE_VOLUME_DISTR channel_" + IntToString( i ) + " volume_distr=0x" + HexToString(  m_ChannelData[ i ].volume_distr_timer, 4, '0' ) + ".\n" );
                     calculate_flags |= CALC_VOLUME;
                 }
 /*
@@ -955,7 +922,7 @@ if( channel_to_play != -1 && channel_to_play != i )
                 m_ChannelData[ i ].update_flags = update_flags;
 
                 m_ChannelData[ i ].sequence_wait -= 1;
-                // LOGGER->Log( "UpdateTimers channel_" + IntToString( i ) + " sequence_wait=0x" + HexToString(  m_ChannelData[ i ].sequence_wait, 4, '0' ) + ".\n" );
+                // //LOGGER->Log( "UpdateTimers channel_" + IntToString( i ) + " sequence_wait=0x" + HexToString(  m_ChannelData[ i ].sequence_wait, 4, '0' ) + ".\n" );
                 if( m_ChannelData[ i ].sequence_wait == 1 )
                 {
                     // force quick release if we will play new note next cycle
@@ -1005,7 +972,7 @@ if( channel_to_play != -1 && channel_to_play != i )
 
                 while( ( m_ChannelData[ i ].flags1 & ( CONTROL_STOP_CHANNEL | CONTROL_STOP_SEQUENCE ) ) == 0 )
                 {
-                    LOGGER->Log( "channel_" + IntToString( i ) + " " );
+                    //LOGGER->Log( "channel_" + IntToString( i ) + " " );
 
                     u8 opcode = m_Music->GetU8( cur_offset );
                     if( opcode < 0x80 )
@@ -1018,7 +985,7 @@ if( channel_to_play != -1 && channel_to_play != i )
 
                         u8 data1 = m_Music->GetU8( cur_offset + 1 );
                         u8 time = pause_table[ data1 ];
-                        LOGGER->Log( "0x" + HexToString( opcode, 2, '0' ) + " time1=0x" + HexToString( time, 2, '0' ) + " (data1=0x" + HexToString( data1, 2, '0' ) + ")" );
+                        //LOGGER->Log( "0x" + HexToString( opcode, 2, '0' ) + " time1=0x" + HexToString( time, 2, '0' ) + " (data1=0x" + HexToString( data1, 2, '0' ) + ")" );
                         u8 pitch_data = ( m_ChannelData[ i ].base_pitch & 0xff ) + pitch_table[ data1 ];
                         m_ChannelData[ i ].unk65 = pitch_data;
 
@@ -1026,7 +993,7 @@ if( channel_to_play != -1 && channel_to_play != i )
                         if( time == 0 )
                         {
                             time = m_Music->GetU8( cur_offset );
-                            LOGGER->Log( " time2=0x" + HexToString( time, 2, '0' ) + "" );
+                            //LOGGER->Log( " time2=0x" + HexToString( time, 2, '0' ) + "" );
                             cur_offset += 1;
                         }
 
@@ -1037,7 +1004,7 @@ if( channel_to_play != -1 && channel_to_play != i )
 
                         if( m_ChannelData[ i ].flags1 & 0x0010 )
                         {
-                            LOGGER->Log( "UNIMPLEMENTED m_ChannelData[ i ].flags1 & 0x0010" );
+                            //LOGGER->Log( "UNIMPLEMENTED m_ChannelData[ i ].flags1 & 0x0010" );
 //                                S0 = w[main_struct + c] + A2 * 4;
 
 //                                A0 = bu[S0 + 0];
@@ -1050,7 +1017,7 @@ if( channel_to_play != -1 && channel_to_play != i )
                         else
                         {
                             m_ChannelData[ i ].note_pitch = ( ( pitch_data << 0x8 ) + m_ChannelData[ i ].instrument_pitch + m_ChannelData[ i ].pitch_add ) << 0x10;
-                            LOGGER->Log( " note_pitch=0x" + HexToString( m_ChannelData[ i ].note_pitch, 8, '0' ) );
+                            //LOGGER->Log( " note_pitch=0x" + HexToString( m_ChannelData[ i ].note_pitch, 8, '0' ) );
                         }
 
                         m_ChannelData[ i ].calculate_flags |= CALC_PITCH;
@@ -1069,7 +1036,7 @@ if( channel_to_play != -1 && channel_to_play != i )
                             m_ChannelData[ i ].spu_update_flags = 0xffff;
                         }
 
-                        LOGGER->Log( "\n" );
+                        //LOGGER->Log( "\n" );
                     }
                     else
                     {
@@ -1082,7 +1049,7 @@ if( channel_to_play != -1 && channel_to_play != i )
                                 m_ChannelData[ i ].calculate_flags |= CALC_DISABLE;
                                 m_ChannelData[ i ].sequence_wait = wait;
                                 cur_offset += 2;
-                                LOGGER->Log( "0x80 stop and wait=0x" + HexToString( wait, 2, '0' ) + ".\n" );
+                                //LOGGER->Log( "0x80 stop and wait=0x" + HexToString( wait, 2, '0' ) + ".\n" );
                             }
                             break;
 
@@ -1092,7 +1059,7 @@ if( channel_to_play != -1 && channel_to_play != i )
                                 m_ChannelData[ i ].flags1 |= CONTROL_STOP_SEQUENCE;
                                 m_ChannelData[ i ].sequence_wait = wait;
                                 cur_offset += 2;
-                                LOGGER->Log( "0x81 wait=0x" + HexToString( wait, 2, '0' ) + ".\n" );
+                                //LOGGER->Log( "0x81 wait=0x" + HexToString( wait, 2, '0' ) + ".\n" );
                             }
                             break;
 
@@ -1103,7 +1070,7 @@ if( channel_to_play != -1 && channel_to_play != i )
                                     cur_offset = m_ChannelData[ i ].sequence_stored;
                                     m_ChannelData[ i ].base_pitch = m_ChannelData[ i ].base_pitch_stored;
                                     m_ChannelData[ i ].cycles += 1;
-                                    LOGGER->Log( "0x90 jump back to stored position and restore base_pitch, cycle=0x" + HexToString( m_ChannelData[ i ].cycles, 2, '0' ) + ".\n" );
+                                    //LOGGER->Log( "0x90 jump back to stored position and restore base_pitch, cycle=0x" + HexToString( m_ChannelData[ i ].cycles, 2, '0' ) + ".\n" );
                                 }
                                 else
                                 {
@@ -1116,7 +1083,7 @@ if( channel_to_play != -1 && channel_to_play != i )
 
                                     m_ChannelData[ i ].flags1 = 0;
                                     m_ChannelData[ i ].calculate_flags &= ~( CALC_ENABLE | CALC_DISABLE );
-                                    LOGGER->Log( "0x90 stop sequence.\n" );
+                                    //LOGGER->Log( "0x90 stop sequence.\n" );
                                 }
                             }
                             break;
@@ -1126,7 +1093,7 @@ if( channel_to_play != -1 && channel_to_play != i )
                                 cur_offset += 1;
                                 m_ChannelData[ i ].sequence_stored = cur_offset;
                                 m_ChannelData[ i ].base_pitch_stored = m_ChannelData[ i ].base_pitch;
-                                LOGGER->Log( "0x91 store script position. Save base_pitch.\n" );
+                                //LOGGER->Log( "0x91 store script position. Save base_pitch.\n" );
                             }
                             break;
 
@@ -1136,7 +1103,7 @@ if( channel_to_play != -1 && channel_to_play != i )
                                 m_ChannelData[ i ].base_pitch = base_pitch * 0xc;
                                 cur_offset += 2;
 
-                                LOGGER->Log( "0x94 base_pitch=0x" + HexToString( base_pitch, 2, '0' ) + "\n" );
+                                //LOGGER->Log( "0x94 base_pitch=0x" + HexToString( base_pitch, 2, '0' ) + "\n" );
                             }
                             break;
 
@@ -1145,7 +1112,7 @@ if( channel_to_play != -1 && channel_to_play != i )
                                 m_ChannelData[ i ].base_pitch += 0xc;
                                 cur_offset += 1;
 
-                                LOGGER->Log( "0x95 increment base_pitch by 0xc.\n" );
+                                //LOGGER->Log( "0x95 increment base_pitch by 0xc.\n" );
                             }
                             break;
 
@@ -1154,19 +1121,19 @@ if( channel_to_play != -1 && channel_to_play != i )
                                 m_ChannelData[ i ].base_pitch -= 0xc;
                                 cur_offset += 1;
 
-                                LOGGER->Log( "0x96 decrement base_pitch by 0xc.\n" );
+                                //LOGGER->Log( "0x96 decrement base_pitch by 0xc.\n" );
                             }
                             break;
 
-                            case 0x97:
-                            {
-                                u8 unknown1 = m_Music->GetU8( cur_offset + 1 );
-                                u8 unknown2 = m_Music->GetU8( cur_offset + 2 );
-                                cur_offset += 3;
+                            //case 0x97:
+                            //{
+                                //u8 unknown1 = m_Music->GetU8( cur_offset + 1 );
+                                //u8 unknown2 = m_Music->GetU8( cur_offset + 2 );
+                                //cur_offset += 3;
 
-                                LOGGER->Log( "UNIMPLEMENTED 97 " + HexToString( unknown1, 2, '0' ) + " " + HexToString( unknown2, 2, '0' ) + "\n" );
-                            }
-                            break;
+                                //LOGGER->Log( "UNIMPLEMENTED 97 " + HexToString( unknown1, 2, '0' ) + " " + HexToString( unknown2, 2, '0' ) + "\n" );
+                            //}
+                            //break;
 
                             case 0x98:
                             {
@@ -1177,7 +1144,7 @@ if( channel_to_play != -1 && channel_to_play != i )
                                 m_ChannelData[ i ].stack[ m_ChannelData[ i ].stack_id ].start_base_pitch = m_ChannelData[ i ].base_pitch;
                                 m_ChannelData[ i ].stack[ m_ChannelData[ i ].stack_id ].start_sequence = cur_offset;
 
-                                LOGGER->Log( "0x98 start cycle_" + HexToString( m_ChannelData[ i ].stack_id, 2, '0' ) + " cycle=0x" + HexToString( cycles, 2, '0' ) + ".\n" );
+                                //LOGGER->Log( "0x98 start cycle_" + HexToString( m_ChannelData[ i ].stack_id, 2, '0' ) + " cycle=0x" + HexToString( cycles, 2, '0' ) + ".\n" );
                             }
                             break;
 
@@ -1196,11 +1163,11 @@ if( channel_to_play != -1 && channel_to_play != i )
                                     cur_offset = m_ChannelData[ i ].stack[ m_ChannelData[ i ].stack_id ].start_sequence;
                                     m_ChannelData[ i ].base_pitch = m_ChannelData[ i ].stack[ m_ChannelData[ i ].stack_id ].start_base_pitch;
 
-                                    LOGGER->Log( "0x99 continue cycle_" + HexToString( m_ChannelData[ i ].stack_id, 2, '0' ) + " cycle=0x" + HexToString( cycles, 2, '0' ) + ".\n"  );
+                                    //LOGGER->Log( "0x99 continue cycle_" + HexToString( m_ChannelData[ i ].stack_id, 2, '0' ) + " cycle=0x" + HexToString( cycles, 2, '0' ) + ".\n"  );
                                 }
                                 else
                                 {
-                                    LOGGER->Log( "0x99 finish cycle_" + HexToString( m_ChannelData[ i ].stack_id, 2, '0' ) + ".\n" );
+                                    //LOGGER->Log( "0x99 finish cycle_" + HexToString( m_ChannelData[ i ].stack_id, 2, '0' ) + ".\n" );
                                     m_ChannelData[ i ].stack_id -= 1;
                                 }
                             }
@@ -1214,24 +1181,24 @@ if( channel_to_play != -1 && channel_to_play != i )
                                     m_ChannelData[ i ].base_pitch = m_ChannelData[ i ].stack[ m_ChannelData[ i ].stack_id ].end_base_pitch;
                                     cur_offset = m_ChannelData[ i ].stack[ m_ChannelData[ i ].stack_id ].end_sequence;
 
-                                    LOGGER->Log( "0x9a finish cycle_" + HexToString( m_ChannelData[ i ].stack_id, 2, '0' ) + " and jump to end.\n" );
+                                    //LOGGER->Log( "0x9a finish cycle_" + HexToString( m_ChannelData[ i ].stack_id, 2, '0' ) + " and jump to end.\n" );
                                     m_ChannelData[ i ].stack_id -= 1;
                                 }
                                 else
                                 {
-                                    LOGGER->Log( "0x9a skip finish cycle_" + HexToString( m_ChannelData[ i ].stack_id, 2, '0' ) + " cycle=0x" + HexToString( m_ChannelData[ i ].stack[ m_ChannelData[ i ].stack_id ].cycles, 2, '0' ) + ".\n" );
+                                    //LOGGER->Log( "0x9a skip finish cycle_" + HexToString( m_ChannelData[ i ].stack_id, 2, '0' ) + " cycle=0x" + HexToString( m_ChannelData[ i ].stack[ m_ChannelData[ i ].stack_id ].cycles, 2, '0' ) + ".\n" );
                                 }
                             }
                             break;
 
-                            case 0xa0:
-                            {
-                                u8 unknown = m_Music->GetU8( cur_offset + 1 );
-                                cur_offset += 2;
+                            //case 0xa0:
+                            //{
+                                //u8 unknown = m_Music->GetU8( cur_offset + 1 );
+                                //cur_offset += 2;
 
-                                LOGGER->Log( "UNIMPLEMENTED a0 " + HexToString( unknown, 2, '0' ) + "\n" );
-                            }
-                            break;
+                                //LOGGER->Log( "UNIMPLEMENTED a0 " + HexToString( unknown, 2, '0' ) + "\n" );
+                            //}
+                            //break;
 
                             case 0xa9:
                             {
@@ -1239,7 +1206,7 @@ if( channel_to_play != -1 && channel_to_play != i )
                                 m_ChannelData[ i ].note_sync = note_sync;
                                 cur_offset += 2;
 
-                                LOGGER->Log( "0xa9 note_sync=0x" + HexToString( note_sync, 2, '0' ) + "\n" );
+                                //LOGGER->Log( "0xa9 note_sync=0x" + HexToString( note_sync, 2, '0' ) + "\n" );
                             }
                             break;
 
@@ -1249,17 +1216,17 @@ if( channel_to_play != -1 && channel_to_play != i )
                                 InitChannelInstrument( i, instrument );
                                 cur_offset += 2;
 
-                                LOGGER->Log( "0xac instrument=0x" + HexToString( instrument, 2, '0' ) + ".\n" );
+                                //LOGGER->Log( "0xac instrument=0x" + HexToString( instrument, 2, '0' ) + ".\n" );
                             }
                             break;
 
-                            case 0xae:
-                            {
-                                cur_offset += 1;
+                            //case 0xae:
+                            //{
+                                //cur_offset += 1;
 
-                                LOGGER->Log( "UNIMPLEMENTED ae\n" );
-                            }
-                            break;
+                                //LOGGER->Log( "UNIMPLEMENTED ae\n" );
+                            //}
+                            //break;
 
                             case 0xba:
                             {
@@ -1270,7 +1237,7 @@ if( channel_to_play != -1 && channel_to_play != i )
                                 }
                                 cur_offset += 1;
 
-                                LOGGER->Log( "0xba enable reverb.\n" );
+                                //LOGGER->Log( "0xba enable reverb.\n" );
                             }
                             break;
 
@@ -1281,7 +1248,7 @@ if( channel_to_play != -1 && channel_to_play != i )
                                 m_ChannelData[ i ].spu_update_flags |= SPU_ATTACK;
                                 cur_offset += 2;
 
-                                LOGGER->Log( "0xc2 attack_rate=0x" + HexToString( attack_rate, 2, '0' ) + ".\n" );
+                                //LOGGER->Log( "0xc2 attack_rate=0x" + HexToString( attack_rate, 2, '0' ) + ".\n" );
                             }
                             break;
 
@@ -1292,7 +1259,7 @@ if( channel_to_play != -1 && channel_to_play != i )
                                 m_ChannelData[ i ].spu_update_flags |= SPU_SUSTAIN;
                                 cur_offset += 2;
 
-                                LOGGER->Log( "0xc4 sustain_rate=0x" + HexToString( sustain_rate, 2, '0' ) + ".\n" );
+                                //LOGGER->Log( "0xc4 sustain_rate=0x" + HexToString( sustain_rate, 2, '0' ) + ".\n" );
                             }
                             break;
 
@@ -1303,7 +1270,7 @@ if( channel_to_play != -1 && channel_to_play != i )
                                 m_ChannelData[ i ].spu_update_flags |= SPU_SUSTAIN;
                                 cur_offset += 2;
 
-                                LOGGER->Log( "0xc9 sustain_mode=0x" + HexToString( sustain_mode, 2, '0' ) + ".\n" );
+                                //LOGGER->Log( "0xc9 sustain_mode=0x" + HexToString( sustain_mode, 2, '0' ) + ".\n" );
                             }
                             break;
 
@@ -1314,7 +1281,7 @@ if( channel_to_play != -1 && channel_to_play != i )
                                 m_ChannelData[ i ].pitch_add = ( pitch_add << 0x18 ) >> 0x13;
                                 cur_offset += 2;
 
-                                LOGGER->Log( "0xd0 pitch_add=0x" + HexToString( m_ChannelData[ i ].pitch_add, 4, '0' ) + ".\n" );
+                                //LOGGER->Log( "0xd0 pitch_add=0x" + HexToString( m_ChannelData[ i ].pitch_add, 4, '0' ) + ".\n" );
                             }
                             break;
 
@@ -1325,29 +1292,29 @@ if( channel_to_play != -1 && channel_to_play != i )
                                 m_ChannelData[ i ].pitch_add += ( pitch_add << 0x18 ) >> 0x13;
                                 cur_offset += 2;
 
-                                LOGGER->Log( "0xd1 increase pitch_add by 0x" + HexToString( m_ChannelData[ i ].pitch_add, 4, '0' ) + ".\n" );
+                                //LOGGER->Log( "0xd1 increase pitch_add by 0x" + HexToString( m_ChannelData[ i ].pitch_add, 4, '0' ) + ".\n" );
                             }
                             break;
 
-                            case 0xd7:
-                            {
-                                u8 unknown = m_Music->GetU8( cur_offset + 1 );
-                                cur_offset += 2;
+                            //case 0xd7:
+                            //{
+                                //u8 unknown = m_Music->GetU8( cur_offset + 1 );
+                                //cur_offset += 2;
 
-                                LOGGER->Log( "UNIMPLEMENTED d7 " + HexToString( unknown, 2, '0' ) + "\n" );
-                            }
-                            break;
+                                //LOGGER->Log( "UNIMPLEMENTED d7 " + HexToString( unknown, 2, '0' ) + "\n" );
+                            //}
+                            //break;
 
-                            case 0xd8:
-                            {
-                                u8 unknown1 = m_Music->GetU8( cur_offset + 1 );
-                                u8 unknown2 = m_Music->GetU8( cur_offset + 2 );
-                                u8 unknown3 = m_Music->GetU8( cur_offset + 3 );
-                                cur_offset += 4;
+                            //case 0xd8:
+                            //{
+                                //u8 unknown1 = m_Music->GetU8( cur_offset + 1 );
+                                //u8 unknown2 = m_Music->GetU8( cur_offset + 2 );
+                                //u8 unknown3 = m_Music->GetU8( cur_offset + 3 );
+                                //cur_offset += 4;
 
-                                LOGGER->Log( "UNIMPLEMENTED d8 " + HexToString( unknown1, 2, '0' ) + " " + HexToString( unknown2, 2, '0' ) + " " + HexToString( unknown3, 2, '0' ) + "\n" );
-                            }
-                            break;
+                                //LOGGER->Log( "UNIMPLEMENTED d8 " + HexToString( unknown1, 2, '0' ) + " " + HexToString( unknown2, 2, '0' ) + " " + HexToString( unknown3, 2, '0' ) + "\n" );
+                            //}
+                            //break;
 
                             case 0xe0:
                             {
@@ -1357,7 +1324,7 @@ if( channel_to_play != -1 && channel_to_play != i )
                                 m_ChannelData[ i ].update_flags &= 0xfef7;
                                 cur_offset += 2;
 
-                                LOGGER->Log( "0xe0 base_volume=0x" + HexToString( m_ChannelData[ i ].base_volume, 2, '0' ) + ".\n" );
+                                //LOGGER->Log( "0xe0 base_volume=0x" + HexToString( m_ChannelData[ i ].base_volume, 2, '0' ) + ".\n" );
                             }
                             break;
 
@@ -1375,7 +1342,7 @@ if( channel_to_play != -1 && channel_to_play != i )
                                 }
                                 cur_offset += 3;
 
-                                LOGGER->Log( "0xe2 destination base_volume=0x" + HexToString( dest_volume << 0x18, 2, '0' ) + " timer=0x" + HexToString( timer, 2, '0' ) + ".\n" );
+                                //LOGGER->Log( "0xe2 destination base_volume=0x" + HexToString( dest_volume << 0x18, 2, '0' ) + " timer=0x" + HexToString( timer, 2, '0' ) + ".\n" );
                             }
                             break;
 
@@ -1386,7 +1353,7 @@ if( channel_to_play != -1 && channel_to_play != i )
                                 m_ChannelData[ i ].volume_distr = volume_distr << 0x8;
                                 cur_offset += 2;
 
-                                LOGGER->Log( "0xe8 volume_distr=0x" + HexToString( volume_distr, 2, '0' ) + ".\n" );
+                                //LOGGER->Log( "0xe8 volume_distr=0x" + HexToString( volume_distr, 2, '0' ) + ".\n" );
                             }
                             break;
 
@@ -1404,7 +1371,7 @@ if( channel_to_play != -1 && channel_to_play != i )
                                 }
                                 cur_offset += 3;
 
-                                LOGGER->Log( "0xea destination volume_distr=0x" + HexToString( dest_disrt, 2, '0' ) + " timer=0x" + HexToString( timer, 2, '0' ) + ".\n" );
+                                //LOGGER->Log( "0xea destination volume_distr=0x" + HexToString( dest_disrt, 2, '0' ) + " timer=0x" + HexToString( timer, 2, '0' ) + ".\n" );
                             }
                             break;
 
@@ -1428,13 +1395,13 @@ if( channel_to_play != -1 && channel_to_play != i )
                                 }
                                 cur_offset += 4;
 
-                                LOGGER->Log( "0xf8 next note start base_volume=0x" + HexToString( start, 2, '0' ) + " final base_volume=0x" + HexToString( final, 2, '0' ) + " timer=0x" + HexToString( timer, 2, '0' ) + ".\n" );
+                                //LOGGER->Log( "0xf8 next note start base_volume=0x" + HexToString( start, 2, '0' ) + " final base_volume=0x" + HexToString( final, 2, '0' ) + " timer=0x" + HexToString( timer, 2, '0' ) + ".\n" );
                             }
                             break;
 
                             default:
                             {
-                                LOGGER->Log( "UNKNOWN " + HexToString( opcode, 2, '0' ) + "\n" );
+                                //LOGGER->Log( "UNKNOWN " + HexToString( opcode, 2, '0' ) + "\n" );
                                 m_ChannelData[ i ].flags1 = 0;
                             }
                         }

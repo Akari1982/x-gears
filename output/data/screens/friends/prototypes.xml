@@ -1,4 +1,16 @@
 <prototypes>
+    <prototype name="sprite9">
+        <sprite name="s1" image="screens/friends/ui_texturs1.png" x="-33" y="-33" width="44" height="43" visible="true" />
+        <sprite name="s2" image="screens/friends/ui_texturs2.png" x="11" y="-33" width="339" height="43" visible="true" />
+        <sprite name="s3" image="screens/friends/ui_texturs3.png" x="350" y="-33" width="43" height="43" visible="true" />
+        <sprite name="s4" image="screens/friends/ui_texturs4.png" x="-33" y="10" width="44" height="429" visible="true" />
+        <sprite name="s5" image="screens/friends/ui_texturs5.png" x="11" y="10" width="339" height="429" visible="true" />
+        <sprite name="s6" image="screens/friends/ui_texturs6.png" x="350" y="10" width="43" height="429" visible="true" />
+        <sprite name="s7" image="screens/friends/ui_texturs7.png" x="-33" y="439" width="44" height="43" visible="true" />
+        <sprite name="s8" image="screens/friends/ui_texturs8.png" x="11" y="439" width="339" height="43" visible="true" />
+        <sprite name="s9" image="screens/friends/ui_texturs9.png" x="350" y="439" width="43" height="43" visible="true" />
+    </prototype>
+
     <prototype name="fr_2_bookmrk_btn">
         <widget name="self" x="0" y="0" width="180" height="48" visible="true">
             <text_area name="text_48" x="0" y="5" width="180" height="30" text_name="Friends" font="FFVIIFont" colour="0.63 0.63 0.63" visible="true" />
@@ -13,24 +25,32 @@
 
     <prototype name="friends_2_slot">
         <widget name="self" x="0" y="0" width="330" height="60" visible="true">
+            <sprite name="objectName124" x="0" y="0" width="357" height="60" image="screens/friends/main_ui_4.png" uv="0.948241 0.0205069 0.961915 0.0205069 0.961915 0.0341806 0.948241 0.0341806" colour="0.6 0.3 0" visible="true" />
+            <sprite name="objectName126" x="63" y="36" width="10" height="10" image="screens/friends/main_ui_3.png" uv="0.960938 0.150391 0.980469 0.150391 0.980469 0.169922 0.960938 0.169922" visible="true" />
+            <sprite name="objectName127" x="59" y="31" width="20" height="20" image="screens/friends/main_ui_3.png" uv="0.958984 0.177734 0.998047 0.177734 0.998047 0.216797 0.958984 0.216797" visible="true" />
             <text_area name="name" x="62" y="3" width="260" height="30" text_name="PlayerName" font="FFVIIFont" visible="true" />
             <text_area name="request_text" x="62" y="0" width="260" height="20" text_name="FriendsRequest" font="FFVIIFont" visible="true" />
             <text_area name="status" x="83" y="30" width="230" height="20" text_name="Status" font="FFVIIFont" visible="true" />
-            <sprite name="btn1" x="210" y="2" width="56" height="56" colour="1 0 0" alpha="0.5" visible="true">
-                <animation name="idle" length="0" alpha="0:0.5" />
-                <animation name="over" length="0" alpha="0:1" />
-            </sprite>
-            <sprite name="btn2" x="269" y="2" width="56" height="56" colour="0 0 1" alpha="0.5" visible="true">
-                <animation name="idle" length="0" alpha="0:0.5" />
-                <animation name="over" length="0" alpha="0:1" />
-            </sprite>
-            <widget name="ava_pl" x="6" y="5" width="26" height="26" effect="ui\graphics\inventory_2\i2_b_ava_pl_btn" visible="true" />
+            <widget name="btn1" x="210" y="2" width="56" height="56" visible="true">
+                <sprite name="pasted__objectName362" x="0" y="0" width="56" height="56" image="screens/friends/main_2_ui_1.png" uv="0.865234 0.470703 0.869141 0.470703 0.870117 0.498047 0.866211 0.498047" visible="true" />
+                <sprite name="objectName219" x="11" y="10" width="34" height="34" image="screens/friends/main_ui_5.png" uv="0.517578 0.386719 0.583984 0.386719 0.583984 0.453125 0.517578 0.453125" alpha="0.7" visible="true" />
+            </widget>
+            <widget name="btn2" x="269" y="2" width="56" height="56" visible="true">
+                <sprite name="pasted__objectName377" x="0" y="0" width="56" height="56" image="screens/friends/main_2_ui_1.png" uv="0.865234 0.470703 0.869141 0.470703 0.870117 0.498047 0.866211 0.498047" visible="true" />
+                <sprite name="objectName389" x="11" y="10" width="34" height="34" image="screens/friends/main_ui_5.png" uv="0.886719 0.294922 0.953125 0.294922 0.953125 0.361328 0.886719 0.361328" alpha="0.7" visible="true" />
+            </widget>
+            <widget name="ava_pl" x="6" y="5" width="26" height="26" visible="true">
+                <widget name="self" x="0" y="0" width="50" height="50" visible="true">
+                    <sprite name="ico9" x="0" y="0" width="50" height="50" image="screens/friends/uv_01_01.png" uv="0 0 1 0 1 1 0 1" visible="true" />
+                    <sprite name="objectName170" x="0" y="0" width="51" height="51" image="screens/friends/main_ui_3.png" uv="0.234375 0.0839844 0.300781 0.0839844 0.300781 0.150391 0.234375 0.150391" visible="false" />
+                </widget>
+            </widget>
         </widget>
     </prototype>
 
     <prototype name="scroll">
         <widget name="self" x="0" y="0" width="26" height="100%" visible="true">
-            <sprite name="thumb_area" x="9" y="26" width="8" height="100%-52" alpha="0.2" visible="true" />
+            <sprite name="thumb_area" x="10" y="26" width="8" height="100%-52" image="screens/friends/main_ui_4.png" uv="0.951427 0.0231142 0.960682 0.0231142 0.960682 0.0354795 0.951427 0.0354795"  colour="0 0 0" alpha="0.2" visible="true" />
             <widget name="thumb" x="0" y="26" width="26" height="26" visible="true">
                 <sprite name="objectName264" x="-1" y="-2" width="30" height="30" image="screens/friends/main_ui_3.png" uv="0.568359 0.00976563 0.626953 0.00976563 0.626953 0.0683594 0.568359 0.0683594" visible="true" />
                 <sprite name="objectName265" x="-1" y="-2" width="30" height="30" image="screens/friends/main_ui_3.png" uv="0.716797 0.0117188 0.775391 0.0117188 0.775391 0.0703125 0.716797 0.0703125" visible="true" />

@@ -8,15 +8,7 @@
 
 
 UiSprite::UiSprite( const Ogre::String& name ):
-    UiWidget( name ),
-    m_U1( 0 ),
-    m_V1( 0 ),
-    m_U2( 1 ),
-    m_V2( 0 ),
-    m_U3( 1 ),
-    m_V3( 1 ),
-    m_U4( 0 ),
-    m_V4( 1 )
+    UiWidget( name )
 {
     Initialise();
 }
@@ -41,6 +33,15 @@ UiSprite::~UiSprite()
 void
 UiSprite::Initialise()
 {
+    m_U1 = 0.0f;
+    m_V1 = 0.0f;
+    m_U2 = 1.0f;
+    m_V2 = 0.0f;
+    m_U3 = 1.0f;
+    m_V3 = 1.0f;
+    m_U4 = 0.0f;
+    m_V4 = 1.0f;
+
     m_SceneManager = Ogre::Root::getSingleton().getSceneManager( "Scene" );
     m_RenderSystem = Ogre::Root::getSingletonPtr()->getRenderSystem();
 
@@ -86,7 +87,7 @@ UiSprite::Render()
 
             m_SceneManager->_setPass( m_Material->getTechnique( 0 )->getPass( 0 ), true, false );
 
-            m_RenderSystem->setScissorTest( true, m_ScissorLeft, m_ScissorTop, m_ScissorRight, m_ScissorBottom );
+            //m_RenderSystem->setScissorTest( true, m_ScissorLeft, m_ScissorTop, m_ScissorRight, m_ScissorBottom );
             m_RenderSystem->_render( m_RenderOp );
             m_RenderSystem->setScissorTest( false );
         }

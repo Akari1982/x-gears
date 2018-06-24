@@ -18,6 +18,7 @@ public:
     void LoadInstruments( const Ogre::String& file_name );
     void LoadSequence( const Ogre::String& file_name );
 
+    void DebugUpdate();
     void Update();
 
 private:

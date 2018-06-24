@@ -226,10 +226,11 @@ extern int iRightXAVol;
 #define PSE_SPU_ERR                 -60
 #define PSE_SPU_ERR_NOTCONFIGURED   PSE_SPU_ERR - 1
 #define PSE_SPU_ERR_INIT            PSE_SPU_ERR - 2
-#ifndef max
-#define max(a,b)            (((a) > (b)) ? (a) : (b))
-#define min(a,b)            (((a) < (b)) ? (a) : (b))
-#endif
+
+//#ifndef max
+//#define max(a,b)            (((a) > (b)) ? (a) : (b))
+//#define min(a,b)            (((a) < (b)) ? (a) : (b))
+//#endif
 
 // 137 ms test buffer... if less than that is buffered, a new upload will happen
 #define TESTSIZE    24192

@@ -10,13 +10,14 @@ float timer = 0;
 
 void Update( float delta )
 {
-    if( timer >= 0.015 )
+    if( timer >= 0.008333 )
     {
         timer = 0;
         SoundParser::getSingleton().Update();
     }
     timer += delta;
 
+    SoundParser::getSingleton().DebugUpdate();
     SOUNDMAN->Update();
 }
 
@@ -25,7 +26,7 @@ void Update( float delta )
 int
 main( int argc, char *argv[] )
 {
-    InitializeOgreBase( "Xenogears Sound Exporter" );
+    InitializeOgreBase( "Xenogears Exporter" );
 
     SoundManager* SOUNDMAN = new SoundManager();
     SoundParser* sound_parser = new SoundParser();
@@ -38,8 +39,8 @@ main( int argc, char *argv[] )
     }
     else
     {
-        sound_parser->LoadInstruments( "data/0216.snd" );
-        sound_parser->LoadSequence( "data/0217.smd" );
+        sound_parser->LoadInstruments( "data/0166.snd" );
+        sound_parser->LoadSequence( "data/0167.smd" );
     }
 
     Ogre::Root::getSingleton().startRendering();

@@ -1,15 +1,13 @@
 #include <iostream>
 #include <fstream>
 #include <iomanip>
-#include <sys/time.h>
+#include <time.h>
 
 #include "SoundManager.h"
 #include "SoundBackend.h"
 #include "backends/SoundBackendSDL.h"
 
-#ifdef USE_MINGW
-    #include <windows.h>
-#endif
+#include <windows.h>
 
 //#include "../../../common/Logger.h"
 
@@ -2628,11 +2626,7 @@ static void *MAINThread(void *arg)
 
 			// else sleep for x ms (linux)
 
-#ifndef USE_MINGW
-			usleep(PAUSE_L);
-#else
 			Sleep(PAUSE_L);
-#endif
 
 //			SDL_Delay(PAUSE_L);
 			if(dwNewChannel)
@@ -2783,11 +2777,8 @@ static void *MAINThread(void *arg)
 											iWatchDog = 1;
 											while(iWatchDog && !bEndThread &&
 												GGetTime() < dwWatchTime)
-#ifndef USE_MINGW
-			usleep(10);
-#else
 			Sleep(10);
-#endif
+
 
 //												SDL_Delay(1000L);
 										}
@@ -3194,11 +3185,7 @@ void RemoveTimer(void)
 		// wait until thread has ended
 		while(!bThreadEnded && i < 2000)
 		{
-#ifndef USE_MINGW
-			usleep(10);
-#else
 			Sleep(10);
-#endif
 //			SDL_Delay(1000L);
 			i++;
 		}
@@ -3551,9 +3538,7 @@ u32 GGetTime()
 {
 	// well, maybe there are better ways
 	// to do that, but at least it works
-	struct timeval tv;
-	gettimeofday(&tv, 0);
-
-	return tv.tv_sec * 1000 + tv.tv_usec / 1000;
+	SYSTEMTIME sm;
+	GetSystemTime(&sm);
+	return sm.wSecond;
 }
-

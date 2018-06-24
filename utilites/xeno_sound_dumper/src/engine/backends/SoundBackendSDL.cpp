@@ -1,4 +1,4 @@
-#include <SDL/SDL.h>
+#include <SDL.h>
 #include "../../../../common/TypeDefine.h"
 
 #include "SoundBackendSDL.h"

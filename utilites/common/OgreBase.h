@@ -346,7 +346,7 @@ InitializeOgreBase( const Ogre::String& name )
     root->initialise( false );
     Ogre::NameValuePairList misc;
     misc[ "title" ] = name;
-    window = root->createRenderWindow( "QGearsWindow", 800, 600, false, &misc );
+    window = root->createRenderWindow( "QGearsWindow", 1280, 720, false, &misc );
 
 
 
@@ -379,7 +379,7 @@ InitializeOgreBase( const Ogre::String& name )
     camera->lookAt( 0, 0, 0 );
 
     viewport = window->addViewport( camera );
-    viewport->setBackgroundColour( Ogre::ColourValue( 0, 0.4, 0 ) );
+    viewport->setBackgroundColour( Ogre::ColourValue( 0, 0, 0 ) );
     camera->setAspectRatio( Ogre::Real( viewport->getActualWidth() ) / Ogre::Real( viewport->getActualHeight() ) );
 
 

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="src\Extract.cpp" />
+    <ClCompile Include="src\Main.cpp" />
+    <ClCompile Include="..\common\FileSystem.cpp" />
+    <ClCompile Include="..\common\Logger.cpp" />
+    <ClCompile Include="..\common\DebugDraw.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Extract.h" />
+    <ClInclude Include="..\common\FileSystem.h" />
+    <ClInclude Include="..\common\Logger.h" />
+    <ClInclude Include="..\common\OgreBase.h" />
+    <ClInclude Include="..\common\DebugDraw.h" />
+  </ItemGroup>
+</Project>
