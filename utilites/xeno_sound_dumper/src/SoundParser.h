@@ -40,7 +40,7 @@ private:
     enum SpuEnableParameter
     {
         SPU_ENABLE_FM     = 0x0010,
-        SPU_ENABL_NOISE   = 0x0020,
+        SPU_ENABLE_NOISE  = 0x0020,
         SPU_ENABLE_REVERB = 0x0040,
     };
 
@@ -63,6 +63,8 @@ private:
 
     enum UpdateParameter
     {
+        UPDATE_BASE_PITCH      = 0x0001,
+        UPDATE_BASE_PITCH_IMM  = 0x0002,
         UPDATE_BASE_VOLUME     = 0x0008,
         UPDATE_VOLUME_DISTR    = 0x0010,
         SET_UPDATE_BASE_VOLUME = 0x0100,
@@ -135,6 +137,12 @@ private:
         u32 end_sequence;    // 0x8
     };
 
+    enum ChannelControl // flags1
+    {
+        CHANNEL_DISABLE_REVERB = 0x0002,
+    };
+
+
     struct ChannelData
     {
         u16 flags1;                   // 0x00
@@ -191,9 +199,11 @@ private:
         s32 stored_base_volume_add;   // 0x7c
         u16 stored_base_volume_timer; // 0x80
         s16 stored_base_volume;       // 0x82
+        s32 base_pitch_add;           // 0x84
         s32 base_volume_add;          // 0x88
         s16 volume_distr_timer_add;   // 0x90
         u16 volume_distr_final;       // 0x92
+        u16 base_pitch_timer;         // 0x94
         u16 base_volume_timer;        // 0x96
         u16 volume_distr_timer;       // 0x98
         ChannelStackData stack[ 4 ];  // 0x9c
@@ -212,6 +222,12 @@ private:
 
     File* m_Music;
 
+
+    enum GlobalSoundControl
+    {
+        GSC_ENABLE_REVERB = 0x2000,
+    };
+    u32 m_GlobalSoundControl; // 80058c18
     u32 m_VoiceOn;   // 80058b98
     u32 m_VoiceOff;  // 80058bec
     u32 m_VoiceOff2; // 80058bf0

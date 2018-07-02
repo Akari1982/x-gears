@@ -265,6 +265,7 @@ const unsigned short unk2[ 0x1000 ] =
 SoundParser::SoundParser():
     m_Music( NULL )
 {
+    m_GlobalSoundControl = 0xb801; // GSC_ENABLE_REVERB 0x2000
 }
 
 
@@ -559,38 +560,86 @@ SoundParser::DebugUpdate()
             {
                 switch( opcode )
                 {
-                    case 0x80:
-                    case 0x81:
-                    case 0x94:
-                    case 0x98:
-                    case 0xa9:
-                    case 0xac:
-                    case 0xc2:
-                    case 0xc4:
-                    case 0xc9:
-                    case 0xd0:
-                    case 0xd1:
-                    case 0xe0:
-                    case 0xe8:
-                    {
-                        u8 data = m_Music->GetU8( cur_offset + 1 );
-                        cur_offset += 2;
-                        //DEBUG_DRAW.Text( x, i * 20 + add_y, " " + HexToString( opcode, 2, '0' ) + HexToString( data, 2, '0' ) ); x += 5 * size;
-                        DEBUG_DRAW.Text( x, i * 20 + add_y, "" + HexToString( opcode, 2, '0' ) ); x += 2 * size;
-                    }
-                    break;
-
                     case 0x91:
                     case 0x95:
                     case 0x96:
                     case 0x99:
+                    case 0x9a:
+                    case 0xae:
+                    case 0xb0:
+                    case 0xb1:
                     case 0xba:
+                    case 0xbb:
+                    case 0xc0:
+                    case 0xdb:
                     {
                         cur_offset += 1;
+                        if( opcode == 0xae || opcode == 0xb0 || opcode == 0xb1 || opcode == 0xdb )
+                        {
+                            DEBUG_DRAW.SetColour( Ogre::ColourValue( 1.0f, 0.0f, 0.0f, 1.0f ) );
+                        }
                         DEBUG_DRAW.Text( x, i * 20 + add_y, "" + HexToString( opcode, 2, '0' ) ); x += 2 * size;
                     }
                     break;
 
+                    case 0x80:
+                    case 0x81:
+                    case 0x94:
+                    case 0x98:
+                    case 0xa0:
+                    case 0xa9:
+                    case 0xac:
+                    case 0xad:
+                    case 0xc2:
+                    case 0xc4:
+                    case 0xc5:
+                    case 0xc9:
+                    case 0xca:
+                    case 0xd0:
+                    case 0xd1:
+                    case 0xd7:
+                    case 0xe0:
+                    case 0xe1:
+                    case 0xe8:
+                    case 0xfe:
+                    {
+                        u8 data = m_Music->GetU8( cur_offset + 1 );
+                        cur_offset += 2;
+                        //DEBUG_DRAW.Text( x, i * 20 + add_y, " " + HexToString( opcode, 2, '0' ) + HexToString( data, 2, '0' ) ); x += 5 * size;
+
+                        if( opcode == 0xa0 || opcode == 0xd7 || opcode == 0xfe )
+                        {
+                            DEBUG_DRAW.SetColour( Ogre::ColourValue( 1.0f, 0.0f, 0.0f, 1.0f ) );
+                        }
+                        DEBUG_DRAW.Text( x, i * 20 + add_y, "" + HexToString( opcode, 2, '0' ) ); x += 2 * size;
+                    }
+                    break;
+
+                    case 0x97:
+                    case 0xa2:
+                    case 0xd4:
+                    case 0xe2:
+                    case 0xfc:
+                    {
+                        u8 data1 = m_Music->GetU8( cur_offset + 1 );
+                        u8 data2 = m_Music->GetU8( cur_offset + 2 );
+                        cur_offset += 3;
+                        // DEBUG_DRAW.Text( x, i * 20 + add_y, " " + HexToString( opcode, 2, '0' ) + HexToString( data1, 2, '0' ) + HexToString( data2, 2, '0' ) ); x += 7 * size;
+
+                        if( opcode == 0x97 || opcode == 0xa2 )
+                        {
+                            DEBUG_DRAW.SetColour( Ogre::ColourValue( 1.0f, 0.0f, 0.0f, 1.0f ) );
+                        }
+                        DEBUG_DRAW.Text( x, i * 20 + add_y, "" + HexToString( opcode, 2, '0' ) ); x += 2 * size;
+                    }
+                    break;
+
+                    case 0xd8:
+                    case 0xd9:
+                    case 0xe4:
+                    case 0xe5:
+                    case 0xec:
+                    case 0xed:
                     case 0xf8:
                     {
                         u8 data1 = m_Music->GetU8( cur_offset + 1 );
@@ -598,16 +647,11 @@ SoundParser::DebugUpdate()
                         u8 data3 = m_Music->GetU8( cur_offset + 3 );
                         cur_offset += 4;
                         //DEBUG_DRAW.Text( x, i * 20 + add_y, " " + HexToString( opcode, 2, '0' ) + HexToString( data1, 2, '0' ) + HexToString( data2, 2, '0' ) + HexToString( data3, 2, '0' ) ); x += 9 * size;
-                        DEBUG_DRAW.Text( x, i * 20 + add_y, "" + HexToString( opcode, 2, '0' ) ); x += 2 * size;
-                    }
-                    break;
 
-                    case 0xe2:
-                    {
-                        u8 data1 = m_Music->GetU8( cur_offset + 1 );
-                        u8 data2 = m_Music->GetU8( cur_offset + 2 );
-                        cur_offset += 3;
-                        // DEBUG_DRAW.Text( x, i * 20 + add_y, " " + HexToString( opcode, 2, '0' ) + HexToString( data1, 2, '0' ) + HexToString( data2, 2, '0' ) ); x += 7 * size;
+                        if( opcode == 0xd8 || opcode == 0xd9 || opcode == 0xe4 || opcode == 0xe5 || opcode == 0xec || opcode == 0xed )
+                        {
+                            DEBUG_DRAW.SetColour( Ogre::ColourValue( 1.0f, 0.0f, 0.0f, 1.0f ) );
+                        }
                         DEBUG_DRAW.Text( x, i * 20 + add_y, "" + HexToString( opcode, 2, '0' ) ); x += 2 * size;
                     }
                     break;
@@ -622,6 +666,7 @@ SoundParser::DebugUpdate()
 
                     default:
                     {
+                        DEBUG_DRAW.SetColour( Ogre::ColourValue( 1.0f, 0.0f, 0.0f, 1.0f ) );
                         DEBUG_DRAW.Text( x, i * 20 + add_y, " UNKNOWN " + HexToString( opcode, 2, '0' ) );
                         read = false;
                     }
@@ -845,11 +890,6 @@ SoundParser::UpdateTimers()
 
     for( size_t i = 0; i < m_ChannelData.size(); ++i )
     {
-if( channel_to_play != -1 && channel_to_play != i )
-{
-    continue;
-}
-
         if( m_ChannelData[ i ].flags1 != 0 )
         {
             u16 calculate_flags = m_ChannelData[ i ].calculate_flags;
@@ -866,25 +906,23 @@ if( channel_to_play != -1 && channel_to_play != i )
                         update_flags &= ~UPDATE_BASE_VOLUME;
                     }
                     m_ChannelData[ i ].base_volume += m_ChannelData[ i ].base_volume_add;
-                    //LOGGER->Log( "UpdateTimers::UPDATE_BASE_VOLUME channel_" + IntToString( i ) + " base_volume_timer=0x" + HexToString(  m_ChannelData[ i ].base_volume_timer, 4, '0' ) + ".\n" );
                     calculate_flags |= CALC_VOLUME;
                 }
-/*
-                if( A3 & 0001 )
+
+                if( update_flags & UPDATE_BASE_PITCH )
                 {
-                    if( ( A3 & 0002 ) == 0 )
+                    if( ( update_flags & UPDATE_BASE_PITCH_IMM ) == 0 )
                     {
-                        V0 = hu[channel_struct + 94] - 1;
-                        [channel_struct + 94] = h(V0);
-                        if( ( V0 & ffff ) == 0 )
+                        m_ChannelData[ i ].base_pitch_timer -= 1;
+                        if( m_ChannelData[ i ].base_pitch_timer == 0 )
                         {
-                            A3 = A3 & fffe;
+                            update_flags &= ~UPDATE_BASE_PITCH;
                         }
                     }
-                    [channel_struct + 68] = w(w[channel_struct + 68] + w[channel_struct + 84]);
-                    T0 = T0 | 0200;
+                    m_ChannelData[ i ].note_pitch += m_ChannelData[ i ].base_pitch_add;
+                    calculate_flags |= CALC_PITCH;
                 }
-*/
+
                 if( update_flags & UPDATE_VOLUME_DISTR )
                 {
                     m_ChannelData[ i ].volume_distr_timer -= 1;
@@ -955,11 +993,6 @@ SoundParser::UpdateSequenceData()
 {
     for( size_t i = 0; i < m_ChannelData.size(); ++i )
     {
-if( channel_to_play != -1 && channel_to_play != i )
-{
-    continue;
-}
-
         if( m_ChannelData[ i ].flags1 != 0 )
         {
             bool play_note = false;
@@ -1125,15 +1158,11 @@ if( channel_to_play != -1 && channel_to_play != i )
                             }
                             break;
 
-                            //case 0x97:
-                            //{
-                                //u8 unknown1 = m_Music->GetU8( cur_offset + 1 );
-                                //u8 unknown2 = m_Music->GetU8( cur_offset + 2 );
-                                //cur_offset += 3;
-
-                                //LOGGER->Log( "UNIMPLEMENTED 97 " + HexToString( unknown1, 2, '0' ) + " " + HexToString( unknown2, 2, '0' ) + "\n" );
-                            //}
-                            //break;
+                            case 0x97:
+                            {
+                                cur_offset += 3;
+                            }
+                            break;
 
                             case 0x98:
                             {
@@ -1180,97 +1209,135 @@ if( channel_to_play != -1 && channel_to_play != i )
                                 {
                                     m_ChannelData[ i ].base_pitch = m_ChannelData[ i ].stack[ m_ChannelData[ i ].stack_id ].end_base_pitch;
                                     cur_offset = m_ChannelData[ i ].stack[ m_ChannelData[ i ].stack_id ].end_sequence;
-
-                                    //LOGGER->Log( "0x9a finish cycle_" + HexToString( m_ChannelData[ i ].stack_id, 2, '0' ) + " and jump to end.\n" );
                                     m_ChannelData[ i ].stack_id -= 1;
-                                }
-                                else
-                                {
-                                    //LOGGER->Log( "0x9a skip finish cycle_" + HexToString( m_ChannelData[ i ].stack_id, 2, '0' ) + " cycle=0x" + HexToString( m_ChannelData[ i ].stack[ m_ChannelData[ i ].stack_id ].cycles, 2, '0' ) + ".\n" );
                                 }
                             }
                             break;
 
-                            //case 0xa0:
-                            //{
-                                //u8 unknown = m_Music->GetU8( cur_offset + 1 );
-                                //cur_offset += 2;
+                            case 0xa0:
+                            {
+                                cur_offset += 2;
+                            }
+                            break;
 
-                                //LOGGER->Log( "UNIMPLEMENTED a0 " + HexToString( unknown, 2, '0' ) + "\n" );
-                            //}
-                            //break;
+                            case 0xa2:
+                            {
+                                cur_offset += 3;
+                            }
+                            break;
 
                             case 0xa9:
                             {
                                 u8 note_sync = m_Music->GetU8( cur_offset + 1 );
                                 m_ChannelData[ i ].note_sync = note_sync;
                                 cur_offset += 2;
-
-                                //LOGGER->Log( "0xa9 note_sync=0x" + HexToString( note_sync, 2, '0' ) + "\n" );
                             }
                             break;
 
                             case 0xac:
                             {
-                                u8 instrument = m_Music->GetU8( cur_offset + 1 );
-                                InitChannelInstrument( i, instrument );
+                                InitChannelInstrument( i, m_Music->GetU8( cur_offset + 1 ) );
                                 cur_offset += 2;
-
-                                //LOGGER->Log( "0xac instrument=0x" + HexToString( instrument, 2, '0' ) + ".\n" );
                             }
                             break;
 
-                            //case 0xae:
-                            //{
-                                //cur_offset += 1;
+                            case 0xad:
+                            {
+                                s8 wait_add = m_Music->GetU8( cur_offset + 1 );
+                                if( wait_add != 0 )
+                                {
+                                    m_ChannelData[ i ].sequence_wait_add += wait_add;
+                                }
+                                else
+                                {
+                                    m_ChannelData[ i ].sequence_wait_add = 0;
+                                }
+                                cur_offset += 2;
+                            }
+                            break;
 
-                                //LOGGER->Log( "UNIMPLEMENTED ae\n" );
-                            //}
-                            //break;
+                            case 0xae:
+                            {
+                                cur_offset += 1;
+                            }
+                            break;
+
+                            case 0xb0:
+                            {
+                                cur_offset += 1;
+                            }
+                            break;
+
+                            case 0xb1:
+                            {
+                                cur_offset += 1;
+                            }
+                            break;
 
                             case 0xba:
                             {
-                                if( ( ( m_MainData.unk10 & 0x0006 ) == 0 ) || ( ( m_ChannelData[ i ].flags1 & 0x0002 ) == 0 ) )
+                                if( ( ( m_MainData.unk10 & 0x0006 ) == 0 ) || ( ( m_GlobalSoundControl & GSC_ENABLE_REVERB ) && ( m_ChannelData[ i ].flags1 & CHANNEL_DISABLE_REVERB ) == 0 ) )
                                 {
                                     m_ChannelData[ i ].spu_update_flags |= SPU_UPDATE_REVERB;
                                     m_ChannelData[ i ].spu_enable_flags |= SPU_ENABLE_REVERB;
                                 }
                                 cur_offset += 1;
+                            }
+                            break;
 
-                                //LOGGER->Log( "0xba enable reverb.\n" );
+                            case 0xbb:
+                            {
+                                m_ChannelData[ i ].spu_update_flags |= SPU_UPDATE_REVERB;
+                                m_ChannelData[ i ].spu_enable_flags &= ~SPU_ENABLE_REVERB;
+                                cur_offset += 1;
+                            }
+                            break;
+
+                            case 0xc0:
+                            {
+                                InitChannelInstrument( i, m_ChannelData[ i ].instrument_id );
+                                cur_offset += 1;
                             }
                             break;
 
                             case 0xc2:
                             {
-                                u8 attack_rate = m_Music->GetU8( cur_offset + 1 );
-                                m_ChannelData[ i ].attack_rate = attack_rate;
+                                m_ChannelData[ i ].attack_rate = m_Music->GetU8( cur_offset + 1 );
                                 m_ChannelData[ i ].spu_update_flags |= SPU_ATTACK;
                                 cur_offset += 2;
-
-                                //LOGGER->Log( "0xc2 attack_rate=0x" + HexToString( attack_rate, 2, '0' ) + ".\n" );
                             }
                             break;
 
                             case 0xc4:
                             {
-                                u8 sustain_rate = m_Music->GetU8( cur_offset + 1 );
-                                m_ChannelData[ i ].sustain_rate = sustain_rate;
+                                m_ChannelData[ i ].sustain_rate = m_Music->GetU8( cur_offset + 1 );
                                 m_ChannelData[ i ].spu_update_flags |= SPU_SUSTAIN;
                                 cur_offset += 2;
+                            }
+                            break;
 
-                                //LOGGER->Log( "0xc4 sustain_rate=0x" + HexToString( sustain_rate, 2, '0' ) + ".\n" );
+                            case 0xc5:
+                            {
+                                m_ChannelData[ i ].release_rate = m_Music->GetU8( cur_offset + 1 );
+                                m_ChannelData[ i ].release_rate_copy = m_Music->GetU8( cur_offset + 1 );
+                                m_ChannelData[ i ].spu_update_flags |= SPU_RELEASE;
+                                cur_offset += 2;
                             }
                             break;
 
                             case 0xc9:
                             {
-                                u8 sustain_mode = m_Music->GetU8( cur_offset + 1 );
-                                m_ChannelData[ i ].sustain_mode = sustain_mode;
+                                m_ChannelData[ i ].sustain_mode = m_Music->GetU8( cur_offset + 1 );
                                 m_ChannelData[ i ].spu_update_flags |= SPU_SUSTAIN;
                                 cur_offset += 2;
+                            }
+                            break;
 
-                                //LOGGER->Log( "0xc9 sustain_mode=0x" + HexToString( sustain_mode, 2, '0' ) + ".\n" );
+                            case 0xca:
+                            {
+                                m_ChannelData[ i ].release_mode = m_Music->GetU8( cur_offset + 1 );
+                                m_ChannelData[ i ].spu_update_flags |= SPU_RELEASE;
+                                cur_offset += 2;
                             }
                             break;
 
@@ -1291,30 +1358,50 @@ if( channel_to_play != -1 && channel_to_play != i )
                                 m_ChannelData[ i ].calculate_flags |= CALC_PITCH;
                                 m_ChannelData[ i ].pitch_add += ( pitch_add << 0x18 ) >> 0x13;
                                 cur_offset += 2;
-
-                                //LOGGER->Log( "0xd1 increase pitch_add by 0x" + HexToString( m_ChannelData[ i ].pitch_add, 4, '0' ) + ".\n" );
                             }
                             break;
 
-                            //case 0xd7:
-                            //{
-                                //u8 unknown = m_Music->GetU8( cur_offset + 1 );
-                                //cur_offset += 2;
+                            case 0xd4:
+                            {
+                                u8 steps = m_Music->GetU8( cur_offset + 1 );
+                                s32 value = ((s8)m_Music->GetU8( cur_offset + 2 )) << 0x18;
+                                if( ( steps != 0 ) && ( value != 0 ) )
+                                {
+                                    m_ChannelData[ i ].base_pitch_add = value / steps;
+                                    m_ChannelData[ i ].base_pitch_timer = steps;
+                                    m_ChannelData[ i ].update_flags |= UPDATE_BASE_PITCH;
+                                }
+                                else
+                                {
+                                    m_ChannelData[ i ].update_flags &= ~UPDATE_BASE_PITCH;
+                                }
+                                cur_offset += 3;
+                            }
+                            break;
 
-                                //LOGGER->Log( "UNIMPLEMENTED d7 " + HexToString( unknown, 2, '0' ) + "\n" );
-                            //}
-                            //break;
+                            case 0xd7:
+                            {
+                                cur_offset += 2;
+                            }
+                            break;
 
-                            //case 0xd8:
-                            //{
-                                //u8 unknown1 = m_Music->GetU8( cur_offset + 1 );
-                                //u8 unknown2 = m_Music->GetU8( cur_offset + 2 );
-                                //u8 unknown3 = m_Music->GetU8( cur_offset + 3 );
-                                //cur_offset += 4;
+                            case 0xd8:
+                            {
+                                cur_offset += 4;
+                            }
+                            break;
 
-                                //LOGGER->Log( "UNIMPLEMENTED d8 " + HexToString( unknown1, 2, '0' ) + " " + HexToString( unknown2, 2, '0' ) + " " + HexToString( unknown3, 2, '0' ) + "\n" );
-                            //}
-                            //break;
+                            case 0xd9:
+                            {
+                                cur_offset += 4;
+                            }
+                            break;
+
+                            case 0xdb:
+                            {
+                                cur_offset += 1;
+                            }
+                            break;
 
                             case 0xe0:
                             {
@@ -1323,8 +1410,16 @@ if( channel_to_play != -1 && channel_to_play != i )
                                 m_ChannelData[ i ].calculate_flags |= CALC_VOLUME;
                                 m_ChannelData[ i ].update_flags &= 0xfef7;
                                 cur_offset += 2;
+                            }
+                            break;
 
-                                //LOGGER->Log( "0xe0 base_volume=0x" + HexToString( m_ChannelData[ i ].base_volume, 2, '0' ) + ".\n" );
+                            case 0xe1:
+                            {
+                                s8 base_volume = m_Music->GetU8( cur_offset + 1 );
+                                m_ChannelData[ i ].base_volume = (m_ChannelData[ i ].base_volume + base_volume << 0x18) & 0x7fffffff;
+                                m_ChannelData[ i ].calculate_flags |= CALC_VOLUME;
+                                m_ChannelData[ i ].update_flags &= 0xfef7;
+                                cur_offset += 2;
                             }
                             break;
 
@@ -1341,8 +1436,18 @@ if( channel_to_play != -1 && channel_to_play != i )
                                     m_ChannelData[ i ].base_volume_add = diff_volume / timer;
                                 }
                                 cur_offset += 3;
+                            }
+                            break;
 
-                                //LOGGER->Log( "0xe2 destination base_volume=0x" + HexToString( dest_volume << 0x18, 2, '0' ) + " timer=0x" + HexToString( timer, 2, '0' ) + ".\n" );
+                            case 0xe4:
+                            {
+                                cur_offset += 4;
+                            }
+                            break;
+
+                            case 0xe5:
+                            {
+                                cur_offset += 4;
                             }
                             break;
 
@@ -1352,8 +1457,6 @@ if( channel_to_play != -1 && channel_to_play != i )
                                 m_ChannelData[ i ].calculate_flags |= CALC_VOLUME;
                                 m_ChannelData[ i ].volume_distr = volume_distr << 0x8;
                                 cur_offset += 2;
-
-                                //LOGGER->Log( "0xe8 volume_distr=0x" + HexToString( volume_distr, 2, '0' ) + ".\n" );
                             }
                             break;
 
@@ -1370,8 +1473,18 @@ if( channel_to_play != -1 && channel_to_play != i )
                                     m_ChannelData[ i ].volume_distr_timer_add = ( diff_distr << 0x8 ) / timer;
                                 }
                                 cur_offset += 3;
+                            }
+                            break;
 
-                                //LOGGER->Log( "0xea destination volume_distr=0x" + HexToString( dest_disrt, 2, '0' ) + " timer=0x" + HexToString( timer, 2, '0' ) + ".\n" );
+                            case 0xec:
+                            {
+                                cur_offset += 4;
+                            }
+                            break;
+
+                            case 0xed:
+                            {
+                                cur_offset += 4;
                             }
                             break;
 
@@ -1396,6 +1509,28 @@ if( channel_to_play != -1 && channel_to_play != i )
                                 cur_offset += 4;
 
                                 //LOGGER->Log( "0xf8 next note start base_volume=0x" + HexToString( start, 2, '0' ) + " final base_volume=0x" + HexToString( final, 2, '0' ) + " timer=0x" + HexToString( timer, 2, '0' ) + ".\n" );
+                            }
+                            break;
+
+                            case 0xfc:
+                            {
+                                m_ChannelData[ i ].unk25 = m_Music->GetU8( cur_offset + 1 );
+                                InitChannelInstrument( i, m_Music->GetU8( cur_offset + 2 ) );
+                                cur_offset += 3;
+
+                                // func38294; // get pointer to current snd
+                                // if( V0 == 0 )
+                                // {
+                                //     V0 = w[80058bf4];
+                                // }
+                                // [channel_struct + 2c] = w(V0);
+
+                            }
+                            break;
+
+                            case 0xfe:
+                            {
+                                cur_offset += 2;
                             }
                             break;
 
