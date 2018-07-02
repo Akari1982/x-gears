@@ -112,8 +112,8 @@ private:
         u16 unk44;               // 0x44
         u32 channel_mask;        // 0x48
         u32 unk4c;               // 0x4c
-        u32 unk50;               // 0x50
-        u32 unk54;               // 0x54
+        s32 update_wait;         // 0x50
+        s32 update_wait_speed;   // 0x54
         u32 unk58;               // 0x58
         u32 unk5c;               // 0x5c
         u16 unk60;               // 0x60

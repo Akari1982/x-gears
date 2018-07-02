@@ -384,8 +384,8 @@ SoundParser::LoadSequence( const Ogre::String& file_name )
     m_MainData.unk43 = m_Music->GetU8( 0x1d );
     m_MainData.unk44 = m_Music->GetU16LE( 0x1b ) << 0x8;
     m_MainData.channel_mask = 0;
-    m_MainData.unk50 = 0x00010000;
-    m_MainData.unk54 = 0x00006600;
+    m_MainData.update_wait       = 0x00010000;
+    m_MainData.update_wait_speed = 0x00006600;
     m_MainData.unk58 = 0x00660000;
     m_MainData.unk5c = 0x00000000;
     m_MainData.unk60 = 0;
@@ -682,8 +682,19 @@ void
 SoundParser::Update()
 {
     UpdateSpu();
-    UpdateTimers();
-    UpdateSequenceData();
+
+    m_MainData.update_wait -= m_MainData.update_wait_speed;
+    while( m_MainData.update_wait < 0 )
+    {
+        m_MainData.update_wait += 0x10000;
+
+        if( m_MainData.number_of_channels != 0 )
+        {
+            UpdateTimers();
+            UpdateSequenceData();
+        }
+    }
+
     UpdateByFlags2Data();
     UpdateSpu2(); // update spu registers and turn voice off
 }
