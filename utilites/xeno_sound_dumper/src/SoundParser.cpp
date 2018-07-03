@@ -384,12 +384,12 @@ SoundParser::LoadSequence( const Ogre::String& file_name )
     m_MainData.unk43 = m_Music->GetU8( 0x1d );
     m_MainData.unk44 = m_Music->GetU16LE( 0x1b ) << 0x8;
     m_MainData.channel_mask = 0;
-    m_MainData.update_wait       = 0x00010000;
-    m_MainData.update_wait_speed = 0x00006600;
-    m_MainData.unk58 = 0x00660000;
-    m_MainData.unk5c = 0x00000000;
-    m_MainData.unk60 = 0;
-    m_MainData.unk64 = 0x01000000;
+    m_MainData.update_wait = 0x10000;
+    m_MainData.update_real_speed = 0x6600;
+    m_MainData.update_base_speed = 0x660000;
+    m_MainData.update_base_speed_incr_add = 0;
+    m_MainData.update_base_speed_incr_steps = 0;
+    m_MainData.update_real_speed_mod = 0x1000000;
     m_MainData.unk6c = 0;
     m_MainData.global_volume = 0x7f000000;
     m_MainData.unk78 = 0;
@@ -587,6 +587,7 @@ SoundParser::DebugUpdate()
                     case 0x94:
                     case 0x98:
                     case 0xa0:
+                    case 0xa1:
                     case 0xa9:
                     case 0xac:
                     case 0xad:
@@ -607,7 +608,7 @@ SoundParser::DebugUpdate()
                         cur_offset += 2;
                         //DEBUG_DRAW.Text( x, i * 20 + add_y, " " + HexToString( opcode, 2, '0' ) + HexToString( data, 2, '0' ) ); x += 5 * size;
 
-                        if( opcode == 0xa0 || opcode == 0xd7 || opcode == 0xfe )
+                        if( opcode == 0xd7 || opcode == 0xfe )
                         {
                             DEBUG_DRAW.SetColour( Ogre::ColourValue( 1.0f, 0.0f, 0.0f, 1.0f ) );
                         }
@@ -626,7 +627,7 @@ SoundParser::DebugUpdate()
                         cur_offset += 3;
                         // DEBUG_DRAW.Text( x, i * 20 + add_y, " " + HexToString( opcode, 2, '0' ) + HexToString( data1, 2, '0' ) + HexToString( data2, 2, '0' ) ); x += 7 * size;
 
-                        if( opcode == 0x97 || opcode == 0xa2 )
+                        if( opcode == 0x97 )
                         {
                             DEBUG_DRAW.SetColour( Ogre::ColourValue( 1.0f, 0.0f, 0.0f, 1.0f ) );
                         }
@@ -683,7 +684,7 @@ SoundParser::Update()
 {
     UpdateSpu();
 
-    m_MainData.update_wait -= m_MainData.update_wait_speed;
+    m_MainData.update_wait -= m_MainData.update_real_speed;
     while( m_MainData.update_wait < 0 )
     {
         m_MainData.update_wait += 0x10000;
@@ -876,28 +877,21 @@ SoundParser::UpdateSpu2()
 void
 SoundParser::UpdateTimers()
 {
-/*
-    main_struct = A0;
-    channel_struct = A1;
-
-    A3 = hu[main_struct + 60];
-    if( A3 != 0 )
+    u16 steps = m_MainData.update_base_speed_incr_steps;
+    if( steps != 0 )
     {
-        A3 = A3 - 1;
-        if( A3 & ffff )
+        --steps;
+        if( steps != 0 )
         {
-            V0 = w[main_struct + 58] + w[main_struct + 5c];
+            m_MainData.update_base_speed += m_MainData.update_base_speed_incr_add;
         }
         else
         {
-            V0 = hu[main_struct + 62] << 10;
+            m_MainData.update_base_speed = m_MainData.update_base_speed_incr_final << 0x10;
         }
-
-        [main_struct + 54] = w(h[main_struct + 5a] * h[main_struct + 66]);
-        [main_struct + 58] = w(V0);
-        [main_struct + 60] = h(A3);
+        update_real_speed = ( m_MainData.update_base_speed >> 0x10 ) * ( m_MainData.update_real_speed_mod >> 0x10 );
+        m_MainData.update_base_speed_incr_steps = steps;
     }
-*/
 
     for( size_t i = 0; i < m_ChannelData.size(); ++i )
     {
@@ -1227,12 +1221,34 @@ SoundParser::UpdateSequenceData()
 
                             case 0xa0:
                             {
+                                u8 speed = m_Music->GetU8( cur_offset + 1 );
+                                m_MainData.update_base_speed = speed << 0x10;
+                                m_MainData.update_real_speed = speed * ( m_MainData.update_real_speed_mod >> 0x10 );
+                                cur_offset += 2;
+                            }
+                            break;
+
+                            case 0xa1:
+                            {
+                                u8 speed = m_Music->GetU8( cur_offset + 1 );
+                                m_MainData.update_real_speed = 0;
+                                m_MainData.update_base_speed += speed << 0x10;
                                 cur_offset += 2;
                             }
                             break;
 
                             case 0xa2:
                             {
+                                u8 steps = m_Music->GetU8( cur_offset + 1 );
+                                s32 value = m_Music->GetU8( cur_offset + 2 );
+                                m_MainData.update_base_speed_incr_final = value;
+                                value <<= 0x10;
+                                s32 diff = value - m_MainData.update_base_speed;
+                                if( ( steps != 0 ) && ( diff != 0 ) )
+                                {
+                                    m_MainData.update_base_speed_incr_steps = steps;
+                                    m_MainData.update_base_speed_incr_add = diff / steps;
+                                }
                                 cur_offset += 3;
                             }
                             break;
