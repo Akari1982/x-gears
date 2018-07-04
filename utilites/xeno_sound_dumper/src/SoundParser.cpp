@@ -889,7 +889,7 @@ SoundParser::UpdateTimers()
         {
             m_MainData.update_base_speed = m_MainData.update_base_speed_incr_final << 0x10;
         }
-        update_real_speed = ( m_MainData.update_base_speed >> 0x10 ) * ( m_MainData.update_real_speed_mod >> 0x10 );
+        m_MainData.update_real_speed = ( m_MainData.update_base_speed >> 0x10 ) * ( m_MainData.update_real_speed_mod >> 0x10 );
         m_MainData.update_base_speed_incr_steps = steps;
     }
 
@@ -1010,8 +1010,6 @@ SoundParser::UpdateSequenceData()
 
                 while( ( m_ChannelData[ i ].flags1 & ( CONTROL_STOP_CHANNEL | CONTROL_STOP_SEQUENCE ) ) == 0 )
                 {
-                    //LOGGER->Log( "channel_" + IntToString( i ) + " " );
-
                     u8 opcode = m_Music->GetU8( cur_offset );
                     if( opcode < 0x80 )
                     {
@@ -1023,7 +1021,6 @@ SoundParser::UpdateSequenceData()
 
                         u8 data1 = m_Music->GetU8( cur_offset + 1 );
                         u8 time = pause_table[ data1 ];
-                        //LOGGER->Log( "0x" + HexToString( opcode, 2, '0' ) + " time1=0x" + HexToString( time, 2, '0' ) + " (data1=0x" + HexToString( data1, 2, '0' ) + ")" );
                         u8 pitch_data = ( m_ChannelData[ i ].base_pitch & 0xff ) + pitch_table[ data1 ];
                         m_ChannelData[ i ].unk65 = pitch_data;
 
@@ -1031,7 +1028,6 @@ SoundParser::UpdateSequenceData()
                         if( time == 0 )
                         {
                             time = m_Music->GetU8( cur_offset );
-                            //LOGGER->Log( " time2=0x" + HexToString( time, 2, '0' ) + "" );
                             cur_offset += 1;
                         }
 
@@ -1131,7 +1127,6 @@ SoundParser::UpdateSequenceData()
                                 cur_offset += 1;
                                 m_ChannelData[ i ].sequence_stored = cur_offset;
                                 m_ChannelData[ i ].base_pitch_stored = m_ChannelData[ i ].base_pitch;
-                                //LOGGER->Log( "0x91 store script position. Save base_pitch.\n" );
                             }
                             break;
 
@@ -1140,8 +1135,6 @@ SoundParser::UpdateSequenceData()
                                 u8 base_pitch = m_Music->GetU8( cur_offset + 1 );
                                 m_ChannelData[ i ].base_pitch = base_pitch * 0xc;
                                 cur_offset += 2;
-
-                                //LOGGER->Log( "0x94 base_pitch=0x" + HexToString( base_pitch, 2, '0' ) + "\n" );
                             }
                             break;
 
@@ -1149,8 +1142,6 @@ SoundParser::UpdateSequenceData()
                             {
                                 m_ChannelData[ i ].base_pitch += 0xc;
                                 cur_offset += 1;
-
-                                //LOGGER->Log( "0x95 increment base_pitch by 0xc.\n" );
                             }
                             break;
 
@@ -1158,8 +1149,6 @@ SoundParser::UpdateSequenceData()
                             {
                                 m_ChannelData[ i ].base_pitch -= 0xc;
                                 cur_offset += 1;
-
-                                //LOGGER->Log( "0x96 decrement base_pitch by 0xc.\n" );
                             }
                             break;
 
@@ -1225,6 +1214,7 @@ SoundParser::UpdateSequenceData()
                                 m_MainData.update_base_speed = speed << 0x10;
                                 m_MainData.update_real_speed = speed * ( m_MainData.update_real_speed_mod >> 0x10 );
                                 cur_offset += 2;
+                                LOGGER->Log( "0xa0 speed=0x" + HexToString( speed, 2, '0' ) + " base=0x" + HexToString( m_MainData.update_base_speed, 8, '0' ) + " real=0x" + HexToString( m_MainData.update_real_speed, 8, '0' ) + ".\n" );
                             }
                             break;
 
