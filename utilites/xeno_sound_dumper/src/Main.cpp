@@ -10,7 +10,7 @@ float timer = 0;
 
 void Update( float delta )
 {
-    if( timer >= 0.008333 )
+    if( timer >= 0.008333 / 2 )
     {
         timer = 0;
         SoundParser::getSingleton().Update();
