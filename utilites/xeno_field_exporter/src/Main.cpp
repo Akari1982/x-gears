@@ -4,7 +4,7 @@
 
 #include "FieldModule.h"
 #include "TextFile.h"
-
+#include "ArchiveFile.h"
 
 
 FieldModule* field;
@@ -23,7 +23,13 @@ main( int argc, char *argv[] )
 {
     InitializeOgreBase( "Xenogears Exporter" );
 
-
+    /*
+    {
+        ArchiveFile* lzs = new ArchiveFile( "0035_battling" );
+        lzs->WriteFile( "0035_battling_u" );
+        delete lzs;
+    }
+*/
 
     {
 /*

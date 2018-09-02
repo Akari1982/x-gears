@@ -2,6 +2,14 @@
 
 
 
+ArchiveFile::ArchiveFile( const Ogre::String& file ):
+    File( file )
+{
+    Extract();
+}
+
+
+
 ArchiveFile::ArchiveFile( File* pFile, const u32 offset, const u32 length ):
     File( pFile, offset, length )
 {
