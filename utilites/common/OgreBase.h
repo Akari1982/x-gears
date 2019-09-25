@@ -117,7 +117,7 @@ public:
 
         Update( evt.timeSinceLastFrame );
 
-        for( int i = 0; i < entitys.size(); ++i )
+        for( unsigned  int i = 0; i < entitys.size(); ++i )
         {
             if( entitys[ i ]->isVisible() == true )
             {

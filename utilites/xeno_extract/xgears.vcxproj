@@ -12,6 +12,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\common\DebugDraw.cpp" />
+    <ClCompile Include="..\common\File.cpp" />
     <ClCompile Include="..\common\FileSystem.cpp" />
     <ClCompile Include="..\common\Logger.cpp" />
     <ClCompile Include="src\Extract.cpp" />
@@ -19,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\common\DebugDraw.h" />
+    <ClInclude Include="..\common\File.h" />
     <ClInclude Include="..\common\FileSystem.h" />
     <ClInclude Include="..\common\Logger.h" />
     <ClInclude Include="..\common\OgreBase.h" />

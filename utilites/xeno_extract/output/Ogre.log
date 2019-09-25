@@ -1,241 +1,822 @@
-01:06:26: Creating resource group General
-01:06:26: Creating resource group Internal
-01:06:26: Creating resource group Autodetect
-01:06:26: SceneManagerFactory for type 'DefaultSceneManager' registered.
-01:06:26: Registering ResourceManager for type Material
-01:06:26: Registering ResourceManager for type Mesh
-01:06:26: Registering ResourceManager for type Skeleton
-01:06:26: MovableObjectFactory for type 'ParticleSystem' registered.
-01:06:26: ArchiveFactory for archive type FileSystem registered.
-01:06:26: ArchiveFactory for archive type Zip registered.
-01:06:26: ArchiveFactory for archive type EmbeddedZip registered.
-01:06:26: DDS codec registering
-01:06:26: FreeImage version: 3.15.3
-01:06:26: This program uses FreeImage, a free, open source image library supporting all common bitmap formats. See http://freeimage.sourceforge.net for details
-01:06:26: Supported formats: bmp,ico,jpg,jif,jpeg,jpe,jng,koa,iff,lbm,mng,pbm,pbm,pcd,pcx,pgm,pgm,png,ppm,ppm,ras,tga,targa,tif,tiff,wap,wbmp,wbm,psd,cut,xbm,xpm,gif,hdr,g3,sgi,exr,j2k,j2c,jp2,pfm,pct,pict,pic,3fr,arw,bay,bmq,cap,cine,cr2,crw,cs1,dc2,dcr,drf,dsc,dng,erf,fff,ia,iiq,k25,kc2,kdc,mdc,mef,mos,mrw,nef,nrw,orf,pef,ptx,pxn,qtk,raf,raw,rdc,rw2,rwl,rwz,sr2,srf,srw,sti
-01:06:26: Registering ResourceManager for type HighLevelGpuProgram
-01:06:26: Registering ResourceManager for type Compositor
-01:06:26: MovableObjectFactory for type 'Entity' registered.
-01:06:26: MovableObjectFactory for type 'Light' registered.
-01:06:26: MovableObjectFactory for type 'BillboardSet' registered.
-01:06:26: MovableObjectFactory for type 'ManualObject' registered.
-01:06:26: MovableObjectFactory for type 'BillboardChain' registered.
-01:06:26: MovableObjectFactory for type 'RibbonTrail' registered.
-01:06:26: *-*-* OGRE Initialising
-01:06:26: *-*-* Version 1.9.0 (Ghadamon)
-01:06:26: Loading library RenderSystem_Direct3D9.dll
-01:06:26: Installing plugin: D3D9 RenderSystem
-01:06:26: D3D9 : Direct3D9 Rendering Subsystem created.
-01:06:26: D3D9: Driver Detection Starts
-01:06:26: D3D9: Driver Detection Ends
-01:06:26: Plugin successfully installed
-01:06:26: CPU Identifier & Features
-01:06:26: -------------------------
-01:06:26:  *   CPU ID: GenuineIntel: Intel(R) Celeron(R) CPU G1820 @ 2.70GHz
-01:06:26:  *      SSE: yes
-01:06:26:  *     SSE2: yes
-01:06:26:  *     SSE3: yes
-01:06:26:  *      MMX: yes
-01:06:26:  *   MMXEXT: yes
-01:06:26:  *    3DNOW: no
-01:06:26:  * 3DNOWEXT: no
-01:06:26:  *     CMOV: yes
-01:06:26:  *      TSC: yes
-01:06:26:  *      FPU: yes
-01:06:26:  *      PRO: yes
-01:06:26:  *       HT: no
-01:06:26: -------------------------
-01:06:26: D3D9 : Subsystem Initialising
-01:06:26: Registering ResourceManager for type Texture
-01:06:26: Registering ResourceManager for type GpuProgram
-01:06:26: ***************************************
-01:06:26: *** D3D9 : Subsystem Initialised OK ***
-01:06:26: ***************************************
-01:06:26: D3D9RenderSystem::_createRenderWindow "QGearsWindow", 800x600 windowed  miscParams: title=Xenogears Exporter 
-01:06:26: D3D9 : Created D3D9 Rendering Window 'QGearsWindow' : 800x600, 32bpp
-01:06:26: D3D9 : WARNING - disabling VSync in windowed mode can cause timing issues at lower frame rates, turn VSync on if you observe this problem.
-01:06:26: D3D9: Vertex texture format supported - PF_A8R8G8B8
-01:06:26: D3D9: Vertex texture format supported - PF_B8G8R8A8
-01:06:26: D3D9: Vertex texture format supported - PF_FLOAT16_RGB
-01:06:26: D3D9: Vertex texture format supported - PF_FLOAT16_RGBA
-01:06:26: D3D9: Vertex texture format supported - PF_FLOAT32_RGB
-01:06:26: D3D9: Vertex texture format supported - PF_FLOAT32_RGBA
-01:06:26: D3D9: Vertex texture format supported - PF_R8G8B8A8
-01:06:26: D3D9: Vertex texture format supported - PF_DEPTH
-01:06:26: D3D9: Vertex texture format supported - PF_FLOAT16_R
-01:06:26: D3D9: Vertex texture format supported - PF_FLOAT32_R
-01:06:26: D3D9: Vertex texture format supported - PF_FLOAT16_GR
-01:06:26: D3D9: Vertex texture format supported - PF_FLOAT32_GR
-01:06:26: D3D9: Vertex texture format supported - PF_PVRTC_RGB2
-01:06:26: D3D9: Vertex texture format supported - PF_PVRTC_RGBA2
-01:06:26: D3D9: Vertex texture format supported - PF_PVRTC_RGB4
-01:06:26: D3D9: Vertex texture format supported - PF_PVRTC_RGBA4
-01:06:26: D3D9: Vertex texture format supported - PF_PVRTC2_2BPP
-01:06:26: D3D9: Vertex texture format supported - PF_PVRTC2_4BPP
-01:06:26: D3D9: Vertex texture format supported - PF_R11G11B10_FLOAT
-01:06:26: D3D9: Vertex texture format supported - PF_R8_UINT
-01:06:26: D3D9: Vertex texture format supported - PF_R8G8_UINT
-01:06:26: D3D9: Vertex texture format supported - PF_R8G8B8_UINT
-01:06:26: D3D9: Vertex texture format supported - PF_R8G8B8A8_UINT
-01:06:26: D3D9: Vertex texture format supported - PF_R16_UINT
-01:06:26: D3D9: Vertex texture format supported - PF_R16G16_UINT
-01:06:26: D3D9: Vertex texture format supported - PF_R16G16B16_UINT
-01:06:26: D3D9: Vertex texture format supported - PF_R16G16B16A16_UINT
-01:06:26: D3D9: Vertex texture format supported - PF_R32_UINT
-01:06:26: D3D9: Vertex texture format supported - PF_R32G32_UINT
-01:06:26: D3D9: Vertex texture format supported - PF_R32G32B32_UINT
-01:06:26: D3D9: Vertex texture format supported - PF_R32G32B32A32_UINT
-01:06:26: D3D9: Vertex texture format supported - PF_R8_SINT
-01:06:26: D3D9: Vertex texture format supported - PF_R8G8_SINT
-01:06:26: D3D9: Vertex texture format supported - PF_R8G8B8_SINT
-01:06:26: D3D9: Vertex texture format supported - PF_R8G8B8A8_SINT
-01:06:26: D3D9: Vertex texture format supported - PF_R16_SINT
-01:06:26: D3D9: Vertex texture format supported - PF_R16G16_SINT
-01:06:26: D3D9: Vertex texture format supported - PF_R16G16B16_SINT
-01:06:26: D3D9: Vertex texture format supported - PF_R16G16B16A16_SINT
-01:06:26: D3D9: Vertex texture format supported - PF_R32_SINT
-01:06:26: D3D9: Vertex texture format supported - PF_R32G32_SINT
-01:06:26: D3D9: Vertex texture format supported - PF_R32G32B32_SINT
-01:06:26: D3D9: Vertex texture format supported - PF_R32G32B32A32_SINT
-01:06:26: D3D9: Vertex texture format supported - PF_R9G9B9E5_SHAREDEXP
-01:06:26: D3D9: Vertex texture format supported - PF_BC4_UNORM
-01:06:26: D3D9: Vertex texture format supported - PF_BC4_SNORM
-01:06:26: D3D9: Vertex texture format supported - PF_BC5_UNORM
-01:06:26: D3D9: Vertex texture format supported - PF_BC5_SNORM
-01:06:26: D3D9: Vertex texture format supported - PF_BC6H_UF16
-01:06:26: D3D9: Vertex texture format supported - PF_BC6H_SF16
-01:06:26: D3D9: Vertex texture format supported - PF_BC7_UNORM
-01:06:26: D3D9: Vertex texture format supported - PF_BC7_UNORM_SRGB
-01:06:26: D3D9: Vertex texture format supported - PF_R8
-01:06:26: D3D9: Vertex texture format supported - PF_RG8
-01:06:27: D3D9: Vertex texture format supported - PF_R8_SNORM
-01:06:27: D3D9: Vertex texture format supported - PF_R8G8_SNORM
-01:06:27: D3D9: Vertex texture format supported - PF_R8G8B8_SNORM
-01:06:27: D3D9: Vertex texture format supported - PF_R8G8B8A8_SNORM
-01:06:27: D3D9: Vertex texture format supported - PF_R16_SNORM
-01:06:27: D3D9: Vertex texture format supported - PF_R16G16_SNORM
-01:06:27: D3D9: Vertex texture format supported - PF_R16G16B16_SNORM
-01:06:27: D3D9: Vertex texture format supported - PF_R16G16B16A16_SNORM
-01:06:27: D3D9: Vertex texture format supported - PF_ETC1_RGB8
-01:06:27: D3D9: Vertex texture format supported - PF_ETC2_RGB8
-01:06:27: D3D9: Vertex texture format supported - PF_ETC2_RGBA8
-01:06:27: D3D9: Vertex texture format supported - PF_ETC2_RGB8A1
-01:06:27: D3D9: Vertex texture format supported - PF_ATC_RGB
-01:06:27: D3D9: Vertex texture format supported - PF_ATC_RGBA_EXPLICIT_ALPHA
-01:06:27: D3D9: Vertex texture format supported - PF_ATC_RGBA_INTERPOLATED_ALPHA
-01:06:27: RenderSystem capabilities
-01:06:27: -------------------------
-01:06:27: RenderSystem Name: Direct3D9 Rendering Subsystem
-01:06:27: GPU Vendor: nvidia
-01:06:27: Device Name: Monitor-1-NVIDIA GeForce GTX 750
-01:06:27: Driver Version: 10.18.13.5560
-01:06:27:  * Fixed function pipeline: yes
-01:06:27:  * Hardware generation of mipmaps: yes
-01:06:27:  * Texture blending: yes
-01:06:27:  * Anisotropic texture filtering: yes
-01:06:27:  * Dot product texture operation: yes
-01:06:27:  * Cube mapping: yes
-01:06:27:  * Hardware stencil buffer: yes
-01:06:27:    - Stencil depth: 8
-01:06:27:    - Two sided stencil support: yes
-01:06:27:    - Wrap stencil values: yes
-01:06:27:  * Hardware vertex / index buffers: yes
-01:06:27:  * Vertex programs: yes
-01:06:27:  * Number of floating-point constants for vertex programs: 256
-01:06:27:  * Number of integer constants for vertex programs: 16
-01:06:27:  * Number of boolean constants for vertex programs: 16
-01:06:27:  * Fragment programs: yes
-01:06:27:  * Number of floating-point constants for fragment programs: 224
-01:06:27:  * Number of integer constants for fragment programs: 16
-01:06:27:  * Number of boolean constants for fragment programs: 16
-01:06:27:  * Geometry programs: no
-01:06:27:  * Number of floating-point constants for geometry programs: 0
-01:06:27:  * Number of integer constants for geometry programs: 0
-01:06:27:  * Number of boolean constants for geometry programs: 0
-01:06:27:  * Tesselation Hull programs: no
-01:06:27:  * Number of floating-point constants for tesselation hull programs: 0
-01:06:27:  * Number of integer constants for tesselation hull programs: 0
-01:06:27:  * Number of boolean constants for tesselation hull programs: 0
-01:06:27:  * Tesselation Domain programs: no
-01:06:27:  * Number of floating-point constants for tesselation domain programs: 0
-01:06:27:  * Number of integer constants for tesselation domain programs: 0
-01:06:27:  * Number of boolean constants for tesselation domain programs: 0
-01:06:27:  * Compute programs: no
-01:06:27:  * Number of floating-point constants for compute programs: 0
-01:06:27:  * Number of integer constants for compute programs: 0
-01:06:27:  * Number of boolean constants for compute programs: 0
-01:06:27:  * Supported Shader Profiles: hlsl ps_1_1 ps_1_2 ps_1_3 ps_1_4 ps_2_0 ps_2_a ps_2_b ps_2_x ps_3_0 vs_1_1 vs_2_0 vs_2_a vs_2_x vs_3_0
-01:06:27:  * Texture Compression: yes
-01:06:27:    - DXT: yes
-01:06:27:    - VTC: no
-01:06:27:    - PVRTC: no
-01:06:27:    - ATC: no
-01:06:27:    - ETC1: no
-01:06:27:    - ETC2: no
-01:06:27:    - BC4/BC5: no
-01:06:27:    - BC6H/BC7: no
-01:06:27:  * Scissor Rectangle: yes
-01:06:27:  * Hardware Occlusion Query: yes
-01:06:27:  * User clip planes: yes
-01:06:27:  * VET_UBYTE4 vertex element type: yes
-01:06:27:  * Infinite far plane projection: yes
-01:06:27:  * Hardware render-to-texture: yes
-01:06:27:  * Floating point textures: yes
-01:06:27:  * Non-power-of-two textures: yes
-01:06:27:  * 1d textures: yes
-01:06:27:  * Volume textures: yes
-01:06:27:  * Multiple Render Targets: 4
-01:06:27:    - With different bit depths: yes
-01:06:27:  * Point Sprites: yes
-01:06:27:  * Extended point parameters: yes
-01:06:27:  * Max Point Size: 8192
-01:06:27:  * Vertex texture fetch: yes
-01:06:27:  * Number of world matrices: 0
-01:06:27:  * Number of texture units: 8
-01:06:27:  * Stencil buffer depth: 8
-01:06:27:  * Number of vertex blend matrices: 0
-01:06:27:    - Max vertex textures: 4
-01:06:27:    - Vertex textures shared: no
-01:06:27:  * Render to Vertex Buffer : no
-01:06:27:  * Hardware Atomic Counters: no
-01:06:27:  * DirectX per stage constants: yes
-01:06:27: DefaultWorkQueue('Root') initialising on thread 1034.
-01:06:27: Particle Renderer Type 'billboard' registered
-01:06:27: OverlayElementFactory for type Panel registered.
-01:06:27: OverlayElementFactory for type BorderPanel registered.
-01:06:27: OverlayElementFactory for type TextArea registered.
-01:06:27: Registering ResourceManager for type Font
-01:06:27: Added resource location './data' of type 'FileSystem' to resource group 'General'
-01:06:27: Added resource location './exported' of type 'FileSystem' to resource group 'General'
-01:06:27: Creating resource group Bootstrap
-01:06:27: Added resource location './data/OgreCore.zip' of type 'Zip' to resource group 'Bootstrap'
-01:06:27: Parsing scripts for resource group Autodetect
-01:06:27: Finished parsing scripts for resource group Autodetect
-01:06:27: Creating resources for group Autodetect
-01:06:27: All done
-01:06:27: Parsing scripts for resource group Bootstrap
-01:06:27: Parsing script OgreCore.material
-01:06:27: Parsing script OgreProfiler.material
-01:06:27: Parsing script Ogre.fontdef
-01:06:27: Parsing script OgreDebugPanel.overlay
-01:06:27: DefaultWorkQueue('Root')::WorkerFunc - thread 1fa4 starting.
-01:06:27: Texture: New_Ogre_Border_Center.png: Loading 1 faces(PF_A8R8G8B8,256x128x1) Internal format is PF_A8R8G8B8,256x128x1.
-01:06:27: Texture: New_Ogre_Border.png: Loading 1 faces(PF_A8R8G8B8,256x256x1) Internal format is PF_A8R8G8B8,256x256x1.
-01:06:27: Texture: New_Ogre_Border_Break.png: Loading 1 faces(PF_A8R8G8B8,32x32x1) Internal format is PF_A8R8G8B8,32x32x1.
-01:06:27: Texture: ogretext.png: Loading 1 faces(PF_A8R8G8B8,256x128x1) Internal format is PF_A8R8G8B8,256x128x1.
-01:06:27: Parsing script OgreLoadingPanel.overlay
-01:06:27: Finished parsing scripts for resource group Bootstrap
-01:06:27: Creating resources for group Bootstrap
-01:06:27: All done
-01:06:27: Parsing scripts for resource group General
-01:06:27: Parsing script debug.material
-01:06:27: Parsing script system.fontdef
-01:06:27: Finished parsing scripts for resource group General
-01:06:27: Creating resources for group General
-01:06:27: All done
-01:06:27: Parsing scripts for resource group Internal
-01:06:27: Finished parsing scripts for resource group Internal
-01:06:27: Creating resources for group Internal
-01:06:27: All done
-01:06:27: DefaultWorkQueue('Root')::WorkerFunc - thread 1050 starting.
-01:06:27: Texture: courier_new_9_75.png: Loading 1 faces(PF_A8R8G8B8,256x256x1) with 0 generated mipmaps from Image. Internal format is PF_A8R8G8B8,256x256x1.
+02:19:20: Creating resource group General
+02:19:20: Creating resource group Internal
+02:19:20: Creating resource group Autodetect
+02:19:20: SceneManagerFactory for type 'DefaultSceneManager' registered.
+02:19:20: Registering ResourceManager for type Material
+02:19:20: Registering ResourceManager for type Mesh
+02:19:20: Registering ResourceManager for type Skeleton
+02:19:20: MovableObjectFactory for type 'ParticleSystem' registered.
+02:19:20: ArchiveFactory for archive type FileSystem registered.
+02:19:20: ArchiveFactory for archive type Zip registered.
+02:19:20: ArchiveFactory for archive type EmbeddedZip registered.
+02:19:20: DDS codec registering
+02:19:20: FreeImage version: 3.15.3
+02:19:20: This program uses FreeImage, a free, open source image library supporting all common bitmap formats. See http://freeimage.sourceforge.net for details
+02:19:20: Supported formats: bmp,ico,jpg,jif,jpeg,jpe,jng,koa,iff,lbm,mng,pbm,pbm,pcd,pcx,pgm,pgm,png,ppm,ppm,ras,tga,targa,tif,tiff,wap,wbmp,wbm,psd,cut,xbm,xpm,gif,hdr,g3,sgi,exr,j2k,j2c,jp2,pfm,pct,pict,pic,3fr,arw,bay,bmq,cap,cine,cr2,crw,cs1,dc2,dcr,drf,dsc,dng,erf,fff,ia,iiq,k25,kc2,kdc,mdc,mef,mos,mrw,nef,nrw,orf,pef,ptx,pxn,qtk,raf,raw,rdc,rw2,rwl,rwz,sr2,srf,srw,sti
+02:19:20: Registering ResourceManager for type HighLevelGpuProgram
+02:19:20: Registering ResourceManager for type Compositor
+02:19:20: MovableObjectFactory for type 'Entity' registered.
+02:19:20: MovableObjectFactory for type 'Light' registered.
+02:19:20: MovableObjectFactory for type 'BillboardSet' registered.
+02:19:20: MovableObjectFactory for type 'ManualObject' registered.
+02:19:20: MovableObjectFactory for type 'BillboardChain' registered.
+02:19:20: MovableObjectFactory for type 'RibbonTrail' registered.
+02:19:20: *-*-* OGRE Initialising
+02:19:20: *-*-* Version 1.9.0 (Ghadamon)
+02:19:20: Loading library RenderSystem_Direct3D9.dll
+02:19:20: Installing plugin: D3D9 RenderSystem
+02:19:20: D3D9 : Direct3D9 Rendering Subsystem created.
+02:19:20: D3D9: Driver Detection Starts
+02:19:20: D3D9: Driver Detection Ends
+02:19:20: Plugin successfully installed
+02:19:20: CPU Identifier & Features
+02:19:20: -------------------------
+02:19:20:  *   CPU ID: GenuineIntel: Intel(R) Celeron(R) CPU G1820 @ 2.70GHz
+02:19:20:  *      SSE: yes
+02:19:20:  *     SSE2: yes
+02:19:20:  *     SSE3: yes
+02:19:20:  *      MMX: yes
+02:19:20:  *   MMXEXT: yes
+02:19:20:  *    3DNOW: no
+02:19:20:  * 3DNOWEXT: no
+02:19:20:  *     CMOV: yes
+02:19:20:  *      TSC: yes
+02:19:20:  *      FPU: yes
+02:19:20:  *      PRO: yes
+02:19:20:  *       HT: no
+02:19:20: -------------------------
+02:19:20: D3D9 : Subsystem Initialising
+02:19:20: Registering ResourceManager for type Texture
+02:19:20: Registering ResourceManager for type GpuProgram
+02:19:20: ***************************************
+02:19:20: *** D3D9 : Subsystem Initialised OK ***
+02:19:20: ***************************************
+02:19:20: D3D9RenderSystem::_createRenderWindow "QGearsWindow", 1280x720 windowed  miscParams: title=Xenogears Exporter 
+02:19:20: D3D9 : Created D3D9 Rendering Window 'QGearsWindow' : 1280x720, 32bpp
+02:19:20: D3D9 : WARNING - disabling VSync in windowed mode can cause timing issues at lower frame rates, turn VSync on if you observe this problem.
+02:19:20: D3D9: Vertex texture format supported - PF_A8R8G8B8
+02:19:20: D3D9: Vertex texture format supported - PF_B8G8R8A8
+02:19:20: D3D9: Vertex texture format supported - PF_FLOAT16_RGB
+02:19:20: D3D9: Vertex texture format supported - PF_FLOAT16_RGBA
+02:19:20: D3D9: Vertex texture format supported - PF_FLOAT32_RGB
+02:19:20: D3D9: Vertex texture format supported - PF_FLOAT32_RGBA
+02:19:20: D3D9: Vertex texture format supported - PF_R8G8B8A8
+02:19:20: D3D9: Vertex texture format supported - PF_DEPTH
+02:19:20: D3D9: Vertex texture format supported - PF_FLOAT16_R
+02:19:20: D3D9: Vertex texture format supported - PF_FLOAT32_R
+02:19:20: D3D9: Vertex texture format supported - PF_FLOAT16_GR
+02:19:20: D3D9: Vertex texture format supported - PF_FLOAT32_GR
+02:19:20: D3D9: Vertex texture format supported - PF_PVRTC_RGB2
+02:19:20: D3D9: Vertex texture format supported - PF_PVRTC_RGBA2
+02:19:20: D3D9: Vertex texture format supported - PF_PVRTC_RGB4
+02:19:20: D3D9: Vertex texture format supported - PF_PVRTC_RGBA4
+02:19:20: D3D9: Vertex texture format supported - PF_PVRTC2_2BPP
+02:19:20: D3D9: Vertex texture format supported - PF_PVRTC2_4BPP
+02:19:20: D3D9: Vertex texture format supported - PF_R11G11B10_FLOAT
+02:19:20: D3D9: Vertex texture format supported - PF_R8_UINT
+02:19:20: D3D9: Vertex texture format supported - PF_R8G8_UINT
+02:19:20: D3D9: Vertex texture format supported - PF_R8G8B8_UINT
+02:19:20: D3D9: Vertex texture format supported - PF_R8G8B8A8_UINT
+02:19:20: D3D9: Vertex texture format supported - PF_R16_UINT
+02:19:20: D3D9: Vertex texture format supported - PF_R16G16_UINT
+02:19:20: D3D9: Vertex texture format supported - PF_R16G16B16_UINT
+02:19:20: D3D9: Vertex texture format supported - PF_R16G16B16A16_UINT
+02:19:20: D3D9: Vertex texture format supported - PF_R32_UINT
+02:19:20: D3D9: Vertex texture format supported - PF_R32G32_UINT
+02:19:20: D3D9: Vertex texture format supported - PF_R32G32B32_UINT
+02:19:20: D3D9: Vertex texture format supported - PF_R32G32B32A32_UINT
+02:19:20: D3D9: Vertex texture format supported - PF_R8_SINT
+02:19:20: D3D9: Vertex texture format supported - PF_R8G8_SINT
+02:19:20: D3D9: Vertex texture format supported - PF_R8G8B8_SINT
+02:19:20: D3D9: Vertex texture format supported - PF_R8G8B8A8_SINT
+02:19:20: D3D9: Vertex texture format supported - PF_R16_SINT
+02:19:20: D3D9: Vertex texture format supported - PF_R16G16_SINT
+02:19:20: D3D9: Vertex texture format supported - PF_R16G16B16_SINT
+02:19:20: D3D9: Vertex texture format supported - PF_R16G16B16A16_SINT
+02:19:20: D3D9: Vertex texture format supported - PF_R32_SINT
+02:19:20: D3D9: Vertex texture format supported - PF_R32G32_SINT
+02:19:20: D3D9: Vertex texture format supported - PF_R32G32B32_SINT
+02:19:20: D3D9: Vertex texture format supported - PF_R32G32B32A32_SINT
+02:19:20: D3D9: Vertex texture format supported - PF_R9G9B9E5_SHAREDEXP
+02:19:20: D3D9: Vertex texture format supported - PF_BC4_UNORM
+02:19:20: D3D9: Vertex texture format supported - PF_BC4_SNORM
+02:19:20: D3D9: Vertex texture format supported - PF_BC5_UNORM
+02:19:20: D3D9: Vertex texture format supported - PF_BC5_SNORM
+02:19:20: D3D9: Vertex texture format supported - PF_BC6H_UF16
+02:19:20: D3D9: Vertex texture format supported - PF_BC6H_SF16
+02:19:20: D3D9: Vertex texture format supported - PF_BC7_UNORM
+02:19:20: D3D9: Vertex texture format supported - PF_BC7_UNORM_SRGB
+02:19:20: D3D9: Vertex texture format supported - PF_R8
+02:19:20: D3D9: Vertex texture format supported - PF_RG8
+02:19:20: D3D9: Vertex texture format supported - PF_R8_SNORM
+02:19:20: D3D9: Vertex texture format supported - PF_R8G8_SNORM
+02:19:20: D3D9: Vertex texture format supported - PF_R8G8B8_SNORM
+02:19:20: D3D9: Vertex texture format supported - PF_R8G8B8A8_SNORM
+02:19:20: D3D9: Vertex texture format supported - PF_R16_SNORM
+02:19:20: D3D9: Vertex texture format supported - PF_R16G16_SNORM
+02:19:20: D3D9: Vertex texture format supported - PF_R16G16B16_SNORM
+02:19:20: D3D9: Vertex texture format supported - PF_R16G16B16A16_SNORM
+02:19:20: D3D9: Vertex texture format supported - PF_ETC1_RGB8
+02:19:20: D3D9: Vertex texture format supported - PF_ETC2_RGB8
+02:19:20: D3D9: Vertex texture format supported - PF_ETC2_RGBA8
+02:19:20: D3D9: Vertex texture format supported - PF_ETC2_RGB8A1
+02:19:20: D3D9: Vertex texture format supported - PF_ATC_RGB
+02:19:20: D3D9: Vertex texture format supported - PF_ATC_RGBA_EXPLICIT_ALPHA
+02:19:20: D3D9: Vertex texture format supported - PF_ATC_RGBA_INTERPOLATED_ALPHA
+02:19:20: RenderSystem capabilities
+02:19:20: -------------------------
+02:19:20: RenderSystem Name: Direct3D9 Rendering Subsystem
+02:19:20: GPU Vendor: nvidia
+02:19:20: Device Name: Monitor-1-NVIDIA GeForce GTX 750
+02:19:20: Driver Version: 10.18.13.5560
+02:19:20:  * Fixed function pipeline: yes
+02:19:20:  * Hardware generation of mipmaps: yes
+02:19:20:  * Texture blending: yes
+02:19:20:  * Anisotropic texture filtering: yes
+02:19:20:  * Dot product texture operation: yes
+02:19:20:  * Cube mapping: yes
+02:19:20:  * Hardware stencil buffer: yes
+02:19:20:    - Stencil depth: 8
+02:19:20:    - Two sided stencil support: yes
+02:19:20:    - Wrap stencil values: yes
+02:19:20:  * Hardware vertex / index buffers: yes
+02:19:20:  * Vertex programs: yes
+02:19:20:  * Number of floating-point constants for vertex programs: 256
+02:19:20:  * Number of integer constants for vertex programs: 16
+02:19:20:  * Number of boolean constants for vertex programs: 16
+02:19:20:  * Fragment programs: yes
+02:19:20:  * Number of floating-point constants for fragment programs: 224
+02:19:20:  * Number of integer constants for fragment programs: 16
+02:19:20:  * Number of boolean constants for fragment programs: 16
+02:19:20:  * Geometry programs: no
+02:19:20:  * Number of floating-point constants for geometry programs: 0
+02:19:20:  * Number of integer constants for geometry programs: 0
+02:19:20:  * Number of boolean constants for geometry programs: 0
+02:19:20:  * Tesselation Hull programs: no
+02:19:20:  * Number of floating-point constants for tesselation hull programs: 0
+02:19:20:  * Number of integer constants for tesselation hull programs: 0
+02:19:20:  * Number of boolean constants for tesselation hull programs: 0
+02:19:20:  * Tesselation Domain programs: no
+02:19:20:  * Number of floating-point constants for tesselation domain programs: 0
+02:19:20:  * Number of integer constants for tesselation domain programs: 0
+02:19:20:  * Number of boolean constants for tesselation domain programs: 0
+02:19:20:  * Compute programs: no
+02:19:20:  * Number of floating-point constants for compute programs: 0
+02:19:20:  * Number of integer constants for compute programs: 0
+02:19:20:  * Number of boolean constants for compute programs: 0
+02:19:20:  * Supported Shader Profiles: hlsl ps_1_1 ps_1_2 ps_1_3 ps_1_4 ps_2_0 ps_2_a ps_2_b ps_2_x ps_3_0 vs_1_1 vs_2_0 vs_2_a vs_2_x vs_3_0
+02:19:20:  * Texture Compression: yes
+02:19:20:    - DXT: yes
+02:19:20:    - VTC: no
+02:19:20:    - PVRTC: no
+02:19:20:    - ATC: no
+02:19:20:    - ETC1: no
+02:19:20:    - ETC2: no
+02:19:20:    - BC4/BC5: no
+02:19:20:    - BC6H/BC7: no
+02:19:20:  * Scissor Rectangle: yes
+02:19:20:  * Hardware Occlusion Query: yes
+02:19:20:  * User clip planes: yes
+02:19:20:  * VET_UBYTE4 vertex element type: yes
+02:19:20:  * Infinite far plane projection: yes
+02:19:20:  * Hardware render-to-texture: yes
+02:19:20:  * Floating point textures: yes
+02:19:20:  * Non-power-of-two textures: yes
+02:19:20:  * 1d textures: yes
+02:19:20:  * Volume textures: yes
+02:19:20:  * Multiple Render Targets: 4
+02:19:20:    - With different bit depths: yes
+02:19:20:  * Point Sprites: yes
+02:19:20:  * Extended point parameters: yes
+02:19:20:  * Max Point Size: 8192
+02:19:20:  * Vertex texture fetch: yes
+02:19:20:  * Number of world matrices: 0
+02:19:20:  * Number of texture units: 8
+02:19:20:  * Stencil buffer depth: 8
+02:19:20:  * Number of vertex blend matrices: 0
+02:19:20:    - Max vertex textures: 4
+02:19:20:    - Vertex textures shared: no
+02:19:20:  * Render to Vertex Buffer : no
+02:19:20:  * Hardware Atomic Counters: no
+02:19:20:  * DirectX per stage constants: yes
+02:19:20: DefaultWorkQueue('Root') initialising on thread 2d70.
+02:19:20: Particle Renderer Type 'billboard' registered
+02:19:20: DefaultWorkQueue('Root')::WorkerFunc - thread 28a4 starting.
+02:19:20: OverlayElementFactory for type Panel registered.
+02:19:20: OverlayElementFactory for type BorderPanel registered.
+02:19:20: OverlayElementFactory for type TextArea registered.
+02:19:20: Registering ResourceManager for type Font
+02:19:20: Added resource location './data' of type 'FileSystem' to resource group 'General'
+02:19:20: Added resource location './exported' of type 'FileSystem' to resource group 'General'
+02:19:20: Creating resource group Bootstrap
+02:19:20: Added resource location './data/OgreCore.zip' of type 'Zip' to resource group 'Bootstrap'
+02:19:20: Parsing scripts for resource group Autodetect
+02:19:20: Finished parsing scripts for resource group Autodetect
+02:19:20: Creating resources for group Autodetect
+02:19:20: All done
+02:19:21: Parsing scripts for resource group Bootstrap
+02:19:21: Parsing script OgreCore.material
+02:19:21: Parsing script OgreProfiler.material
+02:19:21: Parsing script Ogre.fontdef
+02:19:21: Parsing script OgreDebugPanel.overlay
+02:19:21: DefaultWorkQueue('Root')::WorkerFunc - thread 3380 starting.
+02:19:21: Texture: New_Ogre_Border_Center.png: Loading 1 faces(PF_A8R8G8B8,256x128x1) Internal format is PF_A8R8G8B8,256x128x1.
+02:19:21: Texture: New_Ogre_Border.png: Loading 1 faces(PF_A8R8G8B8,256x256x1) Internal format is PF_A8R8G8B8,256x256x1.
+02:19:21: Texture: New_Ogre_Border_Break.png: Loading 1 faces(PF_A8R8G8B8,32x32x1) Internal format is PF_A8R8G8B8,32x32x1.
+02:19:21: Texture: ogretext.png: Loading 1 faces(PF_A8R8G8B8,256x128x1) Internal format is PF_A8R8G8B8,256x128x1.
+02:19:21: Parsing script OgreLoadingPanel.overlay
+02:19:21: Finished parsing scripts for resource group Bootstrap
+02:19:21: Creating resources for group Bootstrap
+02:19:21: All done
+02:19:21: Parsing scripts for resource group General
+02:19:21: Parsing script debug.material
+02:19:21: Parsing script system.fontdef
+02:19:21: Finished parsing scripts for resource group General
+02:19:21: Creating resources for group General
+02:19:21: All done
+02:19:21: Parsing scripts for resource group Internal
+02:19:21: Finished parsing scripts for resource group Internal
+02:19:21: Creating resources for group Internal
+02:19:21: All done
+02:19:21: Texture: courier_new_9_75.png: Loading 1 faces(PF_A8R8G8B8,256x256x1) with 0 generated mipmaps from Image. Internal format is PF_A8R8G8B8,256x256x1.
+02:19:21: [WARNING] src\Extract.cpp 335: 21
+02:19:21: [WARNING] src\Extract.cpp 341: 1a79b 0042
+02:19:21: [WARNING] src\Extract.cpp 341: 1a79c 49800
+02:19:21: [WARNING] src\Extract.cpp 341: 1a82f fffffffa
+02:19:21: [WARNING] src\Extract.cpp 335: 23
+02:19:21: [WARNING] src\Extract.cpp 341: 1a82f fffffffa
+02:19:21: [WARNING] src\Extract.cpp 335: 423
+02:19:21: [WARNING] src\Extract.cpp 341: 1d1d5 fffffffe
+02:19:21: [WARNING] src\Extract.cpp 335: 2612
+02:19:21: [WARNING] src\Extract.cpp 341: 3a783 fffffffc
+02:19:21: [WARNING] src\Extract.cpp 335: 2617
+02:19:21: [WARNING] src\Extract.cpp 341: 3a7ac ffffff68
+02:19:21: [WARNING] src\Extract.cpp 335: 3380
+02:19:21: [WARNING] src\Extract.cpp 341: 41199 fffffdea
+02:19:21: [WARNING] src\Extract.cpp 335: 2770
+02:19:21: [WARNING] src\Extract.cpp 341: 3c0ed 49800
+02:19:21: [WARNING] src\Extract.cpp 341: 3c180 fffffffe
+02:19:21: [WARNING] src\Extract.cpp 335: 2593
+02:19:21: [WARNING] src\Extract.cpp 341: 3a595 fddc
+02:19:21: [WARNING] src\Extract.cpp 341: 3a5b5 9b38
+02:19:21: [WARNING] src\Extract.cpp 341: 3a5c9 2358
+02:19:21: [WARNING] src\Extract.cpp 341: 3a5ce 6500
+02:19:21: [WARNING] src\Extract.cpp 341: 3a5db 25728
+02:19:21: [WARNING] src\Extract.cpp 341: 3a626 6588
+02:19:21: [WARNING] src\Extract.cpp 341: 3a633 25728
+02:19:21: [WARNING] src\Extract.cpp 341: 3a67e 709c
+02:19:21: [WARNING] src\Extract.cpp 341: 3a68d d318
+02:19:21: [WARNING] src\Extract.cpp 341: 3a6a8 140dc
+02:19:21: [WARNING] src\Extract.cpp 341: 3a6d1 25728
+02:19:21: [WARNING] src\Extract.cpp 341: 3a71c c6b4
+02:19:21: [WARNING] src\Extract.cpp 341: 3a735 2ade
+02:19:21: [WARNING] src\Extract.cpp 341: 3a73b 1ddc
+02:19:21: [WARNING] src\Extract.cpp 341: 3a73f 7a10
+02:19:21: [WARNING] src\Extract.cpp 341: 3a74f 998a
+02:19:21: [WARNING] src\Extract.cpp 341: 3a763 6794
+02:19:21: [WARNING] src\Extract.cpp 341: 3a770 6f8c
+02:19:21: [WARNING] src\Extract.cpp 341: 3a77e 21c8
+02:19:21: [WARNING] src\Extract.cpp 341: 3a783 fffffffc
+02:19:21: [WARNING] src\Extract.cpp 335: 2605
+02:19:21: [WARNING] src\Extract.cpp 341: 3a735 2ade
+02:19:21: [WARNING] src\Extract.cpp 341: 3a73b 1ddc
+02:19:21: [WARNING] src\Extract.cpp 341: 3a73f 7a10
+02:19:21: [WARNING] src\Extract.cpp 341: 3a74f 998a
+02:19:21: [WARNING] src\Extract.cpp 341: 3a763 6794
+02:19:21: [WARNING] src\Extract.cpp 341: 3a770 6f8c
+02:19:21: [WARNING] src\Extract.cpp 341: 3a77e 21c8
+02:19:21: [WARNING] src\Extract.cpp 341: 3a783 fffffffc
+02:19:21: [WARNING] src\Extract.cpp 335: 2606
+02:19:21: [WARNING] src\Extract.cpp 341: 3a73b 1ddc
+02:19:21: [WARNING] src\Extract.cpp 341: 3a73f 7a10
+02:19:21: [WARNING] src\Extract.cpp 341: 3a74f 998a
+02:19:21: [WARNING] src\Extract.cpp 341: 3a763 6794
+02:19:21: [WARNING] src\Extract.cpp 341: 3a770 6f8c
+02:19:21: [WARNING] src\Extract.cpp 341: 3a77e 21c8
+02:19:21: [WARNING] src\Extract.cpp 341: 3a783 fffffffc
+02:19:21: [WARNING] src\Extract.cpp 335: 19
+02:19:21: [WARNING] src\Extract.cpp 341: 1a76f 15a1c
+02:19:21: [WARNING] src\Extract.cpp 341: 1a79b 0000
+02:19:21: [WARNING] src\Extract.cpp 335: 0
+02:19:21: [WARNING] src\Extract.cpp 341: 0029 ffffffef
+02:19:21: [WARNING] src\Extract.cpp 335: 18
+02:19:21: [WARNING] src\Extract.cpp 341: 1a76f 0000
+02:19:21: [WARNING] src\Extract.cpp 335: 116
+02:19:21: [WARNING] src\Extract.cpp 341: 1b05a fffffff9
+02:19:21: [WARNING] src\Extract.cpp 335: 3087
+02:19:21: [WARNING] src\Extract.cpp 341: 3eba2 4bdc
+02:19:21: [WARNING] src\Extract.cpp 341: 3ebac 7c88
+02:19:21: [WARNING] src\Extract.cpp 341: 3ebbc 3af4
+02:19:21: [WARNING] src\Extract.cpp 341: 3ebc4 0a44
+02:19:21: [WARNING] src\Extract.cpp 341: 3ebc6 0f67
+02:19:21: [WARNING] src\Extract.cpp 341: 3ebc8 25df0
+02:19:21: [WARNING] src\Extract.cpp 341: 3ec14 55e0
+02:19:21: [WARNING] src\Extract.cpp 341: 3ec1f 0a44
+02:19:21: [WARNING] src\Extract.cpp 341: 3ec21 1bdc
+02:19:21: [WARNING] src\Extract.cpp 341: 3ec25 0f67
+02:19:21: [WARNING] src\Extract.cpp 341: 3ec27 16b7
+02:19:21: [WARNING] src\Extract.cpp 341: 3ec2a 073a
+02:19:21: [WARNING] src\Extract.cpp 341: 3ec2b 0210
+02:19:21: [WARNING] src\Extract.cpp 341: 3ec2c 0210
+02:19:21: [WARNING] src\Extract.cpp 341: 3ec2d 0210
+02:19:21: [WARNING] src\Extract.cpp 341: 3ec2e 0210
+02:19:21: [WARNING] src\Extract.cpp 341: 3ec2f 0210
+02:19:21: [WARNING] src\Extract.cpp 341: 3ec30 0210
+02:19:21: [WARNING] src\Extract.cpp 341: 3ec31 0210
+02:19:21: [WARNING] src\Extract.cpp 341: 3ec32 0210
+02:19:21: [WARNING] src\Extract.cpp 341: 3ec33 0210
+02:19:21: [WARNING] src\Extract.cpp 341: 3ec34 0210
+02:19:21: [WARNING] src\Extract.cpp 341: 3ec35 0210
+02:19:21: [WARNING] src\Extract.cpp 341: 3ec36 0210
+02:19:21: [WARNING] src\Extract.cpp 341: 3ec37 0210
+02:19:21: [WARNING] src\Extract.cpp 341: 3ec38 0210
+02:19:21: [WARNING] src\Extract.cpp 341: 3ec39 0210
+02:19:21: [WARNING] src\Extract.cpp 341: 3ec3a 0210
+02:19:21: [WARNING] src\Extract.cpp 341: 3ec3b 0210
+02:19:21: [WARNING] src\Extract.cpp 341: 3ec3c 0210
+02:19:21: [WARNING] src\Extract.cpp 341: 3ec3d 0210
+02:19:21: [WARNING] src\Extract.cpp 341: 3ec3e 0210
+02:19:21: [WARNING] src\Extract.cpp 341: 3ec3f 0210
+02:19:21: [WARNING] src\Extract.cpp 341: 3ec40 0210
+02:19:22: [WARNING] src\Extract.cpp 341: 3ec41 0210
+02:19:22: [WARNING] src\Extract.cpp 341: 3ec42 0210
+02:19:22: [WARNING] src\Extract.cpp 341: 3ec43 0210
+02:19:22: [WARNING] src\Extract.cpp 341: 3ec44 0210
+02:19:22: [WARNING] src\Extract.cpp 341: 3ec45 0210
+02:19:22: [WARNING] src\Extract.cpp 341: 3ec46 0210
+02:19:22: [WARNING] src\Extract.cpp 341: 3ec47 0210
+02:19:22: [WARNING] src\Extract.cpp 341: 3ec48 0210
+02:19:22: [WARNING] src\Extract.cpp 341: 3ec49 0210
+02:19:22: [WARNING] src\Extract.cpp 341: 3ec4a 0210
+02:19:22: [WARNING] src\Extract.cpp 341: 3ec4b 0210
+02:19:22: [WARNING] src\Extract.cpp 341: 3ec4c 0260
+02:19:22: [WARNING] src\Extract.cpp 341: 3ec4d 0260
+02:19:22: [WARNING] src\Extract.cpp 341: 3ec4e 0260
+02:19:22: [WARNING] src\Extract.cpp 341: 3ec4f 0260
+02:19:22: [WARNING] src\Extract.cpp 341: 3ec50 0260
+02:19:22: [WARNING] src\Extract.cpp 341: 3ec51 0260
+02:19:22: [WARNING] src\Extract.cpp 341: 3ec52 0260
+02:19:22: [WARNING] src\Extract.cpp 341: 3ec53 0260
+02:19:22: [WARNING] src\Extract.cpp 341: 3ec54 0260
+02:19:22: [WARNING] src\Extract.cpp 341: 3ec55 0260
+02:19:22: [WARNING] src\Extract.cpp 341: 3ec56 0260
+02:19:22: [WARNING] src\Extract.cpp 341: 3ec57 0260
+02:19:22: [WARNING] src\Extract.cpp 341: 3ec58 0260
+02:19:22: [WARNING] src\Extract.cpp 341: 3ec59 0260
+02:19:22: [WARNING] src\Extract.cpp 341: 3ec5a 0260
+02:19:22: [WARNING] src\Extract.cpp 341: 3ec5b 0210
+02:19:22: [WARNING] src\Extract.cpp 341: 3ec5c ffffff19
+02:19:22: [WARNING] src\Extract.cpp 335: 3091
+02:19:22: [WARNING] src\Extract.cpp 341: 3ebc6 0f67
+02:19:22: [WARNING] src\Extract.cpp 341: 3ebc8 25df0
+02:19:22: [WARNING] src\Extract.cpp 341: 3ec14 55e0
+02:19:22: [WARNING] src\Extract.cpp 341: 3ec1f 0a44
+02:19:22: [WARNING] src\Extract.cpp 341: 3ec21 1bdc
+02:19:22: [WARNING] src\Extract.cpp 341: 3ec25 0f67
+02:19:22: [WARNING] src\Extract.cpp 341: 3ec27 16b7
+02:19:22: [WARNING] src\Extract.cpp 341: 3ec2a 073a
+02:19:22: [WARNING] src\Extract.cpp 341: 3ec2b 0210
+02:19:22: [WARNING] src\Extract.cpp 341: 3ec2c 0210
+02:19:22: [WARNING] src\Extract.cpp 341: 3ec2d 0210
+02:19:22: [WARNING] src\Extract.cpp 341: 3ec2e 0210
+02:19:22: [WARNING] src\Extract.cpp 341: 3ec2f 0210
+02:19:22: [WARNING] src\Extract.cpp 341: 3ec30 0210
+02:19:22: [WARNING] src\Extract.cpp 341: 3ec31 0210
+02:19:22: [WARNING] src\Extract.cpp 341: 3ec32 0210
+02:19:22: [WARNING] src\Extract.cpp 341: 3ec33 0210
+02:19:22: [WARNING] src\Extract.cpp 341: 3ec34 0210
+02:19:22: [WARNING] src\Extract.cpp 341: 3ec35 0210
+02:19:22: [WARNING] src\Extract.cpp 341: 3ec36 0210
+02:19:22: [WARNING] src\Extract.cpp 341: 3ec37 0210
+02:19:22: [WARNING] src\Extract.cpp 341: 3ec38 0210
+02:19:22: [WARNING] src\Extract.cpp 341: 3ec39 0210
+02:19:22: [WARNING] src\Extract.cpp 341: 3ec3a 0210
+02:19:22: [WARNING] src\Extract.cpp 341: 3ec3b 0210
+02:19:22: [WARNING] src\Extract.cpp 341: 3ec3c 0210
+02:19:22: [WARNING] src\Extract.cpp 341: 3ec3d 0210
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec3e 0210
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec3f 0210
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec40 0210
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec41 0210
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec42 0210
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec43 0210
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec44 0210
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec45 0210
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec46 0210
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec47 0210
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec48 0210
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec49 0210
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec4a 0210
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec4b 0210
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec4c 0260
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec4d 0260
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec4e 0260
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec4f 0260
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec50 0260
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec51 0260
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec52 0260
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec53 0260
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec54 0260
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec55 0260
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec56 0260
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec57 0260
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec58 0260
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec59 0260
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec5a 0260
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec5b 0210
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec5c ffffff19
+02:19:23: [WARNING] src\Extract.cpp 335: 3092
+02:19:23: [WARNING] src\Extract.cpp 341: 3ebc8 25df0
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec14 55e0
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec1f 0a44
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec21 1bdc
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec25 0f67
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec27 16b7
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec2a 073a
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec2b 0210
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec2c 0210
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec2d 0210
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec2e 0210
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec2f 0210
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec30 0210
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec31 0210
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec32 0210
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec33 0210
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec34 0210
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec35 0210
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec36 0210
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec37 0210
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec38 0210
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec39 0210
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec3a 0210
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec3b 0210
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec3c 0210
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec3d 0210
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec3e 0210
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec3f 0210
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec40 0210
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec41 0210
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec42 0210
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec43 0210
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec44 0210
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec45 0210
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec46 0210
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec47 0210
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec48 0210
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec49 0210
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec4a 0210
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec4b 0210
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec4c 0260
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec4d 0260
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec4e 0260
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec4f 0260
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec50 0260
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec51 0260
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec52 0260
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec53 0260
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec54 0260
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec55 0260
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec56 0260
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec57 0260
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec58 0260
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec59 0260
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec5a 0260
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec5b 0210
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec5c ffffff19
+02:19:23: [WARNING] src\Extract.cpp 335: 3096
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec25 0f67
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec27 16b7
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec2a 073a
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec2b 0210
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec2c 0210
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec2d 0210
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec2e 0210
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec2f 0210
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec30 0210
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec31 0210
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec32 0210
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec33 0210
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec34 0210
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec35 0210
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec36 0210
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec37 0210
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec38 0210
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec39 0210
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec3a 0210
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec3b 0210
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec3c 0210
+02:19:23: [WARNING] src\Extract.cpp 341: 3ec3d 0210
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec3e 0210
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec3f 0210
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec40 0210
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec41 0210
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec42 0210
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec43 0210
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec44 0210
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec45 0210
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec46 0210
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec47 0210
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec48 0210
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec49 0210
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec4a 0210
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec4b 0210
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec4c 0260
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec4d 0260
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec4e 0260
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec4f 0260
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec50 0260
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec51 0260
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec52 0260
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec53 0260
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec54 0260
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec55 0260
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec56 0260
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec57 0260
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec58 0260
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec59 0260
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec5a 0260
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec5b 0210
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec5c ffffff19
+02:19:24: [WARNING] src\Extract.cpp 335: 3921
+02:19:24: [WARNING] src\Extract.cpp 341: 43ce2 fffffff0
+02:19:24: [WARNING] src\Extract.cpp 335: 3915
+02:19:24: [WARNING] src\Extract.cpp 341: 43c9f c1ec
+02:19:24: [WARNING] src\Extract.cpp 341: 43cb8 1fcc
+02:19:24: [WARNING] src\Extract.cpp 341: 43cbc 4c34
+02:19:24: [WARNING] src\Extract.cpp 341: 43cc6 4708
+02:19:24: [WARNING] src\Extract.cpp 341: 43ccf 4c34
+02:19:24: [WARNING] src\Extract.cpp 341: 43cd9 4738
+02:19:24: [WARNING] src\Extract.cpp 341: 43ce2 fffffff0
+02:19:24: [WARNING] src\Extract.cpp 335: 2925
+02:19:24: [WARNING] src\Extract.cpp 341: 3de21 ffffffc2
+02:19:24: [WARNING] src\Extract.cpp 335: 3148
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec5c ffffff19
+02:19:24: [WARNING] src\Extract.cpp 335: 4150
+02:19:24: [WARNING] src\Extract.cpp 341: 4737b 1a5e000
+02:19:24: [WARNING] src\Extract.cpp 341: ffffff 0000
+02:19:24: [WARNING] src\Extract.cpp 335: 3080
+02:19:24: [WARNING] src\Extract.cpp 341: 3eb30 e230
+02:19:24: [WARNING] src\Extract.cpp 341: 3eb4d 21dc
+02:19:24: [WARNING] src\Extract.cpp 341: 3eb52 2294
+02:19:24: [WARNING] src\Extract.cpp 341: 3eb57 f0f0
+02:19:24: [WARNING] src\Extract.cpp 341: 3eb76 55e0
+02:19:24: [WARNING] src\Extract.cpp 341: 3eb81 5cc0
+02:19:24: [WARNING] src\Extract.cpp 341: 3eb8d a0c0
+02:19:24: [WARNING] src\Extract.cpp 341: 3eba2 4bdc
+02:19:24: [WARNING] src\Extract.cpp 341: 3ebac 7c88
+02:19:24: [WARNING] src\Extract.cpp 341: 3ebbc 3af4
+02:19:24: [WARNING] src\Extract.cpp 341: 3ebc4 0a44
+02:19:24: [WARNING] src\Extract.cpp 341: 3ebc6 0f67
+02:19:24: [WARNING] src\Extract.cpp 341: 3ebc8 25df0
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec14 55e0
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec1f 0a44
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec21 1bdc
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec25 0f67
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec27 16b7
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec2a 073a
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec2b 0210
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec2c 0210
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec2d 0210
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec2e 0210
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec2f 0210
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec30 0210
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec31 0210
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec32 0210
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec33 0210
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec34 0210
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec35 0210
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec36 0210
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec37 0210
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec38 0210
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec39 0210
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec3a 0210
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec3b 0210
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec3c 0210
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec3d 0210
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec3e 0210
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec3f 0210
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec40 0210
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec41 0210
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec42 0210
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec43 0210
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec44 0210
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec45 0210
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec46 0210
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec47 0210
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec48 0210
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec49 0210
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec4a 0210
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec4b 0210
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec4c 0260
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec4d 0260
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec4e 0260
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec4f 0260
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec50 0260
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec51 0260
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec52 0260
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec53 0260
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec54 0260
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec55 0260
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec56 0260
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec57 0260
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec58 0260
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec59 0260
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec5a 0260
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec5b 0210
+02:19:24: [WARNING] src\Extract.cpp 341: 3ec5c ffffff19
+02:19:24: [WARNING] src\Extract.cpp 335: 2988
+02:19:24: [WARNING] src\Extract.cpp 341: 3e133 117d8
+02:19:24: [WARNING] src\Extract.cpp 341: 3e156 1482c
+02:19:24: [WARNING] src\Extract.cpp 341: 3e180 1b044
+02:19:24: [WARNING] src\Extract.cpp 341: 3e1b7 12fcc
+02:19:24: [WARNING] src\Extract.cpp 341: 3e1dd a7e0
+02:19:24: [WARNING] src\Extract.cpp 341: 3e1f2 17fe4
+02:19:24: [WARNING] src\Extract.cpp 341: 3e222 c224
+02:19:24: [WARNING] src\Extract.cpp 341: 3e23b 16fac
+02:19:24: [WARNING] src\Extract.cpp 341: 3e269 ebbc
+02:19:24: [WARNING] src\Extract.cpp 341: 3e287 12608
+02:19:24: [WARNING] src\Extract.cpp 341: 3e2ac 1becc
+02:19:24: [WARNING] src\Extract.cpp 341: 3e2e4 1482c
+02:19:24: [WARNING] src\Extract.cpp 341: 3e30e 1482c
+02:19:24: [WARNING] src\Extract.cpp 341: 3e338 1482c
+02:19:24: [WARNING] src\Extract.cpp 341: 3e362 1482c
+02:19:24: [WARNING] src\Extract.cpp 341: 3e38c 1482c
+02:19:24: [WARNING] src\Extract.cpp 341: 3e3b6 1482c
+02:19:24: [WARNING] src\Extract.cpp 341: 3e3e0 23220
+02:19:24: [WARNING] src\Extract.cpp 341: 3e427 26e28
+02:19:24: [WARNING] src\Extract.cpp 341: 3e475 30c20
+02:19:24: [WARNING] src\Extract.cpp 341: 3e4d7 1fa00
+02:19:24: [WARNING] src\Extract.cpp 341: 3e517 1ecfc
+02:19:24: [WARNING] src\Extract.cpp 341: 3e555 2ad3c
+02:19:24: [WARNING] src\Extract.cpp 341: 3e5ab 1e9ac
+02:19:24: [WARNING] src\Extract.cpp 341: 3e5e9 145f8
+02:19:24: [WARNING] src\Extract.cpp 341: 3e612 d40c
+02:19:24: [WARNING] src\Extract.cpp 341: 3e62d 23eec
+02:19:25: [WARNING] src\Extract.cpp 341: 3e675 302b0
+02:19:25: [WARNING] src\Extract.cpp 341: 3e6d6 26e28
+02:19:25: [WARNING] src\Extract.cpp 341: 3e724 26e28
+02:19:25: [WARNING] src\Extract.cpp 341: 3e772 02c0
+02:19:25: [WARNING] src\Extract.cpp 341: 3e773 3f90
+02:19:25: [WARNING] src\Extract.cpp 341: 3e77b a040
+02:19:25: [WARNING] src\Extract.cpp 341: 3e790 a040
+02:19:25: [WARNING] src\Extract.cpp 341: 3e7a5 a040
+02:19:25: [WARNING] src\Extract.cpp 341: 3e7ba a040
+02:19:25: [WARNING] src\Extract.cpp 341: 3e7cf 79e0
+02:19:25: [WARNING] src\Extract.cpp 341: 3e7df 0334
+02:19:25: [WARNING] src\Extract.cpp 341: 3e7e0 a040
+02:19:25: [WARNING] src\Extract.cpp 341: 3e7f5 6330
+02:19:25: [WARNING] src\Extract.cpp 341: 3e802 a040
+02:19:25: [WARNING] src\Extract.cpp 341: 3e817 64b0
+02:19:25: [WARNING] src\Extract.cpp 341: 3e824 a040
+02:19:25: [WARNING] src\Extract.cpp 341: 3e839 a040
+02:19:25: [WARNING] src\Extract.cpp 341: 3e84e 4290
+02:19:25: [WARNING] src\Extract.cpp 341: 3e857 a040
+02:19:25: [WARNING] src\Extract.cpp 341: 3e86c 03f8
+02:19:25: [WARNING] src\Extract.cpp 341: 3e86d a040
+02:19:25: [WARNING] src\Extract.cpp 341: 3e882 a040
+02:19:25: [WARNING] src\Extract.cpp 341: 3e897 63b0
+02:19:25: [WARNING] src\Extract.cpp 341: 3e8a4 98f0
+02:19:25: [WARNING] src\Extract.cpp 341: 3e8b8 a040
+02:19:25: [WARNING] src\Extract.cpp 341: 3e8cd a040
+02:19:25: [WARNING] src\Extract.cpp 341: 3e8e2 02b4
+02:19:25: [WARNING] src\Extract.cpp 341: 3e8e3 56a0
+02:19:25: [WARNING] src\Extract.cpp 341: 3e8ee a040
+02:19:25: [WARNING] src\Extract.cpp 341: 3e903 5590
+02:19:25: [WARNING] src\Extract.cpp 341: 3e90e a040
+02:19:25: [WARNING] src\Extract.cpp 341: 3e923 a040
+02:19:25: [WARNING] src\Extract.cpp 341: 3e938 a040
+02:19:25: [WARNING] src\Extract.cpp 341: 3e94d 6100
+02:19:25: [WARNING] src\Extract.cpp 341: 3e95a 034c
+02:19:25: [WARNING] src\Extract.cpp 341: 3e95b a040
+02:19:25: [WARNING] src\Extract.cpp 341: 3e970 a040
+02:19:25: [WARNING] src\Extract.cpp 341: 3e985 a040
+02:19:25: [WARNING] src\Extract.cpp 341: 3e99a a040
+02:19:25: [WARNING] src\Extract.cpp 341: 3e9af a040
+02:19:25: [WARNING] src\Extract.cpp 341: 3e9c4 0674
+02:19:25: [WARNING] src\Extract.cpp 341: 3e9c5 a040
+02:19:25: [WARNING] src\Extract.cpp 341: 3e9da a040
+02:19:25: [WARNING] src\Extract.cpp 341: 3e9ef 7790
+02:19:25: [WARNING] src\Extract.cpp 341: 3e9fe a040
+02:19:25: [WARNING] src\Extract.cpp 341: 3ea13 a040
+02:19:25: [WARNING] src\Extract.cpp 341: 3ea28 0438
+02:19:25: [WARNING] src\Extract.cpp 341: 3ea29 a040
+02:19:25: [WARNING] src\Extract.cpp 341: 3ea3e a040
+02:19:25: [WARNING] src\Extract.cpp 341: 3ea53 a040
+02:19:25: [WARNING] src\Extract.cpp 341: 3ea68 a040
+02:19:25: [WARNING] src\Extract.cpp 341: 3ea7d 3300
+02:19:25: [WARNING] src\Extract.cpp 341: 3ea84 02cc
+02:19:25: [WARNING] src\Extract.cpp 341: 3ea85 a040
+02:19:25: [WARNING] src\Extract.cpp 341: 3ea9a a040
+02:19:25: [WARNING] src\Extract.cpp 341: 3eaaf 6260
+02:19:25: [WARNING] src\Extract.cpp 341: 3eabc 8220
+02:19:25: [WARNING] src\Extract.cpp 341: 3eacd a040
+02:19:25: [WARNING] src\Extract.cpp 341: 3eae2 a040
+02:19:25: [WARNING] src\Extract.cpp 341: 3eaf7 00ac
+02:19:25: [WARNING] src\Extract.cpp 341: 3eaf8 a0c0
+02:19:25: [WARNING] src\Extract.cpp 341: 3eb0d 0048
+02:19:25: [WARNING] src\Extract.cpp 341: 3eb0e 83b0
+02:19:25: [WARNING] src\Extract.cpp 341: 3eb1f 0048
+02:19:25: [WARNING] src\Extract.cpp 341: 3eb20 7e10
+02:19:25: [WARNING] src\Extract.cpp 341: 3eb30 e230
+02:19:25: [WARNING] src\Extract.cpp 341: 3eb4d 21dc
+02:19:25: [WARNING] src\Extract.cpp 341: 3eb52 2294
+02:19:25: [WARNING] src\Extract.cpp 341: 3eb57 f0f0
+02:19:25: [WARNING] src\Extract.cpp 341: 3eb76 55e0
+02:19:25: [WARNING] src\Extract.cpp 341: 3eb81 5cc0
+02:19:25: [WARNING] src\Extract.cpp 341: 3eb8d a0c0
+02:19:25: [WARNING] src\Extract.cpp 341: 3eba2 4bdc
+02:19:25: [WARNING] src\Extract.cpp 341: 3ebac 7c88
+02:19:25: [WARNING] src\Extract.cpp 341: 3ebbc 3af4
+02:19:25: [WARNING] src\Extract.cpp 341: 3ebc4 0a44
+02:19:25: [WARNING] src\Extract.cpp 341: 3ebc6 0f67
+02:19:25: [WARNING] src\Extract.cpp 341: 3ebc8 25df0
+02:19:25: [WARNING] src\Extract.cpp 341: 3ec14 55e0
+02:19:25: [WARNING] src\Extract.cpp 341: 3ec1f 0a44
+02:19:25: [WARNING] src\Extract.cpp 341: 3ec21 1bdc
+02:19:25: [WARNING] src\Extract.cpp 341: 3ec25 0f67
+02:19:25: [WARNING] src\Extract.cpp 341: 3ec27 16b7
+02:19:25: [WARNING] src\Extract.cpp 341: 3ec2a 073a
+02:19:25: [WARNING] src\Extract.cpp 341: 3ec2b 0210
+02:19:25: [WARNING] src\Extract.cpp 341: 3ec2c 0210
+02:19:25: [WARNING] src\Extract.cpp 341: 3ec2d 0210
+02:19:25: [WARNING] src\Extract.cpp 341: 3ec2e 0210
+02:19:25: [WARNING] src\Extract.cpp 341: 3ec2f 0210
+02:19:25: [WARNING] src\Extract.cpp 341: 3ec30 0210
+02:19:25: [WARNING] src\Extract.cpp 341: 3ec31 0210
+02:19:25: [WARNING] src\Extract.cpp 341: 3ec32 0210
+02:19:25: [WARNING] src\Extract.cpp 341: 3ec33 0210
+02:19:25: [WARNING] src\Extract.cpp 341: 3ec34 0210
+02:19:25: [WARNING] src\Extract.cpp 341: 3ec35 0210
+02:19:25: [WARNING] src\Extract.cpp 341: 3ec36 0210
+02:19:25: [WARNING] src\Extract.cpp 341: 3ec37 0210
+02:19:25: [WARNING] src\Extract.cpp 341: 3ec38 0210
+02:19:25: [WARNING] src\Extract.cpp 341: 3ec39 0210
+02:19:25: [WARNING] src\Extract.cpp 341: 3ec3a 0210
+02:19:25: [WARNING] src\Extract.cpp 341: 3ec3b 0210
+02:19:25: [WARNING] src\Extract.cpp 341: 3ec3c 0210
+02:19:25: [WARNING] src\Extract.cpp 341: 3ec3d 0210
+02:19:25: [WARNING] src\Extract.cpp 341: 3ec3e 0210
+02:19:25: [WARNING] src\Extract.cpp 341: 3ec3f 0210
+02:19:25: [WARNING] src\Extract.cpp 341: 3ec40 0210
+02:19:25: [WARNING] src\Extract.cpp 341: 3ec41 0210
+02:19:25: [WARNING] src\Extract.cpp 341: 3ec42 0210
+02:19:25: [WARNING] src\Extract.cpp 341: 3ec43 0210
+02:19:25: [WARNING] src\Extract.cpp 341: 3ec44 0210
+02:19:25: [WARNING] src\Extract.cpp 341: 3ec45 0210
+02:19:25: [WARNING] src\Extract.cpp 341: 3ec46 0210
+02:19:25: [WARNING] src\Extract.cpp 341: 3ec47 0210
+02:19:25: [WARNING] src\Extract.cpp 341: 3ec48 0210
+02:19:25: [WARNING] src\Extract.cpp 341: 3ec49 0210
+02:19:25: [WARNING] src\Extract.cpp 341: 3ec4a 0210
+02:19:25: [WARNING] src\Extract.cpp 341: 3ec4b 0210
+02:19:25: [WARNING] src\Extract.cpp 341: 3ec4c 0260
+02:19:25: [WARNING] src\Extract.cpp 341: 3ec4d 0260
+02:19:25: [WARNING] src\Extract.cpp 341: 3ec4e 0260
+02:19:25: [WARNING] src\Extract.cpp 341: 3ec4f 0260
+02:19:25: [WARNING] src\Extract.cpp 341: 3ec50 0260
+02:19:25: [WARNING] src\Extract.cpp 341: 3ec51 0260
+02:19:25: [WARNING] src\Extract.cpp 341: 3ec52 0260
+02:19:25: [WARNING] src\Extract.cpp 341: 3ec53 0260
+02:19:25: [WARNING] src\Extract.cpp 341: 3ec54 0260
+02:19:25: [WARNING] src\Extract.cpp 341: 3ec55 0260
+02:19:25: [WARNING] src\Extract.cpp 341: 3ec56 0260
+02:19:25: [WARNING] src\Extract.cpp 341: 3ec57 0260
+02:19:25: [WARNING] src\Extract.cpp 341: 3ec58 0260
+02:19:25: [WARNING] src\Extract.cpp 341: 3ec59 0260
+02:19:25: [WARNING] src\Extract.cpp 341: 3ec5a 0260
+02:19:25: [WARNING] src\Extract.cpp 341: 3ec5b 0210
+02:19:25: [WARNING] src\Extract.cpp 341: 3ec5c ffffff19
+02:19:25: [WARNING] src\Extract.cpp 335: 45
+02:19:25: [WARNING] src\Extract.cpp 341: 1a9d4 1960
+02:19:25: [WARNING] src\Extract.cpp 341: 1a9d8 1d0c
+02:19:25: [WARNING] src\Extract.cpp 341: 1a9dc 0c58
+02:19:25: [WARNING] src\Extract.cpp 341: 1a9de 9968
+02:19:25: [WARNING] src\Extract.cpp 341: 1a9f2 320e4
+02:19:25: [WARNING] src\Extract.cpp 341: 1aa57 31000
+02:19:25: [WARNING] src\Extract.cpp 341: 1aab9 ffffffcf
+02:19:25: [WARNING] src\Extract.cpp 335: 51
+02:19:25: [WARNING] src\Extract.cpp 341: 1aab9 ffffffcf
+02:19:25: DefaultWorkQueue('Root') shutting down on thread 2d70.
+02:19:25: DefaultWorkQueue('Root')::WorkerFunc - thread 3380 stopped.
+02:19:25: DefaultWorkQueue('Root')::WorkerFunc - thread 28a4 stopped.
+02:19:25: *-*-* OGRE Shutdown
+02:19:25: Unregistering ResourceManager for type Compositor
+02:19:25: Unregistering ResourceManager for type Skeleton
+02:19:25: Unregistering ResourceManager for type Mesh
+02:19:25: Unregistering ResourceManager for type HighLevelGpuProgram
+02:19:25: Uninstalling plugin: D3D9 RenderSystem
+02:19:25: D3D9 device: 0x[038EF820] destroy. Releasing D3D9 texture: New_Ogre_Border_Center.png
+02:19:25: Released D3D9 texture: New_Ogre_Border_Center.png
+02:19:25: D3D9 device: 0x[038EF820] destroy. Releasing D3D9 texture: New_Ogre_Border.png
+02:19:25: Released D3D9 texture: New_Ogre_Border.png
+02:19:25: D3D9 device: 0x[038EF820] destroy. Releasing D3D9 texture: New_Ogre_Border_Break.png
+02:19:25: Released D3D9 texture: New_Ogre_Border_Break.png
+02:19:25: D3D9 device: 0x[038EF820] destroy. Releasing D3D9 texture: ogretext.png
+02:19:25: Released D3D9 texture: ogretext.png
+02:19:25: D3D9 : Shutting down cleanly.
+02:19:25: Unregistering ResourceManager for type Texture
+02:19:25: Unregistering ResourceManager for type GpuProgram
+02:19:25: D3D9 : Direct3D9 Rendering Subsystem destroyed.
+02:19:25: Plugin successfully uninstalled
+02:19:25: Unloading library RenderSystem_Direct3D9.dll
+02:19:25: Unregistering ResourceManager for type Material

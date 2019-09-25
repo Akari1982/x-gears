@@ -8,10 +8,10 @@
 class LzsFile : public File
 {
 public:
-    LzsFile(const Ogre::String& file);
-    LzsFile(File* pFile);
-    LzsFile(File* pFile, u32 offset, u32 length);
-    LzsFile(u8* pBuffer, u32 offset, u32 length);
+    LzsFile( const Ogre::String& file );
+    LzsFile( File* pFile );
+    LzsFile( File* pFile, u32 offset, u32 length );
+    LzsFile( u8* buffer, u32 offset, u32 length );
     virtual ~LzsFile();
 
 private:

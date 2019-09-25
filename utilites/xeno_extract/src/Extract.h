@@ -7,7 +7,7 @@
 
 
 
-void extract( const Ogre::String name );
+void extract();
 
 
 

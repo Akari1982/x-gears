@@ -2,7 +2,9 @@
     <walkmesh file_name="maps/field/lahan_alice_house2_wm.xml" />
 
     <script file_name="maps/field/lahan_alice_house2.lua" />
-    <spawn_point name="0" point="1.10938 2.15625" walkmesh_id="0" camera_rotation="-1" entity_rotation="2" />
+
+    <spawn_point name="0" position="1.10938 2.15625" walkmesh_id="0" camera_rotation="-1" entity_rotation="2" />
+
     <square_trigger name="Gateway0" point1="-0.640625 0 1.79688" point2="0.203125 0 1.79688" point3="0.203125 0 2.625" point4="-0.640625 0 2.625" />
 
     <entity name="0" position="0 0 0" direction="0" script="true" flags="01e0" rotation="0 0 0" />

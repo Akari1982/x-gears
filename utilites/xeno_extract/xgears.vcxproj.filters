@@ -6,6 +6,7 @@
     <ClCompile Include="..\common\FileSystem.cpp" />
     <ClCompile Include="..\common\Logger.cpp" />
     <ClCompile Include="..\common\DebugDraw.cpp" />
+    <ClCompile Include="..\common\File.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Extract.h" />
@@ -13,5 +14,6 @@
     <ClInclude Include="..\common\Logger.h" />
     <ClInclude Include="..\common\OgreBase.h" />
     <ClInclude Include="..\common\DebugDraw.h" />
+    <ClInclude Include="..\common\File.h" />
   </ItemGroup>
 </Project>

@@ -1,4 +1,5 @@
 #include "Extract.h"
+#include "../../common/File.h"
 #include "../../common/Logger.h"
 
 
@@ -9,7 +10,8 @@
 #include <direct.h>
 
 FILE *infile;
-FILE *index_file;
+FILE *index_file1;
+FILE *index_file2;
 
 int cd;
 
@@ -26,14 +28,14 @@ char strindex[44] = {82,73,70,70,0, 0, 0, 0, 67,68,88,65,0, 0, 0, 0,
 
 
 
-void parse_file(unsigned long start_sector, unsigned long file_size, int id, const Ogre::String name )
+void parse_file( unsigned long start_sector, unsigned long file_size, int id, const Ogre::String name )
 {
+    Ogre::String filename = name + "/";
+
     unsigned char arfile[2352];
     unsigned char type[4];
     char* extention;
     unsigned long file_type;
-
-    char number[10];
 
     int size_to_skip, size_to_read;
 
@@ -55,7 +57,7 @@ void parse_file(unsigned long start_sector, unsigned long file_size, int id, con
 
     // reverse byte order
     file_type = type[3] | (type[2] << 8) | (type[1] << 16) | (type[0] << 24);
-    printf("file_type = 0x%x\n", file_type);
+    printf( " file_type = 0x%x\n", file_type );
 
     // by default we skip sector header
     size_to_skip = 24;
@@ -151,35 +153,32 @@ void parse_file(unsigned long start_sector, unsigned long file_size, int id, con
     // add zeros to file name 0000.xxx
     if (id < 1000)
     {
-        //strcat(name.c_str(), "0");
+        filename += "0";
     }
     if (id < 100)
     {
-        //strcat(name.c_str(), "0");
+        filename += "0";
     }
     if (id < 10)
     {
-        //strcat(name.c_str(), "0");
+        filename += "0";
     }
-
-    // add number to filepath/filename
-    sprintf(number, "%d", id);
-    //strcat(name.c_str(), number);
-    //strcat(name.c_str(), extention);
+    filename += IntToString( id );
+    filename += extention;
 
 
 
     FILE* desc_file = fopen("description.txt", "a+");
     char desc[ 255 ];
-    sprintf(desc, "%s - 0x%04x, 0x%04x\n", name.c_str(), start_sector, file_size);
+    sprintf(desc, "%s - 0x%04x, 0x%04x\n", filename.c_str(), start_sector, file_size);
     fputs (desc, desc_file);
     fclose(desc_file);
 
 
 
-    printf("File name: \\%s\n\n", name.c_str());
+    printf("File name: \\%s\n\n", filename.c_str());
 
-    file = fopen(name.c_str(), "wb");
+    file = fopen(filename.c_str(), "wb");
 
     // if this is str then write str index
     if (size_to_read == 2352)
@@ -205,11 +204,11 @@ void parse_file(unsigned long start_sector, unsigned long file_size, int id, con
 
     for(i = 0; ; i++)
     {
-        if (name.c_str()[i] == 0)
+        if (filename.c_str()[i] == 0)
         {
             break;
         }
-        if (name.c_str()[i] == '\\')
+        if (filename.c_str()[i] == '\\')
         {
             ultimo = i;
         }
@@ -221,156 +220,182 @@ void parse_file(unsigned long start_sector, unsigned long file_size, int id, con
 
 
 
-// create file with cd file index
-void create_index_file()
+void extract()
 {
-    // array for one sector
-    unsigned char arfile[2048];
+    Ogre::String directory = "xenogears";
 
-    printf("Creating index_file file list\n");
-    if (cd == 1)
+    if( ( infile = fopen( "xenogears.bin", "rb" ) ) == NULL )
     {
-        index_file = fopen("index_cd1.bin", "wb");
-    }
-    else if (cd == 2)
-    {
-        index_file = fopen("index_cd2.bin", "wb");
+        LOG_ERROR( "The file xenogears.bin does not exist, Please check the file name." );
+        return;
     }
 
-    // find start of game files (the first file in the 24 sector)
-    file_position = fseek(infile, 24L * 2352L, 0);
-
-    // the size of index - 16 sectors
-    for (i = 0; i < 16; i++)
-    {
-        printf("Sector %d\n", 24 + i);
-        // pass sector header
-        file_position = fseek(infile, 24L, 1);
-        // read and write sector data
-        file_position = fread(arfile, 1, 2048, infile);
-        file_position = fwrite(arfile, 1, 2048, index_file);
-        // go to next sector
-        file_position = fseek(infile, 280L, 1);
-    }
-
-    fclose(index_file);
-}
-
-
-
-int verify_iso()
-{
     unsigned long position, size;
 
-    position = ftell(infile);
+    position = ftell( infile );
     // set cursor to end of file
-    fseek(infile, 0L, SEEK_END);
-    size = ftell(infile);
+    fseek( infile, 0L, SEEK_END );
+    size = ftell( infile );
     // set cursor to beginning of file
-    fseek(infile, position, SEEK_SET);
-    if (size == cd1_size)
+    fseek( infile, position, SEEK_SET );
+
+    if( size == cd1_size )
     {
-        printf("Found a valid Xenogears CD1 image (size: %ld bytes)\n", size);
-        return 1;
+        LOG_TRIVIAL( "Found a valid Xenogears CD1 image." );
+        cd = 1;
+        directory += "1";
     }
-    if (size == cd2_size)
+    else if( size == cd2_size )
     {
-        printf("Found a valid Xenogears CD2 image (size: %ld bytes)\n", size);
-        return 2;
+        LOG_TRIVIAL( "Found a valid Xenogears CD2 image.\n" );
+        cd = 2;
+        directory += "2";
     }
     else
     {
-        printf("Found image (size: %ld bytes)\n", size);
-        printf("ERROR: Selected file is not a valid Xenogears image.\n       Check if you are using the correct file or if the CD/ISO is damaged.\n");
-        return 0;
-    }
-}
-
-
-
-void extract( const Ogre::String name )
-{
-    Ogre::String directory = name;
-
-    if( ( infile = fopen( name.c_str(), "rb" ) ) == NULL )
-    {
-        LOGGER->Log( "The file " + Ogre::String( name ) + " does not exist, Please check the file name.\n" );
+        LOG_ERROR("ERROR: Selected file is not a valid Xenogears image." );
         return;
     }
 
-    cd = verify_iso();
-    if( cd == 0 )
+    // array for one sector
+    unsigned char arfile[ 2048 ];
+
+    LOG_TRIVIAL( "Creating index_file file list" );
+    if( cd == 1 )
     {
-        return;
-    }
-    else if( cd == 1 )
-    {
-        directory += "1";
+        index_file1 = fopen( "index_cd1_1.bin", "wb" );
     }
     else if( cd == 2 )
     {
-        directory += "2";
+        index_file1 = fopen( "index_cd1_2.bin", "wb" );
     }
 
-    mkdir( directory.c_str() );
+    // find start of game files (the first file in the 24 sector)
+    file_position = fseek( infile, 0x18 * 2352L, 0 );
 
-
-    Ogre::String filename = name;
-    signed long start_sector, file_size;
-    unsigned char start[3], size[4];
-    char numero[10];
-    // first directory number 0
-    int directory_number = 0;
-
-    // create file with cd file index
-    create_index_file();
-
-    if (cd == 1)
+    // the size of index - 16 sectors
+    for( i = 0; i < 16; i++ )
     {
-        index_file = fopen("index_cd1.bin", "rb");
+        printf( "Sector %d\n", 0x18 + i );
+        // pass sector header
+        file_position = fseek( infile, 0x18, 1 );
+        // read and write sector data
+        file_position = fread( arfile, 1, 2048, infile );
+        file_position = fwrite( arfile, 1, 2048, index_file1 );
+        // go to next sector
+        file_position = fseek( infile, 280L, 1 );
     }
-    else if (cd == 2)
+    fclose( index_file1 );
+
+    LOG_TRIVIAL( "Creating index_file 2 file list." );
+    if( cd == 1 )
     {
-        index_file = fopen("index_cd2.bin", "rb");
+        index_file2 = fopen( "index_cd2_1.bin", "wb" );
+    }
+    else if( cd == 2 )
+    {
+        index_file2 = fopen( "index_cd2_2.bin", "wb" );
+    }
+    file_position = fseek( infile, 0x28 * 2352L, 0 );
+    file_position = fseek( infile, 0x18, 1 );
+    file_position = fread( arfile, 1, 0x7a, infile );
+    file_position = fwrite( arfile, 1, 0x7a, index_file2 );
+    fclose( index_file2 );
+
+
+
+    // Extract disk 1
+    File* file_sp;
+    File* dir_file;
+    Ogre::String dir;
+
+    file_sp = new File( "index_cd1_1.bin" );
+    dir_file = new File( "index_cd2_1.bin" );
+
+    mkdir( "xenogears" );
+
+    for( unsigned int i = 0; i < 0xf; ++i )
+    {
+        s16 start_id = ( s16 )dir_file->GetU16LE( ( i * 4 ) * 2 ) - 1;
+        if( start_id >= 0 )
+        {
+            dir = "xenogears/" + IntToString( i );
+            mkdir( dir.c_str() );
+
+            for( unsigned int j = 0; j < 4; ++j )
+            {
+                start_id = ( s16 )dir_file->GetU16LE( ( i * 4  + j ) * 2 ) - 1;
+                if( start_id >= 0 )
+                {
+                    dir = "xenogears/" + IntToString( i ) + "/" + IntToString( j );
+                    mkdir( dir.c_str() );
+
+                    LOG_WARNING( IntToString( start_id ) );
+                    for( unsigned int k = 0;; ++k )
+                    {
+                        s32 size = ( s32 )file_sp->GetU32LE( ( start_id + k )  * 7 + 3 );
+                        u32 start = file_sp->GetU8( ( start_id + k )  * 7 + 0 ) | ( file_sp->GetU8( ( start_id + k )  * 7 + 1 ) << 8 ) | ( file_sp->GetU8( ( start_id + k )  * 7 + 2 ) << 16 );
+
+                        LOG_WARNING( HexToString( start, 4, '0' ) + " " + HexToString( size, 4, '0' ) );
+
+                        if( size > 0 )
+                        {
+                            parse_file( start, size, k, dir );
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
+                }
+            }
+        }
     }
 
-    for (i = 0; ; i++)
+    delete file_sp;
+    delete dir_file;
+
+    //signed long start_sector, file_size;
+    //unsigned char start[ 3 ], size[ 4 ];
+    //char num[ 10 ];
+    //int directory_number = 0;
+
+/*
+    for( i = 0; ; i++ )
     {
-        file_position = fread(start, 1, 3, index_file);
-        file_position = fread(size, 1, 4, index_file);
+        file_position = fread( start, 1, 3, index_file1 );
+        file_position = fread( size, 1, 4, index_file1 );
 
         // reverse bytes order (low endian)
         start_sector = start[0] | (start[1] << 8) | (start[2] << 16);
         file_size = size[0] | (size[1] << 8) | (size[2] << 16) | (size[3] << 24);
 
         // end of file
-        if (file_size == 0x00ffffff)
+        if( file_size == 0x00ffffff )
         {
             break;
         }
-        if (start_sector == 0 && file_size > 0)
+        if( start_sector == 0 && file_size > 0 )
         {
-            filename[9] = 0;
+            filename[ 9 ] = 0;
         }
         // directory
-        if (file_size > 0xff000000)
+        if( file_size > 0xff000000 )
         {
             // create directory name (name - number of directory)
-            filename[9] = 0;
-            sprintf(numero, "%d", directory_number++);
-            filename += numero;
-            mkdir(filename.c_str());
-            //printf("number of file %d, in dir %d", -file_size, directory_number);
+            filename[ 9 ] = 0;
+            sprintf( num, "%d", directory_number++ );
+            filename += num;
+            mkdir( filename.c_str() );
+            printf("number of file %d, in dir %d", -file_size, directory_number);
         }
         // file
-        if (start_sector != 0 && file_size < 0xff000000 && file_size > 0)
+        if( start_sector != 0 && file_size < 0xff000000 && file_size > 0 )
         {
-            //printf("file number %d, size: 0x%x byte - ", i, file_size);
+            printf( "file number %d, size: 0x%x byte - ", i, file_size );
             parse_file( start_sector, file_size, i, filename );
         }
     }
-
-
+*/
     fclose( infile );
-
 }

@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="X-Gears files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd;cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Main.cpp">
+      <Filter>X-Gears files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\File.cpp">
+      <Filter>X-Gears files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\Logger.cpp">
+      <Filter>X-Gears files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\Vram.cpp">
+      <Filter>X-Gears files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\OgreGenUtilites.cpp">
+      <Filter>X-Gears files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\FileSystem.cpp">
+      <Filter>X-Gears files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\DebugDraw.cpp">
+      <Filter>X-Gears files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\LzsFile.cpp">
+      <Filter>X-Gears files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\BszFile.cpp">
+      <Filter>X-Gears files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ScriptFile.cpp">
+      <Filter>X-Gears files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\common\File.h">
+      <Filter>X-Gears files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\Logger.h">
+      <Filter>X-Gears files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\OgreBase.h">
+      <Filter>X-Gears files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\Vram.h">
+      <Filter>X-Gears files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\OgreGenUtilites.h">
+      <Filter>X-Gears files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\FileSystem.h">
+      <Filter>X-Gears files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\DebugDraw.h">
+      <Filter>X-Gears files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\LzsFile.h">
+      <Filter>X-Gears files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\BszFile.h">
+      <Filter>X-Gears files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ScriptFile.h">
+      <Filter>X-Gears files</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
