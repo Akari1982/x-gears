@@ -58,8 +58,78 @@ ScriptFile::Export()
             {
                 int opcode = GetU16LE( 0x400 + offset * 2 );
 
-                if( opcode == 0x100 )
+
+                if( opcode == 0x17 )
                 {
+                    Ogre::String var1 = script_stack.back();
+                    script_stack.pop_back();
+                    script_stack.push_back( " NOT " + var1 );
+                    text->LogW( "    -- push_stack( ! pop_stack() )\n" );
+                    offset += 1;
+                }
+                else if( opcode == 0x40 )
+                {
+                    Ogre::String var1 = script_stack.back();
+                    script_stack.pop_back();
+                    Ogre::String var2 = script_stack.back();
+                    script_stack.pop_back();
+                    script_stack.push_back( var2 + " + " + var1 );
+                    text->LogW( "    -- push_stack( pop_stack() + pop_stack() )\n" );
+                    offset += 1;
+                }
+                else if( opcode == 0x41 )
+                {
+                    Ogre::String var1 = script_stack.back();
+                    script_stack.pop_back();
+                    Ogre::String var2 = script_stack.back();
+                    script_stack.pop_back();
+                    script_stack.push_back( var2 + " - " + var1 );
+                    text->LogW( "    -- push_stack( pop_stack() - pop_stack() )\n" );
+                    offset += 1;
+                }
+                else if( opcode == 0x60 )
+                {
+                    Ogre::String var1 = script_stack.back();
+                    script_stack.pop_back();
+                    Ogre::String var2 = script_stack.back();
+                    script_stack.pop_back();
+                    script_stack.push_back( var2 + " < " + var1 );
+                    text->LogW( "    -- push_stack( pop_stack() < pop_stack() )\n" );
+                    offset += 1;
+                }
+                else if( opcode == 0x63 )
+                {
+                    Ogre::String var1 = script_stack.back();
+                    script_stack.pop_back();
+                    Ogre::String var2 = script_stack.back();
+                    script_stack.pop_back();
+                    script_stack.push_back( var2 + " >= " + var1 );
+                    text->LogW( "    -- push_stack( pop_stack() >= pop_stack() )\n" );
+                    offset += 1;
+                }
+                else if( opcode == 0x70 )
+                {
+                    Ogre::String var1 = script_stack.back();
+                    script_stack.pop_back();
+                    Ogre::String var2 = script_stack.back();
+                    script_stack.pop_back();
+                    script_stack.push_back( var2 + " == " + var1 );
+                    text->LogW( "    -- push_stack( pop_stack() == pop_stack() )\n" );
+                    offset += 1;
+                }
+                else if( opcode == 0xc0 )
+                {
+                    Ogre::String var1 = script_stack.back();
+                    script_stack.pop_back();
+                    Ogre::String var2 = script_stack.back();
+                    script_stack.pop_back();
+                    script_stack.push_back( var2 + " || " + var1 );
+                    text->LogW( "    -- push_stack( pop_stack() || pop_stack() )\n" );
+                    offset += 1;
+                }
+                else if( opcode == 0x100 )
+                {
+                    script_stack.clear();
                     text->LogW( "    -- reset_stack()\n" );
                     offset += 1;
                 }
@@ -105,6 +175,13 @@ ScriptFile::Export()
                     text->LogW( "    -- push_stack( " + script_stack.back() + " )\n" );
                     offset += 2;
                 }
+                else if( opcode == 0x201 )
+                {
+                    int value = GetU16LE( 0x400 + offset * 2 + 2 );
+                    text->LogW( "    jump_if_false( " + script_stack.back() + ", " + HexToString( value, 4, '0' ) + " )\n" );
+                    script_stack.pop_back();
+                    offset += 2;
+                }
                 else if( opcode == 0x203 )
                 {
                     text->LogW( "    return\n" );
@@ -125,6 +202,12 @@ ScriptFile::Export()
                 else if( opcode == 0x305 )
                 {
                     text->LogW( "    wait( " + script_stack.back() + " )\n" );
+                    script_stack.pop_back();
+                    offset += 1;
+                }
+                else if( opcode == 0x307 )
+                {
+                    text->LogW( "    set_pc_manual_input( " + script_stack.back() + " )\n" );
                     script_stack.pop_back();
                     offset += 1;
                 }
@@ -158,9 +241,24 @@ ScriptFile::Export()
                     script_stack.pop_back();
                     offset += 1;
                 }
+                else if( opcode == 0x318 )
+                {
+                    Ogre::String var1 = script_stack.back();
+                    script_stack.pop_back();
+                    Ogre::String var2 = script_stack.back();
+                    script_stack.pop_back();
+                    text->LogW( "    start_field( ( " + var2 + " << 8 ) | " + var1 + " ) -- field\n" );
+                    offset += 1;
+                }
                 else if( opcode == 0x31d )
                 {
                     text->LogW( "    play_akao_30( " + script_stack.back() + " )\n" );
+                    script_stack.pop_back();
+                    offset += 1;
+                }
+                else if( opcode == 0x328 )
+                {
+                    text->LogW( "    active_entity_set_direction( " + script_stack.back() + " ) -- direction\n" );
                     script_stack.pop_back();
                     offset += 1;
                 }
@@ -177,6 +275,12 @@ ScriptFile::Export()
                     text->LogW( "    active_entity_set_rotation_to_entity( " + script_stack.back() );
                     script_stack.pop_back();
                     text->LogW( ", " + script_stack.back() + " ) -- entity_id, add_rotation\n" );
+                    script_stack.pop_back();
+                    offset += 1;
+                }
+                else if( opcode == 0x336 )
+                {
+                    text->LogW( "    active_entity_set_movespeed_honor_walkmesh( " + script_stack.back() + " ) -- speed\n" );
                     script_stack.pop_back();
                     offset += 1;
                 }
