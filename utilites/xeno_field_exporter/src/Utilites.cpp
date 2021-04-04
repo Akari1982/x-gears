@@ -9,6 +9,8 @@ GetFieldName( const int file_id )
     switch( file_id )
     {
         case 608: return "lahan_city";
+        case 610: return "lahan_prologue";
+        case 614: return "prologue";
         case 616: return "lahan_tutorial";
         case 618: return "lahan_shop";
         case 620: return "lahan_civilian_house1";

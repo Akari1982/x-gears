@@ -1,0 +1,7 @@
+<map>
+    <walkmesh file_name="maps/field/prologue_wm.xml" />
+
+    <script file_name="maps/field/prologue.lua" />
+
+    <spawn_point name="0" position="0 0" walkmesh_id="0" camera_rotation="-1" entity_rotation="0" />
+</map>

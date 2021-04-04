@@ -19,6 +19,10 @@ public:
     Ogre::String GetS16Variable( const u32 script_pointer );
     Ogre::String GetU16Variable( const u32 script_pointer );
 
+    Ogre::String GetVF04Variable( const u32 script_pointer );
+    Ogre::String GetVF08Variable( const u32 script_pointer );
+    Ogre::String GetVF10Variable( const u32 script_pointer );
+    Ogre::String GetVF20Variable( const u32 script_pointer );
     Ogre::String GetVF40Variable( const u32 script_pointer );
     Ogre::String GetVF80Variable( const u32 script_pointer );
     Ogre::String GetVVariable( const u32 script_pointer );

@@ -32,7 +32,6 @@ ScriptFile::GetScripts( const int file_id )
 
         for( u8 j = 0; j < 0x20; ++j )
         {
-
             u32 offset_in_script = GetU16LE( 0x84 + i * 0x40 + j * 2 );
             if( offset_in_script == 0 )
             {
@@ -60,93 +59,55 @@ ScriptFile::GetScripts( const int file_id )
                 export_script->Log( "    script_0x" + HexToString( j, 2, '0' ) + " = function( self )\n" );
             }
 
-
-
-            u32 script_pointer_end = 0;
-            for( u32 l = i; l < number_of_entity; ++l )
-            {
-                u32 offset_in_next_script = 0;
-                for( int script_id = 0; script_id < 0x20; ++script_id )
-                {
-                    if( l == i && script_id <= j )
-                    {
-                        continue;
-                    }
-
-                    offset_in_next_script = GetU16LE( 0x84 + l * 0x40 + script_id * 2 );
-
-                    if( offset_in_next_script == 0 )
-                    {
-                        continue;
-                    }
-                    else if( offset_in_script == offset_in_next_script )
-                    {
-                        offset_in_next_script = 0;
-                        continue;
-                    }
-
-                    break;
-                }
-
-                if( offset_in_next_script != 0 )
-                {
-                    script_pointer_end = offset_in_next_script + offset_to_script;
-                    break;
-                }
-            }
-            if( script_pointer_end == 0 )
-            {
-                script_pointer_end = m_BufferSize;
-            }
-
             u32 script_pointer = offset_to_script + offset_in_script;
 
-            for( ; script_pointer < script_pointer_end; )
+            while( true )
             {
                 Ogre::String address = "0x" + HexToString( script_pointer - offset_to_script, 4, '0' );
                 export_script->Log( "        " );
 
-
                 u8 opcode = GetU8(script_pointer);
-                script_pointer += 1;
 
                 if( opcode == 0x00 )
                 {
                     export_script->Log( "return 0" );
+                    script_pointer += 1;
+                    export_script->Log( " -- " + address + " 0x" + HexToString( opcode, 2, '0' ) + "\n" );
+                    break;
                 }
                 else if( opcode == 0x01 )
                 {
-                    export_script->Log( "-- 0x01_JumpTo( 0x" + HexToString( GetU16LE( script_pointer ), 4, '0' ) + " );" );
-                    script_pointer += 2;
+                    export_script->Log( "-- 0x01_JumpTo( " + GetU16Variable( script_pointer + 1 ) + " )" );
+                    script_pointer += 3;
                 }
                 else if( opcode == 0x02 )
                 {
                     export_script->Log( "-- 0x02_ConditionalJumpTo( " );
-                    u8 flag = GetU8( script_pointer + 4 );
+                    u8 flag = GetU8( script_pointer + 5 );
                     switch( flag & 0xf0 )
                     {
                         case 0x00:
                         {
-                            export_script->Log( "value1=" + GetVVariable( script_pointer + 0 ) + ", " );
-                            export_script->Log( "value2=" + GetVVariable( script_pointer + 2 ) + ", " );
+                            export_script->Log( "value1=" + GetVVariable( script_pointer + 1 ) + ", " );
+                            export_script->Log( "value2=" + GetVVariable( script_pointer + 3 ) + ", " );
                         }
                         break;
                         case 0x40:
                         {
-                            export_script->Log( "value1=" + GetVVariable( script_pointer + 0 ) + ", " );
-                            export_script->Log( "value2=" + GetS16Variable( script_pointer + 2 ) + ", " );
+                            export_script->Log( "value1=" + GetVVariable( script_pointer + 1 ) + ", " );
+                            export_script->Log( "value2=" + GetS16Variable( script_pointer + 3 ) + ", " );
                         }
                         break;
                         case 0x80:
                         {
-                            export_script->Log( "value1=" + GetS16Variable( script_pointer + 0 ) + ", " );
-                            export_script->Log( "value2=" + GetVVariable( script_pointer + 2 ) + ", " );
+                            export_script->Log( "value1=" + GetS16Variable( script_pointer + 1 ) + ", " );
+                            export_script->Log( "value2=" + GetVVariable( script_pointer + 3 ) + ", " );
                         }
                         break;
                         case 0xc0:
                         {
-                            export_script->Log( "value1=" + GetS16Variable( script_pointer + 0 ) + ", " );
-                            export_script->Log( "value2=" + GetS16Variable( script_pointer + 2 ) + ", " );
+                            export_script->Log( "value1=" + GetS16Variable( script_pointer + 1 ) + ", " );
+                            export_script->Log( "value2=" + GetS16Variable( script_pointer + 3 ) + ", " );
                         }
                         break;
                     }
@@ -165,65 +126,308 @@ ScriptFile::GetScripts( const int file_id )
                         case 0x09: export_script->Log( "value1 & value2" ); break;
                         case 0x0A: export_script->Log( "(0 NOR value1) & value2" ); break;
                     }
-                    export_script->Log("\", jump_if_false=" + GetU16Variable( script_pointer + 5 ) + " );" );
-                    script_pointer += 7;
+                    export_script->Log("\", jump_if_false=" + GetU16Variable( script_pointer + 6 ) + " )" );
+                    script_pointer += 8;
+                }
+                else if( opcode == 0x05 )
+                {
+                    export_script->Log( "-- 0x05_CallFunction( " + GetU16Variable( script_pointer + 1 ) + " )" );
+                    script_pointer += 3;
+                }
+                else if( opcode == 0x07 )
+                {
+                    export_script->Log( "-- 0x07( entity=" + GetU8Variable( script_pointer + 1 ) + ", script=" + GetU8Variable( script_pointer + 2 ) + " )" );
+                    script_pointer += 3;
+                }
+                else if( opcode == 0x08 )
+                {
+                    export_script->Log( "-- 0x08_EntityCallScriptSW( entity=" + GetU8Variable( script_pointer + 1 ) + ", script=" + GetU8Variable( script_pointer + 2 ) + " )" );
+                    script_pointer += 3;
+                }
+                else if( opcode == 0x09 )
+                {
+                    export_script->Log( "-- 0x09_EntityCallScriptEW( entity=" + GetU8Variable( script_pointer + 1 ) + ", script=" + GetU8Variable( script_pointer + 2 ) + " )" );
+                    script_pointer += 3;
                 }
                 else if( opcode == 0x0b )
                 {
-                    export_script->Log( "self.entity:init_npc( " + GetV80Variable( script_pointer ) + " )" );
-                    script_pointer += 2;
+                    export_script->Log( "-- 0x0B_InitNPC( " + GetV80Variable( script_pointer + 1 ) + " )" );
+                    script_pointer += 3;
                 }
                 else if( opcode == 0x0c )
                 {
-                    export_script->Log( "-- 0x0C_Encounter();" );
+                    export_script->Log( "-- 0x0C_Encounter()" );
+                    script_pointer += 1;
                 }
                 else if (opcode == 0x16)
                 {
-                    export_script->Log( "self.entity:init_pc( " + GetV80Variable( script_pointer ) + " )" );
-                    script_pointer += 2;
+                    export_script->Log( "-- 0x16_EntityPCInit( " + GetV80Variable( script_pointer + 1 ) + " )" );
+                    script_pointer += 3;
                 }
                 else if( opcode == 0x19 )
                 {
-                    export_script->Log( "-- 0x19_SetPosition( x=" + GetVF80Variable( script_pointer ) + ", z=" + GetVF40Variable( script_pointer + 2 ) + ", flag=" + GetFVariable( script_pointer + 5 ) + " )");
-                    script_pointer += 5;
+                    export_script->Log( "-- 0x19_SetPosition( x=" + GetVF80Variable( script_pointer + 1 ) + ", z=" + GetVF40Variable( script_pointer + 3 ) + ", flag=" + GetFVariable( script_pointer + 5 ) + " )");
+                    script_pointer += 6;
+                }
+                else if( opcode == 0x20 )
+                {
+                    export_script->Log( "-- 0x20_SpriteSetSolid()");
+                    script_pointer += 3;
+                }
+                else if( opcode == 0x23 )
+                {
+                    export_script->Log( "-- 0x23()");
+                    script_pointer += 1;
                 }
                 else if( opcode == 0x26 )
                 {
-                    export_script->Log( "-- 0x26_Wait( time=" + GetV80Variable( script_pointer ) + " );" );
-                    script_pointer += 2;
+                    export_script->Log( "-- 0x26_Wait( time=" + GetV80Variable( script_pointer + 1 ) + " )" );
+                    script_pointer += 3;
                 }
                 else if( opcode == 0x2a )
                 {
-                    export_script->Log( "-- 0x2A();");
+                    export_script->Log( "-- 0x2A()");
+                    script_pointer += 1;
+                }
+                else if( opcode == 0x31 )
+                {
+                    export_script->Log( "-- 0x31_JumpIfButtonNotPressed( button_mask=" + GetU16Variable( script_pointer + 1 ) + ", jump_to=" + GetU16Variable( script_pointer + 3 ) + " )" );
+                    script_pointer += 5;
+                }
+                else if( opcode == 0x35 )
+                {
+                    export_script->Log( "-- 0x35()");
+                    script_pointer += 6;
+                }
+                else if( opcode == 0x5a )
+                {
+                    export_script->Log( "-- 0x5A()");
+                    script_pointer += 1;
+                }
+                else if( opcode == 0x5b )
+                {
+                    export_script->Log( "-- 0x5B()");
+                    script_pointer += 1;
+                }
+                else if( opcode == 0x63 )
+                {
+                    export_script->Log( "-- 0x63()");
+                    script_pointer += 8;
+                }
+                else if( opcode == 0x75 )
+                {
+                    export_script->Log( "-- 0x75()");
+                    script_pointer += 3;
                 }
                 else if( opcode == 0x84 )
                 {
-                    export_script->Log( "-- 0x84_ProgressLessEqualJumpTo( value=" + GetV80Variable( script_pointer ) + ", jump=" + GetU16Variable( script_pointer + 2 ) + " );" );
-                    script_pointer += 4;
+                    export_script->Log( "-- 0x84_ProgressLessEqualJumpTo( value=" + GetV80Variable( script_pointer + 1 ) + ", jump=" + GetU16Variable( script_pointer + 3 ) + " )" );
+                    script_pointer += 5;
                 }
                 else if( opcode == 0x86 )
                 {
-                    export_script->Log( "-- 0x86_ProgressNotEqualJumpTo( value=" + GetV80Variable( script_pointer ) + ", jump=" + GetU16Variable( script_pointer + 2 ) + " );" );
-                    script_pointer += 4;
+                    export_script->Log( "-- 0x86_ProgressNotEqualJumpTo( value=" + GetV80Variable( script_pointer + 1 ) + ", jump=" + GetU16Variable( script_pointer + 3 ) + " )" );
+                    script_pointer += 5;
+                }
+                else if( opcode == 0x87 )
+                {
+                    export_script->Log( "-- 0x87_SetProgress( progress=" + GetV80Variable( script_pointer + 1 ) + " )");
+                    script_pointer += 3;
+                }
+                else if( opcode == 0x98 )
+                {
+                    export_script->Log( "-- 0x98_MapLoad( field_id=" + GetV80Variable( script_pointer + 1 ) + ", value=" + GetV80Variable( script_pointer + 3 ) + " )");
+                    script_pointer += 5;
+                }
+                else if( opcode == 0x99 )
+                {
+                    export_script->Log( "-- 0x99()");
+                    script_pointer += 1;
+                }
+                else if( opcode == 0x9c )
+                {
+                    export_script->Log( "-- 0x9C()");
+                    script_pointer += 1;
+                }
+                else if( opcode == 0xa0 )
+                {
+                    export_script->Log( "-- 0xA0()");
+                    script_pointer += 7;
+                }
+                else if( opcode == 0xa3 )
+                {
+                    export_script->Log( "-- 0xA3()");
+                    script_pointer += 8;
+                }
+                else if( opcode == 0xa7 )
+                {
+                    export_script->Log( "-- 0xA7()");
+                    script_pointer += 1;
+                }
+                else if( opcode == 0xb3 )
+                {
+                    export_script->Log( "-- 0xB3()");
+                    script_pointer += 3;
+                }
+                else if( opcode == 0xb4 )
+                {
+                    export_script->Log("-- 0xB4_FadeIn()");
+                    script_pointer += 3;
                 }
                 else if( opcode == 0xbc )
                 {
-                    export_script->Log("-- 0xBC_EntityNoModelInit();");
+                    export_script->Log("-- 0xBC_EntityNoModelInit()");
+                    script_pointer += 1;
+                }
+                else if( opcode == 0xbe )
+                {
+                    export_script->Log( "-- 0xBE()");
+                    script_pointer += 3;
+                }
+                else if( opcode == 0xc6 )
+                {
+                    export_script->Log( "-- 0xC6()");
+                    script_pointer += 1;
                 }
                 else if( opcode == 0xcb )
                 {
-                    export_script->Log( "-- 0xCB_TriggerJumpTo( trigger_id=" + GetV80Variable( script_pointer ) + ", jump=" + GetU16Variable( script_pointer + 2 ) + " );" );
+                    export_script->Log( "-- 0xCB_TriggerJumpTo( trigger_id=" + GetV80Variable( script_pointer + 1 ) + ", jump=" + GetU16Variable( script_pointer + 3 ) + " )" );
+                    script_pointer += 5;
+                }
+                else if( opcode == 0xd0 )
+                {
+                    export_script->Log( "-- 0xD0()");
+                    script_pointer += 11;
+                }
+                else if( opcode == 0xf1 )
+                {
+                    export_script->Log( "-- 0xF1()");
+                    script_pointer += 11;
+                }
+                else if( opcode == 0xf4 )
+                {
+                    export_script->Log( "-- 0xF4()");
+                    script_pointer += 2;
+                }
+                else if( opcode == 0xf5 )
+                {
+                    export_script->Log( "-- 0xF5_DialogShow3( dialog_id=" + GetU16Variable( script_pointer + 1 ) + ", flaf=" + GetU8Variable( script_pointer + 3 ) + " )");
                     script_pointer += 4;
                 }
                 else if( opcode == 0xfe )
                 {
-                    u8 eo_opcode = GetU8( script_pointer );
+                    u8 eo_opcode = GetU8( script_pointer + 1 );
                     script_pointer += 1;
 
-                    if( eo_opcode == 0x0D )
+                    if( eo_opcode == 0x0a )
                     {
-                        export_script->Log( "-- 0xFE0D_SetAvatar( character_id=" + GetV80Variable( script_pointer ) + " );" );
+                        export_script->Log( "-- 0x0A()");
+                        script_pointer += 3;
+                    }
+                    else if( eo_opcode == 0x0d )
+                    {
+                        export_script->Log( "-- 0xFE0D_SetAvatar( character_id=" + GetV80Variable( script_pointer + 1 ) + " )" );
+                        script_pointer += 3;
+                    }
+                    else if( eo_opcode == 0x0e )
+                    {
+                        export_script->Log( "-- 0xFE0E_SoundSetVolume( volume=" + GetV80Variable( script_pointer + 1 ) + ", steps=" + GetV80Variable( script_pointer + 3 ) + " )" );
+                        script_pointer += 5;
+                    }
+                    else if( eo_opcode == 0x35 )
+                    {
+                        export_script->Log( "-- 0xFE35()");
+                        script_pointer += 6;
+                    }
+                    else if( eo_opcode == 0x54 )
+                    {
+                        export_script->Log( "-- 0xFE54()" );
+                        script_pointer += 1;
+                    }
+                    else if( eo_opcode == 0x63 )
+                    {
+                        export_script->Log( "-- 0xFE63()");
+                        script_pointer += 5;
+                    }
+                    else if( eo_opcode == 0x75 )
+                    {
+                        export_script->Log( "-- 0xFE75()");
+                        script_pointer += 4;
+                    }
+                    else if( eo_opcode == 0x8f )
+                    {
+                        export_script->Log( "-- 0xFE8F_ParticleInit1( entity=" + GetEVariable( script_pointer + 1 ) + ", var1=" + GetV80Variable( script_pointer + 2 ) + ", var2=" + GetV80Variable( script_pointer + 4 ) + ", var3=" + GetV80Variable( script_pointer + 6 ) + " )");
+                        script_pointer += 8;
+                    }
+                    else if( eo_opcode == 0x90 )
+                    {
+                        export_script->Log( "-- 0xFE90_ParticleInitBase( particle_id=" + GetV80Variable( script_pointer + 1 ) + ", numbet_of_sprites=" + GetV80Variable( script_pointer + 3 ) + ", wait=" + GetV80Variable( script_pointer + 5 ) + ", ttl=" + GetV80Variable( script_pointer + 7 ) + " )");
+                        script_pointer += 9;
+                    }
+                    else if( eo_opcode == 0x91 )
+                    {
+                        export_script->Log( "-- 0xFE91_ParticlePos( x=" + GetVF80Variable( script_pointer + 1 ) + ", y=" + GetVF40Variable( script_pointer + 3 ) + ", z=" + GetVF20Variable( script_pointer + 5 ) + ", speed_x=" + GetVF10Variable( script_pointer + 7 ) + ", speed_y=" + GetVF08Variable( script_pointer + 9 ) + ", speed_z=" + GetVF04Variable( script_pointer + 11 ) + ", flag=" + GetFVariable( script_pointer + 13 ) + " )");
+                        script_pointer += 14;
+                    }
+                    else if( eo_opcode == 0x92 )
+                    {
+                        export_script->Log( "-- 0xFE92_ParticleSpeed( speed=" + GetVF80Variable( script_pointer + 1 ) + ", acc_x=" + GetVF40Variable( script_pointer + 3 ) + ", acc_y=" + GetVF20Variable( script_pointer + 5 ) + ", acc_z=" + GetVF10Variable( script_pointer + 7 ) + ", rand_start=" + GetVF08Variable( script_pointer + 9 ) + ", rand_speed=" + GetVF04Variable( script_pointer + 11 ) + ", flag=" + GetFVariable( script_pointer + 13 ) + " )");
+                        script_pointer += 14;
+                    }
+                    else if( eo_opcode == 0x93 )
+                    {
+                        export_script->Log( "-- 0xFE93( s_wait=" + GetV80Variable( script_pointer + 1 ) + ", var2=" + GetV80Variable( script_pointer + 3 ) + ", var3=" + GetV80Variable( script_pointer + 5 ) + ", var4=" + GetV80Variable( script_pointer + 7 ) + ", var5=" + GetV80Variable( script_pointer + 9 ) + " )");
+                        script_pointer += 11;
+                    }
+                    else if( eo_opcode == 0x94 )
+                    {
+                        export_script->Log( "-- 0xFE94_ParticleTranslation( trans_x=" + GetVF80Variable( script_pointer + 1 ) + ", trans_y=" + GetVF40Variable( script_pointer + 3 ) + ", trans_add_x=" + GetVF20Variable( script_pointer + 5 ) + ", trans_add_y=" + GetVF10Variable( script_pointer + 7 ) + ", flag=" + GetFVariable( script_pointer + 9 ) + " )");
+                        script_pointer += 10;
+                    }
+                    else if( eo_opcode == 0x95 )
+                    {
+                        export_script->Log( "-- 0xFE95_ParticleColour( r=" + GetVF80Variable( script_pointer + 1 ) + ", g=" + GetVF40Variable( script_pointer + 3 ) + ", b=" + GetVF20Variable( script_pointer + 5 ) + ", r_add=" + GetVF10Variable( script_pointer + 7 ) + ", g_add=" + GetVF10Variable( script_pointer + 9 ) + ", b_add=" + GetVF10Variable( script_pointer + 11 ) + ", flag=" + GetFVariable( script_pointer + 13 ) + " )");
+                        script_pointer += 14;
+                    }
+                    else if( eo_opcode == 0x96 )
+                    {
+                        export_script->Log( "-- 0xFE96_ParticleCreate()");
+                        script_pointer += 1;
+                    }
+                    else if( eo_opcode == 0x97 )
+                    {
+                        export_script->Log( "-- 0xFE97_ParticleReset( all=" + GetU8Variable( script_pointer + 1 ) + " )");
                         script_pointer += 2;
+                    }
+                    else if( eo_opcode == 0x99 )
+                    {
+                        export_script->Log( "-- 0xFE99()");
+                        script_pointer += 2;
+                    }
+                    else if( eo_opcode == 0xa0 )
+                    {
+                        export_script->Log( "-- 0xFEA0()");
+                        script_pointer += 12;
+                    }
+                    else if( eo_opcode == 0xa5 )
+                    {
+                        export_script->Log( "-- 0xFEA5_ParticleRenderSettings( use_speed=" + GetV80Variable( script_pointer + 1 ) + ", settings=" + GetV80Variable( script_pointer + 3 ) + ", rot_z=" + GetV80Variable( script_pointer + 5 ) + " )");
+                        script_pointer += 7;
+                    }
+                    else if( eo_opcode == 0xa7 )
+                    {
+                        export_script->Log( "-- 0xFEA7()");
+                        script_pointer += 9;
+                    }
+                    else if( eo_opcode == 0xbd )
+                    {
+                        export_script->Log( "-- 0xFEBD_ParticleSpawnSettings( settings=" + GetV80Variable( script_pointer + 1 ) + " )");
+                        script_pointer += 7;
+                    }
+                    else if( eo_opcode == 0xd0 )
+                    {
+                        export_script->Log( "-- 0xFED0()");
+                        script_pointer += 5;
                     }
                     else
                     {
@@ -231,94 +435,6 @@ ScriptFile::GetScripts( const int file_id )
                         break;
                     }
                 }
-
-/*
-                else if (opcode == 0x20)
-                {
-                    LOGGER->Log("0x20_SetFlags");
-                    GetV80Variable(script_pointer, "flags");
-                    LOGGER->Log("; // set some flags for movement and collision.\n");
-                }
-                else if (opcode == 0x23)
-                {
-                    LOGGER->Log("0x23(); // add flag 0020 in 80114f2c + 58 of current entity.\n");
-                }
-                else if (opcode == 0x29)
-                {
-                    LOGGER->Log("0x29_EntityTurnOff");
-                    GetEVariable(script_pointer);
-                    LOGGER->Log("; // turn entity off (script will not be runned, close dialog from this entity and so on).\n");
-                }
-                else if (opcode == 0x69)
-                {
-                    LOGGER->Log("0x69_SetRotation");
-                    GetV80Variable(script_pointer, "rotation");
-                    LOGGER->Log(";\n");
-                }
-                else if (opcode == 0x6B)
-                {
-                    LOGGER->Log("0x6B_RotateClockwise");
-                    GetV80Variable(script_pointer, "rotation");
-                    LOGGER->Log(";\n");
-                }
-                else if (opcode == 0x6C)
-                {
-                    LOGGER->Log("0x6C_RotateAntiClockwise");
-                    GetV80Variable(script_pointer, "rotation");
-                    LOGGER->Log(";\n");
-                }
-                else if (opcode == 0x6F)
-                {
-                    LOGGER->Log("0x6F_RotateToEntity");
-                    GetEVariable(script_pointer);
-                    LOGGER->Log(";\n");
-                }
-                else if (opcode == 0xC4)
-                {
-                    LOGGER->Log("0xC4_DoorOpen(0x%02x); // 0 - clockwise, 1 - anticlockwise\n", GetU8(script_pointer));
-                    script_pointer += 1;
-                }
-                else if (opcode == 0xC5)
-                {
-                    LOGGER->Log("0xC5_DoorClose(0x%02x); // 0 - clockwise, 1 - anticlockwise\n", GetU8(script_pointer));
-                    script_pointer += 1;
-                }
-                else if (opcode == 0xD2)
-                {
-                    LOGGER->Log("0xD2_DialogShow");
-                    GetU16Variable(script_pointer, "dialog_id");
-                    GetU8Variable(script_pointer, "flags");
-                    LOGGER->Log(";\n", GetU16LE(script_pointer));
-                }
-/*
-                if (opcode == 0x10)
-                {
-                    u8 flag = GetU8(o + 1);
-
-                    if (flag == 0)
-                    {
-                        size = 9;
-                    }
-                    else
-                    {
-                        size = 2;
-                    }
-                    LOGGER->Log("\t%s", opcodes_names[opcode].c_str());
-                }
-                else if (opcode == 0x57)
-                {
-                    u8 flag = GetU8(o + 1);
-                    if ((flag & 3) == 0 || (flag & 3) == 1 || (flag & 3) == 2)
-                    {
-                        size = 0xB;
-                    }
-                    else
-                    {
-                        size = 0x2;
-                    }
-                    LOGGER->Log("\t%s", opcodes_names[opcode].c_str());
-                }
-*/
                 else
                 {
                     export_script->Log( "-- MISSING OPCODE 0x" + HexToString( opcode, 2, '0' ) + "\n" );
@@ -373,6 +489,38 @@ Ogre::String
 ScriptFile::GetU16Variable( const u32 script_pointer )
 {
     return "0x" + HexToString( GetU16LE( script_pointer ), 4, '0' );
+}
+
+
+
+Ogre::String
+ScriptFile::GetVF04Variable( const u32 script_pointer )
+{
+    return "(vf04)0x" + HexToString( GetU16LE( script_pointer ), 4, '0' );
+}
+
+
+
+Ogre::String
+ScriptFile::GetVF08Variable( const u32 script_pointer )
+{
+    return "(vf08)0x" + HexToString( GetU16LE( script_pointer ), 4, '0' );
+}
+
+
+
+Ogre::String
+ScriptFile::GetVF10Variable( const u32 script_pointer )
+{
+    return "(vf10)0x" + HexToString( GetU16LE( script_pointer ), 4, '0' );
+}
+
+
+
+Ogre::String
+ScriptFile::GetVF20Variable( const u32 script_pointer )
+{
+    return "(vf20)0x" + HexToString( GetU16LE( script_pointer ), 4, '0' );
 }
 
 

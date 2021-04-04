@@ -137,7 +137,7 @@ FieldModule::LoadMap( const int file_id )
     export_script->Log( "    <walkmesh file_name=\"maps/field/" + GetFieldName( file_id ) + "_wm.xml\" />\n" );
 
 
-
+/*
     // part 2
     temp = field_pack->Extract( 2 );
     {
@@ -170,7 +170,7 @@ FieldModule::LoadMap( const int file_id )
     temp = field_pack->Extract( 4 );
     temp->WriteFile( "exported/debug/0" + IntToString( file_id ) + "_4_2dsprite_tex" );
     delete temp;
-
+*/
 
 
     // script
@@ -201,7 +201,7 @@ FieldModule::LoadMap( const int file_id )
     delete script_file;
 
 
-
+/*
     // part 6
     temp = field_pack->Extract( 6 );
     temp->WriteFile( "exported/debug/0" + IntToString( file_id ) + "_6_encounter" );
@@ -272,7 +272,7 @@ FieldModule::LoadMap( const int file_id )
         export_script->Log( "rotation=\"" + Ogre::StringConverter::toString( x_rot ) + " " + Ogre::StringConverter::toString( y_rot ) + " " + Ogre::StringConverter::toString( z_rot ) + "\" " );
         export_script->Log( "/>" );
     }
-
+*/
 
 
     export_script->Log( "\n</map>" );
