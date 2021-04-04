@@ -356,12 +356,12 @@ ScriptFile::GetScripts( const int file_id )
                     }
                     else if( eo_opcode == 0x8f )
                     {
-                        export_script->Log( "-- 0xFE8F_ParticleInit1( entity=" + GetEVariable( script_pointer + 1 ) + ", var1=" + GetV80Variable( script_pointer + 2 ) + ", var2=" + GetV80Variable( script_pointer + 4 ) + ", var3=" + GetV80Variable( script_pointer + 6 ) + " )");
+                        export_script->Log( "-- 0xFE8F_ParticleSystemInit1( entity=" + GetEVariable( script_pointer + 1 ) + ", render_settings=" + GetV80Variable( script_pointer + 2 ) + ", rot_x=" + GetV80Variable( script_pointer + 4 ) + ", rot_y=" + GetV80Variable( script_pointer + 6 ) + " )");
                         script_pointer += 8;
                     }
                     else if( eo_opcode == 0x90 )
                     {
-                        export_script->Log( "-- 0xFE90_ParticleInitBase( particle_id=" + GetV80Variable( script_pointer + 1 ) + ", numbet_of_sprites=" + GetV80Variable( script_pointer + 3 ) + ", wait=" + GetV80Variable( script_pointer + 5 ) + ", ttl=" + GetV80Variable( script_pointer + 7 ) + " )");
+                        export_script->Log( "-- 0xFE90_ParticleInitBase( particle_id=" + GetV80Variable( script_pointer + 1 ) + ", number_of_sprites=" + GetV80Variable( script_pointer + 3 ) + ", wait=" + GetV80Variable( script_pointer + 5 ) + ", ttl=" + GetV80Variable( script_pointer + 7 ) + " )");
                         script_pointer += 9;
                     }
                     else if( eo_opcode == 0x91 )
@@ -376,7 +376,7 @@ ScriptFile::GetScripts( const int file_id )
                     }
                     else if( eo_opcode == 0x93 )
                     {
-                        export_script->Log( "-- 0xFE93( s_wait=" + GetV80Variable( script_pointer + 1 ) + ", var2=" + GetV80Variable( script_pointer + 3 ) + ", var3=" + GetV80Variable( script_pointer + 5 ) + ", var4=" + GetV80Variable( script_pointer + 7 ) + ", var5=" + GetV80Variable( script_pointer + 9 ) + " )");
+                        export_script->Log( "-- 0xFE93( s_wait=" + GetV80Variable( script_pointer + 1 ) + ", var2=" + GetV80Variable( script_pointer + 3 ) + ", sprite_id=" + GetV80Variable( script_pointer + 5 ) + ", var4=" + GetV80Variable( script_pointer + 7 ) + ", var5=" + GetV80Variable( script_pointer + 9 ) + " )");
                         script_pointer += 11;
                     }
                     else if( eo_opcode == 0x94 )
